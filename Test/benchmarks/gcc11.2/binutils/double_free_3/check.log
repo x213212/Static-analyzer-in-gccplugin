@@ -1,0 +1,407 @@
+./benchmarks/binutils/double_free_3/binutils_df_3.c: In function ‘lrealpath’:
+./benchmarks/binutils/double_free_3/binutils_df_3.c:27:10: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   27 |   return strdup (filename); /* allocation site */
+      |          ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:27:10: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c: In function ‘find_separate_debug_file’:
+./benchmarks/binutils/double_free_3/binutils_df_3.c:43:14: warning: implicit declaration of function ‘build_id_bfd_get’ [-Wimplicit-function-declaration]
+   43 |   build_id = build_id_bfd_get (objfile->obfd);
+      |              ^~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:43:12: warning: assignment to ‘struct build_id *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   43 |   build_id = build_id_bfd_get (objfile->obfd);
+      |            ^
+./benchmarks/binutils/double_free_3/binutils_df_3.c:48:23: warning: implicit declaration of function ‘build_id_to_debug_filename’ [-Wimplicit-function-declaration]
+   48 |       build_id_name = build_id_to_debug_filename (build_id);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:48:21: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   48 |       build_id_name = build_id_to_debug_filename (build_id);
+      |                     ^
+./benchmarks/binutils/double_free_3/binutils_df_3.c:51:36: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+   51 |       if (build_id_name != NULL && strcmp (build_id_name, objfile->name) == 0)
+      |                                    ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+    6 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    7 | 
+./benchmarks/binutils/double_free_3/binutils_df_3.c:53:11: warning: implicit declaration of function ‘warning’ [-Wimplicit-function-declaration]
+   53 |           warning (_("\"%s\": separate debug info file has no debug info"),
+      |           ^~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:53:20: warning: implicit declaration of function ‘_’ [-Wimplicit-function-declaration]
+   53 |           warning (_("\"%s\": separate debug info file has no debug info"),
+      |                    ^
+./benchmarks/binutils/double_free_3/binutils_df_3.c:61:14: warning: implicit declaration of function ‘get_debug_link_info’ [-Wimplicit-function-declaration]
+   61 |   basename = get_debug_link_info (objfile, &crc32);
+      |              ^~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:61:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   61 |   basename = get_debug_link_info (objfile, &crc32);
+      |            ^
+In file included from ./benchmarks/binutils/double_free_3/binutils_df_3.c:5:
+./benchmarks/binutils/double_free_3/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:66:9: note: in expansion of macro ‘xstrdup’
+   66 |   dir = xstrdup (objfile->name);
+      |         ^~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   72 |   for (i = strlen(dir) - 1; i >= 0; i--)
+      |            ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:74:11: warning: implicit declaration of function ‘IS_DIR_SEPARATOR’ [-Wimplicit-function-declaration]
+   74 |       if (IS_DIR_SEPARATOR (dir[i]))
+      |           ^~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:77:3: warning: implicit declaration of function ‘gdb_assert’ [-Wimplicit-function-declaration]
+   77 |   gdb_assert (i >= 0 && IS_DIR_SEPARATOR (dir[i]));
+      |   ^~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:82:7: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+   82 |   i = strlen (dir);
+      |       ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:82:7: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+   94 |   strcpy (debugfile, dir);
+      |   ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: warning: implicit declaration of function ‘strcat’ [-Wimplicit-function-declaration]
+   95 |   strcat (debugfile, basename);
+      |   ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: note: include ‘<string.h>’ or provide a declaration of ‘strcat’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: warning: incompatible implicit declaration of built-in function ‘strcat’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: note: include ‘<string.h>’ or provide a declaration of ‘strcat’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:97:7: warning: implicit declaration of function ‘separate_debug_file_exists’ [-Wimplicit-function-declaration]
+   97 |   if (separate_debug_file_exists (debugfile, crc32))
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:136:10: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+  136 |       && strncmp (canon_name, gdb_sysroot, strlen (gdb_sysroot)) == 0
+      |          ^~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:136:10: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 48%)
+ phase parsing                      :   0.06 ( 86%)   0.02 (100%)   0.08 ( 89%)  1139k ( 42%)
+ phase opt and generate             :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 11%)   278k ( 10%)
+ callgraph optimization             :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 11%)   147k (  5%)
+ preprocessing                      :   0.01 ( 14%)   0.00 (  0%)   0.03 ( 33%)   368k ( 14%)
+ lexical analysis                   :   0.01 ( 14%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.02 ( 29%)   0.01 ( 50%)   0.03 ( 33%)   595k ( 22%)
+ parser function body               :   0.02 ( 29%)   0.00 (  0%)   0.02 ( 22%)    94k (  3%)
+ TOTAL                              :   0.07          0.02          0.09         2726k
+./benchmarks/binutils/double_free_3/../include/common.h: In function ‘find_separate_debug_file’:
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: warning: use of possibly-NULL ‘dir_86’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   72 |   for (i = strlen(dir) - 1; i >= 0; i--)
+      |            ^
+  ‘find_separate_debug_file’: events 1-6
+    |
+    |   44 |   if (build_id != NULL)
+    |      |      ^
+    |      |      |
+    |      |      (1) following ‘false’ branch...
+    |......
+    |   61 |   basename = get_debug_link_info (objfile, &crc32);
+    |      |              ~
+    |      |              |
+    |      |              (2) ...to here
+    |   62 | 
+    |   63 |   if (basename == NULL)
+    |      |      ~
+    |      |      |
+    |      |      (3) following ‘false’ branch...
+    |......
+    |   66 |   dir = xstrdup (objfile->name);
+    |      |         ~
+    |      |         |
+    |      |         (4) ...to here
+    |      |         (5) this call could return NULL
+    |......
+    |   72 |   for (i = strlen(dir) - 1; i >= 0; i--)
+    |      |            ~
+    |      |            |
+    |      |            (6) argument 1 (‘dir_86’) from (5) could be NULL where non-null expected
+    |
+<built-in>: note: argument 1 of ‘__builtin_strlen’ must be non-null
+./benchmarks/binutils/double_free_3/binutils_df_3.c:102:14: warning: leak of ‘<anonymous>’ [CWE-401] [-Wanalyzer-malloc-leak]
+  102 |       return xstrdup (debugfile);
+      |              ^
+  ‘main’: events 1-2
+    |
+    |  161 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  164 |     find_separate_debug_file(&objfile);
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘find_separate_debug_file’ from ‘main’
+    |
+    +--> ‘find_separate_debug_file’: events 3-15
+           |
+           |   30 | find_separate_debug_file (struct objfile *objfile)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘find_separate_debug_file’
+           |......
+           |   44 |   if (build_id != NULL)
+           |      |      ~
+           |      |      |
+           |      |      (4) following ‘false’ branch...
+           |......
+           |   61 |   basename = get_debug_link_info (objfile, &crc32);
+           |      |              ~
+           |      |              |
+           |      |              (5) ...to here
+           |   62 | 
+           |   63 |   if (basename == NULL)
+           |      |      ~
+           |      |      |
+           |      |      (6) following ‘false’ branch...
+           |......
+           |   66 |   dir = xstrdup (objfile->name);
+           |      |         ~
+           |      |         |
+           |      |         (7) ...to here
+           |......
+           |   77 |   gdb_assert (i >= 0 && IS_DIR_SEPARATOR (dir[i]));
+           |      |   ~
+           |      |   |
+           |      |   (8) following ‘false’ branch (when ‘i_62 < 0’)...
+           |      |   (9) ...to here
+           |......
+           |   83 |   if (canon_name && strlen (canon_name) > i)
+           |      |      ~
+           |      |      |
+           |      |      (10) following ‘false’ branch (when ‘canon_name_94’ is NULL)...
+           |......
+           |   86 |   debugfile = alloca (strlen (debug_file_directory) + 1
+           |      |               ~
+           |      |               |
+           |      |               (11) ...to here
+           |......
+           |   97 |   if (separate_debug_file_exists (debugfile, crc32))
+           |      |      ~
+           |      |      |
+           |      |      (12) following ‘true’ branch...
+           |   98 |     {
+           |   99 |       xfree (basename);
+           |      |       ~
+           |      |       |
+           |      |       (13) ...to here
+           |......
+           |  102 |       return xstrdup (debugfile);
+           |      |              ~
+           |      |              |
+           |      |              (14) allocated here
+           |      |              (15) ‘<anonymous>’ leaks here; was allocated at (14)
+           |
+./benchmarks/binutils/double_free_3/binutils_df_3.c:149:11: warning: double-‘free’ of ‘canon_name_94’ [CWE-415] [-Wanalyzer-double-free]
+  149 |           xfree (canon_name);   /* double-free */
+      |           ^
+  ‘find_separate_debug_file’: events 1-8
+    |
+    |   30 | find_separate_debug_file (struct objfile *objfile)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘find_separate_debug_file’
+    |......
+    |   44 |   if (build_id != NULL)
+    |      |      ~
+    |      |      |
+    |      |      (2) following ‘false’ branch...
+    |......
+    |   61 |   basename = get_debug_link_info (objfile, &crc32);
+    |      |              ~
+    |      |              |
+    |      |              (3) ...to here
+    |   62 | 
+    |   63 |   if (basename == NULL)
+    |      |      ~
+    |      |      |
+    |      |      (4) following ‘false’ branch...
+    |......
+    |   66 |   dir = xstrdup (objfile->name);
+    |      |         ~
+    |      |         |
+    |      |         (5) ...to here
+    |......
+    |   77 |   gdb_assert (i >= 0 && IS_DIR_SEPARATOR (dir[i]));
+    |      |   ~
+    |      |   |
+    |      |   (6) following ‘true’ branch...
+    |      |   (7) ...to here
+    |......
+    |   81 |   canon_name = lrealpath (dir);
+    |      |                ~
+    |      |                |
+    |      |                (8) calling ‘lrealpath’ from ‘find_separate_debug_file’
+    |
+    +--> ‘lrealpath’: events 9-10
+           |
+           |   24 | lrealpath (const char *filename)
+           |      | ^
+           |      | |
+           |      | (9) entry to ‘lrealpath’
+           |......
+           |   27 |   return strdup (filename); /* allocation site */
+           |      |          ~
+           |      |          |
+           |      |          (10) allocated here
+           |
+    <------+
+    |
+  ‘find_separate_debug_file’: events 11-30
+    |
+    |   81 |   canon_name = lrealpath (dir);
+    |      |                ^
+    |      |                |
+    |      |                (11) returning to ‘find_separate_debug_file’ from ‘lrealpath’
+    |   82 |   i = strlen (dir);
+    |   83 |   if (canon_name && strlen (canon_name) > i)
+    |      |      ~              ~
+    |      |      |              |
+    |      |      |              (14) ...to here
+    |      |      (12) assuming ‘canon_name_94’ is non-NULL
+    |      |      (13) following ‘true’ branch (when ‘canon_name_94’ is non-NULL)...
+    |......
+    |   97 |   if (separate_debug_file_exists (debugfile, crc32))
+    |      |      ~          
+    |      |      |
+    |      |      (15) following ‘false’ branch...
+    |......
+    |  106 |   strcpy (debugfile, dir);
+    |      |   ~             
+    |      |   |
+    |      |   (16) ...to here
+    |......
+    |  111 |   if (separate_debug_file_exists (debugfile, crc32))
+    |      |      ~          
+    |      |      |
+    |      |      (17) following ‘false’ branch...
+    |......
+    |  120 |   strcpy (debugfile, debug_file_directory);
+    |      |   ~             
+    |      |   |
+    |      |   (18) ...to here
+    |......
+    |  125 |   if (separate_debug_file_exists (debugfile, crc32))
+    |      |      ~          
+    |      |      |
+    |      |      (19) following ‘false’ branch...
+    |......
+    |  135 |   if (canon_name
+    |      |      ~          
+    |      |      |
+    |      |      (20) ...to here
+    |      |      (21) following ‘true’ branch (when ‘canon_name_94’ is non-NULL)...
+    |  136 |       && strncmp (canon_name, gdb_sysroot, strlen (gdb_sysroot)) == 0
+    |      |       ~  ~      
+    |      |       |  |
+    |      |       |  (22) ...to here
+    |      |       (23) following ‘true’ branch...
+    |  137 |       && IS_DIR_SEPARATOR (canon_name[strlen (gdb_sysroot)]))
+    |      |       ~                               ~
+    |      |       |                               |
+    |      |       (25) following ‘true’ branch... (24) ...to here
+    |  138 |     {
+    |  139 |       strcpy (debugfile, debug_file_directory);
+    |      |       ~         
+    |      |       |
+    |      |       (26) ...to here
+    |......
+    |  144 |       if (separate_debug_file_exists (debugfile, crc32))
+    |      |          ~      
+    |      |          |
+    |      |          (27) following ‘true’ branch...
+    |  145 |         {
+    |  146 |           xfree (canon_name);   /* double-free */
+    |      |           ~     
+    |      |           |
+    |      |           (28) ...to here
+    |      |           (29) first ‘free’ here
+    |......
+    |  149 |           xfree (canon_name);   /* double-free */
+    |      |           ~     
+    |      |           |
+    |      |           (30) second ‘free’ here; first ‘free’ was at (29)
+    |
+./benchmarks/binutils/double_free_3/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/double_free_3/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_cleanup’: events 1-2
+    |
+    |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘make_cleanup’
+    |  150 | {
+    |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+    |      |          ~
+    |      |          |
+    |      |          (2) calling ‘make_my_cleanup’ from ‘make_cleanup’
+    |
+    +--> ‘make_my_cleanup’: events 3-4
+           |
+           |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_my_cleanup’
+           |......
+           |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+           |
+           +--> ‘make_my_cleanup2’: events 5-7
+                  |
+                  |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup2’
+                  |......
+                  |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+                  |      |                          ~
+                  |      |                          |
+                  |      |                          (6) this call could return NULL
+                  |......
+                  |  129 |   new->next = *pmy_chain;
+                  |      |             ~
+                  |      |             |
+                  |      |             (7) ‘new_4’ could be NULL: unchecked value from (6)
+                  |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  2157k ( 90%)
+ phase opt and generate             :   0.11 (100%)   0.00 (  0%)   0.11 ( 92%)   152k (  6%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)     0  (  0%)
+ analyzer: processing worklist      :   0.09 ( 82%)   0.00 (  0%)   0.09 ( 75%)    24  (  0%)
+ analyzer: emitting diagnostics     :   0.01 (  9%)   0.00 (  0%)   0.01 (  8%)   448  (  0%)
+ analyzer: shortest paths           :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.11          0.00          0.12         2386k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 80%)
+ phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.02 ( 67%)   484k ( 18%)
+ callgraph functions expansion      :   0.02 (100%)   0.00 (  0%)   0.02 ( 67%)   379k ( 14%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    26k (  1%)
+ forward prop                       :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)   408  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   102k (  4%)
+ initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.02          0.00          0.03         2690k
+/usr/bin/ld: /tmp/cclCaYbn.ltrans0.ltrans.o: in function `find_separate_debug_file':
+<artificial>:(.text+0x2b): undefined reference to `build_id_bfd_get'
+/usr/bin/ld: <artificial>:(.text+0x3f): undefined reference to `build_id_to_debug_filename'
+/usr/bin/ld: <artificial>:(.text+0x6f): undefined reference to `_'
+/usr/bin/ld: <artificial>:(.text+0x7e): undefined reference to `warning'
+/usr/bin/ld: <artificial>:(.text+0x97): undefined reference to `get_debug_link_info'
+/usr/bin/ld: <artificial>:(.text+0xd8): undefined reference to `IS_DIR_SEPARATOR'
+/usr/bin/ld: <artificial>:(.text+0xf8): undefined reference to `gdb_assert'
+/usr/bin/ld: <artificial>:(.text+0x18d): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x1e4): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x22e): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x26a): undefined reference to `IS_DIR_SEPARATOR'
+/usr/bin/ld: <artificial>:(.text+0x2bb): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x2f8): undefined reference to `IS_DIR_SEPARATOR'
+collect2: error: ld returned 1 exit status

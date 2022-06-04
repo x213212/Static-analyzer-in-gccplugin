@@ -1,0 +1,107 @@
+In file included from ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:10:
+./benchmarks/openssh-portable/leak_8/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘key_parse_private_type’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:115:24: warning: implicit declaration of function ‘key_parse_private_rsa1’; did you mean ‘key_parse_private_type’? [-Wimplicit-function-declaration]
+  115 |                 return key_parse_private_rsa1(blob, passphrase, commentp);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~
+      |                        key_parse_private_type
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:115:24: warning: returning ‘int’ from a function with return type ‘Key *’ makes pointer from integer without a cast [-Wint-conversion]
+  115 |                 return key_parse_private_rsa1(blob, passphrase, commentp);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘load_identity_file’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:157:29: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  157 |                         if (strcmp(passphrase, "") != 0) {
+      |                             ^~~~~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   10 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:162:33: warning: implicit declaration of function ‘debug2’ [-Wimplicit-function-declaration]
+  162 |                                 debug2("no passphrase given, try next key");
+      |                                 ^~~~~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘main’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:176:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  176 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 45%)
+ phase parsing                      :   0.02 ( 67%)   0.02 (100%)   0.04 ( 80%)  1405k ( 48%)
+ phase opt and generate             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   184k (  6%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   103k (  4%)
+ lto stream compression             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.01 ( 33%)   0.01 ( 50%)   0.00 (  0%)   640k ( 22%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)   568k ( 20%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   118k (  4%)
+ parser function body               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)    51k (  2%)
+ TOTAL                              :   0.03          0.02          0.05         2898k
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘main’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:177:22: warning: dereference of possibly-NULL ‘id_14’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  177 |         id->filename = argv[0];
+      |                      ^
+  ‘main’: events 1-2
+    |
+    |  175 |         Identity *id = malloc(sizeof(Identity));
+    |      |                        ^
+    |      |                        |
+    |      |                        (1) this call could return NULL
+    |  176 |         srand(time(NULL));
+    |  177 |         id->filename = argv[0];
+    |      |                      ~  
+    |      |                      |
+    |      |                      (2) ‘id_14’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘key_new’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:33:17: warning: dereference of possibly-NULL ‘k_5’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   33 |         k->type = type;
+      |                 ^
+  ‘key_new’: events 1-2
+    |
+    |   32 |         k = xcalloc(1, sizeof(*k));                             /* allocation site */
+    |      |             ^
+    |      |             |
+    |      |             (1) this call could return NULL
+    |   33 |         k->type = type;
+    |      |                 ~
+    |      |                 |
+    |      |                 (2) ‘k_5’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 92%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.02 (100%)   115k (  5%)
+ ipa reference                      :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.02 ( 67%)   0.00 (  0%)   0.02 (100%)     0  (  0%)
+ TOTAL                              :   0.03          0.00          0.02         2347k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 75%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   667k ( 23%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.02 ( 67%)   533k ( 18%)
+ ipa points-to                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  7464  (  0%)
+ df scan insns                      :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   336  (  0%)
+ tree iv optimization               :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  6736  (  0%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    79k (  3%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   197k (  7%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.03          0.00          0.03         2895k
+/usr/bin/ld: /tmp/ccvZyoNT.ltrans0.ltrans.o: in function `key_parse_private_type':
+<artificial>:(.text+0x23a): undefined reference to `key_parse_private_rsa1'
+/usr/bin/ld: /tmp/ccvZyoNT.ltrans0.ltrans.o: in function `load_identity_file':
+<artificial>:(.text+0x356): undefined reference to `debug2'
+collect2: error: ld returned 1 exit status

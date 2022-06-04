@@ -1,0 +1,327 @@
+In file included from ./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:12:
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:1067:41: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+ 1067 | typedef int (ssh_packet_hook_fn)(struct ssh *, struct sshbuf *,
+      |                                         ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:160:37: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  160 | typedef void channel_open_fn(struct ssh *, int, int, void *);
+      |                                     ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:161:41: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  161 | typedef void channel_callback_fn(struct ssh *, int, void *);
+      |                                         ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:162:54: warning: ‘struct Channel’ declared inside parameter list will not be visible outside of this definition or declaration
+  162 | typedef int channel_infilter_fn(struct ssh *, struct Channel *, char *, int);
+      |                                                      ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:162:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  162 | typedef int channel_infilter_fn(struct ssh *, struct Channel *, char *, int);
+      |                                        ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:163:47: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  163 | typedef void channel_filter_cleanup_fn(struct ssh *, int, void *);
+      |                                               ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:164:59: warning: ‘struct Channel’ declared inside parameter list will not be visible outside of this definition or declaration
+  164 | typedef u_char *channel_outfilter_fn(struct ssh *, struct Channel *,
+      |                                                           ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:164:45: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  164 | typedef u_char *channel_outfilter_fn(struct ssh *, struct Channel *,
+      |                                             ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:166:50: warning: ‘struct Channel’ declared inside parameter list will not be visible outside of this definition or declaration
+  166 | typedef int mux_callback_fn(struct ssh *, struct Channel *);
+      |                                                  ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:166:36: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  166 | typedef int mux_callback_fn(struct ssh *, struct Channel *);
+      |                                    ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:255:29: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  255 | typedef void chan_fn(struct ssh *, Channel *c,
+      |                             ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:352:48: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  352 | typedef int dispatch_fn(int, u_int32_t, struct ssh *);
+      |                                                ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘sshbuf_init’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:395:9: warning: implicit declaration of function ‘explicit_bzero’ [-Wimplicit-function-declaration]
+  395 |         explicit_bzero(ret, sizeof(*ret));
+      |         ^~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘sshbuf_free’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:418:13: warning: implicit declaration of function ‘sshbuf_check_sanity’ [-Wimplicit-function-declaration]
+  418 |         if (sshbuf_check_sanity(buf) != 0)
+      |             ^~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘sshbuf_reset’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:457:26: warning: implicit declaration of function ‘recallocarray’; did you mean ‘reallocarray’? [-Wimplicit-function-declaration]
+  457 |                 if ((d = recallocarray(buf->d, buf->alloc, SSHBUF_SIZE_INIT,
+      |                          ^~~~~~~~~~~~~
+      |                          reallocarray
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:457:24: warning: assignment to ‘u_char *’ {aka ‘unsigned char *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  457 |                 if ((d = recallocarray(buf->d, buf->alloc, SSHBUF_SIZE_INIT,
+      |                        ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘client_suspend_self’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:32:42: warning: implicit declaration of function ‘sshbuf_len’; did you mean ‘sshbuf_free’? [-Wimplicit-function-declaration]
+   32 | #define buffer_len(b)           ((u_int) sshbuf_len(b))
+      |                                          ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:470:13: note: in expansion of macro ‘buffer_len’
+  470 |         if (buffer_len(bout) > 0)
+      |             ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:471:17: warning: implicit declaration of function ‘atomicio’ [-Wimplicit-function-declaration]
+  471 |                 atomicio(vwrite, fileno(stdout), buffer_ptr(bout),
+      |                 ^~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:33:33: warning: implicit declaration of function ‘sshbuf_mutable_ptr’ [-Wimplicit-function-declaration]
+   33 | #define buffer_ptr(b)           sshbuf_mutable_ptr(b)
+      |                                 ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:471:50: note: in expansion of macro ‘buffer_ptr’
+  471 |                 atomicio(vwrite, fileno(stdout), buffer_ptr(bout),
+      |                                                  ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘channel_new’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:526:32: warning: implicit declaration of function ‘xrecallocarray’; did you mean ‘reallocarray’? [-Wimplicit-function-declaration]
+  526 |                 sc->channels = xrecallocarray(sc->channels, sc->channels_alloc,
+      |                                ^~~~~~~~~~~~~~
+      |                                reallocarray
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:526:30: warning: assignment to ‘Channel **’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  526 |                 sc->channels = xrecallocarray(sc->channels, sc->channels_alloc,
+      |                              ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:529:17: warning: implicit declaration of function ‘debug2’ [-Wimplicit-function-declaration]
+  529 |                 debug2("channel: expanding %d", sc->channels_alloc);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:533:25: warning: implicit declaration of function ‘sshbuf_new’; did you mean ‘sshbuf_free’? [-Wimplicit-function-declaration]
+  533 |         if ((c->input = sshbuf_new()) == NULL || /* allocation site */
+      |                         ^~~~~~~~~~
+      |                         sshbuf_free
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:533:23: warning: assignment to ‘struct sshbuf *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  533 |         if ((c->input = sshbuf_new()) == NULL || /* allocation site */
+      |                       ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:534:24: warning: assignment to ‘struct sshbuf *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  534 |             (c->output = sshbuf_new()) == NULL || /* allocation site */
+      |                        ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:535:26: warning: assignment to ‘struct sshbuf *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  535 |             (c->extended = sshbuf_new()) == NULL) /* allocation site */
+      |                          ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:539:9: warning: implicit declaration of function ‘channel_register_fds’ [-Wimplicit-function-declaration]
+  539 |         channel_register_fds(ssh, c, rfd, wfd, efd, extusage, nonblock, 0);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:11:
+./benchmarks/openssh-portable/use_after_free_1/../stdio.h:266:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:546:26: note: in expansion of macro ‘xstrdup’
+  546 |         c->remote_name = xstrdup(remote_name);
+      |                          ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:546:26: note: in expansion of macro ‘xstrdup’
+  546 |         c->remote_name = xstrdup(remote_name);
+      |                          ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:549:9: warning: implicit declaration of function ‘debug’ [-Wimplicit-function-declaration]
+  549 |         debug("channel %d: new [%s]", found, remote_name);
+      |         ^~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘channel_init_channels’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:566:9: warning: implicit declaration of function ‘channel_handler_init’ [-Wimplicit-function-declaration]
+  566 |         channel_handler_init(sc);
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘channel_free’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:599:17: warning: implicit declaration of function ‘mux_remove_remote_forwardings’ [-Wimplicit-function-declaration]
+  599 |                 mux_remove_remote_forwardings(ssh, c);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:601:13: warning: implicit declaration of function ‘channel_open_message’ [-Wimplicit-function-declaration]
+  601 |         s = channel_open_message(ssh);
+      |             ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:601:11: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  601 |         s = channel_open_message(ssh);
+      |           ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:602:9: warning: implicit declaration of function ‘debug3’ [-Wimplicit-function-declaration]
+  602 |         debug3("channel %d: status: %s", c->self, s);
+      |         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:605:9: warning: implicit declaration of function ‘channel_close_fds’ [-Wimplicit-function-declaration]
+  605 |         channel_close_fds(ssh, c);
+      |         ^~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:617:9: warning: implicit declaration of function ‘bzero’ [-Wimplicit-function-declaration]
+  617 |         bzero(c, sizeof(*c));
+      |         ^~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:617:9: warning: incompatible implicit declaration of built-in function ‘bzero’ [-Wbuiltin-declaration-mismatch]
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)  1298k ( 41%)
+ phase parsing                      :   0.05 ( 71%)   0.02 (100%)   0.07 ( 70%)  1504k ( 47%)
+ phase opt and generate             :   0.02 ( 29%)   0.00 (  0%)   0.02 ( 20%)   376k ( 12%)
+ callgraph ipa passes               :   0.02 ( 29%)   0.00 (  0%)   0.02 ( 20%)   176k (  6%)
+ lto stream output                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ ipa lto gimple out                 :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)  2320  (  0%)
+ ipa free lang data                 :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ preprocessing                      :   0.03 ( 43%)   0.00 (  0%)   0.03 ( 30%)   662k ( 21%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 20%)     0  (  0%)
+ parser (global)                    :   0.02 ( 29%)   0.00 (  0%)   0.00 (  0%)   597k ( 19%)
+ parser struct body                 :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 10%)   133k (  4%)
+ parser function body               :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 10%)    82k (  3%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)   952  (  0%)
+ TOTAL                              :   0.07          0.02          0.10         3189k
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘channel_new’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:550:16: warning: leak of ‘strdup (remote_name_82(D))’ [CWE-401] [-Wanalyzer-malloc-leak]
+  550 |         return c;
+      |                ^
+  ‘main’: events 1-2
+    |
+    |  632 | int main (int argc, char **argv) {
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  637 |     channel_init_channels(&ssh);
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘channel_init_channels’ from ‘main’
+    |
+    +--> ‘channel_init_channels’: events 3-9
+           |
+           |  554 | channel_init_channels(struct ssh *ssh)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘channel_init_channels’
+           |......
+           |  558 |         if ((sc = calloc(1, sizeof(*sc))) == NULL ||
+           |      |            ~                                      ~
+           |      |            |                                      |
+           |      |            |                                      (6) following ‘false’ branch...
+           |      |            (4) following ‘false’ branch (when ‘sc_11’ is non-NULL)...
+           |  559 |             (sc->channel_pre = calloc(SSH_CHANNEL_MAX_TYPE,
+           |      |                                ~
+           |      |                                |
+           |      |                                (5) ...to here
+           |  560 |             sizeof(*sc->channel_pre))) == NULL ||
+           |      |                                                ~
+           |      |                                                |
+           |      |                                                (8) following ‘false’ branch...
+           |  561 |             (sc->channel_post = calloc(SSH_CHANNEL_MAX_TYPE,
+           |      |                                 ~
+           |      |                                 |
+           |      |                                 (7) ...to here
+           |......
+           |  564 |         sc->channels_alloc = 10;
+           |      |                            ~
+           |      |                            |
+           |      |                            (9) ...to here
+           |
+    <------+
+    |
+  ‘main’: events 10-13
+    |
+    |  637 |     channel_init_channels(&ssh);
+    |      |     ^
+    |      |     |
+    |      |     (10) returning to ‘main’ from ‘channel_init_channels’
+    |  638 |     for(int i = 1; i < argc; i++) {
+    |      |                      ~
+    |      |                      |
+    |      |                      (11) following ‘true’ branch (when ‘i_5 < argc_10(D)’)...
+    |  639 |             c = channel_new(&ssh, "stdio-forward", SSH_CHANNEL_OPENING, in, out,
+    |      |                 ~
+    |      |                 |
+    |      |                 (12) ...to here
+    |      |                 (13) calling ‘channel_new’ from ‘main’
+    |
+    +--> ‘channel_new’: events 14-24
+           |
+           |  502 | channel_new(struct ssh *ssh, char *ctype, int type, int rfd, int wfd, int efd,
+           |      | ^
+           |      | |
+           |      | (14) entry to ‘channel_new’
+           |......
+           |  517 |         if (i >= sc->channels_alloc) {
+           |      |            ~
+           |      |            |
+           |      |            (15) following ‘false’ branch...
+           |......
+           |  532 |         c = sc->channels[found] = xcalloc(1, sizeof(Channel));
+           |      |               ~
+           |      |               |
+           |      |               (16) ...to here
+           |  533 |         if ((c->input = sshbuf_new()) == NULL || /* allocation site */
+           |      |            ~                                  ~
+           |      |            |                                  |
+           |      |            (17) following ‘false’ branch...   (19) following ‘false’ branch...
+           |  534 |             (c->output = sshbuf_new()) == NULL || /* allocation site */
+           |      |                          ~                     ~
+           |      |                          |                     |
+           |      |                          (18) ...to here       (21) following ‘false’ branch...
+           |  535 |             (c->extended = sshbuf_new()) == NULL) /* allocation site */
+           |      |                            ~
+           |      |                            |
+           |      |                            (20) ...to here
+           |  536 |                 fatal("%s: sshbuf_new failed", __func__);
+           |  537 |         c->ostate = CHAN_OUTPUT_OPEN;
+           |      |                   ~
+           |      |                   |
+           |      |                   (22) ...to here
+           |......
+           |  546 |         c->remote_name = xstrdup(remote_name);
+           |      |                          ~
+           |      |                          |
+           |      |                          (23) allocated here
+           |......
+           |  550 |         return c;
+           |      |                ~
+           |      |                |
+           |      |                (24) ‘strdup (remote_name_82(D))’ leaks here; was allocated at (23)
+           |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)  2157k ( 87%)
+ phase opt and generate             :   0.18 (100%)   0.01 (100%)   0.18 ( 95%)   196k (  8%)
+ analyzer                           :   0.01 (  6%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ analyzer: state purge              :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.15 ( 83%)   0.00 (  0%)   0.16 ( 84%)  1072  (  0%)
+ analyzer: emitting diagnostics     :   0.02 ( 11%)   0.00 (  0%)   0.01 (  5%)   520  (  0%)
+ TOTAL                              :   0.18          0.01          0.19         2473k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 68%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.05 (100%)   911k ( 29%)
+ callgraph functions expansion      :   0.03 (100%)   0.01 (100%)   0.04 ( 80%)   703k ( 22%)
+ df live&initialized regs           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ tree operand scan                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    52k (  2%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   118k (  4%)
+ forward prop                       :   0.01 ( 33%)   0.01 (100%)   0.00 (  0%)   232  (  0%)
+ loop init                          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    42k (  1%)
+ loop fini                          :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ reload CSE regs                    :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)  7336  (  0%)
+ TOTAL                              :   0.03          0.01          0.05         3176k
+/usr/bin/ld: /tmp/ccEgqYZr.ltrans0.ltrans.o: in function `sshbuf_free':
+<artificial>:(.text+0x73): undefined reference to `sshbuf_check_sanity'
+/usr/bin/ld: /tmp/ccEgqYZr.ltrans0.ltrans.o: in function `client_suspend_self':
+<artificial>:(.text+0xf8): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x109): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x161): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x171): undefined reference to `sshbuf_mutable_ptr'
+/usr/bin/ld: <artificial>:(.text+0x18d): undefined reference to `vwrite'
+/usr/bin/ld: <artificial>:(.text+0x197): undefined reference to `atomicio'
+/usr/bin/ld: <artificial>:(.text+0x1a9): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x1b9): undefined reference to `sshbuf_mutable_ptr'
+/usr/bin/ld: <artificial>:(.text+0x1d5): undefined reference to `vwrite'
+/usr/bin/ld: <artificial>:(.text+0x1df): undefined reference to `atomicio'
+/usr/bin/ld: /tmp/ccEgqYZr.ltrans0.ltrans.o: in function `channel_new':
+<artificial>:(.text+0x258): undefined reference to `xrecallocarray'
+/usr/bin/ld: <artificial>:(.text+0x275): undefined reference to `debug2'
+/usr/bin/ld: <artificial>:(.text+0x29d): undefined reference to `sshbuf_new'
+/usr/bin/ld: <artificial>:(.text+0x2b6): undefined reference to `sshbuf_new'
+/usr/bin/ld: <artificial>:(.text+0x2cf): undefined reference to `sshbuf_new'
+/usr/bin/ld: <artificial>:(.text+0x315): undefined reference to `channel_register_fds'
+/usr/bin/ld: <artificial>:(.text+0x371): undefined reference to `debug'
+/usr/bin/ld: /tmp/ccEgqYZr.ltrans0.ltrans.o: in function `channel_init_channels':
+<artificial>:(.text+0x444): undefined reference to `channel_handler_init'
+/usr/bin/ld: /tmp/ccEgqYZr.ltrans0.ltrans.o: in function `channel_free':
+<artificial>:(.text+0x50d): undefined reference to `debug'
+/usr/bin/ld: <artificial>:(.text+0x523): undefined reference to `channel_open_message'
+/usr/bin/ld: <artificial>:(.text+0x53b): undefined reference to `debug3'
+/usr/bin/ld: <artificial>:(.text+0x553): undefined reference to `channel_close_fds'
+/usr/bin/ld: <artificial>:(.text+0x625): undefined reference to `mux_remove_remote_forwardings'
+collect2: error: ld returned 1 exit status

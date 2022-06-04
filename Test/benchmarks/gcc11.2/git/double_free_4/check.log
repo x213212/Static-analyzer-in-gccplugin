@@ -1,0 +1,465 @@
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:10:
+./benchmarks/git/double_free_4/../git.h: In function ‘copy_array’:
+./benchmarks/git/double_free_4/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_4/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/double_free_4/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_4/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_4/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/double_free_4/../git.h: In function ‘move_array’:
+./benchmarks/git/double_free_4/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/double_free_4/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/double_free_4/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_4/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:9:
+./benchmarks/git/double_free_4/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/double_free_4/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_4/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/double_free_4/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_4/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:10:
+./benchmarks/git/double_free_4/../git.h: At top level:
+./benchmarks/git/double_free_4/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/double_free_4/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/double_free_4/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_4/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/double_free_4/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_4/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘find_ref_by_name’:
+./benchmarks/git/double_free_4/git_df_4.c:81:14: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+   81 |         if (!strcmp(list->name, name))
+      |              ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   10 | #include "../git.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘alloc_ref_with_prefix’:
+./benchmarks/git/double_free_4/git_df_4.c:89:22: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   89 |         size_t len = strlen(name);
+      |                      ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:89:22: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/double_free_4/git_df_4.c:89:22: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_4/git_df_4.c:89:22: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/double_free_4/git_df_4.c:91:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   91 |         memcpy(ref->name, prefix, prefixlen);
+      |         ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:91:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘copy_ref’:
+./benchmarks/git/double_free_4/git_df_4.c:107:15: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  107 |         len = strlen(ref->name);
+      |               ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:107:15: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/double_free_4/git_df_4.c:109:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  109 |         memcpy(cpy, ref, sizeof(struct ref) + len + 1);
+      |         ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:109:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+In file included from ./benchmarks/git/double_free_4/git_df_4.c:9:
+./benchmarks/git/double_free_4/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:111:37: note: in expansion of macro ‘xstrdup’
+  111 |         cpy->symref = ref->symref ? xstrdup(ref->symref) : NULL;
+      |                                     ^~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘try_explicit_object_name’:
+./benchmarks/git/double_free_4/git_df_4.c:124:17: warning: implicit declaration of function ‘hashclr’ [-Wimplicit-function-declaration]
+  124 |                 hashclr(ref->new_sha1);
+      |                 ^~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:127:13: warning: implicit declaration of function ‘get_sha1’ [-Wimplicit-function-declaration]
+  127 |         if (get_sha1(name, sha1))
+      |             ^~~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:130:9: warning: implicit declaration of function ‘hashcpy’ [-Wimplicit-function-declaration]
+  130 |         hashcpy(ref->new_sha1, sha1);
+      |         ^~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘main’:
+./benchmarks/git/double_free_4/git_df_4.c:215:22: warning: implicit declaration of function ‘get_local_heads’ [-Wimplicit-function-declaration]
+  215 |         local_refs = get_local_heads();
+      |                      ^~~~~~~~~~~~~~~
+./benchmarks/git/double_free_4/git_df_4.c:215:20: warning: assignment to ‘struct ref *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  215 |         local_refs = get_local_heads();
+      |                    ^
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 50%)
+ phase parsing                      :   0.02 ( 67%)   0.02 (100%)   0.03 ( 75%)  1109k ( 42%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   192k (  7%)
+ phase finalize                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 25%)   325k ( 12%)
+ lexical analysis                   :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ parser function body               :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    97k (  4%)
+ parser inl. func. body             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 25%)    23k (  1%)
+ tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    45k (  2%)
+ TOTAL                              :   0.03          0.02          0.04         2609k
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘match_refs’:
+./benchmarks/git/double_free_4/git_df_4.c:190:38: warning: dereference of NULL ‘0B’ [CWE-476] [-Wanalyzer-null-dereference]
+  190 |                 dst_peer->force = pat->force;
+      |                                      ^
+  ‘main’: events 1-2
+    |
+    |  198 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  218 |    if (match_refs(local_refs, remote_refs, &remote_tail,
+    |      |        ~
+    |      |        |
+    |      |        (2) calling ‘match_refs’ from ‘main’
+    |
+    +--> ‘match_refs’: events 3-8
+           |
+           |  154 | int match_refs(struct ref *src, struct ref *dst, struct ref ***dst_tail,
+           |      |     ^
+           |      |     |
+           |      |     (3) entry to ‘match_refs’
+           |......
+           |  163 |         for ( ; src; src = src->next) {
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘true’ branch (when ‘src_9’ is non-NULL)...
+           |......
+           |  166 |                 char *dst_name = src->name;
+           |      |                       ~
+           |      |                       |
+           |      |                       (5) ...to here
+           |  167 |                 if (src->peer_ref)
+           |      |                    ~
+           |      |                    |
+           |      |                    (6) following ‘false’ branch...
+           |......
+           |  170 |                 dst_peer = find_ref_by_name(dst, dst_name);
+           |      |                            ~
+           |      |                            |
+           |      |                            (7) ...to here
+           |      |                            (8) calling ‘find_ref_by_name’ from ‘match_refs’
+           |
+           +--> ‘find_ref_by_name’: events 9-10
+                  |
+                  |   78 | struct ref *find_ref_by_name(const struct ref *list, const char *name)
+                  |      |             ^
+                  |      |             |
+                  |      |             (9) entry to ‘find_ref_by_name’
+                  |   79 | {
+                  |   80 |     for ( ; list; list = list->next)
+                  |      |             ~
+                  |      |             |
+                  |      |             (10) following ‘false’ branch (when ‘list_3’ is NULL)...
+                  |
+                ‘find_ref_by_name’: event 11
+                  |
+                  |lto1:
+                  | (11): ...to here
+                  |
+           <------+
+           |
+         ‘match_refs’: events 12-15
+           |
+           |  170 |                 dst_peer = find_ref_by_name(dst, dst_name);
+           |      |                            ^
+           |      |                            |
+           |      |                            (12) returning to ‘match_refs’ from ‘find_ref_by_name’
+           |  171 |                 if (dst_peer) {
+           |      |                    ~        
+           |      |                    |
+           |      |                    (13) following ‘false’ branch (when ‘dst_peer_20’ is NULL)...
+           |......
+           |  177 |                         if (pat->matching && !(send_all || send_mirror))
+           |      |                             ~
+           |      |                             |
+           |      |                             (14) ...to here
+           |......
+           |  190 |                 dst_peer->force = pat->force;
+           |      |                                      ~
+           |      |                                      |
+           |      |                                      (15) dereference of NULL ‘0B’
+           |
+./benchmarks/git/double_free_4/git_df_4.c:192:17: warning: ‘free’ of ‘dst_name_18’ which points to memory not on the heap [CWE-590] [-Wanalyzer-free-of-non-heap]
+  192 |                 free(dst_name);
+      |                 ^
+  ‘main’: events 1-2
+    |
+    |  198 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  218 |    if (match_refs(local_refs, remote_refs, &remote_tail,
+    |      |        ~
+    |      |        |
+    |      |        (2) calling ‘match_refs’ from ‘main’
+    |
+    +--> ‘match_refs’: events 3-10
+           |
+           |  154 | int match_refs(struct ref *src, struct ref *dst, struct ref ***dst_tail,
+           |      |     ^
+           |      |     |
+           |      |     (3) entry to ‘match_refs’
+           |......
+           |  163 |         for ( ; src; src = src->next) {
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘true’ branch (when ‘src_9’ is non-NULL)...
+           |......
+           |  166 |                 char *dst_name = src->name;
+           |      |                       ~
+           |      |                       |
+           |      |                       (5) ...to here
+           |      |                       (6) pointer is from here
+           |      |                       (7) pointer is from here
+           |  167 |                 if (src->peer_ref)
+           |      |                    ~
+           |      |                    |
+           |      |                    (8) following ‘false’ branch...
+           |......
+           |  170 |                 dst_peer = find_ref_by_name(dst, dst_name);
+           |      |                            ~
+           |      |                            |
+           |      |                            (9) ...to here
+           |      |                            (10) calling ‘find_ref_by_name’ from ‘match_refs’
+           |
+           +--> ‘find_ref_by_name’: events 11-12
+                  |
+                  |   78 | struct ref *find_ref_by_name(const struct ref *list, const char *name)
+                  |      |             ^
+                  |      |             |
+                  |      |             (11) entry to ‘find_ref_by_name’
+                  |   79 | {
+                  |   80 |     for ( ; list; list = list->next)
+                  |      |             ~
+                  |      |             |
+                  |      |             (12) following ‘false’ branch (when ‘list_3’ is NULL)...
+                  |
+                ‘find_ref_by_name’: event 13
+                  |
+                  |lto1:
+                  | (13): ...to here
+                  |
+           <------+
+           |
+         ‘match_refs’: events 14-17
+           |
+           |  170 |                 dst_peer = find_ref_by_name(dst, dst_name);
+           |      |                            ^
+           |      |                            |
+           |      |                            (14) returning to ‘match_refs’ from ‘find_ref_by_name’
+           |  171 |                 if (dst_peer) {
+           |      |                    ~        
+           |      |                    |
+           |      |                    (15) following ‘false’ branch (when ‘dst_peer_20’ is NULL)...
+           |......
+           |  177 |                         if (pat->matching && !(send_all || send_mirror))
+           |      |                             ~
+           |      |                             |
+           |      |                             (16) ...to here
+           |......
+           |  192 |                 free(dst_name);
+           |      |                 ~           
+           |      |                 |
+           |      |                 (17) call to ‘free’ here
+           |
+./benchmarks/git/double_free_4/git_df_4.c: In function ‘tail_link_ref’:
+./benchmarks/git/double_free_4/git_df_4.c:137:19: warning: dereference of possibly-NULL ‘ref_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  137 |         while (ref->next)
+      |                   ^
+  ‘main’: events 1-2
+    |
+    |  198 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  218 |    if (match_refs(local_refs, remote_refs, &remote_tail,
+    |      |        ~
+    |      |        |
+    |      |        (2) calling ‘match_refs’ from ‘main’
+    |
+    +--> ‘match_refs’: events 3-8
+           |
+           |  154 | int match_refs(struct ref *src, struct ref *dst, struct ref ***dst_tail,
+           |      |     ^
+           |      |     |
+           |      |     (3) entry to ‘match_refs’
+           |......
+           |  163 |         for ( ; src; src = src->next) {
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘true’ branch (when ‘src_9’ is non-NULL)...
+           |......
+           |  166 |                 char *dst_name = src->name;
+           |      |                       ~
+           |      |                       |
+           |      |                       (5) ...to here
+           |  167 |                 if (src->peer_ref)
+           |      |                    ~
+           |      |                    |
+           |      |                    (6) following ‘false’ branch...
+           |......
+           |  170 |                 dst_peer = find_ref_by_name(dst, dst_name);
+           |      |                            ~
+           |      |                            |
+           |      |                            (7) ...to here
+           |      |                            (8) calling ‘find_ref_by_name’ from ‘match_refs’
+           |
+           +--> ‘find_ref_by_name’: events 9-10
+                  |
+                  |   78 | struct ref *find_ref_by_name(const struct ref *list, const char *name)
+                  |      |             ^
+                  |      |             |
+                  |      |             (9) entry to ‘find_ref_by_name’
+                  |   79 | {
+                  |   80 |     for ( ; list; list = list->next)
+                  |      |             ~
+                  |      |             |
+                  |      |             (10) following ‘false’ branch (when ‘list_3’ is NULL)...
+                  |
+                ‘find_ref_by_name’: event 11
+                  |
+                  |lto1:
+                  | (11): ...to here
+                  |
+           <------+
+           |
+         ‘match_refs’: events 12-15
+           |
+           |  170 |                 dst_peer = find_ref_by_name(dst, dst_name);
+           |      |                            ^
+           |      |                            |
+           |      |                            (12) returning to ‘match_refs’ from ‘find_ref_by_name’
+           |  171 |                 if (dst_peer) {
+           |      |                    ~        
+           |      |                    |
+           |      |                    (13) following ‘false’ branch (when ‘dst_peer_20’ is NULL)...
+           |......
+           |  177 |                         if (pat->matching && !(send_all || send_mirror))
+           |      |                             ~
+           |      |                             |
+           |      |                             (14) ...to here
+           |......
+           |  186 |                         dst_peer = make_linked_ref(dst_name, dst_tail);
+           |      |                                    ~
+           |      |                                    |
+           |      |                                    (15) calling ‘make_linked_ref’ from ‘match_refs’
+           |
+           +--> ‘make_linked_ref’: events 16-17
+                  |
+                  |  142 | static struct ref *make_linked_ref(const char *name, struct ref ***tail)
+                  |      |                    ^
+                  |      |                    |
+                  |      |                    (16) entry to ‘make_linked_ref’
+                  |  143 | {
+                  |  144 |         struct ref *ret = alloc_ref(name);
+                  |      |                           ~
+                  |      |                           |
+                  |      |                           (17) calling ‘alloc_ref’ from ‘make_linked_ref’
+                  |
+                  +--> ‘alloc_ref’: events 18-19
+                         |
+                         |   96 | struct ref *alloc_ref(const char *name)
+                         |      |             ^
+                         |      |             |
+                         |      |             (18) entry to ‘alloc_ref’
+                         |   97 | {
+                         |   98 |         return alloc_ref_with_prefix("", 0, name);
+                         |      |                ~
+                         |      |                |
+                         |      |                (19) calling ‘alloc_ref_with_prefix’ from ‘alloc_ref’
+                         |
+                         +--> ‘alloc_ref_with_prefix’: events 20-21
+                                |
+                                |   86 | static struct ref *alloc_ref_with_prefix(const char *prefix, size_t prefixlen,
+                                |      |                    ^
+                                |      |                    |
+                                |      |                    (20) entry to ‘alloc_ref_with_prefix’
+                                |......
+                                |   90 |         struct ref *ref = xcalloc(1, sizeof(struct ref) + prefixlen + len + 1);
+                                |      |                           ~
+                                |      |                           |
+                                |      |                           (21) this call could return NULL
+                                |
+                         <------+
+                         |
+                       ‘alloc_ref’: event 22
+                         |
+                         |   98 |         return alloc_ref_with_prefix("", 0, name);
+                         |      |                ^
+                         |      |                |
+                         |      |                (22) returning to ‘alloc_ref’ from ‘alloc_ref_with_prefix’
+                         |
+                  <------+
+                  |
+                ‘make_linked_ref’: events 23-24
+                  |
+                  |  144 |         struct ref *ret = alloc_ref(name);
+                  |      |                           ^
+                  |      |                           |
+                  |      |                           (23) possible return of NULL to ‘make_linked_ref’ from ‘alloc_ref’
+                  |  145 |         tail_link_ref(ret, tail);
+                  |      |         ~                  
+                  |      |         |
+                  |      |         (24) calling ‘tail_link_ref’ from ‘make_linked_ref’
+                  |
+                  +--> ‘tail_link_ref’: events 25-26
+                         |
+                         |  134 | static void tail_link_ref(struct ref *ref, struct ref ***tail)
+                         |      |             ^
+                         |      |             |
+                         |      |             (25) entry to ‘tail_link_ref’
+                         |......
+                         |  137 |         while (ref->next)
+                         |      |                   ~
+                         |      |                   |
+                         |      |                   (26) ‘ref_4’ could be NULL: unchecked value from (21)
+                         |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 92%)
+ phase opt and generate             :   0.09 (100%)   0.00 (  0%)   0.08 ( 89%)   109k (  5%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    69k (  3%)
+ callgraph optimization             :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl in                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    54k (  2%)
+ analyzer: processing worklist      :   0.05 ( 56%)   0.00 (  0%)   0.05 ( 56%)   384  (  0%)
+ analyzer: emitting diagnostics     :   0.03 ( 33%)   0.00 (  0%)   0.03 ( 33%)  3560  (  0%)
+ TOTAL                              :   0.09          0.00          0.09         2338k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 76%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   624k ( 22%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.02 ( 67%)   521k ( 18%)
+ ipa points-to                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  5056  (  0%)
+ df reg dead/unused notes           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  7752  (  0%)
+ tree reassociation                 :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   136  (  0%)
+ tree forward propagate             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   752  (  0%)
+ loop invariant motion              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   112  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.03          0.00          0.03         2843k
+/usr/bin/ld: /tmp/ccYtLWYt.ltrans0.ltrans.o: in function `match_refs':
+<artificial>:(.text+0x19c): undefined reference to `hashcpy'
+/usr/bin/ld: /tmp/ccYtLWYt.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x21b): undefined reference to `get_local_heads'
+collect2: error: ld returned 1 exit status

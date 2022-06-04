@@ -1,0 +1,151 @@
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 39%)
+ phase parsing                      :   0.04 (100%)   0.00 (  0%)   0.04 (100%)  1895k ( 56%)
+ preprocessing                      :   0.03 ( 75%)   0.00 (  0%)   0.03 ( 75%)  1083k ( 32%)
+ lexical analysis                   :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ TOTAL                              :   0.04          0.00          0.04         3368k
+./benchmarks/openssl/use_after_free_2/openssl_uaf_2.c: In function ‘wait_for_async’:
+./benchmarks/openssl/use_after_free_2/openssl_uaf_2.c:120:22: warning: dereference of NULL ‘fds_20’ [CWE-476] [-Wanalyzer-null-dereference]
+  120 |         if (width <= (int)*fds)
+      |                      ^
+  ‘main’: events 1-2
+    |
+    |  130 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  133 |         wait_for_async(&s);
+    |      |         ~
+    |      |         |
+    |      |         (2) calling ‘wait_for_async’ from ‘main’
+    |
+    +--> ‘wait_for_async’: events 3-9
+           |
+           |  101 | void wait_for_async(SSL *s)
+           |      |      ^
+           |      |      |
+           |      |      (3) entry to ‘wait_for_async’
+           |......
+           |  109 |     if (!SSL_get_all_async_fds(s, NULL, &numfds))
+           |      |        ~
+           |      |        |
+           |      |        (4) following ‘false’ branch...
+           |  110 |         return;
+           |  111 |     if (numfds == 0)
+           |      |        ~       ~
+           |      |        |       |
+           |      |        |       (5) ...to here
+           |      |        (6) following ‘false’ branch...
+           |  112 |         return;
+           |  113 |     fds = app_malloc(sizeof(OSSL_ASYNC_FD) * numfds, "allocate async fds"); /* allocation site */
+           |      |           ~
+           |      |           |
+           |      |           (7) ...to here
+           |      |           (8) allocated here
+           |  114 |     if (!SSL_get_all_async_fds(s, fds, &numfds)) {
+           |      |          ~
+           |      |          |
+           |      |          (9) calling ‘SSL_get_all_async_fds’ from ‘wait_for_async’
+           |
+           +--> ‘SSL_get_all_async_fds’: events 10-13
+                  |
+                  |   92 | int SSL_get_all_async_fds(SSL *s, OSSL_ASYNC_FD *fds, size_t *numfds)
+                  |      |     ^
+                  |      |     |
+                  |      |     (10) entry to ‘SSL_get_all_async_fds’
+                  |......
+                  |   96 |     if (ctx == NULL)
+                  |      |        ~
+                  |      |        |
+                  |      |        (11) following ‘false’ branch (when ‘ctx_5’ is non-NULL)...
+                  |   97 |         return 0;
+                  |   98 |     return ASYNC_WAIT_CTX_get_all_fds(ctx, fds, numfds);
+                  |      |            ~
+                  |      |            |
+                  |      |            (12) ...to here
+                  |      |            (13) calling ‘ASYNC_WAIT_CTX_get_all_fds’ from ‘SSL_get_all_async_fds’
+                  |
+                  +--> ‘ASYNC_WAIT_CTX_get_all_fds’: events 14-19
+                         |
+                         |   69 | int ASYNC_WAIT_CTX_get_all_fds(ASYNC_WAIT_CTX *ctx, OSSL_ASYNC_FD *fd,
+                         |      |     ^
+                         |      |     |
+                         |      |     (14) entry to ‘ASYNC_WAIT_CTX_get_all_fds’
+                         |......
+                         |   76 |     while (curr != NULL) {
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (15) following ‘true’ branch (when ‘curr_7’ is non-NULL)...
+                         |   77 |         if (curr->del) {
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (16) ...to here
+                         |......
+                         |   82 |         if (fd != NULL) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (17) assuming ‘fd_6’ is NULL
+                         |      |            (18) following ‘false’ branch (when ‘fd_6’ is NULL)...
+                         |......
+                         |   86 |         (*numfds)++;
+                         |      |          ~
+                         |      |          |
+                         |      |          (19) ...to here
+                         |
+                  <------+
+                  |
+                ‘SSL_get_all_async_fds’: event 20
+                  |
+                  |   98 |     return ASYNC_WAIT_CTX_get_all_fds(ctx, fds, numfds);
+                  |      |            ^
+                  |      |            |
+                  |      |            (20) returning to ‘SSL_get_all_async_fds’ from ‘ASYNC_WAIT_CTX_get_all_fds’
+                  |
+           <------+
+           |
+         ‘wait_for_async’: events 21-22
+           |
+           |  114 |     if (!SSL_get_all_async_fds(s, fds, &numfds)) {
+           |      |        ~ ^
+           |      |        | |
+           |      |        | (21) returning to ‘wait_for_async’ from ‘SSL_get_all_async_fds’
+           |      |        (22) following ‘false’ branch...
+           |
+         ‘wait_for_async’: event 23
+           |
+           |lto1:
+           | (23): ...to here
+           |
+         ‘wait_for_async’: events 24-26
+           |
+           |  119 |     while (numfds > 0) {
+           |      |                   ^
+           |      |                   |
+           |      |                   (24) following ‘true’ branch...
+           |  120 |         if (width <= (int)*fds)
+           |      |                      ~
+           |      |                      |
+           |      |                      (25) ...to here
+           |      |                      (26) dereference of NULL ‘fds_20’
+           |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 96%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.03 ( 60%)    65k (  3%)
+ phase stream out                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ ipa lto gimple out                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ analyzer: processing worklist      :   0.02 ( 67%)   0.01 (100%)   0.02 ( 40%)   312  (  0%)
+ analyzer: emitting diagnostics     :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ TOTAL                              :   0.03          0.01          0.05         2258k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 85%)
+ phase opt and generate             :   0.01 (100%)   0.01 (100%)   0.02 (100%)   360k ( 14%)
+ callgraph functions expansion      :   0.01 (100%)   0.01 (100%)   0.01 ( 50%)   288k ( 11%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    52k (  2%)
+ dominance computation              :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ loop init                          :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)    21k (  1%)
+ final                              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    11k (  0%)
+ TOTAL                              :   0.01          0.01          0.02         2551k

@@ -1,0 +1,559 @@
+./benchmarks/binutils/leak_3/binutils_leak_3.c: In function ‘bfd_hash_table_init_n’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:148:39: warning: passing argument 1 of ‘objalloc_free’ from incompatible pointer type [-Wincompatible-pointer-types]
+  148 |                         objalloc_free(table);
+      |                                       ^~~~~
+      |                                       |
+      |                                       struct bfd_hash_table *
+./benchmarks/binutils/leak_3/binutils_leak_3.c:110:33: note: expected ‘struct objalloc *’ but argument is of type ‘struct bfd_hash_table *’
+  110 | objalloc_free (struct objalloc *o)
+      |                ~~~~~~~~~~~~~~~~~^
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+    6 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    7 | 
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/binutils/leak_3/binutils_leak_3.c: In function ‘main’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  197 |         srand(time(&t));
+      |               ^~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:200:17: warning: ‘return’ with no value, in function returning non-void
+  200 |                 return;
+      |                 ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:185:5: note: declared here
+  185 | int main()
+      |     ^~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  1298k ( 50%)
+ phase parsing                      :   0.03 ( 60%)   0.01 (100%)   0.04 ( 57%)  1023k ( 40%)
+ phase opt and generate             :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 29%)   253k ( 10%)
+ callgraph ipa passes               :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 29%)   151k (  6%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ ipa free lang data                 :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)  4984  (  0%)
+ preprocessing                      :   0.01 ( 20%)   0.01 (100%)   0.02 ( 29%)   291k ( 11%)
+ lexical analysis                   :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.01 ( 20%)   0.00 (  0%)   0.02 ( 29%)   593k ( 23%)
+ tree modref                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  4032  (  0%)
+ dominance computation              :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.05          0.01          0.07         2584k
+./benchmarks/binutils/leak_3/../include/common.h: In function ‘bfd_hash_insert’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:169:21: warning: dereference of NULL ‘hashp_13’ [CWE-476] [-Wanalyzer-null-dereference]
+  169 |         hashp->hash = hash;
+      |                     ^
+  ‘bfd_hash_insert’: events 1-2
+    |
+    |  161 | bfd_hash_insert (struct bfd_hash_table *table,
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘bfd_hash_insert’
+    |......
+    |  168 |         hashp = (struct bfd_hash_entry *) objalloc_alloc (table->memory, sizeof (*hashp));
+    |      |                                           ~
+    |      |                                           |
+    |      |                                           (2) calling ‘objalloc_alloc’ from ‘bfd_hash_insert’
+    |
+    +--> ‘objalloc_alloc’: events 3-6
+           |
+           |   85 | objalloc_alloc (struct objalloc *o, unsigned long len)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘objalloc_alloc’
+           |......
+           |   91 |         if (len > CHUNK_SIZE)
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘false’ branch (when ‘len_5(D) <= 4064’)...
+           |......
+           |   94 |         chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+           |      |                                           ~
+           |      |                                           |
+           |      |                                           (5) ...to here
+           |   95 |         if (chunk == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (6) following ‘true’ branch (when ‘chunk_8’ is NULL)...
+           |
+         ‘objalloc_alloc’: event 7
+           |
+           |lto1:
+           | (7): ...to here
+           |
+    <------+
+    |
+  ‘bfd_hash_insert’: events 8-9
+    |
+    |  168 |         hashp = (struct bfd_hash_entry *) objalloc_alloc (table->memory, sizeof (*hashp));
+    |      |                                           ^
+    |      |                                           |
+    |      |                                           (8) return of NULL to ‘bfd_hash_insert’ from ‘objalloc_alloc’
+    |  169 |         hashp->hash = hash;
+    |      |                     ~                      
+    |      |                     |
+    |      |                     (9) dereference of NULL ‘hashp_13’
+    |
+./benchmarks/binutils/leak_3/../include/common.h: In function ‘objalloc_free’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:125:9: warning: ‘free’ of ‘o_4(D)’ which points to memory not on the heap [CWE-590] [-Wanalyzer-free-of-non-heap]
+  125 |         free (o);
+      |         ^
+  ‘main’: events 1-2
+    |
+    |  185 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  199 |         if (! bfd_hash_table_init_n (&table, entsize, size))
+    |      |               ~
+    |      |               |
+    |      |               (2) calling ‘bfd_hash_table_init_n’ from ‘main’
+    |
+    +--> ‘bfd_hash_table_init_n’: events 3-4
+           |
+           |  129 | bfd_hash_table_init_n (struct bfd_hash_table *table,
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘bfd_hash_table_init_n’
+           |......
+           |  137 |         table->memory = (void *) objalloc_create ();
+           |      |                                  ~
+           |      |                                  |
+           |      |                                  (4) calling ‘objalloc_create’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_create’: events 5-9
+                  |
+                  |   56 | objalloc_create (void)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘objalloc_create’
+                  |......
+                  |   63 |         if (ret == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘false’ branch (when ‘ret_8’ is non-NULL)...
+                  |......
+                  |   66 |         ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (7) ...to here
+                  |   67 |         if (ret->chunks == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch...
+                  |......
+                  |   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+                  |      |               ~
+                  |      |               |
+                  |      |               (9) ...to here
+                  |
+           <------+
+           |
+         ‘bfd_hash_table_init_n’: events 10-13
+           |
+           |  137 |         table->memory = (void *) objalloc_create ();
+           |      |                                  ^
+           |      |                                  |
+           |      |                                  (10) returning to ‘bfd_hash_table_init_n’ from ‘objalloc_create’
+           |  138 |         if (table->memory == NULL)
+           |      |            ~                      
+           |      |            |
+           |      |            (11) following ‘false’ branch...
+           |......
+           |  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+           |      |       ~                                        ~
+           |      |       |                                        |
+           |      |       |                                        (12) ...to here
+           |      |       (13) calling ‘objalloc_alloc’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_alloc’: events 14-17
+                  |
+                  |   85 | objalloc_alloc (struct objalloc *o, unsigned long len)
+                  |      | ^
+                  |      | |
+                  |      | (14) entry to ‘objalloc_alloc’
+                  |......
+                  |   91 |         if (len > CHUNK_SIZE)
+                  |      |            ~
+                  |      |            |
+                  |      |            (15) following ‘false’ branch (when ‘len_5(D) <= 4064’)...
+                  |......
+                  |   94 |         chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+                  |      |                                           ~
+                  |      |                                           |
+                  |      |                                           (16) ...to here
+                  |   95 |         if (chunk == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘true’ branch (when ‘chunk_8’ is NULL)...
+                  |
+                ‘objalloc_alloc’: event 18
+                  |
+                  |lto1:
+                  | (18): ...to here
+                  |
+           <------+
+           |
+         ‘bfd_hash_table_init_n’: events 19-22
+           |
+           |  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+           |      |       ^
+           |      |       |
+           |      |       (19) returning to ‘bfd_hash_table_init_n’ from ‘objalloc_alloc’
+           |  145 | 
+           |  146 |         if (table->table == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (20) following ‘true’ branch...
+           |  147 |                 {
+           |  148 |                         objalloc_free(table);
+           |      |                         ~
+           |      |                         |
+           |      |                         (21) ...to here
+           |      |                         (22) calling ‘objalloc_free’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_free’: events 23-26
+                  |
+                  |  110 | objalloc_free (struct objalloc *o)
+                  |      | ^
+                  |      | |
+                  |      | (23) entry to ‘objalloc_free’
+                  |......
+                  |  116 |         while (l != NULL)
+                  |      |                  ~
+                  |      |                  |
+                  |      |                  (24) following ‘false’ branch (when ‘l_1’ is NULL)...
+                  |......
+                  |  125 |         free (o);
+                  |      |         ~
+                  |      |         |
+                  |      |         (25) ...to here
+                  |      |         (26) call to ‘free’ here
+                  |
+./benchmarks/binutils/leak_3/binutils_leak_3.c:125:9: warning: leak of ‘<unknown>’ [CWE-401] [-Wanalyzer-malloc-leak]
+  125 |         free (o);
+      |         ^
+  ‘main’: events 1-2
+    |
+    |  185 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  199 |         if (! bfd_hash_table_init_n (&table, entsize, size))
+    |      |               ~
+    |      |               |
+    |      |               (2) calling ‘bfd_hash_table_init_n’ from ‘main’
+    |
+    +--> ‘bfd_hash_table_init_n’: events 3-4
+           |
+           |  129 | bfd_hash_table_init_n (struct bfd_hash_table *table,
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘bfd_hash_table_init_n’
+           |......
+           |  137 |         table->memory = (void *) objalloc_create ();
+           |      |                                  ~
+           |      |                                  |
+           |      |                                  (4) calling ‘objalloc_create’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_create’: events 5-11
+                  |
+                  |   56 | objalloc_create (void)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘objalloc_create’
+                  |......
+                  |   63 |         if (ret == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘false’ branch (when ‘ret_8’ is non-NULL)...
+                  |......
+                  |   66 |         ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (7) ...to here
+                  |      |                       (8) allocated here
+                  |   67 |         if (ret->chunks == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (9) assuming ‘<unknown>’ is non-NULL
+                  |      |            (10) following ‘false’ branch...
+                  |......
+                  |   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+                  |      |               ~
+                  |      |               |
+                  |      |               (11) ...to here
+                  |
+           <------+
+           |
+         ‘bfd_hash_table_init_n’: events 12-15
+           |
+           |  137 |         table->memory = (void *) objalloc_create ();
+           |      |                                  ^
+           |      |                                  |
+           |      |                                  (12) returning to ‘bfd_hash_table_init_n’ from ‘objalloc_create’
+           |  138 |         if (table->memory == NULL)
+           |      |            ~                      
+           |      |            |
+           |      |            (13) following ‘false’ branch...
+           |......
+           |  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+           |      |       ~                                        ~
+           |      |       |                                        |
+           |      |       |                                        (14) ...to here
+           |      |       (15) calling ‘objalloc_alloc’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_alloc’: events 16-19
+                  |
+                  |   85 | objalloc_alloc (struct objalloc *o, unsigned long len)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘objalloc_alloc’
+                  |......
+                  |   91 |         if (len > CHUNK_SIZE)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘false’ branch (when ‘len_5(D) <= 4064’)...
+                  |......
+                  |   94 |         chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+                  |      |                                           ~
+                  |      |                                           |
+                  |      |                                           (18) ...to here
+                  |   95 |         if (chunk == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (19) following ‘true’ branch (when ‘chunk_8’ is NULL)...
+                  |
+                ‘objalloc_alloc’: event 20
+                  |
+                  |lto1:
+                  | (20): ...to here
+                  |
+           <------+
+           |
+         ‘bfd_hash_table_init_n’: events 21-24
+           |
+           |  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+           |      |       ^
+           |      |       |
+           |      |       (21) returning to ‘bfd_hash_table_init_n’ from ‘objalloc_alloc’
+           |  145 | 
+           |  146 |         if (table->table == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (22) following ‘true’ branch...
+           |  147 |                 {
+           |  148 |                         objalloc_free(table);
+           |      |                         ~
+           |      |                         |
+           |      |                         (23) ...to here
+           |      |                         (24) calling ‘objalloc_free’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_free’: events 25-28
+                  |
+                  |  110 | objalloc_free (struct objalloc *o)
+                  |      | ^
+                  |      | |
+                  |      | (25) entry to ‘objalloc_free’
+                  |......
+                  |  116 |         while (l != NULL)
+                  |      |                  ~
+                  |      |                  |
+                  |      |                  (26) following ‘false’ branch (when ‘l_1’ is NULL)...
+                  |......
+                  |  125 |         free (o);
+                  |      |         ~
+                  |      |         |
+                  |      |         (27) ...to here
+                  |      |         (28) ‘<unknown>’ leaks here; was allocated at (8)
+                  |
+./benchmarks/binutils/leak_3/binutils_leak_3.c:125:9: warning: leak of ‘table.memory’ [CWE-401] [-Wanalyzer-malloc-leak]
+  125 |         free (o);
+      |         ^
+  ‘main’: events 1-2
+    |
+    |  185 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  199 |         if (! bfd_hash_table_init_n (&table, entsize, size))
+    |      |               ~
+    |      |               |
+    |      |               (2) calling ‘bfd_hash_table_init_n’ from ‘main’
+    |
+    +--> ‘bfd_hash_table_init_n’: events 3-4
+           |
+           |  129 | bfd_hash_table_init_n (struct bfd_hash_table *table,
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘bfd_hash_table_init_n’
+           |......
+           |  137 |         table->memory = (void *) objalloc_create ();
+           |      |                                  ~
+           |      |                                  |
+           |      |                                  (4) calling ‘objalloc_create’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_create’: events 5-11
+                  |
+                  |   56 | objalloc_create (void)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘objalloc_create’
+                  |......
+                  |   61 |         ret = (struct objalloc *) malloc (sizeof *ret); /* allocation site */
+                  |      |                                   ~
+                  |      |                                   |
+                  |      |                                   (6) allocated here
+                  |   62 | 
+                  |   63 |         if (ret == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (7) assuming ‘ret_8’ is non-NULL
+                  |      |            (8) following ‘false’ branch (when ‘ret_8’ is non-NULL)...
+                  |......
+                  |   66 |         ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (9) ...to here
+                  |   67 |         if (ret->chunks == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (10) following ‘false’ branch...
+                  |......
+                  |   73 |         chunk = (struct objalloc_chunk *) ret->chunks;
+                  |      |               ~
+                  |      |               |
+                  |      |               (11) ...to here
+                  |
+           <------+
+           |
+         ‘bfd_hash_table_init_n’: events 12-15
+           |
+           |  137 |         table->memory = (void *) objalloc_create ();
+           |      |                                  ^
+           |      |                                  |
+           |      |                                  (12) returning to ‘bfd_hash_table_init_n’ from ‘objalloc_create’
+           |  138 |         if (table->memory == NULL)
+           |      |            ~                      
+           |      |            |
+           |      |            (13) following ‘false’ branch...
+           |......
+           |  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+           |      |       ~                                        ~
+           |      |       |                                        |
+           |      |       |                                        (14) ...to here
+           |      |       (15) calling ‘objalloc_alloc’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_alloc’: events 16-19
+                  |
+                  |   85 | objalloc_alloc (struct objalloc *o, unsigned long len)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘objalloc_alloc’
+                  |......
+                  |   91 |         if (len > CHUNK_SIZE)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘false’ branch (when ‘len_5(D) <= 4064’)...
+                  |......
+                  |   94 |         chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+                  |      |                                           ~
+                  |      |                                           |
+                  |      |                                           (18) ...to here
+                  |   95 |         if (chunk == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (19) following ‘true’ branch (when ‘chunk_8’ is NULL)...
+                  |
+                ‘objalloc_alloc’: event 20
+                  |
+                  |lto1:
+                  | (20): ...to here
+                  |
+           <------+
+           |
+         ‘bfd_hash_table_init_n’: events 21-24
+           |
+           |  144 |       objalloc_alloc ((struct objalloc *) table->memory, alloc);
+           |      |       ^
+           |      |       |
+           |      |       (21) returning to ‘bfd_hash_table_init_n’ from ‘objalloc_alloc’
+           |  145 | 
+           |  146 |         if (table->table == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (22) following ‘true’ branch...
+           |  147 |                 {
+           |  148 |                         objalloc_free(table);
+           |      |                         ~
+           |      |                         |
+           |      |                         (23) ...to here
+           |      |                         (24) calling ‘objalloc_free’ from ‘bfd_hash_table_init_n’
+           |
+           +--> ‘objalloc_free’: events 25-28
+                  |
+                  |  110 | objalloc_free (struct objalloc *o)
+                  |      | ^
+                  |      | |
+                  |      | (25) entry to ‘objalloc_free’
+                  |......
+                  |  116 |         while (l != NULL)
+                  |      |                  ~
+                  |      |                  |
+                  |      |                  (26) following ‘false’ branch (when ‘l_1’ is NULL)...
+                  |......
+                  |  125 |         free (o);
+                  |      |         ~
+                  |      |         |
+                  |      |         (27) ...to here
+                  |      |         (28) ‘table.memory’ leaks here; was allocated at (6)
+                  |
+./benchmarks/binutils/leak_3/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/leak_3/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_my_cleanup2’: events 1-2
+    |
+    |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+    |      |                          ^
+    |      |                          |
+    |      |                          (1) this call could return NULL
+    |......
+    |  129 |   new->next = *pmy_chain;
+    |      |             ~             
+    |      |             |
+    |      |             (2) ‘new_4’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 91%)
+ phase opt and generate             :   0.09 (100%)   0.00 (  0%)   0.09 ( 90%)   156k (  7%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)    65k (  3%)
+ ipa lto gimple in                  :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)   115k (  5%)
+ ipa lto decl in                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)    44k (  2%)
+ ipa reference                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ analyzer: processing worklist      :   0.05 ( 56%)   0.00 (  0%)   0.06 ( 60%)  1248  (  0%)
+ analyzer: emitting diagnostics     :   0.02 ( 22%)   0.00 (  0%)   0.02 ( 20%)   688  (  0%)
+ analyzer: shortest paths           :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.09          0.00          0.10         2381k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 79%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.02 ( 67%)   524k ( 19%)
+ dump files                         :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.02 ( 67%)   420k ( 15%)
+ df live&initialized regs           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   432  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ rest of compilation                :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    19k (  1%)
+ TOTAL                              :   0.03          0.00          0.03         2724k

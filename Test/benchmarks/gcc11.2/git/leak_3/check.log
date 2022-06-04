@@ -1,0 +1,104 @@
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:10:
+./benchmarks/git/leak_3/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_3/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_3/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_3/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_3/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_3/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_3/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_3/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_3/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_3/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:9:
+./benchmarks/git/leak_3/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_3/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_3/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_3/git_leak_3.c:10:
+./benchmarks/git/leak_3/../git.h: At top level:
+./benchmarks/git/leak_3/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_3/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_3/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_3/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_3/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_3/git_leak_3.c: In function ‘find_bisection’:
+./benchmarks/git/leak_3/git_leak_3.c:19:9: warning: implicit declaration of function ‘show_list’ [-Wimplicit-function-declaration]
+   19 |         show_list("bisection 2 entry", 0, 0, *commit_list);
+      |         ^~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 52%)
+ phase parsing                      :   0.02 ( 67%)   0.01 (100%)   0.03 ( 60%)  1048k ( 42%)
+ phase opt and generate             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)   123k (  5%)
+ callgraph construction             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  9528  (  0%)
+ callgraph ipa passes               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    74k (  3%)
+ lexical analysis                   :   0.01 ( 33%)   0.01 (100%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.01 ( 33%)   0.00 (  0%)   0.02 ( 40%)   567k ( 23%)
+ tree PTA                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1912  (  0%)
+ TOTAL                              :   0.03          0.01          0.05         2480k
+./benchmarks/git/leak_3/git_leak_3.c: In function ‘commit_list_insert’:
+./benchmarks/git/leak_3/git_leak_3.c:52:24: warning: dereference of possibly-NULL ‘new_list_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   52 |         new_list->item = item;
+      |                        ^
+  ‘commit_list_insert’: events 1-2
+    |
+    |   51 |         struct commit_list *new_list = xmalloc(sizeof(struct commit_list));
+    |      |                                        ^
+    |      |                                        |
+    |      |                                        (1) this call could return NULL
+    |   52 |         new_list->item = item;
+    |      |                        ~                
+    |      |                        |
+    |      |                        (2) ‘new_list_4’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 94%)
+ phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.03 (100%)    76k (  3%)
+ analyzer: processing worklist      :   0.02 (100%)   0.00 (  0%)   0.02 ( 67%)   696  (  0%)
+ analyzer: emitting diagnostics     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ TOTAL                              :   0.02          0.00          0.03         2284k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 84%)
+ phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.02 ( 67%)   370k ( 14%)
+ dump files                         :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ callgraph functions expansion      :   0.02 (100%)   0.00 (  0%)   0.02 ( 67%)   303k ( 12%)
+ tree CFG cleanup                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   184  (  0%)
+ initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.02          0.00          0.03         2569k
+/usr/bin/ld: /tmp/ccipo7tH.ltrans0.ltrans.o: in function `find_bisection':
+<artificial>:(.text+0x28): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x8b): undefined reference to `show_list'
+collect2: error: ld returned 1 exit status

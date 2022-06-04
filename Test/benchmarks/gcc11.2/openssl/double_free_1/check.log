@@ -1,0 +1,249 @@
+./benchmarks/openssl/double_free_1/openssl_df_1.c: In function ‘OPENSSL_sk_push’:
+./benchmarks/openssl/double_free_1/openssl_df_1.c:69:12: warning: implicit declaration of function ‘OPENSSL_sk_insert’; did you mean ‘OPENSSL_sk_push’? [-Wimplicit-function-declaration]
+   69 |     return OPENSSL_sk_insert(st, data, st->num);
+      |            ^~~~~~~~~~~~~~~~~
+      |            OPENSSL_sk_push
+./benchmarks/openssl/double_free_1/openssl_df_1.c: In function ‘OPENSSL_sk_insert’:
+./benchmarks/openssl/double_free_1/openssl_df_1.c:77:10: warning: implicit declaration of function ‘sk_reserve’ [-Wimplicit-function-declaration]
+   77 |     if (!sk_reserve(st, 1, 0))
+      |          ^~~~~~~~~~
+./benchmarks/openssl/double_free_1/openssl_df_1.c:83:9: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   83 |         memmove(&st->data[loc + 1], &st->data[loc],
+      |         ^~~~~~~
+./benchmarks/openssl/double_free_1/openssl_df_1.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   10 | #include "../openssl.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/openssl/double_free_1/openssl_df_1.c:83:9: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+   83 |         memmove(&st->data[loc + 1], &st->data[loc],
+      |         ^~~~~~~
+./benchmarks/openssl/double_free_1/openssl_df_1.c:83:9: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/openssl/double_free_1/openssl_df_1.c: In function ‘OPENSSL_sk_pop_free’:
+./benchmarks/openssl/double_free_1/openssl_df_1.c:101:5: warning: implicit declaration of function ‘OPENSSL_sk_free’; did you mean ‘OPENSSL_free’? [-Wimplicit-function-declaration]
+  101 |     OPENSSL_sk_free(st);
+      |     ^~~~~~~~~~~~~~~
+      |     OPENSSL_free
+./benchmarks/openssl/double_free_1/openssl_df_1.c: At top level:
+./benchmarks/openssl/double_free_1/openssl_df_1.c:104:6: warning: conflicting types for ‘OPENSSL_sk_free’; have ‘void(OPENSSL_STACK *)’ {aka ‘void(struct stack_st *)’}
+  104 | void OPENSSL_sk_free(OPENSSL_STACK *st)
+      |      ^~~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_1/openssl_df_1.c:101:5: note: previous implicit declaration of ‘OPENSSL_sk_free’ with type ‘void(OPENSSL_STACK *)’ {aka ‘void(struct stack_st *)’}
+  101 |     OPENSSL_sk_free(st);
+      |     ^~~~~~~~~~~~~~~
+./benchmarks/openssl/double_free_1/openssl_df_1.c: In function ‘X509V3_add_value’:
+./benchmarks/openssl/double_free_1/openssl_df_1.c:134:26: warning: implicit declaration of function ‘OPENSSL_strdup’; did you mean ‘OPENSSL_memdup’? [-Wimplicit-function-declaration]
+  134 |     if (name && (tname = OPENSSL_strdup(name)) == NULL)
+      |                          ^~~~~~~~~~~~~~
+      |                          OPENSSL_memdup
+./benchmarks/openssl/double_free_1/openssl_df_1.c:134:24: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  134 |     if (name && (tname = OPENSSL_strdup(name)) == NULL)
+      |                        ^
+./benchmarks/openssl/double_free_1/openssl_df_1.c:136:26: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  136 |     if (value && (tvalue = OPENSSL_strdup(value)) == NULL)
+      |                          ^
+./benchmarks/openssl/double_free_1/openssl_df_1.c: In function ‘X509V3_parse_list’:
+./benchmarks/openssl/double_free_1/openssl_df_1.c:166:13: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  166 |     linebuf = OPENSSL_strdup(line);
+      |             ^
+./benchmarks/openssl/double_free_1/openssl_df_1.c:181:24: warning: implicit declaration of function ‘strip_spaces’ [-Wimplicit-function-declaration]
+  181 |                 ntmp = strip_spaces(q);
+      |                        ^~~~~~~~~~~~
+./benchmarks/openssl/double_free_1/openssl_df_1.c:181:22: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  181 |                 ntmp = strip_spaces(q);
+      |                      ^
+./benchmarks/openssl/double_free_1/openssl_df_1.c:188:22: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  188 |                 ntmp = strip_spaces(q);
+      |                      ^
+./benchmarks/openssl/double_free_1/openssl_df_1.c:201:22: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  201 |                 vtmp = strip_spaces(q);
+      |                      ^
+./benchmarks/openssl/double_free_1/openssl_df_1.c:214:14: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  214 |         vtmp = strip_spaces(q);
+      |              ^
+./benchmarks/openssl/double_free_1/openssl_df_1.c:220:14: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  220 |         ntmp = strip_spaces(q);
+      |              ^
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)  1298k ( 36%)
+ phase parsing                      :   0.10 ( 77%)   0.02 (100%)   0.12 ( 80%)  2016k ( 56%)
+ phase opt and generate             :   0.03 ( 23%)   0.00 (  0%)   0.02 ( 13%)   265k (  7%)
+ callgraph optimization             :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.02 ( 15%)   0.00 (  0%)   0.02 ( 13%)   141k (  4%)
+ lto stream compression             :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa free lang data                 :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)  2800  (  0%)
+ preprocessing                      :   0.02 ( 15%)   0.00 (  0%)   0.04 ( 27%)  1095k ( 31%)
+ lexical analysis                   :   0.02 ( 15%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.01 (  8%)   0.01 ( 50%)   0.02 ( 13%)   689k ( 19%)
+ parser function body               :   0.05 ( 38%)   0.00 (  0%)   0.06 ( 40%)   119k (  3%)
+ tree gimplify                      :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)    72k (  2%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)   816  (  0%)
+ TOTAL                              :   0.13          0.02          0.15         3590k
+In function ‘X509V3_add_value’:
+./benchmarks/openssl/double_free_1/openssl_df_1.c:145:8: warning: leak of ‘vtmp_32’ [CWE-401] [-Wanalyzer-malloc-leak]
+  145 |     if (!sk_CONF_VALUE_push(*extlist, vtmp))
+      |        ^
+  ‘main’: events 1-2
+    |
+    |  236 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  239 |         values = X509V3_parse_list(argv[0]);
+    |      |                  ~
+    |      |                  |
+    |      |                  (2) calling ‘X509V3_parse_list’ from ‘main’
+    |
+    +--> ‘X509V3_parse_list’: events 3-4
+           |
+           |  158 | STACK_OF(CONF_VALUE) *X509V3_parse_list(const char *line)
+           |      |                       ^
+           |      |                       |
+           |      |                       (3) entry to ‘X509V3_parse_list’
+           |......
+           |  167 |     if (linebuf == NULL) {
+           |      |        ~               
+           |      |        |
+           |      |        (4) following ‘false’ branch...
+           |
+         ‘X509V3_parse_list’: event 5
+           |
+           |lto1:
+           | (5): ...to here
+           |
+         ‘X509V3_parse_list’: events 6-16
+           |
+           |  173 |     for (p = linebuf, q = linebuf; (c = *p) && (c != '\r') && (c != '\n');
+           |      |                                                            ^
+           |      |                                                            |
+           |      |                                                            (6) following ‘true’ branch...
+           |......
+           |  176 |         switch (state) {
+           |      |         ~                                                   
+           |      |         |
+           |      |         (7) ...to here
+           |      |         (8) following ‘case 1:’ branch...
+           |  177 |         case HDR_NAME:
+           |      |         ~                                                   
+           |      |         |
+           |      |         (9) ...to here
+           |  178 |             if (c == ':') {
+           |      |                ~                                            
+           |      |                |
+           |      |                (10) following ‘false’ branch (when ‘c_35 != 58’)...
+           |......
+           |  186 |             } else if (c == ',') {
+           |      |                       ~                                     
+           |      |                       |
+           |      |                       (11) ...to here
+           |      |                       (12) following ‘true’ branch (when ‘c_35 == 44’)...
+           |  187 |                 *p = 0;
+           |      |                    ~                                        
+           |      |                    |
+           |      |                    (13) ...to here
+           |......
+           |  190 |                 if (!ntmp) {
+           |      |                    ~                                        
+           |      |                    |
+           |      |                    (14) following ‘false’ branch...
+           |......
+           |  193 |                 X509V3_add_value(ntmp, NULL, &values);
+           |      |                 ~                                           
+           |      |                 |
+           |      |                 (15) ...to here
+           |      |                 (16) calling ‘X509V3_add_value’ from ‘X509V3_parse_list’
+           |
+           +--> ‘X509V3_add_value’: events 17-28
+                  |
+                  |  127 | int X509V3_add_value(const char *name, const char *value,
+                  |      |     ^
+                  |      |     |
+                  |      |     (17) entry to ‘X509V3_add_value’
+                  |......
+                  |  134 |     if (name && (tname = OPENSSL_strdup(name)) == NULL)
+                  |      |        ~
+                  |      |        |
+                  |      |        (18) following ‘false’ branch (when ‘name_25(D)’ is NULL)...
+                  |  135 |         goto err;
+                  |  136 |     if (value && (tvalue = OPENSSL_strdup(value)) == NULL)
+                  |      |        ~
+                  |      |        |
+                  |      |        (19) ...to here
+                  |      |        (20) following ‘false’ branch (when ‘value_28(D)’ is NULL)...
+                  |  137 |         goto err;
+                  |  138 |     if ((vtmp = OPENSSL_malloc(sizeof(*vtmp))) == NULL)
+                  |      |        ~        ~
+                  |      |        |        |
+                  |      |        |        (21) ...to here
+                  |      |        |        (22) allocated here
+                  |      |        (23) assuming ‘vtmp_32’ is non-NULL
+                  |      |        (24) following ‘false’ branch (when ‘vtmp_32’ is non-NULL)...
+                  |  139 |         goto err;
+                  |  140 |     if (sk_allocated && (*extlist = sk_CONF_VALUE_new_null()) == NULL) /* allocation site */
+                  |      |        ~
+                  |      |        |
+                  |      |        (25) ...to here
+                  |      |        (26) following ‘false’ branch...
+                  |  141 |         goto err;
+                  |  142 |     vtmp->section = NULL;
+                  |      |                   ~
+                  |      |                   |
+                  |      |                   (27) ...to here
+                  |......
+                  |  145 |     if (!sk_CONF_VALUE_push(*extlist, vtmp))
+                  |      |        ~
+                  |      |        |
+                  |      |        (28) following ‘false’ branch...
+                  |
+                ‘X509V3_add_value’: event 29
+                  |
+                  |lto1:
+                  | (29): ...to here
+                  |
+                ‘X509V3_add_value’: event 30
+                  |
+                  |  145 |     if (!sk_CONF_VALUE_push(*extlist, vtmp))
+                  |      |        ^
+                  |      |        |
+                  |      |        (30) ‘vtmp_32’ leaks here; was allocated at (22)
+                  |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 91%)
+ phase opt and generate             :   0.22 (100%)   0.02 (100%)   0.25 (100%)   155k (  7%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)   126k (  5%)
+ tree operand scan                  :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)    29k (  1%)
+ analyzer                           :   0.02 (  9%)   0.00 (  0%)   0.02 (  8%)     0  (  0%)
+ analyzer: processing worklist      :   0.20 ( 91%)   0.01 ( 50%)   0.22 ( 88%)   192  (  0%)
+ TOTAL                              :   0.22          0.02          0.25         2366k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 68%)
+ phase opt and generate             :   0.05 (100%)   0.01 (100%)   0.06 (100%)   967k ( 30%)
+ callgraph functions expansion      :   0.05 (100%)   0.01 (100%)   0.06 (100%)   789k ( 25%)
+ ipa pure const                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ cfg cleanup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   256  (  0%)
+ trivially dead code                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ df reg dead/unused notes           :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    11k (  0%)
+ tree forward propagate             :   0.01 ( 20%)   0.01 (100%)   0.00 (  0%)  1392  (  0%)
+ expand                             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    85k (  3%)
+ if-conversion                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   632  (  0%)
+ reorder blocks                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)  4840  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    34k (  1%)
+ repair loop structures             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ TOTAL                              :   0.05          0.01          0.06         3173k
+/usr/bin/ld: /tmp/ccC51hR9.ltrans0.ltrans.o: in function `OPENSSL_sk_insert':
+<artificial>:(.text+0x54): undefined reference to `sk_reserve'
+/usr/bin/ld: /tmp/ccC51hR9.ltrans0.ltrans.o: in function `X509V3_add_value':
+<artificial>:(.text+0x1c9): undefined reference to `OPENSSL_strdup'
+/usr/bin/ld: <artificial>:(.text+0x1e6): undefined reference to `OPENSSL_strdup'
+/usr/bin/ld: /tmp/ccC51hR9.ltrans0.ltrans.o: in function `X509V3_parse_list':
+<artificial>:(.text+0x2c3): undefined reference to `OPENSSL_strdup'
+/usr/bin/ld: <artificial>:(.text+0x340): undefined reference to `strip_spaces'
+/usr/bin/ld: <artificial>:(.text+0x378): undefined reference to `strip_spaces'
+/usr/bin/ld: <artificial>:(.text+0x3a0): undefined reference to `strip_spaces'
+/usr/bin/ld: <artificial>:(.text+0x3d7): undefined reference to `strip_spaces'
+/usr/bin/ld: <artificial>:(.text+0x414): undefined reference to `strip_spaces'
+collect2: error: ld returned 1 exit status

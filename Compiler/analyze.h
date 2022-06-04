@@ -204,13 +204,16 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 						FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 						{
+
 							if (prebranchexit)
 							{
+								fprintf(stderr, "\n=====================prebranchexit:start================\n");
 								push_cfun(table_temp->node->get_fun());
 								calculate_dominance_info(CDI_DOMINATORS);
 								int succ_havereturn = 0;
 								for (int k = 0; k < global_ret_type_array.size(); k++)
 								{
+
 									basic_block bb;
 									FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 									{
@@ -258,6 +261,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																		debug_gimple_stmt(tmp);
 																		warning_at(gimple_location_safe(tmp), 0, "use location");
 																		fprintf(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
+																		name = get_name(table_temp->node->get_fun()->decl);
+																		if (name)
+																			fprintf(stderr, "In fucntion name:%s \n", name);
 																		fprintf(stderr, "branch in succ := %d have return or exit\n", gimple_bb(tmp)->index);
 
 																		fprintf(stderr, "\n======================================================================\n");
@@ -273,7 +279,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																succ_havereturn = 1;
 																fprintf(stderr, "\033[40;31m    branch possiable have return in bb:%d \033[0m\n", bb->index);
 																fprintf(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
-																fprintf(stderr, "beacuse in succ := %d have return \n", cfun->cfg->x_exit_block_ptr->prev_bb->index);
+																name = get_name(table_temp->node->get_fun()->decl);
+																if (name)
+																	fprintf(stderr, "In fucntion name:%s \n", name);
+																fprintf(stderr, "branch in succ := %d have return \n", cfun->cfg->x_exit_block_ptr->prev_bb->index);
 																fprintf(stderr, "\n======================================================================\n");
 																continue;
 															}
@@ -285,6 +294,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									}
 								}
 								pop_cfun();
+								fprintf(stderr, "\n=====================prebranchexit:end================\n");
 							}
 
 							if (stmtloopcheck)
@@ -563,12 +573,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												!strcmp(name, "strdup") ||
 												!strcmp(name, "xstrdup"))
 											{
-
+												
+												fprintf(stderr, "This stmt may duplicate memory requests.");
 												find_mallocstmt = IS_MALLOC_FUCNTION;
 											}
 											else
 											{
-
+												
 												find_mallocstmt = IS_OTHRER_FUCNTION;
 											}
 
@@ -1155,78 +1166,78 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				fprintf(stderr, "\n======================================================================\n");
 			}
 		// defmemoryleak check experiment
-		if (defmemoryleak)
-		{
-			for (int i = 0; i < defmalloc_array.size(); i++)
-			{
-				for (int j = 0; j < defmalloc_array.size(); j++)
-				{
-					// if (defmalloc_array.at(i).malloc_tree != defmalloc_array.at(j).malloc_tree)
-					// {	fprintf(stderr, "\033[40;31m  start check tree \033[0m\n");
-					// 	if (ptr_derefs_may_alias_p(defmalloc_array.at(i).malloc_tree, defmalloc_array.at(j).malloc_tree))
-					// 	{
-					// 		debug(defmalloc_array.at(i).malloc_tree);
-					// 		debug(defmalloc_array.at(j).malloc_tree);
-					// 		fprintf(stderr, "\033[40;31m  same alias gimple tree \033[0m\n");
-					// 	}
-					// }
-					if (i != j)
-					{
-						if (SSA_NAME_VAR(defmalloc_array.at(i).malloc_tree) == SSA_NAME_VAR(defmalloc_array.at(j).malloc_tree))
-							if (Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).stmt, function_tree))
-							// if (Location_b2(defmalloc_array.at(i).stmt, defmalloc_array.at(j).stmt, function_tree))
-							{
-								// debug(defmalloc_array.at(i).free_array.at(k).stmt);
-								if (defmalloc_array.at(i).free_array.size())
-								{
-									int finddefsafe = 0;
-									// fprintf(stderr, "\033[40;31mfuck%d \033[0m\n",	Location_b3(defmalloc_array.at(i).free_array.at(0).stmt, defmalloc_array.at(i).free_array.at(1).stmt, function_tree));
-									// 		fprintf(stderr, "\033[40;31mfuck%d \033[0m\n",	Location_b3(defmalloc_array.at(i).free_array.at(1).stmt, defmalloc_array.at(i).free_array.at(0).stmt, function_tree));
+		// if (defmemoryleak)
+		// {
+		// 	for (int i = 0; i < defmalloc_array.size(); i++)
+		// 	{
+		// 		for (int j = 0; j < defmalloc_array.size(); j++)
+		// 		{
+		// 			// if (defmalloc_array.at(i).malloc_tree != defmalloc_array.at(j).malloc_tree)
+		// 			// {	fprintf(stderr, "\033[40;31m  start check tree \033[0m\n");
+		// 			// 	if (ptr_derefs_may_alias_p(defmalloc_array.at(i).malloc_tree, defmalloc_array.at(j).malloc_tree))
+		// 			// 	{
+		// 			// 		debug(defmalloc_array.at(i).malloc_tree);
+		// 			// 		debug(defmalloc_array.at(j).malloc_tree);
+		// 			// 		fprintf(stderr, "\033[40;31m  same alias gimple tree \033[0m\n");
+		// 			// 	}
+		// 			// }
+		// 			if (i != j)
+		// 			{
+		// 				if (SSA_NAME_VAR(defmalloc_array.at(i).malloc_tree) == SSA_NAME_VAR(defmalloc_array.at(j).malloc_tree))
+		// 					if (Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).stmt, function_tree))
+		// 					// if (Location_b2(defmalloc_array.at(i).stmt, defmalloc_array.at(j).stmt, function_tree))
+		// 					{
+		// 						// debug(defmalloc_array.at(i).free_array.at(k).stmt);
+		// 						if (defmalloc_array.at(i).free_array.size())
+		// 						{
+		// 							int finddefsafe = 0;
+		// 							// fprintf(stderr, "\033[40;31mfuck%d \033[0m\n",	Location_b3(defmalloc_array.at(i).free_array.at(0).stmt, defmalloc_array.at(i).free_array.at(1).stmt, function_tree));
+		// 							// 		fprintf(stderr, "\033[40;31mfuck%d \033[0m\n",	Location_b3(defmalloc_array.at(i).free_array.at(1).stmt, defmalloc_array.at(i).free_array.at(0).stmt, function_tree));
 
-									for (int k = 0; k < defmalloc_array.at(i).free_array.size(); k++)
-									{
+		// 							for (int k = 0; k < defmalloc_array.at(i).free_array.size(); k++)
+		// 							{
 
-										// debug(defmalloc_array.at(i).free_array.at(k).stmt);
-										// debug(defmalloc_array.at(i).free_array.at(k).stmt);
-										// if (gimple_bb(defmalloc_array.at(j).stmt)->index == gimple_bb(defmalloc_array.at(i).free_array.at(k).stmt)->index)
-										if (!Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).free_array.at(k).stmt, function_tree))
-										{
-											// sec malloc after first free stmt
-											finddefsafe = 1;
-										}
-										else
-										{
-											// sec malloc before first free stmt
-											finddefsafe = -1;
-											// debug(defmalloc_array.at(i).free_array.at(k).stmt);
-										}
-									}
+		// 								// debug(defmalloc_array.at(i).free_array.at(k).stmt);
+		// 								// debug(defmalloc_array.at(i).free_array.at(k).stmt);
+		// 								// if (gimple_bb(defmalloc_array.at(j).stmt)->index == gimple_bb(defmalloc_array.at(i).free_array.at(k).stmt)->index)
+		// 								if (!Location_b3(defmalloc_array.at(j).stmt, defmalloc_array.at(i).free_array.at(k).stmt, function_tree))
+		// 								{
+		// 									// sec malloc after first free stmt
+		// 									finddefsafe = 1;
+		// 								}
+		// 								else
+		// 								{
+		// 									// sec malloc before first free stmt
+		// 									finddefsafe = -1;
+		// 									// debug(defmalloc_array.at(i).free_array.at(k).stmt);
+		// 								}
+		// 							}
 
-									if (finddefsafe >= 0)
-									{
-										// use sec malloc stmt ,first malloc stmt no free
-										fprintf(stderr, "\033[40;31m   malloc def-leak warring \033[0m\n");
-										debug(defmalloc_array.at(i).malloc_tree);
-										warning_at(gimple_location_safe(defmalloc_array.at(i).stmt), 0, "use location");
-										fprintf(stderr, "\033[40;31m   memory leak and alloc new memory \033[0m\n");
-										debug(defmalloc_array.at(j).malloc_tree);
-										warning_at(gimple_location_safe(defmalloc_array.at(j).stmt), 0, "use location");
-									}
-								}
-								else
-								{
-									// first malloc no free stmt
-									fprintf(stderr, "\033[40;31m   malloc def-leak warring \033[0m\n");
-									debug(defmalloc_array.at(i).malloc_tree);
-									warning_at(gimple_location_safe(defmalloc_array.at(i).stmt), 0, "use location");
-									fprintf(stderr, "\033[40;31m   memory leak and alloc new memory \033[0m\n");
-									debug(defmalloc_array.at(j).malloc_tree);
-									warning_at(gimple_location_safe(defmalloc_array.at(j).stmt), 0, "use location");
-								}
-							}
-					}
-				}
-			}
-		}
+		// 							if (finddefsafe >= 0)
+		// 							{
+		// 								// use sec malloc stmt ,first malloc stmt no free
+		// 								fprintf(stderr, "\033[40;31m   malloc def-leak warring \033[0m\n");
+		// 								debug(defmalloc_array.at(i).malloc_tree);
+		// 								warning_at(gimple_location_safe(defmalloc_array.at(i).stmt), 0, "use location");
+		// 								fprintf(stderr, "\033[40;31m   memory leak and alloc new memory \033[0m\n");
+		// 								debug(defmalloc_array.at(j).malloc_tree);
+		// 								warning_at(gimple_location_safe(defmalloc_array.at(j).stmt), 0, "use location");
+		// 							}
+		// 						}
+		// 						else
+		// 						{
+		// 							// first malloc no free stmt
+		// 							fprintf(stderr, "\033[40;31m   malloc def-leak warring \033[0m\n");
+		// 							debug(defmalloc_array.at(i).malloc_tree);
+		// 							warning_at(gimple_location_safe(defmalloc_array.at(i).stmt), 0, "use location");
+		// 							fprintf(stderr, "\033[40;31m   memory leak and alloc new memory \033[0m\n");
+		// 							debug(defmalloc_array.at(j).malloc_tree);
+		// 							warning_at(gimple_location_safe(defmalloc_array.at(j).stmt), 0, "use location");
+		// 						}
+		// 					}
+		// 			}
+		// 		}
+		// 	}
+		// }
 	}
 }

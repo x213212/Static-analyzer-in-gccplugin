@@ -1,0 +1,87 @@
+./benchmarks/openssl/leak_5/openssl_leak_5.c:175:5: error: expected specifier-qualifier-list before ‘STACK_OF’
+  175 |     STACK_OF(ASN1_OBJECT) *policies; /* Permissible policies */
+      |     ^~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c: In function ‘X509_STORE_CTX_cleanup’:
+./benchmarks/openssl/leak_5/openssl_leak_5.c:196:25: warning: implicit declaration of function ‘X509_VERIFY_PARAM_free’ [-Wimplicit-function-declaration]
+  196 |                         X509_VERIFY_PARAM_free(ctx->param);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:199:5: warning: implicit declaration of function ‘X509_policy_tree_free’ [-Wimplicit-function-declaration]
+  199 |     X509_policy_tree_free(ctx->tree);
+      |     ^~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:201:5: warning: implicit declaration of function ‘sk_X509_pop_free’ [-Wimplicit-function-declaration]
+  201 |     sk_X509_pop_free(ctx->chain, X509_free);
+      |     ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:201:25: error: ‘X509_STORE_CTX’ {aka ‘struct x509_store_ctx_st’} has no member named ‘chain’
+  201 |     sk_X509_pop_free(ctx->chain, X509_free);
+      |                         ^~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:202:8: error: ‘X509_STORE_CTX’ {aka ‘struct x509_store_ctx_st’} has no member named ‘chain’
+  202 |     ctx->chain = NULL;
+      |        ^~
+./benchmarks/openssl/leak_5/openssl_leak_5.c: In function ‘test_ptr’:
+./benchmarks/openssl/leak_5/openssl_leak_5.c:219:5: warning: implicit declaration of function ‘test_fail_message’ [-Wimplicit-function-declaration]
+  219 |     test_fail_message(NULL, file, line, "ptr", s, "NULL", "!=", "%p", p);
+      |     ^~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c: In function ‘check_key_level’:
+./benchmarks/openssl/leak_5/openssl_leak_5.c:262:22: warning: implicit declaration of function ‘X509_get0_pubkey’ [-Wimplicit-function-declaration]
+  262 |     EVP_PKEY *pkey = X509_get0_pubkey(cert);
+      |                      ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:262:22: warning: initialization of ‘EVP_PKEY *’ {aka ‘struct evp_pkey_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_5/openssl_leak_5.c:272:12: warning: implicit declaration of function ‘EVP_PKEY_security_bits’ [-Wimplicit-function-declaration]
+  272 |     return EVP_PKEY_security_bits(pkey) >= minbits_table[level - 1];
+      |            ^~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c: In function ‘X509_verify_cert’:
+./benchmarks/openssl/leak_5/openssl_leak_5.c:285:12: error: ‘X509_STORE_CTX’ {aka ‘struct x509_store_ctx_st’} has no member named ‘chain’
+  285 |     if (ctx->chain != NULL) {
+      |            ^~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:298:14: error: ‘X509_STORE_CTX’ {aka ‘struct x509_store_ctx_st’} has no member named ‘chain’
+  298 |     if (((ctx->chain = sk_X509_new_null()) == NULL) ||
+      |              ^~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:298:24: warning: implicit declaration of function ‘sk_X509_new_null’ [-Wimplicit-function-declaration]
+  298 |     if (((ctx->chain = sk_X509_new_null()) == NULL) ||
+      |                        ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:299:11: warning: implicit declaration of function ‘sk_X509_push’ [-Wimplicit-function-declaration]
+  299 |         (!sk_X509_push(ctx->chain, ctx->cert))) {
+      |           ^~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:299:27: error: ‘X509_STORE_CTX’ {aka ‘struct x509_store_ctx_st’} has no member named ‘chain’
+  299 |         (!sk_X509_push(ctx->chain, ctx->cert))) {
+      |                           ^~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:303:5: warning: implicit declaration of function ‘X509_up_ref’; did you mean ‘X509_free’? [-Wimplicit-function-declaration]
+  303 |     X509_up_ref(ctx->cert);
+      |     ^~~~~~~~~~~
+      |     X509_free
+./benchmarks/openssl/leak_5/openssl_leak_5.c:308:10: warning: implicit declaration of function ‘verify_cb_cert’ [-Wimplicit-function-declaration]
+  308 |         !verify_cb_cert(ctx, ctx->cert, 0, X509_V_ERR_EE_KEY_TOO_SMALL))
+      |          ^~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:311:9: warning: implicit declaration of function ‘DANETLS_ENABLED’ [-Wimplicit-function-declaration]
+  311 |     if (DANETLS_ENABLED(dane))
+      |         ^~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:312:15: warning: implicit declaration of function ‘dane_verify’ [-Wimplicit-function-declaration]
+  312 |         ret = dane_verify(ctx);
+      |               ^~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c:314:15: warning: implicit declaration of function ‘verify_chain’ [-Wimplicit-function-declaration]
+  314 |         ret = verify_chain(ctx);
+      |               ^~~~~~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c: At top level:
+./benchmarks/openssl/leak_5/openssl_leak_5.c:331:43: error: unknown type name ‘STACK_OF’
+  331 | static int verify(X509 *leaf, X509 *root, STACK_OF(X509_CRL) *crls,
+      |                                           ^~~~~~~~
+./benchmarks/openssl/leak_5/openssl_leak_5.c: In function ‘test_no_crl’:
+./benchmarks/openssl/leak_5/openssl_leak_5.c:373:12: warning: implicit declaration of function ‘TEST_int_eq’; did you mean ‘TEST_long_eq’? [-Wimplicit-function-declaration]
+  373 |     return TEST_int_eq(verify(test_leaf, test_root, NULL,
+      |            ^~~~~~~~~~~
+      |            TEST_long_eq
+./benchmarks/openssl/leak_5/openssl_leak_5.c:373:24: warning: implicit declaration of function ‘verify’ [-Wimplicit-function-declaration]
+  373 |     return TEST_int_eq(verify(test_leaf, test_root, NULL,
+      |                        ^~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)  1298k ( 38%)
+ phase parsing                      :   0.21 (100%)   0.01 (100%)   0.21 ( 91%)  2005k ( 59%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)    77k (  2%)
+ preprocessing                      :   0.02 ( 10%)   0.00 (  0%)   0.05 ( 22%)  1102k ( 33%)
+ lexical analysis                   :   0.01 (  5%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.02 ( 10%)   0.00 (  0%)   0.02 (  9%)   686k ( 20%)
+ parser struct body                 :   0.01 (  5%)   0.00 (  0%)   0.00 (  0%)   102k (  3%)
+ parser function body               :   0.15 ( 71%)   0.00 (  0%)   0.14 ( 61%)   105k (  3%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)     0  (  0%)
+ TOTAL                              :   0.21          0.01          0.23         3392k

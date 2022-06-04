@@ -1,0 +1,490 @@
+In file included from ./benchmarks/git/leak_2/git_leak_2.c:10:
+./benchmarks/git/leak_2/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_2/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_2/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_2/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_2/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_2/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_2/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_2/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_2/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_2/git_leak_2.c:9:
+./benchmarks/git/leak_2/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_2/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_2/git_leak_2.c:10:
+./benchmarks/git/leak_2/../git.h: At top level:
+./benchmarks/git/leak_2/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_2/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_2/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_2/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_2/git_leak_2.c: In function ‘best_bisection’:
+./benchmarks/git/leak_2/git_leak_2.c:51:28: warning: implicit declaration of function ‘weight’ [-Wimplicit-function-declaration]
+   51 |                 distance = weight(p);
+      |                            ^~~~~~
+./benchmarks/git/leak_2/git_leak_2.c: In function ‘best_bisection_sorted’:
+./benchmarks/git/leak_2/git_leak_2.c:86:17: warning: implicit declaration of function ‘strbuf_reset’ [-Wimplicit-function-declaration]
+   86 |                 strbuf_reset(&buf);
+      |                 ^~~~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:87:17: warning: implicit declaration of function ‘strbuf_addf’ [-Wimplicit-function-declaration]
+   87 |                 strbuf_addf(&buf, "dist=%d", array[i].distance);
+      |                 ^~~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:88:17: warning: implicit declaration of function ‘add_name_decoration’ [-Wimplicit-function-declaration]
+   88 |                 add_name_decoration(DECORATION_NONE, buf.buf, obj);
+      |                 ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:96:9: warning: implicit declaration of function ‘strbuf_release’ [-Wimplicit-function-declaration]
+   96 |         strbuf_release(&buf);
+      |         ^~~~~~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c: In function ‘do_find_bisection’:
+./benchmarks/git/leak_2/git_leak_2.c:116:25: warning: implicit declaration of function ‘count_interesting_parents’ [-Wimplicit-function-declaration]
+  116 |                 switch (count_interesting_parents(commit)) {
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:119:33: warning: implicit declaration of function ‘weight_set’ [-Wimplicit-function-declaration]
+  119 |                                 weight_set(p, 1);
+      |                                 ^~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:121:33: warning: implicit declaration of function ‘show_list’ [-Wimplicit-function-declaration]
+  121 |                                 show_list("bisection 2 count one",
+      |                                 ^~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:159:31: warning: implicit declaration of function ‘count_distance’ [-Wimplicit-function-declaration]
+  159 |                 weight_set(p, count_distance(p));
+      |                               ^~~~~~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:160:17: warning: implicit declaration of function ‘clear_distance’ [-Wimplicit-function-declaration]
+  160 |                 clear_distance(list);
+      |                 ^~~~~~~~~~~~~~
+./benchmarks/git/leak_2/git_leak_2.c:163:34: warning: implicit declaration of function ‘halfway’ [-Wimplicit-function-declaration]
+  163 |                 if (!find_all && halfway(p, nr))
+      |                                  ^~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1298k ( 48%)
+ phase parsing                      :   0.03 ( 75%)   0.01 ( 50%)   0.04 ( 67%)  1108k ( 41%)
+ phase opt and generate             :   0.01 ( 25%)   0.01 ( 50%)   0.01 ( 17%)   307k ( 11%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.01 ( 50%)   0.01 ( 17%)   172k (  6%)
+ ipa lto decl out                   :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)   256  (  0%)
+ lexical analysis                   :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 33%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   570k ( 21%)
+ parser struct body                 :   0.01 ( 25%)   0.01 ( 50%)   0.00 (  0%)    73k (  3%)
+ parser function body               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   112k (  4%)
+ tree CFG cleanup                   :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)  1208  (  0%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1488  (  0%)
+ TOTAL                              :   0.04          0.02          0.06         2724k
+./benchmarks/git/leak_2/git_leak_2.c: In function ‘commit_list_insert’:
+./benchmarks/git/leak_2/git_leak_2.c:33:24: warning: dereference of possibly-NULL ‘new_list_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   33 |         new_list->item = item;
+      |                        ^
+  ‘commit_list_insert’: events 1-2
+    |
+    |   32 |         struct commit_list *new_list = xmalloc(sizeof(struct commit_list)); /* allocation site */
+    |      |                                        ^
+    |      |                                        |
+    |      |                                        (1) this call could return NULL
+    |   33 |         new_list->item = item;
+    |      |                        ~                
+    |      |                        |
+    |      |                        (2) ‘new_list_4’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/git/leak_2/git_leak_2.c: In function ‘best_bisection_sorted’:
+./benchmarks/git/leak_2/git_leak_2.c:94:9: warning: dereference of NULL ‘p_29’ [CWE-476] [-Wanalyzer-null-dereference]
+   94 |         free_commit_list(p->next);
+      |         ^
+  ‘find_bisection’: events 1-4
+    |
+    |  214 | void find_bisection(struct commit_list **commit_list, int *reaches,
+    |      |      ^
+    |      |      |
+    |      |      (1) entry to ‘find_bisection’
+    |......
+    |  228 |              p;
+    |      |              ~
+    |      |              |
+    |      |              (2) following ‘false’ branch (when ‘p_11’ is NULL)...
+    |......
+    |  244 |         show_list("bisection 2 sorted", 0, nr, list);
+    |      |         ~
+    |      |         |
+    |      |         (3) ...to here
+    |......
+    |  250 |         best = do_find_bisection(list, nr, weights, find_all);
+    |      |                ~
+    |      |                |
+    |      |                (4) calling ‘do_find_bisection’ from ‘find_bisection’
+    |
+    +--> ‘do_find_bisection’: events 5-14
+           |
+           |  102 | static struct commit_list *do_find_bisection(struct commit_list *list,
+           |      |                            ^
+           |      |                            |
+           |      |                            (5) entry to ‘do_find_bisection’
+           |......
+           |  111 |         for (n = 0, p = list; p; p = p->next) {
+           |      |                               ~
+           |      |                               |
+           |      |                               (6) following ‘false’ branch (when ‘p_32’ is NULL)...
+           |......
+           |  138 |         show_list("bisection 2 initialize", counted, nr, list);
+           |      |         ~                   
+           |      |         |
+           |      |         (7) ...to here
+           |......
+           |  154 |         for (p = list; p; p = p->next) {
+           |      |                        ~    
+           |      |                        |
+           |      |                        (8) following ‘false’ branch (when ‘p_33’ is NULL)...
+           |......
+           |  168 |         show_list("bisection 2 count_distance", counted, nr, list);
+           |      |         ~                   
+           |      |         |
+           |      |         (9) ...to here
+           |  169 | 
+           |  170 |         while (counted < nr) {
+           |      |                        ~    
+           |      |                        |
+           |      |                        (10) following ‘false’ branch (when ‘counted_31 >= nr_55(D)’)...
+           |......
+           |  206 |         show_list("bisection 2 counted all", counted, nr, list);
+           |      |         ~                   
+           |      |         |
+           |      |         (11) ...to here
+           |  207 | 
+           |  208 |         if (!find_all)
+           |      |            ~                
+           |      |            |
+           |      |            (12) following ‘false’ branch (when ‘find_all_60(D) != 0’)...
+           |......
+           |  211 |                 return best_bisection_sorted(list, nr);
+           |      |                        ~    
+           |      |                        |
+           |      |                        (13) ...to here
+           |      |                        (14) calling ‘best_bisection_sorted’ from ‘do_find_bisection’
+           |
+           +--> ‘best_bisection_sorted’: events 15-16
+                  |
+                  |   63 | static struct commit_list *best_bisection_sorted(struct commit_list *list, int nr)
+                  |      |                            ^
+                  |      |                            |
+                  |      |                            (15) entry to ‘best_bisection_sorted’
+                  |......
+                  |   70 |         for (p = list, cnt = 0; p; p = p->next) {
+                  |      |                                 ~
+                  |      |                                 |
+                  |      |                                 (16) following ‘false’ branch (when ‘p_27’ is NULL)...
+                  |
+                ‘best_bisection_sorted’: event 17
+                  |
+                  |lto1:
+                  | (17): ...to here
+                  |
+                ‘best_bisection_sorted’: events 18-20
+                  |
+                  |   83 |         for (p = list, i = 0; i < cnt; i++) {
+                  |      |                                 ^
+                  |      |                                 |
+                  |      |                                 (18) following ‘false’ branch (when ‘cnt_31 <= i_32’)...
+                  |......
+                  |   94 |         free_commit_list(p->next);
+                  |      |         ~                        
+                  |      |         |
+                  |      |         (19) ...to here
+                  |      |         (20) dereference of NULL ‘p_29’
+                  |
+./benchmarks/git/leak_2/git_leak_2.c:95:17: warning: dereference of NULL ‘p_29’ [CWE-476] [-Wanalyzer-null-dereference]
+   95 |         p->next = NULL;
+      |                 ^
+  ‘find_bisection’: events 1-4
+    |
+    |  214 | void find_bisection(struct commit_list **commit_list, int *reaches,
+    |      |      ^
+    |      |      |
+    |      |      (1) entry to ‘find_bisection’
+    |......
+    |  228 |              p;
+    |      |              ~
+    |      |              |
+    |      |              (2) following ‘false’ branch (when ‘p_11’ is NULL)...
+    |......
+    |  244 |         show_list("bisection 2 sorted", 0, nr, list);
+    |      |         ~
+    |      |         |
+    |      |         (3) ...to here
+    |......
+    |  250 |         best = do_find_bisection(list, nr, weights, find_all);
+    |      |                ~
+    |      |                |
+    |      |                (4) calling ‘do_find_bisection’ from ‘find_bisection’
+    |
+    +--> ‘do_find_bisection’: events 5-14
+           |
+           |  102 | static struct commit_list *do_find_bisection(struct commit_list *list,
+           |      |                            ^
+           |      |                            |
+           |      |                            (5) entry to ‘do_find_bisection’
+           |......
+           |  111 |         for (n = 0, p = list; p; p = p->next) {
+           |      |                               ~
+           |      |                               |
+           |      |                               (6) following ‘false’ branch (when ‘p_32’ is NULL)...
+           |......
+           |  138 |         show_list("bisection 2 initialize", counted, nr, list);
+           |      |         ~                   
+           |      |         |
+           |      |         (7) ...to here
+           |......
+           |  154 |         for (p = list; p; p = p->next) {
+           |      |                        ~    
+           |      |                        |
+           |      |                        (8) following ‘false’ branch (when ‘p_33’ is NULL)...
+           |......
+           |  168 |         show_list("bisection 2 count_distance", counted, nr, list);
+           |      |         ~                   
+           |      |         |
+           |      |         (9) ...to here
+           |  169 | 
+           |  170 |         while (counted < nr) {
+           |      |                        ~    
+           |      |                        |
+           |      |                        (10) following ‘false’ branch (when ‘counted_31 >= nr_55(D)’)...
+           |......
+           |  206 |         show_list("bisection 2 counted all", counted, nr, list);
+           |      |         ~                   
+           |      |         |
+           |      |         (11) ...to here
+           |  207 | 
+           |  208 |         if (!find_all)
+           |      |            ~                
+           |      |            |
+           |      |            (12) following ‘false’ branch (when ‘find_all_60(D) != 0’)...
+           |......
+           |  211 |                 return best_bisection_sorted(list, nr);
+           |      |                        ~    
+           |      |                        |
+           |      |                        (13) ...to here
+           |      |                        (14) calling ‘best_bisection_sorted’ from ‘do_find_bisection’
+           |
+           +--> ‘best_bisection_sorted’: events 15-16
+                  |
+                  |   63 | static struct commit_list *best_bisection_sorted(struct commit_list *list, int nr)
+                  |      |                            ^
+                  |      |                            |
+                  |      |                            (15) entry to ‘best_bisection_sorted’
+                  |......
+                  |   70 |         for (p = list, cnt = 0; p; p = p->next) {
+                  |      |                                 ~
+                  |      |                                 |
+                  |      |                                 (16) following ‘false’ branch (when ‘p_27’ is NULL)...
+                  |
+                ‘best_bisection_sorted’: event 17
+                  |
+                  |lto1:
+                  | (17): ...to here
+                  |
+                ‘best_bisection_sorted’: events 18-20
+                  |
+                  |   83 |         for (p = list, i = 0; i < cnt; i++) {
+                  |      |                                 ^
+                  |      |                                 |
+                  |      |                                 (18) following ‘false’ branch (when ‘cnt_31 <= i_32’)...
+                  |......
+                  |   94 |         free_commit_list(p->next);
+                  |      |         ~                        
+                  |      |         |
+                  |      |         (19) ...to here
+                  |      |         (20) calling ‘free_commit_list’ from ‘best_bisection_sorted’
+                  |
+                  +--> ‘free_commit_list’: events 21-24
+                         |
+                         |   24 | void free_commit_list(struct commit_list *list)
+                         |      |      ^
+                         |      |      |
+                         |      |      (21) entry to ‘free_commit_list’
+                         |   25 | {
+                         |   26 |         while (list)
+                         |      |                ~
+                         |      |                |
+                         |      |                (22) following ‘true’ branch...
+                         |   27 |                 pop_commit(&list);
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (23) ...to here
+                         |      |                 (24) calling ‘pop_commit’ from ‘free_commit_list’
+                         |
+                         +--> ‘pop_commit’: events 25-29
+                                |
+                                |   12 | struct commit *pop_commit(struct commit_list **stack)
+                                |      |                ^
+                                |      |                |
+                                |      |                (25) entry to ‘pop_commit’
+                                |......
+                                |   15 |         struct commit *item = top ? top->item : NULL;
+                                |      |                                               ~
+                                |      |                                               |
+                                |      |                                               (26) following ‘true’ branch (when ‘top_6’ is non-NULL)...
+                                |      |                                               (27) ...to here
+                                |   16 | 
+                                |   17 |         if (top) {
+                                |      |            ~    
+                                |      |            |
+                                |      |            (28) following ‘true’ branch (when ‘top_6’ is non-NULL)...
+                                |   18 |                 *stack = top->next;
+                                |      |                             ~
+                                |      |                             |
+                                |      |                             (29) ...to here
+                                |
+                         <------+
+                         |
+                       ‘free_commit_list’: events 30-33
+                         |
+                         |   26 |         while (list)
+                         |      |                ~ 
+                         |      |                |
+                         |      |                (31) following ‘true’ branch...
+                         |   27 |                 pop_commit(&list);
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (30) returning to ‘free_commit_list’ from ‘pop_commit’
+                         |      |                 (32) ...to here
+                         |      |                 (33) calling ‘pop_commit’ from ‘free_commit_list’
+                         |
+                         +--> ‘pop_commit’: events 34-38
+                                |
+                                |   12 | struct commit *pop_commit(struct commit_list **stack)
+                                |      |                ^
+                                |      |                |
+                                |      |                (34) entry to ‘pop_commit’
+                                |......
+                                |   15 |         struct commit *item = top ? top->item : NULL;
+                                |      |                                               ~
+                                |      |                                               |
+                                |      |                                               (35) following ‘true’ branch (when ‘top_6’ is non-NULL)...
+                                |      |                                               (36) ...to here
+                                |   16 | 
+                                |   17 |         if (top) {
+                                |      |            ~    
+                                |      |            |
+                                |      |            (37) following ‘true’ branch (when ‘top_6’ is non-NULL)...
+                                |   18 |                 *stack = top->next;
+                                |      |                             ~
+                                |      |                             |
+                                |      |                             (38) ...to here
+                                |
+                         <------+
+                         |
+                       ‘free_commit_list’: events 39-41
+                         |
+                         |   26 |         while (list)
+                         |      |                ~ 
+                         |      |                |
+                         |      |                (40) following ‘true’ branch...
+                         |   27 |                 pop_commit(&list);
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (39) returning to ‘free_commit_list’ from ‘pop_commit’
+                         |      |                 (41) ...to here
+                         |
+                  <------+
+                  |
+                ‘best_bisection_sorted’: events 42-43
+                  |
+                  |   94 |         free_commit_list(p->next);
+                  |      |         ^
+                  |      |         |
+                  |      |         (42) returning to ‘best_bisection_sorted’ from ‘free_commit_list’
+                  |   95 |         p->next = NULL;
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (43) dereference of NULL ‘p_29’
+                  |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)  2157k ( 89%)
+ phase opt and generate             :   0.18 (100%)   0.01 (100%)   0.19 ( 95%)   187k (  8%)
+ analyzer                           :   0.01 (  6%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ analyzer: processing worklist      :   0.14 ( 78%)   0.01 (100%)   0.14 ( 70%)   552  (  0%)
+ analyzer: emitting diagnostics     :   0.03 ( 17%)   0.00 (  0%)   0.04 ( 20%)     0  (  0%)
+ TOTAL                              :   0.18          0.01          0.20         2417k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 67%)
+ phase opt and generate             :   0.05 (100%)   0.00 (  0%)   0.04 (100%)   985k ( 31%)
+ callgraph functions expansion      :   0.05 (100%)   0.00 (  0%)   0.04 (100%)   788k ( 25%)
+ df reg dead/unused notes           :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    16k (  1%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    33k (  1%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   624  (  0%)
+ tree forward propagate             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)  1624  (  0%)
+ tree SSA uncprop                   :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   226k (  7%)
+ hard reg cprop                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   216  (  0%)
+ initialize rtl                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ address taken                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ TOTAL                              :   0.05          0.00          0.04         3204k
+/usr/bin/ld: /tmp/ccH60Nca.ltrans0.ltrans.o: in function `best_bisection':
+<artificial>:(.text+0xad): undefined reference to `weight'
+/usr/bin/ld: /tmp/ccH60Nca.ltrans0.ltrans.o: in function `best_bisection_sorted':
+<artificial>:(.text+0x116): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x148): undefined reference to `weight'
+/usr/bin/ld: <artificial>:(.text+0x1a4): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x1bb): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x1d2): undefined reference to `add_name_decoration'
+/usr/bin/ld: <artificial>:(.text+0x20b): undefined reference to `strbuf_release'
+/usr/bin/ld: /tmp/ccH60Nca.ltrans0.ltrans.o: in function `do_find_bisection':
+<artificial>:(.text+0x272): undefined reference to `weight_set'
+/usr/bin/ld: <artificial>:(.text+0x28e): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x2a2): undefined reference to `weight_set'
+/usr/bin/ld: <artificial>:(.text+0x2d0): undefined reference to `count_interesting_parents'
+/usr/bin/ld: <artificial>:(.text+0x2eb): undefined reference to `weight_set'
+/usr/bin/ld: <artificial>:(.text+0x314): undefined reference to `weight'
+/usr/bin/ld: <artificial>:(.text+0x326): undefined reference to `count_distance'
+/usr/bin/ld: <artificial>:(.text+0x335): undefined reference to `weight_set'
+/usr/bin/ld: <artificial>:(.text+0x342): undefined reference to `clear_distance'
+/usr/bin/ld: <artificial>:(.text+0x359): undefined reference to `halfway'
+/usr/bin/ld: <artificial>:(.text+0x380): undefined reference to `weight'
+/usr/bin/ld: <artificial>:(.text+0x397): undefined reference to `weight'
+/usr/bin/ld: <artificial>:(.text+0x3a6): undefined reference to `weight_set'
+/usr/bin/ld: <artificial>:(.text+0x3b5): undefined reference to `weight'
+/usr/bin/ld: <artificial>:(.text+0x3c5): undefined reference to `weight_set'
+/usr/bin/ld: <artificial>:(.text+0x3e1): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x410): undefined reference to `weight'
+/usr/bin/ld: <artificial>:(.text+0x437): undefined reference to `halfway'
+/usr/bin/ld: <artificial>:(.text+0x487): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x4a5): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x4c2): undefined reference to `show_list'
+/usr/bin/ld: <artificial>:(.text+0x4f4): undefined reference to `show_list'
+/usr/bin/ld: /tmp/ccH60Nca.ltrans0.ltrans.o: in function `find_bisection':
+<artificial>:(.text+0x535): undefined reference to `show_list'
+/usr/bin/ld: /tmp/ccH60Nca.ltrans0.ltrans.o:<artificial>:(.text+0x5af): more undefined references to `show_list' follow
+/usr/bin/ld: /tmp/ccH60Nca.ltrans0.ltrans.o: in function `find_bisection':
+<artificial>:(.text+0x5f7): undefined reference to `weight'
+collect2: error: ld returned 1 exit status

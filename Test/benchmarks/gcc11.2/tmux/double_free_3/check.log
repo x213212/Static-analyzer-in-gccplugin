@@ -1,0 +1,119 @@
+./benchmarks/tmux/double_free_3/tmux_df_3.c: In function ‘cmd_string_string’:
+./benchmarks/tmux/double_free_3/tmux_df_3.c:93:54: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   93 |                         buf = xrealloc(buf, 1, len + strlen(t) + 1);
+      |                                                      ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+   10 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/tmux/double_free_3/tmux_df_3.c:93:54: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+   93 |                         buf = xrealloc(buf, 1, len + strlen(t) + 1);
+      |                                                      ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:93:54: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/double_free_3/tmux_df_3.c:94:25: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+   94 |                         strcpy(buf + len, t);
+      |                         ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:94:25: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/tmux/double_free_3/tmux_df_3.c:94:25: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/double_free_3/tmux_df_3.c:94:25: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/tmux/double_free_3/tmux_df_3.c: In function ‘cmd_string_variable’:
+./benchmarks/tmux/double_free_3/tmux_df_3.c:145:29: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  145 |                         t = strdup("$");
+      |                             ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:145:29: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+In file included from ./benchmarks/tmux/double_free_3/tmux_df_3.c:9:
+./benchmarks/tmux/double_free_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:175:25: note: in expansion of macro ‘xstrdup’
+  175 |                 return (xstrdup(""));
+      |                         ^~~~~~~
+./benchmarks/tmux/double_free_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:178:17: note: in expansion of macro ‘xstrdup’
+  178 |         return (xstrdup(t));
+      |                 ^~~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c: In function ‘cmd_string_expand_tilde’:
+./benchmarks/tmux/double_free_3/tmux_df_3.c:195:35: warning: implicit declaration of function ‘getpwuid’ [-Wimplicit-function-declaration]
+  195 |                         if ((pw = getpwuid(getuid())) != NULL)
+      |                                   ^~~~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:195:44: warning: implicit declaration of function ‘getuid’ [-Wimplicit-function-declaration]
+  195 |                         if ((pw = getpwuid(getuid())) != NULL)
+      |                                            ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:195:33: warning: assignment to ‘struct passwd *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  195 |                         if ((pw = getpwuid(getuid())) != NULL)
+      |                                 ^
+./benchmarks/tmux/double_free_3/tmux_df_3.c:202:27: warning: implicit declaration of function ‘getpwnam’ [-Wimplicit-function-declaration]
+  202 |                 if ((pw = getpwnam(username)) != NULL)
+      |                           ^~~~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:202:25: warning: assignment to ‘struct passwd *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  202 |                 if ((pw = getpwnam(username)) != NULL)
+      |                         ^
+./benchmarks/tmux/double_free_3/tmux_df_3.c:210:16: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  210 |         path = strdup(home);
+      |                ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c: In function ‘cmd_string_parse’:
+./benchmarks/tmux/double_free_3/tmux_df_3.c:268:42: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  268 |                                 equals = strchr(argv[0], '=');
+      |                                          ^~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:268:42: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/tmux/double_free_3/tmux_df_3.c:268:42: warning: incompatible implicit declaration of built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/double_free_3/tmux_df_3.c:268:42: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/tmux/double_free_3/tmux_df_3.c:269:56: warning: implicit declaration of function ‘strcspn’ [-Wimplicit-function-declaration]
+  269 |                                 whitespace = argv[0] + strcspn(argv[0], " \t");
+      |                                                        ^~~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:269:56: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/tmux/double_free_3/tmux_df_3.c:269:56: warning: incompatible implicit declaration of built-in function ‘strcspn’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/double_free_3/tmux_df_3.c:269:56: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/tmux/double_free_3/tmux_df_3.c:273:33: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  273 |                                 memmove(argv, argv + 1, argc * (sizeof *argv)); /* memory leak */
+      |                                 ^~~~~~~
+./benchmarks/tmux/double_free_3/tmux_df_3.c:273:33: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/tmux/double_free_3/tmux_df_3.c:273:33: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/double_free_3/tmux_df_3.c:273:33: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)  1298k ( 39%)
+ phase parsing                      :   0.03 ( 60%)   0.05 (100%)   0.08 ( 73%)  1707k ( 52%)
+ phase opt and generate             :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 18%)   281k (  9%)
+ callgraph optimization             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 18%)   142k (  4%)
+ lto stream compression             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)   264  (  0%)
+ preprocessing                      :   0.03 ( 60%)   0.02 ( 40%)   0.01 (  9%)   750k ( 23%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 20%)   0.04 ( 36%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 20%)   0.01 (  9%)   589k ( 18%)
+ parser function body               :   0.00 (  0%)   0.01 ( 20%)   0.02 ( 18%)   117k (  4%)
+ tree modref                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)  3856  (  0%)
+ TOTAL                              :   0.05          0.05          0.11         3297k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)  2157k ( 90%)
+ phase opt and generate             :   0.28 ( 93%)   0.02 (100%)   0.31 ( 97%)   171k (  7%)
+ phase stream in                    :   0.01 (  3%)   0.00 (  0%)   0.00 (  0%)    60k (  3%)
+ phase stream out                   :   0.01 (  3%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ lto stream decompression           :   0.01 (  3%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ whopr wpa I/O                      :   0.01 (  3%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer                           :   0.01 (  3%)   0.00 (  0%)   0.02 (  6%)     0  (  0%)
+ analyzer: processing worklist      :   0.27 ( 90%)   0.02 (100%)   0.29 ( 91%)   168  (  0%)
+ TOTAL                              :   0.30          0.02          0.32         2392k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 78%)
+ phase opt and generate             :   0.07 (100%)   0.00 (  0%)   0.07 (100%)   577k ( 21%)
+ callgraph functions expansion      :   0.06 ( 86%)   0.00 (  0%)   0.07 (100%)   483k ( 17%)
+ ipa points-to                      :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)  4312  (  0%)
+ tree forward propagate             :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 14%)  2432  (  0%)
+ tree phiprop                       :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ complete unrolling                 :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)  7288  (  0%)
+ tree iv optimization               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    23k (  1%)
+ tree strlen optimization           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    10k (  0%)
+ dead store elim1                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  2616  (  0%)
+ loop invariant motion              :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)   224  (  0%)
+ integrated RA                      :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)   126k (  5%)
+ LRA virtuals elimination           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  1392  (  0%)
+ thread pro- & epilogue             :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)  9928  (  0%)
+ hard reg cprop                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    96  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    12k (  0%)
+ TOTAL                              :   0.07          0.00          0.07         2774k

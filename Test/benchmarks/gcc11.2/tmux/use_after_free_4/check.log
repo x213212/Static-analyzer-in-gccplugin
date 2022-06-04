@@ -1,0 +1,931 @@
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 24%)
+ phase parsing                      :   0.03 ( 38%)   0.04 (100%)   0.08 ( 67%)  2463k ( 46%)
+ phase opt and generate             :   0.05 ( 62%)   0.00 (  0%)   0.04 ( 33%)  1566k ( 29%)
+ callgraph ipa passes               :   0.04 ( 50%)   0.00 (  0%)   0.04 ( 33%)   678k ( 13%)
+ lto stream output                  :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto gimple out                 :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)    11k (  0%)
+ ipa lto decl out                   :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)   264  (  0%)
+ ipa free lang data                 :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)    13k (  0%)
+ alias stmt walking                 :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)    20k (  0%)
+ preprocessing                      :   0.02 ( 25%)   0.01 ( 25%)   0.05 ( 42%)   917k ( 17%)
+ lexical analysis                   :   0.00 (  0%)   0.02 ( 50%)   0.01 (  8%)     0  (  0%)
+ parser (global)                    :   0.01 ( 12%)   0.00 (  0%)   0.01 (  8%)   751k ( 14%)
+ parser struct body                 :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)   146k (  3%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)   549k ( 10%)
+ tree CFG construction              :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)   173k (  3%)
+ tree CCP                           :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)  5384  (  0%)
+ tree forward propagate             :   0.00 (  0%)   0.00 (  0%)   0.02 ( 17%)  1624  (  0%)
+ TOTAL                              :   0.08          0.04          0.12         5338k
+./benchmarks/tmux/use_after_free_4/tmux_uaf_4.c: In function ‘session_create’:
+./benchmarks/tmux/use_after_free_4/tmux_uaf_4.c:622:23: warning: dereference of possibly-NULL ‘s_52’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  622 |         s->references = 0;
+      |                       ^
+  ‘main’: events 1-4
+    |
+    |  657 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  669 |         for(int i = 0; i < argc; i++)
+    |      |                          ~
+    |      |                          |
+    |      |                          (2) following ‘true’ branch (when ‘i_27 < argc_42(D)’)...
+    |  670 |         {
+    |  671 |                 if(argv[i][0] == 't' && i > 0)
+    |      |                        ~
+    |      |                        |
+    |      |                        (3) ...to here
+    |......
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ~
+    |      |                             |
+    |      |                             (4) calling ‘session_find’ from ‘main’
+    |
+    +--> ‘session_find’: events 5-6
+           |
+           |  275 | session_find(const char *name)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘session_find’
+           |......
+           |  280 |         for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+           |      |                       ~
+           |      |                       |
+           |      |                       (6) following ‘false’ branch...
+           |
+         ‘session_find’: event 7
+           |
+           |lto1:
+           | (7): ...to here
+           |
+    <------+
+    |
+  ‘main’: events 8-11
+    |
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ^
+    |      |                             |
+    |      |                             (8) returning to ‘main’ from ‘session_find’
+    |  677 | 
+    |  678 |                 if(target == NULL)
+    |      |                   ~          
+    |      |                   |
+    |      |                   (9) following ‘true’ branch (when ‘target_24’ is NULL)...
+    |  679 |                         cmd = strdup("cmd");
+    |      |                               ~
+    |      |                               |
+    |      |                               (10) ...to here
+    |......
+    |  686 |                 s = session_create(name, cmd, "cwd", NULL, NULL, idx++, sx, sy, &cause);
+    |      |                     ~        
+    |      |                     |
+    |      |                     (11) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 12-14
+           |
+           |  614 | session_create(const char *name, const char *cmd, const char *cwd,
+           |      | ^
+           |      | |
+           |      | (12) entry to ‘session_create’
+           |......
+           |  621 |         s = xmalloc(sizeof *s);
+           |      |             ~
+           |      |             |
+           |      |             (13) this call could return NULL
+           |  622 |         s->references = 0;
+           |      |                       ~
+           |      |                       |
+           |      |                       (14) ‘s_52’ could be NULL: unchecked value from (13)
+           |
+./benchmarks/tmux/use_after_free_4/tmux_uaf_4.c:604:13: warning: leak of ‘session_new (s_52, 0B, cmd_81(D), cwd_82(D), idx_83(D), cause_84(D))’ [CWE-401] [-Wanalyzer-malloc-leak]
+  604 |         w = window_create1(s->sx, s->sy);
+      |             ^
+  ‘main’: events 1-4
+    |
+    |  657 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  669 |         for(int i = 0; i < argc; i++)
+    |      |                          ~
+    |      |                          |
+    |      |                          (2) following ‘true’ branch (when ‘i_27 < argc_42(D)’)...
+    |  670 |         {
+    |  671 |                 if(argv[i][0] == 't' && i > 0)
+    |      |                        ~
+    |      |                        |
+    |      |                        (3) ...to here
+    |......
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ~
+    |      |                             |
+    |      |                             (4) calling ‘session_find’ from ‘main’
+    |
+    +--> ‘session_find’: events 5-6
+           |
+           |  275 | session_find(const char *name)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘session_find’
+           |......
+           |  280 |         for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+           |      |                       ~
+           |      |                       |
+           |      |                       (6) following ‘false’ branch...
+           |
+         ‘session_find’: event 7
+           |
+           |lto1:
+           | (7): ...to here
+           |
+    <------+
+    |
+  ‘main’: events 8-11
+    |
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ^
+    |      |                             |
+    |      |                             (8) returning to ‘main’ from ‘session_find’
+    |  677 | 
+    |  678 |                 if(target == NULL)
+    |      |                   ~          
+    |      |                   |
+    |      |                   (9) following ‘true’ branch (when ‘target_24’ is NULL)...
+    |  679 |                         cmd = strdup("cmd");
+    |      |                               ~
+    |      |                               |
+    |      |                               (10) ...to here
+    |......
+    |  686 |                 s = session_create(name, cmd, "cwd", NULL, NULL, idx++, sx, sy, &cause);
+    |      |                     ~        
+    |      |                     |
+    |      |                     (11) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 12-21
+           |
+           |  614 | session_create(const char *name, const char *cmd, const char *cwd,
+           |      | ^
+           |      | |
+           |      | (12) entry to ‘session_create’
+           |......
+           |  633 |         for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+           |      |                       ~
+           |      |                       |
+           |      |                       (13) following ‘false’ branch...
+           |......
+           |  639 |         if (i == ARRAY_LENGTH(&sessions))
+           |      |            ~     ~
+           |      |            |     |
+           |      |            |     (14) ...to here
+           |      |            (15) following ‘true’ branch...
+           |  640 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (16) ...to here
+           |      |                 (17) following ‘false’ branch...
+           |      |                 (18) ...to here
+           |      |                 (19) following ‘true’ branch...
+           |      |                 (20) ...to here
+           |      |                 (21) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 22-28
+                  |
+                  |   90 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (22) entry to ‘xrealloc’
+                  |......
+                  |   95 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (23) following ‘false’ branch (when ‘newsize_4 != 0’)...
+                  |   96 |                 fatalx("zero size%s", "");
+                  |   97 |         if (SIZE_MAX / nmemb < size)
+                  |      |            ~         ~
+                  |      |            |         |
+                  |      |            |         (24) ...to here
+                  |      |            (25) following ‘false’ branch...
+                  |   98 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |   99 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (26) ...to here
+                  |      |            (27) following ‘false’ branch (when ‘newptr_8’ is non-NULL)...
+                  |......
+                  |  102 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (28) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 29-36
+           |
+           |  640 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (29) returning to ‘session_create’ from ‘xrealloc’
+           |      |                 (30) following ‘false’ branch...
+           |      |                 (31) ...to here
+           |  641 |         if(name == NULL)
+           |      |           ~      
+           |      |           |
+           |      |           (32) following ‘false’ branch (when ‘name_78(D)’ is non-NULL)...
+           |  642 |                 fatal("no name%s\n", "");
+           |  643 |         s->name = xstrdup(name);
+           |      |                   ~
+           |      |                   |
+           |      |                   (33) ...to here
+           |  644 | 
+           |  645 |         if (cmd != NULL) {
+           |      |            ~     
+           |      |            |
+           |      |            (34) following ‘true’ branch (when ‘cmd_81(D)’ is non-NULL)...
+           |  646 |                 if (session_new(s, NULL, cmd, cwd, idx, cause) == NULL) {
+           |      |                     ~
+           |      |                     |
+           |      |                     (35) ...to here
+           |      |                     (36) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 37-40
+                  |
+                  |  596 | session_new(struct session *s,
+                  |      | ^
+                  |      | |
+                  |      | (37) entry to ‘session_new’
+                  |......
+                  |  605 |         if (w == NULL) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (38) following ‘false’ branch (when ‘w_8’ is non-NULL)...
+                  |......
+                  |  609 |         return (session_attach(s, w, idx, cause));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (39) ...to here
+                  |      |                 (40) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 41-42
+                         |
+                         |  584 | session_attach(struct session *s, struct window *w, int idx, char **cause)
+                         |      | ^
+                         |      | |
+                         |      | (41) entry to ‘session_attach’
+                         |......
+                         |  588 |         if ((wl = winlink_add(&s->windows, w, idx)) == NULL)
+                         |      |                   ~
+                         |      |                   |
+                         |      |                   (42) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 43-46
+                                |
+                                |  226 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (43) entry to ‘winlink_add’
+                                |......
+                                |  230 |         if (idx < 0) {
+                                |      |            ~
+                                |      |            |
+                                |      |            (44) following ‘false’ branch (when ‘idx_9(D) >= 0’)...
+                                |......
+                                |  233 |         } else if (winlink_find_by_index(wwl, idx) != NULL)
+                                |      |                    ~
+                                |      |                    |
+                                |      |                    (45) ...to here
+                                |      |                    (46) calling ‘winlink_find_by_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_find_by_index’: events 47-49
+                                       |
+                                       |  106 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                       |      | ^
+                                       |      | |
+                                       |      | (47) entry to ‘winlink_find_by_index’
+                                       |......
+                                       |  110 |         if (idx < 0)
+                                       |      |            ~
+                                       |      |            |
+                                       |      |            (48) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                       |......
+                                       |  113 |         wl.idx = idx;
+                                       |      |                ~
+                                       |      |                |
+                                       |      |                (49) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 50-54
+                                |
+                                |  233 |         } else if (winlink_find_by_index(wwl, idx) != NULL)
+                                |      |                   ~^
+                                |      |                   ||
+                                |      |                   |(50) returning to ‘winlink_add’ from ‘winlink_find_by_index’
+                                |      |                   (51) following ‘false’ branch...
+                                |......
+                                |  236 |         wl = xcalloc(1, sizeof *wl);    /* allocation site */
+                                |      |              ~      
+                                |      |              |
+                                |      |              (52) ...to here
+                                |      |              (53) allocated here
+                                |  237 |         wl->idx = idx;
+                                |      |                 ~   
+                                |      |                 |
+                                |      |                 (54) assuming ‘wl_16’ is non-NULL
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: events 55-58
+                         |
+                         |  588 |         if ((wl = winlink_add(&s->windows, w, idx)) == NULL)
+                         |      |            ~      ^
+                         |      |            |      |
+                         |      |            |      (55) returning to ‘session_attach’ from ‘winlink_add’
+                         |      |            (56) following ‘false’ branch (when ‘wl_8’ is non-NULL)...
+                         |  589 |                 printf("index in use: %d\n", idx);
+                         |  590 |         session_group_synchronize_from(s);
+                         |      |         ~          
+                         |      |         |
+                         |      |         (57) ...to here
+                         |      |         (58) calling ‘session_group_synchronize_from’ from ‘session_attach’
+                         |
+                         +--> ‘session_group_synchronize_from’: events 59-60
+                                |
+                                |  423 | session_group_synchronize_from(struct session *target)
+                                |      | ^
+                                |      | |
+                                |      | (59) entry to ‘session_group_synchronize_from’
+                                |......
+                                |  428 |         if ((sg = session_group_find(target)) == NULL)
+                                |      |            ~
+                                |      |            |
+                                |      |            (60) following ‘true’ branch (when ‘sg_7’ is NULL)...
+                                |
+                              ‘session_group_synchronize_from’: event 61
+                                |
+                                |lto1:
+                                | (61): ...to here
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: event 62
+                         |
+                         |  590 |         session_group_synchronize_from(s);
+                         |      |         ^
+                         |      |         |
+                         |      |         (62) returning to ‘session_attach’ from ‘session_group_synchronize_from’
+                         |
+                  <------+
+                  |
+                ‘session_new’: event 63
+                  |
+                  |  609 |         return (session_attach(s, w, idx, cause));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (63) returning to ‘session_new’ from ‘session_attach’
+                  |
+           <------+
+           |
+         ‘session_create’: events 64-65
+           |
+           |  604 |         w = window_create1(s->sx, s->sy);
+           |      |             ~        
+           |      |             |
+           |      |             (65) ‘session_new (s_52, 0B, cmd_81(D), cwd_82(D), idx_83(D), cause_84(D))’ leaks here; was allocated at (53)
+           |......
+           |  646 |                 if (session_new(s, NULL, cmd, cwd, idx, cause) == NULL) {
+           |      |                     ^
+           |      |                     |
+           |      |                     (64) returning to ‘session_create’ from ‘session_new’
+           |
+./benchmarks/tmux/use_after_free_4/tmux_uaf_4.c: In function ‘window_create1’:
+./benchmarks/tmux/use_after_free_4/tmux_uaf_4.c:558:17: warning: dereference of possibly-NULL ‘w_43’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  558 |         w->name = NULL;
+      |                 ^
+  ‘main’: events 1-4
+    |
+    |  657 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  669 |         for(int i = 0; i < argc; i++)
+    |      |                          ~
+    |      |                          |
+    |      |                          (2) following ‘true’ branch (when ‘i_27 < argc_42(D)’)...
+    |  670 |         {
+    |  671 |                 if(argv[i][0] == 't' && i > 0)
+    |      |                        ~
+    |      |                        |
+    |      |                        (3) ...to here
+    |......
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ~
+    |      |                             |
+    |      |                             (4) calling ‘session_find’ from ‘main’
+    |
+    +--> ‘session_find’: events 5-6
+           |
+           |  275 | session_find(const char *name)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘session_find’
+           |......
+           |  280 |         for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+           |      |                       ~
+           |      |                       |
+           |      |                       (6) following ‘false’ branch...
+           |
+         ‘session_find’: event 7
+           |
+           |lto1:
+           | (7): ...to here
+           |
+    <------+
+    |
+  ‘main’: events 8-11
+    |
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ^
+    |      |                             |
+    |      |                             (8) returning to ‘main’ from ‘session_find’
+    |  677 | 
+    |  678 |                 if(target == NULL)
+    |      |                   ~          
+    |      |                   |
+    |      |                   (9) following ‘true’ branch (when ‘target_24’ is NULL)...
+    |  679 |                         cmd = strdup("cmd");
+    |      |                               ~
+    |      |                               |
+    |      |                               (10) ...to here
+    |......
+    |  686 |                 s = session_create(name, cmd, "cwd", NULL, NULL, idx++, sx, sy, &cause);
+    |      |                     ~        
+    |      |                     |
+    |      |                     (11) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 12-21
+           |
+           |  614 | session_create(const char *name, const char *cmd, const char *cwd,
+           |      | ^
+           |      | |
+           |      | (12) entry to ‘session_create’
+           |......
+           |  633 |         for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+           |      |                       ~
+           |      |                       |
+           |      |                       (13) following ‘false’ branch...
+           |......
+           |  639 |         if (i == ARRAY_LENGTH(&sessions))
+           |      |            ~     ~
+           |      |            |     |
+           |      |            |     (14) ...to here
+           |      |            (15) following ‘true’ branch...
+           |  640 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (16) ...to here
+           |      |                 (17) following ‘false’ branch...
+           |      |                 (18) ...to here
+           |      |                 (19) following ‘true’ branch...
+           |      |                 (20) ...to here
+           |      |                 (21) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 22-28
+                  |
+                  |   90 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (22) entry to ‘xrealloc’
+                  |......
+                  |   95 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (23) following ‘false’ branch (when ‘newsize_4 != 0’)...
+                  |   96 |                 fatalx("zero size%s", "");
+                  |   97 |         if (SIZE_MAX / nmemb < size)
+                  |      |            ~         ~
+                  |      |            |         |
+                  |      |            |         (24) ...to here
+                  |      |            (25) following ‘false’ branch...
+                  |   98 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |   99 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (26) ...to here
+                  |      |            (27) following ‘false’ branch (when ‘newptr_8’ is non-NULL)...
+                  |......
+                  |  102 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (28) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 29-36
+           |
+           |  640 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (29) returning to ‘session_create’ from ‘xrealloc’
+           |      |                 (30) following ‘false’ branch...
+           |      |                 (31) ...to here
+           |  641 |         if(name == NULL)
+           |      |           ~      
+           |      |           |
+           |      |           (32) following ‘false’ branch (when ‘name_78(D)’ is non-NULL)...
+           |  642 |                 fatal("no name%s\n", "");
+           |  643 |         s->name = xstrdup(name);
+           |      |                   ~
+           |      |                   |
+           |      |                   (33) ...to here
+           |  644 | 
+           |  645 |         if (cmd != NULL) {
+           |      |            ~     
+           |      |            |
+           |      |            (34) following ‘true’ branch (when ‘cmd_81(D)’ is non-NULL)...
+           |  646 |                 if (session_new(s, NULL, cmd, cwd, idx, cause) == NULL) {
+           |      |                     ~
+           |      |                     |
+           |      |                     (35) ...to here
+           |      |                     (36) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 37-38
+                  |
+                  |  596 | session_new(struct session *s,
+                  |      | ^
+                  |      | |
+                  |      | (37) entry to ‘session_new’
+                  |......
+                  |  604 |         w = window_create1(s->sx, s->sy);
+                  |      |             ~
+                  |      |             |
+                  |      |             (38) calling ‘window_create1’ from ‘session_new’
+                  |
+                  +--> ‘window_create1’: events 39-41
+                         |
+                         |  552 | window_create1(u_int sx, u_int sy)
+                         |      | ^
+                         |      | |
+                         |      | (39) entry to ‘window_create1’
+                         |......
+                         |  557 |         w = xmalloc(sizeof *w);
+                         |      |             ~
+                         |      |             |
+                         |      |             (40) this call could return NULL
+                         |  558 |         w->name = NULL;
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (41) ‘w_43’ could be NULL: unchecked value from (40)
+                         |
+./benchmarks/tmux/use_after_free_4/tmux_uaf_4.c: In function ‘winlink_add’:
+./benchmarks/tmux/use_after_free_4/tmux_uaf_4.c:237:17: warning: dereference of possibly-NULL ‘wl_16’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  237 |         wl->idx = idx;
+      |                 ^
+  ‘main’: events 1-4
+    |
+    |  657 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  669 |         for(int i = 0; i < argc; i++)
+    |      |                          ~
+    |      |                          |
+    |      |                          (2) following ‘true’ branch (when ‘i_27 < argc_42(D)’)...
+    |  670 |         {
+    |  671 |                 if(argv[i][0] == 't' && i > 0)
+    |      |                        ~
+    |      |                        |
+    |      |                        (3) ...to here
+    |......
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ~
+    |      |                             |
+    |      |                             (4) calling ‘session_find’ from ‘main’
+    |
+    +--> ‘session_find’: events 5-6
+           |
+           |  275 | session_find(const char *name)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘session_find’
+           |......
+           |  280 |         for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+           |      |                       ~
+           |      |                       |
+           |      |                       (6) following ‘false’ branch...
+           |
+         ‘session_find’: event 7
+           |
+           |lto1:
+           | (7): ...to here
+           |
+    <------+
+    |
+  ‘main’: events 8-11
+    |
+    |  676 |                 groupwith = session_find(target);
+    |      |                             ^
+    |      |                             |
+    |      |                             (8) returning to ‘main’ from ‘session_find’
+    |  677 | 
+    |  678 |                 if(target == NULL)
+    |      |                   ~          
+    |      |                   |
+    |      |                   (9) following ‘true’ branch (when ‘target_24’ is NULL)...
+    |  679 |                         cmd = strdup("cmd");
+    |      |                               ~
+    |      |                               |
+    |      |                               (10) ...to here
+    |......
+    |  686 |                 s = session_create(name, cmd, "cwd", NULL, NULL, idx++, sx, sy, &cause);
+    |      |                     ~        
+    |      |                     |
+    |      |                     (11) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 12-21
+           |
+           |  614 | session_create(const char *name, const char *cmd, const char *cwd,
+           |      | ^
+           |      | |
+           |      | (12) entry to ‘session_create’
+           |......
+           |  633 |         for (i = 0; i < ARRAY_LENGTH(&sessions); i++) {
+           |      |                       ~
+           |      |                       |
+           |      |                       (13) following ‘false’ branch...
+           |......
+           |  639 |         if (i == ARRAY_LENGTH(&sessions))
+           |      |            ~     ~
+           |      |            |     |
+           |      |            |     (14) ...to here
+           |      |            (15) following ‘true’ branch...
+           |  640 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (16) ...to here
+           |      |                 (17) following ‘false’ branch...
+           |      |                 (18) ...to here
+           |      |                 (19) following ‘true’ branch...
+           |      |                 (20) ...to here
+           |      |                 (21) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 22-28
+                  |
+                  |   90 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (22) entry to ‘xrealloc’
+                  |......
+                  |   95 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (23) following ‘false’ branch (when ‘newsize_4 != 0’)...
+                  |   96 |                 fatalx("zero size%s", "");
+                  |   97 |         if (SIZE_MAX / nmemb < size)
+                  |      |            ~         ~
+                  |      |            |         |
+                  |      |            |         (24) ...to here
+                  |      |            (25) following ‘false’ branch...
+                  |   98 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |   99 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (26) ...to here
+                  |      |            (27) following ‘false’ branch (when ‘newptr_8’ is non-NULL)...
+                  |......
+                  |  102 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (28) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 29-36
+           |
+           |  640 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (29) returning to ‘session_create’ from ‘xrealloc’
+           |      |                 (30) following ‘false’ branch...
+           |      |                 (31) ...to here
+           |  641 |         if(name == NULL)
+           |      |           ~      
+           |      |           |
+           |      |           (32) following ‘false’ branch (when ‘name_78(D)’ is non-NULL)...
+           |  642 |                 fatal("no name%s\n", "");
+           |  643 |         s->name = xstrdup(name);
+           |      |                   ~
+           |      |                   |
+           |      |                   (33) ...to here
+           |  644 | 
+           |  645 |         if (cmd != NULL) {
+           |      |            ~     
+           |      |            |
+           |      |            (34) following ‘true’ branch (when ‘cmd_81(D)’ is non-NULL)...
+           |  646 |                 if (session_new(s, NULL, cmd, cwd, idx, cause) == NULL) {
+           |      |                     ~
+           |      |                     |
+           |      |                     (35) ...to here
+           |      |                     (36) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 37-38
+                  |
+                  |  596 | session_new(struct session *s,
+                  |      | ^
+                  |      | |
+                  |      | (37) entry to ‘session_new’
+                  |......
+                  |  604 |         w = window_create1(s->sx, s->sy);
+                  |      |             ~
+                  |      |             |
+                  |      |             (38) calling ‘window_create1’ from ‘session_new’
+                  |
+                  +--> ‘window_create1’: events 39-41
+                         |
+                         |  552 | window_create1(u_int sx, u_int sy)
+                         |      | ^
+                         |      | |
+                         |      | (39) entry to ‘window_create1’
+                         |......
+                         |  575 |         if (i == ARRAY_LENGTH(&windows))
+                         |      |            ~
+                         |      |            |
+                         |      |            (40) following ‘false’ branch...
+                         |  576 |                 ARRAY_ADD(&windows, w);
+                         |  577 |         w->references = 0;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (41) ...to here
+                         |
+                  <------+
+                  |
+                ‘session_new’: events 42-45
+                  |
+                  |  604 |         w = window_create1(s->sx, s->sy);
+                  |      |             ^
+                  |      |             |
+                  |      |             (42) returning to ‘session_new’ from ‘window_create1’
+                  |  605 |         if (w == NULL) {
+                  |      |            ~ 
+                  |      |            |
+                  |      |            (43) following ‘false’ branch (when ‘w_8’ is non-NULL)...
+                  |......
+                  |  609 |         return (session_attach(s, w, idx, cause));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (44) ...to here
+                  |      |                 (45) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 46-47
+                         |
+                         |  584 | session_attach(struct session *s, struct window *w, int idx, char **cause)
+                         |      | ^
+                         |      | |
+                         |      | (46) entry to ‘session_attach’
+                         |......
+                         |  588 |         if ((wl = winlink_add(&s->windows, w, idx)) == NULL)
+                         |      |                   ~
+                         |      |                   |
+                         |      |                   (47) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 48-51
+                                |
+                                |  226 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (48) entry to ‘winlink_add’
+                                |......
+                                |  230 |         if (idx < 0) {
+                                |      |            ~
+                                |      |            |
+                                |      |            (49) following ‘false’ branch (when ‘idx_9(D) >= 0’)...
+                                |......
+                                |  233 |         } else if (winlink_find_by_index(wwl, idx) != NULL)
+                                |      |                    ~
+                                |      |                    |
+                                |      |                    (50) ...to here
+                                |      |                    (51) calling ‘winlink_find_by_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_find_by_index’: events 52-55
+                                       |
+                                       |  106 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                       |      | ^
+                                       |      | |
+                                       |      | (52) entry to ‘winlink_find_by_index’
+                                       |......
+                                       |  110 |         if (idx < 0)
+                                       |      |            ~
+                                       |      |            |
+                                       |      |            (53) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                       |......
+                                       |  113 |         wl.idx = idx;
+                                       |      |                ~
+                                       |      |                |
+                                       |      |                (54) ...to here
+                                       |  114 |         return (RB_FIND(winlinks, wwl, &wl));
+                                       |      |                 ~
+                                       |      |                 |
+                                       |      |                 (55) calling ‘winlinks_RB_FIND’ from ‘winlink_find_by_index’
+                                       |
+                                       +--> ‘winlinks_RB_FIND’: events 56-57
+                                              |
+                                              |   86 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                              |      | ^
+                                              |      | |
+                                              |      | (56) entry to ‘winlinks_RB_FIND’
+                                              |      | (57) following ‘false’ branch (when ‘tmp_1’ is NULL)...
+                                              |
+                                            ‘winlinks_RB_FIND’: event 58
+                                              |
+                                              |lto1:
+                                              | (58): ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_find_by_index’: event 59
+                                       |
+                                       |  114 |         return (RB_FIND(winlinks, wwl, &wl));
+                                       |      |                 ^
+                                       |      |                 |
+                                       |      |                 (59) returning to ‘winlink_find_by_index’ from ‘winlinks_RB_FIND’
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 60-64
+                                |
+                                |  233 |         } else if (winlink_find_by_index(wwl, idx) != NULL)
+                                |      |                   ~^
+                                |      |                   ||
+                                |      |                   |(60) returning to ‘winlink_add’ from ‘winlink_find_by_index’
+                                |      |                   (61) following ‘false’ branch...
+                                |......
+                                |  236 |         wl = xcalloc(1, sizeof *wl);    /* allocation site */
+                                |      |              ~      
+                                |      |              |
+                                |      |              (62) ...to here
+                                |      |              (63) this call could return NULL
+                                |  237 |         wl->idx = idx;
+                                |      |                 ~   
+                                |      |                 |
+                                |      |                 (64) ‘wl_16’ could be NULL: unchecked value from (63)
+                                |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 70%)
+ phase opt and generate             :   2.30 (100%)   0.12 (100%)   2.42 (100%)   767k ( 25%)
+ phase stream out                   :   0.01 (  0%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 (  0%)     0  (  0%)
+ ipa lto gimple in                  :   0.01 (  0%)   0.00 (  0%)   0.00 (  0%)   587k ( 19%)
+ whopr wpa I/O                      :   0.01 (  0%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ tree operand scan                  :   0.00 (  0%)   0.00 (  0%)   0.01 (  0%)   178k (  6%)
+ analyzer                           :   0.22 ( 10%)   0.01 (  8%)   0.21 (  9%)     0  (  0%)
+ analyzer: processing worklist      :   1.72 ( 74%)   0.07 ( 58%)   1.80 ( 74%)  1896  (  0%)
+ analyzer: emitting diagnostics     :   0.24 ( 10%)   0.03 ( 25%)   0.29 ( 12%)   200  (  0%)
+ analyzer: shortest paths           :   0.11 (  5%)   0.01 (  8%)   0.10 (  4%)     0  (  0%)
+ TOTAL                              :   2.31          0.12          2.42         3092k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)  2157k ( 33%)
+ phase parsing                      :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ phase opt and generate             :   0.26 ( 93%)   0.01 (100%)   0.28 ( 93%)  4176k ( 64%)
+ phase stream in                    :   0.01 (  4%)   0.00 (  0%)   0.01 (  3%)   146k (  2%)
+ callgraph functions expansion      :   0.24 ( 86%)   0.01 (100%)   0.26 ( 87%)  3326k ( 51%)
+ ipa lto gimple in                  :   0.01 (  4%)   0.00 (  0%)   0.02 (  7%)   552k (  9%)
+ ipa lto decl in                    :   0.01 (  4%)   0.00 (  0%)   0.01 (  3%)   113k (  2%)
+ df scan insns                      :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)  1872  (  0%)
+ df live regs                       :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)     0  (  0%)
+ df reg dead/unused notes           :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)    51k (  1%)
+ alias analysis                     :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)    71k (  1%)
+ alias stmt walking                 :   0.00 (  0%)   0.00 (  0%)   0.02 (  7%)  4112  (  0%)
+ tree copy propagation              :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)  8664  (  0%)
+ tree SSA incremental               :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)    63k (  1%)
+ tree operand scan                  :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)   175k (  3%)
+ dominator optimization             :   0.02 (  7%)   0.00 (  0%)   0.02 (  7%)   186k (  3%)
+ tree CCP                           :   0.02 (  7%)   0.00 (  0%)   0.01 (  3%)  2392  (  0%)
+ tree linearize phis                :   0.02 (  7%)   0.00 (  0%)   0.00 (  0%)    40k (  1%)
+ tree conservative DCE              :   0.02 (  7%)   0.00 (  0%)   0.00 (  0%)  2544  (  0%)
+ tree strlen optimization           :   0.02 (  7%)   0.00 (  0%)   0.00 (  0%)    53k (  1%)
+ out of ssa                         :   0.01 (  4%)   0.01 (100%)   0.00 (  0%)  7192  (  0%)
+ expand                             :   0.01 (  4%)   0.00 (  0%)   0.01 (  3%)   497k (  8%)
+ jump                               :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ forward prop                       :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)  2208  (  0%)
+ CSE                                :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)  7368  (  0%)
+ dead code elimination              :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)     0  (  0%)
+ dead store elim1                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)    46k (  1%)
+ loop init                          :   0.02 (  7%)   0.00 (  0%)   0.01 (  3%)   286k (  4%)
+ combiner                           :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)    89k (  1%)
+ integrated RA                      :   0.02 (  7%)   0.00 (  0%)   0.02 (  7%)  1069k ( 16%)
+ LRA virtuals elimination           :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)  2184  (  0%)
+ LRA create live ranges             :   0.01 (  4%)   0.00 (  0%)   0.02 (  7%)   600  (  0%)
+ hard reg cprop                     :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)   840  (  0%)
+ shorten branches                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)     0  (  0%)
+ final                              :   0.00 (  0%)   0.00 (  0%)   0.02 (  7%)   173k (  3%)
+ straight-line strength reduction   :   0.00 (  0%)   0.00 (  0%)   0.01 (  3%)   480  (  0%)
+ initialize rtl                     :   0.01 (  4%)   0.00 (  0%)   0.01 (  3%)    12k (  0%)
+ rest of compilation                :   0.01 (  4%)   0.00 (  0%)   0.01 (  3%)   122k (  2%)
+ TOTAL                              :   0.28          0.01          0.30         6483k

@@ -1,0 +1,195 @@
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:10:
+./benchmarks/git/double_free_1/../git.h: In function ‘copy_array’:
+./benchmarks/git/double_free_1/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_1/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/double_free_1/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_1/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_1/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/double_free_1/../git.h: In function ‘move_array’:
+./benchmarks/git/double_free_1/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/double_free_1/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/double_free_1/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_1/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:9:
+./benchmarks/git/double_free_1/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/double_free_1/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_1/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/double_free_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_1/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:10:
+./benchmarks/git/double_free_1/../git.h: At top level:
+./benchmarks/git/double_free_1/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/double_free_1/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/double_free_1/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_1/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/double_free_1/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_1/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:9:
+./benchmarks/git/double_free_1/git_df_1.c: In function ‘remote_exists’:
+./benchmarks/git/double_free_1/git_df_1.c:185:29: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  185 |         char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);    /* allocation site */
+      |                             ^~~~~~
+./benchmarks/git/double_free_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+  137 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/git/double_free_1/git_df_1.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+   10 | #include "../git.h"
+  +++ |+#include <string.h>
+   11 | 
+In file included from ./benchmarks/git/double_free_1/git_df_1.c:9:
+./benchmarks/git/double_free_1/git_df_1.c:185:29: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  185 |         char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);    /* allocation site */
+      |                             ^~~~~~
+./benchmarks/git/double_free_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+  137 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/git/double_free_1/git_df_1.c:185:29: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+  185 |         char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);    /* allocation site */
+      |                             ^~~~~~
+./benchmarks/git/double_free_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+  137 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/git/double_free_1/git_df_1.c:192:16: warning: implicit declaration of function ‘get_active_slot’ [-Wimplicit-function-declaration]
+  192 |         slot = get_active_slot();
+      |                ^~~~~~~~~~~~~~~
+./benchmarks/git/double_free_1/git_df_1.c:192:14: warning: assignment to ‘struct active_request_slot *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  192 |         slot = get_active_slot();
+      |              ^
+./benchmarks/git/double_free_1/git_df_1.c:194:9: warning: implicit declaration of function ‘curl_easy_setopt’ [-Wimplicit-function-declaration]
+  194 |         curl_easy_setopt(slot->curl, CURLOPT_URL, url);
+      |         ^~~~~~~~~~~~~~~~
+./benchmarks/git/double_free_1/git_df_1.c:197:13: warning: implicit declaration of function ‘start_active_slot’ [-Wimplicit-function-declaration]
+  197 |         if (start_active_slot(slot)) {
+      |             ^~~~~~~~~~~~~~~~~
+./benchmarks/git/double_free_1/git_df_1.c:198:17: warning: implicit declaration of function ‘run_active_slot’ [-Wimplicit-function-declaration]
+  198 |                 run_active_slot(slot);
+      |                 ^~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1298k ( 52%)
+ phase parsing                      :   0.04 (100%)   0.01 (100%)   0.04 ( 67%)  1076k ( 43%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    91k (  4%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)   330k ( 13%)
+ lexical analysis                   :   0.02 ( 50%)   0.01 (100%)   0.01 ( 17%)     0  (  0%)
+ parser struct body                 :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    83k (  3%)
+ parser function body               :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    54k (  2%)
+ parser inl. func. body             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    23k (  1%)
+ tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    21k (  1%)
+ TOTAL                              :   0.04          0.01          0.06         2477k
+./benchmarks/git/double_free_1/git_df_1.c: In function ‘remote_exists’:
+./benchmarks/git/double_free_1/git_df_1.c:185:21: warning: dereference of NULL ‘0B’ [CWE-476] [-Wanalyzer-null-dereference]
+  185 |         char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);    /* allocation site */
+      |                     ^
+  ‘main’: events 1-2
+    |
+    |  215 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |  216 | {
+    |  217 |     remote_exists("path");
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘remote_exists’ from ‘main’
+    |
+    +--> ‘remote_exists’: events 3-4
+           |
+           |  183 | static int remote_exists(const char *path)
+           |      |            ^
+           |      |            |
+           |      |            (3) entry to ‘remote_exists’
+           |  184 | {
+           |  185 |         char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);    /* allocation site */
+           |      |                     ~
+           |      |                     |
+           |      |                     (4) dereference of NULL ‘remote’
+           |
+./benchmarks/git/double_free_1/git_df_1.c:190:9: warning: use of possibly-NULL ‘url_24’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+  190 |         sprintf(url, "%s%s", remote->url, path);
+      |         ^
+  ‘remote_exists’: events 1-2
+    |
+    |  185 |         char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);    /* allocation site */
+    |      |                     ^
+    |      |                     |
+    |      |                     (1) this call could return NULL
+    |......
+    |  190 |         sprintf(url, "%s%s", remote->url, path);
+    |      |         ~            
+    |      |         |
+    |      |         (2) argument 1 (‘url_24’) from (1) could be NULL where non-null expected
+    |
+/usr/include/stdio.h:334:12: note: argument 1 of ‘sprintf’ must be non-null
+  334 | extern int sprintf (char *__restrict __s,
+      |            ^
+./benchmarks/git/double_free_1/git_df_1.c:211:9: warning: double-‘free’ of ‘url_24’ [CWE-415] [-Wanalyzer-double-free]
+  211 |         free(url);
+      |         ^
+  ‘remote_exists’: events 1-3
+    |
+    |  185 |         char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);    /* allocation site */
+    |      |                     ^
+    |      |                     |
+    |      |                     (1) allocated here
+    |......
+    |  207 |                 free(url);      /* double-free */
+    |      |                 ~    
+    |      |                 |
+    |      |                 (2) first ‘free’ here
+    |......
+    |  211 |         free(url);
+    |      |         ~            
+    |      |         |
+    |      |         (3) second ‘free’ here; first ‘free’ was at (2)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 95%)
+ phase opt and generate             :   0.01 (100%)   0.00 (  0%)   0.01 (100%)    59k (  3%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    48k (  2%)
+ analyzer: processing worklist      :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)   264  (  0%)
+ TOTAL                              :   0.01          0.00          0.01         2278k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 90%)
+ phase opt and generate             :   0.01 (100%)   0.01 (100%)   0.02 (100%)   183k (  8%)
+ callgraph functions expansion      :   0.01 (100%)   0.01 (100%)   0.02 (100%)   135k (  6%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    22k (  1%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    12k (  1%)
+ rest of compilation                :   0.01 (100%)   0.01 (100%)   0.00 (  0%)  5000  (  0%)
+ TOTAL                              :   0.01          0.01          0.02         2393k
+/usr/bin/ld: /tmp/ccgHGFDd.ltrans0.ltrans.o: in function `remote_exists':
+<artificial>:(.text+0x51): undefined reference to `get_active_slot'
+/usr/bin/ld: <artificial>:(.text+0x6d): undefined reference to `curl_easy_setopt'
+/usr/bin/ld: <artificial>:(.text+0x84): undefined reference to `curl_easy_setopt'
+/usr/bin/ld: <artificial>:(.text+0x91): undefined reference to `start_active_slot'
+/usr/bin/ld: <artificial>:(.text+0xa2): undefined reference to `run_active_slot'
+collect2: error: ld returned 1 exit status

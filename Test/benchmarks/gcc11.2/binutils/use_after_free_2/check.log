@@ -1,0 +1,258 @@
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘bfd_generic_archive_p’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:53:7: warning: implicit declaration of function ‘bfd_bread’ [-Wimplicit-function-declaration]
+   53 |   if (bfd_bread (armag, SARMAG, abfd) != SARMAG)
+      |       ^~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:55:11: warning: implicit declaration of function ‘bfd_get_error’ [-Wimplicit-function-declaration]
+   55 |       if (bfd_get_error () != bfd_error_system_call)
+      |           ^~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:56:9: warning: implicit declaration of function ‘bfd_set_error’ [-Wimplicit-function-declaration]
+   56 |         bfd_set_error (bfd_error_wrong_format);
+      |         ^~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:60:33: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   60 |   bfd_is_thin_archive (abfd) = (strncmp (armag, ARMAGT, SARMAG) == 0);
+      |                                 ^~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+    7 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:12:16: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   12 | #define SARMAG 8
+      |                ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:60:57: note: in expansion of macro ‘SARMAG’
+   60 |   bfd_is_thin_archive (abfd) = (strncmp (armag, ARMAGT, SARMAG) == 0);
+      |                                                         ^~~~~~
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:12:16: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   12 | #define SARMAG 8
+      |                ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:62:30: note: in expansion of macro ‘SARMAG’
+   62 |   if (strncmp (armag, ARMAG, SARMAG) != 0
+      |                              ^~~~~~
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:12:16: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   12 | #define SARMAG 8
+      |                ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:63:34: note: in expansion of macro ‘SARMAG’
+   63 |       && strncmp (armag, ARMAGB, SARMAG) != 0
+      |                                  ^~~~~~
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘bfd_fopen’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:76:10: warning: implicit declaration of function ‘_bfd_new_bfd’ [-Wimplicit-function-declaration]
+   76 |   nbfd = _bfd_new_bfd ();       /* allocation site */
+      |          ^~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:76:8: warning: assignment to ‘bfd *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   76 |   nbfd = _bfd_new_bfd ();       /* allocation site */
+      |        ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:82:16: warning: implicit declaration of function ‘bfd_find_target’ [-Wimplicit-function-declaration]
+   82 |   target_vec = bfd_find_target (target, nbfd);
+      |                ^~~~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:82:14: warning: assignment to ‘const bfd_target *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   82 |   target_vec = bfd_find_target (target, nbfd);
+      |              ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:86:9: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   86 |         close (fd);
+      |         ^~~~~
+      |         pclose
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:87:7: warning: implicit declaration of function ‘_bfd_delete_bfd’ [-Wimplicit-function-declaration]
+   87 |       _bfd_delete_bfd (nbfd);
+      |       ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:6:
+./benchmarks/binutils/use_after_free_2/../include/common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:93:20: note: in expansion of macro ‘xstrdup’
+   93 |   nbfd->filename = xstrdup (filename);
+      |                    ^~~~~~~
+./benchmarks/binutils/use_after_free_2/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:93:20: note: in expansion of macro ‘xstrdup’
+   93 |   nbfd->filename = xstrdup (filename);
+      |                    ^~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘_bfd_archive_close_and_cleanup’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:108:7: warning: implicit declaration of function ‘bfd_read_p’ [-Wimplicit-function-declaration]
+  108 |   if (bfd_read_p (abfd) && abfd->format == bfd_archive)
+      |       ^~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:117:11: warning: implicit declaration of function ‘bfd_close’; did you mean ‘fclose’? [-Wimplicit-function-declaration]
+  117 |           bfd_close (nbfd);
+      |           ^~~~~~~~~
+      |           fclose
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘find_nested_archive’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:146:7: warning: implicit declaration of function ‘filename_cmp’ [-Wimplicit-function-declaration]
+  146 |   if (filename_cmp (filename, arch_bfd->filename) == 0)
+      |       ^~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘main’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:186:8: warning: implicit declaration of function ‘bfd_check_format’ [-Wimplicit-function-declaration]
+  186 |   if (!bfd_check_format (archive, bfd_archive))
+      |        ^~~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.04 ( 80%)   0.00 (  0%)   0.04 ( 80%)  1167k ( 42%)
+ phase opt and generate             :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)   277k ( 10%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ callgraph construction             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    32k (  1%)
+ callgraph ipa passes               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   153k (  6%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   371k ( 13%)
+ lexical analysis                   :   0.01 ( 20%)   0.00 (  0%)   0.02 ( 40%)     0  (  0%)
+ parser (global)                    :   0.02 ( 40%)   0.00 (  0%)   0.00 (  0%)   600k ( 22%)
+ parser function body               :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)   107k (  4%)
+ TOTAL                              :   0.05          0.00          0.05         2753k
+./benchmarks/binutils/use_after_free_2/../include/common.h: In function ‘main’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:183:9: warning: dereference of NULL ‘nbfd_34’ [CWE-476] [-Wanalyzer-null-dereference]
+  183 |         __USE(nbfd);
+      |         ^
+  ‘main’: events 1-4
+    |
+    |  168 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  173 |   if (argc != 2)
+    |      |      ~
+    |      |      |
+    |      |      (2) following ‘false’ branch (when ‘argc_16(D) == 2’)...
+    |......
+    |  176 |   archive = bfd_openr (argv[0], NULL);
+    |      |             ~
+    |      |             |
+    |      |             (3) ...to here
+    |      |             (4) calling ‘bfd_openr’ from ‘main’
+    |
+    +--> ‘bfd_openr’: events 5-6
+           |
+           |  100 | bfd_openr (const char *filename, const char *target)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘bfd_openr’
+           |  101 | {
+           |  102 |   return bfd_fopen (filename, target, "r", -1);
+           |      |          ~
+           |      |          |
+           |      |          (6) calling ‘bfd_fopen’ from ‘bfd_openr’
+           |
+           +--> ‘bfd_fopen’: events 7-11
+                  |
+                  |   71 | bfd_fopen (const char *filename, const char *target, const char *mode, int fd)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘bfd_fopen’
+                  |......
+                  |   77 |   if (nbfd == NULL)
+                  |      |      ~
+                  |      |      |
+                  |      |      (8) following ‘false’ branch...
+                  |......
+                  |   82 |   target_vec = bfd_find_target (target, nbfd);
+                  |      |                ~
+                  |      |                |
+                  |      |                (9) ...to here
+                  |   83 |   if (target_vec == NULL)
+                  |      |      ~
+                  |      |      |
+                  |      |      (10) following ‘false’ branch...
+                  |......
+                  |   93 |   nbfd->filename = xstrdup (filename);
+                  |      |                    ~
+                  |      |                    |
+                  |      |                    (11) ...to here
+                  |
+           <------+
+           |
+         ‘bfd_openr’: event 12
+           |
+           |  102 |   return bfd_fopen (filename, target, "r", -1);
+           |      |          ^
+           |      |          |
+           |      |          (12) returning to ‘bfd_openr’ from ‘bfd_fopen’
+           |
+    <------+
+    |
+  ‘main’: events 13-14
+    |
+    |  176 |   archive = bfd_openr (argv[0], NULL);
+    |      |             ^
+    |      |             |
+    |      |             (13) returning to ‘main’ from ‘bfd_openr’
+    |  177 |   if (archive == NULL)
+    |      |      ~       
+    |      |      |
+    |      |      (14) following ‘false’ branch (when ‘archive_20’ is non-NULL)...
+    |
+  ‘main’: event 15
+    |
+    |lto1:
+    | (15): ...to here
+    |
+  ‘main’: events 16-18
+    |
+    |  180 |   for(int i = 1; i < argc; i++)
+    |      |                    ^
+    |      |                    |
+    |      |                    (16) following ‘true’ branch (when ‘i_12 < argc_16(D)’)...
+    |  181 |   {
+    |  182 |         nbfd = find_nested_archive(argv[i], archive);
+    |      |                                        ~
+    |      |                                        |
+    |      |                                        (17) ...to here
+    |  183 |         __USE(nbfd);
+    |      |         ~           
+    |      |         |
+    |      |         (18) dereference of NULL ‘nbfd_34’
+    |
+./benchmarks/binutils/use_after_free_2/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/use_after_free_2/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_my_cleanup2’: events 1-2
+    |
+    |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+    |      |                          ^
+    |      |                          |
+    |      |                          (1) this call could return NULL
+    |......
+    |  129 |   new->next = *pmy_chain;
+    |      |             ~             
+    |      |             |
+    |      |             (2) ‘new_4’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)  2157k ( 90%)
+ phase opt and generate             :   0.09 (100%)   0.00 (  0%)   0.09 ( 90%)   158k (  7%)
+ analyzer                           :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ analyzer: processing worklist      :   0.07 ( 78%)   0.00 (  0%)   0.07 ( 70%)   672  (  0%)
+ analyzer: emitting diagnostics     :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ TOTAL                              :   0.09          0.00          0.10         2396k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 77%)
+ phase opt and generate             :   0.02 (100%)   0.01 (100%)   0.02 ( 67%)   577k ( 21%)
+ callgraph functions expansion      :   0.02 (100%)   0.01 (100%)   0.02 ( 67%)   467k ( 17%)
+ cfg cleanup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   272  (  0%)
+ alias analysis                     :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    11k (  0%)
+ register scan                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    80  (  0%)
+ expand                             :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)    73k (  3%)
+ thread pro- & epilogue             :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    13k (  1%)
+ TOTAL                              :   0.02          0.01          0.03         2789k
+/usr/bin/ld: /tmp/cctBliWd.ltrans0.ltrans.o: in function `bfd_generic_archive_p':
+<artificial>:(.text+0x1b): undefined reference to `bfd_bread'
+/usr/bin/ld: <artificial>:(.text+0x91): undefined reference to `bfd_get_error'
+/usr/bin/ld: <artificial>:(.text+0xa7): undefined reference to `bfd_set_error'
+/usr/bin/ld: /tmp/cctBliWd.ltrans0.ltrans.o: in function `bfd_fopen':
+<artificial>:(.text+0xd2): undefined reference to `_bfd_new_bfd'
+/usr/bin/ld: <artificial>:(.text+0xee): undefined reference to `bfd_find_target'
+/usr/bin/ld: <artificial>:(.text+0x11e): undefined reference to `_bfd_delete_bfd'
+/usr/bin/ld: /tmp/cctBliWd.ltrans0.ltrans.o: in function `_bfd_archive_close_and_cleanup':
+<artificial>:(.text+0x17b): undefined reference to `bfd_read_p'
+/usr/bin/ld: <artificial>:(.text+0x1a6): undefined reference to `bfd_close'
+/usr/bin/ld: /tmp/cctBliWd.ltrans0.ltrans.o: in function `find_nested_archive':
+<artificial>:(.text+0x1c4): undefined reference to `filename_cmp'
+/usr/bin/ld: <artificial>:(.text+0x1e2): undefined reference to `filename_cmp'
+/usr/bin/ld: <artificial>:(.text+0x222): undefined reference to `bfd_set_error'
+/usr/bin/ld: /tmp/cctBliWd.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x283): undefined reference to `bfd_check_format'
+/usr/bin/ld: <artificial>:(.text+0x2d1): undefined reference to `bfd_close'
+/usr/bin/ld: <artificial>:(.text+0x32a): undefined reference to `bfd_close'
+collect2: error: ld returned 1 exit status

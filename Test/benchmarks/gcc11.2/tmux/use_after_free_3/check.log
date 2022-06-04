@@ -1,0 +1,173 @@
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘session_cmp’:
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:91:13: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+   91 |     return (strcmp(s1->name, s2->name));
+      |             ^~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   10 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   11 | 
+In file included from ./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:9:
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘window_choose_init’:
+./benchmarks/tmux/use_after_free_3/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:143:27: note: in expansion of macro ‘xstrdup’
+  143 |         data->input_str = xstrdup("");
+      |                           ^~~~~~~
+./benchmarks/tmux/use_after_free_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:143:27: note: in expansion of macro ‘xstrdup’
+  143 |         data->input_str = xstrdup("");
+      |                           ^~~~~~~
+In file included from ./benchmarks/tmux/use_after_free_3/../tmux.h:23,
+                 from ./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:10:
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘window_choose_collapse’:
+./benchmarks/tmux/use_after_free_3/../array.h:86:9: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   86 |         memcpy((a)->list + (a)->num, (b)->list, (b)->num * ARRAY_ITEMSIZE(a)); \
+      |         ^~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:238:17: note: in expansion of macro ‘ARRAY_CONCAT’
+  238 |                 ARRAY_CONCAT(&data->list, &list_copy);
+      |                 ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/../array.h:86:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+   86 |         memcpy((a)->list + (a)->num, (b)->list, (b)->num * ARRAY_ITEMSIZE(a)); \
+      |         ^~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:238:17: note: in expansion of macro ‘ARRAY_CONCAT’
+  238 |                 ARRAY_CONCAT(&data->list, &list_copy);
+      |                 ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/../array.h:86:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   86 |         memcpy((a)->list + (a)->num, (b)->list, (b)->num * ARRAY_ITEMSIZE(a)); \
+      |         ^~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:238:17: note: in expansion of macro ‘ARRAY_CONCAT’
+  238 |                 ARRAY_CONCAT(&data->list, &list_copy);
+      |                 ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/../array.h:86:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+   86 |         memcpy((a)->list + (a)->num, (b)->list, (b)->num * ARRAY_ITEMSIZE(a)); \
+      |         ^~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:238:17: note: in expansion of macro ‘ARRAY_CONCAT’
+  238 |                 ARRAY_CONCAT(&data->list, &list_copy);
+      |                 ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘window_choose_expand’:
+./benchmarks/tmux/use_after_free_3/../array.h:57:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   57 |                 memmove((a)->list + (i) + 1, (a)->list + (i),           \
+      |                 ^~~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:335:41: note: in expansion of macro ‘ARRAY_INSERT’
+  335 |                                         ARRAY_INSERT(&data->list,
+      |                                         ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/../array.h:57:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   57 |                 memmove((a)->list + (i) + 1, (a)->list + (i),           \
+      |                 ^~~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:335:41: note: in expansion of macro ‘ARRAY_INSERT’
+  335 |                                         ARRAY_INSERT(&data->list,
+      |                                         ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/../array.h:57:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+   57 |                 memmove((a)->list + (i) + 1, (a)->list + (i),           \
+      |                 ^~~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:335:41: note: in expansion of macro ‘ARRAY_INSERT’
+  335 |                                         ARRAY_INSERT(&data->list,
+      |                                         ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/../array.h:57:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   57 |                 memmove((a)->list + (i) + 1, (a)->list + (i),           \
+      |                 ^~~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:335:41: note: in expansion of macro ‘ARRAY_INSERT’
+  335 |                                         ARRAY_INSERT(&data->list,
+      |                                         ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘window_pane_destroy’:
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:413:16: warning: passing argument 1 of ‘free’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  413 |         free(wp->cwd);
+      |              ~~^~~~~
+In file included from ./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:7:
+/usr/include/stdlib.h:565:25: note: expected ‘void *’ but argument is of type ‘const char *’
+  565 | extern void free (void *__ptr) __THROW;
+      |                   ~~~~~~^~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 28%)
+ phase parsing                      :   0.04 ( 67%)   0.03 ( 75%)   0.07 ( 70%)  2288k ( 50%)
+ phase opt and generate             :   0.02 ( 33%)   0.01 ( 25%)   0.03 ( 30%)   988k ( 22%)
+ callgraph ipa passes               :   0.02 ( 33%)   0.01 ( 25%)   0.03 ( 30%)   506k ( 11%)
+ lto stream compression             :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ preprocessing                      :   0.01 ( 17%)   0.02 ( 50%)   0.04 ( 40%)   893k ( 19%)
+ lexical analysis                   :   0.02 ( 33%)   0.00 (  0%)   0.02 ( 20%)     0  (  0%)
+ parser function body               :   0.01 ( 17%)   0.01 ( 25%)   0.01 ( 10%)   524k ( 11%)
+ inline parameters                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)    42k (  1%)
+ tree PTA                           :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    22k (  0%)
+ tree SSA other                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)  3416  (  0%)
+ tree operand scan                  :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)   147k (  3%)
+ TOTAL                              :   0.06          0.04          0.10         4585k
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘window_pane_create’:
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:380:20: warning: dereference of possibly-NULL ‘wp_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  380 |         wp->window = w;
+      |                    ^
+  ‘window_pane_create’: events 1-2
+    |
+    |  379 |         wp = xcalloc(1, sizeof *wp);
+    |      |              ^
+    |      |              |
+    |      |              (1) this call could return NULL
+    |  380 |         wp->window = w;
+    |      |                    ~
+    |      |                    |
+    |      |                    (2) ‘wp_4’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘window_choose_data_create’:
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:162:22: warning: dereference of possibly-NULL ‘wcd_5’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  162 |         wcd->command = NULL;
+      |                      ^
+  ‘window_choose_data_create’: events 1-2
+    |
+    |  161 |         wcd = xmalloc(sizeof *wcd);
+    |      |               ^
+    |      |               |
+    |      |               (1) this call could return NULL
+    |  162 |         wcd->command = NULL;
+    |      |                      ~
+    |      |                      |
+    |      |                      (2) ‘wcd_5’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c: In function ‘window_choose_init’:
+./benchmarks/tmux/use_after_free_3/tmux_uaf_3.c:140:26: warning: dereference of possibly-NULL ‘data_6’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  140 |         data->callbackfn = NULL;
+      |                          ^
+  ‘window_choose_init’: events 1-2
+    |
+    |  138 |         wp->modedata = data = xmalloc(sizeof *data);    /* allocation site */
+    |      |                               ^
+    |      |                               |
+    |      |                               (1) this call could return NULL
+    |  139 | 
+    |  140 |         data->callbackfn = NULL;
+    |      |                          ~     
+    |      |                          |
+    |      |                          (2) ‘data_6’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  2%)  2157k ( 73%)
+ phase opt and generate             :   0.43 ( 98%)   0.03 (100%)   0.46 ( 98%)   604k ( 21%)
+ phase stream out                   :   0.01 (  2%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto gimple out                 :   0.01 (  2%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ tree operand scan                  :   0.01 (  2%)   0.00 (  0%)   0.00 (  0%)   143k (  5%)
+ analyzer                           :   0.03 (  7%)   0.00 (  0%)   0.04 (  9%)     0  (  0%)
+ analyzer: processing worklist      :   0.35 ( 80%)   0.02 ( 67%)   0.38 ( 81%)  2448  (  0%)
+ analyzer: emitting diagnostics     :   0.03 (  7%)   0.01 ( 33%)   0.02 (  4%)     0  (  0%)
+ analyzer: shortest paths           :   0.01 (  2%)   0.00 (  0%)   0.02 (  4%)     0  (  0%)
+ TOTAL                              :   0.44          0.03          0.47         2940k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 50%)
+ phase opt and generate             :   0.06 (100%)   0.01 (100%)   0.08 (100%)  1964k ( 46%)
+ callgraph functions expansion      :   0.05 ( 83%)   0.01 (100%)   0.07 ( 88%)  1598k ( 37%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)   238k (  6%)
+ ipa points-to                      :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    17k (  0%)
+ df live regs                       :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)     0  (  0%)
+ alias analysis                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)    46k (  1%)
+ dominator optimization             :   0.02 ( 33%)   0.00 (  0%)   0.00 (  0%)    82k (  2%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)  4968  (  0%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)  4256  (  0%)
+ dead code elimination              :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ dead store elim2                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)    32k (  1%)
+ combiner                           :   0.00 (  0%)   0.00 (  0%)   0.02 ( 25%)   130k (  3%)
+ reload CSE regs                    :   0.01 ( 17%)   0.01 (100%)   0.00 (  0%)    19k (  0%)
+ shorten branches                   :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)   192  (  0%)
+ TOTAL                              :   0.06          0.01          0.08         4279k

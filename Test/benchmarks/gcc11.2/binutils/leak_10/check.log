@@ -1,0 +1,123 @@
+./benchmarks/binutils/leak_10/binutils_leak_10.c: In function ‘nextword’:
+./benchmarks/binutils/leak_10/binutils_leak_10.c:87:10: warning: implicit declaration of function ‘isspace’ [-Wimplicit-function-declaration]
+   87 |   while (isspace ((unsigned char) *string) || *string == '-')
+      |          ^~~~~~~
+./benchmarks/binutils/leak_10/binutils_leak_10.c:7:1: note: include ‘<ctype.h>’ or provide a declaration of ‘isspace’
+    6 | #include "../include/common.h"
+  +++ |+#include <ctype.h>
+    7 | 
+./benchmarks/binutils/leak_10/binutils_leak_10.c: In function ‘compile’:
+./benchmarks/binutils/leak_10/binutils_leak_10.c:174:11: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  174 |       if (strcmp (word, "var") == 0)
+      |           ^~~~~~
+./benchmarks/binutils/leak_10/binutils_leak_10.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+    6 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    7 | 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 49%)
+ phase parsing                      :   0.02 ( 67%)   0.01 (100%)   0.03 ( 60%)  1032k ( 39%)
+ phase opt and generate             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)   302k ( 11%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)   165k (  6%)
+ preprocessing                      :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)   289k ( 11%)
+ lexical analysis                   :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ parser struct body                 :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    39k (  1%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   100k (  4%)
+ early inlining heuristics          :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   552  (  0%)
+ TOTAL                              :   0.03          0.01          0.05         2643k
+./benchmarks/binutils/leak_10/binutils_leak_10.c: In function ‘nextword’:
+./benchmarks/binutils/leak_10/binutils_leak_10.c:157:10: warning: dereference of possibly-NULL ‘dst_45’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  157 |   *dst++ = 0;
+      |          ^
+  ‘main’: events 1-2
+    |
+    |  240 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  245 |         compile(string);
+    |      |         ~
+    |      |         |
+    |      |         (2) calling ‘compile’ from ‘main’
+    |
+    +--> ‘compile’: events 3-4
+           |
+           |  165 | void compile (char *string)
+           |      |      ^
+           |      |      |
+           |      |      (3) entry to ‘compile’
+           |......
+           |  169 |   string = nextword (string, &word);
+           |      |            ~
+           |      |            |
+           |      |            (4) calling ‘nextword’ from ‘compile’
+           |
+           +--> ‘nextword’: events 5-6
+                  |
+                  |   72 | nextword (string, word)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘nextword’
+                  |......
+                  |   84 |         if (!string)
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘false’ branch (when ‘string_54(D)’ is non-NULL)...
+                  |
+                ‘nextword’: event 7
+                  |
+                  |lto1:
+                  | (7): ...to here
+                  |
+                ‘nextword’: events 8-13
+                  |
+                  |  101 |         if (!*string)
+                  |      |            ^
+                  |      |            |
+                  |      |            (8) following ‘false’ branch...
+                  |......
+                  |  106 |         if (*string == '"')
+                  |      |             ~
+                  |      |             |
+                  |      |             (9) ...to here
+                  |......
+                  |  131 |   *word = (char *) malloc (length + 1); /* allocation site */
+                  |      |                    ~
+                  |      |                    |
+                  |      |                    (10) this call could return NULL
+                  |......
+                  |  136 |         for (idx = 0; idx < length; idx++)
+                  |      |                           ~
+                  |      |                           |
+                  |      |                           (11) following ‘false’ branch (when ‘idx_43 >= length_49’)...
+                  |......
+                  |  157 |   *dst++ = 0;
+                  |      |          ~  
+                  |      |          |
+                  |      |          (12) ...to here
+                  |      |          (13) ‘dst_45’ could be NULL: unchecked value from (10)
+                  |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 89%)
+ phase opt and generate             :   0.26 (100%)   0.00 (  0%)   0.26 (100%)   174k (  7%)
+ analyzer                           :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)     0  (  0%)
+ analyzer: processing worklist      :   0.12 ( 46%)   0.00 (  0%)   0.12 ( 46%)   168  (  0%)
+ analyzer: emitting diagnostics     :   0.06 ( 23%)   0.00 (  0%)   0.10 ( 38%)   280  (  0%)
+ analyzer: shortest paths           :   0.07 ( 27%)   0.00 (  0%)   0.03 ( 12%)     0  (  0%)
+ TOTAL                              :   0.26          0.00          0.26         2411k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2157k ( 74%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 ( 75%)   694k ( 24%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.03 ( 75%)   559k ( 19%)
+ df live regs                       :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ alias stmt walking                 :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  1408  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   150k (  5%)
+ reorder blocks                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  5280  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.03          0.00          0.04         2905k

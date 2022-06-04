@@ -1,0 +1,105 @@
+./benchmarks/openssl/leak_9/openssl_leak_9.c: In function ‘OSSL_STORE_LOADER_new’:
+./benchmarks/openssl/leak_9/openssl_leak_9.c:128:9: warning: implicit declaration of function ‘OSSL_STOREerr’ [-Wimplicit-function-declaration]
+  128 |         OSSL_STOREerr(OSSL_STORE_F_OSSL_STORE_LOADER_NEW, ERR_R_MALLOC_FAILURE);
+      |         ^~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 40%)
+ phase parsing                      :   0.03 (100%)   0.01 (100%)   0.04 (100%)  1905k ( 59%)
+ preprocessing                      :   0.02 ( 67%)   0.01 (100%)   0.02 ( 50%)  1089k ( 34%)
+ parser (global)                    :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 25%)   695k ( 21%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   102k (  3%)
+ TOTAL                              :   0.03          0.01          0.04         3249k
+In function ‘main’:
+./benchmarks/openssl/leak_9/openssl_leak_9.c:153:9: warning: dereference of NULL ‘new_4’ [CWE-476] [-Wanalyzer-null-dereference]
+  153 |         printf("%s", new->scheme);
+      |         ^
+  ‘main’: events 1-2
+    |
+    |  149 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  152 |         OSSL_STORE_LOADER *new = OSSL_STORE_LOADER_new(&e, "scheme");
+    |      |                                  ~
+    |      |                                  |
+    |      |                                  (2) calling ‘OSSL_STORE_LOADER_new’ from ‘main’
+    |
+    +--> ‘OSSL_STORE_LOADER_new’: events 3-5
+           |
+           |  123 | OSSL_STORE_LOADER *OSSL_STORE_LOADER_new(ENGINE *e, const char *scheme)
+           |      |                    ^
+           |      |                    |
+           |      |                    (3) entry to ‘OSSL_STORE_LOADER_new’
+           |......
+           |  127 |     if (res == NULL) {
+           |      |        ~            
+           |      |        |
+           |      |        (4) following ‘true’ branch (when ‘res_5’ is NULL)...
+           |  128 |         OSSL_STOREerr(OSSL_STORE_F_OSSL_STORE_LOADER_NEW, ERR_R_MALLOC_FAILURE);
+           |      |         ~           
+           |      |         |
+           |      |         (5) ...to here
+           |
+    <------+
+    |
+  ‘main’: events 6-7
+    |
+    |  152 |         OSSL_STORE_LOADER *new = OSSL_STORE_LOADER_new(&e, "scheme");
+    |      |                                  ^
+    |      |                                  |
+    |      |                                  (6) return of NULL to ‘main’ from ‘OSSL_STORE_LOADER_new’
+    |  153 |         printf("%s", new->scheme);
+    |      |         ~                         
+    |      |         |
+    |      |         (7) dereference of NULL ‘new_4’
+    |
+In function ‘OSSL_STORE_LOADER_new’:
+./benchmarks/openssl/leak_9/openssl_leak_9.c:139:9: warning: leak of ‘res_5’ [CWE-401] [-Wanalyzer-malloc-leak]
+  139 |         OSSL_STOREerr(OSSL_STORE_F_OSSL_STORE_LOADER_NEW,
+      |         ^
+  ‘OSSL_STORE_LOADER_new’: events 1-7
+    |
+    |  125 |     OSSL_STORE_LOADER *res = OPENSSL_zalloc(sizeof(*res));      /* allocation site */
+    |      |                              ^
+    |      |                              |
+    |      |                              (1) allocated here
+    |  126 | 
+    |  127 |     if (res == NULL) {
+    |      |        ~                      
+    |      |        |
+    |      |        (2) assuming ‘res_5’ is non-NULL
+    |      |        (3) following ‘false’ branch (when ‘res_5’ is non-NULL)...
+    |......
+    |  138 |     if (scheme == NULL) {
+    |      |        ~                      
+    |      |        |
+    |      |        (4) ...to here
+    |      |        (5) following ‘true’ branch (when ‘scheme_6(D)’ is NULL)...
+    |  139 |         OSSL_STOREerr(OSSL_STORE_F_OSSL_STORE_LOADER_NEW,
+    |      |         ~                     
+    |      |         |
+    |      |         (6) ...to here
+    |      |         (7) ‘res_5’ leaks here; was allocated at (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase opt and generate             :   0.00 (  0%)   0.01 (100%)   0.01 (100%)    29k (  1%)
+ analyzer: processing worklist      :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ analyzer: emitting diagnostics     :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ TOTAL                              :   0.00          0.01          0.01         2224k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)  2157k ( 92%)
+ phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.01 ( 50%)   141k (  6%)
+ callgraph functions expansion      :   0.02 (100%)   0.00 (  0%)   0.01 ( 50%)   108k (  5%)
+ dominator optimization             :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  1952  (  0%)
+ forward prop                       :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)     0  (  0%)
+ initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    12k (  1%)
+ TOTAL                              :   0.02          0.00          0.02         2333k
+/usr/bin/ld: /tmp/ccxcHdhx.ltrans0.ltrans.o: in function `OSSL_STORE_LOADER_new':
+<artificial>:(.text+0x40): undefined reference to `OSSL_STOREerr'
+/usr/bin/ld: <artificial>:(.text+0x56): undefined reference to `OSSL_STOREerr'
+collect2: error: ld returned 1 exit status

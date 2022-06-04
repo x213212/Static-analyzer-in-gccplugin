@@ -1,0 +1,2698 @@
+./benchmarks/tmux/double_free_1/tmux_df_1.c:94:49: warning: ‘struct cmd_ctx’ declared inside parameter list will not be visible outside of this definition or declaration
+   94 |         void             (*exec)(void *, struct cmd_ctx *);
+      |                                                 ^~~~~~~
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘session_find’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:252:34: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  252 |                 if (s != NULL && strcmp(s->name, name) == 0)
+      |                                  ^~~~~~
+./benchmarks/tmux/double_free_1/tmux_df_1.c:15:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   14 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   15 | 
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘session_destroy’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:266:13: warning: implicit declaration of function ‘session_index’; did you mean ‘session_find’? [-Wimplicit-function-declaration]
+  266 |         if (session_index(s, &i) != 0)
+      |             ^~~~~~~~~~~~~
+      |             session_find
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘session_detach’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:322:30: warning: implicit declaration of function ‘session_last’; did you mean ‘session_new’? [-Wimplicit-function-declaration]
+  322 |         if (s->curw == wl && session_last(s) != 0 && session_previous(s) != 0)
+      |                              ^~~~~~~~~~~~
+      |                              session_new
+./benchmarks/tmux/double_free_1/tmux_df_1.c:322:54: warning: implicit declaration of function ‘session_previous’ [-Wimplicit-function-declaration]
+  322 |         if (s->curw == wl && session_last(s) != 0 && session_previous(s) != 0)
+      |                                                      ^~~~~~~~~~~~~~~~
+./benchmarks/tmux/double_free_1/tmux_df_1.c:323:17: warning: implicit declaration of function ‘session_next’; did you mean ‘session_new’? [-Wimplicit-function-declaration]
+  323 |                 session_next(s);
+      |                 ^~~~~~~~~~~~
+      |                 session_new
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘session_create’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:428:18: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  428 |         s->tim = time(NULL);
+      |                  ^~~~
+In file included from ./benchmarks/tmux/double_free_1/tmux_df_1.c:13:
+./benchmarks/tmux/double_free_1/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/double_free_1/tmux_df_1.c:444:19: note: in expansion of macro ‘xstrdup’
+  444 |         s->name = xstrdup(name);
+      |                   ^~~~~~~
+./benchmarks/tmux/double_free_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/double_free_1/tmux_df_1.c:444:19: note: in expansion of macro ‘xstrdup’
+  444 |         s->name = xstrdup(name);
+      |                   ^~~~~~~
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘main’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:466:41: warning: passing argument 3 of ‘session_new’ makes pointer from integer without a cast [-Wint-conversion]
+  466 |                 session_new(s, argv[i], cmd, idx);
+      |                                         ^~~
+      |                                         |
+      |                                         char
+./benchmarks/tmux/double_free_1/tmux_df_1.c:303:62: note: expected ‘const char *’ but argument is of type ‘char’
+  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+      |                                                  ~~~~~~~~~~~~^~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 29%)
+ phase parsing                      :   0.02 ( 40%)   0.04 (100%)   0.06 ( 67%)  2063k ( 47%)
+ phase opt and generate             :   0.03 ( 60%)   0.00 (  0%)   0.03 ( 33%)  1040k ( 24%)
+ dump files                         :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph optimization             :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 11%)   176  (  0%)
+ callgraph ipa passes               :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 22%)   461k ( 10%)
+ lto stream compression             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ lto stream output                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 25%)   0.03 ( 33%)   869k ( 20%)
+ lexical analysis                   :   0.02 ( 40%)   0.02 ( 50%)   0.02 ( 22%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   605k ( 14%)
+ parser function body               :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)   349k (  8%)
+ tree CFG construction              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   127k (  3%)
+ TOTAL                              :   0.05          0.04          0.09         4412k
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘main’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:471:17: warning: dereference of NULL ‘wl_20’ [CWE-476] [-Wanalyzer-null-dereference]
+  471 |         wl->idx = idx;
+      |                 ^
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-22
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  429 |         s->curw = s->lastw = NULL;
+           |      |                 ~  ~       ~
+           |      |                 |  |       |
+           |      |                 |  |       (4) ‘s_50->lastw’ is NULL
+           |      |                 |  |       (8) ‘0B’ is NULL
+           |      |                 |  |       (12) ‘0B’ is NULL
+           |      |                 |  |       (16) ‘0B’ is NULL
+           |      |                 |  (5) ‘s_50->lastw’ is NULL
+           |      |                 |  (9) ‘0B’ is NULL
+           |      |                 |  (13) ‘0B’ is NULL
+           |      |                 |  (17) ‘0B’ is NULL
+           |      |                 (6) ‘s_50->lastw’ is NULL
+           |      |                 (10) ‘0B’ is NULL
+           |      |                 (14) ‘0B’ is NULL
+           |      |                 (18) ‘0B’ is NULL
+           |  430 |         RB_INIT(&s->windows);
+           |      |         ~
+           |      |         |
+           |      |         (7) ‘s_50->lastw’ is NULL
+           |      |         (11) ‘0B’ is NULL
+           |      |         (15) ‘0B’ is NULL
+           |      |         (19) ‘0B’ is NULL
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (20) following ‘false’ branch...
+           |      |                 (21) ...to here
+           |      |                 (22) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 23-29
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (23) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (24) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (25) ...to here
+                  |      |            (26) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (27) ...to here
+                  |      |            (28) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (29) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 30-31
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (30) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (31) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 32-35
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (32) entry to ‘session_new’
+                  |......
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (33) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (34) ...to here
+                  |      |                 (35) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 36-37
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (36) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (37) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 38-41
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (38) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (39) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (40) ...to here
+                                |      |                       (41) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 42-45
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (42) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (43) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (44) ...to here
+                                       |      |                     (45) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 46-48
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (46) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (47) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (48) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 49-51
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(49) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (50) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (51) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 52-55
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (52) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (53) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (54) ...to here
+                                |......
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ~              
+                                |      |         |
+                                |      |         (55) calling ‘winlinks_RB_INSERT’ from ‘winlink_add’
+                                |
+                                +--> ‘winlinks_RB_INSERT’: events 56-64
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (56) entry to ‘winlinks_RB_INSERT’
+                                       |      | (57) following ‘true’ branch (when ‘tmp_2’ is non-NULL)...
+                                       |      | (58) ...to here
+                                       |      | (59) ‘0B’ is NULL
+                                       |      | (60) ‘0B’ is NULL
+                                       |      | (61) ‘0B’ is NULL
+                                       |      | (62) following ‘false’ branch (when ‘parent_3’ is NULL)...
+                                       |      | (63) ...to here
+                                       |      | (64) calling ‘winlinks_RB_INSERT_COLOR’ from ‘winlinks_RB_INSERT’
+                                       |
+                                       +--> ‘winlinks_RB_INSERT_COLOR’: events 65-67
+                                              |
+                                              |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                              |      | ^
+                                              |      | |
+                                              |      | (65) entry to ‘winlinks_RB_INSERT_COLOR’
+                                              |      | (66) following ‘true’ branch...
+                                              |      | (67) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlinks_RB_INSERT’: event 68
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (68) returning to ‘winlinks_RB_INSERT’ from ‘winlinks_RB_INSERT_COLOR’
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: event 69
+                                |
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ^
+                                |      |         |
+                                |      |         (69) returning to ‘winlink_add’ from ‘winlinks_RB_INSERT’
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: event 70
+                         |
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (70) returning to ‘session_attach’ from ‘winlink_add’
+                         |
+                  <------+
+                  |
+                ‘session_new’: event 71
+                  |
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (71) returning to ‘session_new’ from ‘session_attach’
+                  |
+           <------+
+           |
+         ‘session_create’: events 72-75
+           |
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |            ~^
+           |      |            ||
+           |      |            |(72) returning to ‘session_create’ from ‘session_new’
+           |      |            (73) following ‘false’ branch...
+           |......
+           |  449 |         session_select(s, 0);
+           |      |         ~    
+           |      |         |
+           |      |         (74) ...to here
+           |      |         (75) calling ‘session_select’ from ‘session_create’
+           |
+           +--> ‘session_select’: events 76-77
+                  |
+                  |  388 | session_select(struct session *s, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (76) entry to ‘session_select’
+                  |......
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ~
+                  |      |              |
+                  |      |              (77) calling ‘winlink_find_by_index’ from ‘session_select’
+                  |
+                  +--> ‘winlink_find_by_index’: events 78-80
+                         |
+                         |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (78) entry to ‘winlink_find_by_index’
+                         |......
+                         |  164 |         if (idx < 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (79) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                         |......
+                         |  167 |         wl.idx = idx;
+                         |      |                ~
+                         |      |                |
+                         |      |                (80) ...to here
+                         |
+                  <------+
+                  |
+                ‘session_select’: events 81-82
+                  |
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ^
+                  |      |              |
+                  |      |              (81) return of NULL to ‘session_select’ from ‘winlink_find_by_index’
+                  |  393 |         if (wl == NULL)
+                  |      |            ~  
+                  |      |            |
+                  |      |            (82) following ‘true’ branch (when ‘wl_10’ is NULL)...
+                  |
+                ‘session_select’: event 83
+                  |
+                  |lto1:
+                  | (83): ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: event 84
+           |
+           |  449 |         session_select(s, 0);
+           |      |         ^
+           |      |         |
+           |      |         (84) returning to ‘session_create’ from ‘session_select’
+           |
+    <------+
+    |
+  ‘main’: events 85-86
+    |
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ^
+    |      |             |
+    |      |             (85) returning to ‘main’ from ‘session_create’
+    |......
+    |  470 |         wl = winlink_find_by_index(& s->windows, idx);
+    |      |              ~
+    |      |              |
+    |      |              (86) calling ‘winlink_find_by_index’ from ‘main’
+    |
+    +--> ‘winlink_find_by_index’: events 87-89
+           |
+           |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+           |      | ^
+           |      | |
+           |      | (87) entry to ‘winlink_find_by_index’
+           |......
+           |  164 |         if (idx < 0)
+           |      |            ~
+           |      |            |
+           |      |            (88) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+           |......
+           |  167 |         wl.idx = idx;
+           |      |                ~
+           |      |                |
+           |      |                (89) ...to here
+           |
+    <------+
+    |
+  ‘main’: events 90-91
+    |
+    |  470 |         wl = winlink_find_by_index(& s->windows, idx);
+    |      |              ^
+    |      |              |
+    |      |              (90) return of NULL to ‘main’ from ‘winlink_find_by_index’
+    |  471 |         wl->idx = idx;
+    |      |                 ~
+    |      |                 |
+    |      |                 (91) dereference of NULL ‘wl_20’
+    |
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘session_create’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:428:16: warning: dereference of possibly-NULL ‘s_50’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  428 |         s->tim = time(NULL);
+      |                ^
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-5
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  427 |         s = xmalloc(sizeof *s);
+           |      |             ~
+           |      |             |
+           |      |             (4) this call could return NULL
+           |  428 |         s->tim = time(NULL);
+           |      |                ~
+           |      |                |
+           |      |                (5) ‘s_50’ could be NULL: unchecked value from (4)
+           |
+./benchmarks/tmux/double_free_1/tmux_df_1.c:445:12: warning: leak of ‘<unknown>’ [CWE-401] [-Wanalyzer-malloc-leak]
+  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+      |            ^
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-6
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘false’ branch...
+           |      |                 (5) ...to here
+           |      |                 (6) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 7-13
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (9) ...to here
+                  |      |            (10) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (11) ...to here
+                  |      |            (12) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (13) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 14-15
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (14) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (15) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 16-20
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘session_new’
+                  |......
+                  |  310 |         w = malloc(sizeof *w);
+                  |      |             ~
+                  |      |             |
+                  |      |             (17) allocated here
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (18) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (19) ...to here
+                  |      |                 (20) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 21-22
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (21) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (22) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 23-26
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (23) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (24) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (25) ...to here
+                                |      |                       (26) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 27-30
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (27) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (28) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (29) ...to here
+                                       |      |                     (30) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 31-33
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (31) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (32) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (33) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 34-36
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(34) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (35) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (36) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 37-40
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (37) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (38) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (39) ...to here
+                                |......
+                                |  202 |         w->references++;
+                                |      |          ~             
+                                |      |          |
+                                |      |          (40) assuming ‘w_17(D)’ is non-NULL
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: event 41
+                         |
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (41) returning to ‘session_attach’ from ‘winlink_add’
+                         |
+                  <------+
+                  |
+                ‘session_new’: event 42
+                  |
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (42) returning to ‘session_new’ from ‘session_attach’
+                  |
+           <------+
+           |
+         ‘session_create’: events 43-44
+           |
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |            ~^
+           |      |            ||
+           |      |            |(43) returning to ‘session_create’ from ‘session_new’
+           |      |            (44) ‘<unknown>’ leaks here; was allocated at (17)
+           |
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘session_new’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:315:17: warning: leak of ‘w_4’ [CWE-401] [-Wanalyzer-malloc-leak]
+  315 |         return (session_attach(s, w, idx));
+      |                 ^
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-6
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘false’ branch...
+           |      |                 (5) ...to here
+           |      |                 (6) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 7-13
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (9) ...to here
+                  |      |            (10) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (11) ...to here
+                  |      |            (12) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (13) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 14-15
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (14) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (15) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 16-19
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘session_new’
+                  |......
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (18) ...to here
+                  |      |                 (19) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 20-21
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (20) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (21) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 22-25
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (22) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (23) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (24) ...to here
+                                |      |                       (25) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 26-29
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (26) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (27) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (28) ...to here
+                                       |      |                     (29) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 30-32
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (30) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (31) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (32) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 33-35
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(33) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (34) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (35) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 36-39
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (36) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (37) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (38) ...to here
+                                |......
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ~              
+                                |      |         |
+                                |      |         (39) calling ‘winlinks_RB_INSERT’ from ‘winlink_add’
+                                |
+                                +--> ‘winlinks_RB_INSERT’: events 40-42
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (40) entry to ‘winlinks_RB_INSERT’
+                                       |      | (41) following ‘true’ branch...
+                                       |      | (42) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: event 43
+                                |
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ^
+                                |      |         |
+                                |      |         (43) returning to ‘winlink_add’ from ‘winlinks_RB_INSERT’
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: event 44
+                         |
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (44) returning to ‘session_attach’ from ‘winlink_add’
+                         |
+                  <------+
+                  |
+                ‘session_new’: event 45
+                  |
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (45) returning to ‘session_new’ from ‘session_attach’
+                  |
+           <------+
+           |
+         ‘session_create’: events 46-49
+           |
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |            ~^
+           |      |            ||
+           |      |            |(46) returning to ‘session_create’ from ‘session_new’
+           |      |            (47) following ‘false’ branch...
+           |......
+           |  449 |         session_select(s, 0);
+           |      |         ~    
+           |      |         |
+           |      |         (48) ...to here
+           |      |         (49) calling ‘session_select’ from ‘session_create’
+           |
+           +--> ‘session_select’: events 50-51
+                  |
+                  |  388 | session_select(struct session *s, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (50) entry to ‘session_select’
+                  |......
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ~
+                  |      |              |
+                  |      |              (51) calling ‘winlink_find_by_index’ from ‘session_select’
+                  |
+                  +--> ‘winlink_find_by_index’: events 52-54
+                         |
+                         |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (52) entry to ‘winlink_find_by_index’
+                         |......
+                         |  164 |         if (idx < 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (53) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                         |......
+                         |  167 |         wl.idx = idx;
+                         |      |                ~
+                         |      |                |
+                         |      |                (54) ...to here
+                         |
+                  <------+
+                  |
+                ‘session_select’: events 55-56
+                  |
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ^
+                  |      |              |
+                  |      |              (55) returning to ‘session_select’ from ‘winlink_find_by_index’
+                  |  393 |         if (wl == NULL)
+                  |      |            ~  
+                  |      |            |
+                  |      |            (56) following ‘true’ branch (when ‘wl_10’ is NULL)...
+                  |
+                ‘session_select’: event 57
+                  |
+                  |lto1:
+                  | (57): ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: event 58
+           |
+           |  449 |         session_select(s, 0);
+           |      |         ^
+           |      |         |
+           |      |         (58) returning to ‘session_create’ from ‘session_select’
+           |
+    <------+
+    |
+  ‘main’: events 59-62
+    |
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ^
+    |      |             |
+    |      |             (59) returning to ‘main’ from ‘session_create’
+    |  464 |         for(i = 1; i < argc; i++)
+    |      |                      ~
+    |      |                      |
+    |      |                      (60) following ‘true’ branch (when ‘i_9 < argc_17(D)’)...
+    |  465 |         {
+    |  466 |                 session_new(s, argv[i], cmd, idx);
+    |      |                 ~
+    |      |                 |
+    |      |                 (61) ...to here
+    |      |                 (62) calling ‘session_new’ from ‘main’
+    |
+    +--> ‘session_new’: events 63-67
+           |
+           |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+           |      | ^
+           |      | |
+           |      | (63) entry to ‘session_new’
+           |......
+           |  310 |         w = malloc(sizeof *w);
+           |      |             ~
+           |      |             |
+           |      |             (64) allocated here
+           |  311 |         if (session_index(s, &i) != 0)
+           |      |            ~
+           |      |            |
+           |      |            (65) following ‘false’ branch...
+           |......
+           |  315 |         return (session_attach(s, w, idx));
+           |      |                 ~
+           |      |                 |
+           |      |                 (66) ...to here
+           |      |                 (67) calling ‘session_attach’ from ‘session_new’
+           |
+           +--> ‘session_attach’: events 68-69
+                  |
+                  |  295 | session_attach(struct session *s, struct window *w, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (68) entry to ‘session_attach’
+                  |  296 | {
+                  |  297 |         return (winlink_add(&s->windows, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (69) calling ‘winlink_add’ from ‘session_attach’
+                  |
+                  +--> ‘winlink_add’: events 70-73
+                         |
+                         |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (70) entry to ‘winlink_add’
+                         |......
+                         |  189 |         if (idx == -1)
+                         |      |            ~
+                         |      |            |
+                         |      |            (71) following ‘false’ branch (when ‘idx_8(D) != -1’)...
+                         |  190 |                 idx = winlink_next_index(wwl);
+                         |  191 |         else if (winlink_find_by_index(wwl, idx) != NULL)
+                         |      |                  ~
+                         |      |                  |
+                         |      |                  (72) ...to here
+                         |      |                  (73) calling ‘winlink_find_by_index’ from ‘winlink_add’
+                         |
+                         +--> ‘winlink_find_by_index’: events 74-77
+                                |
+                                |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (74) entry to ‘winlink_find_by_index’
+                                |......
+                                |  164 |         if (idx < 0)
+                                |      |            ~
+                                |      |            |
+                                |      |            (75) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                |......
+                                |  167 |         wl.idx = idx;
+                                |      |                ~
+                                |      |                |
+                                |      |                (76) ...to here
+                                |  168 |         return (RB_FIND(winlinks, wwl, &wl));
+                                |      |                 ~
+                                |      |                 |
+                                |      |                 (77) calling ‘winlinks_RB_FIND’ from ‘winlink_find_by_index’
+                                |
+                                +--> ‘winlinks_RB_FIND’: events 78-80
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (78) entry to ‘winlinks_RB_FIND’
+                                       |      | (79) following ‘true’ branch (when ‘tmp_1’ is non-NULL)...
+                                       |      | (80) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_find_by_index’: event 81
+                                |
+                                |  168 |         return (RB_FIND(winlinks, wwl, &wl));
+                                |      |                 ^
+                                |      |                 |
+                                |      |                 (81) returning to ‘winlink_find_by_index’ from ‘winlinks_RB_FIND’
+                                |
+                         <------+
+                         |
+                       ‘winlink_add’: events 82-83
+                         |
+                         |  191 |         else if (winlink_find_by_index(wwl, idx) != NULL)
+                         |      |                 ~^
+                         |      |                 ||
+                         |      |                 |(82) returning to ‘winlink_add’ from ‘winlink_find_by_index’
+                         |      |                 (83) following ‘true’ branch...
+                         |
+                       ‘winlink_add’: event 84
+                         |
+                         |lto1:
+                         | (84): ...to here
+                         |
+                  <------+
+                  |
+                ‘session_attach’: event 85
+                  |
+                  |  297 |         return (winlink_add(&s->windows, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (85) returning to ‘session_attach’ from ‘winlink_add’
+                  |
+           <------+
+           |
+         ‘session_new’: events 86-87
+           |
+           |  315 |         return (session_attach(s, w, idx));
+           |      |                 ^
+           |      |                 |
+           |      |                 (86) returning to ‘session_new’ from ‘session_attach’
+           |      |                 (87) ‘w_4’ leaks here; was allocated at (64)
+           |
+./benchmarks/tmux/double_free_1/tmux_df_1.c:315:17: warning: leak of ‘<anonymous>’ [CWE-401] [-Wanalyzer-malloc-leak]
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-6
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘false’ branch...
+           |      |                 (5) ...to here
+           |      |                 (6) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 7-13
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (9) ...to here
+                  |      |            (10) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (11) ...to here
+                  |      |            (12) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (13) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 14-15
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (14) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (15) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 16-19
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘session_new’
+                  |......
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (18) ...to here
+                  |      |                 (19) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 20-21
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (20) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (21) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 22-25
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (22) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (23) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (24) ...to here
+                                |      |                       (25) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 26-29
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (26) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (27) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (28) ...to here
+                                       |      |                     (29) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 30-32
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (30) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (31) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (32) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 33-35
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(33) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (34) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (35) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 36-39
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (36) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (37) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (38) ...to here
+                                |......
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ~              
+                                |      |         |
+                                |      |         (39) calling ‘winlinks_RB_INSERT’ from ‘winlink_add’
+                                |
+                                +--> ‘winlinks_RB_INSERT’: events 40-45
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (40) entry to ‘winlinks_RB_INSERT’
+                                       |      | (41) following ‘true’ branch (when ‘tmp_2’ is non-NULL)...
+                                       |      | (42) ...to here
+                                       |      | (43) following ‘false’ branch (when ‘parent_3’ is NULL)...
+                                       |      | (44) ...to here
+                                       |      | (45) calling ‘winlinks_RB_INSERT_COLOR’ from ‘winlinks_RB_INSERT’
+                                       |
+                                       +--> ‘winlinks_RB_INSERT_COLOR’: events 46-48
+                                              |
+                                              |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                              |      | ^
+                                              |      | |
+                                              |      | (46) entry to ‘winlinks_RB_INSERT_COLOR’
+                                              |      | (47) following ‘true’ branch...
+                                              |      | (48) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlinks_RB_INSERT’: event 49
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (49) returning to ‘winlinks_RB_INSERT’ from ‘winlinks_RB_INSERT_COLOR’
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: event 50
+                                |
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ^
+                                |      |         |
+                                |      |         (50) returning to ‘winlink_add’ from ‘winlinks_RB_INSERT’
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: event 51
+                         |
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (51) returning to ‘session_attach’ from ‘winlink_add’
+                         |
+                  <------+
+                  |
+                ‘session_new’: event 52
+                  |
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (52) returning to ‘session_new’ from ‘session_attach’
+                  |
+           <------+
+           |
+         ‘session_create’: events 53-56
+           |
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |            ~^
+           |      |            ||
+           |      |            |(53) returning to ‘session_create’ from ‘session_new’
+           |      |            (54) following ‘false’ branch...
+           |......
+           |  449 |         session_select(s, 0);
+           |      |         ~    
+           |      |         |
+           |      |         (55) ...to here
+           |      |         (56) calling ‘session_select’ from ‘session_create’
+           |
+           +--> ‘session_select’: events 57-58
+                  |
+                  |  388 | session_select(struct session *s, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (57) entry to ‘session_select’
+                  |......
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ~
+                  |      |              |
+                  |      |              (58) calling ‘winlink_find_by_index’ from ‘session_select’
+                  |
+                  +--> ‘winlink_find_by_index’: events 59-61
+                         |
+                         |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (59) entry to ‘winlink_find_by_index’
+                         |......
+                         |  164 |         if (idx < 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (60) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                         |......
+                         |  167 |         wl.idx = idx;
+                         |      |                ~
+                         |      |                |
+                         |      |                (61) ...to here
+                         |
+                  <------+
+                  |
+                ‘session_select’: events 62-63
+                  |
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ^
+                  |      |              |
+                  |      |              (62) returning to ‘session_select’ from ‘winlink_find_by_index’
+                  |  393 |         if (wl == NULL)
+                  |      |            ~  
+                  |      |            |
+                  |      |            (63) following ‘true’ branch (when ‘wl_10’ is NULL)...
+                  |
+                ‘session_select’: event 64
+                  |
+                  |lto1:
+                  | (64): ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: event 65
+           |
+           |  449 |         session_select(s, 0);
+           |      |         ^
+           |      |         |
+           |      |         (65) returning to ‘session_create’ from ‘session_select’
+           |
+    <------+
+    |
+  ‘main’: events 66-69
+    |
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ^
+    |      |             |
+    |      |             (66) returning to ‘main’ from ‘session_create’
+    |  464 |         for(i = 1; i < argc; i++)
+    |      |                      ~
+    |      |                      |
+    |      |                      (67) following ‘true’ branch (when ‘i_9 < argc_17(D)’)...
+    |  465 |         {
+    |  466 |                 session_new(s, argv[i], cmd, idx);
+    |      |                 ~
+    |      |                 |
+    |      |                 (68) ...to here
+    |      |                 (69) calling ‘session_new’ from ‘main’
+    |
+    +--> ‘session_new’: events 70-73
+           |
+           |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+           |      | ^
+           |      | |
+           |      | (70) entry to ‘session_new’
+           |......
+           |  311 |         if (session_index(s, &i) != 0)
+           |      |            ~
+           |      |            |
+           |      |            (71) following ‘false’ branch...
+           |......
+           |  315 |         return (session_attach(s, w, idx));
+           |      |                 ~
+           |      |                 |
+           |      |                 (72) ...to here
+           |      |                 (73) calling ‘session_attach’ from ‘session_new’
+           |
+           +--> ‘session_attach’: events 74-75
+                  |
+                  |  295 | session_attach(struct session *s, struct window *w, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (74) entry to ‘session_attach’
+                  |  296 | {
+                  |  297 |         return (winlink_add(&s->windows, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (75) calling ‘winlink_add’ from ‘session_attach’
+                  |
+                  +--> ‘winlink_add’: events 76-77
+                         |
+                         |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (76) entry to ‘winlink_add’
+                         |......
+                         |  191 |         else if (winlink_find_by_index(wwl, idx) != NULL)
+                         |      |                  ~
+                         |      |                  |
+                         |      |                  (77) calling ‘winlink_find_by_index’ from ‘winlink_add’
+                         |
+                         +--> ‘winlink_find_by_index’: events 78-80
+                                |
+                                |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (78) entry to ‘winlink_find_by_index’
+                                |......
+                                |  164 |         if (idx < 0)
+                                |      |            ~
+                                |      |            |
+                                |      |            (79) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                |......
+                                |  167 |         wl.idx = idx;
+                                |      |                ~
+                                |      |                |
+                                |      |                (80) ...to here
+                                |
+                         <------+
+                         |
+                       ‘winlink_add’: events 81-87
+                         |
+                         |  191 |         else if (winlink_find_by_index(wwl, idx) != NULL)
+                         |      |                 ~^
+                         |      |                 ||
+                         |      |                 |(81) returning to ‘winlink_add’ from ‘winlink_find_by_index’
+                         |      |                 (82) following ‘false’ branch...
+                         |......
+                         |  194 |         if (idx < 0)
+                         |      |            ~      
+                         |      |            |
+                         |      |            (83) ...to here
+                         |      |            (84) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                         |......
+                         |  197 |         wl = xcalloc(1, sizeof *wl);
+                         |      |              ~    
+                         |      |              |
+                         |      |              (85) ...to here
+                         |      |              (86) allocated here
+                         |  198 |         wl->idx = idx;
+                         |      |                 ~ 
+                         |      |                 |
+                         |      |                 (87) assuming ‘wl_15’ is non-NULL
+                         |
+                  <------+
+                  |
+                ‘session_attach’: event 88
+                  |
+                  |  297 |         return (winlink_add(&s->windows, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (88) returning to ‘session_attach’ from ‘winlink_add’
+                  |
+           <------+
+           |
+         ‘session_new’: events 89-90
+           |
+           |  315 |         return (session_attach(s, w, idx));
+           |      |                 ^
+           |      |                 |
+           |      |                 (89) returning to ‘session_new’ from ‘session_attach’
+           |      |                 (90) ‘<anonymous>’ leaks here; was allocated at (86)
+           |
+./benchmarks/tmux/double_free_1/tmux_df_1.c:315:17: warning: leak of ‘w_4’ [CWE-401] [-Wanalyzer-malloc-leak]
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-6
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘false’ branch...
+           |      |                 (5) ...to here
+           |      |                 (6) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 7-13
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (9) ...to here
+                  |      |            (10) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (11) ...to here
+                  |      |            (12) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (13) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 14-15
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (14) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (15) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 16-19
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘session_new’
+                  |......
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (18) ...to here
+                  |      |                 (19) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 20-21
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (20) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (21) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 22-25
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (22) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (23) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (24) ...to here
+                                |      |                       (25) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 26-29
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (26) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (27) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (28) ...to here
+                                       |      |                     (29) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 30-32
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (30) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (31) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (32) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 33-35
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(33) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (34) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (35) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 36-39
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (36) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (37) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (38) ...to here
+                                |......
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ~              
+                                |      |         |
+                                |      |         (39) calling ‘winlinks_RB_INSERT’ from ‘winlink_add’
+                                |
+                                +--> ‘winlinks_RB_INSERT’: events 40-45
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (40) entry to ‘winlinks_RB_INSERT’
+                                       |      | (41) following ‘true’ branch (when ‘tmp_2’ is non-NULL)...
+                                       |      | (42) ...to here
+                                       |      | (43) following ‘false’ branch (when ‘parent_3’ is NULL)...
+                                       |      | (44) ...to here
+                                       |      | (45) calling ‘winlinks_RB_INSERT_COLOR’ from ‘winlinks_RB_INSERT’
+                                       |
+                                       +--> ‘winlinks_RB_INSERT_COLOR’: events 46-48
+                                              |
+                                              |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                              |      | ^
+                                              |      | |
+                                              |      | (46) entry to ‘winlinks_RB_INSERT_COLOR’
+                                              |      | (47) following ‘true’ branch...
+                                              |      | (48) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlinks_RB_INSERT’: event 49
+                                       |
+                                       |  141 | RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
+                                       |      | ^
+                                       |      | |
+                                       |      | (49) returning to ‘winlinks_RB_INSERT’ from ‘winlinks_RB_INSERT_COLOR’
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: event 50
+                                |
+                                |  200 |         RB_INSERT(winlinks, wwl, wl);
+                                |      |         ^
+                                |      |         |
+                                |      |         (50) returning to ‘winlink_add’ from ‘winlinks_RB_INSERT’
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: event 51
+                         |
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (51) returning to ‘session_attach’ from ‘winlink_add’
+                         |
+                  <------+
+                  |
+                ‘session_new’: event 52
+                  |
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (52) returning to ‘session_new’ from ‘session_attach’
+                  |
+           <------+
+           |
+         ‘session_create’: events 53-56
+           |
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |            ~^
+           |      |            ||
+           |      |            |(53) returning to ‘session_create’ from ‘session_new’
+           |      |            (54) following ‘false’ branch...
+           |......
+           |  449 |         session_select(s, 0);
+           |      |         ~    
+           |      |         |
+           |      |         (55) ...to here
+           |      |         (56) calling ‘session_select’ from ‘session_create’
+           |
+           +--> ‘session_select’: events 57-58
+                  |
+                  |  388 | session_select(struct session *s, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (57) entry to ‘session_select’
+                  |......
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ~
+                  |      |              |
+                  |      |              (58) calling ‘winlink_find_by_index’ from ‘session_select’
+                  |
+                  +--> ‘winlink_find_by_index’: events 59-61
+                         |
+                         |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (59) entry to ‘winlink_find_by_index’
+                         |......
+                         |  164 |         if (idx < 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (60) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                         |......
+                         |  167 |         wl.idx = idx;
+                         |      |                ~
+                         |      |                |
+                         |      |                (61) ...to here
+                         |
+                  <------+
+                  |
+                ‘session_select’: events 62-63
+                  |
+                  |  392 |         wl = winlink_find_by_index(&s->windows, idx);
+                  |      |              ^
+                  |      |              |
+                  |      |              (62) returning to ‘session_select’ from ‘winlink_find_by_index’
+                  |  393 |         if (wl == NULL)
+                  |      |            ~  
+                  |      |            |
+                  |      |            (63) following ‘true’ branch (when ‘wl_10’ is NULL)...
+                  |
+                ‘session_select’: event 64
+                  |
+                  |lto1:
+                  | (64): ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: event 65
+           |
+           |  449 |         session_select(s, 0);
+           |      |         ^
+           |      |         |
+           |      |         (65) returning to ‘session_create’ from ‘session_select’
+           |
+    <------+
+    |
+  ‘main’: events 66-69
+    |
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ^
+    |      |             |
+    |      |             (66) returning to ‘main’ from ‘session_create’
+    |  464 |         for(i = 1; i < argc; i++)
+    |      |                      ~
+    |      |                      |
+    |      |                      (67) following ‘true’ branch (when ‘i_9 < argc_17(D)’)...
+    |  465 |         {
+    |  466 |                 session_new(s, argv[i], cmd, idx);
+    |      |                 ~
+    |      |                 |
+    |      |                 (68) ...to here
+    |      |                 (69) calling ‘session_new’ from ‘main’
+    |
+    +--> ‘session_new’: events 70-74
+           |
+           |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+           |      | ^
+           |      | |
+           |      | (70) entry to ‘session_new’
+           |......
+           |  310 |         w = malloc(sizeof *w);
+           |      |             ~
+           |      |             |
+           |      |             (71) allocated here
+           |  311 |         if (session_index(s, &i) != 0)
+           |      |            ~
+           |      |            |
+           |      |            (72) following ‘false’ branch...
+           |......
+           |  315 |         return (session_attach(s, w, idx));
+           |      |                 ~
+           |      |                 |
+           |      |                 (73) ...to here
+           |      |                 (74) calling ‘session_attach’ from ‘session_new’
+           |
+           +--> ‘session_attach’: events 75-76
+                  |
+                  |  295 | session_attach(struct session *s, struct window *w, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (75) entry to ‘session_attach’
+                  |  296 | {
+                  |  297 |         return (winlink_add(&s->windows, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (76) calling ‘winlink_add’ from ‘session_attach’
+                  |
+                  +--> ‘winlink_add’: events 77-78
+                         |
+                         |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (77) entry to ‘winlink_add’
+                         |......
+                         |  191 |         else if (winlink_find_by_index(wwl, idx) != NULL)
+                         |      |                  ~
+                         |      |                  |
+                         |      |                  (78) calling ‘winlink_find_by_index’ from ‘winlink_add’
+                         |
+                         +--> ‘winlink_find_by_index’: events 79-81
+                                |
+                                |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (79) entry to ‘winlink_find_by_index’
+                                |......
+                                |  164 |         if (idx < 0)
+                                |      |            ~
+                                |      |            |
+                                |      |            (80) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                |......
+                                |  167 |         wl.idx = idx;
+                                |      |                ~
+                                |      |                |
+                                |      |                (81) ...to here
+                                |
+                         <------+
+                         |
+                       ‘winlink_add’: events 82-87
+                         |
+                         |  191 |         else if (winlink_find_by_index(wwl, idx) != NULL)
+                         |      |                 ~^
+                         |      |                 ||
+                         |      |                 |(82) returning to ‘winlink_add’ from ‘winlink_find_by_index’
+                         |      |                 (83) following ‘false’ branch...
+                         |......
+                         |  194 |         if (idx < 0)
+                         |      |            ~      
+                         |      |            |
+                         |      |            (84) ...to here
+                         |      |            (85) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                         |......
+                         |  197 |         wl = xcalloc(1, sizeof *wl);
+                         |      |              ~    
+                         |      |              |
+                         |      |              (86) ...to here
+                         |......
+                         |  202 |         w->references++;
+                         |      |          ~        
+                         |      |          |
+                         |      |          (87) assuming ‘w_17(D)’ is non-NULL
+                         |
+                  <------+
+                  |
+                ‘session_attach’: event 88
+                  |
+                  |  297 |         return (winlink_add(&s->windows, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (88) returning to ‘session_attach’ from ‘winlink_add’
+                  |
+           <------+
+           |
+         ‘session_new’: events 89-90
+           |
+           |  315 |         return (session_attach(s, w, idx));
+           |      |                 ^
+           |      |                 |
+           |      |                 (89) returning to ‘session_new’ from ‘session_attach’
+           |      |                 (90) ‘w_4’ leaks here; was allocated at (71)
+           |
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘session_create’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:286:22: warning: leak of ‘session_new (s_50, 0B, cmd_77(D), -1)’ [CWE-401] [-Wanalyzer-malloc-leak]
+  286 |         for (*i = 0; *i < ARRAY_LENGTH(&sessions); (*i)++) {
+      |                      ^
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-6
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘false’ branch...
+           |      |                 (5) ...to here
+           |      |                 (6) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 7-13
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (9) ...to here
+                  |      |            (10) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (11) ...to here
+                  |      |            (12) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (13) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 14-15
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (14) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (15) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 16-19
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘session_new’
+                  |......
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (18) ...to here
+                  |      |                 (19) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 20-21
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (20) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (21) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 22-25
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (22) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (23) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (24) ...to here
+                                |      |                       (25) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 26-29
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (26) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (27) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (28) ...to here
+                                       |      |                     (29) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 30-32
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (30) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (31) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (32) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 33-35
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(33) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (34) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (35) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 36-40
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (36) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (37) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (38) ...to here
+                                |      |              (39) allocated here
+                                |  198 |         wl->idx = idx;
+                                |      |                 ~      
+                                |      |                 |
+                                |      |                 (40) assuming ‘wl_15’ is non-NULL
+                                |
+                         <------+
+                         |
+                       ‘session_attach’: event 41
+                         |
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ^
+                         |      |                 |
+                         |      |                 (41) returning to ‘session_attach’ from ‘winlink_add’
+                         |
+                  <------+
+                  |
+                ‘session_new’: event 42
+                  |
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (42) returning to ‘session_new’ from ‘session_attach’
+                  |
+           <------+
+           |
+         ‘session_create’: events 43-44
+           |
+           |  286 |         for (*i = 0; *i < ARRAY_LENGTH(&sessions); (*i)++) {
+           |      |                      ~
+           |      |                      |
+           |      |                      (44) ‘session_new (s_50, 0B, cmd_77(D), -1)’ leaks here; was allocated at (39)
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ^
+           |      |             |
+           |      |             (43) returning to ‘session_create’ from ‘session_new’
+           |
+./benchmarks/tmux/double_free_1/tmux_df_1.c: In function ‘winlink_add’:
+./benchmarks/tmux/double_free_1/tmux_df_1.c:198:17: warning: dereference of possibly-NULL ‘wl_15’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  198 |         wl->idx = idx;
+      |                 ^
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-6
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘false’ branch...
+           |      |                 (5) ...to here
+           |      |                 (6) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 7-13
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (9) ...to here
+                  |      |            (10) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (11) ...to here
+                  |      |            (12) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (13) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 14-15
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (14) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (15) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 16-19
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘session_new’
+                  |......
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (17) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (18) ...to here
+                  |      |                 (19) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 20-21
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (20) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (21) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 22-25
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (22) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (23) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (24) ...to here
+                                |      |                       (25) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 26-29
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (26) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (27) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (28) ...to here
+                                       |      |                     (29) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 30-32
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (30) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (31) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (32) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 33-35
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(33) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (34) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (35) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 36-40
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (36) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (37) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (38) ...to here
+                                |      |              (39) this call could return NULL
+                                |  198 |         wl->idx = idx;
+                                |      |                 ~      
+                                |      |                 |
+                                |      |                 (40) ‘wl_15’ could be NULL: unchecked value from (39)
+                                |
+./benchmarks/tmux/double_free_1/tmux_df_1.c:202:10: warning: dereference of possibly-NULL ‘w_17(D)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  202 |         w->references++;
+      |          ^
+  ‘main’: events 1-2
+    |
+    |  454 | int main (int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  463 |         s = session_create(argv[0], "cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘session_create’ from ‘main’
+    |
+    +--> ‘session_create’: events 3-6
+           |
+           |  422 | session_create(const char *name, const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘session_create’
+           |......
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ~
+           |      |                 |
+           |      |                 (4) following ‘false’ branch...
+           |      |                 (5) ...to here
+           |      |                 (6) calling ‘xrealloc’ from ‘session_create’
+           |
+           +--> ‘xrealloc’: events 7-13
+                  |
+                  |  144 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘xrealloc’
+                  |......
+                  |  149 |         if (newsize == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘newsize_7 != 0’)...
+                  |  150 |                 fatalx("zero size%s", "");
+                  |  151 |         if (1 << 30 / nmemb < size)
+                  |      |            ~        ~
+                  |      |            |        |
+                  |      |            |        (9) ...to here
+                  |      |            (10) following ‘false’ branch...
+                  |  152 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                  |  153 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                  |      |            ~          ~
+                  |      |            |          |
+                  |      |            |          (11) ...to here
+                  |      |            (12) following ‘false’ branch (when ‘newptr_11’ is non-NULL)...
+                  |......
+                  |  156 |         return (newptr);
+                  |      |                ~
+                  |      |                |
+                  |      |                (13) ...to here
+                  |
+           <------+
+           |
+         ‘session_create’: events 14-15
+           |
+           |  442 |                 ARRAY_ADD(&sessions, s);
+           |      |                 ^
+           |      |                 |
+           |      |                 (14) returning to ‘session_create’ from ‘xrealloc’
+           |......
+           |  445 |         if (session_new(s, NULL, cmd, -1) == NULL) {
+           |      |             ~    
+           |      |             |
+           |      |             (15) calling ‘session_new’ from ‘session_create’
+           |
+           +--> ‘session_new’: events 16-20
+                  |
+                  |  303 | session_new(struct session *s, const char *name, const char *cmd, int idx)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘session_new’
+                  |......
+                  |  310 |         w = malloc(sizeof *w);
+                  |      |             ~
+                  |      |             |
+                  |      |             (17) this call could return NULL
+                  |  311 |         if (session_index(s, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (18) following ‘false’ branch...
+                  |......
+                  |  315 |         return (session_attach(s, w, idx));
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (19) ...to here
+                  |      |                 (20) calling ‘session_attach’ from ‘session_new’
+                  |
+                  +--> ‘session_attach’: events 21-22
+                         |
+                         |  295 | session_attach(struct session *s, struct window *w, int idx)
+                         |      | ^
+                         |      | |
+                         |      | (21) entry to ‘session_attach’
+                         |  296 | {
+                         |  297 |         return (winlink_add(&s->windows, w, idx));
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (22) calling ‘winlink_add’ from ‘session_attach’
+                         |
+                         +--> ‘winlink_add’: events 23-26
+                                |
+                                |  185 | winlink_add(struct winlinks *wwl, struct window *w, int idx)
+                                |      | ^
+                                |      | |
+                                |      | (23) entry to ‘winlink_add’
+                                |......
+                                |  189 |         if (idx == -1)
+                                |      |            ~
+                                |      |            |
+                                |      |            (24) following ‘true’ branch (when ‘idx_8(D) == -1’)...
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ~
+                                |      |                       |
+                                |      |                       (25) ...to here
+                                |      |                       (26) calling ‘winlink_next_index’ from ‘winlink_add’
+                                |
+                                +--> ‘winlink_next_index’: events 27-30
+                                       |
+                                       |  172 | winlink_next_index(struct winlinks *wwl)
+                                       |      | ^
+                                       |      | |
+                                       |      | (27) entry to ‘winlink_next_index’
+                                       |......
+                                       |  176 |         for (i = 0; i < INT_MAX; i++) {
+                                       |      |                       ~
+                                       |      |                       |
+                                       |      |                       (28) following ‘true’ branch (when ‘i_3 <= 9999’)...
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                     ~
+                                       |      |                     |
+                                       |      |                     (29) ...to here
+                                       |      |                     (30) calling ‘winlink_find_by_index’ from ‘winlink_next_index’
+                                       |
+                                       +--> ‘winlink_find_by_index’: events 31-33
+                                              |
+                                              |  160 | winlink_find_by_index(struct winlinks *wwl, int idx)
+                                              |      | ^
+                                              |      | |
+                                              |      | (31) entry to ‘winlink_find_by_index’
+                                              |......
+                                              |  164 |         if (idx < 0)
+                                              |      |            ~
+                                              |      |            |
+                                              |      |            (32) following ‘false’ branch (when ‘idx_1(D) >= 0’)...
+                                              |......
+                                              |  167 |         wl.idx = idx;
+                                              |      |                ~
+                                              |      |                |
+                                              |      |                (33) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘winlink_next_index’: events 34-36
+                                       |
+                                       |  177 |                 if (winlink_find_by_index(wwl, i) == NULL)
+                                       |      |                    ~^
+                                       |      |                    ||
+                                       |      |                    |(34) returning to ‘winlink_next_index’ from ‘winlink_find_by_index’
+                                       |      |                    (35) following ‘true’ branch...
+                                       |  178 |                         return (i);
+                                       |      |                                ~
+                                       |      |                                |
+                                       |      |                                (36) ...to here
+                                       |
+                                <------+
+                                |
+                              ‘winlink_add’: events 37-40
+                                |
+                                |  190 |                 idx = winlink_next_index(wwl);
+                                |      |                       ^
+                                |      |                       |
+                                |      |                       (37) returning to ‘winlink_add’ from ‘winlink_next_index’
+                                |......
+                                |  194 |         if (idx < 0)
+                                |      |            ~           
+                                |      |            |
+                                |      |            (38) following ‘false’ branch (when ‘idx_4 >= 0’)...
+                                |......
+                                |  197 |         wl = xcalloc(1, sizeof *wl);
+                                |      |              ~         
+                                |      |              |
+                                |      |              (39) ...to here
+                                |......
+                                |  202 |         w->references++;
+                                |      |          ~             
+                                |      |          |
+                                |      |          (40) ‘w_17(D)’ could be NULL: unchecked value from (17)
+                                |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  1%)  2157k ( 77%)
+ phase opt and generate             :   1.30 ( 99%)   0.03 (100%)   1.33 ( 99%)   546k ( 19%)
+ phase stream out                   :   0.01 (  1%)   0.00 (  0%)   0.01 (  1%)     0  (  0%)
+ ipa lto gimple out                 :   0.01 (  1%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  1%)     0  (  0%)
+ tree operand scan                  :   0.01 (  1%)   0.00 (  0%)   0.00 (  0%)   118k (  4%)
+ analyzer                           :   0.06 (  5%)   0.00 (  0%)   0.07 (  5%)     0  (  0%)
+ analyzer: processing worklist      :   0.51 ( 39%)   0.02 ( 67%)   0.54 ( 40%)   688  (  0%)
+ analyzer: emitting diagnostics     :   0.60 ( 46%)   0.00 (  0%)   0.59 ( 44%)  1448  (  0%)
+ analyzer: shortest paths           :   0.12 (  9%)   0.01 ( 33%)   0.13 ( 10%)     0  (  0%)
+ TOTAL                              :   1.31          0.03          1.35         2815k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  2157k ( 46%)
+ phase opt and generate             :   0.11 (100%)   0.01 (100%)   0.12 ( 92%)  2423k ( 52%)
+ callgraph functions expansion      :   0.10 ( 91%)   0.01 (100%)   0.12 ( 92%)  1907k ( 41%)
+ ipa lto gimple in                  :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)   342k (  7%)
+ cfg cleanup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  1528  (  0%)
+ trivially dead code                :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)     0  (  0%)
+ df scan insns                      :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  1056  (  0%)
+ df live regs                       :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ dominator optimization             :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)   120k (  3%)
+ tree CCP                           :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)  1000  (  0%)
+ tree code sinking                  :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)    23k (  0%)
+ tree aggressive DCE                :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)     0  (  0%)
+ tree loop invariant motion         :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)  3808  (  0%)
+ tree iv optimization               :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)    28k (  1%)
+ tree copy headers                  :   0.01 (  9%)   0.00 (  0%)   0.01 (  8%)    16k (  0%)
+ tree strlen optimization           :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)    30k (  1%)
+ out of ssa                         :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  5352  (  0%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)   304k (  7%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  3552  (  0%)
+ combiner                           :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)    52k (  1%)
+ integrated RA                      :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)   597k ( 13%)
+ reorder blocks                     :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)    23k (  1%)
+ shorten branches                   :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)    12k (  0%)
+ rest of compilation                :   0.02 ( 18%)   0.00 (  0%)   0.00 (  0%)    67k (  1%)
+ TOTAL                              :   0.11          0.01          0.13         4669k

@@ -52,7 +52,10 @@
         "sstream": "c",
         "stdexcept": "c",
         "streambuf": "c",
-        "cinttypes": "c"
+        "cinttypes": "c",
+        "tmux.h": "c",
+        "tree.h": "c",
+        "stdio.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }

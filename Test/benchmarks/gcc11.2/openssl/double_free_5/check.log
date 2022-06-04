@@ -1,0 +1,101 @@
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘_CONF_get_section’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:140:36: warning: passing argument 1 of ‘lh_CONF_VALUE_retrieve’ from incompatible pointer type [-Wincompatible-pointer-types]
+  140 |     v = lh_CONF_VALUE_retrieve(conf->data, &vv);
+      |                                ~~~~^~~~~~
+      |                                    |
+      |                                    struct lhash_st_CONF_VALUE *
+./benchmarks/openssl/double_free_5/openssl_df_5.c:113:51: note: expected ‘OPENSSL_LHASH *’ {aka ‘struct lhash_st *’} but argument is of type ‘struct lhash_st_CONF_VALUE *’
+  113 | CONF_VALUE *lh_CONF_VALUE_retrieve(OPENSSL_LHASH *lh, const void *data)
+      |                                    ~~~~~~~~~~~~~~~^~
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘_CONF_new_data’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:185:20: warning: assignment to ‘struct lhash_st_CONF_VALUE *’ from incompatible pointer type ‘CONF_VALUE *’ [-Wincompatible-pointer-types]
+  185 |         conf->data = lh_CONF_VALUE_new();
+      |                    ^
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘CONF_load_bio’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:210:5: warning: implicit declaration of function ‘CONF_set_nconf’; did you mean ‘CONF_get_section’? [-Wimplicit-function-declaration]
+  210 |     CONF_set_nconf(&ctmp, conf);
+      |     ^~~~~~~~~~~~~~
+      |     CONF_get_section
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘CONF_load’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:10: warning: implicit declaration of function ‘BIO_new_file’ [-Wimplicit-function-declaration]
+  224 |     in = BIO_new_file(file, "r");
+      |          ^~~~~~~~~~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c:224:8: warning: assignment to ‘BIO *’ {aka ‘struct bio_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  224 |     in = BIO_new_file(file, "r");
+      |        ^
+./benchmarks/openssl/double_free_5/openssl_df_5.c:230:5: warning: implicit declaration of function ‘BIO_free’ [-Wimplicit-function-declaration]
+  230 |     BIO_free(in);
+      |     ^~~~~~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c: In function ‘certify_spkac’:
+./benchmarks/openssl/double_free_5/openssl_df_5.c:256:27: warning: passing argument 1 of ‘CONF_get_section’ from incompatible pointer type [-Wincompatible-pointer-types]
+  256 |     sk = CONF_get_section(parms, "default");
+      |                           ^~~~~
+      |                           |
+      |                           struct lhash_st_CONF_VALUE *
+./benchmarks/openssl/double_free_5/openssl_df_5.c:158:52: note: expected ‘const CONF *’ {aka ‘const struct conf_st *’} but argument is of type ‘struct lhash_st_CONF_VALUE *’
+  158 | STACK_OF(CONF_VALUE) *CONF_get_section(const CONF *conf, const char *section)
+      |                                        ~~~~~~~~~~~~^~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c:257:9: warning: implicit declaration of function ‘sk_CONF_VALUE_num’; did you mean ‘lh_CONF_VALUE_new’? [-Wimplicit-function-declaration]
+  257 |     if (sk_CONF_VALUE_num(sk) == 0) {
+      |         ^~~~~~~~~~~~~~~~~
+      |         lh_CONF_VALUE_new
+./benchmarks/openssl/double_free_5/openssl_df_5.c:258:9: warning: implicit declaration of function ‘CONF_free’ [-Wimplicit-function-declaration]
+  258 |         CONF_free(parms);       /* freed */
+      |         ^~~~~~~~~
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:14: warning: implicit declaration of function ‘sk_CONF_VALUE_value’; did you mean ‘lh_CONF_VALUE_new’? [-Wimplicit-function-declaration]
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |              ^~~~~~~~~~~~~~~~~~~
+      |              lh_CONF_VALUE_new
+./benchmarks/openssl/double_free_5/openssl_df_5.c:270:12: warning: assignment to ‘CONF_VALUE *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  270 |         cv = sk_CONF_VALUE_value(sk, i);
+      |            ^
+./benchmarks/openssl/double_free_5/openssl_df_5.c:283:14: warning: implicit declaration of function ‘X509_NAME_add_entry_by_NID’ [-Wimplicit-function-declaration]
+  283 |         if (!X509_NAME_add_entry_by_NID(n, nid, chtype,
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 36%)
+ phase parsing                      :   0.07 ( 78%)   0.01 (100%)   0.09 ( 90%)  2024k ( 57%)
+ phase opt and generate             :   0.02 ( 22%)   0.00 (  0%)   0.01 ( 10%)   229k (  6%)
+ callgraph ipa passes               :   0.02 ( 22%)   0.00 (  0%)   0.01 ( 10%)   124k (  3%)
+ lto stream compression             :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)  1089k ( 31%)
+ lexical analysis                   :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 20%)   691k ( 19%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)   119k (  3%)
+ parser function body               :   0.04 ( 44%)   0.01 (100%)   0.05 ( 50%)   115k (  3%)
+ parser inl. func. body             :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)  8640  (  0%)
+ tree operand scan                  :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)    24k (  1%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)  1280  (  0%)
+ TOTAL                              :   0.09          0.01          0.10         3563k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)  2157k ( 91%)
+ phase opt and generate             :   0.09 (100%)   0.00 (  0%)   0.09 ( 90%)   136k (  6%)
+ ipa reference                      :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ analyzer: processing worklist      :   0.08 ( 89%)   0.00 (  0%)   0.08 ( 80%)   984  (  0%)
+ TOTAL                              :   0.09          0.00          0.10         2358k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 70%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.04 ( 80%)   852k ( 28%)
+ callgraph functions expansion      :   0.03 (100%)   0.01 (100%)   0.04 ( 80%)   699k ( 23%)
+ tree copy propagation              :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   224  (  0%)
+ tree code sinking                  :   0.01 ( 33%)   0.01 (100%)   0.00 (  0%)  4664  (  0%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)     0  (  0%)
+ integrated RA                      :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)   294k ( 10%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    32k (  1%)
+ TOTAL                              :   0.03          0.01          0.05         3070k
+/usr/bin/ld: /tmp/ccxu49OU.ltrans0.ltrans.o: in function `CONF_load_bio':
+<artificial>:(.text+0x1d4): undefined reference to `CONF_set_nconf'
+/usr/bin/ld: /tmp/ccxu49OU.ltrans0.ltrans.o: in function `CONF_load':
+<artificial>:(.text+0x218): undefined reference to `BIO_new_file'
+/usr/bin/ld: <artificial>:(.text+0x242): undefined reference to `BIO_free'
+/usr/bin/ld: /tmp/ccxu49OU.ltrans0.ltrans.o: in function `certify_spkac':
+<artificial>:(.text+0x294): undefined reference to `sk_CONF_VALUE_num'
+/usr/bin/ld: <artificial>:(.text+0x2a5): undefined reference to `CONF_free'
+/usr/bin/ld: <artificial>:(.text+0x2b2): undefined reference to `CONF_free'
+/usr/bin/ld: <artificial>:(.text+0x2ef): undefined reference to `X509_NAME_add_entry_by_NID'
+/usr/bin/ld: <artificial>:(.text+0x307): undefined reference to `sk_CONF_VALUE_num'
+/usr/bin/ld: <artificial>:(.text+0x31a): undefined reference to `sk_CONF_VALUE_value'
+collect2: error: ld returned 1 exit status

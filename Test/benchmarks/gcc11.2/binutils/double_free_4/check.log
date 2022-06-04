@@ -1,0 +1,499 @@
+./benchmarks/binutils/double_free_4/binutils_df_4.c: In function ‘remote_filename_p’:
+./benchmarks/binutils/double_free_4/binutils_df_4.c:16:16: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   16 |         return strncmp (filename, "remote:", 7) == 0;
+      |                ^~~~~~~
+./benchmarks/binutils/double_free_4/binutils_df_4.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+    7 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/double_free_4/binutils_df_4.c:16:46: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   16 |         return strncmp (filename, "remote:", 7) == 0;
+      |                                              ^
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/double_free_4/binutils_df_4.c: In function ‘openp’:
+./benchmarks/binutils/double_free_4/binutils_df_4.c:25:44: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   25 |                         *filename_opened = strdup(name); /* allocation site */
+      |                                            ^~~~~~
+./benchmarks/binutils/double_free_4/binutils_df_4.c:25:44: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_4/binutils_df_4.c: In function ‘symfile_bfd_open’:
+./benchmarks/binutils/double_free_4/binutils_df_4.c:66:16: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   66 |         name = strdup (name);   /* allocation site */
+      |                ^~~~~~
+./benchmarks/binutils/double_free_4/binutils_df_4.c: In function ‘main’:
+./benchmarks/binutils/double_free_4/binutils_df_4.c:95:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+   95 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 51%)
+ phase parsing                      :   0.01 ( 33%)   0.02 (100%)   0.03 ( 60%)  1004k ( 40%)
+ phase opt and generate             :   0.02 ( 67%)   0.00 (  0%)   0.02 ( 40%)   212k (  8%)
+ callgraph construction             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    25k (  1%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)   122k (  5%)
+ ipa function summary               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)    21k (  1%)
+ preprocessing                      :   0.01 ( 33%)   0.01 ( 50%)   0.03 ( 60%)   289k ( 11%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ tree gimplify                      :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    48k (  2%)
+ TOTAL                              :   0.03          0.02          0.05         2525k
+./benchmarks/binutils/double_free_4/../include/common.h: In function ‘symfile_bfd_open’:
+./benchmarks/binutils/double_free_4/binutils_df_4.c:60:28: warning: leak of ‘sym_bfd_24’ [CWE-401] [-Wanalyzer-malloc-leak]
+   60 |                         if (!sym_bfd)
+      |                            ^
+  ‘main’: events 1-2
+    |
+    |   94 | int main() {
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |   98 |         symfile_bfd_open("test");
+    |      |         ~
+    |      |         |
+    |      |         (2) calling ‘symfile_bfd_open’ from ‘main’
+    |
+    +--> ‘symfile_bfd_open’: events 3-6
+           |
+           |   51 | bfd* symfile_bfd_open (char *name)
+           |      |      ^
+           |      |      |
+           |      |      (3) entry to ‘symfile_bfd_open’
+           |......
+           |   57 |         if (remote_filename_p (name))
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘true’ branch...
+           |   58 |                 {
+           |   59 |                         sym_bfd = remote_bfd_open (name);
+           |      |                                   ~
+           |      |                                   |
+           |      |                                   (5) ...to here
+           |      |                                   (6) calling ‘remote_bfd_open’ from ‘symfile_bfd_open’
+           |
+           +--> ‘remote_bfd_open’: events 7-8
+                  |
+                  |   47 | bfd* remote_bfd_open(const char *name) {
+                  |      |      ^
+                  |      |      |
+                  |      |      (7) entry to ‘remote_bfd_open’
+                  |   48 |         return gdb_bfd_open(name);
+                  |      |                ~
+                  |      |                |
+                  |      |                (8) calling ‘gdb_bfd_open’ from ‘remote_bfd_open’
+                  |
+                  +--> ‘gdb_bfd_open’: events 9-12
+                         |
+                         |   36 | bfd* gdb_bfd_open(const char *name) {
+                         |      |      ^
+                         |      |      |
+                         |      |      (9) entry to ‘gdb_bfd_open’
+                         |......
+                         |   39 |         if (__RANDBOOL) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (10) following ‘true’ branch...
+                         |   40 |                 bfd *abfd = malloc(sizeof(bfd));
+                         |      |                             ~
+                         |      |                             |
+                         |      |                             (11) ...to here
+                         |      |                             (12) allocated here
+                         |
+                  <------+
+                  |
+                ‘remote_bfd_open’: event 13
+                  |
+                  |   48 |         return gdb_bfd_open(name);
+                  |      |                ^
+                  |      |                |
+                  |      |                (13) returning to ‘remote_bfd_open’ from ‘gdb_bfd_open’
+                  |
+           <------+
+           |
+         ‘symfile_bfd_open’: events 14-16
+           |
+           |   59 |                         sym_bfd = remote_bfd_open (name);
+           |      |                                   ^
+           |      |                                   |
+           |      |                                   (14) returning to ‘symfile_bfd_open’ from ‘remote_bfd_open’
+           |   60 |                         if (!sym_bfd)
+           |      |                            ~       
+           |      |                            |
+           |      |                            (15) assuming ‘sym_bfd_24’ is non-NULL
+           |      |                            (16) following ‘false’ branch (when ‘sym_bfd_24’ is non-NULL)...
+           |
+         ‘symfile_bfd_open’: event 17
+           |
+           |lto1:
+           | (17): ...to here
+           |
+         ‘symfile_bfd_open’: event 18
+           |
+           |   60 |                         if (!sym_bfd)
+           |      |                            ^
+           |      |                            |
+           |      |                            (18) ‘sym_bfd_24’ leaks here; was allocated at (12)
+           |
+./benchmarks/binutils/double_free_4/binutils_df_4.c:81:12: warning: leak of ‘sym_bfd_20’ [CWE-401] [-Wanalyzer-malloc-leak]
+   81 |         if (!sym_bfd)
+      |            ^
+  ‘main’: events 1-2
+    |
+    |   94 | int main() {
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |   98 |         symfile_bfd_open("test");
+    |      |         ~
+    |      |         |
+    |      |         (2) calling ‘symfile_bfd_open’ from ‘main’
+    |
+    +--> ‘symfile_bfd_open’: events 3-6
+           |
+           |   51 | bfd* symfile_bfd_open (char *name)
+           |      |      ^
+           |      |      |
+           |      |      (3) entry to ‘symfile_bfd_open’
+           |......
+           |   57 |         if (remote_filename_p (name))
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘false’ branch...
+           |......
+           |   66 |         name = strdup (name);   /* allocation site */
+           |      |                ~
+           |      |                |
+           |      |                (5) ...to here
+           |   67 | 
+           |   68 |         desc = openp (getenv ("PATH"), name, &absolute_name);
+           |      |                ~
+           |      |                |
+           |      |                (6) calling ‘openp’ from ‘symfile_bfd_open’
+           |
+           +--> ‘openp’: events 7-9
+                  |
+                  |   20 | openp (const char *path, const char *name,
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘openp’
+                  |......
+                  |   23 |         if (filename_opened)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘true’ branch (when ‘filename_opened_6(D)’ is non-NULL)...
+                  |   24 |                 {
+                  |   25 |                         *filename_opened = strdup(name); /* allocation site */
+                  |      |                                            ~
+                  |      |                                            |
+                  |      |                                            (9) ...to here
+                  |
+           <------+
+           |
+         ‘symfile_bfd_open’: events 10-11
+           |
+           |   68 |         desc = openp (getenv ("PATH"), name, &absolute_name);
+           |      |                ^
+           |      |                |
+           |      |                (10) returning to ‘symfile_bfd_open’ from ‘openp’
+           |......
+           |   78 |         make_cleanup (free, name);                      /* double-free */
+           |      |         ~       
+           |      |         |
+           |      |         (11) calling ‘make_cleanup’ from ‘symfile_bfd_open’
+           |
+           +--> ‘make_cleanup’: events 12-13
+                  |
+                  |./benchmarks/binutils/double_free_4/../include/common.h:149:1:
+                  |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+                  |      | ^
+                  |      | |
+                  |      | (12) entry to ‘make_cleanup’
+                  |  150 | {
+                  |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+                  |      |          ~
+                  |      |          |
+                  |      |          (13) calling ‘make_my_cleanup’ from ‘make_cleanup’
+                  |
+                  +--> ‘make_my_cleanup’: events 14-15
+                         |
+                         |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (14) entry to ‘make_my_cleanup’
+                         |......
+                         |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                         |      |          ~
+                         |      |          |
+                         |      |          (15) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                         |
+                         +--> ‘make_my_cleanup2’: events 16-18
+                                |
+                                |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                                |      | ^
+                                |      | |
+                                |      | (16) entry to ‘make_my_cleanup2’
+                                |......
+                                |  135 |         if (old_chain == NULL)
+                                |      |            ~
+                                |      |            |
+                                |      |            (17) following ‘false’ branch (when ‘old_chain_6’ is non-NULL)...
+                                |......
+                                |  138 |   return old_chain;
+                                |      |          ~
+                                |      |          |
+                                |      |          (18) ...to here
+                                |
+                         <------+
+                         |
+                       ‘make_my_cleanup’: event 19
+                         |
+                         |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                         |      |          ^
+                         |      |          |
+                         |      |          (19) returning to ‘make_my_cleanup’ from ‘make_my_cleanup2’
+                         |
+                  <------+
+                  |
+                ‘make_cleanup’: event 20
+                  |
+                  |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+                  |      |          ^
+                  |      |          |
+                  |      |          (20) returning to ‘make_cleanup’ from ‘make_my_cleanup’
+                  |
+           <------+
+           |
+         ‘symfile_bfd_open’: events 21-22
+           |
+           |./benchmarks/binutils/double_free_4/binutils_df_4.c:78:9:
+           |   78 |         make_cleanup (free, name);                      /* double-free */
+           |      |         ^
+           |      |         |
+           |      |         (21) returning to ‘symfile_bfd_open’ from ‘make_cleanup’
+           |   79 | 
+           |   80 |         sym_bfd = gdb_bfd_open (name);
+           |      |                   ~
+           |      |                   |
+           |      |                   (22) calling ‘gdb_bfd_open’ from ‘symfile_bfd_open’
+           |
+           +--> ‘gdb_bfd_open’: events 23-26
+                  |
+                  |   36 | bfd* gdb_bfd_open(const char *name) {
+                  |      |      ^
+                  |      |      |
+                  |      |      (23) entry to ‘gdb_bfd_open’
+                  |......
+                  |   39 |         if (__RANDBOOL) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (24) following ‘true’ branch...
+                  |   40 |                 bfd *abfd = malloc(sizeof(bfd));
+                  |      |                             ~
+                  |      |                             |
+                  |      |                             (25) ...to here
+                  |      |                             (26) allocated here
+                  |
+           <------+
+           |
+         ‘symfile_bfd_open’: events 27-29
+           |
+           |   80 |         sym_bfd = gdb_bfd_open (name);
+           |      |                   ^
+           |      |                   |
+           |      |                   (27) returning to ‘symfile_bfd_open’ from ‘gdb_bfd_open’
+           |   81 |         if (!sym_bfd)
+           |      |            ~       
+           |      |            |
+           |      |            (28) assuming ‘sym_bfd_20’ is non-NULL
+           |      |            (29) following ‘false’ branch (when ‘sym_bfd_20’ is non-NULL)...
+           |
+         ‘symfile_bfd_open’: event 30
+           |
+           |lto1:
+           | (30): ...to here
+           |
+         ‘symfile_bfd_open’: event 31
+           |
+           |   81 |         if (!sym_bfd)
+           |      |            ^
+           |      |            |
+           |      |            (31) ‘sym_bfd_20’ leaks here; was allocated at (26)
+           |
+./benchmarks/binutils/double_free_4/../include/common.h: In function ‘gdb_bfd_open’:
+./benchmarks/binutils/double_free_4/binutils_df_4.c:37:9: warning: dereference of possibly-NULL ‘name_7(D)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   37 |         __USE(name);
+      |         ^
+  ‘symfile_bfd_open’: events 1-4
+    |
+    |   51 | bfd* symfile_bfd_open (char *name)
+    |      |      ^
+    |      |      |
+    |      |      (1) entry to ‘symfile_bfd_open’
+    |......
+    |   57 |         if (remote_filename_p (name))
+    |      |            ~
+    |      |            |
+    |      |            (2) following ‘false’ branch...
+    |......
+    |   66 |         name = strdup (name);   /* allocation site */
+    |      |                ~
+    |      |                |
+    |      |                (3) ...to here
+    |   67 | 
+    |   68 |         desc = openp (getenv ("PATH"), name, &absolute_name);
+    |      |                ~
+    |      |                |
+    |      |                (4) calling ‘openp’ from ‘symfile_bfd_open’
+    |
+    +--> ‘openp’: events 5-8
+           |
+           |   20 | openp (const char *path, const char *name,
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘openp’
+           |......
+           |   23 |         if (filename_opened)
+           |      |            ~
+           |      |            |
+           |      |            (6) following ‘true’ branch (when ‘filename_opened_6(D)’ is non-NULL)...
+           |   24 |                 {
+           |   25 |                         *filename_opened = strdup(name); /* allocation site */
+           |      |                                            ~
+           |      |                                            |
+           |      |                                            (7) ...to here
+           |      |                                            (8) this call could return NULL
+           |
+    <------+
+    |
+  ‘symfile_bfd_open’: events 9-10
+    |
+    |   68 |         desc = openp (getenv ("PATH"), name, &absolute_name);
+    |      |                ^
+    |      |                |
+    |      |                (9) returning to ‘symfile_bfd_open’ from ‘openp’
+    |......
+    |   78 |         make_cleanup (free, name);                      /* double-free */
+    |      |         ~       
+    |      |         |
+    |      |         (10) calling ‘make_cleanup’ from ‘symfile_bfd_open’
+    |
+    +--> ‘make_cleanup’: events 11-12
+           |
+           |./benchmarks/binutils/double_free_4/../include/common.h:149:1:
+           |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+           |      | ^
+           |      | |
+           |      | (11) entry to ‘make_cleanup’
+           |  150 | {
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ~
+           |      |          |
+           |      |          (12) calling ‘make_my_cleanup’ from ‘make_cleanup’
+           |
+           +--> ‘make_my_cleanup’: events 13-14
+                  |
+                  |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (13) entry to ‘make_my_cleanup’
+                  |......
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ~
+                  |      |          |
+                  |      |          (14) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                  |
+                  +--> ‘make_my_cleanup2’: events 15-17
+                         |
+                         |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (15) entry to ‘make_my_cleanup2’
+                         |......
+                         |  135 |         if (old_chain == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (16) following ‘false’ branch (when ‘old_chain_6’ is non-NULL)...
+                         |......
+                         |  138 |   return old_chain;
+                         |      |          ~
+                         |      |          |
+                         |      |          (17) ...to here
+                         |
+                  <------+
+                  |
+                ‘make_my_cleanup’: event 18
+                  |
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ^
+                  |      |          |
+                  |      |          (18) returning to ‘make_my_cleanup’ from ‘make_my_cleanup2’
+                  |
+           <------+
+           |
+         ‘make_cleanup’: event 19
+           |
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ^
+           |      |          |
+           |      |          (19) returning to ‘make_cleanup’ from ‘make_my_cleanup’
+           |
+    <------+
+    |
+  ‘symfile_bfd_open’: events 20-21
+    |
+    |./benchmarks/binutils/double_free_4/binutils_df_4.c:78:9:
+    |   78 |         make_cleanup (free, name);                      /* double-free */
+    |      |         ^
+    |      |         |
+    |      |         (20) returning to ‘symfile_bfd_open’ from ‘make_cleanup’
+    |   79 | 
+    |   80 |         sym_bfd = gdb_bfd_open (name);
+    |      |                   ~
+    |      |                   |
+    |      |                   (21) calling ‘gdb_bfd_open’ from ‘symfile_bfd_open’
+    |
+    +--> ‘gdb_bfd_open’: events 22-23
+           |
+           |   36 | bfd* gdb_bfd_open(const char *name) {
+           |      |      ^
+           |      |      |
+           |      |      (22) entry to ‘gdb_bfd_open’
+           |   37 |         __USE(name);
+           |      |         ~
+           |      |         |
+           |      |         (23) ‘name_7(D)’ could be NULL: unchecked value from (8)
+           |
+./benchmarks/binutils/double_free_4/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/double_free_4/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_my_cleanup2’: events 1-2
+    |
+    |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+    |      |                          ^
+    |      |                          |
+    |      |                          (1) this call could return NULL
+    |......
+    |  129 |   new->next = *pmy_chain;
+    |      |             ~             
+    |      |             |
+    |      |             (2) ‘new_4’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  2157k ( 92%)
+ phase opt and generate             :   0.05 ( 83%)   0.01 (100%)   0.06 ( 86%)   119k (  5%)
+ phase stream out                   :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl out                   :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.03 ( 50%)   0.00 (  0%)   0.04 ( 57%)   432  (  0%)
+ analyzer: emitting diagnostics     :   0.02 ( 33%)   0.01 (100%)   0.02 ( 29%)   656  (  0%)
+ TOTAL                              :   0.06          0.01          0.07         2344k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 74%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   696k ( 24%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   582k ( 20%)
+ dead code elimination              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 33%)    12k (  0%)
+ rest of compilation                :   0.02 ( 67%)   0.00 (  0%)   0.00 (  0%)    30k (  1%)
+ TOTAL                              :   0.03          0.00          0.03         2910k

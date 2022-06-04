@@ -1,0 +1,501 @@
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘ldirname’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   44 |   memcpy (dirname, filename, base - filename);
+      |   ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:9:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+    8 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    9 | 
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   44 |   memcpy (dirname, filename, base - filename);
+      |   ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘vconcat_copy’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   61 |         unsigned long length = strlen (arg);
+      |                                ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   62 |         memcpy (end, arg, length);
+      |         ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+In file included from ./benchmarks/binutils/leak_7/binutils_leak_7.c:7:
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘do_start_initialization’:
+./benchmarks/binutils/leak_7/../include/common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:12: note: in expansion of macro ‘xstrdup’
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |            ^~~~~~~
+./benchmarks/binutils/leak_7/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:12: note: in expansion of macro ‘xstrdup’
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |            ^~~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: warning: implicit declaration of function ‘setlocale’ [-Wimplicit-function-declaration]
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |                     ^~~~~~~~~
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+   22 | #define xstrdup(a) strdup(a)
+      |                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: warning: passing argument 1 of ‘strdup’ makes pointer from integer without a cast [-Wint-conversion]
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                     |
+      |                     int
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+   22 | #define xstrdup(a) strdup(a)
+      |                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: note: expected ‘const char *’ but argument is of type ‘int’
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+   22 | #define xstrdup(a) strdup(a)
+      |                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:112:14: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  112 |   progsize = strlen (progname);
+      |              ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:112:14: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 48%)
+ phase parsing                      :   0.04 ( 80%)   0.00 (  0%)   0.04 ( 80%)  1152k ( 42%)
+ phase opt and generate             :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)   261k ( 10%)
+ callgraph ipa passes               :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)   150k (  6%)
+ lto stream compression             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.03 ( 60%)   0.00 (  0%)   0.01 ( 20%)   376k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)   633k ( 23%)
+ parser function body               :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    59k (  2%)
+ inline parameters                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    24k (  1%)
+ TOTAL                              :   0.05          0.00          0.05         2722k
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘do_start_initialization’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:118:14: warning: leak of ‘progname_16’ [CWE-401] [-Wanalyzer-malloc-leak]
+  118 |       return false;
+      |              ^
+  ‘do_start_initialization’: events 1-2
+    |
+    |   95 | do_start_initialization ()
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘do_start_initialization’
+    |......
+    |  109 |   progname = concat (ldirname (python_libdir), "bin");
+    |      |                      ~
+    |      |                      |
+    |      |                      (2) calling ‘ldirname’ from ‘do_start_initialization’
+    |
+    +--> ‘ldirname’: events 3-4
+           |
+           |   32 | ldirname (const char *filename)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘ldirname’
+           |......
+           |   40 |   if (base == filename)
+           |      |      ~
+           |      |      |
+           |      |      (4) following ‘true’ branch (when ‘base_16 == filename_22(D)’)...
+           |
+         ‘ldirname’: event 5
+           |
+           |lto1:
+           | (5): ...to here
+           |
+    <------+
+    |
+  ‘do_start_initialization’: events 6-7
+    |
+    |  109 |   progname = concat (ldirname (python_libdir), "bin");
+    |      |              ~       ^
+    |      |              |       |
+    |      |              |       (6) returning to ‘do_start_initialization’ from ‘ldirname’
+    |      |              (7) calling ‘concat’ from ‘do_start_initialization’
+    |
+    +--> ‘concat’: events 8-10
+           |
+           |   71 | concat (const char *first, const char *arg)
+           |      | ^
+           |      | |
+           |      | (8) entry to ‘concat’
+           |......
+           |   76 |   newstr = XNEWVEC (char, 1);
+           |      |            ~
+           |      |            |
+           |      |            (9) allocated here
+           |......
+           |   79 |   vconcat_copy (newstr, first, arg);
+           |      |   ~
+           |      |   |
+           |      |   (10) calling ‘vconcat_copy’ from ‘concat’
+           |
+           +--> ‘vconcat_copy’: events 11-12
+                  |
+                  |   57 | vconcat_copy (char *dst, const char *first, const char* arg)
+                  |      | ^
+                  |      | |
+                  |      | (11) entry to ‘vconcat_copy’
+                  |......
+                  |   62 |         memcpy (end, arg, length);
+                  |      |         ~
+                  |      |         |
+                  |      |         (12) assuming ‘dst_1(D)’ is non-NULL
+                  |
+           <------+
+           |
+         ‘concat’: event 13
+           |
+           |   79 |   vconcat_copy (newstr, first, arg);
+           |      |   ^
+           |      |   |
+           |      |   (13) returning to ‘concat’ from ‘vconcat_copy’
+           |
+    <------+
+    |
+  ‘do_start_initialization’: events 14-15
+    |
+    |  109 |   progname = concat (ldirname (python_libdir), "bin");
+    |      |              ^
+    |      |              |
+    |      |              (14) returning to ‘do_start_initialization’ from ‘concat’
+    |......
+    |  118 |       return false;
+    |      |              ~
+    |      |              |
+    |      |              (15) ‘progname_16’ leaks here; was allocated at (9)
+    |
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘concat’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:81:10: warning: leak of ‘newstr_3’ [CWE-401] [-Wanalyzer-malloc-leak]
+   81 |   return newstr;
+      |          ^
+  ‘main’: events 1-2
+    |
+    |  139 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |  140 | {
+    |  141 |     do_start_initialization();
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘do_start_initialization’ from ‘main’
+    |
+    +--> ‘do_start_initialization’: events 3-4
+           |
+           |   95 | do_start_initialization ()
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_start_initialization’
+           |......
+           |  109 |   progname = concat (ldirname (python_libdir), "bin");
+           |      |                      ~
+           |      |                      |
+           |      |                      (4) calling ‘ldirname’ from ‘do_start_initialization’
+           |
+           +--> ‘ldirname’: events 5-8
+                  |
+                  |   32 | ldirname (const char *filename)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘ldirname’
+                  |......
+                  |   37 |   while (base > filename && IS_DIR_SEPARATOR (base[-1]))
+                  |      |                          ~
+                  |      |                          |
+                  |      |                          (6) following ‘false’ branch (when ‘base_16 <= filename_22(D)’)...
+                  |......
+                  |   40 |   if (base == filename)
+                  |      |      ~
+                  |      |      |
+                  |      |      (7) ...to here
+                  |      |      (8) following ‘true’ branch (when ‘base_16 == filename_22(D)’)...
+                  |
+                ‘ldirname’: event 9
+                  |
+                  |lto1:
+                  | (9): ...to here
+                  |
+           <------+
+           |
+         ‘do_start_initialization’: event 10
+           |
+           |  109 |   progname = concat (ldirname (python_libdir), "bin");
+           |      |                      ^
+           |      |                      |
+           |      |                      (10) returning to ‘do_start_initialization’ from ‘ldirname’
+           |
+    <------+
+    |
+  ‘main’: events 11-12
+    |
+    |  141 |     do_start_initialization();
+    |      |     ^
+    |      |     |
+    |      |     (11) returning to ‘main’ from ‘do_start_initialization’
+    |......
+    |  148 |                 concat(dummy, "");
+    |      |                 ~
+    |      |                 |
+    |      |                 (12) calling ‘concat’ from ‘main’
+    |
+    +--> ‘concat’: events 13-15
+           |
+           |   71 | concat (const char *first, const char *arg)
+           |      | ^
+           |      | |
+           |      | (13) entry to ‘concat’
+           |......
+           |   76 |   newstr = XNEWVEC (char, 1);
+           |      |            ~
+           |      |            |
+           |      |            (14) allocated here
+           |......
+           |   79 |   vconcat_copy (newstr, first, arg);
+           |      |   ~
+           |      |   |
+           |      |   (15) calling ‘vconcat_copy’ from ‘concat’
+           |
+           +--> ‘vconcat_copy’: events 16-17
+                  |
+                  |   57 | vconcat_copy (char *dst, const char *first, const char* arg)
+                  |      | ^
+                  |      | |
+                  |      | (16) entry to ‘vconcat_copy’
+                  |......
+                  |   62 |         memcpy (end, arg, length);
+                  |      |         ~
+                  |      |         |
+                  |      |         (17) assuming ‘dst_1(D)’ is non-NULL
+                  |
+           <------+
+           |
+         ‘concat’: events 18-19
+           |
+           |   79 |   vconcat_copy (newstr, first, arg);
+           |      |   ^
+           |      |   |
+           |      |   (18) returning to ‘concat’ from ‘vconcat_copy’
+           |   80 | 
+           |   81 |   return newstr;
+           |      |          ~
+           |      |          |
+           |      |          (19) ‘newstr_3’ leaks here; was allocated at (14)
+           |
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘ldirname’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: use of possibly-NULL ‘dirname_26’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   44 |   memcpy (dirname, filename, base - filename);
+      |   ^
+  ‘ldirname’: events 1-4
+    |
+    |   40 |   if (base == filename)
+    |      |      ^
+    |      |      |
+    |      |      (1) following ‘false’ branch (when ‘base_16 != filename_22(D)’)...
+    |......
+    |   43 |   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+    |      |                      ~
+    |      |                      |
+    |      |                      (2) ...to here
+    |      |                      (3) this call could return NULL
+    |   44 |   memcpy (dirname, filename, base - filename);
+    |      |   ~   
+    |      |   |
+    |      |   (4) argument 1 (‘dirname_26’) from (3) could be NULL where non-null expected
+    |
+<built-in>: note: argument 1 of ‘memcpy’ must be non-null
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘unix_lbasename’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:19:21: warning: dereference of NULL ‘name_2’ [CWE-476] [-Wanalyzer-null-dereference]
+   19 |   for (base = name; *name; name++)
+      |                     ^
+  ‘main’: events 1-2
+    |
+    |  139 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |  140 | {
+    |  141 |     do_start_initialization();
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘do_start_initialization’ from ‘main’
+    |
+    +--> ‘do_start_initialization’: events 3-5
+           |
+           |   95 | do_start_initialization ()
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_start_initialization’
+           |......
+           |  109 |   progname = concat (ldirname (python_libdir), "bin");
+           |      |                      ~
+           |      |                      |
+           |      |                      (4) ‘0B’ is NULL
+           |      |                      (5) calling ‘ldirname’ from ‘do_start_initialization’
+           |
+           +--> ‘ldirname’: events 6-7
+                  |
+                  |   32 | ldirname (const char *filename)
+                  |      | ^
+                  |      | |
+                  |      | (6) entry to ‘ldirname’
+                  |   33 | {
+                  |   34 |   const char *base = lbasename (filename);
+                  |      |                      ~
+                  |      |                      |
+                  |      |                      (7) calling ‘lbasename’ from ‘ldirname’
+                  |
+                  +--> ‘lbasename’: events 8-9
+                         |
+                         |   26 | lbasename (const char *name)
+                         |      | ^
+                         |      | |
+                         |      | (8) entry to ‘lbasename’
+                         |   27 | {
+                         |   28 |   return unix_lbasename (name);
+                         |      |          ~
+                         |      |          |
+                         |      |          (9) calling ‘unix_lbasename’ from ‘lbasename’
+                         |
+                         +--> ‘unix_lbasename’: events 10-11
+                                |
+                                |   15 | unix_lbasename (const char *name)
+                                |      | ^
+                                |      | |
+                                |      | (10) entry to ‘unix_lbasename’
+                                |......
+                                |   19 |   for (base = name; *name; name++)
+                                |      |                     ~
+                                |      |                     |
+                                |      |                     (11) dereference of NULL ‘name_2’
+                                |
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘concat’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:19:21: warning: leak of ‘ldirname (python_libdir)’ [CWE-401] [-Wanalyzer-malloc-leak]
+   19 |   for (base = name; *name; name++)
+      |                     ^
+  ‘do_start_initialization’: events 1-2
+    |
+    |   95 | do_start_initialization ()
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘do_start_initialization’
+    |......
+    |  109 |   progname = concat (ldirname (python_libdir), "bin");
+    |      |                      ~
+    |      |                      |
+    |      |                      (2) calling ‘ldirname’ from ‘do_start_initialization’
+    |
+    +--> ‘ldirname’: events 3-7
+           |
+           |   32 | ldirname (const char *filename)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘ldirname’
+           |......
+           |   40 |   if (base == filename)
+           |      |      ~
+           |      |      |
+           |      |      (4) following ‘false’ branch (when ‘base_16 != filename_22(D)’)...
+           |......
+           |   43 |   dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */
+           |      |                      ~
+           |      |                      |
+           |      |                      (5) ...to here
+           |      |                      (6) allocated here
+           |   44 |   memcpy (dirname, filename, base - filename);
+           |      |   ~
+           |      |   |
+           |      |   (7) assuming ‘dirname_26’ is non-NULL
+           |
+    <------+
+    |
+  ‘do_start_initialization’: events 8-9
+    |
+    |  109 |   progname = concat (ldirname (python_libdir), "bin");
+    |      |              ~       ^
+    |      |              |       |
+    |      |              |       (8) returning to ‘do_start_initialization’ from ‘ldirname’
+    |      |              (9) calling ‘concat’ from ‘do_start_initialization’
+    |
+    +--> ‘concat’: events 10-11
+           |
+           |   19 |   for (base = name; *name; name++)
+           |      |                     ~
+           |      |                     |
+           |      |                     (11) ‘ldirname (python_libdir)’ leaks here; was allocated at (6)
+           |......
+           |   71 | concat (const char *first, const char *arg)
+           |      | ^
+           |      | |
+           |      | (10) entry to ‘concat’
+           |
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘vconcat_copy’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:9: warning: use of possibly-NULL ‘dst_1(D)’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   62 |         memcpy (end, arg, length);
+      |         ^
+  ‘concat’: events 1-3
+    |
+    |   71 | concat (const char *first, const char *arg)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘concat’
+    |......
+    |   76 |   newstr = XNEWVEC (char, 1);
+    |      |            ~
+    |      |            |
+    |      |            (2) this call could return NULL
+    |......
+    |   79 |   vconcat_copy (newstr, first, arg);
+    |      |   ~
+    |      |   |
+    |      |   (3) calling ‘vconcat_copy’ from ‘concat’
+    |
+    +--> ‘vconcat_copy’: events 4-5
+           |
+           |   57 | vconcat_copy (char *dst, const char *first, const char* arg)
+           |      | ^
+           |      | |
+           |      | (4) entry to ‘vconcat_copy’
+           |......
+           |   62 |         memcpy (end, arg, length);
+           |      |         ~
+           |      |         |
+           |      |         (5) argument 1 (‘dst_1(D)’) from (2) could be NULL where non-null expected
+           |
+<built-in>: note: argument 1 of ‘memcpy’ must be non-null
+./benchmarks/binutils/leak_7/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/leak_7/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_my_cleanup2’: events 1-2
+    |
+    |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+    |      |                          ^
+    |      |                          |
+    |      |                          (1) this call could return NULL
+    |......
+    |  129 |   new->next = *pmy_chain;
+    |      |             ~             
+    |      |             |
+    |      |             (2) ‘new_4’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  2157k ( 90%)
+ phase opt and generate             :   0.04 (100%)   0.01 (100%)   0.05 ( 83%)   159k (  7%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ analyzer: processing worklist      :   0.02 ( 50%)   0.00 (  0%)   0.03 ( 50%)   592  (  0%)
+ analyzer: emitting diagnostics     :   0.02 ( 50%)   0.01 (100%)   0.01 ( 17%)   536  (  0%)
+ TOTAL                              :   0.04          0.01          0.06         2398k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 77%)
+ phase opt and generate             :   0.01 (100%)   0.01 (100%)   0.02 ( 67%)   587k ( 21%)
+ callgraph functions expansion      :   0.01 (100%)   0.01 (100%)   0.02 ( 67%)   481k ( 17%)
+ ipa pure const                     :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)  1144  (  0%)
+ dead store elim2                   :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)  3464  (  0%)
+ loop init                          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    34k (  1%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    24k (  1%)
+ TOTAL                              :   0.01          0.01          0.03         2801k

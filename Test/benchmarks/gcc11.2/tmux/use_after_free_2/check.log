@@ -1,0 +1,515 @@
+In file included from ./benchmarks/tmux/use_after_free_2/../tmux.h:23,
+                 from ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:12:
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c: In function ‘window_remove’:
+./benchmarks/tmux/use_after_free_2/../array.h:65:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:112:9: note: in expansion of macro ‘ARRAY_REMOVE’
+  112 |         ARRAY_REMOVE(ww, i);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:13:1: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   12 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   13 | 
+In file included from ./benchmarks/tmux/use_after_free_2/../tmux.h:23,
+                 from ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:12:
+./benchmarks/tmux/use_after_free_2/../array.h:65:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:112:9: note: in expansion of macro ‘ARRAY_REMOVE’
+  112 |         ARRAY_REMOVE(ww, i);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_2/../array.h:65:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:112:9: note: in expansion of macro ‘ARRAY_REMOVE’
+  112 |         ARRAY_REMOVE(ww, i);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c: In function ‘window_destroy’:
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:125:9: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+  125 |         close(w->fd);
+      |         ^~~~~
+      |         pclose
+In file included from ./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:11:
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c: In function ‘window_create’:
+./benchmarks/tmux/use_after_free_2/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:161:16: note: in expansion of macro ‘xstrdup’
+  161 |         name = xstrdup(cmd);
+      |                ^~~~~~~
+./benchmarks/tmux/use_after_free_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:161:16: note: in expansion of macro ‘xstrdup’
+  161 |         name = xstrdup(cmd);
+      |                ^~~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:162:20: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  162 |         if ((ptr = strchr(name, ' ')) != NULL) {
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:162:20: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:162:20: warning: incompatible implicit declaration of built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:162:20: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:174:9: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+  174 |         strcpy(w->name, name);
+      |         ^~~~~~
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:174:9: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:174:9: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:174:9: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 42%)
+ phase parsing                      :   0.02 (100%)   0.02 ( 67%)   0.04 ( 80%)  1546k ( 51%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 20%)   206k (  7%)
+ callgraph optimization             :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 20%)   112k (  4%)
+ preprocessing                      :   0.01 ( 50%)   0.01 ( 33%)   0.02 ( 40%)   622k ( 20%)
+ lexical analysis                   :   0.01 ( 50%)   0.01 ( 33%)   0.01 ( 20%)     0  (  0%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   148k (  5%)
+ backwards jump threading           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ TOTAL                              :   0.02          0.03          0.05         3061k
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c: In function ‘window_create’:
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:157:15: warning: dereference of possibly-NULL ‘w_11’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  157 |         w->fd = fd;
+      |               ^
+  ‘window_create’: events 1-2
+    |
+    |  156 |         w = xmalloc(sizeof *w);
+    |      |             ^
+    |      |             |
+    |      |             (1) this call could return NULL
+    |  157 |         w->fd = fd;
+    |      |               ~
+    |      |               |
+    |      |               (2) ‘w_11’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:162:20: warning: use of possibly-NULL ‘name_20’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+  162 |         if ((ptr = strchr(name, ' ')) != NULL) {
+      |                    ^
+  ‘window_create’: events 1-2
+    |
+    |  149 | window_create(const char *cmd, u_int sx, u_int sy)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘window_create’
+    |......
+    |  158 |         w->in = buffer_create(BUFSIZ);
+    |      |                 ~
+    |      |                 |
+    |      |                 (2) calling ‘buffer_create’ from ‘window_create’
+    |
+    +--> ‘buffer_create’: events 3-5
+           |
+           |   70 | buffer_create(size_t size)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘buffer_create’
+           |......
+           |   74 |         if (size == 0)
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘false’ branch (when ‘size_2(D) != 0’)...
+           |......
+           |   77 |         b = xcalloc(1, sizeof *b);
+           |      |             ~
+           |      |             |
+           |      |             (5) ...to here
+           |
+    <------+
+    |
+  ‘window_create’: events 6-7
+    |
+    |  158 |         w->in = buffer_create(BUFSIZ);
+    |      |                 ^
+    |      |                 |
+    |      |                 (6) returning to ‘window_create’ from ‘buffer_create’
+    |  159 |         w->out = buffer_create(BUFSIZ);
+    |      |                  ~
+    |      |                  |
+    |      |                  (7) calling ‘buffer_create’ from ‘window_create’
+    |
+    +--> ‘buffer_create’: events 8-10
+           |
+           |   70 | buffer_create(size_t size)
+           |      | ^
+           |      | |
+           |      | (8) entry to ‘buffer_create’
+           |......
+           |   74 |         if (size == 0)
+           |      |            ~
+           |      |            |
+           |      |            (9) following ‘false’ branch (when ‘size_2(D) != 0’)...
+           |......
+           |   77 |         b = xcalloc(1, sizeof *b);
+           |      |             ~
+           |      |             |
+           |      |             (10) ...to here
+           |
+    <------+
+    |
+  ‘window_create’: events 11-13
+    |
+    |  159 |         w->out = buffer_create(BUFSIZ);
+    |      |                  ^
+    |      |                  |
+    |      |                  (11) returning to ‘window_create’ from ‘buffer_create’
+    |  160 | 
+    |  161 |         name = xstrdup(cmd);
+    |      |                ~  
+    |      |                |
+    |      |                (12) this call could return NULL
+    |  162 |         if ((ptr = strchr(name, ' ')) != NULL) {
+    |      |                    ~
+    |      |                    |
+    |      |                    (13) argument 1 (‘name_20’) from (12) could be NULL where non-null expected
+    |
+<built-in>: note: argument 1 of ‘strchr’ must be non-null
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c: In function ‘window_remove’:
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:114:10: warning: use after ‘free’ of ‘w_34(D)’ [CWE-416] [-Wanalyzer-use-after-free]
+  114 |         w->references--;
+      |          ^
+  ‘main’: events 1-2
+    |
+    |  183 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  188 |         w = window_create("cmd", sx, sy);
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘window_create’ from ‘main’
+    |
+    +--> ‘window_create’: events 3-6
+           |
+           |  149 | window_create(const char *cmd, u_int sx, u_int sy)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘window_create’
+           |......
+           |  156 |         w = xmalloc(sizeof *w);
+           |      |             ~
+           |      |             |
+           |      |             (4) allocated here
+           |  157 |         w->fd = fd;
+           |      |               ~
+           |      |               |
+           |      |               (5) assuming ‘w_11’ is non-NULL
+           |  158 |         w->in = buffer_create(BUFSIZ);
+           |      |                 ~
+           |      |                 |
+           |      |                 (6) calling ‘buffer_create’ from ‘window_create’
+           |
+           +--> ‘buffer_create’: events 7-9
+                  |
+                  |   70 | buffer_create(size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (7) entry to ‘buffer_create’
+                  |......
+                  |   74 |         if (size == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (8) following ‘false’ branch (when ‘size_2(D) != 0’)...
+                  |......
+                  |   77 |         b = xcalloc(1, sizeof *b);
+                  |      |             ~
+                  |      |             |
+                  |      |             (9) ...to here
+                  |
+           <------+
+           |
+         ‘window_create’: events 10-11
+           |
+           |  158 |         w->in = buffer_create(BUFSIZ);
+           |      |                 ^
+           |      |                 |
+           |      |                 (10) returning to ‘window_create’ from ‘buffer_create’
+           |  159 |         w->out = buffer_create(BUFSIZ);
+           |      |                  ~
+           |      |                  |
+           |      |                  (11) calling ‘buffer_create’ from ‘window_create’
+           |
+           +--> ‘buffer_create’: events 12-14
+                  |
+                  |   70 | buffer_create(size_t size)
+                  |      | ^
+                  |      | |
+                  |      | (12) entry to ‘buffer_create’
+                  |......
+                  |   74 |         if (size == 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (13) following ‘false’ branch (when ‘size_2(D) != 0’)...
+                  |......
+                  |   77 |         b = xcalloc(1, sizeof *b);
+                  |      |             ~
+                  |      |             |
+                  |      |             (14) ...to here
+                  |
+           <------+
+           |
+         ‘window_create’: events 15-16
+           |
+           |  159 |         w->out = buffer_create(BUFSIZ);
+           |      |                  ^
+           |      |                  |
+           |      |                  (15) returning to ‘window_create’ from ‘buffer_create’
+           |......
+           |  177 |         window_add(&windows, w);
+           |      |         ~         
+           |      |         |
+           |      |         (16) calling ‘window_add’ from ‘window_create’
+           |
+           +--> ‘window_add’: events 17-18
+                  |
+                  |  134 | window_add(struct windows *ww, struct window *w)
+                  |      | ^
+                  |      | |
+                  |      | (17) entry to ‘window_add’
+                  |......
+                  |  138 |         if (window_index(ww, NULL, &i) != 0)
+                  |      |             ~
+                  |      |             |
+                  |      |             (18) calling ‘window_index’ from ‘window_add’
+                  |
+                  +--> ‘window_index’: events 19-20
+                         |
+                         |   95 | window_index(struct windows *ww, struct window *w, u_int *i)
+                         |      | ^
+                         |      | |
+                         |      | (19) entry to ‘window_index’
+                         |   96 | {
+                         |   97 |         for (*i = 0; *i < ARRAY_LENGTH(ww); (*i)++) {
+                         |      |                         ~
+                         |      |                         |
+                         |      |                         (20) following ‘false’ branch...
+                         |
+                       ‘window_index’: event 21
+                         |
+                         |lto1:
+                         | (21): ...to here
+                         |
+                  <------+
+                  |
+                ‘window_add’: events 22-29
+                  |
+                  |  138 |         if (window_index(ww, NULL, &i) != 0)
+                  |      |            ~^
+                  |      |            ||
+                  |      |            |(22) returning to ‘window_add’ from ‘window_index’
+                  |      |            (23) following ‘true’ branch...
+                  |  139 |                 ARRAY_ADD(ww, w);
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (24) ...to here
+                  |      |                 (25) following ‘false’ branch...
+                  |      |                 (26) ...to here
+                  |      |                 (27) following ‘true’ branch...
+                  |      |                 (28) ...to here
+                  |      |                 (29) calling ‘xrealloc’ from ‘window_add’
+                  |
+                  +--> ‘xrealloc’: events 30-36
+                         |
+                         |   53 | xrealloc(void *oldptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (30) entry to ‘xrealloc’
+                         |......
+                         |   58 |         if (newsize == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (31) following ‘false’ branch (when ‘newsize_4 != 0’)...
+                         |   59 |                 fatalx("zero size%s", "");
+                         |   60 |         if (SIZE_MAX / nmemb < size)
+                         |      |            ~         ~
+                         |      |            |         |
+                         |      |            |         (32) ...to here
+                         |      |            (33) following ‘false’ branch...
+                         |   61 |                 fatalx("nmemb * size > SIZE_MAX%s", "");
+                         |   62 |         if ((newptr = realloc(oldptr, newsize)) == NULL)
+                         |      |            ~          ~
+                         |      |            |          |
+                         |      |            |          (34) ...to here
+                         |      |            (35) following ‘false’ branch (when ‘newptr_8’ is non-NULL)...
+                         |......
+                         |   65 |         return (newptr);
+                         |      |                ~
+                         |      |                |
+                         |      |                (36) ...to here
+                         |
+                  <------+
+                  |
+                ‘window_add’: events 37-39
+                  |
+                  |  139 |                 ARRAY_ADD(ww, w);
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (37) returning to ‘window_add’ from ‘xrealloc’
+                  |      |                 (38) following ‘false’ branch...
+                  |      |                 (39) ...to here
+                  |
+           <------+
+           |
+         ‘window_create’: event 40
+           |
+           |  177 |         window_add(&windows, w);
+           |      |         ^
+           |      |         |
+           |      |         (40) returning to ‘window_create’ from ‘window_add’
+           |
+    <------+
+    |
+  ‘main’: events 41-42
+    |
+    |  188 |         w = window_create("cmd", sx, sy);
+    |      |             ^
+    |      |             |
+    |      |             (41) returning to ‘main’ from ‘window_create’
+    |......
+    |  191 |         window_remove(&windows, w);
+    |      |         ~    
+    |      |         |
+    |      |         (42) calling ‘window_remove’ from ‘main’
+    |
+    +--> ‘window_remove’: events 43-50
+           |
+           |  106 | window_remove(struct windows *ww, struct window *w)
+           |      | ^
+           |      | |
+           |      | (43) entry to ‘window_remove’
+           |......
+           |  110 |         if (window_index(ww, w, &i) != 0)
+           |      |            ~
+           |      |            |
+           |      |            (44) following ‘false’ branch...
+           |  111 |                 fatalx("window not found%s", "");
+           |  112 |         ARRAY_REMOVE(ww, i);
+           |      |         ~
+           |      |         |
+           |      |         (45) ...to here
+           |      |         (46) following ‘false’ branch...
+           |  113 | 
+           |  114 |         w->references--;
+           |      |          ~
+           |      |          |
+           |      |          (47) ...to here
+           |  115 |         if (w->references == 0) {
+           |      |            ~
+           |      |            |
+           |      |            (48) following ‘true’ branch...
+           |  116 |                 window_destroy(w);                      /* freed */
+           |      |                 ~
+           |      |                 |
+           |      |                 (49) ...to here
+           |      |                 (50) calling ‘window_destroy’ from ‘window_remove’
+           |
+           +--> ‘window_destroy’: events 51-52
+                  |
+                  |  123 | window_destroy(struct window *w)
+                  |      | ^
+                  |      | |
+                  |      | (51) entry to ‘window_destroy’
+                  |......
+                  |  129 |         xfree(w);
+                  |      |         ~
+                  |      |         |
+                  |      |         (52) freed here
+                  |
+           <------+
+           |
+         ‘window_remove’: events 53-54
+           |
+           |  116 |                 window_destroy(w);                      /* freed */
+           |      |                 ^
+           |      |                 |
+           |      |                 (53) returning to ‘window_remove’ from ‘window_destroy’
+           |  117 |                 window_remove(&windows, w);     /* use-after-free */
+           |      |                 ~
+           |      |                 |
+           |      |                 (54) calling ‘window_remove’ from ‘window_remove’
+           |
+           +--> ‘window_remove’: events 55-60
+                  |
+                  |  106 | window_remove(struct windows *ww, struct window *w)
+                  |      | ^
+                  |      | |
+                  |      | (55) entry to ‘window_remove’
+                  |......
+                  |  110 |         if (window_index(ww, w, &i) != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (56) following ‘false’ branch...
+                  |  111 |                 fatalx("window not found%s", "");
+                  |  112 |         ARRAY_REMOVE(ww, i);
+                  |      |         ~
+                  |      |         |
+                  |      |         (57) ...to here
+                  |      |         (58) following ‘false’ branch...
+                  |  113 | 
+                  |  114 |         w->references--;
+                  |      |          ~
+                  |      |          |
+                  |      |          (59) ...to here
+                  |      |          (60) use after ‘free’ of ‘w_34(D)’; freed at (52)
+                  |
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c: In function ‘buffer_create’:
+./benchmarks/tmux/use_after_free_2/tmux_uaf_2.c:79:17: warning: dereference of possibly-NULL ‘b_5’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   79 |         b->base = xmalloc(size);
+      |                 ^
+  ‘window_create’: events 1-2
+    |
+    |  149 | window_create(const char *cmd, u_int sx, u_int sy)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘window_create’
+    |......
+    |  158 |         w->in = buffer_create(BUFSIZ);
+    |      |                 ~
+    |      |                 |
+    |      |                 (2) calling ‘buffer_create’ from ‘window_create’
+    |
+    +--> ‘buffer_create’: events 3-7
+           |
+           |   70 | buffer_create(size_t size)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘buffer_create’
+           |......
+           |   74 |         if (size == 0)
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘false’ branch (when ‘size_2(D) != 0’)...
+           |......
+           |   77 |         b = xcalloc(1, sizeof *b);
+           |      |             ~
+           |      |             |
+           |      |             (5) ...to here
+           |      |             (6) this call could return NULL
+           |   78 | 
+           |   79 |         b->base = xmalloc(size);
+           |      |                 ~
+           |      |                 |
+           |      |                 (7) ‘b_5’ could be NULL: unchecked value from (6)
+           |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)  2157k ( 92%)
+ phase opt and generate             :   0.20 (100%)   0.00 (  0%)   0.20 ( 95%)   123k (  5%)
+ callgraph optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ analyzer: processing worklist      :   0.08 ( 40%)   0.00 (  0%)   0.07 ( 33%)   552  (  0%)
+ analyzer: emitting diagnostics     :   0.12 ( 60%)   0.00 (  0%)   0.11 ( 52%)     0  (  0%)
+ analyzer: shortest paths           :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ TOTAL                              :   0.20          0.00          0.21         2352k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2157k ( 73%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 ( 75%)   728k ( 25%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.03 ( 75%)   588k ( 20%)
+ alias analysis                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    18k (  1%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    22k (  1%)
+ out of ssa                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  1456  (  0%)
+ combiner                           :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    22k (  1%)
+ thread pro- & epilogue             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    16k (  1%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.03          0.00          0.04         2953k

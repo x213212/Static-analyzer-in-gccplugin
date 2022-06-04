@@ -1,0 +1,374 @@
+In file included from ./benchmarks/tmux/leak_3/tmux_leak_3.c:12:
+./benchmarks/tmux/leak_3/tmux_leak_3.c: In function ‘server_client_get_path’:
+./benchmarks/tmux/leak_3/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/leak_3/tmux_leak_3.c:77:24: note: in expansion of macro ‘xstrdup’
+   77 |                 path = xstrdup(file);                           /* allocation site */
+      |                        ^~~~~~~
+./benchmarks/tmux/leak_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/leak_3/tmux_leak_3.c:77:24: note: in expansion of macro ‘xstrdup’
+   77 |                 path = xstrdup(file);                           /* allocation site */
+      |                        ^~~~~~~
+./benchmarks/tmux/leak_3/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/leak_3/tmux_leak_3.c:81:17: note: in expansion of macro ‘xstrdup’
+   81 |         return (xstrdup(resolved));                             /* allocation site */
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_3/tmux_leak_3.c: In function ‘cmd_save_buffer_exec’:
+./benchmarks/tmux/leak_3/tmux_leak_3.c:142:13: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  142 |         if (strcmp(path, "-") == 0) {
+      |             ^~~~~~
+./benchmarks/tmux/leak_3/tmux_leak_3.c:14:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   13 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   14 | 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 44%)
+ phase parsing                      :   0.04 (100%)   0.01 (100%)   0.04 ( 80%)  1539k ( 52%)
+ phase lang. deferred               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    96  (  0%)
+ preprocessing                      :   0.02 ( 50%)   0.00 (  0%)   0.00 (  0%)   636k ( 21%)
+ lexical analysis                   :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.03 ( 60%)   578k ( 19%)
+ parser struct body                 :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   158k (  5%)
+ parser function body               :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    68k (  2%)
+ TOTAL                              :   0.04          0.01          0.05         2970k
+In function ‘cmd_save_buffer_exec’:
+./benchmarks/tmux/leak_3/tmux_leak_3.c:163:17: warning: leak of ‘path_11’ [CWE-401] [-Wanalyzer-malloc-leak]
+  163 |                 fclose(f);
+      |                 ^
+  ‘cmd_save_buffer_exec’: events 1-4
+    |
+    |  131 | cmd_save_buffer_exec(struct cmd *self, struct cmdq_item *item)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘cmd_save_buffer_exec’
+    |......
+    |  142 |         if (strcmp(path, "-") == 0) {
+    |      |            ~
+    |      |            |
+    |      |            (2) following ‘false’ branch (when the strings are non-equal)...
+    |......
+    |  153 |         file = server_client_get_path(c, path);
+    |      |                ~
+    |      |                |
+    |      |                (3) ...to here
+    |      |                (4) calling ‘server_client_get_path’ from ‘cmd_save_buffer_exec’
+    |
+    +--> ‘server_client_get_path’: events 5-9
+           |
+           |   72 | server_client_get_path(struct client *c, const char *file)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘server_client_get_path’
+           |......
+           |   76 |         if (*file == '/')
+           |      |            ~
+           |      |            |
+           |      |            (6) following ‘true’ branch...
+           |   77 |                 path = xstrdup(file);                           /* allocation site */
+           |      |                        ~
+           |      |                        |
+           |      |                        (7) ...to here
+           |      |                        (8) allocated here
+           |   78 |         if (realpath(path, resolved) == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (9) following ‘true’ branch...
+           |
+         ‘server_client_get_path’: event 10
+           |
+           |lto1:
+           | (10): ...to here
+           |
+    <------+
+    |
+  ‘cmd_save_buffer_exec’: events 11-16
+    |
+    |  153 |         file = server_client_get_path(c, path);
+    |      |                ^
+    |      |                |
+    |      |                (11) returning to ‘cmd_save_buffer_exec’ from ‘server_client_get_path’
+    |  154 |         f = fopen(file, flags);
+    |  155 |         if (f == NULL) {
+    |      |            ~    
+    |      |            |
+    |      |            (12) following ‘false’ branch (when ‘f_16’ is non-NULL)...
+    |......
+    |  161 |         if (fwrite(bufdata, 1, bufsize, f) != bufsize) {
+    |      |            ~~   
+    |      |            ||
+    |      |            |(13) ...to here
+    |      |            (14) following ‘true’ branch...
+    |  162 |                 printf("%s: write error", file);
+    |      |                 ~
+    |      |                 |
+    |      |                 (15) ...to here
+    |  163 |                 fclose(f);
+    |      |                 ~
+    |      |                 |
+    |      |                 (16) ‘path_11’ leaks here; was allocated at (8)
+    |
+./benchmarks/tmux/leak_3/tmux_leak_3.c:163:17: warning: leak of ‘file_14’ [CWE-401] [-Wanalyzer-malloc-leak]
+  163 |                 fclose(f);
+      |                 ^
+  ‘cmd_save_buffer_exec’: events 1-4
+    |
+    |  131 | cmd_save_buffer_exec(struct cmd *self, struct cmdq_item *item)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘cmd_save_buffer_exec’
+    |......
+    |  142 |         if (strcmp(path, "-") == 0) {
+    |      |            ~
+    |      |            |
+    |      |            (2) following ‘false’ branch (when the strings are non-equal)...
+    |......
+    |  153 |         file = server_client_get_path(c, path);
+    |      |                ~
+    |      |                |
+    |      |                (3) ...to here
+    |      |                (4) calling ‘server_client_get_path’ from ‘cmd_save_buffer_exec’
+    |
+    +--> ‘server_client_get_path’: events 5-8
+           |
+           |   72 | server_client_get_path(struct client *c, const char *file)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘server_client_get_path’
+           |......
+           |   78 |         if (realpath(path, resolved) == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (6) following ‘false’ branch...
+           |   79 |                 return (path);
+           |   80 |         free(path);
+           |      |         ~
+           |      |         |
+           |      |         (7) ...to here
+           |   81 |         return (xstrdup(resolved));                             /* allocation site */
+           |      |                 ~
+           |      |                 |
+           |      |                 (8) allocated here
+           |
+    <------+
+    |
+  ‘cmd_save_buffer_exec’: events 9-14
+    |
+    |  153 |         file = server_client_get_path(c, path);
+    |      |                ^
+    |      |                |
+    |      |                (9) returning to ‘cmd_save_buffer_exec’ from ‘server_client_get_path’
+    |  154 |         f = fopen(file, flags);
+    |  155 |         if (f == NULL) {
+    |      |            ~    
+    |      |            |
+    |      |            (10) following ‘false’ branch (when ‘f_16’ is non-NULL)...
+    |......
+    |  161 |         if (fwrite(bufdata, 1, bufsize, f) != bufsize) {
+    |      |            ~~   
+    |      |            ||
+    |      |            |(11) ...to here
+    |      |            (12) following ‘true’ branch...
+    |  162 |                 printf("%s: write error", file);
+    |      |                 ~
+    |      |                 |
+    |      |                 (13) ...to here
+    |  163 |                 fclose(f);
+    |      |                 ~
+    |      |                 |
+    |      |                 (14) ‘file_14’ leaks here; was allocated at (8)
+    |
+In function ‘cmd_load_buffer_exec’:
+./benchmarks/tmux/leak_3/tmux_leak_3.c:125:17: warning: leak of ‘path_11’ [CWE-401] [-Wanalyzer-malloc-leak]
+  125 |                 fclose(f);
+      |                 ^
+  ‘main’: events 1-2
+    |
+    |  188 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  192 |         cmd_load_buffer_exec(&self, &item);
+    |      |         ~
+    |      |         |
+    |      |         (2) calling ‘cmd_load_buffer_exec’ from ‘main’
+    |
+    +--> ‘cmd_load_buffer_exec’: events 3-4
+           |
+           |   85 | cmd_load_buffer_exec(struct cmd *self, struct cmdq_item *item)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘cmd_load_buffer_exec’
+           |......
+           |  100 |         file = server_client_get_path(c, path);
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘server_client_get_path’ from ‘cmd_load_buffer_exec’
+           |
+           +--> ‘server_client_get_path’: events 5-9
+                  |
+                  |   72 | server_client_get_path(struct client *c, const char *file)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘server_client_get_path’
+                  |......
+                  |   76 |         if (*file == '/')
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘true’ branch...
+                  |   77 |                 path = xstrdup(file);                           /* allocation site */
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (7) ...to here
+                  |      |                        (8) allocated here
+                  |   78 |         if (realpath(path, resolved) == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (9) following ‘true’ branch...
+                  |
+                ‘server_client_get_path’: event 10
+                  |
+                  |lto1:
+                  | (10): ...to here
+                  |
+           <------+
+           |
+         ‘cmd_load_buffer_exec’: events 11-18
+           |
+           |  100 |         file = server_client_get_path(c, path);
+           |      |                ^
+           |      |                |
+           |      |                (11) returning to ‘cmd_load_buffer_exec’ from ‘server_client_get_path’
+           |  101 |         f = fopen(file, "rb");
+           |  102 |         if (f == NULL) {
+           |      |            ~    
+           |      |            |
+           |      |            (12) following ‘false’ branch (when ‘f_14’ is non-NULL)...
+           |......
+           |  110 |         if (ferror(f)) {
+           |      |            ~~   
+           |      |            ||
+           |      |            |(13) ...to here
+           |      |            (14) following ‘true’ branch...
+           |  111 |                 printf("%s: read error", file);
+           |      |                 ~
+           |      |                 |
+           |      |                 (15) ...to here
+           |......
+           |  124 |         if (f != NULL)
+           |      |            ~    
+           |      |            |
+           |      |            (16) following ‘true’ branch (when ‘f_14’ is non-NULL)...
+           |  125 |                 fclose(f);
+           |      |                 ~
+           |      |                 |
+           |      |                 (17) ...to here
+           |      |                 (18) ‘path_11’ leaks here; was allocated at (8)
+           |
+./benchmarks/tmux/leak_3/tmux_leak_3.c:125:17: warning: leak of ‘file_12’ [CWE-401] [-Wanalyzer-malloc-leak]
+  125 |                 fclose(f);
+      |                 ^
+  ‘main’: events 1-2
+    |
+    |  188 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  192 |         cmd_load_buffer_exec(&self, &item);
+    |      |         ~
+    |      |         |
+    |      |         (2) calling ‘cmd_load_buffer_exec’ from ‘main’
+    |
+    +--> ‘cmd_load_buffer_exec’: events 3-4
+           |
+           |   85 | cmd_load_buffer_exec(struct cmd *self, struct cmdq_item *item)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘cmd_load_buffer_exec’
+           |......
+           |  100 |         file = server_client_get_path(c, path);
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘server_client_get_path’ from ‘cmd_load_buffer_exec’
+           |
+           +--> ‘server_client_get_path’: events 5-8
+                  |
+                  |   72 | server_client_get_path(struct client *c, const char *file)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘server_client_get_path’
+                  |......
+                  |   78 |         if (realpath(path, resolved) == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘false’ branch...
+                  |   79 |                 return (path);
+                  |   80 |         free(path);
+                  |      |         ~
+                  |      |         |
+                  |      |         (7) ...to here
+                  |   81 |         return (xstrdup(resolved));                             /* allocation site */
+                  |      |                 ~
+                  |      |                 |
+                  |      |                 (8) allocated here
+                  |
+           <------+
+           |
+         ‘cmd_load_buffer_exec’: events 9-16
+           |
+           |  100 |         file = server_client_get_path(c, path);
+           |      |                ^
+           |      |                |
+           |      |                (9) returning to ‘cmd_load_buffer_exec’ from ‘server_client_get_path’
+           |  101 |         f = fopen(file, "rb");
+           |  102 |         if (f == NULL) {
+           |      |            ~    
+           |      |            |
+           |      |            (10) following ‘false’ branch (when ‘f_14’ is non-NULL)...
+           |......
+           |  110 |         if (ferror(f)) {
+           |      |            ~~   
+           |      |            ||
+           |      |            |(11) ...to here
+           |      |            (12) following ‘true’ branch...
+           |  111 |                 printf("%s: read error", file);
+           |      |                 ~
+           |      |                 |
+           |      |                 (13) ...to here
+           |......
+           |  124 |         if (f != NULL)
+           |      |            ~    
+           |      |            |
+           |      |            (14) following ‘true’ branch (when ‘f_14’ is non-NULL)...
+           |  125 |                 fclose(f);
+           |      |                 ~
+           |      |                 |
+           |      |                 (15) ...to here
+           |      |                 (16) ‘file_12’ leaks here; was allocated at (8)
+           |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 92%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 (100%)    66k (  3%)
+ ipa reference                      :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ analyzer: processing worklist      :   0.02 ( 67%)   0.00 (  0%)   0.02 ( 67%)   144  (  0%)
+ TOTAL                              :   0.03          0.00          0.03         2341k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 83%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.02 ( 67%)   337k ( 13%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.00 (  0%)   0.02 ( 67%)   262k ( 10%)
+ ipa lto gimple in                  :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    54k (  2%)
+ dominance computation              :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ dead store elim2                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2384  (  0%)
+ thread pro- & epilogue             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  8184  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    12k (  0%)
+ TOTAL                              :   0.03          0.00          0.03         2609k

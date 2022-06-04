@@ -1,0 +1,427 @@
+In file included from ./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:10:
+./benchmarks/openssh-portable/leak_3/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c: In function ‘main’:
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:207:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  207 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 44%)
+ phase parsing                      :   0.02 ( 67%)   0.02 (100%)   0.03 ( 60%)  1415k ( 48%)
+ phase opt and generate             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)   205k (  7%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   108k (  4%)
+ lto stream compression             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)   642k ( 22%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.01 ( 33%)   0.01 ( 50%)   0.01 ( 20%)   568k ( 19%)
+ parser function body               :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)    59k (  2%)
+ tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    58k (  2%)
+ TOTAL                              :   0.03          0.02          0.05         2929k
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c: In function ‘client_input_hostkeys’:
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:149:12: warning: leak of ‘ctx_48’ [CWE-401] [-Wanalyzer-malloc-leak]
+  149 |         if (argc == 1)
+      |            ^
+  ‘client_input_hostkeys’: events 1-2
+    |
+    |  147 |         ctx = xcalloc(1, sizeof(*ctx));         /* allocation site */
+    |      |               ^
+    |      |               |
+    |      |               (1) allocated here
+    |  148 | 
+    |  149 |         if (argc == 1)
+    |      |            ~   
+    |      |            |
+    |      |            (2) following ‘true’ branch (when ‘argc_49(D) == 1’)...
+    |
+  ‘client_input_hostkeys’: event 3
+    |
+    |lto1:
+    | (3): ...to here
+    |
+  ‘client_input_hostkeys’: event 4
+    |
+    |  149 |         if (argc == 1)
+    |      |            ^
+    |      |            |
+    |      |            (4) ‘ctx_48’ leaks here; was allocated at (1)
+    |
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:159:20: warning: dereference of possibly-NULL ‘ctx_48’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  159 |                 ctx->nkeys++;
+      |                    ^
+  ‘client_input_hostkeys’: events 1-2
+    |
+    |  147 |         ctx = xcalloc(1, sizeof(*ctx));         /* allocation site */
+    |      |               ^
+    |      |               |
+    |      |               (1) this call could return NULL
+    |  148 | 
+    |  149 |         if (argc == 1)
+    |      |            ~   
+    |      |            |
+    |      |            (2) following ‘false’ branch (when ‘argc_49(D) != 1’)...
+    |
+  ‘client_input_hostkeys’: event 3
+    |
+    |lto1:
+    | (3): ...to here
+    |
+  ‘client_input_hostkeys’: events 4-8
+    |
+    |  153 |         for(int i = 1; i < argc; i++)
+    |      |                          ^
+    |      |                          |
+    |      |                          (4) following ‘true’ branch (when ‘i_40 < argc_49(D)’)...
+    |  154 |         {
+    |  155 |                 if(argv[i][0] != 'k') {
+    |      |                   ~    ~  
+    |      |                   |    |
+    |      |                   |    (5) ...to here
+    |      |                   (6) following ‘false’ branch...
+    |......
+    |  159 |                 ctx->nkeys++;
+    |      |                    ~      
+    |      |                    |
+    |      |                    (7) ...to here
+    |      |                    (8) ‘ctx_48’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:162:16: warning: dereference of possibly-NULL ‘ctx_48’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  162 |         if (ctx->nkeys == 0) {
+      |                ^
+  ‘client_input_hostkeys’: events 1-2
+    |
+    |  147 |         ctx = xcalloc(1, sizeof(*ctx));         /* allocation site */
+    |      |               ^
+    |      |               |
+    |      |               (1) this call could return NULL
+    |  148 | 
+    |  149 |         if (argc == 1)
+    |      |            ~   
+    |      |            |
+    |      |            (2) following ‘false’ branch (when ‘argc_49(D) != 1’)...
+    |
+  ‘client_input_hostkeys’: event 3
+    |
+    |lto1:
+    | (3): ...to here
+    |
+  ‘client_input_hostkeys’: events 4-6
+    |
+    |  153 |         for(int i = 1; i < argc; i++)
+    |      |                          ^
+    |      |                          |
+    |      |                          (4) following ‘false’ branch (when ‘i_40 >= argc_49(D)’)...
+    |......
+    |  162 |         if (ctx->nkeys == 0) {
+    |      |                ~          
+    |      |                |
+    |      |                (5) ...to here
+    |      |                (6) ‘ctx_48’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c: In function ‘client_register_global_confirm’:
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:106:16: warning: dereference of possibly-NULL ‘gc_20’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  106 |         gc->cb = cb;
+      |                ^
+  ‘client_register_global_confirm’: events 1-2
+    |
+    |  105 |         gc = xcalloc(1, sizeof(*gc));
+    |      |              ^
+    |      |              |
+    |      |              (1) this call could return NULL
+    |  106 |         gc->cb = cb;
+    |      |                ~
+    |      |                |
+    |      |                (2) ‘gc_20’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c: In function ‘client_input_hostkeys’:
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:37:12: warning: leak of ‘<unknown>’ [CWE-401] [-Wanalyzer-malloc-leak]
+   37 |         if (ctx == NULL)
+      |            ^
+  ‘client_input_hostkeys’: events 1-2
+    |
+    |  135 | int client_input_hostkeys(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘client_input_hostkeys’
+    |......
+    |  149 |         if (argc == 1)
+    |      |            ~
+    |      |            |
+    |      |            (2) following ‘false’ branch (when ‘argc_49(D) != 1’)...
+    |
+  ‘client_input_hostkeys’: event 3
+    |
+    |lto1:
+    | (3): ...to here
+    |
+  ‘client_input_hostkeys’: events 4-14
+    |
+    |  162 |         if (ctx->nkeys == 0) {
+    |      |            ^
+    |      |            |
+    |      |            (4) following ‘false’ branch...
+    |......
+    |  167 |         if ((ctx->keys_seen = calloc(ctx->nkeys,
+    |      |            ~                  ~
+    |      |            |                  |
+    |      |            |                  (5) ...to here
+    |      |            |                  (6) allocated here
+    |      |            (7) assuming ‘<unknown>’ is non-NULL
+    |      |            (8) following ‘false’ branch...
+    |......
+    |  172 |         ctx->nnew = 0;
+    |      |                   ~
+    |      |                   |
+    |      |                   (9) ...to here
+    |......
+    |  182 |         if (ctx->nnew == 0) {
+    |      |            ~
+    |      |            |
+    |      |            (10) following ‘false’ branch...
+    |......
+    |  185 |         } else if (ctx->nnew != 0) {
+    |      |                   ~   ~
+    |      |                   |   |
+    |      |                   |   (11) ...to here
+    |      |                   (12) following ‘true’ branch...
+    |......
+    |  190 |                 printf("asking server to prove ownership for %zu keys\n", ctx->nnew);
+    |      |                 ~
+    |      |                 |
+    |      |                 (13) ...to here
+    |  191 |                 client_register_global_confirm(
+    |      |                 ~
+    |      |                 |
+    |      |                 (14) calling ‘client_register_global_confirm’ from ‘client_input_hostkeys’
+    |
+    +--> ‘client_register_global_confirm’: events 15-18
+           |
+           |   92 | client_register_global_confirm(global_confirm_cb *cb, void *ctx)
+           |      | ^
+           |      | |
+           |      | (15) entry to ‘client_register_global_confirm’
+           |......
+           |   98 |         if (last_gc && last_gc->cb == cb && last_gc->ctx == ctx) {
+           |      |            ~
+           |      |            |
+           |      |            (16) following ‘true’ branch...
+           |   99 |                 if (++last_gc->ref_count >= INT_MAX)
+           |      |                    ~         ~
+           |      |                    |         |
+           |      |                    |         (17) ...to here
+           |      |                    (18) following ‘false’ branch...
+           |
+         ‘client_register_global_confirm’: event 19
+           |
+           |lto1:
+           | (19): ...to here
+           |
+    <------+
+    |
+  ‘client_input_hostkeys’: events 20-21
+    |
+    |  191 |                 client_register_global_confirm(
+    |      |                 ^
+    |      |                 |
+    |      |                 (20) returning to ‘client_input_hostkeys’ from ‘client_register_global_confirm’
+    |......
+    |  198 |         hostkeys_update_ctx_free(ctx);
+    |      |         ~        
+    |      |         |
+    |      |         (21) calling ‘hostkeys_update_ctx_free’ from ‘client_input_hostkeys’
+    |
+    +--> ‘hostkeys_update_ctx_free’: events 22-23
+           |
+           |   33 | hostkeys_update_ctx_free(struct hostkeys_update_ctx *ctx)
+           |      | ^
+           |      | |
+           |      | (22) entry to ‘hostkeys_update_ctx_free’
+           |......
+           |   37 |         if (ctx == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (23) following ‘true’ branch (when ‘ctx_3(D)’ is NULL)...
+           |
+         ‘hostkeys_update_ctx_free’: event 24
+           |
+           |lto1:
+           | (24): ...to here
+           |
+    <------+
+    |
+  ‘client_input_hostkeys’: events 25-26
+    |
+    |   37 |         if (ctx == NULL)
+    |      |            ~
+    |      |            |
+    |      |            (26) ‘<unknown>’ leaks here; was allocated at (6)
+    |......
+    |  198 |         hostkeys_update_ctx_free(ctx);
+    |      |         ^
+    |      |         |
+    |      |         (25) returning to ‘client_input_hostkeys’ from ‘hostkeys_update_ctx_free’
+    |
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:37:12: warning: leak of ‘ctx_48’ [CWE-401] [-Wanalyzer-malloc-leak]
+   37 |         if (ctx == NULL)
+      |            ^
+  ‘client_input_hostkeys’: events 1-3
+    |
+    |  135 | int client_input_hostkeys(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘client_input_hostkeys’
+    |......
+    |  147 |         ctx = xcalloc(1, sizeof(*ctx));         /* allocation site */
+    |      |               ~
+    |      |               |
+    |      |               (2) allocated here
+    |  148 | 
+    |  149 |         if (argc == 1)
+    |      |            ~
+    |      |            |
+    |      |            (3) following ‘false’ branch (when ‘argc_49(D) != 1’)...
+    |
+  ‘client_input_hostkeys’: event 4
+    |
+    |lto1:
+    | (4): ...to here
+    |
+  ‘client_input_hostkeys’: events 5-14
+    |
+    |  162 |         if (ctx->nkeys == 0) {
+    |      |            ~   ^
+    |      |            |   |
+    |      |            |   (5) assuming ‘ctx_48’ is non-NULL
+    |      |            (6) following ‘false’ branch...
+    |......
+    |  167 |         if ((ctx->keys_seen = calloc(ctx->nkeys,
+    |      |            ~                  ~
+    |      |            |                  |
+    |      |            |                  (7) ...to here
+    |      |            (8) following ‘false’ branch...
+    |......
+    |  172 |         ctx->nnew = 0;
+    |      |                   ~
+    |      |                   |
+    |      |                   (9) ...to here
+    |......
+    |  182 |         if (ctx->nnew == 0) {
+    |      |            ~    
+    |      |            |
+    |      |            (10) following ‘false’ branch...
+    |......
+    |  185 |         } else if (ctx->nnew != 0) {
+    |      |                   ~   ~
+    |      |                   |   |
+    |      |                   |   (11) ...to here
+    |      |                   (12) following ‘true’ branch...
+    |......
+    |  190 |                 printf("asking server to prove ownership for %zu keys\n", ctx->nnew);
+    |      |                 ~
+    |      |                 |
+    |      |                 (13) ...to here
+    |  191 |                 client_register_global_confirm(
+    |      |                 ~
+    |      |                 |
+    |      |                 (14) calling ‘client_register_global_confirm’ from ‘client_input_hostkeys’
+    |
+    +--> ‘client_register_global_confirm’: events 15-18
+           |
+           |   92 | client_register_global_confirm(global_confirm_cb *cb, void *ctx)
+           |      | ^
+           |      | |
+           |      | (15) entry to ‘client_register_global_confirm’
+           |......
+           |   98 |         if (last_gc && last_gc->cb == cb && last_gc->ctx == ctx) {
+           |      |            ~
+           |      |            |
+           |      |            (16) following ‘true’ branch...
+           |   99 |                 if (++last_gc->ref_count >= INT_MAX)
+           |      |                    ~         ~
+           |      |                    |         |
+           |      |                    |         (17) ...to here
+           |      |                    (18) following ‘false’ branch...
+           |
+         ‘client_register_global_confirm’: event 19
+           |
+           |lto1:
+           | (19): ...to here
+           |
+    <------+
+    |
+  ‘client_input_hostkeys’: events 20-21
+    |
+    |  191 |                 client_register_global_confirm(
+    |      |                 ^
+    |      |                 |
+    |      |                 (20) returning to ‘client_input_hostkeys’ from ‘client_register_global_confirm’
+    |......
+    |  198 |         hostkeys_update_ctx_free(ctx);
+    |      |         ~        
+    |      |         |
+    |      |         (21) calling ‘hostkeys_update_ctx_free’ from ‘client_input_hostkeys’
+    |
+    +--> ‘hostkeys_update_ctx_free’: events 22-23
+           |
+           |   33 | hostkeys_update_ctx_free(struct hostkeys_update_ctx *ctx)
+           |      | ^
+           |      | |
+           |      | (22) entry to ‘hostkeys_update_ctx_free’
+           |......
+           |   37 |         if (ctx == NULL)
+           |      |            ~
+           |      |            |
+           |      |            (23) following ‘true’ branch (when ‘ctx_3(D)’ is NULL)...
+           |
+         ‘hostkeys_update_ctx_free’: event 24
+           |
+           |lto1:
+           | (24): ...to here
+           |
+    <------+
+    |
+  ‘client_input_hostkeys’: events 25-26
+    |
+    |   37 |         if (ctx == NULL)
+    |      |            ~
+    |      |            |
+    |      |            (26) ‘ctx_48’ leaks here; was allocated at (2)
+    |......
+    |  198 |         hostkeys_update_ctx_free(ctx);
+    |      |         ^
+    |      |         |
+    |      |         (25) returning to ‘client_input_hostkeys’ from ‘hostkeys_update_ctx_free’
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)  2157k ( 92%)
+ phase opt and generate             :   0.08 (100%)   0.00 (  0%)   0.08 ( 89%)   128k (  5%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ analyzer: processing worklist      :   0.05 ( 62%)   0.00 (  0%)   0.05 ( 56%)   720  (  0%)
+ analyzer: emitting diagnostics     :   0.03 ( 38%)   0.00 (  0%)   0.02 ( 22%)   184  (  0%)
+ TOTAL                              :   0.08          0.00          0.09         2342k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2157k ( 74%)
+ phase opt and generate             :   0.02 (100%)   0.01 (100%)   0.03 ( 75%)   711k ( 24%)
+ callgraph functions expansion      :   0.02 (100%)   0.01 (100%)   0.03 ( 75%)   566k ( 19%)
+ tree CCP                           :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  1104  (  0%)
+ tree linearize phis                :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)  7504  (  0%)
+ complete unrolling                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2352  (  0%)
+ tree SSA uncprop                   :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ forward prop                       :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   432  (  0%)
+ loop invariant motion              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ TOTAL                              :   0.02          0.01          0.04         2923k

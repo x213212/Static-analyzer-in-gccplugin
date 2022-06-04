@@ -1,0 +1,123 @@
+In file included from ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:10:
+./benchmarks/openssh-portable/leak_1/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘strlcat’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:31: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   57 |                 return(dlen + strlen(s));
+      |                               ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+   10 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:31: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+   57 |                 return(dlen + strlen(s));
+      |                               ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:31: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘match_pattern_list’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:37: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  136 |         unsigned int i, subi, len = strlen(pattern);
+      |                                     ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:37: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:48: warning: implicit declaration of function ‘isupper’ [-Wimplicit-function-declaration]
+  154 |                         sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+      |                                                ^~~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:11:1: note: include ‘<ctype.h>’ or provide a declaration of ‘isupper’
+   10 | #include "../openssh.h"
+  +++ |+#include <ctype.h>
+   11 | 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:29: warning: implicit declaration of function ‘tolower’ [-Wimplicit-function-declaration]
+  155 |                             tolower((u_char)pattern[i]) : pattern[i];
+      |                             ^~~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:29: note: include ‘<ctype.h>’ or provide a declaration of ‘tolower’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘match_filter_list’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:186:18: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  186 |     size_t len = strlen(proposal) + 1;
+      |                  ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:186:18: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:188:23: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  188 |     char *orig_prop = strdup(proposal);
+      |                       ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:188:23: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 44%)
+ phase parsing                      :   0.03 ( 75%)   0.01 (100%)   0.04 ( 67%)  1397k ( 48%)
+ phase opt and generate             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   214k (  7%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   113k (  4%)
+ ipa function summary               :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    15k (  1%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ preprocessing                      :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   637k ( 22%)
+ lexical analysis                   :   0.01 ( 25%)   0.01 (100%)   0.03 ( 50%)     0  (  0%)
+ symout                             :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.04          0.01          0.06         2921k
+In function ‘match_filter_list’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:192:9: warning: leak of ‘fix_prop_15’ [CWE-401] [-Wanalyzer-malloc-leak]
+  192 |         free(orig_prop);
+      |         ^
+  ‘main’: events 1-2
+    |
+    |  210 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |  211 | {
+    |  212 |         char *proposal = match_filter_list("proposal", "filter");
+    |      |                          ~
+    |      |                          |
+    |      |                          (2) calling ‘match_filter_list’ from ‘main’
+    |
+    +--> ‘match_filter_list’: events 3-7
+           |
+           |  184 | match_filter_list(const char *proposal, const char *filter)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘match_filter_list’
+           |......
+           |  187 |     char *fix_prop = malloc(len);       /* allocation site */
+           |      |                      ~
+           |      |                      |
+           |      |                      (4) allocated here
+           |......
+           |  191 |     if (fix_prop == NULL || orig_prop == NULL) {
+           |      |        ~
+           |      |        |
+           |      |        (5) following ‘true’ branch...
+           |  192 |         free(orig_prop);
+           |      |         ~
+           |      |         |
+           |      |         (6) ...to here
+           |      |         (7) ‘fix_prop_15’ leaks here; was allocated at (4)
+           |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 91%)
+ phase opt and generate             :   0.13 (100%)   0.00 (  0%)   0.14 (100%)   130k (  6%)
+ ipa reference                      :   0.01 (  8%)   0.00 (  0%)   0.01 (  7%)     0  (  0%)
+ analyzer: processing worklist      :   0.12 ( 92%)   0.00 (  0%)   0.13 ( 93%)   504  (  0%)
+ TOTAL                              :   0.13          0.00          0.14         2364k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2157k ( 73%)
+ phase opt and generate             :   0.04 (100%)   0.00 (  0%)   0.03 ( 75%)   769k ( 26%)
+ callgraph functions expansion      :   0.04 (100%)   0.00 (  0%)   0.03 ( 75%)   626k ( 21%)
+ df reaching defs                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ tree CFG cleanup                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2584  (  0%)
+ tree iv optimization               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    35k (  1%)
+ CSE                                :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)   696  (  0%)
+ combiner                           :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    15k (  1%)
+ LRA create live ranges             :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)   336  (  0%)
+ initialize rtl                     :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.04          0.00          0.04         2965k

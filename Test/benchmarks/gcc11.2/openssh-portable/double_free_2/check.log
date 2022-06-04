@@ -1,0 +1,289 @@
+In file included from ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:9:
+./benchmarks/openssh-portable/double_free_2/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+In file included from ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:8:
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c: In function ‘key_try_load_public’:
+./benchmarks/openssh-portable/double_free_2/../stdio.h:266:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:29:45: note: in expansion of macro ‘xstrdup’
+   29 |                                 *commentp = xstrdup(filename); /* allocation site */
+      |                                             ^~~~~~~
+./benchmarks/openssh-portable/double_free_2/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:29:45: note: in expansion of macro ‘xstrdup’
+   29 |                                 *commentp = xstrdup(filename); /* allocation site */
+      |                                             ^~~~~~~
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c: In function ‘main’:
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:189:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  189 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 45%)
+ phase parsing                      :   0.05 ( 83%)   0.00 (  0%)   0.05 ( 71%)  1397k ( 49%)
+ phase opt and generate             :   0.01 ( 17%)   0.00 (  0%)   0.02 ( 29%)   169k (  6%)
+ callgraph construction             :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    20k (  1%)
+ callgraph ipa passes               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    89k (  3%)
+ preprocessing                      :   0.01 ( 17%)   0.00 (  0%)   0.03 ( 43%)   638k ( 22%)
+ lexical analysis                   :   0.02 ( 33%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ parser (global)                    :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)   569k ( 20%)
+ parser struct body                 :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)   115k (  4%)
+ tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    43k (  2%)
+ tree aggressive DCE                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ TOTAL                              :   0.06          0.00          0.07         2875k
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c: In function ‘key_try_load_public’:
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:29:43: warning: leak of ‘comment’ [CWE-401] [-Wanalyzer-malloc-leak]
+   29 |                                 *commentp = xstrdup(filename); /* allocation site */
+      |                                           ^
+  ‘main’: events 1-2
+    |
+    |  186 | int main(int argc, char **argv) {
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  190 |         delete_file(filename, key_only);
+    |      |         ~
+    |      |         |
+    |      |         (2) calling ‘delete_file’ from ‘main’
+    |
+    +--> ‘delete_file’: events 3-4
+           |
+           |  151 | delete_file(const char *filename, int key_only)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘delete_file’
+           |......
+           |  157 |         public = key_load_public(filename, &comment);
+           |      |                  ~
+           |      |                  |
+           |      |                  (4) calling ‘key_load_public’ from ‘delete_file’
+           |
+           +--> ‘key_load_public’: events 5-6
+                  |
+                  |  128 | key_load_public(const char *filename, char **commentp)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘key_load_public’
+                  |......
+                  |  134 |         pub = key_load_public_type(KEY_RSA1, filename, commentp);
+                  |      |               ~
+                  |      |               |
+                  |      |               (6) calling ‘key_load_public_type’ from ‘key_load_public’
+                  |
+                  +--> ‘key_load_public_type’: events 7-10
+                         |
+                         |  116 | key_load_public_type(int type, const char *filename, char **commentp)
+                         |      | ^
+                         |      | |
+                         |      | (7) entry to ‘key_load_public_type’
+                         |......
+                         |  120 |         if (type == KEY_RSA1) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (8) following ‘true’ branch (when ‘type_3(D) == 0’)...
+                         |  121 |                 pub = key_load_public_rsa1(filename, commentp);
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (9) ...to here
+                         |      |                       (10) calling ‘key_load_public_rsa1’ from ‘key_load_public_type’
+                         |
+                         +--> ‘key_load_public_rsa1’: events 11-12
+                                |
+                                |  103 | key_load_public_rsa1(const char *filename, char **commentp)
+                                |      | ^
+                                |      | |
+                                |      | (11) entry to ‘key_load_public_rsa1’
+                                |......
+                                |  107 |         pub = key_parse_public_rsa1(commentp);
+                                |      |               ~
+                                |      |               |
+                                |      |               (12) calling ‘key_parse_public_rsa1’ from ‘key_load_public_rsa1’
+                                |
+                                +--> ‘key_parse_public_rsa1’: events 13-16
+                                       |
+                                       |   86 | key_parse_public_rsa1(char **commentp)
+                                       |      | ^
+                                       |      | |
+                                       |      | (13) entry to ‘key_parse_public_rsa1’
+                                       |......
+                                       |   91 |         if (commentp)
+                                       |      |            ~
+                                       |      |            |
+                                       |      |            (14) following ‘true’ branch (when ‘commentp_3(D)’ is non-NULL)...
+                                       |   92 |                 *commentp = buffer_get_string(NULL);
+                                       |      |                             ~
+                                       |      |                             |
+                                       |      |                             (15) ...to here
+                                       |      |                             (16) calling ‘buffer_get_string’ from ‘key_parse_public_rsa1’
+                                       |
+                                       +--> ‘buffer_get_string’: events 17-18
+                                              |
+                                              |   72 | buffer_get_string(u_int *length_ptr)
+                                              |      | ^
+                                              |      | |
+                                              |      | (17) entry to ‘buffer_get_string’
+                                              |......
+                                              |   76 |         if ((ret = buffer_get_string_ret(length_ptr)) == NULL)
+                                              |      |                    ~
+                                              |      |                    |
+                                              |      |                    (18) calling ‘buffer_get_string_ret’ from ‘buffer_get_string’
+                                              |
+                                              +--> ‘buffer_get_string_ret’: events 19-23
+                                                     |
+                                                     |   48 | buffer_get_string_ret(u_int *length_ptr)
+                                                     |      | ^
+                                                     |      | |
+                                                     |      | (19) entry to ‘buffer_get_string_ret’
+                                                     |......
+                                                     |   54 |         value = xmalloc(len + 1); /* allocation site */
+                                                     |      |                 ~
+                                                     |      |                 |
+                                                     |      |                 (20) allocated here
+                                                     |   55 |         /* Get the string. */
+                                                     |   56 |         if (__RANDBOOL) {
+                                                     |      |            ~
+                                                     |      |            |
+                                                     |      |            (21) following ‘false’ branch...
+                                                     |......
+                                                     |   62 |         value[len] = '\0';
+                                                     |      |              ~
+                                                     |      |              |
+                                                     |      |              (22) ...to here
+                                                     |   63 |         /* Optionally return the length of the string. */
+                                                     |   64 |         if (length_ptr)
+                                                     |      |            ~
+                                                     |      |            |
+                                                     |      |            (23) following ‘false’ branch (when ‘length_ptr_18(D)’ is NULL)...
+                                                     |
+                                                   ‘buffer_get_string_ret’: event 24
+                                                     |
+                                                     |lto1:
+                                                     | (24): ...to here
+                                                     |
+                                              <------+
+                                              |
+                                            ‘buffer_get_string’: events 25-27
+                                              |
+                                              |   76 |         if ((ret = buffer_get_string_ret(length_ptr)) == NULL)
+                                              |      |            ~       ^
+                                              |      |            |       |
+                                              |      |            |       (25) returning to ‘buffer_get_string’ from ‘buffer_get_string_ret’
+                                              |      |            (26) following ‘false’ branch (when ‘ret_4’ is non-NULL)...
+                                              |   77 |                 fatal("buffer_get_string: buffer error%s\n", "");
+                                              |   78 |         return (ret);
+                                              |      |                ~    
+                                              |      |                |
+                                              |      |                (27) ...to here
+                                              |
+                                       <------+
+                                       |
+                                     ‘key_parse_public_rsa1’: event 28
+                                       |
+                                       |   92 |                 *commentp = buffer_get_string(NULL);
+                                       |      |                             ^
+                                       |      |                             |
+                                       |      |                             (28) returning to ‘key_parse_public_rsa1’ from ‘buffer_get_string’
+                                       |
+                                <------+
+                                |
+                              ‘key_load_public_rsa1’: event 29
+                                |
+                                |  107 |         pub = key_parse_public_rsa1(commentp);
+                                |      |               ^
+                                |      |               |
+                                |      |               (29) returning to ‘key_load_public_rsa1’ from ‘key_parse_public_rsa1’
+                                |
+                         <------+
+                         |
+                       ‘key_load_public_type’: event 30
+                         |
+                         |  121 |                 pub = key_load_public_rsa1(filename, commentp);
+                         |      |                       ^
+                         |      |                       |
+                         |      |                       (30) returning to ‘key_load_public_type’ from ‘key_load_public_rsa1’
+                         |
+                  <------+
+                  |
+                ‘key_load_public’: events 31-34
+                  |
+                  |  134 |         pub = key_load_public_type(KEY_RSA1, filename, commentp);
+                  |      |               ^
+                  |      |               |
+                  |      |               (31) returning to ‘key_load_public’ from ‘key_load_public_type’
+                  |  135 |         if (pub != NULL)
+                  |      |            ~   
+                  |      |            |
+                  |      |            (32) following ‘false’ branch (when ‘pub_9’ is NULL)...
+                  |......
+                  |  140 |         if (key_try_load_public(pub, filename, commentp) == 1)
+                  |      |             ~  
+                  |      |             |
+                  |      |             (33) ...to here
+                  |      |             (34) calling ‘key_try_load_public’ from ‘key_load_public’
+                  |
+                  +--> ‘key_try_load_public’: events 35-42
+                         |
+                         |   18 | key_try_load_public(Key *k, const char *filename, char **commentp)
+                         |      | ^
+                         |      | |
+                         |      | (35) entry to ‘key_try_load_public’
+                         |......
+                         |   26 |         if (f != NULL) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (36) following ‘true’ branch (when ‘f_10’ is non-NULL)...
+                         |   27 |                 while (__RANDBOOL) {
+                         |      |                        ~
+                         |      |                        |
+                         |      |                        (37) ...to here
+                         |      |                        (38) following ‘true’ branch...
+                         |   28 |                         if (commentp) {
+                         |      |                            ~
+                         |      |                            |
+                         |      |                            (39) ...to here
+                         |      |                            (40) following ‘true’ branch (when ‘commentp_13(D)’ is non-NULL)...
+                         |   29 |                                 *commentp = xstrdup(filename); /* allocation site */
+                         |      |                                           ~ ~
+                         |      |                                           | |
+                         |      |                                           | (41) ...to here
+                         |      |                                           (42) ‘comment’ leaks here; was allocated at (20)
+                         |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 93%)
+ phase opt and generate             :   0.12 (100%)   0.01 (100%)   0.12 ( 92%)    92k (  4%)
+ phase stream out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)     0  (  0%)
+ ipa lto decl out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)     0  (  0%)
+ ipa reference                      :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.05 ( 42%)   0.00 (  0%)   0.06 ( 46%)   352  (  0%)
+ analyzer: emitting diagnostics     :   0.06 ( 50%)   0.01 (100%)   0.06 ( 46%)   248  (  0%)
+ TOTAL                              :   0.12          0.01          0.13         2318k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 76%)
+ phase opt and generate             :   0.02 (100%)   0.02 (100%)   0.04 ( 80%)   603k ( 21%)
+ callgraph functions expansion      :   0.02 (100%)   0.02 (100%)   0.04 ( 80%)   497k ( 18%)
+ ipa pure const                     :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ df reg dead/unused notes           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  9696  (  0%)
+ dominator optimization             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)  9488  (  0%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   128  (  0%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    57k (  2%)
+ integrated RA                      :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)   221k (  8%)
+ initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.02          0.02          0.05         2825k

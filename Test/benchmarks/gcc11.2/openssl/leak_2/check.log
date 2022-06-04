@@ -1,0 +1,132 @@
+./benchmarks/openssl/leak_2/openssl_leak_2.c: In function ‘freeandcopy’:
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:17: warning: implicit declaration of function ‘OPENSSL_strdup’; did you mean ‘OPENSSL_memdup’? [-Wimplicit-function-declaration]
+  252 |         *dest = OPENSSL_strdup(source);
+      |                 ^~~~~~~~~~~~~~
+      |                 OPENSSL_memdup
+./benchmarks/openssl/leak_2/openssl_leak_2.c:252:15: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  252 |         *dest = OPENSSL_strdup(source);
+      |               ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c: In function ‘main’:
+./benchmarks/openssl/leak_2/openssl_leak_2.c:268:18: warning: initialization of ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  268 |     char *port = OPENSSL_strdup(PORT);
+      |                  ^~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:343:41: warning: implicit declaration of function ‘IS_INET_FLAG’ [-Wimplicit-function-declaration]
+  343 |         if (connect_type == use_unix && IS_INET_FLAG(o)) {
+      |                                         ^~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:344:13: warning: implicit declaration of function ‘BIO_printf’; did you mean ‘dprintf’? [-Wimplicit-function-declaration]
+  344 |             BIO_printf(bio_err,
+      |             ^~~~~~~~~~
+      |             dprintf
+./benchmarks/openssl/leak_2/openssl_leak_2.c:349:41: warning: implicit declaration of function ‘IS_UNIX_FLAG’ [-Wimplicit-function-declaration]
+  349 |         if (connect_type == use_inet && IS_UNIX_FLAG(o)) {
+      |                                         ^~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:356:13: warning: implicit declaration of function ‘IS_PROT_FLAG’; did you mean ‘IS_NO_PROT_FLAG’? [-Wimplicit-function-declaration]
+  356 |         if (IS_PROT_FLAG(o) && ++prot_opt > 1) {
+      |             ^~~~~~~~~~~~
+      |             IS_NO_PROT_FLAG
+./benchmarks/openssl/leak_2/openssl_leak_2.c:377:32: warning: implicit declaration of function ‘opt_arg’; did you mean ‘copy_argv’? [-Wimplicit-function-declaration]
+  377 |             freeandcopy(&host, opt_arg());
+      |                                ^~~~~~~
+      |                                copy_argv
+./benchmarks/openssl/leak_2/openssl_leak_2.c:377:32: warning: passing argument 2 of ‘freeandcopy’ makes pointer from integer without a cast [-Wint-conversion]
+  377 |             freeandcopy(&host, opt_arg());
+      |                                ^~~~~~~~~
+      |                                |
+      |                                int
+./benchmarks/openssl/leak_2/openssl_leak_2.c:247:50: note: expected ‘const char *’ but argument is of type ‘int’
+  247 | static void freeandcopy(char **dest, const char *source)
+      |                                      ~~~~~~~~~~~~^~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:381:24: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  381 |             servername = opt_arg(); /* don't free */
+      |                        ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c:406:12: warning: implicit declaration of function ‘opt_num_rest’ [-Wimplicit-function-declaration]
+  406 |     argc = opt_num_rest();
+      |            ^~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:424:21: warning: implicit declaration of function ‘BIO_new_file’ [-Wimplicit-function-declaration]
+  424 |         BIO *stmp = BIO_new_file(sess_in, "r");
+      |                     ^~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:424:21: warning: initialization of ‘BIO *’ {aka ‘struct bio_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_2/openssl_leak_2.c:427:13: warning: implicit declaration of function ‘ERR_print_errors’ [-Wimplicit-function-declaration]
+  427 |             ERR_print_errors(bio_err);
+      |             ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:430:16: warning: implicit declaration of function ‘PEM_read_bio_SSL_SESSION’ [-Wimplicit-function-declaration]
+  430 |         sess = PEM_read_bio_SSL_SESSION(stmp, NULL, 0, NULL);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:430:14: warning: assignment to ‘SSL_SESSION *’ {aka ‘struct ssl_session_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  430 |         sess = PEM_read_bio_SSL_SESSION(stmp, NULL, 0, NULL);
+      |              ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c:431:9: warning: implicit declaration of function ‘BIO_free’ [-Wimplicit-function-declaration]
+  431 |         BIO_free(stmp);
+      |         ^~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:437:14: warning: implicit declaration of function ‘SSL_set_session’ [-Wimplicit-function-declaration]
+  437 |         if (!SSL_set_session(con, sess)) {
+      |              ^~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:444:31: warning: implicit declaration of function ‘SSL_SESSION_get0_hostname’ [-Wimplicit-function-declaration]
+  444 |             const char *sni = SSL_SESSION_get0_hostname(sess);
+      |                               ^~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:444:31: warning: initialization of ‘const char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/openssl/leak_2/openssl_leak_2.c:447:28: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  447 |                 servername = OPENSSL_strdup(sni); /* allocation site */
+      |                            ^
+./benchmarks/openssl/leak_2/openssl_leak_2.c:461:9: warning: implicit declaration of function ‘SSL_SESSION_free’ [-Wimplicit-function-declaration]
+  461 |         SSL_SESSION_free(sess);
+      |         ^~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:468:14: warning: implicit declaration of function ‘SSL_set_tlsext_host_name’ [-Wimplicit-function-declaration]
+  468 |         if (!SSL_set_tlsext_host_name(con, servername)) {
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:478:9: warning: implicit declaration of function ‘print_stuff’ [-Wimplicit-function-declaration]
+  478 |         print_stuff(bio_c_out, con, full_log);
+      |         ^~~~~~~~~~~
+./benchmarks/openssl/leak_2/openssl_leak_2.c:479:5: warning: implicit declaration of function ‘do_ssl_shutdown’ [-Wimplicit-function-declaration]
+  479 |     do_ssl_shutdown(con);
+      |     ^~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 36%)
+ phase parsing                      :   0.12 ( 92%)   0.02 (100%)   0.15 ( 94%)  2044k ( 57%)
+ phase opt and generate             :   0.01 (  8%)   0.00 (  0%)   0.01 (  6%)   253k (  7%)
+ callgraph ipa passes               :   0.01 (  8%)   0.00 (  0%)   0.01 (  6%)    91k (  3%)
+ ipa profile                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)    72  (  0%)
+ preprocessing                      :   0.01 (  8%)   0.01 ( 50%)   0.03 ( 19%)  1121k ( 31%)
+ lexical analysis                   :   0.01 (  8%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)   676k ( 19%)
+ parser function body               :   0.10 ( 77%)   0.00 (  0%)   0.11 ( 69%)    82k (  2%)
+ tree operand scan                  :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)    22k (  1%)
+ TOTAL                              :   0.13          0.02          0.16         3606k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 95%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.05 ( 83%)    62k (  3%)
+ analyzer: processing worklist      :   0.03 (100%)   0.01 (100%)   0.05 ( 83%)     0  (  0%)
+ TOTAL                              :   0.03          0.01          0.06         2264k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 86%)
+ phase opt and generate             :   0.01 (100%)   0.01 (100%)   0.02 (100%)   318k ( 13%)
+ callgraph functions expansion      :   0.01 (100%)   0.01 (100%)   0.02 (100%)   248k ( 10%)
+ forward prop                       :   0.01 (100%)   0.01 (100%)   0.00 (  0%)   144  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)  6560  (  0%)
+ TOTAL                              :   0.01          0.01          0.02         2517k
+/usr/bin/ld: /tmp/cczI21O7.ltrans0.ltrans.o: in function `freeandcopy':
+<artificial>:(.text+0x29): undefined reference to `OPENSSL_strdup'
+/usr/bin/ld: /tmp/cczI21O7.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x5e): undefined reference to `OPENSSL_strdup'
+/usr/bin/ld: <artificial>:(.text+0x66): undefined reference to `opt_progname'
+/usr/bin/ld: <artificial>:(.text+0xa7): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0xc5): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x106): undefined reference to `opt_next'
+/usr/bin/ld: <artificial>:(.text+0x121): undefined reference to `IS_UNIX_FLAG'
+/usr/bin/ld: <artificial>:(.text+0x135): undefined reference to `IS_PROT_FLAG'
+/usr/bin/ld: <artificial>:(.text+0x178): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x1a6): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x1d0): undefined reference to `opt_arg'
+/usr/bin/ld: <artificial>:(.text+0x1f2): undefined reference to `opt_arg'
+/usr/bin/ld: <artificial>:(.text+0x20e): undefined reference to `opt_num_rest'
+/usr/bin/ld: <artificial>:(.text+0x233): undefined reference to `SSL_set_tlsext_host_name'
+/usr/bin/ld: <artificial>:(.text+0x250): undefined reference to `print_stuff'
+/usr/bin/ld: <artificial>:(.text+0x25f): undefined reference to `do_ssl_shutdown'
+/usr/bin/ld: <artificial>:(.text+0x27f): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x2a5): undefined reference to `BIO_printf'
+/usr/bin/ld: <artificial>:(.text+0x2b4): undefined reference to `ERR_print_errors'
+collect2: error: ld returned 1 exit status

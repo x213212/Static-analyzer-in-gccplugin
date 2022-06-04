@@ -1,0 +1,953 @@
+In file included from ./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:9:
+./benchmarks/openssh-portable/leak_6/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_6/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_6/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_6/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_6/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c: In function ‘sshbuf_get_string_direct’:
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:87:18: warning: implicit declaration of function ‘sshbuf_peek_string_direct’; did you mean ‘sshbuf_get_string_direct’? [-Wimplicit-function-declaration]
+   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+      |                  ^~~~~~~~~~~~~~~~~~~~~~~~~
+      |                  sshbuf_get_string_direct
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c: In function ‘sshbuf_get_cstring’:
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:144:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  144 |                 memcpy(*valp, p, len);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:10:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+    9 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   10 | 
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:144:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  144 |                 memcpy(*valp, p, len);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:144:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c: In function ‘ssh_ed25519_verify’:
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:170:13: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  170 |         if (strcmp("ssh-ed25519", ktype) != 0) {
+      |             ^~~~~~
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:170:13: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c: In function ‘main’:
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:196:25: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  196 |         size_t siglen = strlen(sign);
+      |                         ^~~~~~
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:196:25: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:196:25: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:196:25: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:198:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  198 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1298k ( 44%)
+ phase parsing                      :   0.03 (100%)   0.01 ( 50%)   0.04 ( 67%)  1416k ( 48%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)   215k (  7%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)   113k (  4%)
+ ipa function summary               :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)    13k (  0%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ preprocessing                      :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)   642k ( 22%)
+ lexical analysis                   :   0.02 ( 67%)   0.01 ( 50%)   0.01 ( 17%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   569k ( 19%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    62k (  2%)
+ TOTAL                              :   0.03          0.02          0.06         2940k
+In function ‘ssh_ed25519_verify’:
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:189:1: warning: leak of ‘ktype’ [CWE-401] [-Wanalyzer-malloc-leak]
+  189 | }
+      | ^
+  ‘ssh_ed25519_verify’: events 1-2
+    |
+    |  153 | ssh_ed25519_verify(const struct sshkey *key,
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘ssh_ed25519_verify’
+    |......
+    |  165 |         if ((b = sshbuf_from(signature, signaturelen)) == NULL)
+    |      |                  ~
+    |      |                  |
+    |      |                  (2) calling ‘sshbuf_from’ from ‘ssh_ed25519_verify’
+    |
+    +--> ‘sshbuf_from’: events 3-7
+           |
+           |   60 | sshbuf_from(const void *blob, size_t len)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘sshbuf_from’
+           |......
+           |   64 |         if (blob == NULL || len > SSHBUF_SIZE_MAX ||
+           |      |            ~                                      ~
+           |      |            |                                      |
+           |      |            (4) following ‘false’ branch...        (6) following ‘false’ branch (when ‘ret_13’ is non-NULL)...
+           |   65 |             (ret = calloc(sizeof(*ret), 1)) == NULL)    /* allocation site */
+           |      |                    ~
+           |      |                    |
+           |      |                    (5) ...to here
+           |   66 |                 return NULL;
+           |   67 |         ret->alloc = ret->size = ret->max_size = len;
+           |      |                                                ~
+           |      |                                                |
+           |      |                                                (7) ...to here
+           |
+    <------+
+    |
+  ‘ssh_ed25519_verify’: events 8-11
+    |
+    |  165 |         if ((b = sshbuf_from(signature, signaturelen)) == NULL)
+    |      |            ~     ^
+    |      |            |     |
+    |      |            |     (8) returning to ‘ssh_ed25519_verify’ from ‘sshbuf_from’
+    |      |            (9) following ‘false’ branch (when ‘b_18’ is non-NULL)...
+    |  166 |                 return SSH_ERR_ALLOC_FAIL;
+    |  167 |         if ((r = sshbuf_get_cstring(b, &ktype, NULL)) != 0 ||
+    |      |                  ~
+    |      |                  |
+    |      |                  (10) ...to here
+    |      |                  (11) calling ‘sshbuf_get_cstring’ from ‘ssh_ed25519_verify’
+    |
+    +--> ‘sshbuf_get_cstring’: events 12-17
+           |
+           |  124 | sshbuf_get_cstring(struct sshbuf *buf, char **valp, size_t *lenp)
+           |      | ^
+           |      | |
+           |      | (12) entry to ‘sshbuf_get_cstring’
+           |......
+           |  130 |         if (valp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (13) following ‘true’ branch (when ‘valp_18(D)’ is non-NULL)...
+           |  131 |                 *valp = NULL;
+           |      |                       ~
+           |      |                       |
+           |      |                       (14) ...to here
+           |  132 |         if (lenp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (15) following ‘false’ branch (when ‘lenp_21(D)’ is NULL)...
+           |  133 |                 *lenp = 0;
+           |  134 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) != 0)
+           |      |                  ~
+           |      |                  |
+           |      |                  (16) ...to here
+           |      |                  (17) calling ‘sshbuf_peek_string_direct’ from ‘sshbuf_get_cstring’
+           |
+           +--> ‘sshbuf_peek_string_direct’: events 18-28
+                  |
+                  |   97 | sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
+                  |      | ^
+                  |      | |
+                  |      | (18) entry to ‘sshbuf_peek_string_direct’
+                  |......
+                  |  103 |         if (valp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (19) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  104 |                 *valp = NULL;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (20) ...to here
+                  |  105 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (21) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  106 |                 *lenp = 0;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (22) ...to here
+                  |  107 |         if (sshbuf_len(buf) < 4) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (23) following ‘false’ branch...
+                  |......
+                  |  116 |         if (valp != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (24) ...to here
+                  |      |            (25) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  117 |                 *valp = p + 4;
+                  |      |                           ~
+                  |      |                           |
+                  |      |                           (26) ...to here
+                  |  118 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (27) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  119 |                 *lenp = len;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (28) ...to here
+                  |
+           <------+
+           |
+         ‘sshbuf_get_cstring’: events 29-32
+           |
+           |  134 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) != 0)
+           |      |            ~     ^
+           |      |            |     |
+           |      |            |     (29) returning to ‘sshbuf_get_cstring’ from ‘sshbuf_peek_string_direct’
+           |      |            (30) following ‘false’ branch (when ‘r_25 == 0’)...
+           |......
+           |  137 |         if ((r = sshbuf_skip_string(buf)) != 0)
+           |      |                  ~
+           |      |                  |
+           |      |                  (31) ...to here
+           |      |                  (32) calling ‘sshbuf_get_string_direct’ from ‘sshbuf_get_cstring’
+           |
+           +--> ‘sshbuf_get_string_direct’: events 33-38
+                  |
+                  |   77 | sshbuf_get_string_direct(struct sshbuf *buf, const u_char **valp, size_t *lenp)
+                  |      | ^
+                  |      | |
+                  |      | (33) entry to ‘sshbuf_get_string_direct’
+                  |......
+                  |   83 |         if (valp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (34) following ‘false’ branch (when ‘valp_8(D)’ is NULL)...
+                  |   84 |                 *valp = NULL;
+                  |   85 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (35) ...to here
+                  |      |            (36) following ‘false’ branch (when ‘lenp_11(D)’ is NULL)...
+                  |   86 |                 *lenp = 0;
+                  |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+                  |      |                  ~
+                  |      |                  |
+                  |      |                  (37) ...to here
+                  |      |                  (38) calling ‘sshbuf_peek_string_direct’ from ‘sshbuf_get_string_direct’
+                  |
+                  +--> ‘sshbuf_peek_string_direct’: events 39-49
+                         |
+                         |   97 | sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
+                         |      | ^
+                         |      | |
+                         |      | (39) entry to ‘sshbuf_peek_string_direct’
+                         |......
+                         |  103 |         if (valp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (40) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                         |  104 |                 *valp = NULL;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (41) ...to here
+                         |  105 |         if (lenp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (42) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                         |  106 |                 *lenp = 0;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (43) ...to here
+                         |  107 |         if (sshbuf_len(buf) < 4) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (44) following ‘false’ branch...
+                         |......
+                         |  116 |         if (valp != 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (45) ...to here
+                         |      |            (46) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                         |  117 |                 *valp = p + 4;
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (47) ...to here
+                         |  118 |         if (lenp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (48) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                         |  119 |                 *lenp = len;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (49) ...to here
+                         |
+                  <------+
+                  |
+                ‘sshbuf_get_string_direct’: events 50-55
+                  |
+                  |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+                  |      |            ~     ^
+                  |      |            |     |
+                  |      |            |     (50) returning to ‘sshbuf_get_string_direct’ from ‘sshbuf_peek_string_direct’
+                  |      |            (51) following ‘false’ branch (when ‘r_15 >= 0’)...
+                  |   88 |                 return r;
+                  |   89 |         if (valp != 0)
+                  |      |            ~      
+                  |      |            |
+                  |      |            (52) ...to here
+                  |      |            (53) following ‘false’ branch (when ‘valp_8(D)’ is NULL)...
+                  |   90 |                 *valp = p;
+                  |   91 |         if (lenp != NULL)
+                  |      |            ~      
+                  |      |            |
+                  |      |            (54) ...to here
+                  |      |            (55) following ‘false’ branch (when ‘lenp_11(D)’ is NULL)...
+                  |
+                ‘sshbuf_get_string_direct’: event 56
+                  |
+                  |lto1:
+                  | (56): ...to here
+                  |
+           <------+
+           |
+         ‘sshbuf_get_cstring’: events 57-66
+           |
+           |  137 |         if ((r = sshbuf_skip_string(buf)) != 0)
+           |      |            ~     ^
+           |      |            |     |
+           |      |            |     (57) returning to ‘sshbuf_get_cstring’ from ‘sshbuf_get_string_direct’
+           |      |            (58) following ‘false’ branch (when ‘r_27 == 0’)...
+           |  138 |                 return -1;
+           |  139 |         if (valp != NULL) {
+           |      |            ~      
+           |      |            |
+           |      |            (59) ...to here
+           |      |            (60) following ‘true’ branch (when ‘valp_18(D)’ is non-NULL)...
+           |  140 |                 if ((*valp = malloc(len + 1)) == NULL) {        /* allocation site */
+           |      |                    ~         ~
+           |      |                    |         |
+           |      |                    |         (61) ...to here
+           |      |                    |         (62) allocated here
+           |      |                    (63) assuming ‘ktype’ is non-NULL
+           |      |                    (64) following ‘false’ branch...
+           |......
+           |  144 |                 memcpy(*valp, p, len);
+           |      |                 ~ 
+           |      |                 |
+           |      |                 (65) ...to here
+           |......
+           |  147 |         if (lenp != NULL)
+           |      |            ~      
+           |      |            |
+           |      |            (66) following ‘false’ branch (when ‘lenp_21(D)’ is NULL)...
+           |
+         ‘sshbuf_get_cstring’: event 67
+           |
+           |lto1:
+           | (67): ...to here
+           |
+    <------+
+    |
+  ‘ssh_ed25519_verify’: events 68-71
+    |
+    |  167 |         if ((r = sshbuf_get_cstring(b, &ktype, NULL)) != 0 ||
+    |      |            ~     ^
+    |      |            |     |
+    |      |            |     (68) returning to ‘ssh_ed25519_verify’ from ‘sshbuf_get_cstring’
+    |      |            (69) following ‘false’ branch (when ‘r_20 == 0’)...
+    |  168 |             (r = sshbuf_get_string_direct(b, &sigblob, &len)) != 0)
+    |      |                  ~
+    |      |                  |
+    |      |                  (70) ...to here
+    |      |                  (71) calling ‘sshbuf_get_string_direct’ from ‘ssh_ed25519_verify’
+    |
+    +--> ‘sshbuf_get_string_direct’: events 72-77
+           |
+           |   77 | sshbuf_get_string_direct(struct sshbuf *buf, const u_char **valp, size_t *lenp)
+           |      | ^
+           |      | |
+           |      | (72) entry to ‘sshbuf_get_string_direct’
+           |......
+           |   83 |         if (valp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (73) following ‘true’ branch (when ‘valp_8(D)’ is non-NULL)...
+           |   84 |                 *valp = NULL;
+           |      |                       ~
+           |      |                       |
+           |      |                       (74) ...to here
+           |   85 |         if (lenp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (75) following ‘true’ branch (when ‘lenp_11(D)’ is non-NULL)...
+           |   86 |                 *lenp = 0;
+           |      |                       ~
+           |      |                       |
+           |      |                       (76) ...to here
+           |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+           |      |                  ~
+           |      |                  |
+           |      |                  (77) calling ‘sshbuf_peek_string_direct’ from ‘sshbuf_get_string_direct’
+           |
+           +--> ‘sshbuf_peek_string_direct’: events 78-88
+                  |
+                  |   97 | sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
+                  |      | ^
+                  |      | |
+                  |      | (78) entry to ‘sshbuf_peek_string_direct’
+                  |......
+                  |  103 |         if (valp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (79) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  104 |                 *valp = NULL;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (80) ...to here
+                  |  105 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (81) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  106 |                 *lenp = 0;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (82) ...to here
+                  |  107 |         if (sshbuf_len(buf) < 4) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (83) following ‘false’ branch...
+                  |......
+                  |  116 |         if (valp != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (84) ...to here
+                  |      |            (85) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  117 |                 *valp = p + 4;
+                  |      |                           ~
+                  |      |                           |
+                  |      |                           (86) ...to here
+                  |  118 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (87) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  119 |                 *lenp = len;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (88) ...to here
+                  |
+           <------+
+           |
+         ‘sshbuf_get_string_direct’: events 89-95
+           |
+           |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+           |      |            ~     ^
+           |      |            |     |
+           |      |            |     (89) returning to ‘sshbuf_get_string_direct’ from ‘sshbuf_peek_string_direct’
+           |      |            (90) following ‘false’ branch (when ‘r_15 >= 0’)...
+           |   88 |                 return r;
+           |   89 |         if (valp != 0)
+           |      |            ~      
+           |      |            |
+           |      |            (91) ...to here
+           |      |            (92) following ‘true’ branch (when ‘valp_8(D)’ is non-NULL)...
+           |   90 |                 *valp = p;
+           |      |                       ~
+           |      |                       |
+           |      |                       (93) ...to here
+           |   91 |         if (lenp != NULL)
+           |      |            ~      
+           |      |            |
+           |      |            (94) following ‘true’ branch (when ‘lenp_11(D)’ is non-NULL)...
+           |   92 |                 *lenp = len;
+           |      |                       ~
+           |      |                       |
+           |      |                       (95) ...to here
+           |
+    <------+
+    |
+  ‘ssh_ed25519_verify’: events 96-103
+    |
+    |  167 |         if ((r = sshbuf_get_cstring(b, &ktype, NULL)) != 0 ||
+    |      |                                                            ~
+    |      |                                                            |
+    |      |                                                            (97) following ‘false’ branch (when ‘r_22 == 0’)...
+    |  168 |             (r = sshbuf_get_string_direct(b, &sigblob, &len)) != 0)
+    |      |                  ^
+    |      |                  |
+    |      |                  (96) returning to ‘ssh_ed25519_verify’ from ‘sshbuf_get_string_direct’
+    |  169 |                 goto out;
+    |  170 |         if (strcmp("ssh-ed25519", ktype) != 0) {
+    |      |            ~~     
+    |      |            ||
+    |      |            |(98) ...to here
+    |      |            (99) following ‘false’ branch (when the strings are equal)...
+    |......
+    |  175 |         if (len > crypto_sign_ed25519_BYTES) {
+    |      |            ~    ~ 
+    |      |            |    |
+    |      |            |    (100) ...to here
+    |      |            (101) following ‘false’ branch...
+    |......
+    |  179 |         if (datalen >= SIZE_MAX - len) {
+    |      |            ~                    ~
+    |      |            |                    |
+    |      |            |                    (102) ...to here
+    |      |            (103) following ‘true’ branch...
+    |
+  ‘ssh_ed25519_verify’: event 104
+    |
+    |lto1:
+    | (104): ...to here
+    |
+  ‘ssh_ed25519_verify’: event 105
+    |
+    |  189 | }
+    |      | ^
+    |      | |
+    |      | (105) ‘ktype’ leaks here; was allocated at (62)
+    |
+./benchmarks/openssh-portable/leak_6/openssh_leak_6.c:179:12: warning: leak of ‘b_18’ [CWE-401] [-Wanalyzer-malloc-leak]
+  179 |         if (datalen >= SIZE_MAX - len) {
+      |            ^
+  ‘ssh_ed25519_verify’: events 1-2
+    |
+    |  153 | ssh_ed25519_verify(const struct sshkey *key,
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘ssh_ed25519_verify’
+    |......
+    |  165 |         if ((b = sshbuf_from(signature, signaturelen)) == NULL)
+    |      |                  ~
+    |      |                  |
+    |      |                  (2) calling ‘sshbuf_from’ from ‘ssh_ed25519_verify’
+    |
+    +--> ‘sshbuf_from’: events 3-9
+           |
+           |   60 | sshbuf_from(const void *blob, size_t len)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘sshbuf_from’
+           |......
+           |   64 |         if (blob == NULL || len > SSHBUF_SIZE_MAX ||
+           |      |            ~                                      ~
+           |      |            |                                      |
+           |      |            |                                      (7) assuming ‘ret_13’ is non-NULL
+           |      |            (4) following ‘false’ branch...        (8) following ‘false’ branch (when ‘ret_13’ is non-NULL)...
+           |   65 |             (ret = calloc(sizeof(*ret), 1)) == NULL)    /* allocation site */
+           |      |                    ~
+           |      |                    |
+           |      |                    (5) ...to here
+           |      |                    (6) allocated here
+           |   66 |                 return NULL;
+           |   67 |         ret->alloc = ret->size = ret->max_size = len;
+           |      |                                                ~
+           |      |                                                |
+           |      |                                                (9) ...to here
+           |
+    <------+
+    |
+  ‘ssh_ed25519_verify’: events 10-13
+    |
+    |  165 |         if ((b = sshbuf_from(signature, signaturelen)) == NULL)
+    |      |            ~     ^
+    |      |            |     |
+    |      |            |     (10) returning to ‘ssh_ed25519_verify’ from ‘sshbuf_from’
+    |      |            (11) following ‘false’ branch (when ‘b_18’ is non-NULL)...
+    |  166 |                 return SSH_ERR_ALLOC_FAIL;
+    |  167 |         if ((r = sshbuf_get_cstring(b, &ktype, NULL)) != 0 ||
+    |      |                  ~
+    |      |                  |
+    |      |                  (12) ...to here
+    |      |                  (13) calling ‘sshbuf_get_cstring’ from ‘ssh_ed25519_verify’
+    |
+    +--> ‘sshbuf_get_cstring’: events 14-19
+           |
+           |  124 | sshbuf_get_cstring(struct sshbuf *buf, char **valp, size_t *lenp)
+           |      | ^
+           |      | |
+           |      | (14) entry to ‘sshbuf_get_cstring’
+           |......
+           |  130 |         if (valp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (15) following ‘true’ branch (when ‘valp_18(D)’ is non-NULL)...
+           |  131 |                 *valp = NULL;
+           |      |                       ~
+           |      |                       |
+           |      |                       (16) ...to here
+           |  132 |         if (lenp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (17) following ‘false’ branch (when ‘lenp_21(D)’ is NULL)...
+           |  133 |                 *lenp = 0;
+           |  134 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) != 0)
+           |      |                  ~
+           |      |                  |
+           |      |                  (18) ...to here
+           |      |                  (19) calling ‘sshbuf_peek_string_direct’ from ‘sshbuf_get_cstring’
+           |
+           +--> ‘sshbuf_peek_string_direct’: events 20-30
+                  |
+                  |   97 | sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
+                  |      | ^
+                  |      | |
+                  |      | (20) entry to ‘sshbuf_peek_string_direct’
+                  |......
+                  |  103 |         if (valp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (21) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  104 |                 *valp = NULL;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (22) ...to here
+                  |  105 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (23) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  106 |                 *lenp = 0;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (24) ...to here
+                  |  107 |         if (sshbuf_len(buf) < 4) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (25) following ‘false’ branch...
+                  |......
+                  |  116 |         if (valp != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (26) ...to here
+                  |      |            (27) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  117 |                 *valp = p + 4;
+                  |      |                           ~
+                  |      |                           |
+                  |      |                           (28) ...to here
+                  |  118 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (29) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  119 |                 *lenp = len;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (30) ...to here
+                  |
+           <------+
+           |
+         ‘sshbuf_get_cstring’: events 31-34
+           |
+           |  134 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) != 0)
+           |      |            ~     ^
+           |      |            |     |
+           |      |            |     (31) returning to ‘sshbuf_get_cstring’ from ‘sshbuf_peek_string_direct’
+           |      |            (32) following ‘false’ branch (when ‘r_25 == 0’)...
+           |......
+           |  137 |         if ((r = sshbuf_skip_string(buf)) != 0)
+           |      |                  ~
+           |      |                  |
+           |      |                  (33) ...to here
+           |      |                  (34) calling ‘sshbuf_get_string_direct’ from ‘sshbuf_get_cstring’
+           |
+           +--> ‘sshbuf_get_string_direct’: events 35-40
+                  |
+                  |   77 | sshbuf_get_string_direct(struct sshbuf *buf, const u_char **valp, size_t *lenp)
+                  |      | ^
+                  |      | |
+                  |      | (35) entry to ‘sshbuf_get_string_direct’
+                  |......
+                  |   83 |         if (valp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (36) following ‘false’ branch (when ‘valp_8(D)’ is NULL)...
+                  |   84 |                 *valp = NULL;
+                  |   85 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (37) ...to here
+                  |      |            (38) following ‘false’ branch (when ‘lenp_11(D)’ is NULL)...
+                  |   86 |                 *lenp = 0;
+                  |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+                  |      |                  ~
+                  |      |                  |
+                  |      |                  (39) ...to here
+                  |      |                  (40) calling ‘sshbuf_peek_string_direct’ from ‘sshbuf_get_string_direct’
+                  |
+                  +--> ‘sshbuf_peek_string_direct’: events 41-51
+                         |
+                         |   97 | sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
+                         |      | ^
+                         |      | |
+                         |      | (41) entry to ‘sshbuf_peek_string_direct’
+                         |......
+                         |  103 |         if (valp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (42) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                         |  104 |                 *valp = NULL;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (43) ...to here
+                         |  105 |         if (lenp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (44) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                         |  106 |                 *lenp = 0;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (45) ...to here
+                         |  107 |         if (sshbuf_len(buf) < 4) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (46) following ‘false’ branch...
+                         |......
+                         |  116 |         if (valp != 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (47) ...to here
+                         |      |            (48) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                         |  117 |                 *valp = p + 4;
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (49) ...to here
+                         |  118 |         if (lenp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (50) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                         |  119 |                 *lenp = len;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (51) ...to here
+                         |
+                  <------+
+                  |
+                ‘sshbuf_get_string_direct’: events 52-57
+                  |
+                  |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+                  |      |            ~     ^
+                  |      |            |     |
+                  |      |            |     (52) returning to ‘sshbuf_get_string_direct’ from ‘sshbuf_peek_string_direct’
+                  |      |            (53) following ‘false’ branch (when ‘r_15 >= 0’)...
+                  |   88 |                 return r;
+                  |   89 |         if (valp != 0)
+                  |      |            ~      
+                  |      |            |
+                  |      |            (54) ...to here
+                  |      |            (55) following ‘false’ branch (when ‘valp_8(D)’ is NULL)...
+                  |   90 |                 *valp = p;
+                  |   91 |         if (lenp != NULL)
+                  |      |            ~      
+                  |      |            |
+                  |      |            (56) ...to here
+                  |      |            (57) following ‘false’ branch (when ‘lenp_11(D)’ is NULL)...
+                  |
+                ‘sshbuf_get_string_direct’: event 58
+                  |
+                  |lto1:
+                  | (58): ...to here
+                  |
+           <------+
+           |
+         ‘sshbuf_get_cstring’: events 59-66
+           |
+           |  137 |         if ((r = sshbuf_skip_string(buf)) != 0)
+           |      |            ~     ^
+           |      |            |     |
+           |      |            |     (59) returning to ‘sshbuf_get_cstring’ from ‘sshbuf_get_string_direct’
+           |      |            (60) following ‘false’ branch (when ‘r_27 == 0’)...
+           |  138 |                 return -1;
+           |  139 |         if (valp != NULL) {
+           |      |            ~      
+           |      |            |
+           |      |            (61) ...to here
+           |      |            (62) following ‘true’ branch (when ‘valp_18(D)’ is non-NULL)...
+           |  140 |                 if ((*valp = malloc(len + 1)) == NULL) {        /* allocation site */
+           |      |                    ~         ~
+           |      |                    |         |
+           |      |                    |         (63) ...to here
+           |      |                    (64) following ‘false’ branch...
+           |......
+           |  144 |                 memcpy(*valp, p, len);
+           |      |                 ~ 
+           |      |                 |
+           |      |                 (65) ...to here
+           |......
+           |  147 |         if (lenp != NULL)
+           |      |            ~      
+           |      |            |
+           |      |            (66) following ‘false’ branch (when ‘lenp_21(D)’ is NULL)...
+           |
+         ‘sshbuf_get_cstring’: event 67
+           |
+           |lto1:
+           | (67): ...to here
+           |
+    <------+
+    |
+  ‘ssh_ed25519_verify’: events 68-71
+    |
+    |  167 |         if ((r = sshbuf_get_cstring(b, &ktype, NULL)) != 0 ||
+    |      |            ~     ^
+    |      |            |     |
+    |      |            |     (68) returning to ‘ssh_ed25519_verify’ from ‘sshbuf_get_cstring’
+    |      |            (69) following ‘false’ branch (when ‘r_20 == 0’)...
+    |  168 |             (r = sshbuf_get_string_direct(b, &sigblob, &len)) != 0)
+    |      |                  ~
+    |      |                  |
+    |      |                  (70) ...to here
+    |      |                  (71) calling ‘sshbuf_get_string_direct’ from ‘ssh_ed25519_verify’
+    |
+    +--> ‘sshbuf_get_string_direct’: events 72-77
+           |
+           |   77 | sshbuf_get_string_direct(struct sshbuf *buf, const u_char **valp, size_t *lenp)
+           |      | ^
+           |      | |
+           |      | (72) entry to ‘sshbuf_get_string_direct’
+           |......
+           |   83 |         if (valp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (73) following ‘true’ branch (when ‘valp_8(D)’ is non-NULL)...
+           |   84 |                 *valp = NULL;
+           |      |                       ~
+           |      |                       |
+           |      |                       (74) ...to here
+           |   85 |         if (lenp != NULL)
+           |      |            ~
+           |      |            |
+           |      |            (75) following ‘true’ branch (when ‘lenp_11(D)’ is non-NULL)...
+           |   86 |                 *lenp = 0;
+           |      |                       ~
+           |      |                       |
+           |      |                       (76) ...to here
+           |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+           |      |                  ~
+           |      |                  |
+           |      |                  (77) calling ‘sshbuf_peek_string_direct’ from ‘sshbuf_get_string_direct’
+           |
+           +--> ‘sshbuf_peek_string_direct’: events 78-88
+                  |
+                  |   97 | sshbuf_peek_string_direct(const struct sshbuf *buf, const u_char **valp,
+                  |      | ^
+                  |      | |
+                  |      | (78) entry to ‘sshbuf_peek_string_direct’
+                  |......
+                  |  103 |         if (valp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (79) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  104 |                 *valp = NULL;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (80) ...to here
+                  |  105 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (81) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  106 |                 *lenp = 0;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (82) ...to here
+                  |  107 |         if (sshbuf_len(buf) < 4) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (83) following ‘false’ branch...
+                  |......
+                  |  116 |         if (valp != 0)
+                  |      |            ~
+                  |      |            |
+                  |      |            (84) ...to here
+                  |      |            (85) following ‘true’ branch (when ‘valp_12(D)’ is non-NULL)...
+                  |  117 |                 *valp = p + 4;
+                  |      |                           ~
+                  |      |                           |
+                  |      |                           (86) ...to here
+                  |  118 |         if (lenp != NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (87) following ‘true’ branch (when ‘lenp_14(D)’ is non-NULL)...
+                  |  119 |                 *lenp = len;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (88) ...to here
+                  |
+           <------+
+           |
+         ‘sshbuf_get_string_direct’: events 89-95
+           |
+           |   87 |         if ((r = sshbuf_peek_string_direct(buf, &p, &len)) < 0)
+           |      |            ~     ^
+           |      |            |     |
+           |      |            |     (89) returning to ‘sshbuf_get_string_direct’ from ‘sshbuf_peek_string_direct’
+           |      |            (90) following ‘false’ branch (when ‘r_15 >= 0’)...
+           |   88 |                 return r;
+           |   89 |         if (valp != 0)
+           |      |            ~      
+           |      |            |
+           |      |            (91) ...to here
+           |      |            (92) following ‘true’ branch (when ‘valp_8(D)’ is non-NULL)...
+           |   90 |                 *valp = p;
+           |      |                       ~
+           |      |                       |
+           |      |                       (93) ...to here
+           |   91 |         if (lenp != NULL)
+           |      |            ~      
+           |      |            |
+           |      |            (94) following ‘true’ branch (when ‘lenp_11(D)’ is non-NULL)...
+           |   92 |                 *lenp = len;
+           |      |                       ~
+           |      |                       |
+           |      |                       (95) ...to here
+           |
+    <------+
+    |
+  ‘ssh_ed25519_verify’: events 96-103
+    |
+    |  167 |         if ((r = sshbuf_get_cstring(b, &ktype, NULL)) != 0 ||
+    |      |                                                            ~
+    |      |                                                            |
+    |      |                                                            (97) following ‘false’ branch (when ‘r_22 == 0’)...
+    |  168 |             (r = sshbuf_get_string_direct(b, &sigblob, &len)) != 0)
+    |      |                  ^
+    |      |                  |
+    |      |                  (96) returning to ‘ssh_ed25519_verify’ from ‘sshbuf_get_string_direct’
+    |  169 |                 goto out;
+    |  170 |         if (strcmp("ssh-ed25519", ktype) != 0) {
+    |      |            ~~     
+    |      |            ||
+    |      |            |(98) ...to here
+    |      |            (99) following ‘false’ branch (when the strings are equal)...
+    |......
+    |  175 |         if (len > crypto_sign_ed25519_BYTES) {
+    |      |            ~    ~ 
+    |      |            |    |
+    |      |            |    (100) ...to here
+    |      |            (101) following ‘false’ branch...
+    |......
+    |  179 |         if (datalen >= SIZE_MAX - len) {
+    |      |            ~                    ~
+    |      |            |                    |
+    |      |            |                    (102) ...to here
+    |      |            (103) following ‘true’ branch...
+    |
+  ‘ssh_ed25519_verify’: event 104
+    |
+    |lto1:
+    | (104): ...to here
+    |
+  ‘ssh_ed25519_verify’: event 105
+    |
+    |  179 |         if (datalen >= SIZE_MAX - len) {
+    |      |            ^
+    |      |            |
+    |      |            (105) ‘b_18’ leaks here; was allocated at (6)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 91%)
+ phase opt and generate             :   0.07 (100%)   0.01 (100%)   0.09 (100%)   128k (  5%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ analyzer: processing worklist      :   0.04 ( 57%)   0.00 (  0%)   0.06 ( 67%)   136  (  0%)
+ analyzer: emitting diagnostics     :   0.03 ( 43%)   0.01 (100%)   0.02 ( 22%)  1216  (  0%)
+ TOTAL                              :   0.07          0.01          0.09         2362k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 76%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.02 ( 67%)   623k ( 22%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    68k (  2%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.02 ( 67%)   492k ( 17%)
+ varconst                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   528  (  0%)
+ loop init                          :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    22k (  1%)
+ LRA hard reg assignment            :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ rest of compilation                :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    19k (  1%)
+ TOTAL                              :   0.03          0.00          0.03         2851k

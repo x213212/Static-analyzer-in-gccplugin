@@ -1,0 +1,292 @@
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:12:
+./benchmarks/git/leak_9/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_9/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_9/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_9/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_9/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_9/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_9/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_9/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_9/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_9/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_9/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:11:
+./benchmarks/git/leak_9/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_9/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_9/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_9/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_9/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:12:
+./benchmarks/git/leak_9/../git.h: At top level:
+./benchmarks/git/leak_9/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_9/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_9/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_9/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_9/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘strbuf_grow’:
+./benchmarks/git/leak_9/git_leak_9.c:102:13: warning: implicit declaration of function ‘unsigned_add_overflows’ [-Wimplicit-function-declaration]
+  102 |         if (unsigned_add_overflows(extra, 1) ||
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:12:
+./benchmarks/git/leak_9/../git.h:112:29: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+  112 |                         if (alloc_nr(alloc) < (nr)) \
+      |                             ^~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:107:9: note: in expansion of macro ‘ALLOC_GROW’
+  107 |         ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc); /* allocation site */
+      |         ^~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘strbuf_release’:
+./benchmarks/git/leak_9/git_leak_9.c:117:17: warning: implicit declaration of function ‘strbuf_init’ [-Wimplicit-function-declaration]
+  117 |                 strbuf_init(sb, 0);
+      |                 ^~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘strbuf_readlink’:
+./benchmarks/git/leak_9/git_leak_9.c:132:23: warning: implicit declaration of function ‘readlink’ [-Wimplicit-function-declaration]
+  132 |                 len = readlink(path, sb->buf, hint);
+      |                       ^~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:137:25: warning: implicit declaration of function ‘strbuf_setlen’; did you mean ‘strbuf_readlink’? [-Wimplicit-function-declaration]
+  137 |                         strbuf_setlen(sb, len);
+      |                         ^~~~~~~~~~~~~
+      |                         strbuf_readlink
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘files_read_raw_ref’:
+./benchmarks/git/leak_9/git_leak_9.c:154:17: warning: implicit declaration of function ‘files_downcast’ [-Wimplicit-function-declaration]
+  154 |                 files_downcast(ref_store, REF_STORE_READ, "read_raw_ref");
+      |                 ^~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:154:17: warning: initialization of ‘struct files_ref_store *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/git/leak_9/git_leak_9.c:165:9: warning: implicit declaration of function ‘strbuf_reset’; did you mean ‘strbuf_release’? [-Wimplicit-function-declaration]
+  165 |         strbuf_reset(&sb_path);
+      |         ^~~~~~~~~~~~
+      |         strbuf_release
+./benchmarks/git/leak_9/git_leak_9.c:167:9: warning: implicit declaration of function ‘files_ref_path’ [-Wimplicit-function-declaration]
+  167 |         files_ref_path(refs, &sb_path, refname);
+      |         ^~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:191:21: warning: implicit declaration of function ‘resolve_packed_ref’ [-Wimplicit-function-declaration]
+  191 |                 if (resolve_packed_ref(refs, refname, sha1, type)) {
+      |                     ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:208:9: warning: implicit declaration of function ‘starts_with’ [-Wimplicit-function-declaration]
+  208 |     if (starts_with(sb_contents.buf, "refs/") &&
+      |         ^~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:209:9: warning: implicit declaration of function ‘check_refname_format’ [-Wimplicit-function-declaration]
+  209 |        !check_refname_format(sb_contents.buf, 0)) {
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:217:13: warning: implicit declaration of function ‘strbuf_read’; did you mean ‘strbuf_swap’? [-Wimplicit-function-declaration]
+  217 |         if (strbuf_read(&sb_contents, fd, 256) < 0) {
+      |             ^~~~~~~~~~~
+      |             strbuf_swap
+./benchmarks/git/leak_9/git_leak_9.c:219:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+  219 |                 close(fd);
+      |                 ^~~~~
+      |                 pclose
+./benchmarks/git/leak_9/git_leak_9.c:223:9: warning: implicit declaration of function ‘strbuf_rtrim’; did you mean ‘strbuf_grow’? [-Wimplicit-function-declaration]
+  223 |         strbuf_rtrim(&sb_contents);
+      |         ^~~~~~~~~~~~
+      |         strbuf_grow
+./benchmarks/git/leak_9/git_leak_9.c:227:24: warning: implicit declaration of function ‘isspace’ [-Wimplicit-function-declaration]
+  227 |                 while (isspace(*buf))
+      |                        ^~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:13:1: note: include ‘<ctype.h>’ or provide a declaration of ‘isspace’
+   12 | #include "../git.h"
+  +++ |+#include <ctype.h>
+   13 | 
+./benchmarks/git/leak_9/git_leak_9.c:231:17: warning: implicit declaration of function ‘strbuf_addstr’ [-Wimplicit-function-declaration]
+  231 |                 strbuf_addstr(referent, buf);
+      |                 ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:241:13: warning: implicit declaration of function ‘get_sha1_hex’ [-Wimplicit-function-declaration]
+  241 |         if (get_sha1_hex(buf, sha1) ||
+      |             ^~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:11:
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘lock_raw_ref’:
+./benchmarks/git/leak_9/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:276:26: note: in expansion of macro ‘xstrdup’
+  276 |         lock->ref_name = xstrdup(refname);
+      |                          ^~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:289:33: warning: implicit declaration of function ‘strbuf_addf’ [-Wimplicit-function-declaration]
+  289 |                                 strbuf_addf(err, "unable to resolve reference '%s'",
+      |                                 ^~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:300:9: warning: implicit declaration of function ‘unlock_ref’ [-Wimplicit-function-declaration]
+  300 |         unlock_ref(lock);
+      |         ^~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘lock_ref_for_update’:
+./benchmarks/git/leak_9/git_leak_9.c:335:23: warning: implicit declaration of function ‘split_head_update’ [-Wimplicit-function-declaration]
+  335 |                 ret = split_head_update(update, transaction, head_ref,
+      |                       ^~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:348:26: warning: implicit declaration of function ‘strbuf_detach’ [-Wimplicit-function-declaration]
+  348 |                 reason = strbuf_detach(err, NULL);
+      |                          ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:348:24: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  348 |                 reason = strbuf_detach(err, NULL);
+      |                        ^
+./benchmarks/git/leak_9/git_leak_9.c:350:29: warning: implicit declaration of function ‘original_update_refname’ [-Wimplicit-function-declaration]
+  350 |                             original_update_refname(update), reason);
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:364:29: warning: implicit declaration of function ‘refs_read_ref_full’ [-Wimplicit-function-declaration]
+  364 |                         if (refs_read_ref_full(&refs->base,
+      |                             ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:373:36: warning: implicit declaration of function ‘check_old_oid’ [-Wimplicit-function-declaration]
+  373 |                         } else if (check_old_oid(update, &lock->old_oid, err)) {
+      |                                    ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:384:31: warning: implicit declaration of function ‘split_symref_update’ [-Wimplicit-function-declaration]
+  384 |                         ret = split_symref_update(refs, update,
+      |                               ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:402:22: warning: implicit declaration of function ‘oidcmp’ [-Wimplicit-function-declaration]
+  402 |                     !oidcmp(&lock->old_oid, &update->new_oid)) {
+      |                      ^~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:407:28: warning: implicit declaration of function ‘write_ref_to_lockfile’ [-Wimplicit-function-declaration]
+  407 |                 } else if (write_ref_to_lockfile(lock, &update->new_oid,
+      |                            ^~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:409:43: warning: initialization of ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  409 |                         char *write_err = strbuf_detach(err, NULL);
+      |                                           ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:427:21: warning: implicit declaration of function ‘close_ref’ [-Wimplicit-function-declaration]
+  427 |                 if (close_ref(lock)) {
+      |                     ^~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 42%)
+ phase parsing                      :   0.03 (100%)   0.02 ( 67%)   0.05 ( 71%)  1341k ( 44%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 33%)   0.02 ( 29%)   432k ( 14%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 14%)   188k (  6%)
+ ipa lto decl out                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   264  (  0%)
+ preprocessing                      :   0.02 ( 67%)   0.01 ( 33%)   0.00 (  0%)   498k ( 16%)
+ lexical analysis                   :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   603k ( 20%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    81k (  3%)
+ parser function body               :   0.00 (  0%)   0.01 ( 33%)   0.02 ( 29%)    93k (  3%)
+ tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   108k (  4%)
+ dominance computation              :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.03          0.03          0.07         3081k
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘lock_raw_ref’:
+./benchmarks/git/leak_9/git_leak_9.c:276:24: warning: dereference of possibly-NULL ‘lock_16’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  276 |         lock->ref_name = xstrdup(refname);
+      |                        ^
+  ‘lock_ref_for_update’: events 1-2
+    |
+    |  322 | static int lock_ref_for_update(struct files_ref_store *refs,
+    |      |            ^
+    |      |            |
+    |      |            (1) entry to ‘lock_ref_for_update’
+    |......
+    |  341 |         ret = lock_raw_ref(refs, update->refname, mustexist,
+    |      |               ~
+    |      |               |
+    |      |               (2) calling ‘lock_raw_ref’ from ‘lock_ref_for_update’
+    |
+    +--> ‘lock_raw_ref’: events 3-5
+           |
+           |  258 | static int lock_raw_ref(struct files_ref_store *refs,
+           |      |            ^
+           |      |            |
+           |      |            (3) entry to ‘lock_raw_ref’
+           |......
+           |  274 |         *lock_p = lock = xcalloc(1, sizeof(*lock));
+           |      |                          ~
+           |      |                          |
+           |      |                          (4) this call could return NULL
+           |  275 | 
+           |  276 |         lock->ref_name = xstrdup(refname);
+           |      |                        ~
+           |      |                        |
+           |      |                        (5) ‘lock_16’ could be NULL: unchecked value from (4)
+           |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 86%)
+ phase opt and generate             :   0.34 (100%)   0.02 (100%)   0.37 (100%)   232k (  9%)
+ analyzer                           :   0.02 (  6%)   0.00 (  0%)   0.02 (  5%)     0  (  0%)
+ analyzer: processing worklist      :   0.32 ( 94%)   0.02 (100%)   0.35 ( 95%)   240  (  0%)
+ TOTAL                              :   0.34          0.02          0.37         2497k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  2157k ( 62%)
+ phase opt and generate             :   0.04 (100%)   0.01 (100%)   0.05 ( 83%)  1196k ( 35%)
+ callgraph functions expansion      :   0.04 (100%)   0.01 (100%)   0.05 ( 83%)   928k ( 27%)
+ df reg dead/unused notes           :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    24k (  1%)
+ register information               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ alias analysis                     :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    27k (  1%)
+ alias stmt walking                 :   0.01 ( 25%)   0.01 (100%)   0.00 (  0%)  2400  (  0%)
+ tree forward propagate             :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)  3264  (  0%)
+ combiner                           :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    26k (  1%)
+ LRA non-specific                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  7376  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    12k (  0%)
+ TOTAL                              :   0.04          0.01          0.06         3454k
+/usr/bin/ld: /tmp/ccdrMN2l.ltrans0.ltrans.o: in function `strbuf_grow':
+<artificial>:(.text+0xb2): undefined reference to `unsigned_add_overflows'
+/usr/bin/ld: <artificial>:(.text+0xc6): undefined reference to `unsigned_add_overflows'
+/usr/bin/ld: <artificial>:(.text+0x127): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x13d): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x16e): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x18f): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x1ae): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x1d3): undefined reference to `st_mult'
+/usr/bin/ld: /tmp/ccdrMN2l.ltrans0.ltrans.o: in function `strbuf_release':
+<artificial>:(.text+0x20e): undefined reference to `strbuf_init'
+/usr/bin/ld: /tmp/ccdrMN2l.ltrans0.ltrans.o: in function `strbuf_readlink':
+<artificial>:(.text+0x29d): undefined reference to `strbuf_setlen'
+/usr/bin/ld: /tmp/ccdrMN2l.ltrans0.ltrans.o: in function `files_read_raw_ref':
+<artificial>:(.text+0x2e6): undefined reference to `files_downcast'
+/usr/bin/ld: <artificial>:(.text+0x30d): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x331): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x34b): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x363): undefined reference to `files_ref_path'
+/usr/bin/ld: <artificial>:(.text+0x39e): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x3f9): undefined reference to `resolve_packed_ref'
+/usr/bin/ld: <artificial>:(.text+0x42a): undefined reference to `starts_with'
+/usr/bin/ld: <artificial>:(.text+0x445): undefined reference to `check_refname_format'
+/usr/bin/ld: <artificial>:(.text+0x45d): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x479): undefined reference to `strbuf_read'
+/usr/bin/ld: <artificial>:(.text+0x48f): undefined reference to `strbuf_rtrim'
+/usr/bin/ld: <artificial>:(.text+0x4a9): undefined reference to `starts_with'
+/usr/bin/ld: <artificial>:(.text+0x51e): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x52e): undefined reference to `strbuf_addstr'
+/usr/bin/ld: <artificial>:(.text+0x545): undefined reference to `get_sha1_hex'
+/usr/bin/ld: /tmp/ccdrMN2l.ltrans0.ltrans.o: in function `lock_raw_ref':
+<artificial>:(.text+0x5f7): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x632): undefined reference to `files_ref_path'
+/usr/bin/ld: <artificial>:(.text+0x696): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x6a3): undefined reference to `unlock_ref'
+/usr/bin/ld: /tmp/ccdrMN2l.ltrans0.ltrans.o: in function `lock_ref_for_update':
+<artificial>:(.text+0x6ed): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x70b): undefined reference to `split_head_update'
+/usr/bin/ld: <artificial>:(.text+0x78d): undefined reference to `refs_read_ref_full'
+/usr/bin/ld: <artificial>:(.text+0x7a8): undefined reference to `original_update_refname'
+/usr/bin/ld: <artificial>:(.text+0x7bc): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x7d8): undefined reference to `strbuf_detach'
+/usr/bin/ld: <artificial>:(.text+0x7e8): undefined reference to `original_update_refname'
+/usr/bin/ld: <artificial>:(.text+0x7ff): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x81d): undefined reference to `check_old_oid'
+/usr/bin/ld: <artificial>:(.text+0x848): undefined reference to `split_symref_update'
+/usr/bin/ld: <artificial>:(.text+0x864): undefined reference to `check_old_oid'
+/usr/bin/ld: <artificial>:(.text+0x8a7): undefined reference to `oidcmp'
+/usr/bin/ld: <artificial>:(.text+0x8be): undefined reference to `write_ref_to_lockfile'
+/usr/bin/ld: <artificial>:(.text+0x8da): undefined reference to `strbuf_detach'
+/usr/bin/ld: <artificial>:(.text+0x8f6): undefined reference to `close_ref'
+collect2: error: ld returned 1 exit status

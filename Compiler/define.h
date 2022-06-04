@@ -1,6 +1,6 @@
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
 	for ((TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target; \
-		 (TAR) != NULL, (TABLE)->next != NULL;               \
+		 (TAR) != NULL;               \
 		 (TABLE) = (TABLE)->next, (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
 #define FOR_EACH_USE_TABLE(USE, STMT) \
 	for ((STMT) = ((USE) == NULL) ? NULL : (USE)->stmt; (USE) != NULL; (USE) = (USE)->next, (STMT) = ((USE) == NULL) ? NULL : (USE)->stmt)
@@ -43,11 +43,11 @@ bool vscode_extensionmod = false;
 bool vscode_extensionIgonefreemod = true;
 bool defmemoryleak = true;
 bool memoryleakcheck = true;
-// kroren testcase need turn on
+// Korea testcase need turn on
 bool Looserulesfree = true;
 bool useafterfree = true;
-bool debugmod = true;
-bool threadmod = false;
+bool debugmod = false;
+bool threadmod = true;
 bool relatemod = true;
 bool freemod = true;
 bool retmod = false;

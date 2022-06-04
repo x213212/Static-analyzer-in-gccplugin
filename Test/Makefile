@@ -195,9 +195,9 @@ else ifeq ($(debug),4)
 endif
 	@echo $(debug)
 	# mod 1
-	# # # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# # # # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
-	@sh ./test.sh $(FILE_NAME)
+	# # @sh ./test.sh $(FILE_NAME)
 	# # mod 2
 	# # binutils
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
@@ -337,16 +337,7 @@ unittestml:
 	grep "no free stmt possible memory leak"   ./benchmarks/binutils/leak_8/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/binutils/leak_9/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/binutils/leak_10/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/use_after_free_5/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/double_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/double_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/double_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/double_free_4/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/binutils/double_free_5/check.log | uniq -c    | wc -l
+
 	# git
 	grep "no free stmt possible memory leak"   ./benchmarks/git/leak_1/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/git/leak_2/check.log | uniq -c    | wc -l
@@ -358,16 +349,7 @@ unittestml:
 	grep "no free stmt possible memory leak"   ./benchmarks/git/leak_8/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/git/leak_9/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/git/leak_10/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/use_after_free_5/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/use_after_free_6/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/double_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/double_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/double_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/git/double_free_4/check.log | uniq -c    | wc -l
+
 	#openssh
 	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/leak_1/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/leak_2/check.log | uniq -c    | wc -l
@@ -379,16 +361,7 @@ unittestml:
 	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/leak_8/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/leak_9/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/leak_10/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/double_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/double_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/double_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/double_free_4/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/double_free_5/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/double_free_6/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssh-portable/double_free_7/check.log | uniq -c    | wc -l
+
 	#openssl
 	grep "no free stmt possible memory leak"   ./benchmarks/openssl/leak_1/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/openssl/leak_2/check.log | uniq -c    | wc -l
@@ -400,16 +373,7 @@ unittestml:
 	grep "no free stmt possible memory leak"   ./benchmarks/openssl/leak_8/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/openssl/leak_9/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/openssl/leak_10/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/double_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/double_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/double_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/double_free_4/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/double_free_5/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/openssl/use_after_free_5/check.log | uniq -c    | wc -l
+	
 	#tmux
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_1/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_2/check.log | uniq -c    | wc -l
@@ -421,73 +385,20 @@ unittestml:
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_8/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_9/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_10/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/use_after_free_5/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/use_after_free_6/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/use_after_free_7/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/double_free_1/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l
-	grep "no free stmt possible memory leak"   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l
+
 unittestdf:
 	# binutils
-	grep "possible double free"   ./benchmarks/binutils/leak_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_6/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_7/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_8/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_9/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/leak_10/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/binutils/use_after_free_5/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/binutils/double_free_1/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/binutils/double_free_2/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/binutils/double_free_3/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/binutils/double_free_4/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/binutils/double_free_5/check.log | uniq -c    | wc -l
 	# git
-	grep "possible double free"   ./benchmarks/git/leak_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_6/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_7/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_8/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_9/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/leak_10/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/use_after_free_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/git/use_after_free_6/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/git/double_free_1/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/git/double_free_2/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/git/double_free_3/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/git/double_free_4/check.log | uniq -c    | wc -l
 	#openssh
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_6/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_7/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_8/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_9/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/leak_10/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssh-portable/use_after_free_3/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssh-portable/double_free_1/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssh-portable/double_free_2/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssh-portable/double_free_3/check.log | uniq -c    | wc -l
@@ -496,144 +407,50 @@ unittestdf:
 	grep "possible double free"   ./benchmarks/openssh-portable/double_free_6/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssh-portable/double_free_7/check.log | uniq -c    | wc -l
 	#openssl
-	grep "possible double free"   ./benchmarks/openssl/leak_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_6/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_7/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_8/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_9/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/leak_10/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssl/double_free_1/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssl/double_free_2/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssl/double_free_3/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssl/double_free_4/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/openssl/double_free_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/openssl/use_after_free_5/check.log | uniq -c    | wc -l
+
 	#tmux
-	grep "possible double free"   ./benchmarks/tmux/leak_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_6/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_7/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_8/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_9/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/leak_10/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/use_after_free_1/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/use_after_free_2/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/use_after_free_4/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/use_after_free_5/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/use_after_free_6/check.log | uniq -c    | wc -l
-	grep "possible double free"   ./benchmarks/tmux/use_after_free_7/check.log | uniq -c    | wc -l
+
 	grep "possible double free"   ./benchmarks/tmux/double_free_1/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l
 unittestuaf:
 	#unittet
 	# binutils
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_5/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_6/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_7/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_8/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_9/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/leak_10/check.log | uniq -c    | wc -l
+
 	grep "===== possiable asias ====="   ./benchmarks/binutils/use_after_free_1/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/binutils/use_after_free_2/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/binutils/use_after_free_3/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/binutils/use_after_free_4/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/binutils/use_after_free_5/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/double_free_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/double_free_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/double_free_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/double_free_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/binutils/double_free_5/check.log | uniq -c    | wc -l
+
 	# git
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_5/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_6/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_7/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_8/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_9/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/leak_10/check.log | uniq -c    | wc -l
+
 	grep "===== possiable asias ====="   ./benchmarks/git/use_after_free_1/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/git/use_after_free_2/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/git/use_after_free_3/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/git/use_after_free_4/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/git/use_after_free_5/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/git/use_after_free_6/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/double_free_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/double_free_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/double_free_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/git/double_free_4/check.log | uniq -c    | wc -l
+
 	#openssh
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_5/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_6/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_7/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_8/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_9/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/leak_10/check.log | uniq -c    | wc -l
+
 	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/use_after_free_1/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/use_after_free_2/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/use_after_free_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/double_free_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/double_free_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/double_free_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/double_free_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/double_free_5/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/double_free_6/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssh-portable/double_free_7/check.log | uniq -c    | wc -l
+
 	#openssl
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_5/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_6/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_7/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_8/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_9/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/leak_10/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/double_free_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/double_free_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/double_free_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/double_free_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/openssl/double_free_5/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/openssl/use_after_free_1/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/openssl/use_after_free_2/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/openssl/use_after_free_3/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/openssl/use_after_free_4/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/openssl/use_after_free_5/check.log | uniq -c    | wc -l
 	#tmux
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_3/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_4/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_5/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_6/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_7/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_8/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_9/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/leak_10/check.log | uniq -c    | wc -l
+
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_1/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_2/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_3/check.log | uniq -c    | wc -l
@@ -641,9 +458,7 @@ unittestuaf:
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_5/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_6/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_7/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/double_free_1/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l
-	grep "===== possiable asias ====="   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l
+
 
 unittest:
 	#unittet

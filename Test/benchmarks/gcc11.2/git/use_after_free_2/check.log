@@ -1,0 +1,221 @@
+In file included from ./benchmarks/git/use_after_free_2/git_uaf_2.c:11:
+./benchmarks/git/use_after_free_2/../git.h: In function ‘copy_array’:
+./benchmarks/git/use_after_free_2/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_2/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/use_after_free_2/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_2/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_2/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/use_after_free_2/../git.h: In function ‘move_array’:
+./benchmarks/git/use_after_free_2/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/use_after_free_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_2/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/use_after_free_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/use_after_free_2/git_uaf_2.c:10:
+./benchmarks/git/use_after_free_2/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/use_after_free_2/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/use_after_free_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/use_after_free_2/git_uaf_2.c:11:
+./benchmarks/git/use_after_free_2/../git.h: At top level:
+./benchmarks/git/use_after_free_2/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/use_after_free_2/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_2/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘default_start_failure’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:138:9: warning: implicit declaration of function ‘strbuf_addstr’ [-Wimplicit-function-declaration]
+  138 |         strbuf_addstr(err, "Starting a child failed:");
+      |         ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:140:17: warning: implicit declaration of function ‘strbuf_addf’ [-Wimplicit-function-declaration]
+  140 |                 strbuf_addf(err, " %s", cp->argv[i]);
+      |                 ^~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘pp_init’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:174:21: warning: implicit declaration of function ‘online_cpus’ [-Wimplicit-function-declaration]
+  174 |                 n = online_cpus();
+      |                     ^~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:178:9: warning: implicit declaration of function ‘trace_printf’ [-Wimplicit-function-declaration]
+  178 |         trace_printf("run_processes_parallel: preparing to run up to %d tasks", n);
+      |         ^~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:193:9: warning: implicit declaration of function ‘strbuf_init’ [-Wimplicit-function-declaration]
+  193 |         strbuf_init(&pp->buffered_output, 0);
+      |         ^~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:197:17: warning: implicit declaration of function ‘child_process_init’ [-Wimplicit-function-declaration]
+  197 |                 child_process_init(&pp->children[i].process);
+      |                 ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘pp_start_one’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:227:17: warning: implicit declaration of function ‘strbuf_addbuf’ [-Wimplicit-function-declaration]
+  227 |                 strbuf_addbuf(&pp->buffered_output, &pp->children[i].err);
+      |                 ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:228:17: warning: implicit declaration of function ‘strbuf_reset’ [-Wimplicit-function-declaration]
+  228 |                 strbuf_reset(&pp->children[i].err);
+      |                 ^~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:235:13: warning: implicit declaration of function ‘start_command’ [-Wimplicit-function-declaration]
+  235 |         if (start_command(&pp->children[i].process)) {
+      |             ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘kill_children’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:259:25: warning: implicit declaration of function ‘kill’ [-Wimplicit-function-declaration]
+  259 |                         kill(pp->children[i].process.pid, signo);
+      |                         ^~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘pp_collect_finished’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:275:24: warning: implicit declaration of function ‘finish_command’ [-Wimplicit-function-declaration]
+  275 |                 code = finish_command(&pp->children[i].process);
+      |                        ^~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘finish_command’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:321:15: warning: implicit declaration of function ‘wait_or_whine’ [-Wimplicit-function-declaration]
+  321 |     int ret = wait_or_whine(cmd->pid, cmd->argv[0], 0);
+      |               ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:322:5: warning: implicit declaration of function ‘child_process_clear’ [-Wimplicit-function-declaration]
+  322 |     child_process_clear(cmd);
+      |     ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: At top level:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:326:6: warning: conflicting types for ‘child_process_clear’; have ‘void(struct child_process *)’
+  326 | void child_process_clear(struct child_process *child)
+      |      ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:322:5: note: previous implicit declaration of ‘child_process_clear’ with type ‘void(struct child_process *)’
+  322 |     child_process_clear(cmd);
+      |     ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘child_process_clear’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:328:9: warning: implicit declaration of function ‘argv_array_clear’ [-Wimplicit-function-declaration]
+  328 |         argv_array_clear(&child->args);
+      |         ^~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘run_processes_parallel’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:361:17: warning: implicit declaration of function ‘pp_buffer_stderr’ [-Wimplicit-function-declaration]
+  361 |                 pp_buffer_stderr(&pp, output_timeout);
+      |                 ^~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:362:17: warning: implicit declaration of function ‘pp_output’ [-Wimplicit-function-declaration]
+  362 |                 pp_output(&pp);
+      |                 ^~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:371:9: warning: implicit declaration of function ‘pp_cleanup’ [-Wimplicit-function-declaration]
+  371 |         pp_cleanup(&pp);
+      |         ^~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘parallel_next’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:385:9: warning: implicit declaration of function ‘argv_array_pushv’ [-Wimplicit-function-declaration]
+  385 |         argv_array_pushv(&cp->args, d->argv);
+      |         ^~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c: In function ‘main’:
+./benchmarks/git/use_after_free_2/git_uaf_2.c:419:14: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  419 |         if (!strcmp(argv[1], "start-command-ENOENT")) {
+      |              ^~~~~~
+./benchmarks/git/use_after_free_2/git_uaf_2.c:12:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   11 | #include "../git.h"
+  +++ |+#include <string.h>
+   12 | 
+./benchmarks/git/use_after_free_2/git_uaf_2.c:426:22: warning: implicit declaration of function ‘run_command’; did you mean ‘finish_command’? [-Wimplicit-function-declaration]
+  426 |                 exit(run_command(&proc));
+      |                      ^~~~~~~~~~~
+      |                      finish_command
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 43%)
+ phase parsing                      :   0.04 (100%)   0.01 ( 50%)   0.05 ( 71%)  1197k ( 39%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 50%)   0.02 ( 29%)   533k ( 18%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 50%)   0.02 ( 29%)   251k (  8%)
+ lto stream compression             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 14%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.02 ( 29%)   348k ( 11%)
+ lexical analysis                   :   0.01 ( 25%)   0.01 ( 50%)   0.01 ( 14%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   585k ( 19%)
+ parser struct body                 :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    81k (  3%)
+ parser function body               :   0.02 ( 50%)   0.00 (  0%)   0.01 ( 14%)   150k (  5%)
+ tree SSA other                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  2104  (  0%)
+ TOTAL                              :   0.04          0.02          0.07         3039k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 84%)
+ phase opt and generate             :   0.27 (100%)   0.01 (100%)   0.29 (100%)   297k ( 12%)
+ analyzer                           :   0.01 (  4%)   0.00 (  0%)   0.01 (  3%)     0  (  0%)
+ analyzer: state purge              :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.26 ( 96%)   0.00 (  0%)   0.28 ( 97%)   912  (  0%)
+ TOTAL                              :   0.27          0.01          0.29         2564k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 57%)
+ phase opt and generate             :   0.05 (100%)   0.01 (100%)   0.07 (100%)  1512k ( 40%)
+ callgraph functions expansion      :   0.05 (100%)   0.01 (100%)   0.06 ( 86%)  1196k ( 32%)
+ ipa points-to                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    17k (  0%)
+ df live regs                       :   0.00 (  0%)   0.00 (  0%)   0.02 ( 29%)     0  (  0%)
+ df live&initialized regs           :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ alias analysis                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    37k (  1%)
+ dominator optimization             :   0.01 ( 20%)   0.01 (100%)   0.00 (  0%)    53k (  1%)
+ tree conservative DCE              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   144  (  0%)
+ tree strlen optimization           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    21k (  1%)
+ forward prop                       :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  3192  (  0%)
+ hard reg cprop                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   192  (  0%)
+ initialize rtl                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ rest of compilation                :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    43k (  1%)
+ TOTAL                              :   0.05          0.01          0.07         3770k
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `task_finished':
+<artificial>:(.text+0x12): undefined reference to `strbuf_addf'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `no_job':
+<artificial>:(.text+0x32): undefined reference to `strbuf_addf'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `default_task_finished':
+<artificial>:(.text+0x64): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x8d): undefined reference to `strbuf_addf'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `default_start_failure':
+<artificial>:(.text+0xc2): undefined reference to `strbuf_addstr'
+/usr/bin/ld: <artificial>:(.text+0xeb): undefined reference to `strbuf_addf'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `pp_init':
+<artificial>:(.text+0x143): undefined reference to `trace_printf'
+/usr/bin/ld: <artificial>:(.text+0x1ca): undefined reference to `strbuf_init'
+/usr/bin/ld: <artificial>:(.text+0x200): undefined reference to `strbuf_init'
+/usr/bin/ld: <artificial>:(.text+0x213): undefined reference to `child_process_init'
+/usr/bin/ld: <artificial>:(.text+0x24d): undefined reference to `online_cpus'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `pp_start_one':
+<artificial>:(.text+0x32c): undefined reference to `start_command'
+/usr/bin/ld: <artificial>:(.text+0x375): undefined reference to `strbuf_addbuf'
+/usr/bin/ld: <artificial>:(.text+0x388): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x3c6): undefined reference to `strbuf_addbuf'
+/usr/bin/ld: <artificial>:(.text+0x3d9): undefined reference to `strbuf_reset'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `child_process_clear':
+<artificial>:(.text+0x45f): undefined reference to `argv_array_clear'
+/usr/bin/ld: <artificial>:(.text+0x46d): undefined reference to `argv_array_clear'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `finish_command':
+<artificial>:(.text+0x490): undefined reference to `wait_or_whine'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `pp_collect_finished':
+<artificial>:(.text+0x55f): undefined reference to `child_process_init'
+/usr/bin/ld: <artificial>:(.text+0x57d): undefined reference to `strbuf_addbuf'
+/usr/bin/ld: <artificial>:(.text+0x590): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x5fe): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x61c): undefined reference to `strbuf_reset'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `run_processes_parallel':
+<artificial>:(.text+0x6ae): undefined reference to `pp_buffer_stderr'
+/usr/bin/ld: <artificial>:(.text+0x6bb): undefined reference to `pp_output'
+/usr/bin/ld: <artificial>:(.text+0x722): undefined reference to `pp_cleanup'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `parallel_next':
+<artificial>:(.text+0x74c): undefined reference to `argv_array_pushv'
+/usr/bin/ld: <artificial>:(.text+0x75e): undefined reference to `strbuf_addf'
+/usr/bin/ld: /tmp/ccfwcEyA.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x7bc): undefined reference to `empty_argv'
+/usr/bin/ld: <artificial>:(.text+0x7c5): undefined reference to `empty_argv'
+/usr/bin/ld: <artificial>:(.text+0x893): undefined reference to `start_command'
+/usr/bin/ld: <artificial>:(.text+0x8ca): undefined reference to `run_command'
+collect2: error: ld returned 1 exit status

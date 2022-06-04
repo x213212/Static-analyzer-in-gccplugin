@@ -1,0 +1,702 @@
+./benchmarks/binutils/leak_6/binutils_leak_6.c: In function ‘add_symbol_file_command’:
+./benchmarks/binutils/leak_6/binutils_leak_6.c:108:50: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  108 |                                         else if (strcmp (arg, "-s") == 0)
+      |                                                  ^~~~~~
+./benchmarks/binutils/leak_6/binutils_leak_6.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+    7 | #include "../include/vec.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/leak_6/binutils_leak_6.c: In function ‘main’:
+./benchmarks/binutils/leak_6/binutils_leak_6.c:149:33: warning: passing argument 1 of ‘add_symbol_file_command’ from incompatible pointer type [-Wincompatible-pointer-types]
+  149 |         add_symbol_file_command(args);
+      |                                 ^~~~
+      |                                 |
+      |                                 const char **
+./benchmarks/binutils/leak_6/binutils_leak_6.c:49:33: note: expected ‘char **’ but argument is of type ‘const char **’
+   49 | add_symbol_file_command (char **args)
+      |                          ~~~~~~~^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.02 ( 67%)   0.02 ( 67%)   0.05 ( 71%)  1198k ( 43%)
+ phase opt and generate             :   0.01 ( 33%)   0.01 ( 33%)   0.02 ( 29%)   253k (  9%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.01 ( 33%)   0.02 ( 29%)   140k (  5%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ ipa free lang data                 :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)  2464  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.02 ( 29%)   464k ( 17%)
+ lexical analysis                   :   0.02 ( 67%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.02 ( 67%)   0.02 ( 29%)   593k ( 22%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    86k (  3%)
+ PHI merge                          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   800  (  0%)
+ dominance computation              :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.03          0.03          0.07         2760k
+./benchmarks/binutils/leak_6/binutils_leak_6.c: In function ‘add_symbol_file_command’:
+./benchmarks/binutils/leak_6/binutils_leak_6.c:78:71: warning: dereference of possibly-NULL ‘sect_opts_36’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   78 |                                         sect_opts[section_index].name = ".text";
+      |                                                                       ^
+  ‘add_symbol_file_command’: events 1-2
+    |
+    |   49 | add_symbol_file_command (char **args)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘add_symbol_file_command’
+    |......
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ~
+    |      |                                       |
+    |      |                                       (2) calling ‘make_cleanup’ from ‘add_symbol_file_command’
+    |
+    +--> ‘make_cleanup’: events 3-4
+           |
+           |./benchmarks/binutils/leak_6/../include/common.h:149:1:
+           |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_cleanup’
+           |  150 | {
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup’ from ‘make_cleanup’
+           |
+           +--> ‘make_my_cleanup’: events 5-6
+                  |
+                  |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup’
+                  |......
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ~
+                  |      |          |
+                  |      |          (6) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                  |
+                  +--> ‘make_my_cleanup2’: events 7-9
+                         |
+                         |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (7) entry to ‘make_my_cleanup2’
+                         |......
+                         |  135 |         if (old_chain == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (8) following ‘false’ branch (when ‘old_chain_6’ is non-NULL)...
+                         |......
+                         |  138 |   return old_chain;
+                         |      |          ~
+                         |      |          |
+                         |      |          (9) ...to here
+                         |
+                  <------+
+                  |
+                ‘make_my_cleanup’: event 10
+                  |
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ^
+                  |      |          |
+                  |      |          (10) returning to ‘make_my_cleanup’ from ‘make_my_cleanup2’
+                  |
+           <------+
+           |
+         ‘make_cleanup’: event 11
+           |
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ^
+           |      |          |
+           |      |          (11) returning to ‘make_cleanup’ from ‘make_my_cleanup’
+           |
+    <------+
+    |
+  ‘add_symbol_file_command’: events 12-26
+    |
+    |./benchmarks/binutils/leak_6/binutils_leak_6.c:59:39:
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ^
+    |      |                                       |
+    |      |                                       (12) returning to ‘add_symbol_file_command’ from ‘make_cleanup’
+    |......
+    |   66 |         sect_opts = xmalloc (sizeof(struct sect_opt) * num_sect_opts); /* allocation site */
+    |      |                     ~                  
+    |      |                     |
+    |      |                     (13) this call could return NULL
+    |......
+    |   69 |         if (args == NULL) exit (1);
+    |      |            ~                           
+    |      |            |
+    |      |            (14) following ‘false’ branch (when ‘args_47(D)’ is non-NULL)...
+    |   70 | 
+    |   71 |         for (arg = args[0]; arg != NULL; arg = args[++argcnt])
+    |      |                  ~              ~      
+    |      |                  |              |
+    |      |                  |              (16) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  |              (20) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  (15) ...to here
+    |   72 |                 {
+    |   73 |                         if (argcnt == 0)
+    |      |                            ~           
+    |      |                            |
+    |      |                            (17) ...to here
+    |      |                            (18) following ‘true’ branch (when ‘argcnt_33 == 0’)...
+    |      |                            (19) ...to here
+    |      |                            (21) ...to here
+    |      |                            (22) following ‘false’ branch (when ‘argcnt_33 != 0’)...
+    |......
+    |   76 |                         else if (argcnt == 1)
+    |      |                                 ~      
+    |      |                                 |
+    |      |                                 (23) ...to here
+    |      |                                 (24) following ‘true’ branch (when ‘argcnt_33 == 1’)...
+    |   77 |                                 {
+    |   78 |                                         sect_opts[section_index].name = ".text";
+    |      |                                                  ~                    ~
+    |      |                                                  |                    |
+    |      |                                                  (25) ...to here      (26) ‘sect_opts_36 + (long unsigned int) section_index_26 * 16’ could be NULL: unchecked value from (13)
+    |
+./benchmarks/binutils/leak_6/binutils_leak_6.c:92:88: warning: dereference of possibly-NULL ‘sect_opts_36’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   92 |                                                         sect_opts[section_index].value = arg;
+      |                                                                                        ^
+  ‘add_symbol_file_command’: events 1-2
+    |
+    |   49 | add_symbol_file_command (char **args)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘add_symbol_file_command’
+    |......
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ~
+    |      |                                       |
+    |      |                                       (2) calling ‘make_cleanup’ from ‘add_symbol_file_command’
+    |
+    +--> ‘make_cleanup’: events 3-4
+           |
+           |./benchmarks/binutils/leak_6/../include/common.h:149:1:
+           |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_cleanup’
+           |  150 | {
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup’ from ‘make_cleanup’
+           |
+           +--> ‘make_my_cleanup’: events 5-6
+                  |
+                  |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup’
+                  |......
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ~
+                  |      |          |
+                  |      |          (6) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                  |
+                  +--> ‘make_my_cleanup2’: events 7-9
+                         |
+                         |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (7) entry to ‘make_my_cleanup2’
+                         |......
+                         |  135 |         if (old_chain == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (8) following ‘false’ branch (when ‘old_chain_6’ is non-NULL)...
+                         |......
+                         |  138 |   return old_chain;
+                         |      |          ~
+                         |      |          |
+                         |      |          (9) ...to here
+                         |
+                  <------+
+                  |
+                ‘make_my_cleanup’: event 10
+                  |
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ^
+                  |      |          |
+                  |      |          (10) returning to ‘make_my_cleanup’ from ‘make_my_cleanup2’
+                  |
+           <------+
+           |
+         ‘make_cleanup’: event 11
+           |
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ^
+           |      |          |
+           |      |          (11) returning to ‘make_cleanup’ from ‘make_my_cleanup’
+           |
+    <------+
+    |
+  ‘add_symbol_file_command’: events 12-26
+    |
+    |./benchmarks/binutils/leak_6/binutils_leak_6.c:59:39:
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ^
+    |      |                                       |
+    |      |                                       (12) returning to ‘add_symbol_file_command’ from ‘make_cleanup’
+    |......
+    |   66 |         sect_opts = xmalloc (sizeof(struct sect_opt) * num_sect_opts); /* allocation site */
+    |      |                     ~                  
+    |      |                     |
+    |      |                     (13) this call could return NULL
+    |......
+    |   69 |         if (args == NULL) exit (1);
+    |      |            ~                           
+    |      |            |
+    |      |            (14) following ‘false’ branch (when ‘args_47(D)’ is non-NULL)...
+    |   70 | 
+    |   71 |         for (arg = args[0]; arg != NULL; arg = args[++argcnt])
+    |      |                  ~              ~      
+    |      |                  |              |
+    |      |                  |              (16) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  |              (20) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  |              (22) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  (15) ...to here
+    |   72 |                 {
+    |   73 |                         if (argcnt == 0)
+    |      |                            ~           
+    |      |                            |
+    |      |                            (17) ...to here
+    |      |                            (18) following ‘true’ branch (when ‘argcnt_33 == 0’)...
+    |      |                            (19) ...to here
+    |      |                            (21) ...to here
+    |      |                            (23) ...to here
+    |......
+    |   76 |                         else if (argcnt == 1)
+    |      |                                 ~      
+    |      |                                 |
+    |      |                                 (24) following ‘false’ branch (when ‘argcnt_33 != 1’)...
+    |......
+    |   90 |                                         if (expecting_sec_name)
+    |      |                                            ~
+    |      |                                            |
+    |      |                                            (25) ...to here
+    |   91 |                                                 {
+    |   92 |                                                         sect_opts[section_index].value = arg;
+    |      |                                                                                        ~
+    |      |                                                                                        |
+    |      |                                                                                        (26) ‘sect_opts_36 + (long unsigned int) section_index_26 * 16’ could be NULL: unchecked value from (13)
+    |
+./benchmarks/binutils/leak_6/binutils_leak_6.c:97:88: warning: dereference of possibly-NULL ‘sect_opts_36’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   97 |                                                         sect_opts[section_index].value = arg;
+      |                                                                                        ^
+  ‘add_symbol_file_command’: events 1-2
+    |
+    |   49 | add_symbol_file_command (char **args)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘add_symbol_file_command’
+    |......
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ~
+    |      |                                       |
+    |      |                                       (2) calling ‘make_cleanup’ from ‘add_symbol_file_command’
+    |
+    +--> ‘make_cleanup’: events 3-4
+           |
+           |./benchmarks/binutils/leak_6/../include/common.h:149:1:
+           |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_cleanup’
+           |  150 | {
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup’ from ‘make_cleanup’
+           |
+           +--> ‘make_my_cleanup’: events 5-6
+                  |
+                  |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup’
+                  |......
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ~
+                  |      |          |
+                  |      |          (6) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                  |
+                  +--> ‘make_my_cleanup2’: events 7-9
+                         |
+                         |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (7) entry to ‘make_my_cleanup2’
+                         |......
+                         |  135 |         if (old_chain == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (8) following ‘false’ branch (when ‘old_chain_6’ is non-NULL)...
+                         |......
+                         |  138 |   return old_chain;
+                         |      |          ~
+                         |      |          |
+                         |      |          (9) ...to here
+                         |
+                  <------+
+                  |
+                ‘make_my_cleanup’: event 10
+                  |
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ^
+                  |      |          |
+                  |      |          (10) returning to ‘make_my_cleanup’ from ‘make_my_cleanup2’
+                  |
+           <------+
+           |
+         ‘make_cleanup’: event 11
+           |
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ^
+           |      |          |
+           |      |          (11) returning to ‘make_cleanup’ from ‘make_my_cleanup’
+           |
+    <------+
+    |
+  ‘add_symbol_file_command’: events 12-28
+    |
+    |./benchmarks/binutils/leak_6/binutils_leak_6.c:59:39:
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ^
+    |      |                                       |
+    |      |                                       (12) returning to ‘add_symbol_file_command’ from ‘make_cleanup’
+    |......
+    |   66 |         sect_opts = xmalloc (sizeof(struct sect_opt) * num_sect_opts); /* allocation site */
+    |      |                     ~                  
+    |      |                     |
+    |      |                     (13) this call could return NULL
+    |......
+    |   69 |         if (args == NULL) exit (1);
+    |      |            ~                           
+    |      |            |
+    |      |            (14) following ‘false’ branch (when ‘args_47(D)’ is non-NULL)...
+    |   70 | 
+    |   71 |         for (arg = args[0]; arg != NULL; arg = args[++argcnt])
+    |      |                  ~              ~      
+    |      |                  |              |
+    |      |                  |              (16) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  |              (20) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  |              (22) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  (15) ...to here
+    |   72 |                 {
+    |   73 |                         if (argcnt == 0)
+    |      |                            ~           
+    |      |                            |
+    |      |                            (17) ...to here
+    |      |                            (18) following ‘true’ branch (when ‘argcnt_33 == 0’)...
+    |      |                            (19) ...to here
+    |      |                            (21) ...to here
+    |      |                            (23) ...to here
+    |......
+    |   76 |                         else if (argcnt == 1)
+    |      |                                 ~      
+    |      |                                 |
+    |      |                                 (24) following ‘false’ branch (when ‘argcnt_33 != 1’)...
+    |......
+    |   90 |                                         if (expecting_sec_name)
+    |      |                                            ~
+    |      |                                            |
+    |      |                                            (25) ...to here
+    |      |                                            (26) following ‘false’ branch (when ‘expecting_sec_name_32 == 0’)...
+    |......
+    |   95 |                                         else if (expecting_sec_addr)
+    |      |                                                 ~
+    |      |                                                 |
+    |      |                                                 (27) ...to here
+    |   96 |                                                 {
+    |   97 |                                                         sect_opts[section_index].value = arg;
+    |      |                                                                                        ~
+    |      |                                                                                        |
+    |      |                                                                                        (28) ‘sect_opts_36 + (long unsigned int) section_index_26 * 16’ could be NULL: unchecked value from (13)
+    |
+./benchmarks/binutils/leak_6/binutils_leak_6.c:139:45: warning: dereference of possibly-NULL ‘section_addrs_50’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  139 |                 section_addrs->num_sections = sec_num;
+      |                                             ^
+  ‘add_symbol_file_command’: events 1-2
+    |
+    |   49 | add_symbol_file_command (char **args)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘add_symbol_file_command’
+    |......
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ~
+    |      |                                       |
+    |      |                                       (2) calling ‘make_cleanup’ from ‘add_symbol_file_command’
+    |
+    +--> ‘make_cleanup’: events 3-4
+           |
+           |./benchmarks/binutils/leak_6/../include/common.h:149:1:
+           |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_cleanup’
+           |  150 | {
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup’ from ‘make_cleanup’
+           |
+           +--> ‘make_my_cleanup’: events 5-6
+                  |
+                  |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup’
+                  |......
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ~
+                  |      |          |
+                  |      |          (6) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                  |
+                  +--> ‘make_my_cleanup2’: events 7-9
+                         |
+                         |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (7) entry to ‘make_my_cleanup2’
+                         |......
+                         |  135 |         if (old_chain == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (8) following ‘false’ branch (when ‘old_chain_6’ is non-NULL)...
+                         |......
+                         |  138 |   return old_chain;
+                         |      |          ~
+                         |      |          |
+                         |      |          (9) ...to here
+                         |
+                  <------+
+                  |
+                ‘make_my_cleanup’: event 10
+                  |
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ^
+                  |      |          |
+                  |      |          (10) returning to ‘make_my_cleanup’ from ‘make_my_cleanup2’
+                  |
+           <------+
+           |
+         ‘make_cleanup’: event 11
+           |
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ^
+           |      |          |
+           |      |          (11) returning to ‘make_cleanup’ from ‘make_my_cleanup’
+           |
+    <------+
+    |
+  ‘add_symbol_file_command’: events 12-26
+    |
+    |./benchmarks/binutils/leak_6/binutils_leak_6.c:59:39:
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ^
+    |      |                                       |
+    |      |                                       (12) returning to ‘add_symbol_file_command’ from ‘make_cleanup’
+    |......
+    |   69 |         if (args == NULL) exit (1);
+    |      |            ~                           
+    |      |            |
+    |      |            (13) following ‘false’ branch (when ‘args_47(D)’ is non-NULL)...
+    |   70 | 
+    |   71 |         for (arg = args[0]; arg != NULL; arg = args[++argcnt])
+    |      |                  ~              ~            ~
+    |      |                  |              |            |
+    |      |                  |              |            (22) ...to here
+    |      |                  |              (15) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  |              (19) following ‘true’ branch (when ‘arg_28’ is non-NULL)...
+    |      |                  (14) ...to here
+    |   72 |                 {
+    |   73 |                         if (argcnt == 0)
+    |      |                            ~           
+    |      |                            |
+    |      |                            (16) ...to here
+    |      |                            (17) following ‘true’ branch (when ‘argcnt_33 == 0’)...
+    |      |                            (18) ...to here
+    |      |                            (20) ...to here
+    |......
+    |   80 |                                         if (++section_index >= num_sect_opts)
+    |      |                                            ~
+    |      |                                            |
+    |      |                                            (21) following ‘false’ branch...
+    |......
+    |  118 |                 if (section_index < 1)
+    |      |                    ~                   
+    |      |                    |
+    |      |                    (23) following ‘false’ branch (when ‘section_index_26 > 0’)...
+    |......
+    |  121 |                 section_addrs = malloc (sizeof(struct section_addr_info));
+    |      |                                 ~      
+    |      |                                 |
+    |      |                                 (24) ...to here
+    |      |                                 (25) this call could return NULL
+    |  122 |                 make_cleanup (free, section_addrs);
+    |      |                 ~                      
+    |      |                 |
+    |      |                 (26) calling ‘make_cleanup’ from ‘add_symbol_file_command’
+    |
+    +--> ‘make_cleanup’: events 27-28
+           |
+           |./benchmarks/binutils/leak_6/../include/common.h:149:1:
+           |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+           |      | ^
+           |      | |
+           |      | (27) entry to ‘make_cleanup’
+           |  150 | {
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ~
+           |      |          |
+           |      |          (28) calling ‘make_my_cleanup’ from ‘make_cleanup’
+           |
+           +--> ‘make_my_cleanup’: events 29-30
+                  |
+                  |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (29) entry to ‘make_my_cleanup’
+                  |......
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ~
+                  |      |          |
+                  |      |          (30) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                  |
+                  +--> ‘make_my_cleanup2’: events 31-33
+                         |
+                         |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (31) entry to ‘make_my_cleanup2’
+                         |......
+                         |  135 |         if (old_chain == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (32) following ‘false’ branch (when ‘old_chain_6’ is non-NULL)...
+                         |......
+                         |  138 |   return old_chain;
+                         |      |          ~
+                         |      |          |
+                         |      |          (33) ...to here
+                         |
+                  <------+
+                  |
+                ‘make_my_cleanup’: event 34
+                  |
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ^
+                  |      |          |
+                  |      |          (34) returning to ‘make_my_cleanup’ from ‘make_my_cleanup2’
+                  |
+           <------+
+           |
+         ‘make_cleanup’: event 35
+           |
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ^
+           |      |          |
+           |      |          (35) returning to ‘make_cleanup’ from ‘make_my_cleanup’
+           |
+    <------+
+    |
+  ‘add_symbol_file_command’: events 36-39
+    |
+    |./benchmarks/binutils/leak_6/binutils_leak_6.c:122:17:
+    |  122 |                 make_cleanup (free, section_addrs);
+    |      |                 ^
+    |      |                 |
+    |      |                 (36) returning to ‘add_symbol_file_command’ from ‘make_cleanup’
+    |  123 | 
+    |  124 |                 for (i = 0; i < section_index; i++)
+    |      |                               ~
+    |      |                               |
+    |      |                               (37) following ‘false’ branch (when ‘section_index_26 <= i_34’)...
+    |......
+    |  139 |                 section_addrs->num_sections = sec_num;
+    |      |                                             ~
+    |      |                                             |
+    |      |                                             (38) ...to here
+    |      |                                             (39) ‘section_addrs_50’ could be NULL: unchecked value from (25)
+    |
+./benchmarks/binutils/leak_6/binutils_leak_6.c: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/leak_6/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘add_symbol_file_command’: events 1-2
+    |
+    |./benchmarks/binutils/leak_6/binutils_leak_6.c:49:1:
+    |   49 | add_symbol_file_command (char **args)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘add_symbol_file_command’
+    |......
+    |   59 |         struct cleanup *my_cleanups = make_cleanup (null_cleanup, NULL);
+    |      |                                       ~
+    |      |                                       |
+    |      |                                       (2) calling ‘make_cleanup’ from ‘add_symbol_file_command’
+    |
+    +--> ‘make_cleanup’: events 3-4
+           |
+           |./benchmarks/binutils/leak_6/../include/common.h:149:1:
+           |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_cleanup’
+           |  150 | {
+           |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup’ from ‘make_cleanup’
+           |
+           +--> ‘make_my_cleanup’: events 5-6
+                  |
+                  |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup’
+                  |......
+                  |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+                  |      |          ~
+                  |      |          |
+                  |      |          (6) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+                  |
+                  +--> ‘make_my_cleanup2’: events 7-9
+                         |
+                         |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                         |      | ^
+                         |      | |
+                         |      | (7) entry to ‘make_my_cleanup2’
+                         |......
+                         |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+                         |      |                          ~
+                         |      |                          |
+                         |      |                          (8) this call could return NULL
+                         |......
+                         |  129 |   new->next = *pmy_chain;
+                         |      |             ~
+                         |      |             |
+                         |      |             (9) ‘new_4’ could be NULL: unchecked value from (8)
+                         |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 91%)
+ phase opt and generate             :   0.19 ( 95%)   0.01 (100%)   0.21 (100%)   157k (  7%)
+ phase stream out                   :   0.01 (  5%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa cp                             :   0.01 (  5%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ analyzer: processing worklist      :   0.10 ( 50%)   0.01 (100%)   0.11 ( 52%)   528  (  0%)
+ analyzer: emitting diagnostics     :   0.07 ( 35%)   0.00 (  0%)   0.09 ( 43%)   984  (  0%)
+ analyzer: shortest paths           :   0.02 ( 10%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.20          0.01          0.21         2380k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 75%)
+ phase opt and generate             :   0.02 (100%)   0.01 (100%)   0.02 ( 67%)   676k ( 23%)
+ callgraph functions expansion      :   0.02 (100%)   0.01 (100%)   0.02 ( 67%)   560k ( 19%)
+ tree CFG cleanup                   :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 33%)   880  (  0%)
+ combiner                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    11k (  0%)
+ shorten branches                   :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ rest of compilation                :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)    24k (  1%)
+ TOTAL                              :   0.02          0.01          0.03         2883k

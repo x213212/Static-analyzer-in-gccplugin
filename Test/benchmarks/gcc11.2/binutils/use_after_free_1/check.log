@@ -1,0 +1,401 @@
+In file included from ./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:6:
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c: In function ‘riscv_add_subset’:
+./benchmarks/binutils/use_after_free_1/../include/common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:48:15: note: in expansion of macro ‘xstrdup’
+   48 |     s->name = xstrdup (subset);
+      |               ^~~~~~~
+./benchmarks/binutils/use_after_free_1/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:48:15: note: in expansion of macro ‘xstrdup’
+   48 |     s->name = xstrdup (subset);
+      |               ^~~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c: In function ‘riscv_set_arch’:
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:60:7: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   60 |   if (strncmp (p, "rv32", 4) == 0)
+      |       ^~~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+    7 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:60:27: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   60 |   if (strncmp (p, "rv32", 4) == 0)
+      |                           ^
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:65:32: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   65 |   else if (strncmp (p, "rv64", 4) == 0)
+      |                                ^
+<built-in>: note: built-in ‘strncmp’ declared here
+In file included from ./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:6:
+./benchmarks/binutils/use_after_free_1/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:95:26: note: in expansion of macro ‘xstrdup’
+   95 |           char *subset = xstrdup (p), *q = subset;  /* allocation site */
+      |                          ^~~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:107:16: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  107 |           p += strlen (subset);
+      |                ^~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:107:16: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:107:16: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:107:16: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:112:31: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  112 |       else if ((all_subsets = strchr (all_subsets, *p)) != NULL)
+      |                               ^~~~~~
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:112:31: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:112:31: warning: incompatible implicit declaration of built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:112:31: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c: In function ‘main’:
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:139:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  139 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 49%)
+ phase parsing                      :   0.00 (  0%)   0.03 ( 75%)   0.03 ( 75%)  1134k ( 43%)
+ phase lang. deferred               :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)    96  (  0%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   224k (  8%)
+ callgraph ipa passes               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   124k (  5%)
+ ipa free lang data                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  3808  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 25%)   0.01 ( 25%)   367k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.03 ( 75%)   0.01 ( 25%)   596k ( 22%)
+ TOTAL                              :   0.00          0.04          0.04         2666k
+./benchmarks/binutils/use_after_free_1/../include/common.h: In function ‘riscv_set_arch’:
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:101:14: warning: leak of ‘strdup (subset_4(D))’ [CWE-401] [-Wanalyzer-malloc-leak]
+  101 |           if (extension) {
+      |              ^
+  ‘riscv_set_arch’: events 1-2
+    |
+    |   54 | riscv_set_arch (const char *s)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘riscv_set_arch’
+    |......
+    |   73 |   switch (*p)
+    |      |   ~
+    |      |   |
+    |      |   (2) following ‘case 105:’ branch...
+    |
+  ‘riscv_set_arch’: event 3
+    |
+    |lto1:
+    | (3): ...to here
+    |
+  ‘riscv_set_arch’: events 4-12
+    |
+    |   91 |   while (*p)
+    |      |          ^
+    |      |          |
+    |      |          (4) following ‘true’ branch...
+    |   92 |     {
+    |   93 |       if (*p == 'x')
+    |      |          ~~
+    |      |          ||
+    |      |          |(5) ...to here
+    |      |          (6) following ‘false’ branch...
+    |......
+    |  110 |       else if (*p == '_')
+    |      |               ~~
+    |      |               ||
+    |      |               |(7) ...to here
+    |      |               (8) following ‘false’ branch...
+    |  111 |         p++;
+    |  112 |       else if ((all_subsets = strchr (all_subsets, *p)) != NULL)
+    |      |               ~                                    ~
+    |      |               |                                    |
+    |      |               |                                    (9) ...to here
+    |      |               (10) following ‘true’ branch (when ‘all_subsets_45’ is non-NULL)...
+    |  113 |         {
+    |  114 |           const char subset[] = {*p, 0};
+    |      |                                  ~
+    |      |                                  |
+    |      |                                  (11) ...to here
+    |  115 |           riscv_add_subset (subset);
+    |      |           ~
+    |      |           |
+    |      |           (12) calling ‘riscv_add_subset’ from ‘riscv_set_arch’
+    |
+    +--> ‘riscv_add_subset’: events 13-14
+           |
+           |   44 | riscv_add_subset (const char *subset)
+           |      | ^
+           |      | |
+           |      | (13) entry to ‘riscv_add_subset’
+           |......
+           |   48 |     s->name = xstrdup (subset);
+           |      |               ~
+           |      |               |
+           |      |               (14) allocated here
+           |
+    <------+
+    |
+  ‘riscv_set_arch’: events 15-20
+    |
+    |   91 |   while (*p)
+    |      |          ~ 
+    |      |          |
+    |      |          (16) following ‘true’ branch...
+    |   92 |     {
+    |   93 |       if (*p == 'x')
+    |      |          ~~
+    |      |          ||
+    |      |          |(17) ...to here
+    |      |          (18) following ‘true’ branch...
+    |   94 |         {
+    |   95 |           char *subset = xstrdup (p), *q = subset;  /* allocation site */
+    |      |                          ~
+    |      |                          |
+    |      |                          (19) ...to here
+    |......
+    |  101 |           if (extension) {
+    |      |              ~
+    |      |              |
+    |      |              (20) ‘strdup (subset_4(D))’ leaks here; was allocated at (14)
+    |......
+    |  115 |           riscv_add_subset (subset);
+    |      |           ^
+    |      |           |
+    |      |           (15) returning to ‘riscv_set_arch’ from ‘riscv_add_subset’
+    |
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:101:14: warning: leak of ‘<unknown>’ [CWE-401] [-Wanalyzer-malloc-leak]
+  101 |           if (extension) {
+      |              ^
+  ‘main’: events 1-4
+    |
+    |  137 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  141 |         while (__RANDBOOL) {
+    |      |                ~
+    |      |                |
+    |      |                (2) following ‘true’ branch...
+    |  142 |                 char *string = "rv32ix_x";
+    |  143 |                 riscv_set_arch(string);
+    |      |                 ~
+    |      |                 |
+    |      |                 (3) ...to here
+    |      |                 (4) calling ‘riscv_set_arch’ from ‘main’
+    |
+    +--> ‘riscv_set_arch’: events 5-6
+           |
+           |   54 | riscv_set_arch (const char *s)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘riscv_set_arch’
+           |......
+           |   73 |   switch (*p)
+           |      |   ~
+           |      |   |
+           |      |   (6) following ‘case 105:’ branch...
+           |
+         ‘riscv_set_arch’: event 7
+           |
+           |lto1:
+           | (7): ...to here
+           |
+         ‘riscv_set_arch’: events 8-22
+           |
+           |   91 |   while (*p)
+           |      |          ^
+           |      |          |
+           |      |          (8) following ‘true’ branch...
+           |      |          (16) following ‘true’ branch...
+           |   92 |     {
+           |   93 |       if (*p == 'x')
+           |      |          ~~
+           |      |          ||
+           |      |          |(9) ...to here
+           |      |          |(17) ...to here
+           |      |          (10) following ‘false’ branch...
+           |      |          (18) following ‘true’ branch...
+           |   94 |         {
+           |   95 |           char *subset = xstrdup (p), *q = subset;  /* allocation site */
+           |      |                          ~
+           |      |                          |
+           |      |                          (19) ...to here
+           |......
+           |  101 |           if (extension) {
+           |      |              ~
+           |      |              |
+           |      |              (20) following ‘false’ branch (when ‘extension_22’ is NULL)...
+           |......
+           |  106 |           riscv_add_subset (subset);
+           |      |           ~
+           |      |           |
+           |      |           (21) ...to here
+           |      |           (22) calling ‘riscv_add_subset’ from ‘riscv_set_arch’
+           |......
+           |  110 |       else if (*p == '_')
+           |      |               ~~
+           |      |               ||
+           |      |               |(11) ...to here
+           |      |               (12) following ‘false’ branch...
+           |  111 |         p++;
+           |  112 |       else if ((all_subsets = strchr (all_subsets, *p)) != NULL)
+           |      |               ~                                    ~
+           |      |               |                                    |
+           |      |               |                                    (13) ...to here
+           |      |               (14) following ‘true’ branch (when ‘all_subsets_45’ is non-NULL)...
+           |  113 |         {
+           |  114 |           const char subset[] = {*p, 0};
+           |      |                                  ~
+           |      |                                  |
+           |      |                                  (15) ...to here
+           |
+           +--> ‘riscv_add_subset’: events 23-25
+                  |
+                  |   44 | riscv_add_subset (const char *subset)
+                  |      | ^
+                  |      | |
+                  |      | (23) entry to ‘riscv_add_subset’
+                  |......
+                  |   47 |     struct riscv_subset *s = xmalloc (sizeof *s);
+                  |      |                              ~
+                  |      |                              |
+                  |      |                              (24) allocated here
+                  |   48 |     s->name = xstrdup (subset);
+                  |      |             ~
+                  |      |             |
+                  |      |             (25) assuming ‘s_6’ is non-NULL
+                  |
+           <------+
+           |
+         ‘riscv_set_arch’: events 26-39
+           |
+           |   91 |   while (*p)
+           |      |          ~ 
+           |      |          |
+           |      |          (27) following ‘true’ branch...
+           |      |          (35) following ‘true’ branch...
+           |   92 |     {
+           |   93 |       if (*p == 'x')
+           |      |          ~~
+           |      |          ||
+           |      |          |(28) ...to here
+           |      |          |(36) ...to here
+           |      |          (29) following ‘false’ branch...
+           |      |          (37) following ‘true’ branch...
+           |   94 |         {
+           |   95 |           char *subset = xstrdup (p), *q = subset;  /* allocation site */
+           |      |                          ~
+           |      |                          |
+           |      |                          (38) ...to here
+           |......
+           |  101 |           if (extension) {
+           |      |              ~
+           |      |              |
+           |      |              (39) ‘<unknown>’ leaks here; was allocated at (24)
+           |......
+           |  106 |           riscv_add_subset (subset);
+           |      |           ^
+           |      |           |
+           |      |           (26) returning to ‘riscv_set_arch’ from ‘riscv_add_subset’
+           |......
+           |  110 |       else if (*p == '_')
+           |      |               ~~
+           |      |               ||
+           |      |               |(30) ...to here
+           |      |               (31) following ‘false’ branch...
+           |  111 |         p++;
+           |  112 |       else if ((all_subsets = strchr (all_subsets, *p)) != NULL)
+           |      |               ~                                    ~
+           |      |               |                                    |
+           |      |               |                                    (32) ...to here
+           |      |               (33) following ‘true’ branch (when ‘all_subsets_45’ is non-NULL)...
+           |  113 |         {
+           |  114 |           const char subset[] = {*p, 0};
+           |      |                                  ~
+           |      |                                  |
+           |      |                                  (34) ...to here
+           |
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:107:16: warning: use of possibly-NULL ‘subset_61’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+  107 |           p += strlen (subset);
+      |                ^
+  ‘riscv_set_arch’: events 1-6
+    |
+    |   91 |   while (*p)
+    |      |          ^
+    |      |          |
+    |      |          (1) following ‘true’ branch...
+    |   92 |     {
+    |   93 |       if (*p == 'x')
+    |      |           ~
+    |      |           |
+    |      |           (2) ...to here
+    |   94 |         {
+    |   95 |           char *subset = xstrdup (p), *q = subset;  /* allocation site */
+    |      |                          ~
+    |      |                          |
+    |      |                          (3) this call could return NULL
+    |......
+    |  101 |           if (extension) {
+    |      |              ~
+    |      |              |
+    |      |              (4) following ‘false’ branch (when ‘extension_22’ is NULL)...
+    |......
+    |  106 |           riscv_add_subset (subset);
+    |      |           ~
+    |      |           |
+    |      |           (5) ...to here
+    |  107 |           p += strlen (subset);
+    |      |                ~
+    |      |                |
+    |      |                (6) argument 1 (‘subset_61’) from (3) could be NULL where non-null expected
+    |
+<built-in>: note: argument 1 of ‘strlen’ must be non-null
+./benchmarks/binutils/use_after_free_1/../include/common.h: In function ‘riscv_add_subset’:
+./benchmarks/binutils/use_after_free_1/binutils_uaf_1.c:48:13: warning: dereference of possibly-NULL ‘s_6’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+   48 |     s->name = xstrdup (subset);
+      |             ^
+  ‘riscv_add_subset’: events 1-2
+    |
+    |   47 |     struct riscv_subset *s = xmalloc (sizeof *s);
+    |      |                              ^
+    |      |                              |
+    |      |                              (1) this call could return NULL
+    |   48 |     s->name = xstrdup (subset);
+    |      |             ~                 
+    |      |             |
+    |      |             (2) ‘s_6’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/binutils/use_after_free_1/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/use_after_free_1/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_my_cleanup2’: events 1-2
+    |
+    |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+    |      |                          ^
+    |      |                          |
+    |      |                          (1) this call could return NULL
+    |......
+    |  129 |   new->next = *pmy_chain;
+    |      |             ~             
+    |      |             |
+    |      |             (2) ‘new_4’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 91%)
+ phase opt and generate             :   0.13 (100%)   0.01 (100%)   0.14 (100%)   135k (  6%)
+ ipa reference                      :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)     0  (  0%)
+ analyzer: processing worklist      :   0.06 ( 46%)   0.01 (100%)   0.07 ( 50%)   760  (  0%)
+ analyzer: emitting diagnostics     :   0.05 ( 38%)   0.00 (  0%)   0.05 ( 36%)   256  (  0%)
+ analyzer: shortest paths           :   0.01 (  8%)   0.00 (  0%)   0.01 (  7%)     0  (  0%)
+ TOTAL                              :   0.13          0.01          0.14         2359k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 83%)
+ phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.02 (100%)   408k ( 16%)
+ callgraph functions expansion      :   0.02 (100%)   0.00 (  0%)   0.02 (100%)   327k ( 13%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    10k (  0%)
+ reload CSE regs                    :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  2224  (  0%)
+ initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    12k (  0%)
+ TOTAL                              :   0.02          0.00          0.02         2609k

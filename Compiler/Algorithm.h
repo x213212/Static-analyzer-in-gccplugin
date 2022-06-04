@@ -167,7 +167,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 			int count = 0;
 
-			while (processtable->next != NULL)
+			while (processtable != NULL)
 			{
 
 				// if (TREE_CODE(TREE_TYPE(processtable->target)) == METHOD_TYPE  || TREE_CODE(TREE_TYPE(processtable->target)) == RECORD_TYPE || !(TREE_CODE(processtable->target) == SSA_NAME))
@@ -181,7 +181,13 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				// 		continue;
 				// 	}
 				// }
+
 				// debug_tree(processtable->target);
+				if (processtable->target == NULL)
+				{
+					processtable = processtable->next;
+					continue;
+				}
 				if (TREE_CODE(processtable->target) == INTEGER_CST)
 				{
 					processtable = processtable->next;
@@ -267,7 +273,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				fprintf(stderr, "========================================================\n");
 				// debug(processtable->swap_stmt);
 
-				if (processtable->next->target == NULL)
+				if (processtable->next == NULL)
 					break;
 				else
 				{
@@ -479,7 +485,7 @@ void detect(struct plugin_argument *argv, int argc)
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
-
+				debug_gimple_stmt(gc);
 				if (is_gimple_call(gc))
 				{
 
@@ -487,6 +493,9 @@ void detect(struct plugin_argument *argv, int argc)
 				}
 				if (is_gimple_assign(gc))
 				{
+					// 	tree gimpleassignlhs = prechecktree(gimple_assign_lhs((gc)));
+					// 		fprintf(stderr, "=================================================\n");
+					// debug_tree(gimpleassignlhs);
 
 					collect_function_call(gc, node, bb);
 				}

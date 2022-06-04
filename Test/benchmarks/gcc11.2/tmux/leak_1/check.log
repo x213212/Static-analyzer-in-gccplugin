@@ -1,0 +1,220 @@
+./benchmarks/tmux/leak_1/tmux_leak_1.c: In function ‘xvasprintf’:
+./benchmarks/tmux/leak_1/tmux_leak_1.c:91:13: warning: implicit declaration of function ‘vasprintf’; did you mean ‘xvasprintf’? [-Wimplicit-function-declaration]
+   91 |         i = vasprintf(ret, fmt, ap);
+      |             ^~~~~~~~~
+      |             xvasprintf
+./benchmarks/tmux/leak_1/tmux_leak_1.c: In function ‘screen_write_cnputs’:
+./benchmarks/tmux/leak_1/tmux_leak_1.c:111:9: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  111 |         memcpy(&gc, gcp, sizeof gc);
+      |         ^~~~~~
+./benchmarks/tmux/leak_1/tmux_leak_1.c:12:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+   11 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   12 | 
+./benchmarks/tmux/leak_1/tmux_leak_1.c:111:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  111 |         memcpy(&gc, gcp, sizeof gc);
+      |         ^~~~~~
+./benchmarks/tmux/leak_1/tmux_leak_1.c:111:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/tmux/leak_1/tmux_leak_1.c:119:38: warning: implicit declaration of function ‘strcspn’ [-Wimplicit-function-declaration]
+  119 |                         last = ptr + strcspn(ptr, "]");
+      |                                      ^~~~~~~
+./benchmarks/tmux/leak_1/tmux_leak_1.c:119:38: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/tmux/leak_1/tmux_leak_1.c:119:38: warning: incompatible implicit declaration of built-in function ‘strcspn’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/leak_1/tmux_leak_1.c:119:38: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/tmux/leak_1/tmux_leak_1.c:133:32: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  133 |                         left = strlen(ptr);
+      |                                ^~~~~~
+./benchmarks/tmux/leak_1/tmux_leak_1.c:133:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/tmux/leak_1/tmux_leak_1.c:133:32: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/tmux/leak_1/tmux_leak_1.c:133:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+In file included from ./benchmarks/tmux/leak_1/tmux_leak_1.c:10:
+./benchmarks/tmux/leak_1/tmux_leak_1.c: In function ‘screen_write_cstrlen’:
+./benchmarks/tmux/leak_1/tmux_leak_1.c:169:24: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  169 |         msg2 = xmalloc(strlen(msg) + 1);
+      |                        ^~~~~~
+./benchmarks/tmux/leak_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+  137 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/tmux/leak_1/tmux_leak_1.c:169:24: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+  169 |         msg2 = xmalloc(strlen(msg) + 1);
+      |                        ^~~~~~
+./benchmarks/tmux/leak_1/../stdio.h:137:27: note: in definition of macro ‘xmalloc’
+  137 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/tmux/leak_1/tmux_leak_1.c: In function ‘screen_redraw_make_pane_status’:
+./benchmarks/tmux/leak_1/tmux_leak_1.c:218:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  218 |         memcpy(&old, &wp->status_screen, sizeof old);
+      |         ^~~~~~
+./benchmarks/tmux/leak_1/tmux_leak_1.c:218:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/tmux/leak_1/tmux_leak_1.c:221:22: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  221 |         out = malloc(strlen(fmt));                      /* allocation site */
+      |                      ^~~~~~
+./benchmarks/tmux/leak_1/tmux_leak_1.c:221:22: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 41%)
+ phase parsing                      :   0.02 (100%)   0.02 ( 67%)   0.05 ( 83%)  1695k ( 53%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 17%)   168k (  5%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 17%)    93k (  3%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ preprocessing                      :   0.01 ( 50%)   0.01 ( 33%)   0.01 ( 17%)   764k ( 24%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 17%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.03 ( 50%)   591k ( 19%)
+ parser inl. func. body             :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  8640  (  0%)
+ tree forward propagate             :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)  1280  (  0%)
+ TOTAL                              :   0.02          0.03          0.06         3173k
+./benchmarks/tmux/leak_1/tmux_leak_1.c: In function ‘screen_write_cstrlen’:
+./benchmarks/tmux/leak_1/tmux_leak_1.c:181:25: warning: dereference of possibly-NULL ‘ptr2_17’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  181 |                 *ptr2++ = *ptr++;
+      |                         ^
+  ‘screen_redraw_make_pane_status’: events 1-2
+    |
+    |  207 | screen_redraw_make_pane_status(struct client *c, struct window *w,
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘screen_redraw_make_pane_status’
+    |......
+    |  222 |     outlen = screen_write_cstrlen("%s", out);
+    |      |              ~
+    |      |              |
+    |      |              (2) calling ‘screen_write_cstrlen’ from ‘screen_redraw_make_pane_status’
+    |
+    +--> ‘screen_write_cstrlen’: events 3-4
+           |
+           |  163 | screen_write_cstrlen(const char *fmt, char *ap)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘screen_write_cstrlen’
+           |......
+           |  168 |         xvasprintf(&msg, fmt, ap);
+           |      |         ~
+           |      |         |
+           |      |         (4) calling ‘xvasprintf’ from ‘screen_write_cstrlen’
+           |
+           +--> ‘xvasprintf’: events 5-7
+                  |
+                  |   87 | xvasprintf(char **ret, const char *fmt, char *ap)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘xvasprintf’
+                  |......
+                  |   93 |         if (i < 0 || *ret == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘false’ branch...
+                  |......
+                  |   96 |         return i;
+                  |      |                ~
+                  |      |                |
+                  |      |                (7) ...to here
+                  |
+           <------+
+           |
+         ‘screen_write_cstrlen’: events 8-12
+           |
+           |  168 |         xvasprintf(&msg, fmt, ap);
+           |      |         ^
+           |      |         |
+           |      |         (8) returning to ‘screen_write_cstrlen’ from ‘xvasprintf’
+           |  169 |         msg2 = xmalloc(strlen(msg) + 1);
+           |      |                ~
+           |      |                |
+           |      |                (9) this call could return NULL
+           |......
+           |  173 |         while (*ptr != '\0') {
+           |      |                     ~
+           |      |                     |
+           |      |                     (10) following ‘true’ branch...
+           |  174 |                 if (ptr[0] == '#' && ptr[1] == '[') {
+           |      |                        ~
+           |      |                        |
+           |      |                        (11) ...to here
+           |......
+           |  181 |                 *ptr2++ = *ptr++;
+           |      |                         ~
+           |      |                         |
+           |      |                         (12) ‘ptr2_17’ could be NULL: unchecked value from (9)
+           |
+./benchmarks/tmux/leak_1/tmux_leak_1.c:183:15: warning: dereference of possibly-NULL ‘ptr2_17’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  183 |         *ptr2 = '\0';
+      |               ^
+  ‘screen_redraw_make_pane_status’: events 1-2
+    |
+    |  207 | screen_redraw_make_pane_status(struct client *c, struct window *w,
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘screen_redraw_make_pane_status’
+    |......
+    |  222 |     outlen = screen_write_cstrlen("%s", out);
+    |      |              ~
+    |      |              |
+    |      |              (2) calling ‘screen_write_cstrlen’ from ‘screen_redraw_make_pane_status’
+    |
+    +--> ‘screen_write_cstrlen’: events 3-4
+           |
+           |  163 | screen_write_cstrlen(const char *fmt, char *ap)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘screen_write_cstrlen’
+           |......
+           |  168 |         xvasprintf(&msg, fmt, ap);
+           |      |         ~
+           |      |         |
+           |      |         (4) calling ‘xvasprintf’ from ‘screen_write_cstrlen’
+           |
+           +--> ‘xvasprintf’: events 5-7
+                  |
+                  |   87 | xvasprintf(char **ret, const char *fmt, char *ap)
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘xvasprintf’
+                  |......
+                  |   93 |         if (i < 0 || *ret == NULL)
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘false’ branch...
+                  |......
+                  |   96 |         return i;
+                  |      |                ~
+                  |      |                |
+                  |      |                (7) ...to here
+                  |
+           <------+
+           |
+         ‘screen_write_cstrlen’: events 8-10
+           |
+           |  168 |         xvasprintf(&msg, fmt, ap);
+           |      |         ^
+           |      |         |
+           |      |         (8) returning to ‘screen_write_cstrlen’ from ‘xvasprintf’
+           |  169 |         msg2 = xmalloc(strlen(msg) + 1);
+           |      |                ~
+           |      |                |
+           |      |                (9) this call could return NULL
+           |......
+           |  183 |         *ptr2 = '\0';
+           |      |               ~
+           |      |               |
+           |      |               (10) ‘ptr2_17’ could be NULL: unchecked value from (9)
+           |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 91%)
+ phase opt and generate             :   0.10 (100%)   0.00 (  0%)   0.10 (100%)   104k (  4%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)    85k (  4%)
+ analyzer                           :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer: state purge              :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.08 ( 80%)   0.00 (  0%)   0.08 ( 80%)   408  (  0%)
+ analyzer: emitting diagnostics     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ TOTAL                              :   0.10          0.00          0.10         2378k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2157k ( 75%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 ( 75%)   618k ( 21%)
+ dump files                         :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.00 (  0%)   0.03 ( 75%)   504k ( 17%)
+ ipa lto gimple in                  :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    85k (  3%)
+ df live&initialized regs           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ tree strlen optimization           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    11k (  0%)
+ LRA virtuals elimination           :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  1776  (  0%)
+ TOTAL                              :   0.03          0.00          0.04         2888k

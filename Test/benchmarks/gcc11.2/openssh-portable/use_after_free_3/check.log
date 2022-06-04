@@ -1,0 +1,445 @@
+In file included from ./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:9:
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/use_after_free_3/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘to_blob’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:18:17: warning: implicit declaration of function ‘error’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+   18 |                 error("key_to_blob: key == NULL");
+      |                 ^~~~~
+      |                 perror
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:21:9: warning: implicit declaration of function ‘buffer_init’ [-Wimplicit-function-declaration]
+   21 |         buffer_init(&b);
+      |         ^~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:22:30: warning: implicit declaration of function ‘key_type_plain’ [-Wimplicit-function-declaration]
+   22 |         type = force_plain ? key_type_plain(key->type) : key->type;
+      |                              ^~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:23:23: warning: implicit declaration of function ‘buffer_len’ [-Wimplicit-function-declaration]
+   23 |                 len = buffer_len(&b);
+      |                       ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   29 |                 memcpy(*blobp, buffer_ptr(&b), len);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:10:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+    9 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   10 | 
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   29 |                 memcpy(*blobp, buffer_ptr(&b), len);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:32: warning: implicit declaration of function ‘buffer_ptr’ [-Wimplicit-function-declaration]
+   29 |                 memcpy(*blobp, buffer_ptr(&b), len);
+      |                                ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:32: warning: passing argument 2 of ‘memcpy’ makes pointer from integer without a cast [-Wint-conversion]
+   29 |                 memcpy(*blobp, buffer_ptr(&b), len);
+      |                                ^~~~~~~~~~~~~~
+      |                                |
+      |                                int
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:32: note: expected ‘const void *’ but argument is of type ‘int’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   31 |         memset(buffer_ptr(&b), 0, len);
+      |         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:16: warning: passing argument 1 of ‘memset’ makes pointer from integer without a cast [-Wint-conversion]
+   31 |         memset(buffer_ptr(&b), 0, len);
+      |                ^~~~~~~~~~~~~~
+      |                |
+      |                int
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:31:16: note: expected ‘void *’ but argument is of type ‘int’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:32:9: warning: implicit declaration of function ‘buffer_free’ [-Wimplicit-function-declaration]
+   32 |         buffer_free(&b);
+      |         ^~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘buffer_append’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:48:13: warning: implicit declaration of function ‘buffer_append_space’; did you mean ‘buffer_append’? [-Wimplicit-function-declaration]
+   48 |         p = buffer_append_space(buffer, len);
+      |             ^~~~~~~~~~~~~~~~~~~
+      |             buffer_append
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:48:11: warning: assignment to ‘void *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   48 |         p = buffer_append_space(buffer, len);
+      |           ^
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   49 |         memcpy(p, data, len);
+      |         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:49:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘buffer_put_string’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:58:9: warning: implicit declaration of function ‘buffer_put_int’; did you mean ‘buffer_put_string’? [-Wimplicit-function-declaration]
+   58 |         buffer_put_int(buffer, len);
+      |         ^~~~~~~~~~~~~~
+      |         buffer_put_string
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘process_add’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:73:16: warning: implicit declaration of function ‘get_string’ [-Wimplicit-function-declaration]
+   73 |         name = get_string(NULL);
+      |                ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:73:14: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   73 |         name = get_string(NULL);
+      |              ^
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:74:13: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   74 |         pin = get_string(NULL);
+      |             ^
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:75:22: warning: implicit declaration of function ‘pkcs11_add_provider’ [-Wimplicit-function-declaration]
+   75 |         if ((nkeys = pkcs11_add_provider(name, pin, &keys)) > 0) {
+      |                      ^~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:76:17: warning: implicit declaration of function ‘buffer_put_char’; did you mean ‘buffer_put_string’? [-Wimplicit-function-declaration]
+   76 |                 buffer_put_char(&msg, SSH2_AGENT_IDENTITIES_ANSWER);
+      |                 ^~~~~~~~~~~~~~~
+      |                 buffer_put_string
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:81:25: warning: implicit declaration of function ‘buffer_put_cstring’; did you mean ‘buffer_put_string’? [-Wimplicit-function-declaration]
+   81 |                         buffer_put_cstring(&msg, name);
+      |                         ^~~~~~~~~~~~~~~~~~
+      |                         buffer_put_string
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:84:25: warning: implicit declaration of function ‘add_key’ [-Wimplicit-function-declaration]
+   84 |                         add_key(keys[i], name);
+      |                         ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:92:9: warning: implicit declaration of function ‘send_msg’ [-Wimplicit-function-declaration]
+   92 |         send_msg(&msg);
+      |         ^~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 46%)
+ phase parsing                      :   0.03 ( 75%)   0.02 (100%)   0.05 ( 83%)  1381k ( 49%)
+ phase opt and generate             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   124k (  4%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)    69k (  2%)
+ lto stream compression             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ preprocessing                      :   0.02 ( 50%)   0.00 (  0%)   0.00 (  0%)   636k ( 23%)
+ lexical analysis                   :   0.01 ( 25%)   0.00 (  0%)   0.04 ( 67%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)   566k ( 20%)
+ parser function body               :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)    35k (  1%)
+ TOTAL                              :   0.04          0.02          0.06         2814k
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘process_add’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:82:19: warning: use after ‘free’ of ‘blob’ [CWE-416] [-Wanalyzer-use-after-free]
+   82 |             *blob = 1;
+      |                   ^
+  ‘main’: events 1-2
+    |
+    |   97 | int main () {
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |   98 |     process_add();
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘process_add’ from ‘main’
+    |
+    +--> ‘process_add’: events 3-8
+           |
+           |   63 | process_add(void)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘process_add’
+           |......
+           |   75 |         if ((nkeys = pkcs11_add_provider(name, pin, &keys)) > 0) {
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘true’ branch (when ‘nkeys_30 > 0’)...
+           |   76 |                 buffer_put_char(&msg, SSH2_AGENT_IDENTITIES_ANSWER);
+           |      |                 ~
+           |      |                 |
+           |      |                 (5) ...to here
+           |   77 |                 buffer_put_int(&msg, nkeys);
+           |   78 |                 for (i = 0; i < nkeys; i++) {
+           |      |                               ~
+           |      |                               |
+           |      |                               (6) following ‘true’ branch (when ‘i_20 < nkeys_30’)...
+           |   79 |                         key_to_blob(keys[i], &blob, &blen);
+           |      |                         ~               ~
+           |      |                         |               |
+           |      |                         |               (7) ...to here
+           |      |                         (8) calling ‘key_to_blob’ from ‘process_add’
+           |
+           +--> ‘key_to_blob’: events 9-10
+                  |
+                  |   39 | key_to_blob(const Key *key, u_char **blobp, u_int *lenp)
+                  |      | ^
+                  |      | |
+                  |      | (9) entry to ‘key_to_blob’
+                  |   40 | {
+                  |   41 |         return to_blob(key, blobp, lenp, 0);
+                  |      |                ~
+                  |      |                |
+                  |      |                (10) calling ‘to_blob’ from ‘key_to_blob’
+                  |
+                  +--> ‘to_blob’: events 11-21
+                         |
+                         |   12 | to_blob(const Key *key, u_char **blobp, u_int *lenp, int force_plain)
+                         |      | ^
+                         |      | |
+                         |      | (11) entry to ‘to_blob’
+                         |......
+                         |   17 |         if (key == NULL) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (12) following ‘false’ branch (when ‘key_19(D)’ is non-NULL)...
+                         |......
+                         |   21 |         buffer_init(&b);
+                         |      |         ~
+                         |      |         |
+                         |      |         (13) ...to here
+                         |   22 |         type = force_plain ? key_type_plain(key->type) : key->type;
+                         |      |                                                        ~
+                         |      |                                                        |
+                         |      |                                                        (14) following ‘false’ branch (when ‘force_plain_22(D) == 0’)...
+                         |   23 |                 len = buffer_len(&b);
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (15) ...to here
+                         |   24 |         if (lenp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (16) following ‘true’ branch (when ‘lenp_26(D)’ is non-NULL)...
+                         |   25 |                 *lenp = len;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (17) ...to here
+                         |   26 | 
+                         |   27 |     if (blobp != NULL) {
+                         |      |        ~
+                         |      |        |
+                         |      |        (18) following ‘true’ branch (when ‘blobp_28(D)’ is non-NULL)...
+                         |   28 |                 *blobp = xmalloc(len); /* allocation site */
+                         |      |                          ~
+                         |      |                          |
+                         |      |                          (19) ...to here
+                         |      |                          (20) allocated here
+                         |   29 |                 memcpy(*blobp, buffer_ptr(&b), len);
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (21) assuming ‘blob’ is non-NULL
+                         |
+                  <------+
+                  |
+                ‘key_to_blob’: event 22
+                  |
+                  |   41 |         return to_blob(key, blobp, lenp, 0);
+                  |      |                ^
+                  |      |                |
+                  |      |                (22) returning to ‘key_to_blob’ from ‘to_blob’
+                  |
+           <------+
+           |
+         ‘process_add’: events 23-27
+           |
+           |   78 |                 for (i = 0; i < nkeys; i++) {
+           |      |                               ~
+           |      |                               |
+           |      |                               (25) following ‘true’ branch (when ‘i_20 < nkeys_30’)...
+           |   79 |                         key_to_blob(keys[i], &blob, &blen);
+           |      |                         ^               ~
+           |      |                         |               |
+           |      |                         |               (26) ...to here
+           |      |                         (23) returning to ‘process_add’ from ‘key_to_blob’
+           |      |                         (27) calling ‘key_to_blob’ from ‘process_add’
+           |......
+           |   83 |                         free(blob);
+           |      |                         ~
+           |      |                         |
+           |      |                         (24) freed here
+           |
+           +--> ‘key_to_blob’: events 28-29
+                  |
+                  |   39 | key_to_blob(const Key *key, u_char **blobp, u_int *lenp)
+                  |      | ^
+                  |      | |
+                  |      | (28) entry to ‘key_to_blob’
+                  |   40 | {
+                  |   41 |         return to_blob(key, blobp, lenp, 0);
+                  |      |                ~
+                  |      |                |
+                  |      |                (29) calling ‘to_blob’ from ‘key_to_blob’
+                  |
+                  +--> ‘to_blob’: events 30-32
+                         |
+                         |   12 | to_blob(const Key *key, u_char **blobp, u_int *lenp, int force_plain)
+                         |      | ^
+                         |      | |
+                         |      | (30) entry to ‘to_blob’
+                         |......
+                         |   17 |         if (key == NULL) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (31) following ‘true’ branch (when ‘key_19(D)’ is NULL)...
+                         |   18 |                 error("key_to_blob: key == NULL");
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (32) ...to here
+                         |
+                  <------+
+                  |
+                ‘key_to_blob’: event 33
+                  |
+                  |   41 |         return to_blob(key, blobp, lenp, 0);
+                  |      |                ^
+                  |      |                |
+                  |      |                (33) returning to ‘key_to_blob’ from ‘to_blob’
+                  |
+           <------+
+           |
+         ‘process_add’: events 34-35
+           |
+           |   79 |                         key_to_blob(keys[i], &blob, &blen);
+           |      |                         ^
+           |      |                         |
+           |      |                         (34) returning to ‘process_add’ from ‘key_to_blob’
+           |......
+           |   82 |             *blob = 1;
+           |      |                   ~      
+           |      |                   |
+           |      |                   (35) use after ‘free’ of ‘blob’; freed at (24)
+           |
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c: In function ‘to_blob’:
+./benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c:29:17: warning: use of possibly-NULL ‘blob’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+   29 |                 memcpy(*blobp, buffer_ptr(&b), len);
+      |                 ^
+  ‘main’: events 1-2
+    |
+    |   97 | int main () {
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |   98 |     process_add();
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘process_add’ from ‘main’
+    |
+    +--> ‘process_add’: events 3-8
+           |
+           |   63 | process_add(void)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘process_add’
+           |......
+           |   75 |         if ((nkeys = pkcs11_add_provider(name, pin, &keys)) > 0) {
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘true’ branch (when ‘nkeys_30 > 0’)...
+           |   76 |                 buffer_put_char(&msg, SSH2_AGENT_IDENTITIES_ANSWER);
+           |      |                 ~
+           |      |                 |
+           |      |                 (5) ...to here
+           |   77 |                 buffer_put_int(&msg, nkeys);
+           |   78 |                 for (i = 0; i < nkeys; i++) {
+           |      |                               ~
+           |      |                               |
+           |      |                               (6) following ‘true’ branch (when ‘i_20 < nkeys_30’)...
+           |   79 |                         key_to_blob(keys[i], &blob, &blen);
+           |      |                         ~               ~
+           |      |                         |               |
+           |      |                         |               (7) ...to here
+           |      |                         (8) calling ‘key_to_blob’ from ‘process_add’
+           |
+           +--> ‘key_to_blob’: events 9-10
+                  |
+                  |   39 | key_to_blob(const Key *key, u_char **blobp, u_int *lenp)
+                  |      | ^
+                  |      | |
+                  |      | (9) entry to ‘key_to_blob’
+                  |   40 | {
+                  |   41 |         return to_blob(key, blobp, lenp, 0);
+                  |      |                ~
+                  |      |                |
+                  |      |                (10) calling ‘to_blob’ from ‘key_to_blob’
+                  |
+                  +--> ‘to_blob’: events 11-21
+                         |
+                         |   12 | to_blob(const Key *key, u_char **blobp, u_int *lenp, int force_plain)
+                         |      | ^
+                         |      | |
+                         |      | (11) entry to ‘to_blob’
+                         |......
+                         |   17 |         if (key == NULL) {
+                         |      |            ~
+                         |      |            |
+                         |      |            (12) following ‘false’ branch (when ‘key_19(D)’ is non-NULL)...
+                         |......
+                         |   21 |         buffer_init(&b);
+                         |      |         ~
+                         |      |         |
+                         |      |         (13) ...to here
+                         |   22 |         type = force_plain ? key_type_plain(key->type) : key->type;
+                         |      |                                                        ~
+                         |      |                                                        |
+                         |      |                                                        (14) following ‘false’ branch (when ‘force_plain_22(D) == 0’)...
+                         |   23 |                 len = buffer_len(&b);
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (15) ...to here
+                         |   24 |         if (lenp != NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (16) following ‘true’ branch (when ‘lenp_26(D)’ is non-NULL)...
+                         |   25 |                 *lenp = len;
+                         |      |                       ~
+                         |      |                       |
+                         |      |                       (17) ...to here
+                         |   26 | 
+                         |   27 |     if (blobp != NULL) {
+                         |      |        ~
+                         |      |        |
+                         |      |        (18) following ‘true’ branch (when ‘blobp_28(D)’ is non-NULL)...
+                         |   28 |                 *blobp = xmalloc(len); /* allocation site */
+                         |      |                          ~
+                         |      |                          |
+                         |      |                          (19) ...to here
+                         |      |                          (20) this call could return NULL
+                         |   29 |                 memcpy(*blobp, buffer_ptr(&b), len);
+                         |      |                 ~
+                         |      |                 |
+                         |      |                 (21) argument 1 (‘*blobp_28(D)’) from (20) could be NULL where non-null expected
+                         |
+<built-in>: note: argument 1 of ‘memcpy’ must be non-null
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 94%)
+ phase opt and generate             :   0.08 (100%)   0.00 (  0%)   0.08 ( 89%)    78k (  3%)
+ phase stream out                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ whopr wpa I/O                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ analyzer: scc                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ analyzer: processing worklist      :   0.04 ( 50%)   0.00 (  0%)   0.03 ( 33%)  1016  (  0%)
+ analyzer: emitting diagnostics     :   0.04 ( 50%)   0.00 (  0%)   0.04 ( 44%)  1408  (  0%)
+ TOTAL                              :   0.08          0.00          0.09         2289k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 81%)
+ phase opt and generate             :   0.02 (100%)   0.00 (  0%)   0.02 (100%)   459k ( 17%)
+ callgraph functions expansion      :   0.02 (100%)   0.00 (  0%)   0.02 (100%)   371k ( 14%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    11k (  0%)
+ final                              :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    16k (  1%)
+ initialize rtl                     :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 50%)    12k (  0%)
+ TOTAL                              :   0.02          0.00          0.02         2667k
+/usr/bin/ld: /tmp/ccbIbWB4.ltrans0.ltrans.o: in function `to_blob':
+<artificial>:(.text+0x27): undefined reference to `buffer_init'
+/usr/bin/ld: <artificial>:(.text+0x3c): undefined reference to `buffer_len'
+/usr/bin/ld: <artificial>:(.text+0x68): undefined reference to `buffer_ptr'
+/usr/bin/ld: <artificial>:(.text+0x84): undefined reference to `buffer_ptr'
+/usr/bin/ld: <artificial>:(.text+0xa1): undefined reference to `buffer_free'
+/usr/bin/ld: <artificial>:(.text+0xd2): undefined reference to `key_type_plain'
+/usr/bin/ld: /tmp/ccbIbWB4.ltrans0.ltrans.o: in function `buffer_append':
+<artificial>:(.text+0x101): undefined reference to `buffer_append_space'
+/usr/bin/ld: /tmp/ccbIbWB4.ltrans0.ltrans.o: in function `buffer_put_string':
+<artificial>:(.text+0x12d): undefined reference to `buffer_put_int'
+/usr/bin/ld: /tmp/ccbIbWB4.ltrans0.ltrans.o: in function `process_add':
+<artificial>:(.text+0x158): undefined reference to `buffer_init'
+/usr/bin/ld: <artificial>:(.text+0x167): undefined reference to `get_string'
+/usr/bin/ld: <artificial>:(.text+0x179): undefined reference to `get_string'
+/usr/bin/ld: <artificial>:(.text+0x191): undefined reference to `pkcs11_add_provider'
+/usr/bin/ld: <artificial>:(.text+0x1ae): undefined reference to `buffer_put_char'
+/usr/bin/ld: <artificial>:(.text+0x1be): undefined reference to `buffer_put_int'
+/usr/bin/ld: <artificial>:(.text+0x206): undefined reference to `buffer_put_cstring'
+/usr/bin/ld: <artificial>:(.text+0x228): undefined reference to `add_key'
+/usr/bin/ld: <artificial>:(.text+0x258): undefined reference to `send_msg'
+/usr/bin/ld: <artificial>:(.text+0x265): undefined reference to `buffer_free'
+/usr/bin/ld: <artificial>:(.text+0x284): undefined reference to `buffer_put_char'
+collect2: error: ld returned 1 exit status

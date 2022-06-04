@@ -1,0 +1,138 @@
+In file included from ./benchmarks/openssh-portable/double_free_1/openssh_df_1.c:9:
+./benchmarks/openssh-portable/double_free_1/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/double_free_1/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/double_free_1/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/double_free_1/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/double_free_1/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/double_free_1/openssh_df_1.c: In function ‘main’:
+./benchmarks/openssh-portable/double_free_1/openssh_df_1.c:145:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  145 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 46%)
+ phase parsing                      :   0.02 (100%)   0.01 ( 50%)   0.04 ( 80%)  1380k ( 49%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)   138k (  5%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)    73k (  3%)
+ preprocessing                      :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 20%)   637k ( 23%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)   565k ( 20%)
+ parser struct body                 :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)   115k (  4%)
+ tree SSA other                     :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)  1112  (  0%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   688  (  0%)
+ TOTAL                              :   0.02          0.02          0.05         2827k
+In function ‘dsa_generate_private_key’:
+./benchmarks/openssh-portable/double_free_1/openssh_df_1.c:111:17: warning: double-‘free’ of ‘private_2’ [CWE-415] [-Wanalyzer-double-free]
+  111 |                 free(private); /* double-free */
+      |                 ^
+  ‘dsa_generate_private_key’: events 1-12
+    |
+    |   94 |         if (dsap == NULL)
+    |      |            ^
+    |      |            |
+    |      |            (1) following ‘false’ branch (when ‘dsap_7(D)’ is non-NULL)...
+    |   95 |                 return SSH_ERR_INVALID_ARGUMENT;
+    |   96 |         if ((private = malloc(sizeof(DSA))) == NULL) { /* allocation site */
+    |      |            ~           ~
+    |      |            |           |
+    |      |            |           (2) ...to here
+    |      |            |           (3) allocated here
+    |      |            (4) assuming ‘private_10’ is non-NULL
+    |      |            (5) following ‘false’ branch (when ‘private_10’ is non-NULL)...
+    |......
+    |  100 |         *dsap = NULL;
+    |      |               ~
+    |      |               |
+    |      |               (6) ...to here
+    |  101 |         if (!DSA_generate_parameters_ex(private)) {
+    |      |            ~
+    |      |            |
+    |      |            (7) following ‘true’ branch...
+    |  102 |         free(private); /* double-free */
+    |      |         ~   
+    |      |         |
+    |      |         (8) ...to here
+    |      |         (9) first ‘free’ here
+    |......
+    |  110 |         if (private != NULL)
+    |      |            ~
+    |      |            |
+    |      |            (10) following ‘true’ branch (when ‘private_2’ is non-NULL)...
+    |  111 |                 free(private); /* double-free */
+    |      |                 ~
+    |      |                 |
+    |      |                 (11) ...to here
+    |      |                 (12) second ‘free’ here; first ‘free’ was at (9)
+    |
+In function ‘sshkey_new’:
+./benchmarks/openssh-portable/double_free_1/openssh_df_1.c:36:20: warning: leak of ‘k_6’ [CWE-401] [-Wanalyzer-malloc-leak]
+   36 |                 if ((dsa = malloc(sizeof(DSA))) == NULL)
+      |                    ^
+  ‘sshkey_new’: events 1-7
+    |
+    |   23 |         if ((k = calloc(1, sizeof(*k))) == NULL)
+    |      |            ~     ^
+    |      |            |     |
+    |      |            |     (1) allocated here
+    |      |            (2) assuming ‘k_6’ is non-NULL
+    |      |            (3) following ‘false’ branch (when ‘k_6’ is non-NULL)...
+    |   24 |                 return NULL;
+    |   25 |         k->type = type;
+    |      |                 ~ 
+    |      |                 |
+    |      |                 (4) ...to here
+    |......
+    |   33 |         switch (k->type) {
+    |      |         ~         
+    |      |         |
+    |      |         (5) following ‘case 2:’ branch...
+    |   34 |         case KEY_DSA:
+    |      |         ~         
+    |      |         |
+    |      |         (6) ...to here
+    |   35 |         case KEY_DSA_CERT:
+    |   36 |                 if ((dsa = malloc(sizeof(DSA))) == NULL)
+    |      |                    ~
+    |      |                    |
+    |      |                    (7) following ‘true’ branch (when ‘dsa_17’ is NULL)...
+    |
+  ‘sshkey_new’: event 8
+    |
+    |lto1:
+    | (8): ...to here
+    |
+  ‘sshkey_new’: event 9
+    |
+    |   36 |                 if ((dsa = malloc(sizeof(DSA))) == NULL)
+    |      |                    ^
+    |      |                    |
+    |      |                    (9) ‘k_6’ leaks here; was allocated at (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 94%)
+ phase opt and generate             :   0.00 (  0%)   0.01 (100%)   0.02 (100%)    78k (  3%)
+ analyzer: processing worklist      :   0.00 (  0%)   0.01 (100%)   0.02 (100%)     0  (  0%)
+ TOTAL                              :   0.00          0.01          0.02         2296k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 80%)
+ phase opt and generate             :   0.04 (100%)   0.00 (  0%)   0.04 (100%)   486k ( 18%)
+ callgraph functions expansion      :   0.03 ( 75%)   0.00 (  0%)   0.03 ( 75%)   395k ( 15%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    67k (  2%)
+ df live regs                       :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 50%)     0  (  0%)
+ tree CFG cleanup                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   512  (  0%)
+ tree SSA incremental               :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  4856  (  0%)
+ combiner                           :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  5968  (  0%)
+ rest of compilation                :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    17k (  1%)
+ TOTAL                              :   0.04          0.00          0.04         2700k

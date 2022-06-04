@@ -1,0 +1,1459 @@
+In file included from ./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:10:
+./benchmarks/openssh-portable/leak_9/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_9/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_9/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_9/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_9/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c: In function ‘do_lsreaddir’:
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:202:29: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  202 |                         if (strchr(filename, '/') != NULL) {
+      |                             ^~~~~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+   10 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:202:29: warning: incompatible implicit declaration of built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+  202 |                         if (strchr(filename, '/') != NULL) {
+      |                             ^~~~~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:202:29: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+In file included from ./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:9:
+./benchmarks/openssh-portable/leak_9/../stdio.h:266:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:211:58: note: in expansion of macro ‘xstrdup’
+  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+      |                                                          ^~~~~~~
+./benchmarks/openssh-portable/leak_9/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:211:58: note: in expansion of macro ‘xstrdup’
+  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+      |                                                          ^~~~~~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c: In function ‘main’:
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:243:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  243 |         srand(time(NULL));
+      |               ^~~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:259:21: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  259 |                 if (strcmp(filename, ".") == 0 ||
+      |                     ^~~~~~
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:259:21: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 45%)
+ phase parsing                      :   0.02 (100%)   0.01 ( 50%)   0.04 ( 80%)  1413k ( 49%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)   171k (  6%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)    90k (  3%)
+ ipa free lang data                 :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)  2632  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.03 ( 60%)   649k ( 22%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)   567k ( 20%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   119k (  4%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   856  (  0%)
+ varconst                           :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)   144  (  0%)
+ TOTAL                              :   0.02          0.02          0.05         2893k
+In function ‘do_lsreaddir’:
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:178:27: warning: dereference of possibly-NULL ‘dir_entries’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  178 |                 (*dir)[0] = NULL;
+      |                           ^
+  ‘main’: events 1-2
+    |
+    |  236 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  250 |         if (do_readdir(src, &dir_entries) == -1) {
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘do_readdir’ from ‘main’
+    |
+    +--> ‘do_readdir’: events 3-4
+           |
+           |  231 | do_readdir(char *path, SFTP_DIRENT ***dir)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_readdir’
+           |  232 | {
+           |  233 |         return(do_lsreaddir(path, 0, dir));
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘do_lsreaddir’ from ‘do_readdir’
+           |
+           +--> ‘do_lsreaddir’: events 5-9
+                  |
+                  |  168 | do_lsreaddir(char *path, int print_flag,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘do_lsreaddir’
+                  |......
+                  |  175 |         if (dir) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  176 |                 ents = 0;
+                  |  177 |                 *dir = xcalloc(1, sizeof(**dir));       /* allocation site */
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (7) ...to here
+                  |      |                        (8) this call could return NULL
+                  |  178 |                 (*dir)[0] = NULL;
+                  |      |                           ~
+                  |      |                           |
+                  |      |                           (9) ‘*dir_55(D)’ could be NULL: unchecked value from (8)
+                  |
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:181:15: warning: leak of ‘strdup ("longname")’ [CWE-401] [-Wanalyzer-malloc-leak]
+  181 |         for(; !interrupted;) {
+      |               ^
+  ‘main’: events 1-2
+    |
+    |  236 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  250 |         if (do_readdir(src, &dir_entries) == -1) {
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘do_readdir’ from ‘main’
+    |
+    +--> ‘do_readdir’: events 3-4
+           |
+           |  231 | do_readdir(char *path, SFTP_DIRENT ***dir)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_readdir’
+           |  232 | {
+           |  233 |         return(do_lsreaddir(path, 0, dir));
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘do_lsreaddir’ from ‘do_readdir’
+           |
+           +--> ‘do_lsreaddir’: events 5-12
+                  |
+                  |  168 | do_lsreaddir(char *path, int print_flag,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘do_lsreaddir’
+                  |......
+                  |  175 |         if (dir) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  176 |                 ents = 0;
+                  |  177 |                 *dir = xcalloc(1, sizeof(**dir));       /* allocation site */
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (7) ...to here
+                  |......
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ~
+                  |      |               |
+                  |      |               (8) following ‘true’ branch...
+                  |  182 |                 if(__RANDBOOL)
+                  |      |                   ~~
+                  |      |                   ||
+                  |      |                   |(9) ...to here
+                  |      |                   (10) following ‘false’ branch...
+                  |......
+                  |  185 |                 count = rand() % 5;
+                  |      |                         ~
+                  |      |                         |
+                  |      |                         (11) ...to here
+                  |  186 |                 if(count == 0)
+                  |      |                   ~
+                  |      |                   |
+                  |      |                   (12) following ‘false’ branch (when ‘count_62 != 0’)...
+                  |
+                ‘do_lsreaddir’: event 13
+                  |
+                  |lto1:
+                  | (13): ...to here
+                  |
+                ‘do_lsreaddir’: events 14-20
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ^
+                  |      |                               |
+                  |      |                               (14) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (15) ...to here
+                  |      |                            (16) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                             ~  
+                  |      |                             |
+                  |      |                             (17) ...to here
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (18) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ~                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (19) ...to here
+                  |      |                                        (20) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘xrealloc’: events 21-29
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (21) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (22) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (23) ...to here
+                         |      |            (24) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (25) ...to here
+                         |      |            (26) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (27) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (28) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (29) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 30-40
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (32) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (33) ...to here
+                  |      |                            (34) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~           
+                  |      |                            ||
+                  |      |                            |(35) ...to here
+                  |      |                            (36) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (37) ...to here
+                  |      |                            (38) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (39) ...to here
+                  |      |                                        (30) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |      |                                        (40) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |......
+                  |  212 |                                 (*dir)[ents]->longname = xstrdup(longname);
+                  |      |                                                          ~
+                  |      |                                                          |
+                  |      |                                                          (31) allocated here
+                  |
+                  +--> ‘xrealloc’: events 41-49
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (41) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (42) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (43) ...to here
+                         |      |            (44) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (45) ...to here
+                         |      |            (46) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (47) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (48) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (49) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 50-60
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (52) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (53) ...to here
+                  |      |                            (54) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~           
+                  |      |                            ||
+                  |      |                            |(55) ...to here
+                  |      |                            (56) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (57) ...to here
+                  |      |                            (58) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (59) ...to here
+                  |      |                                        (50) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |      |                                        (60) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |......
+                  |  212 |                                 (*dir)[ents]->longname = xstrdup(longname);
+                  |      |                                                          ~
+                  |      |                                                          |
+                  |      |                                                          (51) allocated here
+                  |
+                  +--> ‘xrealloc’: events 61-69
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (61) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (62) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (63) ...to here
+                         |      |            (64) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (65) ...to here
+                         |      |            (66) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (67) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (68) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (69) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 70-72
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (72) following ‘false’ branch (when ‘i_43 >= count_62’)...
+                  |......
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^
+                  |      |                                        |
+                  |      |                                        (70) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |......
+                  |  212 |                                 (*dir)[ents]->longname = xstrdup(longname);
+                  |      |                                                          ~
+                  |      |                                                          |
+                  |      |                                                          (71) allocated here
+                  |
+                ‘do_lsreaddir’: event 73
+                  |
+                  |lto1:
+                  | (73): ...to here
+                  |
+                ‘do_lsreaddir’: events 74-78
+                  |
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ^
+                  |      |               |
+                  |      |               (74) following ‘false’ branch...
+                  |......
+                  |  221 |         if (interrupted && dir != NULL && *dir != NULL) {
+                  |      |            ~~                          ~  ~
+                  |      |            ||                          |  |
+                  |      |            ||                          |  (77) ...to here
+                  |      |            |(75) ...to here            (78) following ‘false’ branch...
+                  |      |            (76) following ‘true’ branch...
+                  |
+                ‘do_lsreaddir’: event 79
+                  |
+                  |lto1:
+                  | (79): ...to here
+                  |
+                ‘do_lsreaddir’: event 80
+                  |
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ^
+                  |      |               |
+                  |      |               (80) ‘strdup ("longname")’ leaks here; was allocated at (71)
+                  |
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:181:15: warning: leak of ‘strdup (path_63(D))’ [CWE-401] [-Wanalyzer-malloc-leak]
+  ‘main’: events 1-2
+    |
+    |  236 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  250 |         if (do_readdir(src, &dir_entries) == -1) {
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘do_readdir’ from ‘main’
+    |
+    +--> ‘do_readdir’: events 3-4
+           |
+           |  231 | do_readdir(char *path, SFTP_DIRENT ***dir)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_readdir’
+           |  232 | {
+           |  233 |         return(do_lsreaddir(path, 0, dir));
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘do_lsreaddir’ from ‘do_readdir’
+           |
+           +--> ‘do_lsreaddir’: events 5-12
+                  |
+                  |  168 | do_lsreaddir(char *path, int print_flag,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘do_lsreaddir’
+                  |......
+                  |  175 |         if (dir) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  176 |                 ents = 0;
+                  |  177 |                 *dir = xcalloc(1, sizeof(**dir));       /* allocation site */
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (7) ...to here
+                  |......
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ~
+                  |      |               |
+                  |      |               (8) following ‘true’ branch...
+                  |  182 |                 if(__RANDBOOL)
+                  |      |                   ~~
+                  |      |                   ||
+                  |      |                   |(9) ...to here
+                  |      |                   (10) following ‘false’ branch...
+                  |......
+                  |  185 |                 count = rand() % 5;
+                  |      |                         ~
+                  |      |                         |
+                  |      |                         (11) ...to here
+                  |  186 |                 if(count == 0)
+                  |      |                   ~
+                  |      |                   |
+                  |      |                   (12) following ‘false’ branch (when ‘count_62 != 0’)...
+                  |
+                ‘do_lsreaddir’: event 13
+                  |
+                  |lto1:
+                  | (13): ...to here
+                  |
+                ‘do_lsreaddir’: events 14-20
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ^
+                  |      |                               |
+                  |      |                               (14) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (15) ...to here
+                  |      |                            (16) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                             ~  
+                  |      |                             |
+                  |      |                             (17) ...to here
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (18) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ~                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (19) ...to here
+                  |      |                                        (20) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘xrealloc’: events 21-29
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (21) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (22) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (23) ...to here
+                         |      |            (24) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (25) ...to here
+                         |      |            (26) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (27) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (28) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (29) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 30-40
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (32) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (33) ...to here
+                  |      |                            (34) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~           
+                  |      |                            ||
+                  |      |                            |(35) ...to here
+                  |      |                            (36) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (37) ...to here
+                  |      |                            (38) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (39) ...to here
+                  |      |                                        (30) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |      |                                        (40) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |  210 |                                 (*dir)[ents] = xcalloc(1, sizeof(***dir));
+                  |  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+                  |      |                                                          ~
+                  |      |                                                          |
+                  |      |                                                          (31) allocated here
+                  |
+                  +--> ‘xrealloc’: events 41-49
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (41) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (42) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (43) ...to here
+                         |      |            (44) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (45) ...to here
+                         |      |            (46) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (47) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (48) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (49) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 50-60
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (52) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (53) ...to here
+                  |      |                            (54) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~           
+                  |      |                            ||
+                  |      |                            |(55) ...to here
+                  |      |                            (56) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (57) ...to here
+                  |      |                            (58) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (59) ...to here
+                  |      |                                        (50) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |      |                                        (60) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |  210 |                                 (*dir)[ents] = xcalloc(1, sizeof(***dir));
+                  |  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+                  |      |                                                          ~
+                  |      |                                                          |
+                  |      |                                                          (51) allocated here
+                  |
+                  +--> ‘xrealloc’: events 61-69
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (61) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (62) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (63) ...to here
+                         |      |            (64) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (65) ...to here
+                         |      |            (66) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (67) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (68) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (69) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 70-72
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (72) following ‘false’ branch (when ‘i_43 >= count_62’)...
+                  |......
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^
+                  |      |                                        |
+                  |      |                                        (70) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |  210 |                                 (*dir)[ents] = xcalloc(1, sizeof(***dir));
+                  |  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+                  |      |                                                          ~
+                  |      |                                                          |
+                  |      |                                                          (71) allocated here
+                  |
+                ‘do_lsreaddir’: event 73
+                  |
+                  |lto1:
+                  | (73): ...to here
+                  |
+                ‘do_lsreaddir’: events 74-78
+                  |
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ^
+                  |      |               |
+                  |      |               (74) following ‘false’ branch...
+                  |......
+                  |  221 |         if (interrupted && dir != NULL && *dir != NULL) {
+                  |      |            ~~                          ~  ~
+                  |      |            ||                          |  |
+                  |      |            ||                          |  (77) ...to here
+                  |      |            |(75) ...to here            (78) following ‘false’ branch...
+                  |      |            (76) following ‘true’ branch...
+                  |
+                ‘do_lsreaddir’: event 79
+                  |
+                  |lto1:
+                  | (79): ...to here
+                  |
+                ‘do_lsreaddir’: event 80
+                  |
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ^
+                  |      |               |
+                  |      |               (80) ‘strdup (path_63(D))’ leaks here; was allocated at (71)
+                  |
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:211:56: warning: dereference of possibly-NULL ‘*_20’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+      |                                                        ^
+  ‘main’: events 1-2
+    |
+    |  236 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  250 |         if (do_readdir(src, &dir_entries) == -1) {
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘do_readdir’ from ‘main’
+    |
+    +--> ‘do_readdir’: events 3-4
+           |
+           |  231 | do_readdir(char *path, SFTP_DIRENT ***dir)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_readdir’
+           |  232 | {
+           |  233 |         return(do_lsreaddir(path, 0, dir));
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘do_lsreaddir’ from ‘do_readdir’
+           |
+           +--> ‘do_lsreaddir’: events 5-12
+                  |
+                  |  168 | do_lsreaddir(char *path, int print_flag,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘do_lsreaddir’
+                  |......
+                  |  175 |         if (dir) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  176 |                 ents = 0;
+                  |  177 |                 *dir = xcalloc(1, sizeof(**dir));       /* allocation site */
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (7) ...to here
+                  |......
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ~
+                  |      |               |
+                  |      |               (8) following ‘true’ branch...
+                  |  182 |                 if(__RANDBOOL)
+                  |      |                   ~~
+                  |      |                   ||
+                  |      |                   |(9) ...to here
+                  |      |                   (10) following ‘false’ branch...
+                  |......
+                  |  185 |                 count = rand() % 5;
+                  |      |                         ~
+                  |      |                         |
+                  |      |                         (11) ...to here
+                  |  186 |                 if(count == 0)
+                  |      |                   ~
+                  |      |                   |
+                  |      |                   (12) following ‘false’ branch (when ‘count_62 != 0’)...
+                  |
+                ‘do_lsreaddir’: event 13
+                  |
+                  |lto1:
+                  | (13): ...to here
+                  |
+                ‘do_lsreaddir’: events 14-22
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ^
+                  |      |                               |
+                  |      |                               (14) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (15) ...to here
+                  |      |                            (16) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~  
+                  |      |                            ||
+                  |      |                            |(17) ...to here
+                  |      |                            (18) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (19) ...to here
+                  |      |                            (20) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ~                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (21) ...to here
+                  |      |                                        (22) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘xrealloc’: events 23-31
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (23) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (24) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (25) ...to here
+                         |      |            (26) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (27) ...to here
+                         |      |            (28) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (29) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (30) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (31) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 32-34
+                  |
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^
+                  |      |                                        |
+                  |      |                                        (32) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |  210 |                                 (*dir)[ents] = xcalloc(1, sizeof(***dir));
+                  |      |                                                ~
+                  |      |                                                |
+                  |      |                                                (33) this call could return NULL
+                  |  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+                  |      |                                                        ~
+                  |      |                                                        |
+                  |      |                                                        (34) ‘*_20’ could be NULL: unchecked value from (33)
+                  |
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:213:48: warning: leak of ‘<unknown>’ [CWE-401] [-Wanalyzer-malloc-leak]
+  213 |                                 (*dir)[++ents] = NULL;
+      |                                                ^
+  ‘main’: events 1-2
+    |
+    |  236 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  250 |         if (do_readdir(src, &dir_entries) == -1) {
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘do_readdir’ from ‘main’
+    |
+    +--> ‘do_readdir’: events 3-4
+           |
+           |  231 | do_readdir(char *path, SFTP_DIRENT ***dir)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_readdir’
+           |  232 | {
+           |  233 |         return(do_lsreaddir(path, 0, dir));
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘do_lsreaddir’ from ‘do_readdir’
+           |
+           +--> ‘do_lsreaddir’: events 5-12
+                  |
+                  |  168 | do_lsreaddir(char *path, int print_flag,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘do_lsreaddir’
+                  |......
+                  |  175 |         if (dir) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  176 |                 ents = 0;
+                  |  177 |                 *dir = xcalloc(1, sizeof(**dir));       /* allocation site */
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (7) ...to here
+                  |......
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ~
+                  |      |               |
+                  |      |               (8) following ‘true’ branch...
+                  |  182 |                 if(__RANDBOOL)
+                  |      |                   ~~
+                  |      |                   ||
+                  |      |                   |(9) ...to here
+                  |      |                   (10) following ‘false’ branch...
+                  |......
+                  |  185 |                 count = rand() % 5;
+                  |      |                         ~
+                  |      |                         |
+                  |      |                         (11) ...to here
+                  |  186 |                 if(count == 0)
+                  |      |                   ~
+                  |      |                   |
+                  |      |                   (12) following ‘false’ branch (when ‘count_62 != 0’)...
+                  |
+                ‘do_lsreaddir’: event 13
+                  |
+                  |lto1:
+                  | (13): ...to here
+                  |
+                ‘do_lsreaddir’: events 14-20
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ^
+                  |      |                               |
+                  |      |                               (14) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (15) ...to here
+                  |      |                            (16) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                             ~  
+                  |      |                             |
+                  |      |                             (17) ...to here
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~   
+                  |      |                            |
+                  |      |                            (18) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ~                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (19) ...to here
+                  |      |                                        (20) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘xrealloc’: events 21-29
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (21) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (22) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (23) ...to here
+                         |      |            (24) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (25) ...to here
+                         |      |            (26) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (27) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (28) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (29) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 30-39
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (31) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (32) ...to here
+                  |      |                            (33) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~           
+                  |      |                            ||
+                  |      |                            |(34) ...to here
+                  |      |                            (35) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (36) ...to here
+                  |      |                            (37) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (38) ...to here
+                  |      |                                        (30) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |      |                                        (39) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘xrealloc’: events 40-48
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (40) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (41) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (42) ...to here
+                         |      |            (43) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (44) ...to here
+                         |      |            (45) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (46) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (47) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (48) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 49-58
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (50) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (51) ...to here
+                  |      |                            (52) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~           
+                  |      |                            ||
+                  |      |                            |(53) ...to here
+                  |      |                            (54) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (55) ...to here
+                  |      |                            (56) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (57) ...to here
+                  |      |                                        (49) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |      |                                        (58) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘xrealloc’: events 59-67
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (59) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (60) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (61) ...to here
+                         |      |            (62) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (63) ...to here
+                         |      |            (64) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (65) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (66) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (67) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 68-77
+                  |
+                  |  188 |                 for (i = 0; i < count; i++) {
+                  |      |                               ~         
+                  |      |                               |
+                  |      |                               (69) following ‘true’ branch (when ‘i_43 < count_62’)...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (70) ...to here
+                  |      |                            (71) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~           
+                  |      |                            ||
+                  |      |                            |(72) ...to here
+                  |      |                            (73) following ‘false’ branch...
+                  |......
+                  |  208 |                         if (dir) {
+                  |      |                            ~            
+                  |      |                            |
+                  |      |                            (74) ...to here
+                  |      |                            (75) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^                   ~
+                  |      |                                        |                   |
+                  |      |                                        |                   (76) ...to here
+                  |      |                                        (68) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |      |                                        (77) calling ‘xrealloc’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘xrealloc’: events 78-86
+                         |
+                         |  136 | xrealloc(void *ptr, size_t nmemb, size_t size)
+                         |      | ^
+                         |      | |
+                         |      | (78) entry to ‘xrealloc’
+                         |......
+                         |  141 |         if (new_size == 0)
+                         |      |            ~
+                         |      |            |
+                         |      |            (79) following ‘false’ branch (when ‘new_size_6 != 0’)...
+                         |  142 |                 fatal("xrealloc: zero size%s\n", "");
+                         |  143 |         if (SIZE_T_MAX / nmemb < size)
+                         |      |            ~           ~
+                         |      |            |           |
+                         |      |            |           (80) ...to here
+                         |      |            (81) following ‘false’ branch...
+                         |  144 |                 fatal("xrealloc: nmemb * size > SIZE_T_MAX%s\n", "");
+                         |  145 |         if (ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (82) ...to here
+                         |      |            (83) following ‘false’ branch (when ‘ptr_7(D)’ is non-NULL)...
+                         |......
+                         |  148 |                 new_ptr = realloc(ptr, new_size);
+                         |      |                           ~
+                         |      |                           |
+                         |      |                           (84) ...to here
+                         |  149 |         if (new_ptr == NULL)
+                         |      |            ~
+                         |      |            |
+                         |      |            (85) following ‘false’ branch (when ‘new_ptr_2’ is non-NULL)...
+                         |......
+                         |  152 |         return new_ptr;
+                         |      |                ~
+                         |      |                |
+                         |      |                (86) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 87-90
+                  |
+                  |  209 |                                 *dir = xrealloc(*dir, ents + 2, sizeof(**dir));
+                  |      |                                        ^
+                  |      |                                        |
+                  |      |                                        (87) returning to ‘do_lsreaddir’ from ‘xrealloc’
+                  |  210 |                                 (*dir)[ents] = xcalloc(1, sizeof(***dir));
+                  |      |                                                ~
+                  |      |                                                |
+                  |      |                                                (88) allocated here
+                  |  211 |                                 (*dir)[ents]->filename = xstrdup(filename);
+                  |      |                                                        ~
+                  |      |                                                        |
+                  |      |                                                        (89) assuming ‘<unknown>’ is non-NULL
+                  |  212 |                                 (*dir)[ents]->longname = xstrdup(longname);
+                  |  213 |                                 (*dir)[++ents] = NULL;
+                  |      |                                                ~
+                  |      |                                                |
+                  |      |                                                (90) ‘<unknown>’ leaks here; was allocated at (88)
+                  |
+./benchmarks/openssh-portable/leak_9/openssh_leak_9.c:224:23: warning: dereference of possibly-NULL ‘dir_entries’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  224 |                 **dir = NULL;
+      |                       ^
+  ‘main’: events 1-2
+    |
+    |  236 | int main(int argc, char **argv)
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  250 |         if (do_readdir(src, &dir_entries) == -1) {
+    |      |             ~
+    |      |             |
+    |      |             (2) calling ‘do_readdir’ from ‘main’
+    |
+    +--> ‘do_readdir’: events 3-4
+           |
+           |  231 | do_readdir(char *path, SFTP_DIRENT ***dir)
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘do_readdir’
+           |  232 | {
+           |  233 |         return(do_lsreaddir(path, 0, dir));
+           |      |                ~
+           |      |                |
+           |      |                (4) calling ‘do_lsreaddir’ from ‘do_readdir’
+           |
+           +--> ‘do_lsreaddir’: events 5-12
+                  |
+                  |  168 | do_lsreaddir(char *path, int print_flag,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘do_lsreaddir’
+                  |......
+                  |  175 |         if (dir) {
+                  |      |            ~
+                  |      |            |
+                  |      |            (6) following ‘true’ branch (when ‘dir_55(D)’ is non-NULL)...
+                  |  176 |                 ents = 0;
+                  |  177 |                 *dir = xcalloc(1, sizeof(**dir));       /* allocation site */
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (7) ...to here
+                  |......
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ~
+                  |      |               |
+                  |      |               (8) following ‘true’ branch...
+                  |  182 |                 if(__RANDBOOL)
+                  |      |                   ~~
+                  |      |                   ||
+                  |      |                   |(9) ...to here
+                  |      |                   (10) following ‘false’ branch...
+                  |......
+                  |  185 |                 count = rand() % 5;
+                  |      |                         ~
+                  |      |                         |
+                  |      |                         (11) ...to here
+                  |  186 |                 if(count == 0)
+                  |      |                   ~
+                  |      |                   |
+                  |      |                   (12) following ‘false’ branch (when ‘count_62 != 0’)...
+                  |
+                ‘do_lsreaddir’: event 13
+                  |
+                  |lto1:
+                  | (13): ...to here
+                  |
+                ‘do_lsreaddir’: events 14-22
+                  |
+                  |  181 |         for(; !interrupted;) {
+                  |      |               ~             
+                  |      |               |
+                  |      |               (18) following ‘false’ branch...
+                  |......
+                  |  194 |                         if (print_flag)
+                  |      |                            ^
+                  |      |                            |
+                  |      |                            (14) following ‘false’ branch (when ‘print_flag_64(D) == 0’)...
+                  |......
+                  |  202 |                         if (strchr(filename, '/') != NULL) {
+                  |      |                            ~~
+                  |      |                            ||
+                  |      |                            |(15) ...to here
+                  |      |                            (16) following ‘true’ branch...
+                  |  203 |                                 printf("Server sent suspect path \"%s\" "
+                  |      |                                 ~
+                  |      |                                 |
+                  |      |                                 (17) ...to here
+                  |......
+                  |  221 |         if (interrupted && dir != NULL && *dir != NULL) {
+                  |      |            ~~               
+                  |      |            ||
+                  |      |            |(19) ...to here
+                  |      |            (20) following ‘true’ branch...
+                  |  222 |                 free_sftp_dirents(*dir);
+                  |      |                 ~           
+                  |      |                 |
+                  |      |                 (21) ...to here
+                  |      |                 (22) calling ‘free_sftp_dirents’ from ‘do_lsreaddir’
+                  |
+                  +--> ‘free_sftp_dirents’: events 23-25
+                         |
+                         |  155 | void free_sftp_dirents(SFTP_DIRENT **s)
+                         |      |      ^
+                         |      |      |
+                         |      |      (23) entry to ‘free_sftp_dirents’
+                         |......
+                         |  159 |         for (i = 0; s[i]; i++) {
+                         |      |                     ~
+                         |      |                     |
+                         |      |                     (24) following ‘false’ branch...
+                         |......
+                         |  164 |         free(s);
+                         |      |         ~
+                         |      |         |
+                         |      |         (25) ...to here
+                         |
+                  <------+
+                  |
+                ‘do_lsreaddir’: events 26-28
+                  |
+                  |  222 |                 free_sftp_dirents(*dir);
+                  |      |                 ^
+                  |      |                 |
+                  |      |                 (26) returning to ‘do_lsreaddir’ from ‘free_sftp_dirents’
+                  |  223 |                 *dir = xcalloc(1, sizeof(**dir));
+                  |      |                        ~
+                  |      |                        |
+                  |      |                        (27) this call could return NULL
+                  |  224 |                 **dir = NULL;
+                  |      |                       ~
+                  |      |                       |
+                  |      |                       (28) ‘*dir_55(D)’ could be NULL: unchecked value from (27)
+                  |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 93%)
+ phase opt and generate             :   0.32 (100%)   0.00 (  0%)   0.33 (100%)   105k (  5%)
+ analyzer                           :   0.01 (  3%)   0.00 (  0%)   0.01 (  3%)     0  (  0%)
+ analyzer: processing worklist      :   0.08 ( 25%)   0.00 (  0%)   0.08 ( 24%)  2088  (  0%)
+ analyzer: emitting diagnostics     :   0.23 ( 72%)   0.00 (  0%)   0.24 ( 73%)  2248  (  0%)
+ TOTAL                              :   0.32          0.00          0.33         2318k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 76%)
+ phase opt and generate             :   0.02 (100%)   0.01 (100%)   0.03 (100%)   613k ( 22%)
+ callgraph functions expansion      :   0.02 (100%)   0.01 (100%)   0.03 (100%)   496k ( 18%)
+ dominator optimization             :   0.01 ( 50%)   0.01 (100%)   0.00 (  0%)    18k (  1%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   808  (  0%)
+ branch prediction                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ thread pro- & epilogue             :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    11k (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    12k (  0%)
+ TOTAL                              :   0.02          0.01          0.03         2824k

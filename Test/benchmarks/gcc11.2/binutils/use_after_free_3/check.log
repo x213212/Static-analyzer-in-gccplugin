@@ -1,0 +1,265 @@
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c: In function ‘cgen_get_insn_value’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:116:24: warning: implicit declaration of function ‘bfd_get_bits’; did you mean ‘bfd_put_bits’? [-Wimplicit-function-declaration]
+  116 |           this_value = bfd_get_bits (& buf[bit_index / 8], insn_chunk_bitsize, big_p);
+      |                        ^~~~~~~~~~~~
+      |                        bfd_put_bits
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c: In function ‘cgen_dis_lookup_insn’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:163:5: warning: implicit declaration of function ‘build_dis_hash_table’ [-Wimplicit-function-declaration]
+  163 |     build_dis_hash_table (cd);
+      |     ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c: In function ‘main’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:210:39: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  210 |     unsigned char *insn_bytes_value = strdup("insn_value");
+      |                                       ^~~~~~
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:210:39: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 47%)
+ phase parsing                      :   0.01 ( 50%)   0.02 ( 67%)   0.03 ( 60%)  1168k ( 42%)
+ phase opt and generate             :   0.01 ( 50%)   0.01 ( 33%)   0.01 ( 20%)   277k ( 10%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ callgraph optimization             :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 50%)   0.01 ( 33%)   0.01 ( 20%)   163k (  6%)
+ ipa lto gimple out                 :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  1640  (  0%)
+ preprocessing                      :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)   376k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.02 ( 67%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)   606k ( 22%)
+ TOTAL                              :   0.02          0.03          0.05         2754k
+./benchmarks/binutils/use_after_free_3/../include/common.h: In function ‘main’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:211:24: warning: dereference of possibly-NULL ‘cd_7’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  211 |         cd->int_insn_p = __RANDBOOL;
+      |                        ^
+  ‘main’: events 1-2
+    |
+    |  209 |     CGEN_CPU_DESC cd = malloc(sizeof(*cd));
+    |      |                        ^
+    |      |                        |
+    |      |                        (1) this call could return NULL
+    |  210 |     unsigned char *insn_bytes_value = strdup("insn_value");
+    |  211 |         cd->int_insn_p = __RANDBOOL;
+    |      |                        ~
+    |      |                        |
+    |      |                        (2) ‘cd_7’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/binutils/use_after_free_3/../include/common.h: In function ‘cgen_dis_lookup_insn’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:165:16: warning: dereference of possibly-NULL ‘buf_31(D)’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  165 |         hash = CGEN_DIS_HASH(buf, value);
+      |                ^
+  ‘main’: events 1-3
+    |
+    |  207 | int main()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  210 |     unsigned char *insn_bytes_value = strdup("insn_value");
+    |      |                                       ~
+    |      |                                       |
+    |      |                                       (2) this call could return NULL
+    |  211 |         cd->int_insn_p = __RANDBOOL;
+    |  212 |         cgen_lookup_insn(cd, NULL, 0, insn_bytes_value);
+    |      |         ~
+    |      |         |
+    |      |         (3) calling ‘cgen_lookup_insn’ from ‘main’
+    |
+    +--> ‘cgen_lookup_insn’: events 4-7
+           |
+           |  170 | cgen_lookup_insn (CGEN_CPU_DESC cd,
+           |      | ^
+           |      | |
+           |      | (4) entry to ‘cgen_lookup_insn’
+           |......
+           |  179 |   if (cd->int_insn_p)
+           |      |      ~
+           |      |      |
+           |      |      (5) following ‘false’ branch...
+           |......
+           |  189 |       base_insn = cgen_get_insn_value (cd, buf, length);
+           |      |                   ~
+           |      |                   |
+           |      |                   (6) ...to here
+           |      |                   (7) calling ‘cgen_get_insn_value’ from ‘cgen_lookup_insn’
+           |
+           +--> ‘cgen_get_insn_value’: events 8-9
+                  |
+                  |  101 | cgen_get_insn_value (CGEN_CPU_DESC cd, unsigned char *buf, int length)
+                  |      | ^
+                  |      | |
+                  |      | (8) entry to ‘cgen_get_insn_value’
+                  |......
+                  |  107 |   if (insn_chunk_bitsize != 0 && insn_chunk_bitsize < length)
+                  |      |      ~
+                  |      |      |
+                  |      |      (9) following ‘true’ branch...
+                  |
+                ‘cgen_get_insn_value’: event 10
+                  |
+                  |lto1:
+                  | (10): ...to here
+                  |
+                ‘cgen_get_insn_value’: events 11-12
+                  |
+                  |  110 |       for (i = 0; i < length; i += insn_chunk_bitsize) /* NB: i == bits */
+                  |      |                     ^
+                  |      |                     |
+                  |      |                     (11) following ‘false’ branch (when ‘length_13(D) <= 0’)...
+                  |......
+                  |  125 |   return value;
+                  |      |          ~           
+                  |      |          |
+                  |      |          (12) ...to here
+                  |
+           <------+
+           |
+         ‘cgen_lookup_insn’: events 13-16
+           |
+           |  189 |       base_insn = cgen_get_insn_value (cd, buf, length);
+           |      |                   ^
+           |      |                   |
+           |      |                   (13) returning to ‘cgen_lookup_insn’ from ‘cgen_get_insn_value’
+           |......
+           |  192 |   if (!insn)
+           |      |      ~             
+           |      |      |
+           |      |      (14) following ‘true’ branch (when ‘insn_18(D)’ is NULL)...
+           |......
+           |  196 |       insn_list = cgen_dis_lookup_insn (cd, (char *) buf, base_insn);   /* use-after-free */
+           |      |                   ~
+           |      |                   |
+           |      |                   (15) ...to here
+           |      |                   (16) calling ‘cgen_dis_lookup_insn’ from ‘cgen_lookup_insn’
+           |
+           +--> ‘cgen_dis_lookup_insn’: events 17-20
+                  |
+                  |  158 | cgen_dis_lookup_insn (CGEN_CPU_DESC cd, const char * buf, CGEN_INSN_INT value)
+                  |      | ^
+                  |      | |
+                  |      | (17) entry to ‘cgen_dis_lookup_insn’
+                  |......
+                  |  162 |     if (cd->dis_hash_table == NULL)
+                  |      |        ~
+                  |      |        |
+                  |      |        (18) following ‘false’ branch...
+                  |......
+                  |  165 |         hash = CGEN_DIS_HASH(buf, value);
+                  |      |                ~
+                  |      |                |
+                  |      |                (19) ...to here
+                  |      |                (20) ‘buf_31(D)’ could be NULL: unchecked value from (2)
+                  |
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:165:16: warning: use after ‘free’ of ‘buf_31(D)’ [CWE-416] [-Wanalyzer-use-after-free]
+  165 |         hash = CGEN_DIS_HASH(buf, value);
+      |                ^
+  ‘cgen_lookup_insn’: events 1-8
+    |
+    |  170 | cgen_lookup_insn (CGEN_CPU_DESC cd,
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘cgen_lookup_insn’
+    |......
+    |  179 |   if (cd->int_insn_p)
+    |      |      ~
+    |      |      |
+    |      |      (2) following ‘true’ branch...
+    |  180 |     {
+    |  181 |       buf = (unsigned char *) xmalloc (4);      /* allocation site */
+    |      |                               ~
+    |      |                               |
+    |      |                               (3) ...to here
+    |      |                               (4) allocated here
+    |......
+    |  184 |       free (buf);                                                       /* freed */
+    |      |       ~
+    |      |       |
+    |      |       (5) freed here
+    |......
+    |  192 |   if (!insn)
+    |      |      ~
+    |      |      |
+    |      |      (6) following ‘true’ branch (when ‘insn_18(D)’ is NULL)...
+    |......
+    |  196 |       insn_list = cgen_dis_lookup_insn (cd, (char *) buf, base_insn);   /* use-after-free */
+    |      |                   ~
+    |      |                   |
+    |      |                   (7) ...to here
+    |      |                   (8) calling ‘cgen_dis_lookup_insn’ from ‘cgen_lookup_insn’
+    |
+    +--> ‘cgen_dis_lookup_insn’: events 9-10
+           |
+           |  158 | cgen_dis_lookup_insn (CGEN_CPU_DESC cd, const char * buf, CGEN_INSN_INT value)
+           |      | ^
+           |      | |
+           |      | (9) entry to ‘cgen_dis_lookup_insn’
+           |......
+           |  165 |         hash = CGEN_DIS_HASH(buf, value);
+           |      |                ~
+           |      |                |
+           |      |                (10) use after ‘free’ of ‘buf_31(D)’; freed at (5)
+           |
+./benchmarks/binutils/use_after_free_3/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/use_after_free_3/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_cleanup’: events 1-2
+    |
+    |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘make_cleanup’
+    |  150 | {
+    |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+    |      |          ~
+    |      |          |
+    |      |          (2) calling ‘make_my_cleanup’ from ‘make_cleanup’
+    |
+    +--> ‘make_my_cleanup’: events 3-4
+           |
+           |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_my_cleanup’
+           |......
+           |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+           |
+           +--> ‘make_my_cleanup2’: events 5-7
+                  |
+                  |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup2’
+                  |......
+                  |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+                  |      |                          ~
+                  |      |                          |
+                  |      |                          (6) this call could return NULL
+                  |......
+                  |  129 |   new->next = *pmy_chain;
+                  |      |             ~
+                  |      |             |
+                  |      |             (7) ‘new_4’ could be NULL: unchecked value from (6)
+                  |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)  2157k ( 91%)
+ phase opt and generate             :   0.11 (100%)   0.00 (  0%)   0.10 ( 91%)   154k (  6%)
+ analyzer                           :   0.01 (  9%)   0.00 (  0%)   0.01 (  9%)     0  (  0%)
+ analyzer: processing worklist      :   0.09 ( 82%)   0.00 (  0%)   0.09 ( 82%)  4552  (  0%)
+ analyzer: emitting diagnostics     :   0.01 (  9%)   0.00 (  0%)   0.00 (  0%)    64  (  0%)
+ TOTAL                              :   0.11          0.00          0.11         2380k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 78%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   551k ( 20%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   446k ( 16%)
+ tree copy headers                  :   0.00 (  0%)   0.00 (  0%)   0.02 ( 67%)  5192  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 33%)    12k (  0%)
+ rest of compilation                :   0.02 ( 67%)   0.00 (  0%)   0.00 (  0%)    22k (  1%)
+ TOTAL                              :   0.03          0.00          0.03         2752k
+/usr/bin/ld: /tmp/ccrd9Hy8.ltrans0.ltrans.o: in function `cgen_get_insn_value':
+<artificial>:(.text+0x6f): undefined reference to `bfd_get_bits'
+/usr/bin/ld: /tmp/ccrd9Hy8.ltrans0.ltrans.o: in function `cgen_dis_lookup_insn':
+<artificial>:(.text+0xd5): undefined reference to `build_dis_hash_table'
+collect2: error: ld returned 1 exit status

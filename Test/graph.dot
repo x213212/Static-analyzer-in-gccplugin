@@ -1,91 +1,10 @@
 digraph {   graph [bgcolor=black];node [fillcolor=black color=lightgray  penwidth=5   fontsize = 18 fontcolor=white  style="filled,dashed"]; edge [color=lightgray penwidth=2  ]; constraint=false ;rankdir = LR; rank=same; nodesep=1.0; 
 
 
-" foo3
-"->
+
+ 
 
 
-" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return _3
-test.c:181:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo4 ()
-
-"->
-
-" from foo3 basic block 2"
-
-->" return _3
-_3 = foo4 ()
-"
-
-->" return _3
-test.c:181:12: warning: use location
-"
-
-
-" foo3
-"->
-
-
-" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: _3 = foo4 ()
-test.c:181:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo4 ()
-
-"->
-
-" from foo3 basic block 2"
-
-->" _3 = foo4 ()
-_3 = foo4 ()
-"
-
-->" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-
-->"ID : 32951565
-from foo4 basic block 2"->
-
-
-" ID : 867945628 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
-
-
-" from foo3 basic block 2"
-
-->subgraph cluster_1853995773 { color=lightgrey; style ="dashed";"  return _3
-_3 = foo4 ()
-";}
-
-" from foo3 basic block 2"
-
-->subgraph cluster_1950836938 { color=lightgrey; style ="dashed";"  _3 = foo4 ()
-_3 = foo4 ()
-";}
-
-"ID : 32951565
-from foo4 basic block 2"->
-
-subgraph cluster_266386478 { color=lightgrey; style ="dashed";"  start ID : 867945628 stmt(relate) ， Tree ID : 32951565 : ptr1_3 = malloc (20)
-In function ‘main’:
-
-";}
 
 
 
@@ -94,108 +13,10 @@ In function ‘main’:
 
 
 
-->"ID : 1666417066
-from foo4 basic block 2"->
+
+ 
 
 
-" ID : 661012483 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
-
-
-" foo
-"->
-
-
-" _3 = foo3 ()
-test.c:188:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return _3
-test.c:188:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo3 ()
-
-"->
-
-" from foo basic block 2"
-
-->" return _3
-_3 = foo3 ()
-"
-
-->" return _3
-test.c:188:12: warning: use location
-"
-
-
-" foo
-"->
-
-
-" _3 = foo3 ()
-test.c:188:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: _3 = foo3 ()
-test.c:188:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo3 ()
-
-"->
-
-" from foo basic block 2"
-
-->" _3 = foo3 ()
-_3 = foo3 ()
-"
-
-->" _3 = foo3 ()
-test.c:188:12: warning: use location
-"
-
-
-->"ID : 1114287293
-from foo4 basic block 2"->
-
-
-" ID : 896350336 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
-
-
-" from foo basic block 2"
-
-->subgraph cluster_88797323 { color=lightgrey; style ="dashed";"  return _3
-_3 = foo3 ()
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_1619512577 { color=lightgrey; style ="dashed";"  _3 = foo3 ()
-_3 = foo3 ()
-";}
-
-"ID : 1666417066
-from foo4 basic block 2"->
-
-subgraph cluster_1634810115 { color=lightgrey; style ="dashed";"  start ID : 661012483 stmt(relate) ， Tree ID : 1666417066 : ptr1_3 = malloc (20)
-In function ‘main’:
-
-";}
-
-"ID : 1114287293
-from foo4 basic block 2"->
-
-subgraph cluster_1761502323 { color=lightgrey; style ="dashed";"  start ID : 896350336 stmt(relate) ， Tree ID : 1114287293 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
 
 
 
@@ -204,227 +25,10 @@ test.c:173:19: warning: use location
 
 
 
-->"ID : 783039803
-from foo4 basic block 2"->
 
+ 
 
-" ID : 1246374025 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
 
-"
-
-
-" main
-"->
-
-
-" a_4 = foo ()
-test.c:202:9: warning: use location
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: free (a_4)
-test.c:205:5: warning: use location
-
-" ]
-
-" # .MEM_6 = VDEF <.MEM_5(D)>
-a_4 = foo ()
-
-"->
-
-" from main basic block 2"
-
-->" free (a_4)
-a_4 = foo ()
-"
-
-->" free (a_4)
-test.c:205:5: warning: use location
-
-"
-
-[color="green" ]
-
-
-" main
-"->
-
-
-" a_4 = foo ()
-test.c:202:9: warning: use location
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: _1 = *a_4
-test.c:204:5: warning: use location
-
-" ]
-
-" # .MEM_6 = VDEF <.MEM_5(D)>
-a_4 = foo ()
-
-"->
-
-" from main basic block 2"
-
-->" _1 = *a_4
-a_4 = foo ()
-"
-
-->" _1 = *a_4
-test.c:204:5: warning: use location
-
-"
-
-" main
-"->
-
-
-" a_4 = foo ()
-test.c:202:9: warning: use location
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: printf (arr3 (variable type)p
-, _1)
-test.c:204:5: warning: use location
-
-" ]
-
-" # .MEM_6 = VDEF <.MEM_5(D)>
-a_4 = foo ()
-
-"->
-
-" from main basic block 2"
-
-->" printf (arr3 (variable type)p
-, _1)
-a_4 = foo ()
-"
-
-->" printf (arr3 (variable type)p
-, _1)
-test.c:204:5: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" a_4 = foo ()
-test.c:202:9: warning: use location
-
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: *a_4 = 1
-test.c:203:10: warning: use location
-
-" ]
-
-" # .MEM_6 = VDEF <.MEM_5(D)>
-a_4 = foo ()
-
-"->
-
-" from main basic block 2"
-
-->" *a_4 = 1
-a_4 = foo ()
-"
-
-->" *a_4 = 1
-test.c:203:10: warning: use location
-
-"
-
-
-" main
-"->
-
-
-" a_4 = foo ()
-test.c:202:9: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: a_4 = foo ()
-test.c:202:9: warning: use location
-" ]
-
-" # .MEM_6 = VDEF <.MEM_5(D)>
-a_4 = foo ()
-
-"->
-
-" from main basic block 2"
-
-->" a_4 = foo ()
-a_4 = foo ()
-"
-
-->" a_4 = foo ()
-test.c:202:9: warning: use location
-"
-
-
-->"ID : 391606590
-from foo4 basic block 2"->
-
-
-" ID : 1516438535 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
-
-
-" from main basic block 2"
-
-->subgraph cluster_998148373 { color=lightgrey; style ="dashed";"  free (a_4)
-a_4 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_506556061 { color=lightgrey; style ="dashed";"  _1 = *a_4
-a_4 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_1048911649 { color=lightgrey; style ="dashed";"  printf (arr3 (variable type)p
-, _1)
-_1 = *a_4
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_241804012 { color=lightgrey; style ="dashed";"  *a_4 = 1
-a_4 = foo ()
-";}
-
-" from main basic block 2"
-
-->subgraph cluster_546091762 { color=lightgrey; style ="dashed";"  a_4 = foo ()
-a_4 = foo ()
-";}
-
-"ID : 783039803
-from foo4 basic block 2"->
-
-subgraph cluster_1233525086 { color=lightgrey; style ="dashed";"  start ID : 1246374025 stmt(relate) ， Tree ID : 783039803 : ptr1_3 = malloc (20)
-In function ‘main’:
-
-";}
-
-"ID : 391606590
-from foo4 basic block 2"->
-
-subgraph cluster_371571976 { color=lightgrey; style ="dashed";"  start ID : 1516438535 stmt(relate) ， Tree ID : 391606590 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
 
 
 
@@ -433,98 +37,10 @@ test.c:173:19: warning: use location
 
 
 
-" foo3
-"->
+
+ 
 
 
-" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return _3
-test.c:181:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo4 ()
-
-"->
-
-" from foo3 basic block 2"
-
-->" return _3
-_3 = foo4 ()
-"
-
-->" return _3
-test.c:181:12: warning: use location
-"
-
-
-" foo3
-"->
-
-
-" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: _3 = foo4 ()
-test.c:181:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo4 ()
-
-"->
-
-" from foo3 basic block 2"
-
-->" _3 = foo4 ()
-_3 = foo4 ()
-"
-
-->" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-
-->"ID : 1266476652
-from foo4 basic block 2"->
-
-
-" ID : 1239517604 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
-
-
-" from foo3 basic block 2"
-
-->subgraph cluster_441214069 { color=lightgrey; style ="dashed";"  return _3
-_3 = foo4 ()
-";}
-
-" from foo3 basic block 2"
-
-->subgraph cluster_1069829942 { color=lightgrey; style ="dashed";"  _3 = foo4 ()
-_3 = foo4 ()
-";}
-
-"ID : 32951565
-from foo4 basic block 2"->
-
-subgraph cluster_1505904083 { color=lightgrey; style ="dashed";"  start ID : 867945628 stmt(relate) ， Tree ID : 32951565 : ptr1_3 = malloc (20)
-In function ‘foo’:
-
-";}
-
-"ID : 1266476652
-from foo4 basic block 2"->
-
-subgraph cluster_1072291114 { color=lightgrey; style ="dashed";"  start ID : 1239517604 stmt(relate) ， Tree ID : 1266476652 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
 
 
 
@@ -533,122 +49,10 @@ test.c:173:19: warning: use location
 
 
 
-->"ID : 19432918
-from foo4 basic block 2"->
+
+ 
 
 
-" ID : 1700015642 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
-
-
-" foo
-"->
-
-
-" _3 = foo3 ()
-test.c:188:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return _3
-test.c:188:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo3 ()
-
-"->
-
-" from foo basic block 2"
-
-->" return _3
-_3 = foo3 ()
-"
-
-->" return _3
-test.c:188:12: warning: use location
-"
-
-
-" foo
-"->
-
-
-" _3 = foo3 ()
-test.c:188:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: _3 = foo3 ()
-test.c:188:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo3 ()
-
-"->
-
-" from foo basic block 2"
-
-->" _3 = foo3 ()
-_3 = foo3 ()
-"
-
-->" _3 = foo3 ()
-test.c:188:12: warning: use location
-"
-
-
-->"ID : 915783254
-from foo4 basic block 2"->
-
-
-" ID : 1788812965 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
-
-
-" from foo basic block 2"
-
-->subgraph cluster_1175079583 { color=lightgrey; style ="dashed";"  return _3
-_3 = foo3 ()
-";}
-
-" from foo basic block 2"
-
-->subgraph cluster_403109721 { color=lightgrey; style ="dashed";"  _3 = foo3 ()
-_3 = foo3 ()
-";}
-
-"ID : 1666417066
-from foo4 basic block 2"->
-
-subgraph cluster_1402831641 { color=lightgrey; style ="dashed";"  start ID : 661012483 stmt(relate) ， Tree ID : 1666417066 : ptr1_3 = malloc (20)
-In function ‘foo’:
-
-";}
-
-"ID : 1114287293
-from foo4 basic block 2"->
-
-subgraph cluster_1311846517 { color=lightgrey; style ="dashed";"  start ID : 896350336 stmt(relate) ， Tree ID : 1114287293 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
-
-"ID : 19432918
-from foo4 basic block 2"->
-
-subgraph cluster_854467188 { color=lightgrey; style ="dashed";"  start ID : 1700015642 stmt(relate) ， Tree ID : 19432918 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
-
-"ID : 915783254
-from foo4 basic block 2"->
-
-subgraph cluster_38387796 { color=lightgrey; style ="dashed";"  start ID : 1788812965 stmt(relate) ， Tree ID : 915783254 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
 
 
 
@@ -657,105 +61,70 @@ test.c:173:19: warning: use location
 
 
 
-" foo3
-"->
+
+ 
 
 
-" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: return _3
-test.c:181:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo4 ()
-
-"->
-
-" from foo3 basic block 2"
-
-->" return _3
-_3 = foo4 ()
-"
-
-->" return _3
-test.c:181:12: warning: use location
-"
 
 
-" foo3
-"->
+
+ 
 
 
-" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
-
-[fontsize = 15 fontcolor=white;label=" form basic block 2: _3 = foo4 ()
-test.c:181:12: warning: use location
-" ]
-
-" # .MEM_5 = VDEF <.MEM_4(D)>
-_3 = foo4 ()
-
-"->
-
-" from foo3 basic block 2"
-
-->" _3 = foo4 ()
-_3 = foo4 ()
-"
-
-->" _3 = foo4 ()
-test.c:181:12: warning: use location
-"
 
 
-->"ID : 1398955887
-from foo4 basic block 2"->
+
+ 
 
 
-" ID : 938371475 stmt(call) :In function ‘foo4’:
-test.c:173:19: warning: use location
-
-"
 
 
-" from foo3 basic block 2"
 
-->subgraph cluster_802343484 { color=lightgrey; style ="dashed";"  return _3
-_3 = foo4 ()
-";}
+ 
 
-" from foo3 basic block 2"
 
-->subgraph cluster_767910774 { color=lightgrey; style ="dashed";"  _3 = foo4 ()
-_3 = foo4 ()
-";}
 
-"ID : 32951565
-from foo4 basic block 2"->
 
-subgraph cluster_1936519848 { color=lightgrey; style ="dashed";"  start ID : 867945628 stmt(relate) ， Tree ID : 32951565 : ptr1_3 = malloc (20)
-In function ‘foo3’:
 
-";}
+ 
 
-"ID : 1266476652
-from foo4 basic block 2"->
 
-subgraph cluster_1308899545 { color=lightgrey; style ="dashed";"  start ID : 1239517604 stmt(relate) ， Tree ID : 1266476652 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
 
-"ID : 1398955887
-from foo4 basic block 2"->
 
-subgraph cluster_1816822423 { color=lightgrey; style ="dashed";"  start ID : 938371475 stmt(relate) ， Tree ID : 1398955887 : ptr1_3 = malloc (20)
-test.c:173:19: warning: use location
-";}
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+
 
 
 

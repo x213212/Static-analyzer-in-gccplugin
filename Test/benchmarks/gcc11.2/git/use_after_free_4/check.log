@@ -1,0 +1,206 @@
+In file included from ./benchmarks/git/use_after_free_4/git_uaf_4.c:11:
+./benchmarks/git/use_after_free_4/../git.h: In function ‘copy_array’:
+./benchmarks/git/use_after_free_4/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_4/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/use_after_free_4/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/use_after_free_4/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_4/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/use_after_free_4/../git.h: In function ‘move_array’:
+./benchmarks/git/use_after_free_4/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/use_after_free_4/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/use_after_free_4/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/use_after_free_4/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/use_after_free_4/git_uaf_4.c:10:
+./benchmarks/git/use_after_free_4/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/use_after_free_4/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_4/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/use_after_free_4/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/use_after_free_4/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/use_after_free_4/git_uaf_4.c:11:
+./benchmarks/git/use_after_free_4/../git.h: At top level:
+./benchmarks/git/use_after_free_4/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/use_after_free_4/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_4/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_4/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/use_after_free_4/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c: At top level:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:86:8: error: redefinition of ‘struct hashmap’
+   86 | struct hashmap {
+      |        ^~~~~~~
+In file included from ./benchmarks/git/use_after_free_4/git_uaf_4.c:11:
+./benchmarks/git/use_after_free_4/../git.h:186:8: note: originally defined here
+  186 | struct hashmap{};
+      |        ^~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘hashmap_free’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:107:17: warning: implicit declaration of function ‘hashmap_iter_init’ [-Wimplicit-function-declaration]
+  107 |                 hashmap_iter_init(map, &iter);
+      |                 ^~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:108:29: warning: implicit declaration of function ‘hashmap_iter_next’ [-Wimplicit-function-declaration]
+  108 |                 while ((e = hashmap_iter_next(&iter)))
+      |                             ^~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:108:27: warning: assignment to ‘struct hashmap_entry *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  108 |                 while ((e = hashmap_iter_next(&iter)))
+      |                           ^
+./benchmarks/git/use_after_free_4/git_uaf_4.c:112:9: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  112 |         memset(map, 0, sizeof(*map));
+      |         ^~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:12:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+   11 | #include "../git.h"
+  +++ |+#include <string.h>
+   12 | 
+./benchmarks/git/use_after_free_4/git_uaf_4.c:112:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  112 |         memset(map, 0, sizeof(*map));
+      |         ^~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:112:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘free_name_hash’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:121:22: warning: passing argument 1 of ‘hashmap_free’ from incompatible pointer type [-Wincompatible-pointer-types]
+  121 |         hashmap_free(&istate->name_hash, 0);
+      |                      ^~~~~~~~~~~~~~~~~~
+      |                      |
+      |                      struct hashmap *
+./benchmarks/git/use_after_free_4/git_uaf_4.c:100:35: note: expected ‘struct hashmap *’ but argument is of type ‘struct hashmap *’
+  100 | void hashmap_free(struct hashmap *map, int free_entries)
+      |                   ~~~~~~~~~~~~~~~~^~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:122:22: warning: passing argument 1 of ‘hashmap_free’ from incompatible pointer type [-Wincompatible-pointer-types]
+  122 |         hashmap_free(&istate->dir_hash, 1);
+      |                      ^~~~~~~~~~~~~~~~~
+      |                      |
+      |                      struct hashmap *
+./benchmarks/git/use_after_free_4/git_uaf_4.c:100:35: note: expected ‘struct hashmap *’ but argument is of type ‘struct hashmap *’
+  100 | void hashmap_free(struct hashmap *map, int free_entries)
+      |                   ~~~~~~~~~~~~~~~~^~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘dir_entry_cmp’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:127:46: warning: implicit declaration of function ‘strncasecmp’ [-Wimplicit-function-declaration]
+  127 |         return e1->namelen != e2->namelen || strncasecmp(e1->ce->name,
+      |                                              ^~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:128:55: warning: ‘strncasecmp’ argument 3 type is ‘unsigned int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+  128 |                         name ? name : e2->ce->name, e1->namelen);
+      |                                                     ~~^~~~~~~~~
+<built-in>: note: built-in ‘strncasecmp’ declared here
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘find_dir_entry’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:135:9: warning: implicit declaration of function ‘hashmap_entry_init’ [-Wimplicit-function-declaration]
+  135 |         hashmap_entry_init(&key, memihash(name, namelen));
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:135:34: warning: implicit declaration of function ‘memihash’ [-Wimplicit-function-declaration]
+  135 |         hashmap_entry_init(&key, memihash(name, namelen));
+      |                                  ^~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:137:16: warning: implicit declaration of function ‘hashmap_get’; did you mean ‘hashmap_free’? [-Wimplicit-function-declaration]
+  137 |         return hashmap_get(&istate->dir_hash, &key, name);
+      |                ^~~~~~~~~~~
+      |                hashmap_free
+./benchmarks/git/use_after_free_4/git_uaf_4.c:137:16: warning: returning ‘int’ from a function with return type ‘struct dir_entry *’ makes pointer from integer without a cast [-Wint-conversion]
+  137 |         return hashmap_get(&istate->dir_hash, &key, name);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘hash_dir_entry’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:146:32: warning: implicit declaration of function ‘is_dir_sep’ [-Wimplicit-function-declaration]
+  146 |         while (namelen > 0 && !is_dir_sep(ce->name[namelen - 1]))
+      |                                ^~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:160:17: warning: implicit declaration of function ‘hashmap_add’; did you mean ‘hashmap_free’? [-Wimplicit-function-declaration]
+  160 |                 hashmap_add(&istate->dir_hash, dir);
+      |                 ^~~~~~~~~~~
+      |                 hashmap_free
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘index_dir_exists’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:173:9: warning: implicit declaration of function ‘lazy_init_name_hash’ [-Wimplicit-function-declaration]
+  173 |         lazy_init_name_hash(istate);
+      |         ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘add_dir_entry’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:184:60: warning: implicit declaration of function ‘ce_namelen’ [-Wimplicit-function-declaration]
+  184 |         struct dir_entry *dir = hash_dir_entry(istate, ce, ce_namelen(ce));
+      |                                                            ^~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c: In function ‘add_to_index’:
+./benchmarks/git/use_after_free_4/git_uaf_4.c:231:24: warning: implicit declaration of function ‘error’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+  231 |                 return error("%s: can only add regular files, symbolic links or git-directories", path);
+      |                        ^~~~~
+      |                        perror
+./benchmarks/git/use_after_free_4/git_uaf_4.c:233:19: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  233 |         namelen = strlen(path);
+      |                   ^~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:233:19: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/use_after_free_4/git_uaf_4.c:233:19: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/use_after_free_4/git_uaf_4.c:233:19: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/git/use_after_free_4/git_uaf_4.c:238:16: warning: implicit declaration of function ‘cache_entry_size’; did you mean ‘cache_entry_cmp’? [-Wimplicit-function-declaration]
+  238 |         size = cache_entry_size(namelen);
+      |                ^~~~~~~~~~~~~~~~
+      |                cache_entry_cmp
+./benchmarks/git/use_after_free_4/git_uaf_4.c:240:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  240 |         memcpy(ce->name, path, namelen);
+      |         ^~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:240:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/use_after_free_4/git_uaf_4.c:243:17: warning: implicit declaration of function ‘fill_stat_cache_info’ [-Wimplicit-function-declaration]
+  243 |                 fill_stat_cache_info(ce, st);
+      |                 ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:270:17: warning: implicit declaration of function ‘index_file_exists’; did you mean ‘index_dir_exists’? [-Wimplicit-function-declaration]
+  270 |         alias = index_file_exists(istate, ce->name, ce_namelen(ce), ignore_case);
+      |                 ^~~~~~~~~~~~~~~~~
+      |                 index_dir_exists
+./benchmarks/git/use_after_free_4/git_uaf_4.c:270:15: warning: assignment to ‘struct cache_entry *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  270 |         alias = index_file_exists(istate, ce->name, ce_namelen(ce), ignore_case);
+      |               ^
+./benchmarks/git/use_after_free_4/git_uaf_4.c:271:23: warning: implicit declaration of function ‘ce_stage’ [-Wimplicit-function-declaration]
+  271 |         if (alias && !ce_stage(alias) && !ie_match_stat(istate, alias, st, ce_option)) {
+      |                       ^~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:271:43: warning: implicit declaration of function ‘ie_match_stat’ [-Wimplicit-function-declaration]
+  271 |         if (alias && !ce_stage(alias) && !ie_match_stat(istate, alias, st, ce_option)) {
+      |                                           ^~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:274:22: warning: implicit declaration of function ‘S_ISGITLINK’; did you mean ‘S_ISLNK’? [-Wimplicit-function-declaration]
+  274 |                 if (!S_ISGITLINK(alias->ce_mode))
+      |                      ^~~~~~~~~~~
+      |                      S_ISLNK
+./benchmarks/git/use_after_free_4/git_uaf_4.c:275:25: warning: implicit declaration of function ‘ce_mark_uptodate’ [-Wimplicit-function-declaration]
+  275 |                         ce_mark_uptodate(alias);
+      |                         ^~~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:280:37: warning: implicit declaration of function ‘different_name’ [-Wimplicit-function-declaration]
+  280 |         if (ignore_case && alias && different_name(ce, alias))
+      |                                     ^~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:281:22: warning: implicit declaration of function ‘create_alias_ce’ [-Wimplicit-function-declaration]
+  281 |                 ce = create_alias_ce(istate, ce, alias);
+      |                      ^~~~~~~~~~~~~~~
+./benchmarks/git/use_after_free_4/git_uaf_4.c:281:20: warning: assignment to ‘struct cache_entry *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  281 |                 ce = create_alias_ce(istate, ce, alias);
+      |                    ^
+./benchmarks/git/use_after_free_4/git_uaf_4.c:286:18: warning: implicit declaration of function ‘add_index_entry’; did you mean ‘hash_index_entry’? [-Wimplicit-function-declaration]
+  286 |         else if (add_index_entry(istate, ce, add_option))
+      |                  ^~~~~~~~~~~~~~~
+      |                  hash_index_entry
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  1298k ( 49%)
+ phase parsing                      :   0.06 ( 86%)   0.04 (100%)   0.10 ( 83%)  1199k ( 45%)
+ phase opt and generate             :   0.01 ( 14%)   0.00 (  0%)   0.01 (  8%)   155k (  6%)
+ callgraph construction             :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)    17k (  1%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)   354k ( 13%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.03 ( 25%)     0  (  0%)
+ parser (global)                    :   0.01 ( 14%)   0.03 ( 75%)   0.01 (  8%)   607k ( 23%)
+ parser struct body                 :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)    79k (  3%)
+ parser function body               :   0.04 ( 57%)   0.01 ( 25%)   0.05 ( 42%)    95k (  4%)
+ tree eh                            :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)   352  (  0%)
+ TOTAL                              :   0.07          0.04          0.12         2663k

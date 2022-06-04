@@ -1,0 +1,349 @@
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:10:
+./benchmarks/git/leak_8/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_8/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_8/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_8/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_8/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_8/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_8/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_8/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_8/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_8/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_8/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:9:
+./benchmarks/git/leak_8/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_8/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_8/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_8/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_8/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:10:
+./benchmarks/git/leak_8/../git.h: At top level:
+./benchmarks/git/leak_8/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_8/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_8/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_8/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_8/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_8/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘add_entry’:
+./benchmarks/git/leak_8/git_leak_8.c:167:51: warning: implicit declaration of function ‘get_entry_index’ [-Wimplicit-function-declaration]
+  167 |         int index = insert_at != -1 ? insert_at : get_entry_index(list, string, &exact_match);
+      |                                                   ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:10:
+./benchmarks/git/leak_8/../git.h:112:29: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+  112 |                         if (alloc_nr(alloc) < (nr)) \
+      |                             ^~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:172:9: note: in expansion of macro ‘ALLOC_GROW’
+  172 |         ALLOC_GROW(list->items, list->nr+1, list->alloc);
+      |         ^~~~~~~~~~
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:9:
+./benchmarks/git/leak_8/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:177:17: note: in expansion of macro ‘xstrdup’
+  177 |                 xstrdup(string) : (char *)string;       /* allocaiont site */
+      |                 ^~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘get_unmerged’:
+./benchmarks/git/leak_8/git_leak_8.c:209:22: warning: implicit declaration of function ‘ce_stage’ [-Wimplicit-function-declaration]
+  209 |                 if (!ce_stage(ce))
+      |                      ^~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:212:24: warning: implicit declaration of function ‘string_list_lookup’; did you mean ‘string_list_insert’? [-Wimplicit-function-declaration]
+  212 |                 item = string_list_lookup(unmerged, ce->name);
+      |                        ^~~~~~~~~~~~~~~~~~
+      |                        string_list_insert
+./benchmarks/git/leak_8/git_leak_8.c:212:22: warning: assignment to ‘struct string_list_item *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  212 |                 item = string_list_lookup(unmerged, ce->name);
+      |                      ^
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘get_renames’:
+./benchmarks/git/leak_8/git_leak_8.c:248:25: warning: implicit declaration of function ‘diff_free_filepair’ [-Wimplicit-function-declaration]
+  248 |                         diff_free_filepair(pair);
+      |                         ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:254:22: warning: assignment to ‘struct string_list_item *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  254 |                 item = string_list_lookup(entries, re->pair->two->path);
+      |                      ^
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘merge_trees’:
+./benchmarks/git/leak_8/git_leak_8.c:271:16: warning: implicit declaration of function ‘git_merge_trees’; did you mean ‘merge_trees’? [-Wimplicit-function-declaration]
+  271 |         code = git_merge_trees(o->call_depth, common, head, merge);
+      |                ^~~~~~~~~~~~~~~
+      |                merge_trees
+./benchmarks/git/leak_8/git_leak_8.c:24:26: warning: implicit declaration of function ‘unmerged_index’ [-Wimplicit-function-declaration]
+   24 | #define unmerged_cache() unmerged_index(&the_index)
+      |                          ^~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:273:13: note: in expansion of macro ‘unmerged_cache’
+  273 |         if (unmerged_cache()) {
+      |             ^~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:276:17: warning: implicit declaration of function ‘get_files_dirs’ [-Wimplicit-function-declaration]
+  276 |                 get_files_dirs(o, head);
+      |                 ^~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:280:17: warning: implicit declaration of function ‘record_df_conflict_files’ [-Wimplicit-function-declaration]
+  280 |                 record_df_conflict_files(o, entries);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:283:25: warning: implicit declaration of function ‘process_renames’ [-Wimplicit-function-declaration]
+  283 |                 clean = process_renames(o, re_head, re_merge);
+      |                         ^~~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:290:43: warning: implicit declaration of function ‘process_entry’ [-Wimplicit-function-declaration]
+  290 |                                 int ret = process_entry(o, path, e);
+      |                                           ^~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.03 ( 60%)   0.01 (100%)   0.05 ( 83%)  1146k ( 42%)
+ phase opt and generate             :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 17%)   281k ( 10%)
+ callgraph ipa passes               :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 17%)   147k (  5%)
+ ipa function summary               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    17k (  1%)
+ ipa lto decl out                   :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   264  (  0%)
+ ipa free lang data                 :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)  6048  (  0%)
+ preprocessing                      :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   347k ( 13%)
+ lexical analysis                   :   0.01 ( 20%)   0.01 (100%)   0.03 ( 50%)     0  (  0%)
+ parser (global)                    :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 17%)   573k ( 21%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   103k (  4%)
+ TOTAL                              :   0.05          0.01          0.06         2737k
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘get_unmerged’:
+./benchmarks/git/leak_8/git_leak_8.c:203:34: warning: dereference of possibly-NULL ‘unmerged_18’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  203 |         unmerged->strdup_strings = 1;
+      |                                  ^
+  ‘main’: events 1-2
+    |
+    |  318 | int main ()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  325 |     merge_trees(&o, &head, &merge, &common, &result);
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘merge_trees’ from ‘main’
+    |
+    +--> ‘merge_trees’: events 3-6
+           |
+           |  263 | int merge_trees(struct merge_options *o,
+           |      |     ^
+           |      |     |
+           |      |     (3) entry to ‘merge_trees’
+           |......
+           |  273 |         if (unmerged_cache()) {
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘true’ branch...
+           |......
+           |  276 |                 get_files_dirs(o, head);
+           |      |                 ~
+           |      |                 |
+           |      |                 (5) ...to here
+           |......
+           |  279 |                 entries = get_unmerged();
+           |      |                           ~
+           |      |                           |
+           |      |                           (6) calling ‘get_unmerged’ from ‘merge_trees’
+           |
+           +--> ‘get_unmerged’: events 7-9
+                  |
+                  |  198 | static struct string_list *get_unmerged(void)
+                  |      |                            ^
+                  |      |                            |
+                  |      |                            (7) entry to ‘get_unmerged’
+                  |  199 | {
+                  |  200 |         struct string_list *unmerged = xcalloc(1, sizeof(struct string_list));  /* allocation site */
+                  |      |                                        ~
+                  |      |                                        |
+                  |      |                                        (8) this call could return NULL
+                  |......
+                  |  203 |         unmerged->strdup_strings = 1;
+                  |      |                                  ~
+                  |      |                                  |
+                  |      |                                  (9) ‘unmerged_18’ could be NULL: unchecked value from (8)
+                  |
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘add_entry’:
+./benchmarks/git/leak_8/git_leak_8.c:176:13: warning: leak of ‘strdup (string_60(D))’ [CWE-401] [-Wanalyzer-malloc-leak]
+  176 |         list->items[index].string = list->strdup_strings ?
+      |             ^
+  ‘main’: events 1-2
+    |
+    |  318 | int main ()
+    |      |     ^
+    |      |     |
+    |      |     (1) entry to ‘main’
+    |......
+    |  325 |     merge_trees(&o, &head, &merge, &common, &result);
+    |      |     ~
+    |      |     |
+    |      |     (2) calling ‘merge_trees’ from ‘main’
+    |
+    +--> ‘merge_trees’: events 3-6
+           |
+           |  263 | int merge_trees(struct merge_options *o,
+           |      |     ^
+           |      |     |
+           |      |     (3) entry to ‘merge_trees’
+           |......
+           |  273 |         if (unmerged_cache()) {
+           |      |            ~
+           |      |            |
+           |      |            (4) following ‘true’ branch...
+           |......
+           |  276 |                 get_files_dirs(o, head);
+           |      |                 ~
+           |      |                 |
+           |      |                 (5) ...to here
+           |......
+           |  279 |                 entries = get_unmerged();
+           |      |                           ~
+           |      |                           |
+           |      |                           (6) calling ‘get_unmerged’ from ‘merge_trees’
+           |
+           +--> ‘get_unmerged’: events 7-14
+                  |
+                  |  198 | static struct string_list *get_unmerged(void)
+                  |      |                            ^
+                  |      |                            |
+                  |      |                            (7) entry to ‘get_unmerged’
+                  |......
+                  |  205 |         for (i = 0; i < active_nr; i++) {
+                  |      |                       ~     
+                  |      |                       |
+                  |      |                       (8) following ‘true’ branch...
+                  |......
+                  |  208 |                 const struct cache_entry *ce = active_cache[i];
+                  |      |                                                ~
+                  |      |                                                |
+                  |      |                                                (9) ...to here
+                  |  209 |                 if (!ce_stage(ce))
+                  |      |                    ~        
+                  |      |                    |
+                  |      |                    (10) following ‘false’ branch...
+                  |......
+                  |  212 |                 item = string_list_lookup(unmerged, ce->name);
+                  |      |                                                       ~
+                  |      |                                                       |
+                  |      |                                                       (11) ...to here
+                  |  213 |                 if (!item) {
+                  |      |                    ~        
+                  |      |                    |
+                  |      |                    (12) following ‘true’ branch...
+                  |  214 |                         item = string_list_insert(unmerged, ce->name);
+                  |      |                                ~                              ~
+                  |      |                                |                              |
+                  |      |                                |                              (13) ...to here
+                  |      |                                (14) calling ‘string_list_insert’ from ‘get_unmerged’
+                  |
+                  +--> ‘string_list_insert’: events 15-16
+                         |
+                         |  184 | struct string_list_item *string_list_insert(struct string_list *list, const char *string)
+                         |      |                          ^
+                         |      |                          |
+                         |      |                          (15) entry to ‘string_list_insert’
+                         |  185 | {
+                         |  186 |         int index = add_entry(-1, list, string);
+                         |      |                     ~     
+                         |      |                     |
+                         |      |                     (16) calling ‘add_entry’ from ‘string_list_insert’
+                         |
+                         +--> ‘add_entry’: events 17-25
+                                |
+                                |  164 | static int add_entry(int insert_at, struct string_list *list, const char *string)
+                                |      |            ^
+                                |      |            |
+                                |      |            (17) entry to ‘add_entry’
+                                |......
+                                |  167 |         int index = insert_at != -1 ? insert_at : get_entry_index(list, string, &exact_match);
+                                |      |                                                 ~ ~
+                                |      |                                                 | |
+                                |      |                                                 | (19) ...to here
+                                |      |                                                 (18) following ‘true’ branch (when ‘insert_at_58(D) == -1’)...
+                                |  168 | 
+                                |  169 |         if (exact_match)
+                                |      |            ~
+                                |      |            |
+                                |      |            (20) following ‘false’ branch...
+                                |......
+                                |  172 |         ALLOC_GROW(list->items, list->nr+1, list->alloc);
+                                |      |         ~   
+                                |      |         |
+                                |      |         (21) ...to here
+                                |......
+                                |  176 |         list->items[index].string = list->strdup_strings ?
+                                |      |             ~
+                                |      |             |
+                                |      |             (25) ‘strdup (string_60(D))’ leaks here; was allocated at (24)
+                                |  177 |                 xstrdup(string) : (char *)string;       /* allocaiont site */
+                                |      |                 ~               ~
+                                |      |                 |               |
+                                |      |                 (23) ...to here (22) following ‘true’ branch...
+                                |      |                 (24) allocated here
+                                |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)  2157k ( 89%)
+ phase opt and generate             :   0.19 (100%)   0.02 (100%)   0.20 ( 91%)   167k (  7%)
+ phase stream out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ ipa lto gimple out                 :   0.00 (  0%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ analyzer                           :   0.01 (  5%)   0.00 (  0%)   0.01 (  5%)     0  (  0%)
+ analyzer: processing worklist      :   0.16 ( 84%)   0.02 (100%)   0.17 ( 77%)   960  (  0%)
+ analyzer: emitting diagnostics     :   0.02 ( 11%)   0.00 (  0%)   0.02 (  9%)   408  (  0%)
+ TOTAL                              :   0.19          0.02          0.22         2430k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 66%)
+ phase opt and generate             :   0.04 (100%)   0.00 (  0%)   0.05 (100%)  1023k ( 31%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ callgraph functions expansion      :   0.04 (100%)   0.00 (  0%)   0.04 ( 80%)   830k ( 25%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   131k (  4%)
+ df use-def / def-use chains        :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ dominator optimization             :   0.02 ( 50%)   0.00 (  0%)   0.00 (  0%)    38k (  1%)
+ forward prop                       :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)   872  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   248k (  8%)
+ initialize rtl                     :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.04          0.00          0.05         3281k
+/usr/bin/ld: /tmp/cc5bqkHX.ltrans0.ltrans.o: in function `move_array':
+<artificial>:(.text+0x1e): undefined reference to `st_mult'
+/usr/bin/ld: /tmp/cc5bqkHX.ltrans0.ltrans.o: in function `add_entry':
+<artificial>:(.text+0x1ab): undefined reference to `get_entry_index'
+/usr/bin/ld: <artificial>:(.text+0x1c2): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x1de): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x1fe): undefined reference to `alloc_nr'
+/usr/bin/ld: /tmp/cc5bqkHX.ltrans0.ltrans.o: in function `get_unmerged':
+<artificial>:(.text+0x27c): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x290): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x299): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x2aa): undefined reference to `ce_stage'
+/usr/bin/ld: <artificial>:(.text+0x2c2): undefined reference to `string_list_lookup'
+/usr/bin/ld: /tmp/cc5bqkHX.ltrans0.ltrans.o: in function `get_renames':
+<artificial>:(.text+0x338): undefined reference to `diff_free_filepair'
+/usr/bin/ld: <artificial>:(.text+0x37e): undefined reference to `string_list_lookup'
+/usr/bin/ld: /tmp/cc5bqkHX.ltrans0.ltrans.o: in function `merge_trees':
+<artificial>:(.text+0x3da): undefined reference to `git_merge_trees'
+/usr/bin/ld: <artificial>:(.text+0x3df): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x3e9): undefined reference to `unmerged_index'
+/usr/bin/ld: <artificial>:(.text+0x415): undefined reference to `get_files_dirs'
+/usr/bin/ld: <artificial>:(.text+0x425): undefined reference to `get_files_dirs'
+/usr/bin/ld: <artificial>:(.text+0x43d): undefined reference to `record_df_conflict_files'
+/usr/bin/ld: <artificial>:(.text+0x489): undefined reference to `process_renames'
+/usr/bin/ld: <artificial>:(.text+0x4d3): undefined reference to `process_entry'
+collect2: error: ld returned 1 exit status

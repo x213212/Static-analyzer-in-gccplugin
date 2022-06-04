@@ -931,8 +931,9 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 			if (TREE_CODE(getFunctionAssignLHS) == MEM_REF)
 			{
-
+				
 				tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
+			
 				if (TREE_CODE(first) == ADDR_EXPR)
 				{
 					// debug_gimple_stmt(gc);
@@ -1029,6 +1030,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			if (TREE_CODE(getFunctionAssignRHS) == MEM_REF)
 			{
 				tree first = TREE_OPERAND(getFunctionAssignRHS, 0);
+					// debug(first);
 				if (TREE_CODE(first) == ADDR_EXPR)
 				{
 					// debug_gimple_stmt(gc);

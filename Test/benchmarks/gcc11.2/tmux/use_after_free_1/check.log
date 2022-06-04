@@ -1,0 +1,118 @@
+In file included from ./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:11:
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c: In function ‘window_copy_init’:
+./benchmarks/tmux/use_after_free_1/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:268:26: note: in expansion of macro ‘xstrdup’
+  268 |         data->inputstr = xstrdup("");
+      |                          ^~~~~~~
+./benchmarks/tmux/use_after_free_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:268:26: note: in expansion of macro ‘xstrdup’
+  268 |         data->inputstr = xstrdup("");
+      |                          ^~~~~~~
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c: In function ‘window_pane_destroy’:
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:355:25: warning: passing argument 1 of ‘free’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  355 |                 xfree(wp->cwd);
+      |                       ~~^~~~~
+./benchmarks/tmux/use_after_free_1/../stdio.h:140:23: note: in definition of macro ‘xfree’
+  140 | #define xfree(a) free(a)
+      |                       ^
+In file included from ./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:7:
+/usr/include/stdlib.h:565:25: note: expected ‘void *’ but argument is of type ‘const char *’
+  565 | extern void free (void *__ptr) __THROW;
+      |                   ~~~~~~^~~~~
+In file included from ./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:11:
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c: In function ‘window_create’:
+./benchmarks/tmux/use_after_free_1/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:458:19: note: in expansion of macro ‘xstrdup’
+  458 |         w->name = xstrdup(name);
+      |                   ^~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 37%)
+ phase parsing                      :   0.04 ( 80%)   0.01 ( 50%)   0.05 ( 83%)  1834k ( 52%)
+ phase opt and generate             :   0.01 ( 20%)   0.01 ( 50%)   0.01 ( 17%)   376k ( 11%)
+ callgraph ipa passes               :   0.01 ( 20%)   0.01 ( 50%)   0.01 ( 17%)   211k (  6%)
+ lto stream compression             :   0.01 ( 20%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.03 ( 50%)   767k ( 22%)
+ lexical analysis                   :   0.04 ( 80%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   604k ( 17%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   149k (  4%)
+ branch prediction                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  9832  (  0%)
+ TOTAL                              :   0.05          0.02          0.06         3520k
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c: In function ‘window_pane_create’:
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:469:20: warning: dereference of possibly-NULL ‘wp_3’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  469 |         wp->window = w;
+      |                    ^
+  ‘window_pane_create’: events 1-2
+    |
+    |  468 |         wp = xcalloc(1, sizeof *wp);
+    |      |              ^
+    |      |              |
+    |      |              (1) this call could return NULL
+    |  469 |         wp->window = w;
+    |      |                    ~
+    |      |                    |
+    |      |                    (2) ‘wp_3’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c: In function ‘window_create1’:
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:409:17: warning: dereference of possibly-NULL ‘w_44’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  409 |         w->name = NULL;
+      |                 ^
+  ‘window_create1’: events 1-2
+    |
+    |  408 |         w = xmalloc(sizeof *w);
+    |      |             ^
+    |      |             |
+    |      |             (1) this call could return NULL
+    |  409 |         w->name = NULL;
+    |      |                 ~
+    |      |                 |
+    |      |                 (2) ‘w_44’ could be NULL: unchecked value from (1)
+    |
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c: In function ‘window_copy_init’:
+./benchmarks/tmux/use_after_free_1/tmux_uaf_1.c:257:18: warning: dereference of possibly-NULL ‘data_10’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  257 |         data->oy = 0;
+      |                  ^
+  ‘window_copy_init’: events 1-2
+    |
+    |  256 |         wp->modedata = data = xmalloc(sizeof *data);    /* allocation site */
+    |      |                               ^
+    |      |                               |
+    |      |                               (1) this call could return NULL
+    |  257 |         data->oy = 0;
+    |      |                  ~             
+    |      |                  |
+    |      |                  (2) ‘data_10’ could be NULL: unchecked value from (1)
+    |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 85%)
+ phase opt and generate             :   0.07 ( 88%)   0.00 (  0%)   0.09 (100%)   227k (  9%)
+ phase stream out                   :   0.01 ( 12%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   173k (  7%)
+ ipa lto decl out                   :   0.01 ( 12%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ analyzer                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ analyzer: processing worklist      :   0.07 ( 88%)   0.00 (  0%)   0.06 ( 67%)  1560  (  0%)
+ analyzer: emitting diagnostics     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ TOTAL                              :   0.08          0.01          0.09         2529k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  2157k ( 60%)
+ phase opt and generate             :   0.06 (100%)   0.00 (  0%)   0.06 ( 86%)  1315k ( 36%)
+ dump files                         :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ callgraph functions expansion      :   0.05 ( 83%)   0.00 (  0%)   0.06 ( 86%)  1059k ( 29%)
+ ipa lto gimple in                  :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)   165k (  5%)
+ df reg dead/unused notes           :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    15k (  0%)
+ tree copy propagation              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  1672  (  0%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    51k (  1%)
+ tree forward propagate             :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)  1192  (  0%)
+ tree aggressive DCE                :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    72  (  0%)
+ LRA non-specific                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  3296  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    12k (  0%)
+ rest of compilation                :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)    44k (  1%)
+ TOTAL                              :   0.06          0.00          0.07         3608k

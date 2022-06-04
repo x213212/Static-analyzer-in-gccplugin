@@ -1,0 +1,177 @@
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:11:
+./benchmarks/git/double_free_2/../git.h: In function ‘copy_array’:
+./benchmarks/git/double_free_2/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_2/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/double_free_2/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_2/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_2/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/double_free_2/../git.h: In function ‘move_array’:
+./benchmarks/git/double_free_2/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/double_free_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/double_free_2/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:10:
+./benchmarks/git/double_free_2/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/double_free_2/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/double_free_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:11:
+./benchmarks/git/double_free_2/../git.h: At top level:
+./benchmarks/git/double_free_2/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/double_free_2/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/double_free_2/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/double_free_2/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_release’:
+./benchmarks/git/double_free_2/git_df_2.c:16:5: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   16 |     memset(sb, 0, sizeof(*sb));
+      |     ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:12:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+   11 | #include "../git.h"
+  +++ |+#include <string.h>
+   12 | 
+./benchmarks/git/double_free_2/git_df_2.c:16:5: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+   16 |     memset(sb, 0, sizeof(*sb));
+      |     ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:16:5: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:11:
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_grow’:
+./benchmarks/git/double_free_2/../git.h:112:29: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+  112 |                         if (alloc_nr(alloc) < (nr)) \
+      |                             ^~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:23:9: note: in expansion of macro ‘ALLOC_GROW’
+   23 |         ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc);    /* allocation site */
+      |         ^~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_reset’:
+./benchmarks/git/double_free_2/git_df_2.c:29:17: warning: implicit declaration of function ‘strbuf_setlen’; did you mean ‘strbuf_reset’? [-Wimplicit-function-declaration]
+   29 |                 strbuf_setlen(sb, 0);
+      |                 ^~~~~~~~~~~~~
+      |                 strbuf_reset
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_add’:
+./benchmarks/git/double_free_2/git_df_2.c:35:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   35 |         memcpy(sb->buf + sb->len, data, len);
+      |         ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:35:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strtoul’:
+./benchmarks/git/double_free_2/git_df_2.c:62:13: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   62 |     *endptr = str + base;
+      |             ^
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘unquote_c_style’:
+./benchmarks/git/double_free_2/git_df_2.c:87:23: warning: implicit declaration of function ‘strcspn’ [-Wimplicit-function-declaration]
+   87 |                 len = strcspn(quoted, "\"\\");
+      |                       ^~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:87:23: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/git/double_free_2/git_df_2.c:87:23: warning: incompatible implicit declaration of built-in function ‘strcspn’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_2/git_df_2.c:87:23: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/git/double_free_2/git_df_2.c:128:17: warning: implicit declaration of function ‘strbuf_addch’; did you mean ‘strbuf_add’? [-Wimplicit-function-declaration]
+  128 |                 strbuf_addch(sb, ch);
+      |                 ^~~~~~~~~~~~
+      |                 strbuf_add
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘read_index_info’:
+./benchmarks/git/double_free_2/git_df_2.c:141:9: warning: implicit declaration of function ‘strbuf_init’ [-Wimplicit-function-declaration]
+  141 |         strbuf_init(&buf, 0);
+      |         ^~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:174:23: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  174 |                 tab = strchr(ptr, '\t');
+      |                       ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:174:23: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/git/double_free_2/git_df_2.c:174:23: warning: incompatible implicit declaration of built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_2/git_df_2.c:174:23: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/git/double_free_2/git_df_2.c:188:21: warning: implicit declaration of function ‘get_sha1_hex’ [-Wimplicit-function-declaration]
+  188 |                 if (get_sha1_hex(tab - 40, sha1) || tab[-41] != ' ')
+      |                     ^~~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:200:22: warning: implicit declaration of function ‘verify_path’ [-Wimplicit-function-declaration]
+  200 |                 if (!verify_path(path_name)) {
+      |                      ^~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:207:29: warning: implicit declaration of function ‘remove_file_from_cache’ [-Wimplicit-function-declaration]
+  207 |                         if (remove_file_from_cache(path_name))
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:217:29: warning: implicit declaration of function ‘add_cacheinfo’ [-Wimplicit-function-declaration]
+  217 |                         if (add_cacheinfo(mode, sha1, path_name, stage))
+      |                             ^~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.01 ( 50%)   0.03 ( 75%)   0.05 ( 83%)  1126k ( 41%)
+ phase opt and generate             :   0.01 ( 50%)   0.01 ( 25%)   0.01 ( 17%)   304k ( 11%)
+ callgraph ipa passes               :   0.01 ( 50%)   0.01 ( 25%)   0.01 ( 17%)   161k (  6%)
+ lto stream compression             :   0.01 ( 50%)   0.01 ( 25%)   0.01 ( 17%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.02 ( 50%)   0.02 ( 33%)   342k ( 13%)
+ lexical analysis                   :   0.01 ( 50%)   0.01 ( 25%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)   573k ( 21%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   106k (  4%)
+ TOTAL                              :   0.02          0.04          0.06         2739k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 90%)
+ phase opt and generate             :   0.17 (100%)   0.00 (  0%)   0.17 ( 94%)   171k (  7%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)    75k (  3%)
+ ipa ODR types                      :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)     0  (  0%)
+ ipa lto decl in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)    53k (  2%)
+ analyzer                           :   0.01 (  6%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.16 ( 94%)   0.00 (  0%)   0.16 ( 89%)   776  (  0%)
+ TOTAL                              :   0.17          0.00          0.18         2406k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 69%)
+ phase opt and generate             :   0.04 (100%)   0.00 (  0%)   0.05 (100%)   905k ( 29%)
+ callgraph functions expansion      :   0.04 (100%)   0.00 (  0%)   0.04 ( 80%)   711k ( 23%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    26k (  1%)
+ varconst                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ CSE                                :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  1248  (  0%)
+ dead store elim1                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  5704  (  0%)
+ dead store elim2                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  9600  (  0%)
+ thread pro- & epilogue             :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    23k (  1%)
+ tree if-combine                    :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  4680  (  0%)
+ initialize rtl                     :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    29k (  1%)
+ TOTAL                              :   0.04          0.00          0.05         3134k
+/usr/bin/ld: /tmp/ccdGL0Tm.ltrans0.ltrans.o: in function `strbuf_grow':
+<artificial>:(.text+0xe4): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x104): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x123): undefined reference to `alloc_nr'
+/usr/bin/ld: /tmp/ccdGL0Tm.ltrans0.ltrans.o: in function `strbuf_reset':
+<artificial>:(.text+0x143): undefined reference to `strbuf_setlen'
+/usr/bin/ld: /tmp/ccdGL0Tm.ltrans0.ltrans.o: in function `strbuf_add':
+<artificial>:(.text+0x184): undefined reference to `strbuf_setlen'
+/usr/bin/ld: /tmp/ccdGL0Tm.ltrans0.ltrans.o: in function `unquote_c_style':
+<artificial>:(.text+0x2ad): undefined reference to `strbuf_addch'
+/usr/bin/ld: <artificial>:(.text+0x313): undefined reference to `strbuf_setlen'
+/usr/bin/ld: /tmp/ccdGL0Tm.ltrans0.ltrans.o: in function `read_index_info':
+<artificial>:(.text+0x35e): undefined reference to `strbuf_init'
+/usr/bin/ld: <artificial>:(.text+0x372): undefined reference to `strbuf_init'
+/usr/bin/ld: <artificial>:(.text+0x42a): undefined reference to `add_cacheinfo'
+/usr/bin/ld: <artificial>:(.text+0x4fc): undefined reference to `get_sha1_hex'
+/usr/bin/ld: <artificial>:(.text+0x532): undefined reference to `verify_path'
+/usr/bin/ld: <artificial>:(.text+0x54f): undefined reference to `remove_file_from_cache'
+collect2: error: ld returned 1 exit status

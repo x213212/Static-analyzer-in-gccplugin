@@ -1,0 +1,406 @@
+In file included from ./benchmarks/binutils/leak_8/binutils_leak_8.c:8:
+./benchmarks/binutils/leak_8/../include/bfd.h:55:1: warning: useless storage class specifier in empty declaration
+   55 | };
+      | ^
+./benchmarks/binutils/leak_8/binutils_leak_8.c: In function ‘bfd_get_section_contents’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:17: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   34 |                 memset (location, 0, 4);
+      |                 ^~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:9:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+    8 | #include "../include/bfd.h"
+  +++ |+#include <string.h>
+    9 | 
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:17: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+   34 |                 memset (location, 0, 4);
+      |                 ^~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:17: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:25: warning: passing argument 1 of ‘memset’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   34 |                 memset (location, 0, 4);
+      |                         ^~~~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:25: note: expected ‘void *’ but argument is of type ‘const void *’
+./benchmarks/binutils/leak_8/binutils_leak_8.c: In function ‘copy_section’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:170:25: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  170 |                         memset (memhunk, 0, 4);
+      |                         ^~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:170:25: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/binutils/leak_8/binutils_leak_8.c: In function ‘main’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:183:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  183 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 46%)
+ phase parsing                      :   0.04 (100%)   0.00 (  0%)   0.04 ( 80%)  1232k ( 44%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   268k ( 10%)
+ callgraph ipa passes               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   145k (  5%)
+ preprocessing                      :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 40%)   393k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)     0  (  0%)
+ parser (global)                    :   0.02 ( 50%)   0.00 (  0%)   0.00 (  0%)   612k ( 22%)
+ parser function body               :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    93k (  3%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   776  (  0%)
+ TOTAL                              :   0.04          0.00          0.05         2809k
+./benchmarks/binutils/leak_8/../include/common.h: In function ‘copy_section’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:153:41: warning: leak of ‘memhunk_19’ [CWE-401] [-Wanalyzer-malloc-leak]
+  153 |                                         return;
+      |                                         ^
+  ‘copy_section’: events 1-6
+    |
+    |  138 | copy_section (sec_ptr isection)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘copy_section’
+    |......
+    |  143 |         if (__RANDBOOL)
+    |      |            ~
+    |      |            |
+    |      |            (2) following ‘false’ branch...
+    |......
+    |  169 |                         void *memhunk = xmalloc (4);
+    |      |                                         ~
+    |      |                                         |
+    |      |                                         (3) ...to here
+    |      |                                         (4) allocated here
+    |  170 |                         memset (memhunk, 0, 4);
+    |      |                         ~
+    |      |                         |
+    |      |                         (5) assuming ‘memhunk_19’ is non-NULL
+    |  171 | 
+    |  172 |                         if (!bfd_set_section_contents (memhunk))
+    |      |                              ~
+    |      |                              |
+    |      |                              (6) calling ‘bfd_set_section_contents’ from ‘copy_section’
+    |
+    +--> ‘bfd_set_section_contents’: events 7-9
+           |
+           |  130 | bfd_set_section_contents (const void *location)
+           |      | ^
+           |      | |
+           |      | (7) entry to ‘bfd_set_section_contents’
+           |  131 | {
+           |  132 |         if (location)
+           |      |            ~
+           |      |            |
+           |      |            (8) following ‘true’ branch (when ‘location_6(D)’ is non-NULL)...
+           |  133 |                 __USE(location);
+           |      |                 ~
+           |      |                 |
+           |      |                 (9) ...to here
+           |
+    <------+
+    |
+  ‘copy_section’: events 10-13
+    |
+    |  153 |                                         return;
+    |      |                                         ~
+    |      |                                         |
+    |      |                                         (12) ...to here
+    |      |                                         (13) ‘memhunk_19’ leaks here; was allocated at (4)
+    |......
+    |  172 |                         if (!bfd_set_section_contents (memhunk))
+    |      |                            ~ ^
+    |      |                            | |
+    |      |                            | (10) returning to ‘copy_section’ from ‘bfd_set_section_contents’
+    |      |                            (11) following ‘true’ branch...
+    |
+./benchmarks/binutils/leak_8/binutils_leak_8.c:153:41: warning: leak of ‘memhunk’ [CWE-401] [-Wanalyzer-malloc-leak]
+  153 |                                         return;
+      |                                         ^
+  ‘copy_section’: events 1-4
+    |
+    |  138 | copy_section (sec_ptr isection)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘copy_section’
+    |......
+    |  143 |         if (__RANDBOOL)
+    |      |            ~
+    |      |            |
+    |      |            (2) following ‘true’ branch...
+    |......
+    |  149 |                         if (!bfd_get_full_section_contents (isection, &memhunk)
+    |      |                              ~
+    |      |                              |
+    |      |                              (3) ...to here
+    |      |                              (4) calling ‘bfd_get_full_section_contents’ from ‘copy_section’
+    |
+    +--> ‘bfd_get_full_section_contents’: events 5-10
+           |
+           |   43 | bfd_get_full_section_contents (sec_ptr sec, bfd_byte **ptr)
+           |      | ^
+           |      | |
+           |      | (5) entry to ‘bfd_get_full_section_contents’
+           |......
+           |   48 |         switch (sec->compress_status)
+           |      |         ~
+           |      |         |
+           |      |         (6) following ‘case 1:’ branch...
+           |......
+           |   91 |                         case COMPRESS_SECTION_DONE:
+           |      |                         ~
+           |      |                         |
+           |      |                         (7) ...to here
+           |   92 |                                 if (p == NULL)
+           |      |                                    ~
+           |      |                                    |
+           |      |                                    (8) following ‘true’ branch (when ‘p_18’ is NULL)...
+           |   93 |                                         p = (bfd_byte *) bfd_malloc (4);
+           |      |                                                          ~
+           |      |                                                          |
+           |      |                                                          (9) ...to here
+           |      |                                                          (10) calling ‘bfd_malloc’ from ‘bfd_get_full_section_contents’
+           |
+           +--> ‘bfd_malloc’: events 11-15
+                  |
+                  |   10 | void *bfd_malloc (bfd_size_type size)
+                  |      |       ^
+                  |      |       |
+                  |      |       (11) entry to ‘bfd_malloc’
+                  |......
+                  |   15 |   if (size != sz
+                  |      |      ~ 
+                  |      |      |
+                  |      |      (12) following ‘false’ branch...
+                  |......
+                  |   23 |   ptr = malloc (sz); // allocation site
+                  |      |         ~
+                  |      |         |
+                  |      |         (13) ...to here
+                  |      |         (14) allocated here
+                  |   24 |   if (ptr == NULL && sz != 0)
+                  |      |      ~ 
+                  |      |      |
+                  |      |      (15) following ‘false’ branch...
+                  |
+                ‘bfd_malloc’: event 16
+                  |
+                  |lto1:
+                  | (16): ...to here
+                  |
+           <------+
+           |
+         ‘bfd_get_full_section_contents’: events 17-20
+           |
+           |   93 |                                         p = (bfd_byte *) bfd_malloc (4);
+           |      |                                                          ^
+           |      |                                                          |
+           |      |                                                          (17) returning to ‘bfd_get_full_section_contents’ from ‘bfd_malloc’
+           |   94 |                                         if (p == NULL)
+           |      |                                            ~              
+           |      |                                            |
+           |      |                                            (18) assuming ‘p_8’ is non-NULL
+           |      |                                            (19) following ‘false’ branch (when ‘p_8’ is non-NULL)...
+           |......
+           |   97 |                                         *ptr = p;
+           |      |                                              ~            
+           |      |                                              |
+           |      |                                              (20) ...to here
+           |
+    <------+
+    |
+  ‘copy_section’: events 21-24
+    |
+    |  149 |                         if (!bfd_get_full_section_contents (isection, &memhunk)
+    |      |                            ~ ^
+    |      |                            | |
+    |      |                            | (21) returning to ‘copy_section’ from ‘bfd_get_full_section_contents’
+    |      |                            (22) following ‘false’ branch...
+    |  150 |                                         || !bfd_convert_section_contents (isection, &memhunk))
+    |      |                                             ~
+    |      |                                             |
+    |      |                                             (23) ...to here
+    |      |                                             (24) calling ‘bfd_convert_section_contents’ from ‘copy_section’
+    |
+    +--> ‘bfd_convert_section_contents’: events 25-27
+           |
+           |  106 | bfd_convert_section_contents (sec_ptr isec, bfd_byte **ptr)
+           |      | ^
+           |      | |
+           |      | (25) entry to ‘bfd_convert_section_contents’
+           |......
+           |  122 |         if (contents)
+           |      |            ~
+           |      |            |
+           |      |            (26) following ‘true’ branch (when ‘contents_7’ is non-NULL)...
+           |  123 |                 __USE(contents);
+           |      |                 ~
+           |      |                 |
+           |      |                 (27) ...to here
+           |
+    <------+
+    |
+  ‘copy_section’: events 28-29
+    |
+    |  150 |                                         || !bfd_convert_section_contents (isection, &memhunk))
+    |      |                                             ^
+    |      |                                             |
+    |      |                                             (28) returning to ‘copy_section’ from ‘bfd_convert_section_contents’
+    |......
+    |  153 |                                         return;
+    |      |                                         ~    
+    |      |                                         |
+    |      |                                         (29) ‘memhunk’ leaks here; was allocated at (14)
+    |
+./benchmarks/binutils/leak_8/binutils_leak_8.c:170:25: warning: use of possibly-NULL ‘memhunk_19’ where non-null expected [CWE-690] [-Wanalyzer-possible-null-argument]
+  170 |                         memset (memhunk, 0, 4);
+      |                         ^
+  ‘copy_section’: events 1-4
+    |
+    |  143 |         if (__RANDBOOL)
+    |      |            ^
+    |      |            |
+    |      |            (1) following ‘false’ branch...
+    |......
+    |  169 |                         void *memhunk = xmalloc (4);
+    |      |                                         ~
+    |      |                                         |
+    |      |                                         (2) ...to here
+    |      |                                         (3) this call could return NULL
+    |  170 |                         memset (memhunk, 0, 4);
+    |      |                         ~
+    |      |                         |
+    |      |                         (4) argument 1 (‘memhunk_19’) from (3) could be NULL where non-null expected
+    |
+<built-in>: note: argument 1 of ‘memset’ must be non-null
+./benchmarks/binutils/leak_8/../include/common.h: In function ‘bfd_convert_section_contents’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:125:16: warning: leak of ‘contents_17’ [CWE-401] [-Wanalyzer-malloc-leak]
+  125 |         return __RANDBOOL;
+      |                ^
+  ‘bfd_convert_section_contents’: events 1-4
+    |
+    |  106 | bfd_convert_section_contents (sec_ptr isec, bfd_byte **ptr)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘bfd_convert_section_contents’
+    |......
+    |  115 |         if (!use_memmove)
+    |      |            ~
+    |      |            |
+    |      |            (2) following ‘true’ branch...
+    |  116 |                 {
+    |  117 |                         contents = (bfd_byte *) bfd_malloc (4);
+    |      |                                                 ~
+    |      |                                                 |
+    |      |                                                 (3) ...to here
+    |      |                                                 (4) calling ‘bfd_malloc’ from ‘bfd_convert_section_contents’
+    |
+    +--> ‘bfd_malloc’: events 5-9
+           |
+           |   10 | void *bfd_malloc (bfd_size_type size)
+           |      |       ^
+           |      |       |
+           |      |       (5) entry to ‘bfd_malloc’
+           |......
+           |   15 |   if (size != sz
+           |      |      ~ 
+           |      |      |
+           |      |      (6) following ‘false’ branch...
+           |......
+           |   23 |   ptr = malloc (sz); // allocation site
+           |      |         ~
+           |      |         |
+           |      |         (7) ...to here
+           |      |         (8) allocated here
+           |   24 |   if (ptr == NULL && sz != 0)
+           |      |      ~ 
+           |      |      |
+           |      |      (9) following ‘false’ branch...
+           |
+         ‘bfd_malloc’: event 10
+           |
+           |lto1:
+           | (10): ...to here
+           |
+    <------+
+    |
+  ‘bfd_convert_section_contents’: events 11-17
+    |
+    |  117 |                         contents = (bfd_byte *) bfd_malloc (4);
+    |      |                                                 ^
+    |      |                                                 |
+    |      |                                                 (11) returning to ‘bfd_convert_section_contents’ from ‘bfd_malloc’
+    |  118 |                         if (contents == NULL)
+    |      |                            ~                     
+    |      |                            |
+    |      |                            (12) assuming ‘contents_17’ is non-NULL
+    |      |                            (13) following ‘false’ branch (when ‘contents_17’ is non-NULL)...
+    |......
+    |  122 |         if (contents)
+    |      |            ~                                     
+    |      |            |
+    |      |            (14) ...to here
+    |      |            (15) following ‘true’ branch (when ‘contents_7’ is non-NULL)...
+    |  123 |                 __USE(contents);
+    |      |                 ~                                
+    |      |                 |
+    |      |                 (16) ...to here
+    |  124 | 
+    |  125 |         return __RANDBOOL;
+    |      |                ~                                 
+    |      |                |
+    |      |                (17) ‘contents_17’ leaks here; was allocated at (8)
+    |
+./benchmarks/binutils/leak_8/../include/common.h: In function ‘make_my_cleanup2’:
+./benchmarks/binutils/leak_8/../include/common.h:129:13: warning: dereference of possibly-NULL ‘new_4’ [CWE-690] [-Wanalyzer-possible-null-dereference]
+  129 |   new->next = *pmy_chain;
+      |             ^
+  ‘make_cleanup’: events 1-2
+    |
+    |  149 | make_cleanup (make_cleanup_ftype *function, void *arg)
+    |      | ^
+    |      | |
+    |      | (1) entry to ‘make_cleanup’
+    |  150 | {
+    |  151 |   return make_my_cleanup (&cleanup_chain, function, arg);
+    |      |          ~
+    |      |          |
+    |      |          (2) calling ‘make_my_cleanup’ from ‘make_cleanup’
+    |
+    +--> ‘make_my_cleanup’: events 3-4
+           |
+           |  142 | make_my_cleanup (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+           |      | ^
+           |      | |
+           |      | (3) entry to ‘make_my_cleanup’
+           |......
+           |  145 |   return make_my_cleanup2 (pmy_chain, function, arg, NULL);
+           |      |          ~
+           |      |          |
+           |      |          (4) calling ‘make_my_cleanup2’ from ‘make_my_cleanup’
+           |
+           +--> ‘make_my_cleanup2’: events 5-7
+                  |
+                  |  122 | make_my_cleanup2 (struct cleanup **pmy_chain, make_cleanup_ftype *function,
+                  |      | ^
+                  |      | |
+                  |      | (5) entry to ‘make_my_cleanup2’
+                  |......
+                  |  126 |     = (struct cleanup *) malloc (sizeof (struct cleanup));
+                  |      |                          ~
+                  |      |                          |
+                  |      |                          (6) this call could return NULL
+                  |......
+                  |  129 |   new->next = *pmy_chain;
+                  |      |             ~
+                  |      |             |
+                  |      |             (7) ‘new_4’ could be NULL: unchecked value from (6)
+                  |
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)  2157k ( 90%)
+ phase opt and generate             :   0.08 (100%)   0.00 (  0%)   0.07 ( 87%)   163k (  7%)
+ analyzer                           :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ analyzer: processing worklist      :   0.05 ( 62%)   0.00 (  0%)   0.05 ( 62%)   776  (  0%)
+ analyzer: emitting diagnostics     :   0.01 ( 12%)   0.00 (  0%)   0.02 ( 25%)   384  (  0%)
+ analyzer: shortest paths           :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.08          0.00          0.08         2407k
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 77%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   596k ( 21%)
+ callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.03 (100%)   479k ( 17%)
+ df scan insns                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)   336  (  0%)
+ expand vars                        :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  2736  (  0%)
+ dead store elim1                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2904  (  0%)
+ thread pro- & epilogue             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    13k (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 33%)    12k (  0%)
+ TOTAL                              :   0.03          0.00          0.03         2818k
