@@ -1,4 +1,0 @@
-./benchmarks/tmux/leak_8/tmux_leak_8.c:7:10: fatal error: sys/sysctl.h: No such file or directory
-    7 | #include <sys/sysctl.h>
-      |          ^~~~~~~~~~~~~~
-compilation terminated.
