@@ -314,7 +314,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 
-		printfBasicblock();
+		// printfBasicblock();
 	}
 	else
 		fprintf(stderr, "\033[40;41m GIMPLE STMT NO FREE STMT\033[0m\n");
@@ -469,13 +469,13 @@ void detect(struct plugin_argument *argv, int argc)
 			{
 				edge e;
 				edge_iterator ei;
-				fprintf(stderr, "node:= %d \n ", bb->index);
+				// fprintf(stderr, "node:= %d \n ", bb->index);
 				// fprintf(stderr,"node:= %d \n succs:=",bb->index);
 				FOR_EACH_EDGE(e, ei, bb->succs)
 				{
 					DFS.addEdge(bb->index, e->dest->index);
 					// fprintf(stderr, "	from_branch :=%d\n", e->src->index);
-					fprintf(stderr, "	next_branch :=%d\n", e->dest->index);
+					// fprintf(stderr, "	next_branch :=%d\n", e->dest->index);
 					// fprintf(stderr,"%d",e->dest->index);
 				}
 			}
@@ -485,7 +485,7 @@ void detect(struct plugin_argument *argv, int argc)
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
-				debug_gimple_stmt(gc);
+				// debug_gimple_stmt(gc);
 				if (is_gimple_call(gc))
 				{
 
@@ -589,6 +589,7 @@ void insert_always_inline()
 
 			if (lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)) == NULL)
 			{
+				
 				fprintf(stderr, "=======node_fun:%s=========\n", get_name(callee->decl));
 				DECL_ATTRIBUTES(callee->decl) = tree_cons(get_identifier("noinline"), NULL, DECL_ATTRIBUTES(callee->decl));
 				DECL_DISREGARD_INLINE_LIMITS(callee->decl) = 1;

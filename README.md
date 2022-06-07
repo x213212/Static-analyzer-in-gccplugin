@@ -240,7 +240,14 @@ make debug=1
 make debug=2
 make debug=3
 ```
+# count time 
+```
+get file name
+add grep -r   "algorithm time" ./  | cut -d " " -f 1
+get algorithm time
+add grep -r   "algorithm time" ./  | cut -d " " -f 7 
 
+```
 
 # unittest check draw graphiz
 ![](https://i.imgur.com/jSMgN6P.png)

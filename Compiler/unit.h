@@ -230,3 +230,79 @@ unsigned int SDBMHash(char *str)
 
 	return (hash & 0x7FFFFFFF);
 }
+
+int fprintf2(FILE *stream, const char *format, ...)
+{
+	if (!debugoutput)
+		return 0;
+	va_list ap;
+	va_start(ap, format);
+	// vprintf(format,ap);
+	vfprintf(stream, format, ap);
+
+	va_end(ap);
+	fflush(fp);
+}
+
+DEBUG_FUNCTION void
+debug_gimple_stmt2(gimple *gs)
+{
+	if (!debugoutput)
+		return;
+	debug_gimple_stmt(gs);
+}
+
+DEBUG_FUNCTION void
+debug_tree2(tree node)
+{
+	if (!debugoutput)
+		return;
+	debug_tree(node);
+}
+
+// DEBUG_FUNCTION void
+// debug2 (const tree_node &ref)
+// {
+//   dump_tree_via_hooks (&ref, TDF_NONE);
+// }
+
+DEBUG_FUNCTION void
+debug2(const tree_node *ptr)
+{
+	if (!debugoutput)
+		return;
+	if (ptr)
+		debug(*ptr);
+	else
+		fprintf(stderr, "<nil>\n");
+}
+DEBUG_FUNCTION void
+debug2(gimple *ptr)
+{
+	if (!debugoutput)
+		return;
+	if (ptr)
+		debug(*ptr);
+	else
+		fprintf(stderr, "<nil>\n");
+}
+
+/* A warning at LOCATION.  Use this for code which is correct according to the
+   relevant language specification but is likely to be buggy anyway.
+   Returns true if the warning was printed, false if it was inhibited.  */
+
+bool warning_at2(location_t location, int opt, const char *gmsgid, ...)
+{
+	if (!debugoutput)
+		return 0;
+	return warning_at(location, opt, gmsgid);
+}
+
+/* Same as "warning at" above, but using RICHLOC.  */
+
+bool warning_at2(rich_location *richloc, int opt, const char *gmsgid, ...)
+{
+	if (!debugoutput)
+		return 0;
+	return warning_at(richloc, opt, gmsgid);
+}

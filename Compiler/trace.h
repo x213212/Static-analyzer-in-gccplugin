@@ -13,8 +13,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 	tree t;
 	if (node == NULL)
 		return;
-	// fprintf(stderr, "=======node_fun: =========\n");
-	// debug(now_laststmt);
+	// fprintf2(stderr, "=======node_fun: =========\n");
+	// debug2(now_laststmt);
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
 		// if (!gimple_has_body_p (node->decl))
@@ -22,7 +22,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 		int fucntion_level = 0;
 		push_cfun(node->get_fun());
 
-		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		// fprintf2(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		if (cfun == NULL)
 		{
 			pop_cfun();
@@ -36,10 +36,10 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 			calculate_dominance_info(CDI_DOMINATORS);
 
 			/*create DFS graph, Algorithm 1 and 2*/
-			fprintf(stderr, "\033[40;36m ======= node_fun:%s========= \033[0m\n", get_name(function_tree));
-			fprintf(stderr, "\033[40;36m ======= find relate stmt with %s ========= \033[0m\n", get_name(mallocStmt_tree));
+			fprintf2(stderr, "\033[40;36m ======= node_fun:%s========= \033[0m\n", get_name(function_tree));
+			fprintf2(stderr, "\033[40;36m ======= find relate stmt with %s ========= \033[0m\n", get_name(mallocStmt_tree));
 
-			// fprintf(stderr, "\033[40;36m ======= relate stmt argument:%s ========= \033[0m\n", get_name(mallocStmt_tree));
+			// fprintf2(stderr, "\033[40;36m ======= relate stmt argument:%s ========= \033[0m\n", get_name(mallocStmt_tree));
 			int seccount = 0;
 			FOR_EACH_BB_FN(bb, cfun)
 			{
@@ -56,20 +56,20 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 						if (name != NULL)
 							if (!strcmp(name, "pthread_exit"))
 							{
-								debug_gimple_stmt(gc);
+								debug_gimple_stmt2(gc);
 							}
 					}
 
 					if (is_gimple_assign(gc))
 					{
-						// fprintf(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
+						// fprintf2(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
 						struct ptr_info_def *pi1, *pi2, *pi3, *pi4;
 						pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
 						struct pt_solution *pt1 = &pi1->pt;
 
 						if (pt1 && relatemod)
 						{
-							// debug_tree(mallocStmt_tree);
+							// debug_tree2(mallocStmt_tree);
 
 							if (TREE_CODE(mallocStmt_tree) == SSA_NAME || TREE_CODE(mallocStmt_tree) == VAR_DECL)
 							{
@@ -97,12 +97,12 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 															if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
 															{
-																debug_tree(gimple_assign_rhs1(gc));
-																fprintf(stderr, "\n ================== warring ================== \n");
+																debug_tree2(gimple_assign_rhs1(gc));
+																fprintf2(stderr, "\n ================== warring ================== \n");
 
-																fprintf(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
-																fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-																fprintf(stderr, "\n ================== warring ================== \n");
+																fprintf2(stderr, "\033[40;35m this pointer possible  reference other address (rhs)\033[0m\n");
+																fprintf2(stderr, "\033[40;35m or assign other value \033[0m\n");
+																fprintf2(stderr, "\n ================== warring ================== \n");
 															}
 														}
 													}
@@ -115,7 +115,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 													if (TREE_CODE(gimple_assign_lhs(gc)) == MEM_REF && TREE_CODE(gimple_assign_rhs1(gc)) == INTEGER_CST)
 													{
 
-														// fprintf(stderr, "\n ================== warring GLOBOBLBOLBO================== \n");
+														// fprintf2(stderr, "\n ================== warring GLOBOBLBOLBO================== \n");
 														tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 														gimple *def_stmt = SSA_NAME_DEF_STMT(first);
 														gimple *def_stmt2 = SSA_NAME_DEF_STMT(mallocStmt_tree);
@@ -130,8 +130,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																	if (!pt1 || pt1->anything)
 																		continue;
 																	//
-																	// debug_tree(first);
-																	// debug_tree(mallocStmt_tree);
+																	// debug_tree2(first);
+																	// debug_tree2(mallocStmt_tree);
 																	if (is_gimple_assign(def_stmt) && is_gimple_assign(def_stmt2))
 																		if (!strcmp(get_tree_code_name(TREE_CODE(gimple_assign_rhs1(def_stmt))), "<invalid tree code>"))
 																		{
@@ -192,8 +192,8 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 													}
 												}
 
-												fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(mallocStmt_tree));
-												fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", get_name(gimple_assign_lhs(gc)));
+												fprintf2(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(mallocStmt_tree));
+												fprintf2(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", get_name(gimple_assign_lhs(gc)));
 												// ready add dot graph
 
 												unsigned long x = rand();
@@ -203,75 +203,75 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 													{
 														if (seccount == 0)
 														{
-															fprintf(stderr, "dot graph arrow");
+															fprintf2(stderr, "dot graph arrow");
 														}
 														else
 														{
 															if (now_laststmt != NULL)
 															{
 
-																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																debug(now_laststmt);
-																warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+																fprintf2(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																debug2(now_laststmt);
+																warning_at2(gimple_location_safe(now_laststmt), 0, "use location");
 															}
-															fprintf(stderr, "dot graph relate en1\n\n");
+															fprintf2(stderr, "dot graph relate en1\n\n");
 														}
-														fprintf(stderr, "dot graph start relate for1");
+														fprintf2(stderr, "dot graph start relate for1");
 													}
 													else
 													{
 
 														if (fistconunt == 0)
 														{
-															fprintf(stderr, "dot graph start relate form");
+															fprintf2(stderr, "dot graph start relate form");
 															fistconunt++;
 														}
 														else
 														{
 															if (now_laststmt != NULL)
 															{
-																fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																debug(now_laststmt);
-																warning_at(gimple_location_safe(now_laststmt), 0, "use location");
-																fprintf(stderr, "dot graph relate en1\n\n");
+																fprintf2(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																debug2(now_laststmt);
+																warning_at2(gimple_location_safe(now_laststmt), 0, "use location");
+																fprintf2(stderr, "dot graph relate en1\n\n");
 																now_laststmt = gc;
 																now_laststmtid = x;
 															}
-															fprintf(stderr, "dot graph start relate for1");
+															fprintf2(stderr, "dot graph start relate for1");
 														}
 													}
 													fistconunt++;
-													fprintf(stderr, "ID : %lu\n", now_fucntion);
-													fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
-													fprintf(stderr, "dot graph end relate end\n\n");
+													fprintf2(stderr, "ID : %lu\n", now_fucntion);
+													fprintf2(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
+													fprintf2(stderr, "dot graph end relate end\n\n");
 
 													// print address error
-													warning_at(gimple_location_safe(gc), 0, "use location");
-													debug(gc);
-													fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
+													warning_at2(gimple_location_safe(gc), 0, "use location");
+													debug2(gc);
+													fprintf2(stderr, "dot graph relate stmt start ID : %lu stmt(LHS) :", x);
 													// check_bbinfo2(gimple_bb(gc));
-													warning_at(gimple_location_safe(gc), 0, "use location");
-													debug(gimple_assign_lhs(gc));
+													warning_at2(gimple_location_safe(gc), 0, "use location");
+													debug2(gimple_assign_lhs(gc));
 
-													fprintf(stderr, "dot graph relate end\n\n");
+													fprintf2(stderr, "dot graph relate end\n\n");
 												}
 												else
 												{
-													warning_at(gimple_location_safe(gc), 0, "use location");
-													debug(gc);
+													warning_at2(gimple_location_safe(gc), 0, "use location");
+													debug2(gc);
 
-													warning_at(gimple_location_safe(gc), 0, "use location");
-													debug(gimple_assign_lhs(gc));
+													warning_at2(gimple_location_safe(gc), 0, "use location");
+													debug2(gimple_assign_lhs(gc));
 												}
 												// ready add dot graph
 												now_relatelaststmt = gc;
 												now_relatelaststmtid = x;
 												now_laststmtid = x;
 
-												fprintf(stderr, "\n ================== warring ================== \n");
-												fprintf(stderr, "\033[40;35m this pointer possible reference other address \033[0m\n");
-												fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-												fprintf(stderr, "\n ================== warring ================== \n");
+												fprintf2(stderr, "\n ================== warring ================== \n");
+												fprintf2(stderr, "\033[40;35m this pointer possible reference other address \033[0m\n");
+												fprintf2(stderr, "\033[40;35m or assign other value \033[0m\n");
+												fprintf2(stderr, "\n ================== warring ================== \n");
 											}
 										}
 									}
@@ -286,21 +286,21 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 							if (TREE_CODE(gimple_assign_lhs(gc)) == ARRAY_REF)
 								second = TREE_OPERAND(gimple_assign_lhs(gc), 0);
 
-							// debug_tree(second);
-							// debug_tree(mallocStmt_tree);
+							// debug_tree2(second);
+							// debug_tree2(mallocStmt_tree);
 							if (second != NULL_TREE)
 								if ((TREE_CODE(mallocStmt_tree) == VAR_DECL) && TREE_CODE(second) == VAR_DECL)
 									if ((second == mallocStmt_tree))
 									{
-										fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(function_tree));
-										fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
-										debug_gimple_stmt(gc);
-										warning_at(gimple_location_safe(gc), 0, "use location");
-										fprintf(stderr, "\n ================== warring ================== \n");
-										fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
-										fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
+										fprintf2(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(function_tree));
+										fprintf2(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
+										debug_gimple_stmt2(gc);
+										warning_at2(gimple_location_safe(gc), 0, "use location");
+										fprintf2(stderr, "\n ================== warring ================== \n");
+										fprintf2(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+										fprintf2(stderr, "\033[40;35m or assign other value \033[0m\n");
 
-										fprintf(stderr, "\n ================== warring ================== \n");
+										fprintf2(stderr, "\n ================== warring ================== \n");
 									}
 							if ((second == NULL_TREE) && (TREE_CODE(mallocStmt_tree) == SSA_NAME))
 							{
@@ -312,15 +312,15 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 									if (def_stmt != NULL)
 										if ((gimple_code(def_stmt) != GIMPLE_PHI) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
 										{
-											fprintf(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(function_tree));
-											fprintf(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
-											debug_gimple_stmt(gc);
-											warning_at(gimple_location_safe(gc), 0, "use location");
+											fprintf2(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(function_tree));
+											fprintf2(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
+											debug_gimple_stmt2(gc);
+											warning_at2(gimple_location_safe(gc), 0, "use location");
 
-											fprintf(stderr, "\n ================== warring ================== \n");
-											fprintf(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
-											fprintf(stderr, "\033[40;35m or assign other value \033[0m\n");
-											fprintf(stderr, "\n ================== warring ================== \n");
+											fprintf2(stderr, "\n ================== warring ================== \n");
+											fprintf2(stderr, "\033[40;35m this pointer possible  reference other address \033[0m\n");
+											fprintf2(stderr, "\033[40;35m or assign other value \033[0m\n");
+											fprintf2(stderr, "\n ================== warring ================== \n");
 										}
 								}
 							}
@@ -362,61 +362,61 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 														{
 															if (seccount == 0)
 															{
-																fprintf(stderr, "dot graph arrow");
+																fprintf2(stderr, "dot graph arrow");
 															}
 															else
 															{
 																if (now_laststmt != NULL)
 																{
-																	fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																	debug(now_laststmt);
-																	warning_at(gimple_location_safe(now_laststmt), 0, "use location");
+																	fprintf2(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																	debug2(now_laststmt);
+																	warning_at2(gimple_location_safe(now_laststmt), 0, "use location");
 																}
-																fprintf(stderr, "dot graph relate en1\n\n");
+																fprintf2(stderr, "dot graph relate en1\n\n");
 															}
-															fprintf(stderr, "dot graph start relate for1");
+															fprintf2(stderr, "dot graph start relate for1");
 														}
 														else
 														{
 
 															if (fistconunt == 0)
 															{
-																fprintf(stderr, "dot graph start relate form");
+																fprintf2(stderr, "dot graph start relate form");
 																fistconunt++;
 															}
 															else
 															{
 																if (now_laststmt != NULL)
 																{
-																	fprintf(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
-																	debug(now_laststmt);
-																	warning_at(gimple_location_safe(now_laststmt), 0, "use location");
-																	fprintf(stderr, "dot graph relate en1\n\n");
+																	fprintf2(stderr, "dot graph relate stm2 start ID : %lu stmt(free) :", now_laststmtid);
+																	debug2(now_laststmt);
+																	warning_at2(gimple_location_safe(now_laststmt), 0, "use location");
+																	fprintf2(stderr, "dot graph relate en1\n\n");
 																	now_laststmt = gc;
 																	now_laststmtid = x;
 																}
-																fprintf(stderr, "dot graph start relate for1");
+																fprintf2(stderr, "dot graph start relate for1");
 															}
 														}
 
 														fistconunt++;
 
-														// debug_tree(gimple_call_arg(gc, 0));
-														fprintf(stderr, "ID : %lu\n", now_fucntion);
-														fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
-														fprintf(stderr, "dot graph end relate end\n\n");
-														debug(gc);
-														// warning_at(gimple_location_safe(gc), 0, "use location");
-														fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
-														warning_at(gimple_location_safe(gc), 0, "use location");
-														debug(gimple_call_arg(gc, 0));
-														fprintf(stderr, "dot graph relate end\n\n");
+														// debug_tree2(gimple_call_arg(gc, 0));
+														fprintf2(stderr, "ID : %lu\n", now_fucntion);
+														fprintf2(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb(gc)->index);
+														fprintf2(stderr, "dot graph end relate end\n\n");
+														debug2(gc);
+														// warning_at2(gimple_location_safe(gc), 0, "use location");
+														fprintf2(stderr, "dot graph relate stmt start ID : %lu stmt(call) :", x);
+														warning_at2(gimple_location_safe(gc), 0, "use location");
+														debug2(gimple_call_arg(gc, 0));
+														fprintf2(stderr, "dot graph relate end\n\n");
 													}
 													else
 													{
-														debug(gc);
-														warning_at(gimple_location_safe(gc), 0, "use location");
-														debug(gimple_call_arg(gc, 0));
+														debug2(gc);
+														warning_at2(gimple_location_safe(gc), 0, "use location");
+														debug2(gimple_call_arg(gc, 0));
 													}
 													// check_bbinfo2(gimple_bb(gc));
 													now_relatelaststmt = gc;
@@ -457,7 +457,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 		}
 		pop_cfun();
 	}
-	fprintf(stderr, "fucntion collect path finsh\n");
+	fprintf2(stderr, "fucntion collect path finsh\n");
 }
 
 int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_tree, int *freecount)
@@ -474,7 +474,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 	const char *name;
 	fistconunt = 0;
 
-	fprintf(stderr, "\033[40;44m =======trace_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	fprintf2(stderr, "\033[40;44m =======trace_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 
 	if (retmod)
 		if (function_return_collect->get(function_tree) != NULL && fucntion_level == RET_HEAP_OBJECT)
@@ -498,10 +498,10 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 							if (pi)
 								if (ptr_derefs_may_alias_p((callerRetTypearray)[k].return_tree, mallocStmt_tree))
 								{
-									fprintf(stderr, "\033[40;31m  find return stmt  \033[0m\n");
-									fprintf(stderr, "\033[40;31m  this fucntion return heap-object  \033[0m\n");
-									debug_gimple_stmt((callerRetTypearray)[k].stmt);
-									warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+									fprintf2(stderr, "\033[40;31m  find return stmt  \033[0m\n");
+									fprintf2(stderr, "\033[40;31m  this fucntion return heap-object  \033[0m\n");
+									debug_gimple_stmt2((callerRetTypearray)[k].stmt);
+									warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
 								}
 						}
 				}
@@ -520,45 +520,45 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			}
 			for (int k = 0; k < callerRetTypearray.size(); k++)
 			{
-				debug_gimple_stmt((callerRetTypearray)[k].stmt);
+				debug_gimple_stmt2((callerRetTypearray)[k].stmt);
 				if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
 				{
-					fprintf(stderr, "\033[40;31m  find free stmt free same pointer \033[0m\n");
-					debug_gimple_stmt((callerRetTypearray)[k].stmt);
-					warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+					fprintf2(stderr, "\033[40;31m  find free stmt free same pointer \033[0m\n");
+					debug_gimple_stmt2((callerRetTypearray)[k].stmt);
+					warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
 					++(*freecount);
 					if (freemod && debugmod)
 					{
 						if (*(function_basicblock_collect)->get(gimple_block((callerRetTypearray)[k].stmt)) == 0)
 						{
 							function_basicblock_collect->put(gimple_block((callerRetTypearray)[k].stmt), 1);
-							fprintf(stderr, "dot graph start relate form ");
+							fprintf2(stderr, "dot graph start relate form ");
 						}
 						else
 						{
-							fprintf(stderr, "dot graph start relate form ");
+							fprintf2(stderr, "dot graph start relate form ");
 						}
-						fprintf(stderr, "ID : %lu\n", now_fucntion);
-						fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
-						fprintf(stderr, "dot graph end relate end\n\n");
+						fprintf2(stderr, "ID : %lu\n", now_fucntion);
+						fprintf2(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
+						fprintf2(stderr, "dot graph end relate end\n\n");
 						now_laststmt = (callerRetTypearray)[k].stmt;
 						// ready add dot graph
 						unsigned long x = rand();
 						now_laststmtid = x;
 						// ready add dot graph
-						fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
-						debug((callerRetTypearray)[k].stmt);
-						warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
-						fprintf(stderr, "dot graph relate end\n\n");
+						fprintf2(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
+						debug2((callerRetTypearray)[k].stmt);
+						warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+						fprintf2(stderr, "dot graph relate end\n\n");
 						// ready add dot graph
-						fprintf(stderr, "dot graph target color desc");
-						fprintf(stderr, "green");
-						fprintf(stderr, "dot graph target color desend\n\n");
+						fprintf2(stderr, "dot graph target color desc");
+						fprintf2(stderr, "green");
+						fprintf2(stderr, "dot graph target color desend\n\n");
 						// ready add dot graph
-						fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
-						debug((callerRetTypearray)[k].stmt);
-						warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
-						fprintf(stderr, "dot graph relate end\n\n");
+						fprintf2(stderr, "dot graph relate stmt start ID : %lu stmt(free) :", x);
+						debug2((callerRetTypearray)[k].stmt);
+						warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+						fprintf2(stderr, "dot graph relate end\n\n");
 					}
 				}
 			}
@@ -573,27 +573,27 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 		for (int k = 0; k < callerRetTypearray.size(); k++)
 		{
 
-			fprintf(stderr, "\033[40;31m  find pthread_detched stmt  \033[0m\n");
-			debug_gimple_stmt((callerRetTypearray)[k].stmt);
-			warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+			fprintf2(stderr, "\033[40;31m  find pthread_detched stmt  \033[0m\n");
+			debug_gimple_stmt2((callerRetTypearray)[k].stmt);
+			warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
 			*freecount = *freecount + 1;
 			if (pthread_detachedmod)
 			{
-				fprintf(stderr, "dot graph start relate form ");
-				fprintf(stderr, "ID : %lu\n", now_fucntion);
-				fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
-				fprintf(stderr, "dot graph end relate end\n\n");
+				fprintf2(stderr, "dot graph start relate form ");
+				fprintf2(stderr, "ID : %lu\n", now_fucntion);
+				fprintf2(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
+				fprintf2(stderr, "dot graph end relate end\n\n");
 				// ready add dot graph
 				now_laststmt = (callerRetTypearray)[k].stmt;
 				// ready add dot graph
 				unsigned long x = rand();
 				now_laststmtid = x;
 				// ready add dot graph
-				fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(pthread_detched)) :", x);
-				debug((callerRetTypearray)[k].stmt);
-				warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
-				// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
-				fprintf(stderr, "dot graph relate end\n\n");
+				fprintf2(stderr, "dot graph relate stmt start ID : %lu stmt(pthread_detched)) :", x);
+				debug2((callerRetTypearray)[k].stmt);
+				warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+				// debug2(gimple_assign_lhs((callerRetTypearray)[k].stmt));
+				fprintf2(stderr, "dot graph relate end\n\n");
 			}
 		}
 	}
@@ -605,27 +605,27 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 		for (int k = 0; k < callerRetTypearray.size(); k++)
 		{
 
-			fprintf(stderr, "\033[40;31m  find pthread_exit stmt  \033[0m\n");
-			debug_gimple_stmt((callerRetTypearray)[k].stmt);
-			warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+			fprintf2(stderr, "\033[40;31m  find pthread_exit stmt  \033[0m\n");
+			debug_gimple_stmt2((callerRetTypearray)[k].stmt);
+			warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
 			if (pthread_exitmod)
 			{
-				fprintf(stderr, "dot graph start relate form ");
+				fprintf2(stderr, "dot graph start relate form ");
 
-				fprintf(stderr, "ID : %lu\n", now_fucntion);
-				fprintf(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
-				fprintf(stderr, "dot graph end relate end\n\n");
+				fprintf2(stderr, "ID : %lu\n", now_fucntion);
+				fprintf2(stderr, "from %s basic block %d", (char *)get_name(function_tree), gimple_bb((callerRetTypearray)[k].stmt)->index);
+				fprintf2(stderr, "dot graph end relate end\n\n");
 				// ready add dot graph
 				now_laststmt = (callerRetTypearray)[k].stmt;
 				// ready add dot graph
 				unsigned long x = rand();
 				now_laststmtid = x;
 				// ready add dot graph
-				fprintf(stderr, "dot graph relate stmt start ID : %lu stmt(pthread_exit) :", x);
-				debug((callerRetTypearray)[k].stmt);
-				warning_at(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
-				// debug(gimple_assign_lhs((callerRetTypearray)[k].stmt));
-				fprintf(stderr, "dot graph relate end\n\n");
+				fprintf2(stderr, "dot graph relate stmt start ID : %lu stmt(pthread_exit) :", x);
+				debug2((callerRetTypearray)[k].stmt);
+				warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+				// debug2(gimple_assign_lhs((callerRetTypearray)[k].stmt));
+				fprintf2(stderr, "dot graph relate end\n\n");
 			}
 		}
 	}
@@ -641,7 +641,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 
 			struct ptr_info_def *pi1, *pi2, *pi3;
 			pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
-			debug_tree(mallocStmt_tree);
+			debug_tree2(mallocStmt_tree);
 			struct pt_solution *pt1 = &pi1->pt;
 			if (pt1 && pt1->null)
 			{
@@ -659,7 +659,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 		{
 			function_return_array callerFunArray = *(function_return_collect->get(function_tree));
 			if (function_return_collect->get(function_tree) != NULL && callerFunArray.return_type_num == 2)
-				fprintf(stderr, "%s this fucntion return value is heap-object \n", get_name(function_tree));
+				fprintf2(stderr, "%s this fucntion return value is heap-object \n", get_name(function_tree));
 		}
 	}
 
@@ -674,14 +674,14 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 		{
 
 			int find = 0;
-			fprintf(stderr, "\033[40;42m =======pre add _ fucntion:%s========= \033[0m\n", get_name((function_path_array)[i].next));
+			fprintf2(stderr, "\033[40;42m =======pre add _ fucntion:%s========= \033[0m\n", get_name((function_path_array)[i].next));
 
 			for (int o = 0; o < traceStack.size(); o++)
 			{
 				if (traceStack[o] == (function_path_array)[i].next)
 				{
 					find = 1;
-					fprintf(stderr, "\033[40;41m =======recursive_fun2:%s========= \033[0m\n", get_name(traceStack[o]));
+					fprintf2(stderr, "\033[40;41m =======recursive_fun2:%s========= \033[0m\n", get_name(traceStack[o]));
 					break;
 				}
 			}
@@ -710,8 +710,8 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 						if (calleeFunArray.return_type_num == 2)
 							if ((callerRetTypearray)[k].return_tree == (function_path_array)[i].next)
 							{
-								fprintf(stderr, "%s this fucntion return value is heap-object \n", get_name((function_path_array)[i].next));
-								fprintf(stderr, "%s this fucntion return value is heap-object %s\n", get_name(function_tree), get_name((callerRetTypearray)[k].return_tree));
+								fprintf2(stderr, "%s this fucntion return value is heap-object \n", get_name((function_path_array)[i].next));
+								fprintf2(stderr, "%s this fucntion return value is heap-object %s\n", get_name(function_tree), get_name((callerRetTypearray)[k].return_tree));
 								if (fucntion_level == RET_HEAP_OBJECT)
 									(*freecount) = EFFECTIVE;
 							}
@@ -719,7 +719,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 				}
 			if (find == 0)
 			{
-				fprintf(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
+				fprintf2(stderr, "\033[40;46m =======add node_fun stack:%s========= \033[0m\n", get_name((function_path_array)[i].next));
 				traceStack.push_back((function_path_array)[i].next);
 				trace_function_path((function_path_array)[i].next, fucntion_level, mallocStmt_tree, freecount);
 				traceStack.pop_back();
@@ -734,7 +734,7 @@ void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 	{
 		int fucntion_level = 0;
 		push_cfun(node->get_fun());
-		fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+		fprintf2(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
 		if (cfun == NULL)
 		{
 			pop_cfun();
@@ -742,13 +742,13 @@ void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		}
 		enum availability avail;
 
-		fprintf(stderr, "fucntion collect path \n");
+		fprintf2(stderr, "fucntion collect path \n");
 		pathStack.push_back(cfun->decl);
 		walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
 		pathStack.pop_back();
 		pop_cfun();
 	}
-	fprintf(stderr, "fucntion collect path finsh\n");
+	fprintf2(stderr, "fucntion collect path finsh\n");
 }
 
 void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gimple_array *user_tmp)
@@ -761,15 +761,15 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 	function_return_array callerFunArray;
 	vector<return_type> callerRetTypearray;
 
-	fprintf(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
+	fprintf2(stderr, "\033[40;44m =======print_function_path %s  function_call count: %d level :%d========  \033[0m\n", get_name(function_tree), function_path_array.size(), fucntion_level);
 	if (function_return_collect->get(function_tree) != NULL)
 	{
 		callerFunArray = *(function_return_collect->get(function_tree));
 		callerRetTypearray = callerFunArray.return_type_array;
-		fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", callerFunArray.return_type_num);
+		fprintf2(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", callerFunArray.return_type_num);
 
 		if (callerFunArray.pthread_type_num == FUNCITON_THREAD)
-			fprintf(stderr, "\033[40;44m =======print_pthread_type_is thread_fucntion  ========  \033[0m\n");
+			fprintf2(stderr, "\033[40;44m =======print_pthread_type_is thread_fucntion  ========  \033[0m\n");
 	}
 
 	fucntion_level += 1;
@@ -779,14 +779,14 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 	for (int i = 0; i < function_path_array.size(); i++)
 	{
 		find = 0;
-		fprintf(stderr, "\033[40;42m =======pre add _ fucntion:%s========= \033[0m\n", get_name((function_path_array)[i].next));
+		fprintf2(stderr, "\033[40;42m =======pre add _ fucntion:%s========= \033[0m\n", get_name((function_path_array)[i].next));
 
 		for (int o = 0; o < pathStack.size(); o++)
 		{
 			if (pathStack[o] == (function_path_array)[i].next)
 			{
 				find = 1;
-				// fprintf(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(pathStack[o]));
+				// fprintf2(stderr, "\033[40;41m =======recursive_fun:%s========= \033[0m\n", get_name(pathStack[o]));
 				break;
 			}
 		}
@@ -796,7 +796,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 			if (function_return_collect->get((function_path_array)[i].next) != NULL)
 			{
 				function_return_array calleeFunArray = *(function_return_collect->get((function_path_array)[i].next));
-				// fprintf(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", calleeFunArray.return_type_num);
+				// fprintf2(stderr, "\033[40;44m =======print_function_type %d  ========  \033[0m\n", calleeFunArray.return_type_num);
 				// thread lock set
 				function_return_array find_fun_array;
 				vector<return_type> ret_type_find_fun_array;
@@ -835,7 +835,7 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 				}
 			}
 			walk_function_path((function_path_array)[i].next, fucntion_level, ptable, user_tmp);
-			// fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+			// fprintf2(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
 			pathStack.pop_back();
 		}
 	}
@@ -852,7 +852,7 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 	cgraph_edge *e;
 	if (node == NULL)
 
-		fprintf(stderr, "=======node_fun: =========\n");
+		fprintf2(stderr, "=======node_fun: =========\n");
 
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
@@ -862,8 +862,8 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 
 		push_cfun(node->get_fun());
 
-		// fprintf(stderr, "=======node_fun:=========\n");
-		// debug_tree(node->get_fun()->decl);
+		// fprintf2(stderr, "=======node_fun:=========\n");
+		// debug_tree2(node->get_fun()->decl);
 		if (node->get_fun()->decl == NULL)
 		{
 			pop_cfun();
@@ -873,16 +873,16 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 		// if (!strcmp(get_name(cfun->decl), "main"))
 		// {
 
-		// fprintf(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
-		// fprintf(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+		// fprintf2(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+		// fprintf2(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
 
 		pathStack.push_back(cfun->decl);
-		// debug_tree(node->get_fun()->decl );
+		// debug_tree2(node->get_fun()->decl );
 		walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-		// fprintf(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+		// fprintf2(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
 		pathStack.pop_back();
 		// }
 		pop_cfun();
 	}
-	fprintf(stderr, "fucntion collect path finsh\n");
+	fprintf2(stderr, "fucntion collect path finsh\n");
 }

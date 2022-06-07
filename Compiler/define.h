@@ -46,7 +46,8 @@ bool memoryleakcheck = true;
 // Korea testcase need turn on
 bool Looserulesfree = true;
 bool useafterfree = true;
-bool debugmod = false;
+bool debugmod = true;
+bool debugoutput = false;
 bool threadmod = true;
 bool relatemod = true;
 bool freemod = true;

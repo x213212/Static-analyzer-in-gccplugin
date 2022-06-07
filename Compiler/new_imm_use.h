@@ -571,7 +571,7 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 				for (int i = 0; i < assign_array.assign_type_array.size(); i++)
 				{
 					gimple *nowstmt = (assign_array.assign_type_array)[i].stmt;
-					debug_gimple_stmt(nowstmt);
+					// debug_gimple_stmt(nowstmt);
 					if (gimple_code(nowstmt) == GIMPLE_ASSIGN)
 					{
 
@@ -1704,7 +1704,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 										{
 											// if (!check_stmtStack(gimple_call_arg(use_stmt, 0)))
 											// {
-											debug_tree(gimple_call_arg(use_stmt, 0));
+											// debug_tree(gimple_call_arg(use_stmt, 0));
 											// fprintf(stderr, "-------Untreated-------------------------\n");
 											// 	set_gimple_array(used_stmt, use_stmt, imple_call_arg(use_stmt, 0), target, NULL);
 
