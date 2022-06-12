@@ -265,12 +265,12 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 				treeGimpleArray->put(processtable->target, *used_stmt);
 				Entrypoint++;
-				fprintf(stderr, "=============== *this point analyzable =================\n");
-				debug(processtable->last_stmt);
-				fprintf(stderr, "=============== program slcing stmt count:%d=================\n", colectCount);
+				fprintf2(stderr, "=============== *this point analyzable =================\n");
+				debug2(processtable->last_stmt);
+				fprintf2(stderr, "=============== program slcing stmt count:%d=================\n", colectCount);
 				allcolectCount += colectCount;
-				warning_at(gimple_location_safe(processtable->last_stmt), 0, "use location");
-				fprintf(stderr, "========================================================\n");
+				warning_at2(gimple_location_safe(processtable->last_stmt), 0, "use location");
+				fprintf2(stderr, "========================================================\n");
 				// debug(processtable->swap_stmt);
 
 				if (processtable->next == NULL)
@@ -302,19 +302,15 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 		fprintf(stderr, "\n=============== The third stage : Start detection  =================\n");
 		dump_fucntion(node, ptable, used_stmt);
-
 		// fprintf(stderr, "physicalMem%d\n", GetProcessMemory().physicalMem);
 		// fprintf(stderr, "virtualMem%d\n", GetProcessMemory().virtualMem);
-
 		fprintf(stderr, "\n=============== The third stage : detection  End=================\n");
 		// sleep(5); //5s check time
 		clock_gettime(CLOCK_MONOTONIC, &aend);
-
 		temp = diff(astart, aend);
-
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 
-		// printfBasicblock();
+		printfBasicblock();
 	}
 	else
 		fprintf(stderr, "\033[40;41m GIMPLE STMT NO FREE STMT\033[0m\n");
@@ -381,6 +377,11 @@ void detect(struct plugin_argument *argv, int argc)
 	fprintf(stderr, "--------plugin argument-----------\n");
 	for (int i = 0; i < argc; i++)
 	{
+		if (!strcmp(argv[i].key, "debugoutput"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				debugoutput = true;
+			else
+				debugoutput = false;
 		if (!strcmp(argv[i].key, "debugmod"))
 			if (strtol(argv[i].value, NULL, 10)) // char* to int
 				debugmod = true;

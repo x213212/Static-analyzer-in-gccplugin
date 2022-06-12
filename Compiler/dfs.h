@@ -129,8 +129,8 @@ bool Graph::is_succ(basic_block bb1, basic_block bb2)
   stack.clear(); 
     end = bb2->index;
     succ = false;
-    stack.push_back(2);
-    DFS(2);
+    stack.push_back( bb1->index);
+    DFS(bb1->index);
     return succ;
 }
 

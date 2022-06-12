@@ -47,7 +47,7 @@ bool memoryleakcheck = true;
 bool Looserulesfree = true;
 bool useafterfree = true;
 bool debugmod = true;
-bool debugoutput = false;
+bool debugoutput = true;
 bool threadmod = true;
 bool relatemod = true;
 bool freemod = true;
@@ -161,6 +161,7 @@ struct return_type
 {
 	int return_type_stmt_num = 0;
 	gimple *stmt;
+	tree locfucntion;
 	tree return_tree;
 };
 struct assign_type

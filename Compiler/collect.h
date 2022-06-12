@@ -352,7 +352,9 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					struct return_type ret_type;
 					ret_type.stmt = gc;
 					ret_type.return_tree = get_function_return_tree;
+					ret_type.locfucntion = node->get_fun()->decl;
 					// ret_type.reutnr_type_num = 0;
+					ret_type.locfucntion = node->get_fun()->decl;
 					global_ret_type_array.push_back(ret_type);
 					fun_array.return_type_array.push_back(ret_type);
 					function_return_collect->put(node->get_fun()->decl, fun_array);
@@ -385,6 +387,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 				struct return_type ret_type;
 				ret_type.stmt = gc;
+				ret_type.locfucntion = node->get_fun()->decl;
 				ret_type.return_tree = gimple_call_arg(gc, 0);
 				ret_type.return_type_stmt_num = FUNCITON_THREAD;
 
@@ -707,7 +710,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					struct return_type ret_type;
 					ret_type.stmt = gc;
 					ret_type.return_tree = getreturnFucntionDecl;
-
+					ret_type.locfucntion = node->get_fun()->decl;
 					fun_array.return_type_array.push_back(ret_type);
 					function_return_collect->put(node->get_fun()->decl, fun_array);
 				}
@@ -1473,6 +1476,7 @@ void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 	fun_array.return_type_array = ret_type_array;
 	struct return_type ret_type;
 	ret_type.stmt = gc;
+	ret_type.locfucntion = node->get_fun()->decl;
 	ret_type.return_tree = get_function_return_tree;
 	// global
 	global_ret_type_array.push_back(ret_type);

@@ -182,23 +182,23 @@ all: test.o
 
 test.o:  
 ifeq ($(debug),0)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 )
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 -fplugin-arg-newplugin-debugoutput=1 )
 else ifeq ($(debug),1)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1)
 else ifeq ($(debug),2)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1 )
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1 )
 else ifeq ($(debug),3)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=0  -fplugin-arg-newplugin-contextsentive=0)
 else ifeq ($(debug),4)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=0 )
 endif
-	@echo $(debug)
+	# @echo $(debug)
 	# mod 1
 	# # # # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
-	@sh ./test.sh $(FILE_NAME)
-	# mod 2
-	# binutils
+	# # @sh ./test.sh $(FILE_NAME)
+	# #mod 2
+	# #binutils
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME2)  -o $@ 2> $(BINUTILSL)2/check.log
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME3)  -o $@ 2> $(BINUTILSL)3/check.log
@@ -325,7 +325,7 @@ endif
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(TMUXFILE_NAMED3)  -o $@ 2> $(TMUXD)3/check.log
 
 unittestml:
-# binutils
+	# binutils
 	grep "no free stmt possible memory leak"   ./benchmarks/binutils/leak_1/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/binutils/leak_2/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/binutils/leak_3/check.log | uniq -c    | wc -l
@@ -384,7 +384,66 @@ unittestml:
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_8/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_9/check.log | uniq -c    | wc -l
 	grep "no free stmt possible memory leak"   ./benchmarks/tmux/leak_10/check.log | uniq -c    | wc -l
+unittestml2:
+	# binutils
+	grep "CWE-401"   ./benchmarks/binutils/leak_1/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_2/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_3/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_4/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_5/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_6/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_7/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_8/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_9/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/binutils/leak_10/check.log | uniq -c    | wc -l
 
+	# git
+	grep "CWE-401"   ./benchmarks/git/leak_1/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_2/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_3/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_4/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_5/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_6/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_7/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_8/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_9/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/git/leak_10/check.log | uniq -c    | wc -l
+
+	#openssh
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_1/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_2/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_3/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_4/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_5/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_6/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_7/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_8/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_9/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssh-portable/leak_10/check.log | uniq -c    | wc -l
+
+	#openssl
+	grep "CWE-401"   ./benchmarks/openssl/leak_1/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_2/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_3/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_4/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_5/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_6/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_7/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_8/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_9/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/openssl/leak_10/check.log | uniq -c    | wc -l
+	
+	#tmux
+	grep "CWE-401"   ./benchmarks/tmux/leak_1/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_2/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_3/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_4/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_5/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_6/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_7/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_8/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_9/check.log | uniq -c    | wc -l
+	grep "CWE-401"   ./benchmarks/tmux/leak_10/check.log | uniq -c    | wc -l
 unittestdf:
 	# binutils
 	grep "possible double free"   ./benchmarks/binutils/double_free_1/check.log | uniq -c    | wc -l
@@ -417,8 +476,41 @@ unittestdf:
 	grep "possible double free"   ./benchmarks/tmux/double_free_1/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l
 	grep "possible double free"   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l
+unittestdf2:
+	# binutils
+	grep "CWE-415"   ./benchmarks/binutils/double_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/binutils/double_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/binutils/double_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/binutils/double_free_4/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/binutils/double_free_5/check.log | uniq -c    | wc -l
+	# git
+	grep "CWE-415"   ./benchmarks/git/double_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/git/double_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/git/double_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/git/double_free_4/check.log | uniq -c    | wc -l
+	#openssh
+	grep "CWE-415"   ./benchmarks/openssh-portable/double_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssh-portable/double_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssh-portable/double_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssh-portable/double_free_4/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssh-portable/double_free_5/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssh-portable/double_free_6/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssh-portable/double_free_7/check.log | uniq -c    | wc -l
+	#openssl
+	grep "CWE-415"   ./benchmarks/openssl/double_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssl/double_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssl/double_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssl/double_free_4/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/openssl/double_free_5/check.log | uniq -c    | wc -l
+
+	#tmux
+
+	grep "CWE-415"   ./benchmarks/tmux/double_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/tmux/double_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-415"   ./benchmarks/tmux/double_free_3/check.log | uniq -c    | wc -l
+
+
 unittestuaf:
-	#unittet
 	# binutils
 
 	grep "===== possiable asias ====="   ./benchmarks/binutils/use_after_free_1/check.log | uniq -c    | wc -l
@@ -458,6 +550,45 @@ unittestuaf:
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_6/check.log | uniq -c    | wc -l
 	grep "===== possiable asias ====="   ./benchmarks/tmux/use_after_free_7/check.log | uniq -c    | wc -l
 
+unittestuaf2:
+	# binutils
+
+	grep "CWE-416"   ./benchmarks/binutils/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/binutils/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/binutils/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/binutils/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/binutils/use_after_free_5/check.log | uniq -c    | wc -l
+
+	# git
+
+	grep "CWE-416"   ./benchmarks/git/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/git/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/git/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/git/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/git/use_after_free_5/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/git/use_after_free_6/check.log | uniq -c    | wc -l
+
+	#openssh
+
+	grep "CWE-416"   ./benchmarks/openssh-portable/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/openssh-portable/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/openssh-portable/use_after_free_3/check.log | uniq -c    | wc -l
+
+	#openssl
+	grep "CWE-416"   ./benchmarks/openssl/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/openssl/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/openssl/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/openssl/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/openssl/use_after_free_5/check.log | uniq -c    | wc -l
+	#tmux
+
+	grep "CWE-416"   ./benchmarks/tmux/use_after_free_1/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/tmux/use_after_free_2/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/tmux/use_after_free_3/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/tmux/use_after_free_4/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/tmux/use_after_free_5/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/tmux/use_after_free_6/check.log | uniq -c    | wc -l
+	grep "CWE-416"   ./benchmarks/tmux/use_after_free_7/check.log | uniq -c    | wc -l
 
 unittest:
 	#unittet
