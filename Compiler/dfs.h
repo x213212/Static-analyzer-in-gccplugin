@@ -89,14 +89,14 @@ void Graph::DFSUtil(int v, bool visited[])
                     // {
 
                     // }
-                    if( stack[0] == 2 )
-                    if ( stack[stack.size() - 1] != end)
-                    {
-                        fprintf(stderr, "now stack %d\n", stack[stack.size() - 1]);
+                    // if( stack[0] == 2 )
+                    // if ( stack[stack.size() - 1] != end)
+                    // {
+                    //     fprintf(stderr, "now stack %d\n", stack[stack.size() - 1]);
                         
-                    }
-                    else
-                      fprintf(stderr, "find stack %d\n", stack[stack.size() - 1]);
+                    // }
+                    // else
+                    //   fprintf(stderr, "find stack %d\n", stack[stack.size() - 1]);
                         
 
                     // stack.pop();

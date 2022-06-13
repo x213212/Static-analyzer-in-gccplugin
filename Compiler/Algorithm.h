@@ -146,9 +146,12 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	struct timespec temp;
 	double time_used;
 	double time_used2;
+	double time_used3;
 	// count_now collect breakpoint
 	int Entrypoint = 0;
-
+	clock_gettime(CLOCK_MONOTONIC, &aend);
+	temp = diff(astart2, aend);
+	time_used3 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 	fprintf(stderr, "start PointerConstraint\n");
 
 	// fprintf(stderr, "pointer ftable is %d \n", ftable->size);
@@ -307,7 +310,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		fprintf(stderr, "\n=============== The third stage : detection  End=================\n");
 		// sleep(5); //5s check time
 		clock_gettime(CLOCK_MONOTONIC, &aend);
-		temp = diff(astart, aend);
+		temp = diff(astart2, aend);
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 
 		printfBasicblock();
@@ -336,7 +339,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    analyzable ptable point : %d \033[0m\n", Entrypoint);
 	fprintf(stderr, "\033[40;34m    analyzable ptable all point stmt : %d \033[0m\n", allcolectCount);
 	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %f mb\033[0m\n", (totalsize * 0.000001));
-	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used);
+	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used3);
+	fprintf(stderr, "\033[40;34m    mapping time: : %f s \033[0m\n", time_used);
 	fprintf(stderr, "\033[40;34m    algorithm time: %f s \033[0m\n", time_used2);
 	fprintf(stderr, "\033[40;34m    gimple stmt count : : %d \033[0m\n", gimplestmt_count);
 	fprintf(stderr, "\033[40;34m    this report analysis in %s \033[0m\n", asctime(timeinfo));
@@ -438,7 +442,7 @@ void detect(struct plugin_argument *argv, int argc)
 	getrusage(RUSAGE_SELF, &ru);
 	utime = ru.ru_utime;
 	stime = ru.ru_stime;
-
+	clock_gettime(CLOCK_MONOTONIC, &astart2);
 	fprintf(stderr, "=============== The first stage : Point of interest stmt collect =================\n");
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
@@ -539,16 +543,16 @@ void detect(struct plugin_argument *argv, int argc)
 	time_used = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 	struct timevar_time_def now;
 
-	ofstream myfile("time.txt");
-	if (myfile.is_open())
-	{
-		myfile << "utime_used: " << time_used << " s;\n";
-		myfile << "stime_used: " << time_used << " s;\n";
+	// ofstream myfile("time.txt");
+	// if (myfile.is_open())
+	// {
+	// 	myfile << "utime_used: " << time_used << " s;\n";
+	// 	myfile << "stime_used: " << time_used << " s;\n";
 
-		myfile.close();
-	}
-	else
-		fprintf(stderr, "Unable to open file.\n");
+	// 	myfile.close();
+	// }
+	// else
+	// 	fprintf(stderr, "Unable to open file.\n");
 }
 
 void insert_always_inline()
@@ -590,7 +594,7 @@ void insert_always_inline()
 
 			if (lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)) == NULL)
 			{
-				
+
 				fprintf(stderr, "=======node_fun:%s=========\n", get_name(callee->decl));
 				DECL_ATTRIBUTES(callee->decl) = tree_cons(get_identifier("noinline"), NULL, DECL_ATTRIBUTES(callee->decl));
 				DECL_DISREGARD_INLINE_LIMITS(callee->decl) = 1;

@@ -233,7 +233,7 @@ unsigned int SDBMHash(char *str)
 
 int fprintf2(FILE *stream, const char *format, ...)
 {
-	if (debugoutput)
+	if (!debugoutput)
 		return 0;
 	va_list ap;
 	va_start(ap, format);
@@ -247,7 +247,7 @@ int fprintf2(FILE *stream, const char *format, ...)
 DEBUG_FUNCTION void
 debug_gimple_stmt2(gimple *gs)
 {
-	if (debugoutput)
+	if (!debugoutput)
 		return;
 	debug_gimple_stmt(gs);
 }
@@ -255,7 +255,7 @@ debug_gimple_stmt2(gimple *gs)
 DEBUG_FUNCTION void
 debug_tree2(tree node)
 {
-	if (debugoutput)
+	if (!debugoutput)
 		return;
 	debug_tree(node);
 }
@@ -269,7 +269,7 @@ debug_tree2(tree node)
 DEBUG_FUNCTION void
 debug2(const tree_node *ptr)
 {
-	if (debugoutput)
+	if (!debugoutput)
 		return;
 	if (ptr)
 		debug(*ptr);
@@ -279,7 +279,7 @@ debug2(const tree_node *ptr)
 DEBUG_FUNCTION void
 debug2(gimple *ptr)
 {
-	if (debugoutput)
+	if (!debugoutput)
 		return;
 	if (ptr)
 		debug(*ptr);
@@ -293,7 +293,7 @@ debug2(gimple *ptr)
 
 bool warning_at2(location_t location, int opt, const char *gmsgid, ...)
 {
-	if (debugoutput)
+	if (!debugoutput)
 		return 0;
 	return warning_at(location, opt, gmsgid);
 }
@@ -302,7 +302,7 @@ bool warning_at2(location_t location, int opt, const char *gmsgid, ...)
 
 bool warning_at2(rich_location *richloc, int opt, const char *gmsgid, ...)
 {
-	if (debugoutput)
+	if (!debugoutput)
 		return 0;
 	return warning_at(richloc, opt, gmsgid);
 }

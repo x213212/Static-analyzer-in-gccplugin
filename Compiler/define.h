@@ -46,7 +46,7 @@ bool memoryleakcheck = true;
 // Korea testcase need turn on
 bool Looserulesfree = true;
 bool useafterfree = true;
-bool debugmod = true;
+bool debugmod = false;
 bool debugoutput = true;
 bool threadmod = true;
 bool relatemod = true;
@@ -333,7 +333,7 @@ CStack stmtStack;
 CstmtStack stmtStack2;
 
 function *main_fun;
-
+struct timespec astart2, aend2;
 static gimple *now_stmt;
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
 static int levelsize = 0;
