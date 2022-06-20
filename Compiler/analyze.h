@@ -832,7 +832,6 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 							if (table_temp->target != NULL_TREE)
 							{
 								user_tmp = treeGimpleArray->get(table_temp->target);
-								// debug_tree2(table_temp->target);
 
 								gimple_array start;
 								start.stmt = NULL;
@@ -842,97 +841,107 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								if (user_tmp->size > 0)
 									FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 									{
-										// debug_tree2(table_temp->target);
-										// fprintf2(stderr, "\n =============================asd================= \n");
-										// if (function_free_collect->get(function_tree) != NULL)
-										// {
-										// 	function_free_array callerFunArray = *(function_free_collect->get(function_tree));
-										// 	vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
-										for (int k = 0; k < global_ret_type_array.size(); k++)
-										{
-											// fprintf2(stderr, "\n================qweqwe================================%d=\n",123);
-											// debug_gimple_stmt((global_ret_type_array)[k].stmt);
-											// debug_gimple_stmt((global_ret_type_array)[k].stmt);
-											if ((global_ret_type_array)[k].locfucntion == function_tree)
+										if (gimple_block(u_stmt))
+											if (function_free_collect->get(function_tree) != NULL)
 											{
-												basic_block bb;
-
-												FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
+												for (int k = 0; k < global_ret_type_array.size(); k++)
 												{
-													edge e;
-													edge_iterator ei;
-													FOR_EACH_EDGE(e, ei, bb->succs)
+													if ((global_ret_type_array)[k].locfucntion == function_tree)
 													{
+														function_free_array callerFunArray = *(function_free_collect->get(function_tree));
+														vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
 
-														if (gimple_block(u_stmt))
+														for (int k2 = 0; k2 < callerRetTypearray.size(); k2++)
 														{
-
-															if (e->dest->index == gimple_bb(u_stmt)->index || bb->index == gimple_bb(u_stmt)->index)
+															if (BLOCK_SUPERCONTEXT(BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == table_temp->node->get_fun()->decl)
 															{
+																if (gimple_code(u_stmt) != GIMPLE_PREDICT &&
+																	(callerRetTypearray)[k2].stmt != u_stmt &&
+																	(callerRetTypearray)[k2].stmt != (global_ret_type_array)[k].stmt)
+																	if (bb_in_loop_p(gimple_bb(u_stmt)) == bb_in_loop_p(gimple_bb((global_ret_type_array)[k].stmt)))
+																		if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb(u_stmt)))
+																			if (dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb(u_stmt)) || fDFS->get(table_temp->node)->is_succ(gimple_bb(u_stmt), gimple_bb((global_ret_type_array)[k].stmt)))
+																			{
+																				if (!dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((callerRetTypearray)[k2].stmt)))
+																				{
 
-																if (function_free_collect->get(function_tree) != NULL)
-																{
-																	function_free_array callerFunArray = *(function_free_collect->get(function_tree));
-																	vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
+																					fprintf2(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
+																					name = get_name(table_temp->node->get_fun()->decl);
+																					if (name)
+																						fprintf2(stderr, "In fucntion name:%s \n", name);
 
-																	if (fDFS->get(table_temp->node)->is_succ(e->dest, gimple_bb((global_ret_type_array)[k].stmt)))
-																	{
-																		for (int k2 = 0; k2 < callerRetTypearray.size(); k2++)
-																		{
-																			
-
-																				if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb(u_stmt)))
-																					if (dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb(u_stmt)) || fDFS->get(table_temp->node)->is_succ(gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb((global_ret_type_array)[k].stmt)))
-																					{
-																						if (!dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((callerRetTypearray)[k2].stmt)))
+																					debug_gimple_stmt2(u_stmt);
+																					warning_at2(gimple_location_safe(u_stmt), 0, "use location");
+																					// fprintf2(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
+																					fprintf2(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
+																					debug_gimple_stmt2((global_ret_type_array)[k].stmt);
+																					warning_at2(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
+																					if ((global_ret_type_array)[k].name)
+																						fprintf2(stderr, "branch in succ := %d have %s\n", gimple_bb((global_ret_type_array)[k].stmt)->index, (global_ret_type_array)[k].name);
+																					else
+																						fprintf2(stderr, "branch in succ := %d have return or exit\n", gimple_bb((global_ret_type_array)[k].stmt)->index);
+																					debug_gimple_stmt2((callerRetTypearray)[k2].stmt);
+																					warning_at2(gimple_location_safe((callerRetTypearray)[k2].stmt), 0, "use location");
+																					fprintf2(stderr, "The path has a release memory in succ := %d \n", gimple_bb((callerRetTypearray)[k2].stmt)->index);
+																					fprintf2(stderr, "\n======================================================================\n");
+																					if (k + 1 < global_ret_type_array.size())
+																						if ((global_ret_type_array)[k + 1].locfucntion == function_tree)
 																						{
-																							fprintf2(stderr, "\n======================================================================\n");
-																							fprintf2(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
-																							name = get_name(table_temp->node->get_fun()->decl);
-																							if (name)
-																								fprintf2(stderr, "In fucntion name:%s \n", name);
-
-																							debug_gimple_stmt2(u_stmt);
-																							// fprintf2(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
-																							fprintf2(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
-																							debug_gimple_stmt2((global_ret_type_array)[k].stmt);
-																							warning_at2(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
-																							fprintf2(stderr, "branch in succ := %d have return or exit\n", gimple_bb((global_ret_type_array)[k].stmt)->index);
-																							debug_gimple_stmt2((callerRetTypearray)[k2].stmt);
-																							warning_at2(gimple_location_safe((callerRetTypearray)[k2].stmt), 0, "use location");
-																							fprintf2(stderr, "The path has a release memory in succ := %d \n", gimple_bb((callerRetTypearray)[k2].stmt)->index);
-																							fprintf2(stderr, "\n======================================================================\n");
-																							if (k + 1 < global_ret_type_array.size())
-																							if ((global_ret_type_array)[k+1].locfucntion == function_tree)
-																								k++;
+																							k++;
 																						}
-																					}
-																		}
-																	}
-																}
-																else if (fDFS->get(table_temp->node)->is_succ(e->dest, gimple_bb((global_ret_type_array)[k].stmt)))
-																{
-																	// fprintf2(stderr, "\n================qweqwe================================%d=\n", e->dest->index);
-																	fprintf2(stderr, "\n======================================================================\n");
-																	fprintf2(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
-																	debug_gimple_stmt2(u_stmt);
-																	fprintf2(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
-																	debug_gimple_stmt2((global_ret_type_array)[k].stmt);
-																	warning_at2(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
-																	fprintf2(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
-																	name = get_name(table_temp->node->get_fun()->decl);
-																	if (name)
-																		fprintf2(stderr, "In fucntion name:%s \n", name);
-																	fprintf2(stderr, "branch in succ := %d have return or exit\n", gimple_bb((global_ret_type_array)[k].stmt)->index);
-
-																	fprintf2(stderr, "\n======================================================================\n");
-																}
+																				}
+																			}
 															}
 														}
 													}
 												}
 											}
-										}
+											else
+											{
+												for (int k = 0; k < global_ret_type_array.size(); k++)
+
+													if ((global_ret_type_array)[k].locfucntion == function_tree)
+													{
+
+														basic_block bb;
+														FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
+														{
+															edge e;
+															edge_iterator ei;
+															FOR_EACH_EDGE(e, ei, bb->succs)
+															{
+
+																if (e->dest->index == gimple_bb(u_stmt)->index || bb->index == gimple_bb(u_stmt)->index)
+																{
+
+																	if (fDFS->get(table_temp->node)->is_succ(e->dest, gimple_bb((global_ret_type_array)[k].stmt)))
+																	{
+																		// fprintf2(stderr, "\n================qweqwe================================%d=\n", e->dest->index);
+																		fprintf2(stderr, "\n======================================================================\n");
+																		fprintf2(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
+																		debug_gimple_stmt2(u_stmt);
+																		fprintf2(stderr, "bb index := %d\n", gimple_bb(u_stmt)->index);
+																		debug_gimple_stmt2((global_ret_type_array)[k].stmt);
+																		warning_at2(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
+																		fprintf2(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
+																		name = get_name(table_temp->node->get_fun()->decl);
+																		if (name)
+																			fprintf2(stderr, "In fucntion name:%s \n", name);
+
+																		if ((global_ret_type_array)[k].name)
+																			fprintf2(stderr, "branch in succ := %d have %s\n", gimple_bb((global_ret_type_array)[k].stmt)->index, (global_ret_type_array)[k].name);
+
+																		else
+
+																			fprintf2(stderr, "branch in succ := %d have return or exit\n", gimple_bb((global_ret_type_array)[k].stmt)->index);
+
+																		fprintf2(stderr, "\n======================================================================\n");
+																	}
+																}
+															}
+														}
+													}
+											}
 									}
 								pop_cfun();
 								free_dominance_info(CDI_DOMINATORS);

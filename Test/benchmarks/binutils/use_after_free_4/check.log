@@ -1,0 +1,686 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c: In function ‘svr4_read_so_list’:
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:73:22: warning: implicit declaration of function ‘lm_info_read’ [-Wimplicit-function-declaration]
+   73 |       new->lm_info = lm_info_read (lm);
+      |                      ^~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:73:20: warning: assignment to ‘struct lm_info *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   73 |       new->lm_info = lm_info_read (lm);
+      |                    ^
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:84:11: warning: implicit declaration of function ‘warning’ [-Wimplicit-function-declaration]
+   84 |           warning (_("Corrupted shared library list: %s != %s"),
+      |           ^~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:84:20: warning: implicit declaration of function ‘_’ [-Wimplicit-function-declaration]
+   84 |           warning (_("Corrupted shared library list: %s != %s"),
+      |                    ^
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:85:20: warning: implicit declaration of function ‘paddress’ [-Wimplicit-function-declaration]
+   85 |                    paddress (target_gdbarch (), prev_lm),
+      |                    ^~~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:85:30: warning: implicit declaration of function ‘target_gdbarch’ [-Wimplicit-function-declaration]
+   85 |                    paddress (target_gdbarch (), prev_lm),
+      |                              ^~~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:98:36: warning: implicit declaration of function ‘get_svr4_info’ [-Wimplicit-function-declaration]
+   98 |           struct svr4_info *info = get_svr4_info ();
+      |                                    ^~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:98:36: warning: initialization of ‘struct svr4_info *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:107:7: warning: implicit declaration of function ‘target_read_string’ [-Wimplicit-function-declaration]
+  107 |       target_read_string (new->lm_info->l_name, &buffer,
+      |       ^~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:118:22: warning: implicit declaration of function ‘safe_strerror’ [-Wimplicit-function-declaration]
+  118 |                      safe_strerror (errcode));
+      |                      ^~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:123:7: warning: implicit declaration of function ‘strncpy’ [-Wimplicit-function-declaration]
+  123 |       strncpy (new->so_name, buffer, SO_NAME_MAX_PATH_SIZE - 1);
+      |       ^~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strncpy’
+    7 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:123:7: warning: incompatible implicit declaration of built-in function ‘strncpy’ [-Wbuiltin-declaration-mismatch]
+  123 |       strncpy (new->so_name, buffer, SO_NAME_MAX_PATH_SIZE - 1);
+      |       ^~~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:123:7: note: include ‘<string.h>’ or provide a declaration of ‘strncpy’
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:125:7: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+  125 |       strcpy (new->so_original_name, new->so_name);
+      |       ^~~~~~
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:125:7: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:125:7: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:125:7: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:130:32: warning: implicit declaration of function ‘match_main’ [-Wimplicit-function-declaration]
+  130 |       if (! new->so_name[0] || match_main (new->so_name))
+      |                                ^~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 48%)
+ phase parsing                      :   0.02 ( 67%)   0.03 (100%)   0.05 ( 83%)  1141k ( 42%)
+ phase opt and generate             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)   237k (  9%)
+ callgraph optimization             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)   135k (  5%)
+ preprocessing                      :   0.00 (  0%)   0.02 ( 67%)   0.02 ( 33%)   368k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 33%)   0.02 ( 33%)     0  (  0%)
+ parser (global)                    :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   597k ( 22%)
+ parser function body               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)    87k (  3%)
+ TOTAL                              :   0.03          0.03          0.06         2688k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ TOTAL                              :   0.00          0.00          0.01         2230k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:svr4_read_so_list=========
+=======node_fun:make_cleanup_free_so=========
+=======node_fun:do_free_so=========
+=======node_fun:free_so=========
+=======node_fun:make_cleanup=========
+=======node_fun:make_my_cleanup=========
+=======node_fun:make_my_cleanup2=========
+=======node_fun:do_cleanups=========
+=======node_fun:do_my_cleanups=========
+=======node_fun:discard_my_cleanups=========
+=======node_fun:discard_cleanups=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 54 
+===============The second stage : Mapping stmt=================
+# .MEM_4 = VDEF <.MEM_3(D)>
+svr4_read_so_list (argc_2(D), _1, &link_ptr, 1);
+# .MEM_87 = VDEF <.MEM_84>
+new_58 = calloc (1, 1040);
+# .MEM_88 = VDEF <.MEM_87>
+old_chain_60 = make_cleanup_free_so (new_58);
+# .MEM_89 = VDEF <.MEM_88>
+_1 = lm_info_read (lm_41);
+# .MEM_120 = VDEF <.MEM_90>
+do_cleanups (old_chain_60);
+# .MEM_113 = VDEF <.MEM_90>
+_10 = target_gdbarch ();
+# .MEM_114 = VDEF <.MEM_113>
+_11 = paddress (_10, _9);
+# .MEM_115 = VDEF <.MEM_114>
+_12 = target_gdbarch ();
+# .MEM_116 = VDEF <.MEM_115>
+_13 = paddress (_12, prev_lm_42);
+# .MEM_117 = VDEF <.MEM_116>
+_14 = _ ("Corrupted shared library list: %s != %s");
+# .MEM_118 = VDEF <.MEM_117>
+warning (_14, _13, _11);
+# .MEM_119 = VDEF <.MEM_118>
+do_cleanups (old_chain_60);
+# .MEM_91 = VDEF <.MEM_90>
+_17 = get_svr4_info ();
+# .MEM_93 = VDEF <.MEM_92>
+do_cleanups (old_chain_60);
+# .MEM_94 = VDEF <.MEM_90>
+target_read_string (_22, &buffer, 511, &errcode);
+# .MEM_107 = VDEF <.MEM_94>
+_29 = safe_strerror (_28);
+# .MEM_108 = VDEF <.MEM_107>
+_30 = _ ("Can\'t read pathname for load map: %s.");
+# .MEM_109 = VDEF <.MEM_108>
+warning (_30, _29);
+# .MEM_110 = VDEF <.MEM_79>
+do_cleanups (old_chain_60);
+# .MEM_95 = VDEF <.MEM_94>
+strncpy (_32, _31, 511);
+# .MEM_96 = VDEF <.MEM_95>
+new_58->so_name[511] = 0;
+# .MEM_97 = VDEF <.MEM_96>
+strcpy (_34, _33);
+ <var_decl 0x7f44c70a1090 buffer
+    type <pointer_type 0x7f44c708e348
+        type <integer_type 0x7f44c708e2a0 char public QI
+            size <integer_cst 0x7f44c7582ca8 constant 8>
+            unit-size <integer_cst 0x7f44c7582cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f44c75973f0 precision:8 min <integer_cst 0x7f44c707d7b0 -128> max <integer_cst 0x7f44c707d798 127>
+            pointer_to_this <pointer_type 0x7f44c708e348>>
+        unsigned DI
+        size <integer_cst 0x7f44c7582bb8 constant 64>
+        unit-size <integer_cst 0x7f44c7582bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7f44c758d168 ./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c>
+        pointer_to_this <pointer_type 0x7f44c708e3f0>>
+    addressable unsigned DI ./benchmarks/binutils/use_after_free_4/binutils_uaf_4.c:68:13 size <integer_cst 0x7f44c7582bb8 64> unit-size <integer_cst 0x7f44c7582bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f44c708d400 svr4_read_so_list>>
+# .MEM_99 = VDEF <.MEM_98>
+_38 = match_main (_37);
+# .MEM_106 = VDEF <.MEM_80>
+do_cleanups (old_chain_60);
+# .MEM_100 = VDEF <.MEM_99>
+discard_cleanups (old_chain_60);
+# .MEM_6 = VDEF <.MEM_5(D)>
+_4 = make_cleanup (do_free_so, so_2(D));
+# .MEM_3 = VDEF <.MEM_2(D)>
+free_so (arg_1(D));
+# .MEM_7 = VDEF <.MEM_6(D)>
+_5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+# .MEM_8 = VDEF <.MEM_7(D)>
+_6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+# .MEM_14 = VDEF <.MEM_13(D)>
+new_4 = malloc (32);
+# .MEM_4 = VDEF <.MEM_3(D)>
+do_my_cleanups (&cleanup_chain, old_chain_2(D));
+# .MEM_19 = VDEF <.MEM_18>
+__builtin_puts (&"cleanup!!!!! ========="[0]);
+# .MEM_20 = VDEF <.MEM_19>
+printf ("%x\n", _4);
+# .MEM_15 = VDEF <.MEM_13>
+printf ("freearg: %x\n", _5);
+# .MEM_4 = VDEF <.MEM_3(D)>
+discard_my_cleanups (&cleanup_chain, old_chain_2(D));
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = argc_2(D) + -1;
+svr4_read_so_list (argc_2(D), _1, &link_ptr, 1);
+link_ptr ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:svr4_read_so_list=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 113634472]:
+goto <bb 22>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1034442872]:
+new_58 = calloc (1, 1040);
+old_chain_60 = make_cleanup_free_so (new_58);
+_1 = lm_info_read (lm_41);
+_2 = (long int) _1;
+_3 = (struct lm_info *) _2;
+new_58->lm_info = _3;
+_4 = new_58->lm_info;
+if (_4 == 0B)
+  goto <bb 4>; [3.66%]
+else
+  goto <bb 5>; [96.34%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 37860610]:
+do_cleanups (old_chain_60);
+goto <bb 19>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 996582261]:
+_5 = new_58->lm_info;
+next_lm_63 = _5->l_next;
+_6 = new_58->lm_info;
+_7 = _6->l_prev;
+if (_7 != prev_lm_42)
+  goto <bb 6>; [3.66%]
+else
+  goto <bb 7>; [96.34%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 36474912]:
+_8 = new_58->lm_info;
+_9 = _8->l_prev;
+_10 = target_gdbarch ();
+_11 = paddress (_10, _9);
+_12 = target_gdbarch ();
+_13 = paddress (_12, prev_lm_42);
+_14 = _ ("Corrupted shared library list: %s != %s");
+warning (_14, _13, _11);
+do_cleanups (old_chain_60);
+goto <bb 19>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 960107349]:
+if (ignore_first_64(D) != 0)
+  goto <bb 8>; [67.00%]
+else
+  goto <bb 10>; [33.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 643271926]:
+_15 = new_58->lm_info;
+_16 = _15->l_prev;
+if (_16 == 0)
+  goto <bb 9>; [19.52%]
+else
+  goto <bb 10>; [80.48%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 125566682]:
+_17 = get_svr4_info ();
+_18 = (long int) _17;
+info_66 = (struct svr4_info *) _18;
+_19 = new_58->lm_info;
+_20 = _19->lm_addr;
+info_66->main_lm_addr = _20;
+do_cleanups (old_chain_60);
+// predicted unlikely by continue predictor.
+goto <bb 20>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 834540667]:
+_21 = new_58->lm_info;
+_22 = _21->l_name;
+target_read_string (_22, &buffer, 511, &errcode);
+_23 = errcode;
+if (_23 != 0)
+  goto <bb 11>; [50.00%]
+else
+  goto <bb 15>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 417270333]:
+if (first_45 == 0B)
+  goto <bb 13>; [17.43%]
+else
+  goto <bb 12>; [82.57%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 344540114]:
+_24 = new_58->lm_info;
+_25 = _24->l_name;
+_26 = first_45->lm_info;
+_27 = _26->l_name;
+if (_25 != _27)
+  goto <bb 13>; [66.00%]
+else
+  goto <bb 14>; [34.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 300126693]:
+_28 = errcode;
+_29 = safe_strerror (_28);
+_30 = _ ("Can\'t read pathname for load map: %s.");
+warning (_30, _29);
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 417270333]:
+do_cleanups (old_chain_60);
+// predicted unlikely by continue predictor.
+goto <bb 20>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 417270333]:
+_31 = buffer;
+_32 = &new_58->so_name;
+strncpy (_32, _31, 511);
+new_58->so_name[511] = 0;
+_33 = &new_58->so_name;
+_34 = &new_58->so_original_name;
+strcpy (_34, _33);
+_35 = buffer;
+free (_35);
+_36 = new_58->so_name[0];
+if (_36 == 0)
+  goto <bb 17>; [33.00%]
+else
+  goto <bb 16>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 279571124]:
+_37 = &new_58->so_name;
+_38 = match_main (_37);
+if (_38 != 0)
+  goto <bb 17>; [50.00%]
+else
+  goto <bb 18>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 277484771]:
+do_cleanups (old_chain_60);
+// predicted unlikely by continue predictor.
+goto <bb 20>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 139785562]:
+discard_cleanups (old_chain_60);
+new_58->next = 0B;
+_39 = *link_ptr_ptr_78(D);
+*_39 = new_58;
+_40 = &new_58->next;
+*link_ptr_ptr_78(D) = _40;
+errcode ={v} {CLOBBER};
+buffer ={v} {CLOBBER};
+goto <bb 21>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 74335522]:
+errcode ={v} {CLOBBER};
+buffer ={v} {CLOBBER};
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 820321788]:
+# first_43 = PHI <new_58(9), first_45(14), first_45(17)>
+errcode ={v} {CLOBBER};
+buffer ={v} {CLOBBER};
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 960107351]:
+# lm_51 = PHI <next_lm_63(18), next_lm_63(20)>
+# prev_lm_44 = PHI <lm_41(18), lm_41(20)>
+# first_67 = PHI <first_45(18), first_43(20)>
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 1073741824]:
+# lm_41 = PHI <lm_54(D)(2), lm_51(21)>
+# prev_lm_42 = PHI <prev_lm_55(D)(2), prev_lm_44(21)>
+# first_45 = PHI <0B(2), first_67(21)>
+if (lm_41 != 0)
+  goto <bb 3>; [96.34%]
+else
+  goto <bb 23>; [3.66%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [local count: 113634474]:
+# _46 = PHI <0(19), 1(22)>
+return _46;
+
+=======Mapping node_fun:make_cleanup_free_so=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_4 = make_cleanup (do_free_so, so_2(D));
+return _4;
+
+=======Mapping node_fun:do_free_so=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+free_so (arg_1(D));
+return;
+
+=======Mapping node_fun:free_so=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+free (so_2(D));
+return;
+
+=======Mapping node_fun:make_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+return _5;
+
+=======Mapping node_fun:make_my_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+return _6;
+
+=======Mapping node_fun:make_my_cleanup2=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+new_4 = malloc (32);
+old_chain_6 = *pmy_chain_5(D);
+_1 = *pmy_chain_5(D);
+new_4->next = _1;
+new_4->function = function_8(D);
+new_4->free_arg = free_arg_10(D);
+new_4->arg = arg_12(D);
+*pmy_chain_5(D) = new_4;
+if (old_chain_6 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+return old_chain_6;
+
+=======Mapping node_fun:do_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+do_my_cleanups (&cleanup_chain, old_chain_2(D));
+return;
+
+=======Mapping node_fun:do_my_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111598]:
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = ptr_12->next;
+*pmy_chain_11(D) = _1;
+_2 = ptr_12->function;
+_3 = ptr_12->arg;
+_2 (_3);
+__builtin_puts (&"cleanup!!!!! ========="[0]);
+_4 = ptr_12->arg;
+printf ("%x\n", _4);
+_5 = ptr_12->free_arg;
+if (_5 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 668941161]:
+_6 = ptr_12->free_arg;
+_7 = ptr_12->arg;
+_6 (_7);
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+free (ptr_12);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+ptr_12 = *pmy_chain_11(D);
+if (ptr_12 != old_chain_13(D))
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+return;
+
+=======Mapping node_fun:discard_my_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111598]:
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = ptr_10->next;
+*pmy_chain_9(D) = _1;
+_2 = ptr_10->free_arg;
+if (_2 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 668941161]:
+_3 = ptr_10->free_arg;
+_4 = ptr_10->arg;
+_3 (_4);
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+free (ptr_10);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+ptr_10 = *pmy_chain_9(D);
+if (ptr_10 != old_chain_11(D))
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+_5 = ptr_10->arg;
+printf ("freearg: %x\n", _5);
+return;
+
+=======Mapping node_fun:discard_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+discard_my_cleanups (&cleanup_chain, old_chain_2(D));
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 2 [0m
+[40;34m    gimple free   count : 4 [0m
+[40;34m    all ptable point : 54 [0m
+[40;34m    analyzable ptable point : 45 [0m
+[40;34m    analyzable ptable all point stmt : 205 [0m
+[40;34m    used_stmt array stack totalsize of : 0.007936 mb[0m
+[40;34m    collect time: : 0.000346 s [0m
+[40;34m    mapping time: : 0.001859 s [0m
+[40;34m    algorithm time: 0.010698 s [0m
+[40;34m    gimple stmt count : : 141 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:51 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 70%)
+ phase opt and generate             :   0.04 (100%)   0.01 (100%)   0.05 (100%)   852k ( 28%)
+ callgraph functions expansion      :   0.02 ( 50%)   0.01 (100%)   0.03 ( 60%)   680k ( 22%)
+ dominance computation              :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ dead store elim1                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  3552  (  0%)
+ final                              :   0.01 ( 25%)   0.01 (100%)   0.00 (  0%)    31k (  1%)
+ plugin execution                   :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 40%)  2016  (  0%)
+ rest of compilation                :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)    32k (  1%)
+ TOTAL                              :   0.04          0.01          0.05         3075k
+/usr/bin/ld: /tmp/cc30O2Q3.ltrans0.ltrans.o: in function `svr4_read_so_list':
+<artificial>:(.text+0x1e7): undefined reference to `target_gdbarch'
+/usr/bin/ld: <artificial>:(.text+0x1f6): undefined reference to `paddress'
+/usr/bin/ld: <artificial>:(.text+0x202): undefined reference to `target_gdbarch'
+/usr/bin/ld: <artificial>:(.text+0x211): undefined reference to `paddress'
+/usr/bin/ld: <artificial>:(.text+0x222): undefined reference to `_'
+/usr/bin/ld: <artificial>:(.text+0x232): undefined reference to `warning'
+/usr/bin/ld: <artificial>:(.text+0x248): undefined reference to `get_svr4_info'
+/usr/bin/ld: <artificial>:(.text+0x26c): undefined reference to `safe_strerror'
+/usr/bin/ld: <artificial>:(.text+0x27d): undefined reference to `_'
+/usr/bin/ld: <artificial>:(.text+0x28b): undefined reference to `warning'
+/usr/bin/ld: <artificial>:(.text+0x2cf): undefined reference to `lm_info_read'
+/usr/bin/ld: <artificial>:(.text+0x31b): undefined reference to `target_read_string'
+/usr/bin/ld: <artificial>:(.text+0x392): undefined reference to `match_main'
+collect2: error: ld returned 1 exit status

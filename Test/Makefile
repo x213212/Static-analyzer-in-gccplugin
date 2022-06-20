@@ -182,11 +182,11 @@ all: test.o
 
 test.o:  
 ifeq ($(debug),0)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 -fplugin-arg-newplugin-debugoutput=0 )
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 -fplugin-arg-newplugin-debugoutput=0)
 else ifeq ($(debug),1)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1)
 else ifeq ($(debug),2)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1  -fplugin-arg-newplugin-contextsentive=1)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1 -fplugin-arg-newplugin-contextsentive=1)
 else ifeq ($(debug),3)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=0  -fplugin-arg-newplugin-contextsentive=0)
 else ifeq ($(debug),4)
@@ -196,8 +196,8 @@ endif
 	# mod 1
 	# # # # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
-	#@sh ./test.sh $(FILE_NAME)
-	# #mod 2
+	# @sh ./test.sh $(FILE_NAME)
+	#mod 2
 	#binutils
 	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
 	-$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME2)  -o $@ 2> $(BINUTILSL)2/check.log

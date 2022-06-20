@@ -1,0 +1,471 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘ldirname’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   44 |   memcpy (dirname, filename, base - filename);
+      |   ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:9:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+    8 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    9 | 
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   44 |   memcpy (dirname, filename, base - filename);
+      |   ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:44:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘vconcat_copy’:
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   61 |         unsigned long length = strlen (arg);
+      |                                ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_7/binutils_leak_7.c:61:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   62 |         memcpy (end, arg, length);
+      |         ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:62:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+In file included from ./benchmarks/binutils/leak_7/binutils_leak_7.c:7:
+./benchmarks/binutils/leak_7/binutils_leak_7.c: In function ‘do_start_initialization’:
+./benchmarks/binutils/leak_7/../include/common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:12: note: in expansion of macro ‘xstrdup’
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |            ^~~~~~~
+./benchmarks/binutils/leak_7/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:12: note: in expansion of macro ‘xstrdup’
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |            ^~~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: warning: implicit declaration of function ‘setlocale’ [-Wimplicit-function-declaration]
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |                     ^~~~~~~~~
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+   22 | #define xstrdup(a) strdup(a)
+      |                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: warning: passing argument 1 of ‘strdup’ makes pointer from integer without a cast [-Wint-conversion]
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+      |                     |
+      |                     int
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+   22 | #define xstrdup(a) strdup(a)
+      |                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:110:21: note: expected ‘const char *’ but argument is of type ‘int’
+  110 |   oldloc = xstrdup (setlocale (LC_ALL, NULL));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/leak_7/../include/common.h:22:27: note: in definition of macro ‘xstrdup’
+   22 | #define xstrdup(a) strdup(a)
+      |                           ^
+./benchmarks/binutils/leak_7/binutils_leak_7.c:112:14: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  112 |   progsize = strlen (progname);
+      |              ^~~~~~
+./benchmarks/binutils/leak_7/binutils_leak_7.c:112:14: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 48%)
+ phase parsing                      :   0.03 ( 75%)   0.02 (100%)   0.05 ( 83%)  1152k ( 42%)
+ phase opt and generate             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   261k ( 10%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   150k (  6%)
+ preprocessing                      :   0.02 ( 50%)   0.01 ( 50%)   0.01 ( 17%)   376k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)   633k ( 23%)
+ parser function body               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)    59k (  2%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ branch prediction                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  6776  (  0%)
+ TOTAL                              :   0.04          0.02          0.06         2722k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 96%)
+ TOTAL                              :   0.00          0.00          0.00         2238k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:do_start_initialization=========
+=======node_fun:Py_SetProgramName=========
+=======node_fun:PyMem_Malloc=========
+=======node_fun:concat=========
+=======node_fun:vconcat_copy=========
+=======node_fun:ldirname=========
+=======node_fun:lbasename=========
+=======node_fun:unix_lbasename=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 41 
+===============The second stage : Mapping stmt=================
+# .MEM_2 = VDEF <.MEM_1(D)>
+do_start_initialization ();
+# .MEM_3 = VDEF <.MEM_2>
+concat ("dummy", "");
+# .MEM_4 = VDEF <.MEM_3>
+printf ("%d\n", 1835890020);
+# .MEM_40 = VDEF <.MEM_39(D)>
+_2 = ldirname (_1);
+# .MEM_41 = VDEF <.MEM_40>
+progname_16 = concat (_2, "bin");
+# .MEM_42 = VDEF <.MEM_41>
+_3 = setlocale ("LC_ALL", 0B);
+# .MEM_43 = VDEF <.MEM_42>
+oldloc_19 = strdup (_5);
+# .MEM_44 = VDEF <.MEM_43>
+setlocale ("LC_ALL", "");
+# VUSE <.MEM_44>
+progsize_21 = strlen (progname_16);
+# .MEM_45 = VDEF <.MEM_44>
+progname_copy_23 = PyMem_Malloc (_7);
+# .MEM_55 = VDEF <.MEM_54>
+__builtin_fwrite ("out of memory\n", 1, 14, _8);
+# .MEM_46 = VDEF <.MEM_45>
+count_25 = mbstowcs (progname_copy_23, progname_16, _9);
+# .MEM_53 = VDEF <.MEM_52>
+__builtin_fwrite ("Could not convert python path to string\n", 1, 40, _10);
+# .MEM_47 = VDEF <.MEM_46>
+setlocale ("LC_ALL", oldloc_19);
+# .MEM_49 = VDEF <.MEM_48>
+Py_SetProgramName (progname_copy_23);
+# .MEM_5 = VDEF <.MEM_4(D)>
+printf ("%d\n", _1);
+# .MEM_6 = VDEF <.MEM_5(D)>
+ret_4 = malloc (size_2(D));
+# .MEM_7 = VDEF <.MEM_6(D)>
+newstr_3 = malloc (1);
+# .MEM_8 = VDEF <.MEM_7>
+vconcat_copy (newstr_3, first_4(D), arg_5(D));
+# VUSE <.MEM_7(D)>
+length_4 = strlen (arg_3(D));
+# .MEM_8 = VDEF <.MEM_7(D)>
+memcpy (dst_1(D), arg_3(D), length_4);
+# VUSE <.MEM_31(D)>
+base_23 = lbasename (filename_22(D));
+# .MEM_32 = VDEF <.MEM_31(D)>
+dirname_26 = malloc (_4);
+# .MEM_33 = VDEF <.MEM_32>
+memcpy (dirname_26, filename_22(D), _6);
+# VUSE <.MEM_4(D)>
+_3 = unix_lbasename (name_2(D));
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+do_start_initialization ();
+concat ("dummy", "");
+printf ("%d\n", 1835890020);
+return 0;
+
+=======Mapping node_fun:do_start_initialization=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = python_libdir;
+_2 = ldirname (_1);
+progname_16 = concat (_2, "bin");
+_3 = setlocale ("LC_ALL", 0B);
+_4 = (long int) _3;
+_5 = (const char *) _4;
+oldloc_19 = strdup (_5);
+setlocale ("LC_ALL", "");
+progsize_21 = strlen (progname_16);
+_6 = progsize_21 + 1;
+_7 = _6 * 4;
+progname_copy_23 = PyMem_Malloc (_7);
+if (progname_copy_23 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+free (oldloc_19);
+_8 = stderr;
+__builtin_fwrite ("out of memory\n", 1, 14, _8);
+_37 = false;
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+_9 = progsize_21 + 1;
+count_25 = mbstowcs (progname_copy_23, progname_16, _9);
+if (count_25 == 18446744073709551615)
+  goto <bb 5>; [20.97%]
+else
+  goto <bb 6>; [79.03%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 225073599]:
+free (oldloc_19);
+free (progname_copy_23);
+_10 = stderr;
+__builtin_fwrite ("Could not convert python path to string\n", 1, 40, _10);
+_34 = false;
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 848238730]:
+setlocale ("LC_ALL", oldloc_19);
+free (oldloc_19);
+Py_SetProgramName (progname_copy_23);
+free (progname_copy_23);
+_30 = true;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# _11 = PHI <_37(3), _34(5), _30(6)>
+return _11;
+
+=======Mapping node_fun:Py_SetProgramName=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = MEM[(int *)progname_3(D)];
+printf ("%d\n", _1);
+return;
+
+=======Mapping node_fun:PyMem_Malloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ret_4 = malloc (size_2(D));
+return ret_4;
+
+=======Mapping node_fun:concat=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+newstr_3 = malloc (1);
+vconcat_copy (newstr_3, first_4(D), arg_5(D));
+return newstr_3;
+
+=======Mapping node_fun:vconcat_copy=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+length_4 = strlen (arg_3(D));
+memcpy (dst_1(D), arg_3(D), length_4);
+end_6 = dst_1(D) + length_4;
+*end_6 = 0;
+return dst_1(D);
+
+=======Mapping node_fun:ldirname=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 114863530]:
+base_23 = lbasename (filename_22(D));
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 958878296]:
+base_24 = base_16 + 18446744073709551615;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# base_16 = PHI <base_23(2), base_24(3)>
+if (base_16 > filename_22(D))
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 6>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1014686026]:
+_1 = MEM[(const char *)base_16 + -1B];
+if (_1 == 47)
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 6>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 114863531]:
+if (base_16 == filename_22(D))
+  goto <bb 12>; [15.47%]
+else
+  goto <bb 7>; [84.53%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 97094143]:
+_2 = base_16 - filename_22(D);
+_3 = _2 + 2;
+_4 = (long unsigned int) _3;
+dirname_26 = malloc (_4);
+_5 = base_16 - filename_22(D);
+_6 = (long unsigned int) _5;
+memcpy (dirname_26, filename_22(D), _6);
+_7 = base_16 - filename_22(D);
+if (_7 == 2)
+  goto <bb 8>; [34.00%]
+else
+  goto <bb 11>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 33012009]:
+_8 = *base_16;
+if (_8 == 47)
+  goto <bb 9>; [34.00%]
+else
+  goto <bb 11>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 11224083]:
+_9 = *filename_22(D);
+if (_9 != 47)
+  goto <bb 10>; [66.00%]
+else
+  goto <bb 11>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 7407895]:
+base_28 = base_16 + 1;
+_10 = base_16 - filename_22(D);
+_11 = (sizetype) _10;
+_12 = dirname_26 + _11;
+*_12 = 46;
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 97094143]:
+# base_17 = PHI <base_16(7), base_16(8), base_16(9), base_28(10)>
+_13 = base_17 - filename_22(D);
+_14 = (sizetype) _13;
+_15 = dirname_26 + _14;
+*_15 = 0;
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 114863532]:
+# _18 = PHI <0B(6), dirname_26(11)>
+return _18;
+
+=======Mapping node_fun:lbasename=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_3 = unix_lbasename (name_2(D));
+return _3;
+
+=======Mapping node_fun:unix_lbasename=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+base_6 = name_2 + 1;
+name_7 = name_2 + 1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# name_2 = PHI <name_4(D)(2), name_7(3)>
+# base_3 = PHI <name_4(D)(2), base_6(3)>
+_1 = *name_2;
+if (_1 != 0)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+return base_3;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 5 [0m
+[40;34m    all ptable point : 41 [0m
+[40;34m    analyzable ptable point : 34 [0m
+[40;34m    analyzable ptable all point stmt : 119 [0m
+[40;34m    used_stmt array stack totalsize of : 0.003536 mb[0m
+[40;34m    collect time: : 0.000254 s [0m
+[40;34m    mapping time: : 0.000616 s [0m
+[40;34m    algorithm time: 0.003321 s [0m
+[40;34m    gimple stmt count : : 84 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:45 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 77%)
+ phase opt and generate             :   0.04 (100%)   0.00 (  0%)   0.04 (100%)   589k ( 21%)
+ callgraph functions expansion      :   0.03 ( 75%)   0.00 (  0%)   0.03 ( 75%)   482k ( 17%)
+ tree code sinking                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  2416  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.02 ( 50%)   218k (  8%)
+ thread pro- & epilogue             :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    16k (  1%)
+ plugin execution                   :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 25%)  1144  (  0%)
+ rest of compilation                :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 25%)    24k (  1%)
+ TOTAL                              :   0.04          0.00          0.04         2803k

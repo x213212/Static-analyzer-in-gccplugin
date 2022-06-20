@@ -1,0 +1,459 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/leak_3/binutils_leak_3.c: In function ‘bfd_hash_table_init_n’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:148:39: warning: passing argument 1 of ‘objalloc_free’ from incompatible pointer type [-Wincompatible-pointer-types]
+  148 |                         objalloc_free(table);
+      |                                       ^~~~~
+      |                                       |
+      |                                       struct bfd_hash_table *
+./benchmarks/binutils/leak_3/binutils_leak_3.c:110:33: note: expected ‘struct objalloc *’ but argument is of type ‘struct bfd_hash_table *’
+  110 | objalloc_free (struct objalloc *o)
+      |                ~~~~~~~~~~~~~~~~~^
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+    6 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    7 | 
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  152 |   memset ((void *) table->table, 0, alloc);
+      |   ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:152:3: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/binutils/leak_3/binutils_leak_3.c: In function ‘main’:
+./benchmarks/binutils/leak_3/binutils_leak_3.c:197:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  197 |         srand(time(&t));
+      |               ^~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:200:17: warning: ‘return’ with no value, in function returning non-void
+  200 |                 return;
+      |                 ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:185:5: note: declared here
+  185 | int main()
+      |     ^~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  210 |         memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
+      |         ^~~~~~
+./benchmarks/binutils/leak_3/binutils_leak_3.c:210:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 50%)
+ phase parsing                      :   0.02 ( 67%)   0.02 (100%)   0.05 ( 83%)  1023k ( 40%)
+ phase opt and generate             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)   253k ( 10%)
+ callgraph optimization             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)   151k (  6%)
+ ipa function summary               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    24k (  1%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   291k ( 11%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)     0  (  0%)
+ parser (global)                    :   0.01 ( 33%)   0.02 (100%)   0.01 ( 17%)   593k ( 23%)
+ parser function body               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)    89k (  3%)
+ TOTAL                              :   0.03          0.02          0.06         2584k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ TOTAL                              :   0.00          0.00          0.00         2225k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:bfd_dwarf2_cleanup_debug_info=========
+=======node_fun:bfd_hash_insert=========
+=======node_fun:bfd_hash_table_init_n=========
+=======node_fun:objalloc_free=========
+=======node_fun:objalloc_alloc=========
+=======node_fun:objalloc_create=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 22 
+===============The second stage : Mapping stmt=================
+# .MEM_31 = VDEF <.MEM_30(D)>
+hash[0] = "a";
+# .MEM_32 = VDEF <.MEM_31>
+hash[1] = "b";
+# .MEM_33 = VDEF <.MEM_32>
+hash[2] = "c";
+# .MEM_34 = VDEF <.MEM_33>
+hash[3] = "d";
+# .MEM_35 = VDEF <.MEM_34>
+hash[4] = "e";
+# .MEM_36 = VDEF <.MEM_35>
+hash[5] = "f";
+# .MEM_37 = VDEF <.MEM_36>
+hash[6] = "g";
+# .MEM_38 = VDEF <.MEM_37>
+hash[7] = "h";
+# .MEM_39 = VDEF <.MEM_38>
+hash[8] = "i";
+# .MEM_40 = VDEF <.MEM_39>
+hash[9] = "j";
+# .MEM_41 = VDEF <.MEM_40>
+_1 = time (&t);
+# .MEM_42 = VDEF <.MEM_41>
+srand (_2);
+# .MEM_43 = VDEF <.MEM_42>
+_3 = bfd_hash_table_init_n (&table, 10, 10);
+# .MEM_49 = VDEF <.MEM_29>
+bfd_hash_insert (&table, _5, _4);
+# .MEM_44 = VDEF <.MEM_29>
+bfd_dwarf2_cleanup_debug_info (&table);
+# .MEM_45 = VDEF <.MEM_44>
+memset (&table, 0, 32);
+# .MEM_5 = VDEF <.MEM_4(D)>
+objalloc_free (_1);
+# .MEM_23 = VDEF <.MEM_22(D)>
+hashp_13 = objalloc_alloc (_1, 24);
+# .MEM_23 = VDEF <.MEM_22(D)>
+_1 = objalloc_create ();
+# .MEM_25 = VDEF <.MEM_24>
+_4 = objalloc_alloc (_3, alloc_11);
+# .MEM_31 = VDEF <.MEM_26>
+objalloc_free (table_14(D));
+# .MEM_27 = VDEF <.MEM_26>
+memset (_6, 0, alloc_11);
+# .MEM_18 = VDEF <.MEM_17(D)>
+chunk_8 = malloc (4064);
+# .MEM_14 = VDEF <.MEM_13(D)>
+ret_8 = malloc (24);
+# .MEM_15 = VDEF <.MEM_14>
+_1 = malloc (4064);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 147883528]:
+hash[0] = "a";
+hash[1] = "b";
+hash[2] = "c";
+hash[3] = "d";
+hash[4] = "e";
+hash[5] = "f";
+hash[6] = "g";
+hash[7] = "h";
+hash[8] = "i";
+hash[9] = "j";
+_1 = time (&t);
+_2 = (unsigned int) _1;
+srand (_2);
+_3 = bfd_hash_table_init_n (&table, 10, 10);
+if (_3 == 0)
+  goto <bb 3>; [34.00%]
+else
+  goto <bb 7>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 97603128]:
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 50280400]:
+t ={v} {CLOBBER};
+table ={v} {CLOBBER};
+hash ={v} {CLOBBER};
+return;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 976138697]:
+_4 = (long unsigned int) cnt_6;
+_5 = hash[cnt_6];
+bfd_hash_insert (&table, _5, _4);
+cnt_28 = cnt_6 + 1;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# cnt_6 = PHI <0(7), cnt_28(4)>
+if (cnt_6 <= 9)
+  goto <bb 4>; [90.91%]
+else
+  goto <bb 6>; [9.09%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 97603128]:
+bfd_dwarf2_cleanup_debug_info (&table);
+memset (&table, 0, 32);
+t ={v} {CLOBBER};
+table ={v} {CLOBBER};
+hash ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:bfd_dwarf2_cleanup_debug_info=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = table_3(D)->memory;
+objalloc_free (_1);
+return;
+
+=======Mapping node_fun:bfd_hash_insert=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = table_11(D)->memory;
+hashp_13 = objalloc_alloc (_1, 24);
+hashp_13->hash = hash_14(D);
+hashp_13->string = string_16(D);
+_2 = table_11(D)->size;
+_3 = (long unsigned int) _2;
+_4 = hash_14(D) % _3;
+_index_18 = (unsigned int) _4;
+_5 = table_11(D)->table;
+_21 = _4 & 4294967295;
+_6 = _21 * 8;
+_7 = _5 + _6;
+*_7 = hashp_13;
+_8 = table_11(D)->count;
+_9 = _8 + 1;
+table_11(D)->count = _9;
+return hashp_13;
+
+=======Mapping node_fun:bfd_hash_table_init_n=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+alloc_10 = (long unsigned int) size_9(D);
+alloc_11 = alloc_10 * 8;
+_1 = objalloc_create ();
+table_14(D)->memory = _1;
+_2 = table_14(D)->memory;
+if (_2 == 0B)
+  goto <bb 6>; [30.95%]
+else
+  goto <bb 3>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 741418729]:
+_3 = table_14(D)->memory;
+_4 = objalloc_alloc (_3, alloc_11);
+table_14(D)->table = _4;
+_5 = table_14(D)->table;
+if (_5 == 0B)
+  goto <bb 4>; [18.09%]
+else
+  goto <bb 5>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 134122648]:
+objalloc_free (table_14(D));
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 607296081]:
+_6 = table_14(D)->table;
+memset (_6, 0, alloc_11);
+table_14(D)->size = size_9(D);
+table_14(D)->entsize = entsize_20(D);
+table_14(D)->count = 0;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# _7 = PHI <0(2), 0(4), 1(5)>
+return _7;
+
+=======Mapping node_fun:objalloc_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+l_5 = o_4(D)->chunks;
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+data_7 = l_1 + 512;
+next_8 = l_1->next;
+free (l_1);
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# l_1 = PHI <l_5(2), next_8(3)>
+if (l_1 != 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+free (o_4(D));
+return;
+
+=======Mapping node_fun:objalloc_alloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (len_5(D) > 4064)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+chunk_8 = malloc (4064);
+if (chunk_8 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1072883005]:
+_1 = o_9(D)->chunks;
+chunk_8->next = _1;
+chunk_8->current_ptr = 0B;
+_2 = chunk_8 + 32;
+o_9(D)->current_ptr = _2;
+o_9(D)->current_space = 4032;
+o_9(D)->chunks = chunk_8;
+_15 = chunk_8 + 512;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073312329]:
+# _3 = PHI <0B(4), _15(5)>
+return _3;
+
+=======Mapping node_fun:objalloc_create=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ret_8 = malloc (24);
+if (ret_8 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1073312329]:
+_1 = malloc (4064);
+ret_8->chunks = _1;
+_2 = ret_8->chunks;
+if (_2 == 0B)
+  goto <bb 4>; [4.25%]
+else
+  goto <bb 5>; [95.75%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 45615770]:
+free (ret_8);
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1027696559]:
+chunk_11 = ret_8->chunks;
+chunk_11->next = 0B;
+chunk_11->current_ptr = 0B;
+chunk_11->next = 0B;
+_3 = chunk_11 + 32;
+ret_8->current_ptr = _3;
+ret_8->current_space = 4032;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# _4 = PHI <0B(2), 0B(4), ret_8(5)>
+return _4;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 22 [0m
+[40;34m    analyzable ptable point : 19 [0m
+[40;34m    analyzable ptable all point stmt : 118 [0m
+[40;34m    used_stmt array stack totalsize of : 0.003136 mb[0m
+[40;34m    collect time: : 0.000245 s [0m
+[40;34m    mapping time: : 0.000883 s [0m
+[40;34m    algorithm time: 0.002520 s [0m
+[40;34m    gimple stmt count : : 103 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:44 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 79%)
+ phase opt and generate             :   0.04 (100%)   0.00 (  0%)   0.03 (100%)   527k ( 19%)
+ callgraph functions expansion      :   0.03 ( 75%)   0.00 (  0%)   0.02 ( 67%)   420k ( 15%)
+ ipa lto gimple in                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    68k (  3%)
+ alias analysis                     :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  7392  (  0%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)     0  (  0%)
+ expand                             :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    53k (  2%)
+ reorder blocks                     :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  1184  (  0%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 67%)  1136  (  0%)
+ TOTAL                              :   0.04          0.00          0.03         2727k

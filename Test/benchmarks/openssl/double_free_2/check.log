@@ -1,0 +1,345 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/openssl/double_free_2/openssl_df_2.c: In function ‘tls_construct_cke_rsa’:
+./benchmarks/openssl/double_free_2/openssl_df_2.c:75:9: warning: implicit declaration of function ‘RAND_bytes’ [-Wimplicit-function-declaration]
+   75 |     if (RAND_bytes(pms + 2, (int)(pmslen - 2)) <= 0) {
+      |         ^~~~~~~~~~
+./benchmarks/openssl/double_free_2/openssl_df_2.c:83:10: warning: implicit declaration of function ‘ssl_log_rsa_client_key_exchange’ [-Wimplicit-function-declaration]
+   83 |     if (!ssl_log_rsa_client_key_exchange(s, encdata, enclen, pms, pmslen))
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)  1298k ( 39%)
+ phase parsing                      :   0.07 ( 88%)   0.02 (100%)   0.08 ( 80%)  1898k ( 56%)
+ phase opt and generate             :   0.01 ( 12%)   0.00 (  0%)   0.01 ( 10%)   160k (  5%)
+ callgraph ipa passes               :   0.01 ( 12%)   0.00 (  0%)   0.01 ( 10%)    49k (  1%)
+ lto stream compression             :   0.01 ( 12%)   0.00 (  0%)   0.01 ( 10%)     0  (  0%)
+ preprocessing                      :   0.01 ( 12%)   0.00 (  0%)   0.03 ( 30%)  1081k ( 32%)
+ lexical analysis                   :   0.01 ( 12%)   0.00 (  0%)   0.02 ( 20%)     0  (  0%)
+ parser (global)                    :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)   676k ( 20%)
+ parser struct body                 :   0.01 ( 13%)   0.01 ( 50%)   0.01 ( 10%)   102k (  3%)
+ parser function body               :   0.02 ( 25%)   0.00 (  0%)   0.02 ( 20%)    29k (  1%)
+ plugin execution                   :   0.01 ( 12%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.08          0.02          0.10         3367k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 98%)
+ phase stream out                   :   0.01 (100%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ whopr wpa I/O                      :   0.01 (100%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ TOTAL                              :   0.01          0.00          0.01         2194k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:tls_construct_client_key_exchange=========
+=======node_fun:tls_construct_cke_rsa=========
+=======node_fun:ssl3_free=========
+=======node_fun:ssl3_new=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 18 
+===============The second stage : Mapping stmt=================
+# .MEM_9 = VDEF <.MEM_8(D)>
+_1 = ssl3_new (&s);
+# .MEM_10 = VDEF <.MEM_9>
+_2 = tls_construct_client_key_exchange (&s, 0B);
+# .MEM_11 = VDEF <.MEM_10>
+printf ("%d\n", _4);
+# .MEM_12 = VDEF <.MEM_6>
+ssl3_free (&s);
+# .MEM_14 = VDEF <.MEM_13>
+_1 = tls_construct_cke_rsa (s_9(D), pkt_10(D), &al);
+# .MEM_29 = VDEF <.MEM_28(D)>
+pms_18 = malloc (48);
+# .MEM_32 = VDEF <.MEM_31>
+_7 = RAND_bytes (_6, 46);
+# .MEM_35 = VDEF <.MEM_34>
+_10 = ssl_log_rsa_client_key_exchange (s_19(D), 0B, enclen_25(D), pms_18, 48);
+# .MEM_9 = VDEF <.MEM_8(D)>
+s3_5 = malloc (16);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = ssl3_new (&s);
+if (_1 == 0)
+  goto <bb 7>; [51.12%]
+else
+  goto <bb 3>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 524845000]:
+_2 = tls_construct_client_key_exchange (&s, 0B);
+if (_2 == 0)
+  goto <bb 4>; [51.12%]
+else
+  goto <bb 5>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 268300766]:
+// predicted unlikely by goto predictor.
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 256544234]:
+_3 = s.s3;
+_4 = _3->tmp.pms;
+printf ("%d\n", _4);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 524845000]:
+end:
+ssl3_free (&s);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# _5 = PHI <1(2), 0(6)>
+s ={v} {CLOBBER};
+return _5;
+
+=======Mapping node_fun:tls_construct_client_key_exchange=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+al = -1;
+_1 = tls_construct_cke_rsa (s_9(D), pkt_10(D), &al);
+if (_1 == 0)
+  goto <bb 3>; [20.24%]
+else
+  goto <bb 4>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 217325344]:
+// predicted unlikely by goto predictor.
+_2 = s_9(D)->s3;
+_3 = _2->tmp.pms;
+free (_3);
+_4 = s_9(D)->s3;
+_4->tmp.pms = 0B;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _5 = PHI <1(2), 0(3)>
+al ={v} {CLOBBER};
+return _5;
+
+=======Mapping node_fun:tls_construct_cke_rsa=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+pms_18 = malloc (48);
+if (pms_18 == 0B)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1073312329]:
+_1 = s_19(D)->client_version;
+_2 = _1 >> 8;
+_3 = (unsigned char) _2;
+*pms_18 = _3;
+_4 = s_19(D)->client_version;
+_5 = (unsigned char) _4;
+MEM[(unsigned char *)pms_18 + 1B] = _5;
+_6 = pms_18 + 2;
+_7 = RAND_bytes (_6, 46);
+if (_7 <= 0)
+  goto <bb 4>; [42.09%]
+else
+  goto <bb 5>; [57.91%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 451757161]:
+// predicted unlikely by goto predictor.
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 621555168]:
+_8 = s_19(D)->s3;
+_8->tmp.pms = pms_18;
+_9 = s_19(D)->s3;
+_9->tmp.pmslen = 48;
+_10 = ssl_log_rsa_client_key_exchange (s_19(D), 0B, enclen_25(D), pms_18, 48);
+if (_10 == 0)
+  goto <bb 6>; [34.00%]
+else
+  goto <bb 8>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 211328759]:
+// predicted unlikely by goto predictor.
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 663085921]:
+err:
+_11 = s_19(D)->s3;
+_12 = _11->tmp.pms;
+free (_12);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# _13 = PHI <0(2), 1(5), 0(7)>
+return _13;
+
+=======Mapping node_fun:ssl3_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (s_6(D) == 0B)
+  goto <bb 5>; [18.09%]
+else
+  goto <bb 3>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 879501929]:
+_1 = s_6(D)->s3;
+if (_1 == 0B)
+  goto <bb 5>; [30.95%]
+else
+  goto <bb 4>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 607296081]:
+_2 = s_6(D)->s3;
+_3 = _2->tmp.pms;
+free (_3);
+_4 = s_6(D)->s3;
+free (_4);
+s_6(D)->s3 = 0B;
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:ssl3_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+s3_5 = malloc (16);
+if (s3_5 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+// predicted unlikely by goto predictor.
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+s_6(D)->s3 = s3_5;
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# _1 = PHI <0(3), 1(4)>
+return _1;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 2 [0m
+[40;34m    gimple free   count : 4 [0m
+[40;34m    all ptable point : 18 [0m
+[40;34m    analyzable ptable point : 14 [0m
+[40;34m    analyzable ptable all point stmt : 70 [0m
+[40;34m    used_stmt array stack totalsize of : 0.002280 mb[0m
+[40;34m    collect time: : 0.000863 s [0m
+[40;34m    mapping time: : 0.000837 s [0m
+[40;34m    algorithm time: 0.004270 s [0m
+[40;34m    gimple stmt count : : 63 [0m
+[40;34m    this report analysis in Mon Jun 20 14:58:12 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  2157k ( 85%)
+ phase opt and generate             :   0.02 (100%)   0.03 (100%)   0.05 ( 83%)   342k ( 14%)
+ callgraph functions expansion      :   0.02 (100%)   0.02 ( 67%)   0.04 ( 67%)   270k ( 11%)
+ df scan insns                      :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)   240  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   123k (  5%)
+ shorten branches                   :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ plugin execution                   :   0.01 ( 50%)   0.01 ( 33%)   0.01 ( 17%)  1080  (  0%)
+ rest of compilation                :   0.00 (  0%)   0.01 ( 33%)   0.03 ( 50%)    12k (  0%)
+ TOTAL                              :   0.02          0.03          0.06         2535k
+/usr/bin/ld: /tmp/ccLnQUd7.ltrans0.ltrans.o: in function `tls_construct_cke_rsa':
+<artificial>:(.text+0x84): undefined reference to `RAND_bytes'
+/usr/bin/ld: <artificial>:(.text+0xbb): undefined reference to `ssl_log_rsa_client_key_exchange'
+collect2: error: ld returned 1 exit status

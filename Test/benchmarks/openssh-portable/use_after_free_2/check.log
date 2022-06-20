@@ -1,0 +1,1273 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:104: warning: "ENOMSG" redefined
+  104 | #define ENOMSG 35       /* No message of desired type */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:23: note: this is the location of the previous definition
+   23 | #define ENOMSG          42      /* No message of desired type */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:105: warning: "EIDRM" redefined
+  105 | #define EIDRM 36        /* Identifier removed */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:24: note: this is the location of the previous definition
+   24 | #define EIDRM           43      /* Identifier removed */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:106: warning: "ECHRNG" redefined
+  106 | #define ECHRNG 37       /* Channel number out of range */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:25: note: this is the location of the previous definition
+   25 | #define ECHRNG          44      /* Channel number out of range */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:107: warning: "EL2NSYNC" redefined
+  107 | #define EL2NSYNC 38     /* Level 2 not synchronized */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:26: note: this is the location of the previous definition
+   26 | #define EL2NSYNC        45      /* Level 2 not synchronized */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:108: warning: "EL3HLT" redefined
+  108 | #define EL3HLT 39       /* Level 3 halted */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:27: note: this is the location of the previous definition
+   27 | #define EL3HLT          46      /* Level 3 halted */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:109: warning: "EL3RST" redefined
+  109 | #define EL3RST 40       /* Level 3 reset */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:28: note: this is the location of the previous definition
+   28 | #define EL3RST          47      /* Level 3 reset */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:110: warning: "ELNRNG" redefined
+  110 | #define ELNRNG 41       /* Link number out of range */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:29: note: this is the location of the previous definition
+   29 | #define ELNRNG          48      /* Link number out of range */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:111: warning: "EUNATCH" redefined
+  111 | #define EUNATCH 42      /* Protocol driver not attached */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:30: note: this is the location of the previous definition
+   30 | #define EUNATCH         49      /* Protocol driver not attached */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:112: warning: "ENOCSI" redefined
+  112 | #define ENOCSI 43       /* No CSI structure available */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:31: note: this is the location of the previous definition
+   31 | #define ENOCSI          50      /* No CSI structure available */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:113: warning: "EL2HLT" redefined
+  113 | #define EL2HLT 44       /* Level 2 halted */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:32: note: this is the location of the previous definition
+   32 | #define EL2HLT          51      /* Level 2 halted */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:114: warning: "EDEADLK" redefined
+  114 | #define EDEADLK 45      /* Deadlock condition */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:7: note: this is the location of the previous definition
+    7 | #define EDEADLK         35      /* Resource deadlock would occur */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:115: warning: "ENOLCK" redefined
+  115 | #define ENOLCK 46       /* No record locks available */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:9: note: this is the location of the previous definition
+    9 | #define ENOLCK          37      /* No record locks available */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:116: warning: "EBADE" redefined
+  116 | #define EBADE 50        /* Invalid exchange */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:33: note: this is the location of the previous definition
+   33 | #define EBADE           52      /* Invalid exchange */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:117: warning: "EBADR" redefined
+  117 | #define EBADR 51        /* Invalid request descriptor */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:34: note: this is the location of the previous definition
+   34 | #define EBADR           53      /* Invalid request descriptor */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:118: warning: "EXFULL" redefined
+  118 | #define EXFULL 52       /* Exchange full */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:35: note: this is the location of the previous definition
+   35 | #define EXFULL          54      /* Exchange full */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:119: warning: "ENOANO" redefined
+  119 | #define ENOANO 53       /* No anode */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:36: note: this is the location of the previous definition
+   36 | #define ENOANO          55      /* No anode */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:120: warning: "EBADRQC" redefined
+  120 | #define EBADRQC 54      /* Invalid request code */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:37: note: this is the location of the previous definition
+   37 | #define EBADRQC         56      /* Invalid request code */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:121: warning: "EBADSLT" redefined
+  121 | #define EBADSLT 55      /* Invalid slot */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:38: note: this is the location of the previous definition
+   38 | #define EBADSLT         57      /* Invalid slot */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:122: warning: "EDEADLOCK" redefined
+  122 | #define EDEADLOCK 56    /* File locking deadlock error */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:40: note: this is the location of the previous definition
+   40 | #define EDEADLOCK       EDEADLK
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:123: warning: "EBFONT" redefined
+  123 | #define EBFONT 57       /* Bad font file fmt */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:42: note: this is the location of the previous definition
+   42 | #define EBFONT          59      /* Bad font file format */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:136: warning: "EMULTIHOP" redefined
+  136 | #define EMULTIHOP 74    /* Multihop attempted */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:55: note: this is the location of the previous definition
+   55 | #define EMULTIHOP       72      /* Multihop attempted */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:138: warning: "EDOTDOT" redefined
+  138 | #define EDOTDOT 76      /* Cross mount point (not really error) */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:56: note: this is the location of the previous definition
+   56 | #define EDOTDOT         73      /* RFS specific error */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:139: warning: "EBADMSG" redefined
+  139 | #define EBADMSG 77      /* Trying to read unreadable message */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:57: note: this is the location of the previous definition
+   57 | #define EBADMSG         74      /* Not a data message */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:141: warning: "ENOTUNIQ" redefined
+  141 | #define ENOTUNIQ 80     /* Given log. name not unique */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:59: note: this is the location of the previous definition
+   59 | #define ENOTUNIQ        76      /* Name not unique on network */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:142: warning: "EBADFD" redefined
+  142 | #define EBADFD 81       /* f.d. invalid for this operation */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:60: note: this is the location of the previous definition
+   60 | #define EBADFD          77      /* File descriptor in bad state */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:143: warning: "EREMCHG" redefined
+  143 | #define EREMCHG 82      /* Remote address changed */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:61: note: this is the location of the previous definition
+   61 | #define EREMCHG         78      /* Remote address changed */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:144: warning: "ELIBACC" redefined
+  144 | #define ELIBACC 83      /* Can't access a needed shared lib */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:62: note: this is the location of the previous definition
+   62 | #define ELIBACC         79      /* Can not access a needed shared library */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:145: warning: "ELIBBAD" redefined
+  145 | #define ELIBBAD 84      /* Accessing a corrupted shared lib */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:63: note: this is the location of the previous definition
+   63 | #define ELIBBAD         80      /* Accessing a corrupted shared library */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:146: warning: "ELIBSCN" redefined
+  146 | #define ELIBSCN 85      /* .lib section in a.out corrupted */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:64: note: this is the location of the previous definition
+   64 | #define ELIBSCN         81      /* .lib section in a.out corrupted */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:147: warning: "ELIBMAX" redefined
+  147 | #define ELIBMAX 86      /* Attempting to link in too many libs */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:65: note: this is the location of the previous definition
+   65 | #define ELIBMAX         82      /* Attempting to link in too many shared libraries */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:148: warning: "ELIBEXEC" redefined
+  148 | #define ELIBEXEC 87     /* Attempting to exec a shared library */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:66: note: this is the location of the previous definition
+   66 | #define ELIBEXEC        83      /* Cannot exec a shared library directly */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:149: warning: "ENOSYS" redefined
+  149 | #define ENOSYS 88       /* Function not implemented */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:18: note: this is the location of the previous definition
+   18 | #define ENOSYS          38      /* Invalid system call number */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:151: warning: "ENOTEMPTY" redefined
+  151 | #define ENOTEMPTY 90    /* Directory not empty */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:20: note: this is the location of the previous definition
+   20 | #define ENOTEMPTY       39      /* Directory not empty */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:152: warning: "ENAMETOOLONG" redefined
+  152 | #define ENAMETOOLONG 91 /* File or path name too long */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:8: note: this is the location of the previous definition
+    8 | #define ENAMETOOLONG    36      /* File name too long */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:153: warning: "ELOOP" redefined
+  153 | #define ELOOP 92        /* Too many symbolic links */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:21: note: this is the location of the previous definition
+   21 | #define ELOOP           40      /* Too many symbolic links encountered */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:158: warning: "EAFNOSUPPORT" redefined
+  158 | #define EAFNOSUPPORT 106 /* Address family not supported by protocol family */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:80: note: this is the location of the previous definition
+   80 | #define EAFNOSUPPORT    97      /* Address family not supported by protocol */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:159: warning: "EPROTOTYPE" redefined
+  159 | #define EPROTOTYPE 107  /* Protocol wrong type for socket */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:74: note: this is the location of the previous definition
+   74 | #define EPROTOTYPE      91      /* Protocol wrong type for socket */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:160: warning: "ENOTSOCK" redefined
+  160 | #define ENOTSOCK 108    /* Socket operation on non-socket */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:71: note: this is the location of the previous definition
+   71 | #define ENOTSOCK        88      /* Socket operation on non-socket */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:161: warning: "ENOPROTOOPT" redefined
+  161 | #define ENOPROTOOPT 109 /* Protocol not available */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:75: note: this is the location of the previous definition
+   75 | #define ENOPROTOOPT     92      /* Protocol not available */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:162: warning: "ESHUTDOWN" redefined
+  162 | #define ESHUTDOWN 110   /* Can't send after socket shutdown */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:91: note: this is the location of the previous definition
+   91 | #define ESHUTDOWN       108     /* Cannot send after transport endpoint shutdown */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:164: warning: "EADDRINUSE" redefined
+  164 | #define EADDRINUSE 112          /* Address already in use */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:81: note: this is the location of the previous definition
+   81 | #define EADDRINUSE      98      /* Address already in use */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:165: warning: "ECONNABORTED" redefined
+  165 | #define ECONNABORTED 113        /* Connection aborted */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:86: note: this is the location of the previous definition
+   86 | #define ECONNABORTED    103     /* Software caused connection abort */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:166: warning: "ENETUNREACH" redefined
+  166 | #define ENETUNREACH 114         /* Network is unreachable */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:84: note: this is the location of the previous definition
+   84 | #define ENETUNREACH     101     /* Network is unreachable */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:167: warning: "ENETDOWN" redefined
+  167 | #define ENETDOWN 115            /* Network interface is not configured */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:83: note: this is the location of the previous definition
+   83 | #define ENETDOWN        100     /* Network is down */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:168: warning: "ETIMEDOUT" redefined
+  168 | #define ETIMEDOUT 116           /* Connection timed out */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:93: note: this is the location of the previous definition
+   93 | #define ETIMEDOUT       110     /* Connection timed out */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:169: warning: "EHOSTDOWN" redefined
+  169 | #define EHOSTDOWN 117           /* Host is down */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:95: note: this is the location of the previous definition
+   95 | #define EHOSTDOWN       112     /* Host is down */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:170: warning: "EHOSTUNREACH" redefined
+  170 | #define EHOSTUNREACH 118        /* Host is unreachable */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:96: note: this is the location of the previous definition
+   96 | #define EHOSTUNREACH    113     /* No route to host */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:171: warning: "EINPROGRESS" redefined
+  171 | #define EINPROGRESS 119         /* Connection already in progress */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:98: note: this is the location of the previous definition
+   98 | #define EINPROGRESS     115     /* Operation now in progress */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:172: warning: "EALREADY" redefined
+  172 | #define EALREADY 120            /* Socket already connected */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:97: note: this is the location of the previous definition
+   97 | #define EALREADY        114     /* Operation already in progress */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:173: warning: "EDESTADDRREQ" redefined
+  173 | #define EDESTADDRREQ 121        /* Destination address required */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:72: note: this is the location of the previous definition
+   72 | #define EDESTADDRREQ    89      /* Destination address required */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:174: warning: "EMSGSIZE" redefined
+  174 | #define EMSGSIZE 122            /* Message too long */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:73: note: this is the location of the previous definition
+   73 | #define EMSGSIZE        90      /* Message too long */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:175: warning: "EPROTONOSUPPORT" redefined
+  175 | #define EPROTONOSUPPORT 123     /* Unknown protocol */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:76: note: this is the location of the previous definition
+   76 | #define EPROTONOSUPPORT 93      /* Protocol not supported */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:176: warning: "ESOCKTNOSUPPORT" redefined
+  176 | #define ESOCKTNOSUPPORT 124     /* Socket type not supported */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:77: note: this is the location of the previous definition
+   77 | #define ESOCKTNOSUPPORT 94      /* Socket type not supported */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:177: warning: "EADDRNOTAVAIL" redefined
+  177 | #define EADDRNOTAVAIL 125       /* Address not available */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:82: note: this is the location of the previous definition
+   82 | #define EADDRNOTAVAIL   99      /* Cannot assign requested address */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:178: warning: "ENETRESET" redefined
+  178 | #define ENETRESET 126
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:85: note: this is the location of the previous definition
+   85 | #define ENETRESET       102     /* Network dropped connection because of reset */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:179: warning: "EISCONN" redefined
+  179 | #define EISCONN 127             /* Socket is already connected */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:89: note: this is the location of the previous definition
+   89 | #define EISCONN         106     /* Transport endpoint is already connected */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:180: warning: "ENOTCONN" redefined
+  180 | #define ENOTCONN 128            /* Socket is not connected */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:90: note: this is the location of the previous definition
+   90 | #define ENOTCONN        107     /* Transport endpoint is not connected */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:181: warning: "ETOOMANYREFS" redefined
+  181 | #define ETOOMANYREFS 129
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:92: note: this is the location of the previous definition
+   92 | #define ETOOMANYREFS    109     /* Too many references: cannot splice */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:183: warning: "EUSERS" redefined
+  183 | #define EUSERS 131
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:70: note: this is the location of the previous definition
+   70 | #define EUSERS          87      /* Too many users */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:184: warning: "EDQUOT" redefined
+  184 | #define EDQUOT 132
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:105: note: this is the location of the previous definition
+  105 | #define EDQUOT          122     /* Quota exceeded */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:185: warning: "ESTALE" redefined
+  185 | #define ESTALE 133
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:99: note: this is the location of the previous definition
+   99 | #define ESTALE          116     /* Stale file handle */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:186: warning: "ENOTSUP" redefined
+  186 | #define ENOTSUP 134             /* Not supported */
+      | 
+In file included from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/x86_64-linux-gnu/bits/errno.h:30: note: this is the location of the previous definition
+   30 | #  define ENOTSUP               EOPNOTSUPP
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:187: warning: "ENOMEDIUM" redefined
+  187 | #define ENOMEDIUM 135   /* No medium (in tape drive) */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:107: note: this is the location of the previous definition
+  107 | #define ENOMEDIUM       123     /* No medium found */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:190: warning: "EILSEQ" redefined
+  190 | #define EILSEQ 138
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:67: note: this is the location of the previous definition
+   67 | #define EILSEQ          84      /* Illegal byte sequence */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:10:
+./benchmarks/openssh-portable/use_after_free_2/../stdio.h:191: warning: "EOVERFLOW" redefined
+  191 | #define EOVERFLOW 139   /* Value too large for defined data type */
+      | 
+In file included from /usr/include/x86_64-linux-gnu/asm/errno.h:1,
+                 from /usr/include/linux/errno.h:1,
+                 from /usr/include/x86_64-linux-gnu/bits/errno.h:26,
+                 from /usr/include/errno.h:28,
+                 from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:8:
+/usr/include/asm-generic/errno.h:58: note: this is the location of the previous definition
+   58 | #define EOVERFLOW       75      /* Value too large for defined data type */
+      | 
+In file included from ./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:11:
+./benchmarks/openssh-portable/use_after_free_2/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/use_after_free_2/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/use_after_free_2/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/use_after_free_2/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/use_after_free_2/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: In function ‘sshpam_free_ctx’:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:341:9: warning: implicit declaration of function ‘debug3’ [-Wimplicit-function-declaration]
+  341 |         debug3("PAM: %s entering", __func__);
+      |         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:342:9: warning: implicit declaration of function ‘sshpam_thread_cleanup’ [-Wimplicit-function-declaration]
+  342 |         sshpam_thread_cleanup();
+      |         ^~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: In function ‘sshpam_init_ctx’:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:364:13: warning: implicit declaration of function ‘pthread_create’ [-Wimplicit-function-declaration]
+  364 |         if (pthread_create(&ctxt->pam_thread, NULL, sshpam_thread, ctxt) == -1) {
+      |             ^~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:365:17: warning: implicit declaration of function ‘error’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+  365 |                 error("PAM: failed to start authentication thread: %s",
+      |                 ^~~~~
+      |                 perror
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:366:21: warning: implicit declaration of function ‘strerror’; did you mean ‘perror’? [-Wimplicit-function-declaration]
+  366 |                     strerror(errno));
+      |                     ^~~~~~~~
+      |                     perror
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:367:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+  367 |                 close(socks[0]);
+      |                 ^~~~~
+      |                 pclose
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: In function ‘sshpam_respond’:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:396:9: warning: implicit declaration of function ‘buffer_init’ [-Wimplicit-function-declaration]
+  396 |         buffer_init(&buffer);
+      |         ^~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:399:17: warning: implicit declaration of function ‘buffer_put_cstring’ [-Wimplicit-function-declaration]
+  399 |                 buffer_put_cstring(&buffer, *resp);
+      |                 ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:402:9: warning: implicit declaration of function ‘buffer_free’ [-Wimplicit-function-declaration]
+  402 |         buffer_free(&buffer);
+      |         ^~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: In function ‘mm_answer_pam_free_ctx’:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:432:9: warning: implicit declaration of function ‘buffer_clear’ [-Wimplicit-function-declaration]
+  432 |         buffer_clear(m);
+      |         ^~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:433:9: warning: implicit declaration of function ‘mm_request_send’ [-Wimplicit-function-declaration]
+  433 |         mm_request_send(sock, MONITOR_ANS_PAM_FREE_CTX, m);
+      |         ^~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: In function ‘mm_answer_pam_respond’:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:447:15: warning: implicit declaration of function ‘buffer_get_int’ [-Wimplicit-function-declaration]
+  447 |         num = buffer_get_int(m);
+      |               ^~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:451:35: warning: implicit declaration of function ‘buffer_get_string’ [-Wimplicit-function-declaration]
+  451 |                         resp[i] = buffer_get_string(m, NULL);
+      |                                   ^~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:451:33: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  451 |                         resp[i] = buffer_get_string(m, NULL);
+      |                                 ^
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: In function ‘monitor_read’:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:477:9: warning: implicit declaration of function ‘mm_request_receive’ [-Wimplicit-function-declaration]
+  477 |         mm_request_receive(pmonitor->m_sendfd, &m);
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:478:16: warning: implicit declaration of function ‘buffer_get_char’ [-Wimplicit-function-declaration]
+  478 |         type = buffer_get_char(&m);
+      |                ^~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:494:25: warning: implicit declaration of function ‘debug2’ [-Wimplicit-function-declaration]
+  494 |                         debug2("%s: %d used once, disabling now", __func__,
+      |                         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: In function ‘monitor_child_preauth’:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:522:9: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  522 |         memset(authctxt, 0, sizeof(*authctxt));
+      |         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:12:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+   11 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   12 | 
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:522:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  522 |         memset(authctxt, 0, sizeof(*authctxt));
+      |         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:522:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:528:17: warning: implicit declaration of function ‘monitor_permit’; did you mean ‘monitor_read’? [-Wimplicit-function-declaration]
+  528 |                 monitor_permit(mon_dispatch, MONITOR_REQ_MODULI, 1);
+      |                 ^~~~~~~~~~~~~~
+      |                 monitor_read
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:548:30: warning: implicit declaration of function ‘auth_root_allowed’ [-Wimplicit-function-declaration]
+  548 |                             !auth_root_allowed(auth_method))
+      |                              ^~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c: At top level:
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:333:14: warning: ‘sshpam_thread’ used but never defined
+  333 | static void *sshpam_thread(void *ctxtp);
+      |              ^~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c:334:12: warning: ‘sshpam_query’ used but never defined
+  334 | static int sshpam_query(void *ctx, char **name, char **info, u_int *num, char ***prompts, u_int **echo_on);
+      |            ^~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 42%)
+ phase parsing                      :   0.04 ( 80%)   0.02 (100%)   0.07 ( 88%)  1538k ( 50%)
+ phase opt and generate             :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 12%)   249k (  8%)
+ callgraph optimization             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 12%)   137k (  4%)
+ ipa function summary               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)    19k (  1%)
+ preprocessing                      :   0.01 ( 20%)   0.02 (100%)   0.02 ( 25%)   670k ( 22%)
+ lexical analysis                   :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 12%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)   624k ( 20%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)   131k (  4%)
+ parser function body               :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 25%)    69k (  2%)
+ TOTAL                              :   0.05          0.02          0.08         3095k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 94%)
+ phase stream in                    :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)   132k (  6%)
+ phase stream out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ dump files                         :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ whopr wpa I/O                      :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ TOTAL                              :   0.01          0.00          0.01         2292k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:monitor_child_preauth=========
+=======node_fun:monitor_read=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 18 
+===============The second stage : Mapping stmt=================
+# .MEM_2 = VDEF <.MEM_1(D)>
+monitor_child_preauth (&authctxt, &pmonitor);
+# .MEM_53 = VDEF <.MEM_52>
+memset (_2, 0, 128);
+# .MEM_57 = VDEF <.MEM_56>
+monitor_permit (_3, 0, 1);
+# .MEM_58 = VDEF <.MEM_57>
+monitor_permit (_4, 6, 1);
+# .MEM_55 = VDEF <.MEM_54>
+monitor_permit (_5, 32, 1);
+# .MEM_62 = VDEF <.MEM_60>
+_7 = monitor_read (pmonitor_22(D), _6, &ent);
+# .MEM_64 = VDEF <.MEM_62>
+printf ("%s: unexpected authentication from %d", &__func__);
+# .MEM_63 = VDEF <.MEM_62>
+_16 = auth_root_allowed (_15);
+# .MEM_41 = VDEF <.MEM_40(D)>
+buffer_init (&m);
+# .MEM_42 = VDEF <.MEM_41>
+mm_request_receive (_1, &m);
+# .MEM_43 = VDEF <.MEM_42>
+_2 = buffer_get_char (&m);
+# .MEM_52 = VDEF <.MEM_43>
+printf ("%s: unpermitted request", &__func__);
+# .MEM_47 = VDEF <.MEM_46>
+buffer_free (&m);
+# .MEM_48 = VDEF <.MEM_47>
+debug2 ("%s: %d used once, disabling now", &__func__, _37);
+# .MEM_44 = VDEF <.MEM_43>
+printf ("%s: unsupported request: ", &__func__);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+monitor_child_preauth (&authctxt, &pmonitor);
+pmonitor ={v} {CLOBBER};
+authctxt ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:monitor_child_preauth=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 5455860]:
+pmonitor_22(D)->m_recvfd = -1;
+_1 = pmonitor_22(D)->m_recvfd;
+pmonitor_22(D)->m_log_sendfd = _1;
+authctxt = _authctxt_25(D);
+_2 = authctxt;
+memset (_2, 0, 128);
+if (compat20_28(D) != 0)
+  goto <bb 3>; [50.00%]
+else
+  goto <bb 5>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 2727930]:
+mon_dispatch = &mon_dispatch_proto20;
+_3 = mon_dispatch;
+monitor_permit (_3, 0, 1);
+_4 = mon_dispatch;
+monitor_permit (_4, 6, 1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 5455860]:
+# authenticated_44 = PHI <0(3), 0(5)>
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 2727930]:
+mon_dispatch = &mon_dispatch_proto15;
+_5 = mon_dispatch;
+monitor_permit (_5, 32, 1);
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+auth_method = "unknown";
+_6 = mon_dispatch;
+_7 = monitor_read (pmonitor_22(D), _6, &ent);
+_8 = _7 == 1;
+authenticated_39 = (int) _8;
+if (_7 == 1)
+  goto <bb 7>; [97.25%]
+else
+  goto <bb 11>; [2.75%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1044213921]:
+_9 = ent;
+_10 = _9->flags;
+_11 = _10 & 8;
+if (_11 == 0)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 417685]:
+printf ("%s: unexpected authentication from %d", &__func__);
+exit (1);
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 1043796235]:
+_12 = authctxt;
+_13 = _12->pw;
+_14 = _13->pw_uid;
+if (_14 == 0)
+  goto <bb 10>; [97.25%]
+else
+  goto <bb 11>; [2.75%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1015091836]:
+_15 = auth_method;
+_16 = auth_root_allowed (_15);
+if (_16 == 0)
+  goto <bb 6>; [97.25%]
+else
+  goto <bb 11>; [2.75%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 86147333]:
+# authenticated_20 = PHI <authenticated_39(6), authenticated_39(9), authenticated_39(10)>
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 91603194]:
+# authenticated_17 = PHI <authenticated_44(4), authenticated_20(11)>
+if (authenticated_17 == 0)
+  goto <bb 6>; [94.50%]
+else
+  goto <bb 13>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 5038176]:
+ent ={v} {CLOBBER};
+return;
+
+=======Mapping node_fun:monitor_read=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 114863530]:
+buffer_init (&m);
+_1 = pmonitor_20(D)->m_sendfd;
+mm_request_receive (_1, &m);
+_2 = buffer_get_char (&m);
+type_23 = (u_char) _2;
+goto <bb 5>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1014686026]:
+_3 = ent_15->type;
+_35 = _2 & 255;
+_4 = (monitor_reqtype) _35;
+if (_3 == _4)
+  goto <bb 6>; [5.50%]
+else
+  goto <bb 4>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 958878296]:
+ent_25 = ent_15 + 16;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# ent_15 = PHI <ent_24(D)(2), ent_25(4)>
+_5 = ent_15->f;
+if (_5 != 0B)
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 6>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 114863531]:
+_6 = ent_15->f;
+if (_6 != 0B)
+  goto <bb 7>; [99.96%]
+else
+  goto <bb 14>; [0.04%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 114817586]:
+_7 = ent_15->flags;
+_8 = _7 & 4096;
+if (_8 == 0)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 45927]:
+printf ("%s: unpermitted request", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 114771659]:
+_9 = ent_15->f;
+_10 = pmonitor_20(D)->m_sendfd;
+ret_29 = _9 (_10, &m);
+buffer_free (&m);
+_11 = ent_15->flags;
+_12 = _11 & 16;
+if (_12 != 0)
+  goto <bb 10>; [33.00%]
+else
+  goto <bb 11>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 37874647]:
+_37 = _2 & 255;
+debug2 ("%s: %d used once, disabling now", &__func__, _37);
+_13 = ent_15->flags;
+_14 = _13 & -4097;
+ent_15->flags = _14;
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 114771659]:
+if (pent_33(D) != 0B)
+  goto <bb 12>; [70.00%]
+else
+  goto <bb 13>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 80340162]:
+*pent_33(D) = ent_15;
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 114771659]:
+m ={v} {CLOBBER};
+return ret_29;
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 45945]:
+printf ("%s: unsupported request: ", &__func__);
+exit (1);
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 0 [0m
+[40;34m    gimple free   count : 0 [0m
+[40;34m    all ptable point : 18 [0m
+[40;34m    analyzable ptable point : 18 [0m
+[40;34m    analyzable ptable all point stmt : 80 [0m
+[40;34m    used_stmt array stack totalsize of : 0.002000 mb[0m
+[40;34m    collect time: : 0.000218 s [0m
+[40;34m    mapping time: : 0.000652 s [0m
+[40;34m    algorithm time: 0.002475 s [0m
+[40;34m    gimple stmt count : : 78 [0m
+[40;34m    this report analysis in Mon Jun 20 14:58:05 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2157k ( 84%)
+ phase opt and generate             :   0.02 (100%)   0.01 (100%)   0.02 ( 67%)   348k ( 14%)
+ callgraph functions expansion      :   0.02 (100%)   0.01 (100%)   0.02 ( 67%)   271k ( 11%)
+ dominator optimization             :   0.01 ( 50%)   0.01 (100%)   0.00 (  0%)    14k (  1%)
+ reorder blocks                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  1016  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    12k (  0%)
+ rest of compilation                :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    10k (  0%)
+ TOTAL                              :   0.02          0.01          0.03         2569k
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o: in function `monitor_read':
+<artificial>:(.text+0x1c): undefined reference to `buffer_init'
+/usr/bin/ld: <artificial>:(.text+0x2e): undefined reference to `mm_request_receive'
+/usr/bin/ld: <artificial>:(.text+0x3b): undefined reference to `buffer_get_char'
+/usr/bin/ld: <artificial>:(.text+0x9b): undefined reference to `buffer_free'
+/usr/bin/ld: <artificial>:(.text+0xec): undefined reference to `debug2'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o: in function `monitor_child_preauth':
+<artificial>:(.text+0x160): undefined reference to `monitor_permit'
+/usr/bin/ld: <artificial>:(.text+0x1b1): undefined reference to `auth_root_allowed'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o:(.data+0x28): undefined reference to `mm_answer_sign'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o:(.data+0x38): undefined reference to `mm_answer_pwnamallow'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o:(.data+0x48): undefined reference to `mm_answer_authserv'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o:(.data+0x58): undefined reference to `mm_answer_auth2_read_banner'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o:(.data+0x68): undefined reference to `mm_answer_authpassword'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o:(.data+0x78): undefined reference to `mm_answer_keyallowed'
+/usr/bin/ld: /tmp/cc2miKL6.ltrans0.ltrans.o:(.data+0x88): undefined reference to `mm_answer_keyverify'
+collect2: error: ld returned 1 exit status

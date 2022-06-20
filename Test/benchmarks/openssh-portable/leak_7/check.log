@@ -1,0 +1,404 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:9:
+./benchmarks/openssh-portable/leak_7/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_7/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_7/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_7/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_7/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:23:13: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   23 |     #field, (&(type##_it)) }
+      |             ^
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:32:42: note: in expansion of macro ‘ASN1_EX_TYPE’
+   32 | #define ASN1_SIMPLE(stname, field, type) ASN1_EX_TYPE(0,0, stname, field, type)
+      |                                          ^~~~~~~~~~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:75:9: note: in expansion of macro ‘ASN1_SIMPLE’
+   75 |         ASN1_SIMPLE(ECDSA_SIG, r, BIGNUM),
+      |         ^~~~~~~~~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:23:13: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   23 |     #field, (&(type##_it)) }
+      |             ^
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:32:42: note: in expansion of macro ‘ASN1_EX_TYPE’
+   32 | #define ASN1_SIMPLE(stname, field, type) ASN1_EX_TYPE(0,0, stname, field, type)
+      |                                          ^~~~~~~~~~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:76:9: note: in expansion of macro ‘ASN1_SIMPLE’
+   76 |         ASN1_SIMPLE(ECDSA_SIG, s, BIGNUM)
+      |         ^~~~~~~~~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c: In function ‘ASN1_item_new’:
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:83:29: warning: initialization discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   83 |         ASN1_TEMPLATE *tt = it->templates;
+      |                             ^~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:90:17: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   90 |                 memset(*pval, 0, it->size);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:10:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+    9 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   10 | 
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:90:17: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+   90 |                 memset(*pval, 0, it->size);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:90:17: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:97:24: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   97 |         for (i = 0, tt = it->templates; i < it->tcount; tt++, i++)
+      |                        ^
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c: In function ‘ECDSA_SIG_new’:
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:115:23: warning: passing argument 1 of ‘ASN1_item_new’ from incompatible pointer type [-Wincompatible-pointer-types]
+  115 |         ASN1_item_new(&ret, &ECDSA_SIG_it);
+      |                       ^~~~
+      |                       |
+      |                       ECDSA_SIG **
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:79:32: note: expected ‘ASN1_VALUE **’ {aka ‘void **’} but argument is of type ‘ECDSA_SIG **’
+   79 | int ASN1_item_new(ASN1_VALUE **pval, ASN1_ITEM *it)
+      |                   ~~~~~~~~~~~~~^~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:115:29: warning: passing argument 2 of ‘ASN1_item_new’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+  115 |         ASN1_item_new(&ret, &ECDSA_SIG_it);
+      |                             ^~~~~~~~~~~~~
+./benchmarks/openssh-portable/leak_7/openssh_leak_7.c:79:49: note: expected ‘ASN1_ITEM *’ {aka ‘struct ASN1_ITEM_st *’} but argument is of type ‘const ASN1_ITEM *’ {aka ‘const struct ASN1_ITEM_st *’}
+   79 | int ASN1_item_new(ASN1_VALUE **pval, ASN1_ITEM *it)
+      |                                      ~~~~~~~~~~~^~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 46%)
+ phase parsing                      :   0.00 (  0%)   0.04 (100%)   0.04 ( 80%)  1390k ( 50%)
+ phase opt and generate             :   0.01 (100%)   0.00 (  0%)   0.01 ( 20%)   103k (  4%)
+ callgraph ipa passes               :   0.01 (100%)   0.00 (  0%)   0.01 ( 20%)    57k (  2%)
+ lto stream compression             :   0.01 (100%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 25%)   0.02 ( 40%)   645k ( 23%)
+ lexical analysis                   :   0.00 (  0%)   0.02 ( 50%)   0.02 ( 40%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)   574k ( 21%)
+ TOTAL                              :   0.01          0.04          0.05         2802k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 98%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    49k (  2%)
+ ipa dead code removal              :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ TOTAL                              :   0.00          0.00          0.01         2208k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:BN_new=========
+=======node_fun:ECDSA_SIG_free=========
+=======node_fun:ECDSA_SIG_new=========
+=======node_fun:ASN1_item_new=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 19 
+===============The second stage : Mapping stmt=================
+# .MEM_11 = VDEF <.MEM_10(D)>
+sig_8 = ECDSA_SIG_new ();
+# .MEM_19 = VDEF <.MEM_11>
+printf ("%s: ECDSA_SIG_new failed", &__func__);
+# .MEM_12 = VDEF <.MEM_11>
+_1 = BN_new ();
+# .MEM_14 = VDEF <.MEM_13>
+_3 = BN_new ();
+# .MEM_17 = VDEF <.MEM_9>
+printf ("%s: BN_new failed", &__func__);
+# .MEM_16 = VDEF <.MEM_15>
+ECDSA_SIG_free (sig_8);
+# .MEM_5 = VDEF <.MEM_4(D)>
+_3 = malloc (24);
+# .MEM_5 = VDEF <.MEM_4(D)>
+ASN1_item_new (&ret, &ECDSA_SIG_it);
+# .MEM_49 = VDEF <.MEM_44(D)>
+_5 = malloc (_4);
+# .MEM_51 = VDEF <.MEM_50>
+memset (_9, 0, _8);
+# .MEM_45 = VDEF <.MEM_44(D)>
+_12 = malloc (_11);
+# .MEM_47 = VDEF <.MEM_46>
+memset (_16, 0, _15);
+# .MEM_48 = VDEF <.MEM_41>
+_20 = ASN1_item_new (pseqval_37, _19);
+# .MEM_52 = VDEF <.MEM_42>
+__builtin_puts (&"ASN1_ITEM_new ERROR"[0]);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+sig_8 = ECDSA_SIG_new ();
+if (sig_8 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+printf ("%s: ECDSA_SIG_new failed", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+_1 = BN_new ();
+sig_8->r = _1;
+_2 = sig_8->r;
+if (_2 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1072883005]:
+_3 = BN_new ();
+sig_8->s = _3;
+_4 = sig_8->s;
+if (_4 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 7>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 858477]:
+printf ("%s: BN_new failed", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1072453853]:
+ECDSA_SIG_free (sig_8);
+return 0;
+
+=======Mapping node_fun:BN_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_3 = malloc (24);
+return _3;
+
+=======Mapping node_fun:ECDSA_SIG_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = p_4(D)->r;
+free (_1);
+_2 = p_4(D)->s;
+free (_2);
+free (p_4(D));
+return;
+
+=======Mapping node_fun:ECDSA_SIG_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ASN1_item_new (&ret, &ECDSA_SIG_it);
+_3 = ret;
+ret ={v} {CLOBBER};
+return _3;
+
+=======Mapping node_fun:ASN1_item_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 969866429]:
+tt_31 = it_30(D)->templates;
+_1 = it_30(D)->itype;
+_2 = (int) _1;
+switch (_1) <default: <L3> [33.33%], case 0: <L0> [33.33%], case 1: <L1> [33.33%]>
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 323288812]:
+<L0>:
+_3 = it_30(D)->size;
+_4 = (long unsigned int) _3;
+_5 = malloc (_4);
+*pval_33(D) = _5;
+_6 = *pval_33(D);
+if (_6 == 0B)
+  goto <bb 4>; [30.95%]
+else
+  goto <bb 5>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 100057888]:
+// predicted unlikely by goto predictor.
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 223230924]:
+_7 = it_30(D)->size;
+_8 = (long unsigned int) _7;
+_9 = *pval_33(D);
+memset (_9, 0, _8);
+goto <bb 15>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 323288812]:
+<L1>:
+_10 = it_30(D)->size;
+_11 = (long unsigned int) _10;
+_12 = malloc (_11);
+*pval_33(D) = _12;
+_13 = *pval_33(D);
+if (_13 == 0B)
+  goto <bb 7>; [30.95%]
+else
+  goto <bb 8>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 100057888]:
+// predicted unlikely by goto predictor.
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 223230924]:
+_14 = it_30(D)->size;
+_15 = (long unsigned int) _14;
+_16 = *pval_33(D);
+memset (_16, 0, _15);
+tt_36 = it_30(D)->templates;
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 955630225]:
+_17 = *pval_33(D);
+_18 = tt_24->offset;
+pseqval_37 = _17 + _18;
+_19 = tt_24->item;
+_20 = ASN1_item_new (pseqval_37, _19);
+if (_20 == 0)
+  goto <bb 10>; [11.00%]
+else
+  goto <bb 11>; [89.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 105119324]:
+// predicted unlikely by goto predictor.
+goto <bb 14>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 850510901]:
+tt_39 = tt_24 + 40;
+i_40 = i_23 + 1;
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 1073741824]:
+# i_23 = PHI <0(8), i_40(11)>
+# tt_24 = PHI <tt_36(8), tt_39(11)>
+_21 = (long int) i_23;
+_22 = it_30(D)->tcount;
+if (_21 < _22)
+  goto <bb 9>; [89.00%]
+else
+  goto <bb 15>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 305235100]:
+memerr:
+__builtin_puts (&"ASN1_ITEM_new ERROR"[0]);
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 969866436]:
+# _25 = PHI <1(2), 1(5), 1(12), 0(14)>
+<L3>:
+return _25;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 19 [0m
+[40;34m    analyzable ptable point : 16 [0m
+[40;34m    analyzable ptable all point stmt : 34 [0m
+[40;34m    used_stmt array stack totalsize of : 0.001224 mb[0m
+[40;34m    collect time: : 0.000180 s [0m
+[40;34m    mapping time: : 0.000441 s [0m
+[40;34m    algorithm time: 0.002860 s [0m
+[40;34m    gimple stmt count : : 73 [0m
+[40;34m    this report analysis in Mon Jun 20 14:58:04 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  2157k ( 83%)
+ phase opt and generate             :   0.03 (100%)   0.00 (  0%)   0.03 ( 75%)   383k ( 15%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.00 (  0%)   0.03 ( 75%)   309k ( 12%)
+ ipa lto gimple in                  :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    52k (  2%)
+ df live regs                       :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ tree CCP                           :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  2184  (  0%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    36k (  1%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   240  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    12k (  0%)
+ TOTAL                              :   0.03          0.00          0.04         2589k

@@ -1,0 +1,467 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/double_free_1/binutils_df_1.c: In function ‘remote_filename_p’:
+./benchmarks/binutils/double_free_1/binutils_df_1.c:52:16: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   52 |         return strncmp (filename, "remote:", 7) == 0;
+      |                ^~~~~~~
+./benchmarks/binutils/double_free_1/binutils_df_1.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+    6 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    7 | #define PT_LDINFO 1
+./benchmarks/binutils/double_free_1/binutils_df_1.c:52:46: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   52 |         return strncmp (filename, "remote:", 7) == 0;
+      |                                              ^
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/double_free_1/binutils_df_1.c: In function ‘main’:
+./benchmarks/binutils/double_free_1/binutils_df_1.c:122:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  122 |         srand(time(&t));
+      |               ^~~~
+./benchmarks/binutils/double_free_1/binutils_df_1.c:127:32: warning: initialization of ‘ULONGEST *’ {aka ‘long unsigned int *’} from incompatible pointer type ‘int *’ [-Wincompatible-pointer-types]
+  127 |         ULONGEST *xfered_len = &len;
+      |                                ^
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 51%)
+ phase parsing                      :   0.03 ( 75%)   0.01 (100%)   0.04 ( 80%)  1013k ( 40%)
+ phase opt and generate             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   219k (  9%)
+ dump files                         :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   124k (  5%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ preprocessing                      :   0.02 ( 50%)   0.00 (  0%)   0.01 ( 20%)   290k ( 11%)
+ lexical analysis                   :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   594k ( 23%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    80k (  3%)
+ TOTAL                              :   0.04          0.01          0.05         2540k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ TOTAL                              :   0.00          0.00          0.01         2222k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:rs6000_xfer_shared_libraries=========
+=======node_fun:rs6000_aix_ld_info_to_xml=========
+=======node_fun:rs6000_ptrace_ldinfo=========
+=======node_fun:rs6000_ptrace64=========
+=======node_fun:xrealloc=========
+=======node_fun:make_cleanup=========
+=======node_fun:make_my_cleanup=========
+=======node_fun:make_my_cleanup2=========
+=======node_fun:do_cleanups=========
+=======node_fun:do_my_cleanups=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 33 
+===============The second stage : Mapping stmt=================
+# .MEM_7 = VDEF <.MEM_6(D)>
+_1 = time (&t);
+# .MEM_8 = VDEF <.MEM_7>
+srand (_2);
+# .MEM_9 = VDEF <.MEM_8>
+_3 = rand ();
+# .MEM_10 = VDEF <.MEM_9>
+rs6000_xfer_shared_libraries (_5, &len);
+# .MEM_15 = VDEF <.MEM_14(D)>
+ldi_buf_6 = rs6000_ptrace_ldinfo ();
+# .MEM_16 = VDEF <.MEM_15>
+cleanup_8 = make_cleanup (free, ldi_buf_6);
+# VUSE <.MEM_16>
+result_9 = rs6000_aix_ld_info_to_xml (ldi_buf_6);
+# .MEM_18 = VDEF <.MEM_17>
+do_cleanups (cleanup_8);
+# .MEM_16 = VDEF <.MEM_15(D)>
+ldi_8 = malloc (1024);
+# .MEM_17 = VDEF <.MEM_14>
+rc_10 = rs6000_ptrace64 (1, 1, _1, ldi_size_3, 0B);
+# .MEM_18 = VDEF <.MEM_17>
+ldi_13 = xrealloc (ldi_4, _2);
+# .MEM_9 = VDEF <.MEM_8(D)>
+_2 = rand ();
+# .MEM_14 = VDEF <.MEM_12(D)>
+newmem_9 = malloc (_10);
+# .MEM_7 = VDEF <.MEM_6(D)>
+_5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+# .MEM_8 = VDEF <.MEM_7(D)>
+_6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+# .MEM_14 = VDEF <.MEM_13(D)>
+new_4 = malloc (32);
+# .MEM_4 = VDEF <.MEM_3(D)>
+do_my_cleanups (&cleanup_chain, old_chain_2(D));
+# .MEM_19 = VDEF <.MEM_18>
+__builtin_puts (&"cleanup!!!!! ========="[0]);
+# .MEM_20 = VDEF <.MEM_19>
+printf ("%x\n", _4);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = time (&t);
+_2 = (unsigned int) _1;
+srand (_2);
+_3 = rand ();
+_4 = _3 % 2;
+if (_4 == 1)
+  goto <bb 4>; [34.00%]
+else
+  goto <bb 3>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 708669601]:
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _5 = PHI <&buf(2), 0B(3)>
+rs6000_xfer_shared_libraries (_5, &len);
+t ={v} {CLOBBER};
+buf ={v} {CLOBBER};
+len ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:rs6000_xfer_shared_libraries=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (writebuf_3(D) != 0B)
+  goto <bb 7>; [70.93%]
+else
+  goto <bb 3>; [29.07%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 312136752]:
+ldi_buf_6 = rs6000_ptrace_ldinfo ();
+if (ldi_buf_6 == 0B)
+  goto <bb 4>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 124854]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 312011898]:
+cleanup_8 = make_cleanup (free, ldi_buf_6);
+result_9 = rs6000_aix_ld_info_to_xml (ldi_buf_6);
+free (ldi_buf_6);
+do_cleanups (cleanup_8);
+if (result_9 == 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 6>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 156005949]:
+*xfered_len_12(D) = result_9;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1073616971]:
+# _1 = PHI <-1(2), 0(5), 1(6)>
+return _1;
+
+=======Mapping node_fun:rs6000_aix_ld_info_to_xml=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = *ldi_buf_3(D);
+i_4 = (int) _1;
+_5 = (long unsigned int) _1;
+return _5;
+
+=======Mapping node_fun:rs6000_ptrace_ldinfo=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+ldi_8 = malloc (1024);
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1073741824]:
+# ldi_size_3 = PHI <1024(2), ldi_size_11(4)>
+# ldi_4 = PHI <ldi_8(2), ldi_13(4)>
+_1 = (long long int) ldi_4;
+rc_10 = rs6000_ptrace64 (1, 1, _1, ldi_size_3, 0B);
+if (rc_10 != -1)
+  goto <bb 5>; [11.00%]
+else
+  goto <bb 4>; [89.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 955630225]:
+ldi_size_11 = ldi_size_3 * 2;
+_2 = (long unsigned int) ldi_size_11;
+ldi_13 = xrealloc (ldi_4, _2);
+goto <bb 3>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+return ldi_4;
+
+=======Mapping node_fun:rs6000_ptrace64=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = (int *) addr_5(D);
+i_7 = *_1;
+_2 = rand ();
+_3 = _2 % 2;
+if (_3 == 1)
+  goto <bb 4>; [34.00%]
+else
+  goto <bb 3>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 708669601]:
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _4 = PHI <1(2), -1(3)>
+return _4;
+
+=======Mapping node_fun:xrealloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_10 = MAX_EXPR <1, size_3(D)>;
+if (oldmem_4(D) == 0B)
+  goto <bb 3>; [30.00%]
+else
+  goto <bb 4>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 322122544]:
+newmem_9 = malloc (_10);
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 751619281]:
+newmem_7 = realloc (oldmem_4(D), _10);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# newmem_1 = PHI <newmem_9(3), newmem_7(4)>
+if (newmem_1 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 7>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 429496]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1073312329]:
+return newmem_1;
+
+=======Mapping node_fun:make_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+return _5;
+
+=======Mapping node_fun:make_my_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+return _6;
+
+=======Mapping node_fun:make_my_cleanup2=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+new_4 = malloc (32);
+old_chain_6 = *pmy_chain_5(D);
+_1 = *pmy_chain_5(D);
+new_4->next = _1;
+new_4->function = function_8(D);
+new_4->free_arg = free_arg_10(D);
+new_4->arg = arg_12(D);
+*pmy_chain_5(D) = new_4;
+if (old_chain_6 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+return old_chain_6;
+
+=======Mapping node_fun:do_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+do_my_cleanups (&cleanup_chain, old_chain_2(D));
+return;
+
+=======Mapping node_fun:do_my_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111598]:
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = ptr_12->next;
+*pmy_chain_11(D) = _1;
+_2 = ptr_12->function;
+_3 = ptr_12->arg;
+_2 (_3);
+__builtin_puts (&"cleanup!!!!! ========="[0]);
+_4 = ptr_12->arg;
+printf ("%x\n", _4);
+_5 = ptr_12->free_arg;
+if (_5 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 668941161]:
+_6 = ptr_12->free_arg;
+_7 = ptr_12->arg;
+_6 (_7);
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+free (ptr_12);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+ptr_12 = *pmy_chain_11(D);
+if (ptr_12 != old_chain_13(D))
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 2 [0m
+[40;34m    all ptable point : 33 [0m
+[40;34m    analyzable ptable point : 31 [0m
+[40;34m    analyzable ptable all point stmt : 66 [0m
+[40;34m    used_stmt array stack totalsize of : 0.002088 mb[0m
+[40;34m    collect time: : 0.000665 s [0m
+[40;34m    mapping time: : 0.000989 s [0m
+[40;34m    algorithm time: 0.005456 s [0m
+[40;34m    gimple stmt count : : 81 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:52 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 75%)
+ phase opt and generate             :   0.04 (100%)   0.02 (100%)   0.05 (100%)   666k ( 23%)
+ callgraph functions expansion      :   0.03 ( 75%)   0.02 (100%)   0.04 ( 80%)   553k ( 19%)
+ tree CFG cleanup                   :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)   112  (  0%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ forward prop                       :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)    48  (  0%)
+ loop init                          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    37k (  1%)
+ loop fini                          :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    40  (  0%)
+ integrated RA                      :   0.01 ( 25%)   0.01 ( 50%)   0.00 (  0%)   269k (  9%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1472  (  0%)
+ initialize rtl                     :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    29k (  1%)
+ TOTAL                              :   0.04          0.02          0.05         2875k

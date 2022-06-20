@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 using namespace std;
+#include "gimple-predict.h"
 #include "system.h"
 #include "config.h"
 #include "cfgloop.h"
@@ -443,6 +444,7 @@ void detect(struct plugin_argument *argv, int argc)
 	utime = ru.ru_utime;
 	stime = ru.ru_stime;
 	clock_gettime(CLOCK_MONOTONIC, &astart2);
+
 	fprintf(stderr, "=============== The first stage : Point of interest stmt collect =================\n");
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
@@ -490,13 +492,18 @@ void detect(struct plugin_argument *argv, int argc)
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
+				// fprintf(stderr, "=================================================\n");
 				// debug_gimple_stmt(gc);
+				// if(gimple_code(gc)==GIMPLE_PREDICT)
+				// if(is_a_helper(gc))
+				// fprintf(stderr, "==============================ok=================\n");
+				// fprintf(stderr, "=================================================\n");
 				if (is_gimple_call(gc))
 				{
 
 					collect_function_call(gc, node, bb);
 				}
-				if (is_gimple_assign(gc))
+				else if (is_gimple_assign(gc))
 				{
 					// 	tree gimpleassignlhs = prechecktree(gimple_assign_lhs((gc)));
 					// 		fprintf(stderr, "=================================================\n");
@@ -504,10 +511,14 @@ void detect(struct plugin_argument *argv, int argc)
 
 					collect_function_call(gc, node, bb);
 				}
-				if (gimple_code(gc) == GIMPLE_RETURN)
+				else if (gimple_code(gc) == GIMPLE_RETURN)
 				{
 
 					collect_function_return(gc, node, bb);
+				}
+				else if (gimple_code(gc) == GIMPLE_PREDICT)
+				{
+					collect_function_continue(gc, node, bb);
 				}
 			}
 		}

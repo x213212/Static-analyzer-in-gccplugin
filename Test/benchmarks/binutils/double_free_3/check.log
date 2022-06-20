@@ -1,0 +1,676 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/double_free_3/binutils_df_3.c: In function ‘lrealpath’:
+./benchmarks/binutils/double_free_3/binutils_df_3.c:27:10: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   27 |   return strdup (filename); /* allocation site */
+      |          ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:27:10: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c: In function ‘find_separate_debug_file’:
+./benchmarks/binutils/double_free_3/binutils_df_3.c:43:14: warning: implicit declaration of function ‘build_id_bfd_get’ [-Wimplicit-function-declaration]
+   43 |   build_id = build_id_bfd_get (objfile->obfd);
+      |              ^~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:43:12: warning: assignment to ‘struct build_id *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   43 |   build_id = build_id_bfd_get (objfile->obfd);
+      |            ^
+./benchmarks/binutils/double_free_3/binutils_df_3.c:48:23: warning: implicit declaration of function ‘build_id_to_debug_filename’ [-Wimplicit-function-declaration]
+   48 |       build_id_name = build_id_to_debug_filename (build_id);
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:48:21: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   48 |       build_id_name = build_id_to_debug_filename (build_id);
+      |                     ^
+./benchmarks/binutils/double_free_3/binutils_df_3.c:51:36: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+   51 |       if (build_id_name != NULL && strcmp (build_id_name, objfile->name) == 0)
+      |                                    ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+    6 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    7 | 
+./benchmarks/binutils/double_free_3/binutils_df_3.c:53:11: warning: implicit declaration of function ‘warning’ [-Wimplicit-function-declaration]
+   53 |           warning (_("\"%s\": separate debug info file has no debug info"),
+      |           ^~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:53:20: warning: implicit declaration of function ‘_’ [-Wimplicit-function-declaration]
+   53 |           warning (_("\"%s\": separate debug info file has no debug info"),
+      |                    ^
+./benchmarks/binutils/double_free_3/binutils_df_3.c:61:14: warning: implicit declaration of function ‘get_debug_link_info’ [-Wimplicit-function-declaration]
+   61 |   basename = get_debug_link_info (objfile, &crc32);
+      |              ^~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:61:12: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   61 |   basename = get_debug_link_info (objfile, &crc32);
+      |            ^
+In file included from ./benchmarks/binutils/double_free_3/binutils_df_3.c:5:
+./benchmarks/binutils/double_free_3/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:66:9: note: in expansion of macro ‘xstrdup’
+   66 |   dir = xstrdup (objfile->name);
+      |         ^~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   72 |   for (i = strlen(dir) - 1; i >= 0; i--)
+      |            ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c:72:12: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:74:11: warning: implicit declaration of function ‘IS_DIR_SEPARATOR’ [-Wimplicit-function-declaration]
+   74 |       if (IS_DIR_SEPARATOR (dir[i]))
+      |           ^~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:77:3: warning: implicit declaration of function ‘gdb_assert’ [-Wimplicit-function-declaration]
+   77 |   gdb_assert (i >= 0 && IS_DIR_SEPARATOR (dir[i]));
+      |   ^~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:82:7: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+   82 |   i = strlen (dir);
+      |       ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:82:7: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+   94 |   strcpy (debugfile, dir);
+      |   ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c:94:3: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: warning: implicit declaration of function ‘strcat’ [-Wimplicit-function-declaration]
+   95 |   strcat (debugfile, basename);
+      |   ^~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: note: include ‘<string.h>’ or provide a declaration of ‘strcat’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: warning: incompatible implicit declaration of built-in function ‘strcat’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/double_free_3/binutils_df_3.c:95:3: note: include ‘<string.h>’ or provide a declaration of ‘strcat’
+./benchmarks/binutils/double_free_3/binutils_df_3.c:97:7: warning: implicit declaration of function ‘separate_debug_file_exists’ [-Wimplicit-function-declaration]
+   97 |   if (separate_debug_file_exists (debugfile, crc32))
+      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:136:10: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+  136 |       && strncmp (canon_name, gdb_sysroot, strlen (gdb_sysroot)) == 0
+      |          ^~~~~~~
+./benchmarks/binutils/double_free_3/binutils_df_3.c:136:10: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)  1298k ( 48%)
+ phase parsing                      :   0.07 ( 70%)   0.06 ( 86%)   0.13 ( 76%)  1139k ( 42%)
+ phase opt and generate             :   0.03 ( 30%)   0.01 ( 14%)   0.03 ( 18%)   278k ( 10%)
+ callgraph ipa passes               :   0.03 ( 30%)   0.01 ( 14%)   0.03 ( 18%)   147k (  5%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)     0  (  0%)
+ ipa lto decl out                   :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)   776  (  0%)
+ ipa free lang data                 :   0.01 ( 10%)   0.00 (  0%)   0.01 (  6%)  2296  (  0%)
+ preprocessing                      :   0.02 ( 20%)   0.03 ( 43%)   0.02 ( 12%)   368k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.02 ( 29%)   0.03 ( 18%)     0  (  0%)
+ parser (global)                    :   0.01 ( 10%)   0.01 ( 14%)   0.03 ( 18%)   595k ( 22%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)    44k (  2%)
+ parser function body               :   0.04 ( 40%)   0.00 (  0%)   0.04 ( 24%)    94k (  3%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)     0  (  0%)
+ branch prediction                  :   0.01 ( 10%)   0.01 ( 14%)   0.00 (  0%)  5160  (  0%)
+ TOTAL                              :   0.10          0.07          0.17         2726k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase stream out                   :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl out                   :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.00          0.01          0.00         2234k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:find_separate_debug_file=========
+=======node_fun:lrealpath=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 77 
+===============The second stage : Mapping stmt=================
+# .MEM_2 = VDEF <.MEM_1(D)>
+find_separate_debug_file (&objfile);
+# .MEM_158 = VDEF <.MEM_157(D)>
+_2 = build_id_bfd_get (_1);
+# .MEM_159 = VDEF <.MEM_158>
+_4 = build_id_to_debug_filename (build_id_76);
+# VUSE <.MEM_160>
+_7 = strcmp (build_id_name_78, _6);
+# .MEM_161 = VDEF <.MEM_160>
+_8 = _ ("\"%s\": separate debug info file has no debug info");
+# .MEM_162 = VDEF <.MEM_161>
+warning (_8, build_id_name_78);
+# .MEM_164 = VDEF <.MEM_150>
+_9 = get_debug_link_info (objfile_74(D), &crc32);
+# .MEM_165 = VDEF <.MEM_164>
+dir_86 = strdup (_11);
+# VUSE <.MEM_165>
+_12 = __builtin_strlen (dir_86);
+# .MEM_166 = VDEF <.MEM_151>
+_19 = IS_DIR_SEPARATOR (_18);
+# .MEM_167 = VDEF <.MEM_152>
+_24 = IS_DIR_SEPARATOR (_23);
+# .MEM_168 = VDEF <.MEM_153>
+gdb_assert (_65);
+# .MEM_170 = VDEF <.MEM_169>
+canon_name_94 = lrealpath (dir_86);
+# VUSE <.MEM_170>
+_28 = __builtin_strlen (dir_86);
+# VUSE <.MEM_170>
+_29 = __builtin_strlen (canon_name_94);
+# VUSE <.MEM_170>
+_31 = __builtin_strlen (canon_name_94);
+# VUSE <.MEM_170>
+_33 = __builtin_strlen (_32);
+# VUSE <.MEM_170>
+_36 = __builtin_strlen (basename_84);
+# .MEM_171 = VDEF <.MEM_170>
+debugfile_98 = __builtin_alloca (_38);
+# .MEM_172 = VDEF <.MEM_171>
+strcpy (debugfile_98, dir_86);
+# .MEM_173 = VDEF <.MEM_172>
+strcat (debugfile_98, basename_84);
+# .MEM_174 = VDEF <.MEM_173>
+_40 = separate_debug_file_exists (debugfile_98, _39);
+# .MEM_210 = VDEF <.MEM_209>
+_149 = strdup (debugfile_98);
+# .MEM_175 = VDEF <.MEM_174>
+strcpy (debugfile_98, dir_86);
+# VUSE <.MEM_175>
+_103 = __builtin_strlen (debugfile_98);
+# .MEM_176 = VDEF <.MEM_175>
+__builtin_memcpy (_104, ".debug", 7);
+# VUSE <.MEM_176>
+_106 = __builtin_strlen (debugfile_98);
+# .MEM_177 = VDEF <.MEM_176>
+__builtin_memcpy (_107, "/", 2);
+# .MEM_178 = VDEF <.MEM_177>
+strcat (debugfile_98, basename_84);
+# .MEM_179 = VDEF <.MEM_178>
+_42 = separate_debug_file_exists (debugfile_98, _41);
+# .MEM_206 = VDEF <.MEM_205>
+_144 = strdup (debugfile_98);
+# .MEM_180 = VDEF <.MEM_179>
+strcpy (debugfile_98, _43);
+# VUSE <.MEM_180>
+_112 = __builtin_strlen (debugfile_98);
+# .MEM_181 = VDEF <.MEM_180>
+__builtin_memcpy (_113, "/", 2);
+# .MEM_182 = VDEF <.MEM_181>
+strcat (debugfile_98, dir_86);
+# .MEM_183 = VDEF <.MEM_182>
+strcat (debugfile_98, basename_84);
+# .MEM_184 = VDEF <.MEM_183>
+_45 = separate_debug_file_exists (debugfile_98, _44);
+# .MEM_202 = VDEF <.MEM_201>
+_139 = strdup (debugfile_98);
+# VUSE <.MEM_184>
+_47 = __builtin_strlen (_46);
+# VUSE <.MEM_184>
+_49 = strncmp (canon_name_94, _48, _47);
+# VUSE <.MEM_184>
+_51 = __builtin_strlen (_50);
+# .MEM_185 = VDEF <.MEM_184>
+_55 = IS_DIR_SEPARATOR (_54);
+# .MEM_186 = VDEF <.MEM_185>
+strcpy (debugfile_98, _56);
+# VUSE <.MEM_186>
+_58 = __builtin_strlen (_57);
+# .MEM_187 = VDEF <.MEM_186>
+strcat (debugfile_98, _59);
+# VUSE <.MEM_187>
+_121 = __builtin_strlen (debugfile_98);
+# .MEM_188 = VDEF <.MEM_187>
+__builtin_memcpy (_122, "/", 2);
+# .MEM_189 = VDEF <.MEM_188>
+strcat (debugfile_98, basename_84);
+# .MEM_190 = VDEF <.MEM_189>
+_61 = separate_debug_file_exists (debugfile_98, _60);
+# .MEM_195 = VDEF <.MEM_194>
+_131 = strdup (debugfile_98);
+# .MEM_6 = VDEF <.MEM_5(D)>
+_4 = strdup (filename_2(D));
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+find_separate_debug_file (&objfile);
+objfile ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:find_separate_debug_file=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 191045779]:
+_1 = objfile_74(D)->obfd;
+_2 = build_id_bfd_get (_1);
+_3 = (long int) _2;
+build_id_76 = (struct build_id *) _3;
+if (_2 != 0)
+  goto <bb 3>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 95522889]:
+_4 = build_id_to_debug_filename (build_id_76);
+_5 = (long int) _4;
+build_id_name_78 = (char *) _5;
+free (build_id_76);
+if (_4 != 0)
+  goto <bb 4>; [50.00%]
+else
+  goto <bb 6>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 47761445]:
+_6 = objfile_74(D)->name;
+_7 = strcmp (build_id_name_78, _6);
+if (_7 == 0)
+  goto <bb 5>; [33.00%]
+else
+  goto <bb 6>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 15761277]:
+_8 = _ ("\"%s\": separate debug info file has no debug info");
+warning (_8, build_id_name_78);
+free (build_id_name_78);
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 79761613]:
+if (_4 != 0)
+  goto <bb 32>; [34.00%]
+else
+  goto <bb 7>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 163926830]:
+_9 = get_debug_link_info (objfile_74(D), &crc32);
+_10 = (long int) _9;
+basename_84 = (char *) _10;
+if (_9 == 0)
+  goto <bb 32>; [29.93%]
+else
+  goto <bb 8>; [70.07%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 114863530]:
+_11 = objfile_74(D)->name;
+dir_86 = strdup (_11);
+_12 = __builtin_strlen (dir_86);
+_13 = (unsigned int) _12;
+_14 = _13 + 4294967295;
+i_87 = (int) _14;
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 1014686025]:
+_15 = (sizetype) i_62;
+_16 = dir_86 + _15;
+_17 = *_16;
+_18 = (int) _17;
+_19 = IS_DIR_SEPARATOR (_18);
+if (_19 != 0)
+  goto <bb 12>; [5.50%]
+else
+  goto <bb 10>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 958878294]:
+i_89 = i_62 + -1;
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 1073741824]:
+# i_62 = PHI <i_87(8), i_89(10)>
+if (i_62 >= 0)
+  goto <bb 9>; [94.50%]
+else
+  goto <bb 12>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 114863531]:
+if (i_62 >= 0)
+  goto <bb 13>; [41.48%]
+else
+  goto <bb 15>; [58.52%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 47645393]:
+_20 = (sizetype) i_62;
+_21 = dir_86 + _20;
+_22 = *_21;
+_23 = (int) _22;
+_24 = IS_DIR_SEPARATOR (_23);
+if (_24 != 0)
+  goto <bb 15>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 23822697]:
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 114863531]:
+# _65 = PHI <0(12), 1(13), 0(14)>
+gdb_assert (_65);
+_25 = (sizetype) i_62;
+_26 = _25 + 1;
+_27 = dir_86 + _26;
+*_27 = 0;
+canon_name_94 = lrealpath (dir_86);
+_28 = __builtin_strlen (dir_86);
+i_95 = (int) _28;
+if (canon_name_94 != 0B)
+  goto <bb 16>; [99.96%]
+else
+  goto <bb 18>; [0.04%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 114817586]:
+_29 = __builtin_strlen (canon_name_94);
+_30 = (long unsigned int) i_95;
+if (_29 > _30)
+  goto <bb 17>; [50.00%]
+else
+  goto <bb 18>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 57408793]:
+_31 = __builtin_strlen (canon_name_94);
+i_96 = (int) _31;
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 114863532]:
+# i_63 = PHI <i_95(15), i_95(16), i_96(17)>
+_32 = debug_file_directory;
+_33 = __builtin_strlen (_32);
+_34 = (long unsigned int) i_63;
+_35 = _33 + _34;
+_36 = __builtin_strlen (basename_84);
+_37 = _35 + _36;
+_38 = _37 + 9;
+debugfile_98 = __builtin_alloca (_38);
+strcpy (debugfile_98, dir_86);
+strcat (debugfile_98, basename_84);
+_39 = crc32;
+_40 = separate_debug_file_exists (debugfile_98, _39);
+if (_40 != 0)
+  goto <bb 19>; [34.00%]
+else
+  goto <bb 20>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 39053601]:
+free (basename_84);
+free (dir_86);
+free (canon_name_94);
+_149 = strdup (debugfile_98);
+goto <bb 32>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 75809930]:
+strcpy (debugfile_98, dir_86);
+_103 = __builtin_strlen (debugfile_98);
+_104 = debugfile_98 + _103;
+__builtin_memcpy (_104, ".debug", 7);
+_106 = __builtin_strlen (debugfile_98);
+_107 = debugfile_98 + _106;
+__builtin_memcpy (_107, "/", 2);
+strcat (debugfile_98, basename_84);
+_41 = crc32;
+_42 = separate_debug_file_exists (debugfile_98, _41);
+if (_42 != 0)
+  goto <bb 21>; [34.00%]
+else
+  goto <bb 22>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 25775377]:
+free (basename_84);
+free (dir_86);
+free (canon_name_94);
+_144 = strdup (debugfile_98);
+goto <bb 32>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 50034554]:
+_43 = debug_file_directory;
+strcpy (debugfile_98, _43);
+_112 = __builtin_strlen (debugfile_98);
+_113 = debugfile_98 + _112;
+__builtin_memcpy (_113, "/", 2);
+strcat (debugfile_98, dir_86);
+strcat (debugfile_98, basename_84);
+_44 = crc32;
+_45 = separate_debug_file_exists (debugfile_98, _44);
+if (_45 != 0)
+  goto <bb 23>; [20.24%]
+else
+  goto <bb 24>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [local count: 10126994]:
+free (basename_84);
+free (dir_86);
+free (canon_name_94);
+_139 = strdup (debugfile_98);
+goto <bb 32>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 39907560]:
+if (canon_name_94 != 0B)
+  goto <bb 25>; [99.96%]
+else
+  goto <bb 29>; [0.04%]
+
+=======is loop:0=========
+
+ bb index 25 
+<bb 25> [local count: 39891597]:
+_46 = gdb_sysroot;
+_47 = __builtin_strlen (_46);
+_48 = gdb_sysroot;
+_49 = strncmp (canon_name_94, _48, _47);
+if (_49 == 0)
+  goto <bb 26>; [54.67%]
+else
+  goto <bb 29>; [45.33%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [local count: 21808736]:
+_50 = gdb_sysroot;
+_51 = __builtin_strlen (_50);
+_52 = canon_name_94 + _51;
+_53 = *_52;
+_54 = (int) _53;
+_55 = IS_DIR_SEPARATOR (_54);
+if (_55 != 0)
+  goto <bb 27>; [54.67%]
+else
+  goto <bb 29>; [45.33%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 11922836]:
+_56 = debug_file_directory;
+strcpy (debugfile_98, _56);
+_57 = gdb_sysroot;
+_58 = __builtin_strlen (_57);
+_59 = canon_name_94 + _58;
+strcat (debugfile_98, _59);
+_121 = __builtin_strlen (debugfile_98);
+_122 = debugfile_98 + _121;
+__builtin_memcpy (_122, "/", 2);
+strcat (debugfile_98, basename_84);
+_60 = crc32;
+_61 = separate_debug_file_exists (debugfile_98, _60);
+if (_61 != 0)
+  goto <bb 28>; [38.32%]
+else
+  goto <bb 29>; [61.68%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 4568831]:
+free (canon_name_94);
+free (basename_84);
+free (dir_86);
+free (canon_name_94);
+_131 = strdup (debugfile_98);
+goto <bb 32>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [local count: 35338729]:
+if (canon_name_94 != 0B)
+  goto <bb 30>; [99.96%]
+else
+  goto <bb 31>; [0.04%]
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [local count: 35324594]:
+free (canon_name_94);
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [local count: 35338729]:
+free (basename_84);
+free (dir_86);
+
+=======is loop:0=========
+
+ bb index 32 
+<bb 32> [local count: 191045781]:
+# _64 = PHI <build_id_name_78(6), 0B(7), _149(19), _144(21), _139(23), _131(28), 0B(31)>
+crc32 ={v} {CLOBBER};
+return _64;
+
+=======Mapping node_fun:lrealpath=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_4 = strdup (filename_2(D));
+return _4;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 6 [0m
+[40;34m    gimple free   count : 18 [0m
+[40;34m    all ptable point : 77 [0m
+[40;34m    analyzable ptable point : 68 [0m
+[40;34m    analyzable ptable all point stmt : 1129 [0m
+[40;34m    used_stmt array stack totalsize of : 0.034520 mb[0m
+[40;34m    collect time: : 0.000520 s [0m
+[40;34m    mapping time: : 0.006534 s [0m
+[40;34m    algorithm time: 0.349654 s [0m
+[40;34m    gimple stmt count : : 144 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:53 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  2%)  2157k ( 80%)
+ phase opt and generate             :   0.42 (100%)   0.03 (100%)   0.44 ( 98%)   486k ( 18%)
+ callgraph functions expansion      :   0.06 ( 14%)   0.02 ( 67%)   0.08 ( 18%)   380k ( 14%)
+ df live regs                       :   0.02 (  5%)   0.01 ( 33%)   0.01 (  2%)     0  (  0%)
+ tree CFG cleanup                   :   0.01 (  2%)   0.00 (  0%)   0.01 (  2%)    40  (  0%)
+ tree operand scan                  :   0.00 (  0%)   0.00 (  0%)   0.01 (  2%)    23k (  1%)
+ dominance computation              :   0.01 (  2%)   0.01 ( 33%)   0.00 (  0%)     0  (  0%)
+ expand                             :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)    80k (  3%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.02 (  4%)   576  (  0%)
+ dead store elim1                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  2%)  2680  (  0%)
+ integrated RA                      :   0.02 (  5%)   0.00 (  0%)   0.01 (  2%)   102k (  4%)
+ plugin execution                   :   0.35 ( 83%)   0.00 (  0%)   0.35 ( 78%)  1560  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 (  2%)    12k (  0%)
+ rest of compilation                :   0.01 (  2%)   0.00 (  0%)   0.01 (  2%)    11k (  0%)
+ TOTAL                              :   0.42          0.03          0.45         2693k
+/usr/bin/ld: /tmp/ccGKe9sp.ltrans0.ltrans.o: in function `find_separate_debug_file':
+<artificial>:(.text+0x2b): undefined reference to `build_id_bfd_get'
+/usr/bin/ld: <artificial>:(.text+0x3f): undefined reference to `build_id_to_debug_filename'
+/usr/bin/ld: <artificial>:(.text+0x6f): undefined reference to `_'
+/usr/bin/ld: <artificial>:(.text+0x7e): undefined reference to `warning'
+/usr/bin/ld: <artificial>:(.text+0x97): undefined reference to `get_debug_link_info'
+/usr/bin/ld: <artificial>:(.text+0xd8): undefined reference to `IS_DIR_SEPARATOR'
+/usr/bin/ld: <artificial>:(.text+0xf8): undefined reference to `gdb_assert'
+/usr/bin/ld: <artificial>:(.text+0x18d): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x1e4): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x22e): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x26a): undefined reference to `IS_DIR_SEPARATOR'
+/usr/bin/ld: <artificial>:(.text+0x2bb): undefined reference to `separate_debug_file_exists'
+/usr/bin/ld: <artificial>:(.text+0x2f8): undefined reference to `IS_DIR_SEPARATOR'
+collect2: error: ld returned 1 exit status

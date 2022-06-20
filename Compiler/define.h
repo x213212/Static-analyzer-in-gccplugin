@@ -163,6 +163,7 @@ struct return_type
 	gimple *stmt;
 	tree locfucntion;
 	tree return_tree;
+	const char* name;
 };
 struct assign_type
 {
@@ -371,6 +372,7 @@ void tracefree_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 
 function_assign_array ret_function_varstmt(tree function_tree);
 void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb);
+void collect_function_continue(gimple *gc, cgraph_node *node, basic_block bb);
 void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp);
 void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp);
 

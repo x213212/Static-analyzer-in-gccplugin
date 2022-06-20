@@ -1,0 +1,599 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:9:
+./benchmarks/openssh-portable/double_free_2/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/double_free_2/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+In file included from ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:8:
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c: In function ‘key_try_load_public’:
+./benchmarks/openssh-portable/double_free_2/../stdio.h:266:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:29:45: note: in expansion of macro ‘xstrdup’
+   29 |                                 *commentp = xstrdup(filename); /* allocation site */
+      |                                             ^~~~~~~
+./benchmarks/openssh-portable/double_free_2/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:29:45: note: in expansion of macro ‘xstrdup’
+   29 |                                 *commentp = xstrdup(filename); /* allocation site */
+      |                                             ^~~~~~~
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c: In function ‘main’:
+./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:189:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  189 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 45%)
+ phase parsing                      :   0.03 ( 75%)   0.01 (100%)   0.03 ( 60%)  1397k ( 49%)
+ phase opt and generate             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   169k (  6%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    89k (  3%)
+ lto stream compression             :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   638k ( 22%)
+ lexical analysis                   :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ parser struct body                 :   0.01 ( 25%)   0.01 (100%)   0.01 ( 20%)   115k (  4%)
+ TOTAL                              :   0.04          0.01          0.05         2875k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ TOTAL                              :   0.00          0.00          0.01         2226k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:delete_file=========
+=======node_fun:key_load_public=========
+=======node_fun:key_load_public_type=========
+=======node_fun:key_load_public_rsa1=========
+=======node_fun:key_parse_public_rsa1=========
+=======node_fun:buffer_get_string=========
+=======node_fun:buffer_get_string_ret=========
+=======node_fun:key_try_load_public=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 44 
+===============The second stage : Mapping stmt=================
+# .MEM_12 = VDEF <.MEM_11(D)>
+_2 = time (0B);
+# .MEM_13 = VDEF <.MEM_12>
+srand (_3);
+# .MEM_14 = VDEF <.MEM_13>
+delete_file (_4, key_only_6);
+# .MEM_28 = VDEF <.MEM_27>
+public_18 = key_load_public (filename_16(D), &comment);
+# .MEM_36 = VDEF <.MEM_28>
+printf ("Bad key file %s\n", filename_16(D));
+# .MEM_29 = VDEF <.MEM_28>
+fprintf (_2, "Identity removed: %s (%s)\n", filename_16(D), _1);
+ <var_decl 0x7ff6718ed090 comment
+    type <pointer_type 0x7ff6718d0a80
+        type <integer_type 0x7ff6718d09d8 char public QI
+            size <integer_cst 0x7ff671dccca8 constant 8>
+            unit-size <integer_cst 0x7ff671dcccc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7ff671de13f0 precision:8 min <integer_cst 0x7ff6718c7738 -128> max <integer_cst 0x7ff6718c7720 127>
+            pointer_to_this <pointer_type 0x7ff6718d0a80>>
+        public unsigned DI
+        size <integer_cst 0x7ff671dccbb8 constant 64>
+        unit-size <integer_cst 0x7ff671dccbd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7ff671dd7168 ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c>
+        pointer_to_this <pointer_type 0x7ff6718d0b28>>
+    addressable unsigned DI ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:154:26 size <integer_cst 0x7ff671dccbb8 64> unit-size <integer_cst 0x7ff671dccbd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7ff6718d8100 delete_file> chain <var_decl 0x7ff6718ed000 ret>>
+# .MEM_31 = VDEF <.MEM_30>
+cert_23 = key_load_public ("filename", &comment);
+# .MEM_32 = VDEF <.MEM_31>
+_4 = rand ();
+# .MEM_34 = VDEF <.MEM_32>
+fprintf (_7, "Identity removed: %s (%s)\n", "filename", _6);
+# .MEM_33 = VDEF <.MEM_32>
+fprintf (_8, "Could not remove identity: %s\n", "filename");
+ <var_decl 0x7ff6718ed090 comment
+    type <pointer_type 0x7ff6718d0a80
+        type <integer_type 0x7ff6718d09d8 char public QI
+            size <integer_cst 0x7ff671dccca8 constant 8>
+            unit-size <integer_cst 0x7ff671dcccc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7ff671de13f0 precision:8 min <integer_cst 0x7ff6718c7738 -128> max <integer_cst 0x7ff6718c7720 127>
+            pointer_to_this <pointer_type 0x7ff6718d0a80>>
+        public unsigned DI
+        size <integer_cst 0x7ff671dccbb8 constant 64>
+        unit-size <integer_cst 0x7ff671dccbd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7ff671dd7168 ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c>
+        pointer_to_this <pointer_type 0x7ff6718d0b28>>
+    addressable unsigned DI ./benchmarks/openssh-portable/double_free_2/openssh_df_2.c:154:26 size <integer_cst 0x7ff671dccbb8 64> unit-size <integer_cst 0x7ff671dccbd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7ff6718d8100 delete_file> chain <var_decl 0x7ff6718ed000 ret>>
+# .MEM_12 = VDEF <.MEM_11(D)>
+pub_9 = key_load_public_type (0, filename_6(D), commentp_7(D));
+# .MEM_13 = VDEF <.MEM_12>
+_1 = key_try_load_public (&key, filename_6(D), commentp_7(D));
+# .MEM_14 = VDEF <.MEM_13>
+_2 = key_try_load_public (&key, filename_6(D), commentp_7(D));
+# .MEM_11 = VDEF <.MEM_10(D)>
+pub_8 = key_load_public_rsa1 (filename_5(D), commentp_6(D));
+# .MEM_9 = VDEF <.MEM_8(D)>
+pub_5 = key_parse_public_rsa1 (commentp_3(D));
+# .MEM_10 = VDEF <.MEM_9>
+printf ("Could not load \"%s\" as a RSA1 public key", filename_6(D));
+# .MEM_6 = VDEF <.MEM_5(D)>
+_1 = buffer_get_string (0B);
+# .MEM_6 = VDEF <.MEM_5(D)>
+ret_4 = buffer_get_string_ret (length_ptr_2(D));
+# .MEM_7 = VDEF <.MEM_6>
+printf ("buffer_get_string: buffer error%s\n", "");
+# .MEM_21 = VDEF <.MEM_20(D)>
+_1 = rand ();
+# .MEM_22 = VDEF <.MEM_21>
+value_15 = malloc (_4);
+# .MEM_23 = VDEF <.MEM_22>
+_5 = rand ();
+# .MEM_26 = VDEF <.MEM_23>
+__builtin_puts (&"buffer_get_string_ret: buffer_get failed"[0]);
+# .MEM_17 = VDEF <.MEM_16(D)>
+f_10 = fopen (filename_8(D), "r");
+# .MEM_20 = VDEF <.MEM_18>
+_1 = strdup (filename_8(D));
+# .MEM_22 = VDEF <.MEM_14>
+fclose (f_10);
+# .MEM_18 = VDEF <.MEM_17>
+_2 = rand ();
+# .MEM_19 = VDEF <.MEM_18>
+fclose (f_10);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = argc_5(D) == 1;
+key_only_6 = (int) _1;
+if (argc_5(D) == 1)
+  goto <bb 3>; [34.00%]
+else
+  goto <bb 4>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 365072224]:
+_10 = *argv_8(D);
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 708669601]:
+_9 = MEM[(char * *)argv_8(D) + 8B];
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# _4 = PHI <_10(3), _9(4)>
+_2 = time (0B);
+_3 = (unsigned int) _2;
+srand (_3);
+delete_file (_4, key_only_6);
+return 0;
+
+=======Mapping node_fun:delete_file=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+comment = 0B;
+public_18 = key_load_public (filename_16(D), &comment);
+if (public_18 == 0B)
+  goto <bb 3>; [0.45%]
+else
+  goto <bb 4>; [99.55%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 4831840]:
+printf ("Bad key file %s\n", filename_16(D));
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1068909985]:
+_1 = comment;
+_2 = stderr;
+fprintf (_2, "Identity removed: %s (%s)\n", filename_16(D), _1);
+if (key_only_20(D) != 0)
+  goto <bb 5>; [51.12%]
+else
+  goto <bb 6>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 546426788]:
+// predicted unlikely by goto predictor.
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 522483197]:
+_3 = comment;
+free (_3);
+cert_23 = key_load_public ("filename", &comment);
+if (cert_23 == 0B)
+  goto <bb 7>; [30.95%]
+else
+  goto <bb 8>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 161708550]:
+// predicted unlikely by goto predictor.
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 360774647]:
+_4 = rand ();
+_5 = _4 % 2;
+if (_5 == 1)
+  goto <bb 9>; [34.00%]
+else
+  goto <bb 10>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 122663381]:
+_6 = comment;
+_7 = stderr;
+fprintf (_7, "Identity removed: %s (%s)\n", "filename", _6);
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 238111266]:
+_8 = stderr;
+fprintf (_8, "Could not remove identity: %s\n", "filename");
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 1068909985]:
+# ret_10 = PHI <-1(5), -1(7), 0(9), -1(10)>
+out:
+_9 = comment;
+free (_9);
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 1073741824]:
+# _11 = PHI <-1(3), ret_10(11)>
+comment ={v} {CLOBBER};
+return _11;
+
+=======Mapping node_fun:key_load_public=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+pub_9 = key_load_public_type (0, filename_6(D), commentp_7(D));
+if (pub_9 != 0B)
+  goto <bb 6>; [70.93%]
+else
+  goto <bb 3>; [29.07%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 312136752]:
+_1 = key_try_load_public (&key, filename_6(D), commentp_7(D));
+if (_1 == 1)
+  goto <bb 6>; [35.01%]
+else
+  goto <bb 4>; [64.99%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 202857674]:
+_2 = key_try_load_public (&key, filename_6(D), commentp_7(D));
+if (_2 == 1)
+  goto <bb 5>; [39.38%]
+else
+  goto <bb 6>; [60.62%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 79885352]:
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# _3 = PHI <pub_9(2), &key(3), 0B(4), &key(5)>
+return _3;
+
+=======Mapping node_fun:key_load_public_type=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (type_3(D) == 0)
+  goto <bb 3>; [38.32%]
+else
+  goto <bb 4>; [61.68%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 411457864]:
+pub_8 = key_load_public_rsa1 (filename_5(D), commentp_6(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _1 = PHI <0B(2), pub_8(3)>
+return _1;
+
+=======Mapping node_fun:key_load_public_rsa1=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+pub_5 = key_parse_public_rsa1 (commentp_3(D));
+if (pub_5 == 0B)
+  goto <bb 3>; [17.43%]
+else
+  goto <bb 4>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 187153200]:
+printf ("Could not load \"%s\" as a RSA1 public key", filename_6(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return pub_5;
+
+=======Mapping node_fun:key_parse_public_rsa1=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (commentp_3(D) != 0B)
+  goto <bb 3>; [53.47%]
+else
+  goto <bb 4>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 574129753]:
+_1 = buffer_get_string (0B);
+*commentp_3(D) = _1;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return &key;
+
+=======Mapping node_fun:buffer_get_string=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ret_4 = buffer_get_string_ret (length_ptr_2(D));
+if (ret_4 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+printf ("buffer_get_string: buffer error%s\n", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+return ret_4;
+
+=======Mapping node_fun:buffer_get_string_ret=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = rand ();
+_2 = _1 % 1024;
+len_13 = (u_int) _2;
+_3 = len_13 + 1;
+_4 = (long unsigned int) _3;
+value_15 = malloc (_4);
+_5 = rand ();
+_6 = _5 % 2;
+if (_6 == 1)
+  goto <bb 3>; [5.07%]
+else
+  goto <bb 4>; [94.93%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 54438712]:
+__builtin_puts (&"buffer_get_string_ret: buffer_get failed"[0]);
+free (value_15);
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1019303113]:
+_7 = (sizetype) len_13;
+_8 = value_15 + _7;
+*_8 = 0;
+if (length_ptr_18(D) != 0B)
+  goto <bb 5>; [70.00%]
+else
+  goto <bb 6>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 713512182]:
+*length_ptr_18(D) = len_13;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# _9 = PHI <0B(3), value_15(4), value_15(5)>
+return _9;
+
+=======Mapping node_fun:key_try_load_public=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+f_10 = fopen (filename_8(D), "r");
+if (f_10 != 0B)
+  goto <bb 6>; [53.47%]
+else
+  goto <bb 8>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 201002828]:
+if (commentp_13(D) != 0B)
+  goto <bb 4>; [53.47%]
+else
+  goto <bb 5>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 107476212]:
+_1 = strdup (filename_8(D));
+*commentp_13(D) = _1;
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 201002828]:
+fclose (f_10);
+goto <bb 8>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 574129753]:
+_2 = rand ();
+_3 = _2 % 2;
+if (_3 == 1)
+  goto <bb 3>; [35.01%]
+else
+  goto <bb 7>; [64.99%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 373126924]:
+fclose (f_10);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# _4 = PHI <0(2), 1(5), 0(7)>
+return _4;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 2 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 44 [0m
+[40;34m    analyzable ptable point : 41 [0m
+[40;34m    analyzable ptable all point stmt : 92 [0m
+[40;34m    used_stmt array stack totalsize of : 0.002800 mb[0m
+[40;34m    collect time: : 0.000831 s [0m
+[40;34m    mapping time: : 0.002576 s [0m
+[40;34m    algorithm time: 0.010837 s [0m
+[40;34m    gimple stmt count : : 88 [0m
+[40;34m    this report analysis in Mon Jun 20 14:58:06 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 76%)
+ phase opt and generate             :   0.06 (100%)   0.00 (  0%)   0.06 (100%)   608k ( 21%)
+ callgraph functions expansion      :   0.04 ( 67%)   0.00 (  0%)   0.05 ( 83%)   499k ( 18%)
+ ipa lto gimple in                  :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    78k (  3%)
+ cfg cleanup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   176  (  0%)
+ df live&initialized regs           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ dominance computation              :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ LRA create live ranges             :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)   120  (  0%)
+ thread pro- & epilogue             :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    23k (  1%)
+ plugin execution                   :   0.01 ( 17%)   0.00 (  0%)   0.02 ( 33%)  2008  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    22k (  1%)
+ address taken                      :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.06          0.00          0.06         2831k

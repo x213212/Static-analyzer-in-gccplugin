@@ -1,0 +1,522 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/leak_4/binutils_leak_4.c: In function ‘main’:
+./benchmarks/binutils/leak_4/binutils_leak_4.c:190:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  190 |         srand(time(&t));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 51%)
+ phase parsing                      :   0.03 (100%)   0.00 (  0%)   0.03 ( 60%)  1015k ( 40%)
+ phase opt and generate             :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)   239k (  9%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)   134k (  5%)
+ preprocessing                      :   0.02 ( 67%)   0.00 (  0%)   0.00 (  0%)   290k ( 11%)
+ lexical analysis                   :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   590k ( 23%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    40k (  2%)
+ tree CFG cleanup                   :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)     0  (  0%)
+ TOTAL                              :   0.03          0.01          0.05         2564k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ TOTAL                              :   0.00          0.00          0.01         2219k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:decode_line_info=========
+=======node_fun:sort_line_sequences=========
+=======node_fun:add_line_info=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 18 
+===============The second stage : Mapping stmt=================
+# .MEM_9 = VDEF <.MEM_8(D)>
+_1 = time (&t);
+# .MEM_10 = VDEF <.MEM_9>
+srand (_2);
+# .MEM_11 = VDEF <.MEM_10>
+table_7 = decode_line_info ();
+# .MEM_47 = VDEF <.MEM_46(D)>
+table_26 = malloc (32);
+# .MEM_52 = VDEF <.MEM_41>
+_1 = rand ();
+# .MEM_53 = VDEF <.MEM_52>
+_5 = add_line_info (table_26, _4, end_sequence_34);
+# .MEM_51 = VDEF <.MEM_41>
+_11 = sort_line_sequences (table_26);
+# .MEM_32 = VDEF <.MEM_31(D)>
+sequences_19 = malloc (_1);
+# .MEM_52 = VDEF <.MEM_51(D)>
+info_27 = malloc (16);
+# .MEM_62 = VDEF <.MEM_55>
+seq_40 = malloc (16);
+# .MEM_68 = VDEF <.MEM_49>
+_16 = rand ();
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = time (&t);
+_2 = (unsigned int) _1;
+srand (_2);
+table_7 = decode_line_info ();
+t ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:decode_line_info=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 211939136]:
+table_26 = malloc (32);
+if (table_26 == 0B)
+  goto <bb 17>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 211854360]:
+table_26->num_files = 0;
+table_26->sequences = 0B;
+table_26->lcl_head = 0B;
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 894749066]:
+line_32 = line_16 + 1;
+_1 = rand ();
+_2 = _1 % 2;
+_3 = _2 == 1;
+end_sequence_34 = (int) _3;
+_4 = (unsigned int) line_32;
+_5 = add_line_info (table_26, _4, end_sequence_34);
+if (_5 == 0)
+  goto <bb 5>; [3.66%]
+else
+  goto <bb 6>; [96.34%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 32747817]:
+// predicted unlikely by goto predictor.
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 862001249]:
+_6 = table_26->num_files;
+_7 = _6 % 5;
+if (_7 == 0)
+  goto <bb 7>; [33.00%]
+else
+  goto <bb 9>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 284460411]:
+_8 = table_26->num_files;
+amt_36 = _8 + 5;
+amt_37 = amt_36 * 8;
+_9 = (long unsigned int) amt_37;
+_10 = table_26->files;
+tmp_39 = realloc (_10, _9);
+if (tmp_39 == 0B)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 113784]:
+// predicted unlikely by goto predictor.
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 861887466]:
+# line_31 = PHI <line_32(6), line_32(7)>
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+# line_16 = PHI <0(3), line_31(9)>
+if (line_16 <= 4)
+  goto <bb 4>; [83.33%]
+else
+  goto <bb 11>; [16.67%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 178992760]:
+_11 = sort_line_sequences (table_26);
+if (_11 != 0)
+  goto <bb 17>; [34.00%]
+else
+  goto <bb 12>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 150996822]:
+fail:
+_12 = table_26->sequences;
+if (_12 != 0B)
+  goto <bb 13>; [53.47%]
+else
+  goto <bb 14>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 80738000]:
+_13 = table_26->sequences;
+free (_13);
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 150996822]:
+_14 = table_26->files;
+if (_14 != 0B)
+  goto <bb 15>; [53.47%]
+else
+  goto <bb 16>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 80738000]:
+_15 = table_26->files;
+free (_15);
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 150996822]:
+return;
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 60942315]:
+# _17 = PHI <0B(2), table_26(11)>
+return _17;
+
+=======Mapping node_fun:sort_line_sequences=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 121696949]:
+num_sequences_16 = table_15(D)->num_sequences;
+if (num_sequences_16 == 0)
+  goto <bb 12>; [51.12%]
+else
+  goto <bb 3>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 59485468]:
+amt_17 = num_sequences_16 * 16;
+_1 = (long unsigned int) amt_17;
+sequences_19 = malloc (_1);
+if (sequences_19 == 0B)
+  goto <bb 12>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 59461674]:
+seq_20 = table_15(D)->sequences;
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1014686026]:
+if (seq_9 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 7>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 405874]:
+exit (1);
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1014280152]:
+_2 = (long unsigned int) n_10;
+_3 = _2 * 16;
+_4 = sequences_19 + _3;
+_4->prev_sequence = 0B;
+_5 = (long unsigned int) n_10;
+_6 = _5 * 16;
+_7 = sequences_19 + _6;
+_8 = seq_9->last_line;
+_7->last_line = _8;
+seq_26 = seq_9->prev_sequence;
+free (seq_9);
+n_28 = n_10 + 1;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# seq_9 = PHI <seq_20(4), seq_26(7)>
+# n_10 = PHI <0(4), n_28(7)>
+if (n_10 < num_sequences_16)
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 9>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 59055800]:
+if (seq_9 == 0B)
+  goto <bb 10>; [0.04%]
+else
+  goto <bb 11>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 23622]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 59032178]:
+table_15(D)->sequences = sequences_19;
+table_15(D)->num_sequences = num_sequences_16;
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 121267453]:
+# _11 = PHI <1(2), 0(3), 1(11)>
+return _11;
+
+=======Mapping node_fun:add_line_info=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+seq_25 = table_24(D)->sequences;
+info_27 = malloc (16);
+if (info_27 == 0B)
+  goto <bb 15>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1073312329]:
+info_27->prev_line = 0B;
+info_27->line = line_29(D);
+_1 = (unsigned char) end_sequence_31(D);
+info_27->end_sequence = _1;
+if (seq_25 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 8>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 751318634]:
+_2 = seq_25->last_line;
+_3 = _2->end_sequence;
+_4 = (int) _3;
+if (_4 == end_sequence_31(D))
+  goto <bb 5>; [34.00%]
+else
+  goto <bb 8>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 255448338]:
+_5 = table_24(D)->lcl_head;
+_6 = seq_25->last_line;
+if (_5 == _6)
+  goto <bb 6>; [30.00%]
+else
+  goto <bb 7>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 76634501]:
+table_24(D)->lcl_head = info_27;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 255448338]:
+_7 = seq_25->last_line;
+_8 = _7->prev_line;
+info_27->prev_line = _8;
+seq_25->last_line = info_27;
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 817863991]:
+if (seq_25 == 0B)
+  goto <bb 10>; [17.43%]
+else
+  goto <bb 9>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 675310297]:
+_9 = seq_25->last_line;
+_10 = _9->end_sequence;
+if (_10 != 0)
+  goto <bb 10>; [50.00%]
+else
+  goto <bb 12>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 480208842]:
+seq_40 = malloc (16);
+if (seq_40 == 0B)
+  goto <bb 15>; [0.04%]
+else
+  goto <bb 11>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 480016759]:
+_11 = table_24(D)->sequences;
+seq_40->prev_sequence = _11;
+seq_40->last_line = info_27;
+table_24(D)->lcl_head = info_27;
+table_24(D)->sequences = seq_40;
+_12 = table_24(D)->num_sequences;
+_13 = _12 + 1;
+table_24(D)->num_sequences = _13;
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 337655148]:
+_14 = seq_25->last_line;
+info_27->prev_line = _14;
+seq_25->last_line = info_27;
+_15 = table_24(D)->lcl_head;
+if (_15 == 0B)
+  goto <bb 13>; [30.00%]
+else
+  goto <bb 14>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 101296543]:
+table_24(D)->lcl_head = info_27;
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 1073120246]:
+_16 = rand ();
+_17 = _16 % 2;
+_18 = _17 == 1;
+_47 = (int) _18;
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 1073741824]:
+# _19 = PHI <0(2), 0(10), _47(14)>
+return _19;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 5 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 18 [0m
+[40;34m    analyzable ptable point : 15 [0m
+[40;34m    analyzable ptable all point stmt : 143 [0m
+[40;34m    used_stmt array stack totalsize of : 0.004336 mb[0m
+[40;34m    collect time: : 0.000224 s [0m
+[40;34m    mapping time: : 0.001340 s [0m
+[40;34m    algorithm time: 0.004256 s [0m
+[40;34m    gimple stmt count : : 117 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:44 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 81%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.04 (100%)   469k ( 18%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.01 (100%)   0.03 ( 75%)   370k ( 14%)
+ tree strlen optimization           :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  7848  (  0%)
+ loop init                          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    20k (  1%)
+ combiner                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    23k (  1%)
+ LRA non-specific                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  1376  (  0%)
+ plugin execution                   :   0.02 ( 67%)   0.01 (100%)   0.01 ( 25%)  1944  (  0%)
+ TOTAL                              :   0.03          0.01          0.04         2664k

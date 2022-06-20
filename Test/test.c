@@ -1,398 +1,346 @@
 /*
-    commit id: 64a89ec07660abba4d0da7c0095b7371c98bab62
+	buggy parent: 9d2cdc8
+	commit id : aba19b625f34fb3d61263fe8044cf0c6d8804570
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
+#include "./include/common.h"
+#include "./include/binutils.h"
 
-#include "./stdio.h"
-#include "./openssh.h"
+#define INT_MAX       (int)(((unsigned int) ~0) >> 1)          /* 0x7FFFFFFF */ 
+#define ISASCII(c) 1
+#define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
+#define ISDIGIT(c) (ISASCII (c) && isdigit (c))
 
-/* Commands for interactive mode */
-enum sftp_command {
-	I_CHDIR = 1,
-	I_CHGRP,
-	I_CHMOD,
-	I_CHOWN,
-	I_DF,
-	I_GET,
-	I_HELP,
-	I_LCHDIR,
-	I_LINK,
-	I_LLS,
-	I_LMKDIR,
-	I_LPWD,
-	I_LS,
-	I_LUMASK,
-	I_MKDIR,
-	I_PUT,
-	I_PWD,
-	I_QUIT,
-	I_REGET,
-	I_RENAME,
-	I_REPUT,
-	I_RM,
-	I_RMDIR,
-	I_SHELL,
-	I_SYMLINK,
-	I_VERSION,
-	I_PROGRESS,
-};
+typedef struct string		/* Beware: these aren't required to be */
+{				/*  '\0' terminated.  */
+  char *b;			/* pointer to start of string */
+  char *p;			/* pointer after last character */
+  char *e;			/* pointer after end of allocated space */
+} string;
 
-/* Minimum amount of data to read at a time */
-#define MIN_READ_SIZE	512
-
-/* Maximum depth to descend in directory trees */
-#define MAX_DIR_DEPTH 64
-
-/* Maximum packet that we are willing to send/accept */
-#define SFTP_MAX_MSG_LENGTH	(256 * 1024)
-
-/* version */
-#define	SSH2_FILEXFER_VERSION		3
-
-/* client to server */
-#define SSH2_FXP_INIT			1
-#define SSH2_FXP_OPEN			3
-#define SSH2_FXP_CLOSE			4
-#define SSH2_FXP_READ			5
-#define SSH2_FXP_WRITE			6
-#define SSH2_FXP_LSTAT			7
-#define SSH2_FXP_STAT_VERSION_0		7
-#define SSH2_FXP_FSTAT			8
-#define SSH2_FXP_SETSTAT		9
-#define SSH2_FXP_FSETSTAT		10
-#define SSH2_FXP_OPENDIR		11
-#define SSH2_FXP_READDIR		12
-#define SSH2_FXP_REMOVE			13
-#define SSH2_FXP_MKDIR			14
-#define SSH2_FXP_RMDIR			15
-#define SSH2_FXP_REALPATH		16
-#define SSH2_FXP_STAT			17
-#define SSH2_FXP_RENAME			18
-#define SSH2_FXP_READLINK		19
-#define SSH2_FXP_SYMLINK		20
-
-/* server to client */
-#define SSH2_FXP_VERSION		2
-#define SSH2_FXP_STATUS			101
-#define SSH2_FXP_HANDLE			102
-#define SSH2_FXP_DATA			103
-#define SSH2_FXP_NAME			104
-#define SSH2_FXP_ATTRS			105
-
-#define SSH2_FXP_EXTENDED		200
-#define SSH2_FXP_EXTENDED_REPLY		201
-
-/* attributes */
-#define SSH2_FILEXFER_ATTR_SIZE		0x00000001
-#define SSH2_FILEXFER_ATTR_UIDGID	0x00000002
-#define SSH2_FILEXFER_ATTR_PERMISSIONS	0x00000004
-#define SSH2_FILEXFER_ATTR_ACMODTIME	0x00000008
-#define SSH2_FILEXFER_ATTR_EXTENDED	0x80000000
-
-/* portable open modes */
-#define SSH2_FXF_READ			0x00000001
-#define SSH2_FXF_WRITE			0x00000002
-#define SSH2_FXF_APPEND			0x00000004
-#define SSH2_FXF_CREAT			0x00000008
-#define SSH2_FXF_TRUNC			0x00000010
-#define SSH2_FXF_EXCL			0x00000020
-
-/* statvfs@openssh.com f_flag flags */
-#define SSH2_FXE_STATVFS_ST_RDONLY	0x00000001
-#define SSH2_FXE_STATVFS_ST_NOSUID	0x00000002
-
-/* status messages */
-#define SSH2_FX_OK			0
-#define SSH2_FX_EOF			1
-#define SSH2_FX_NO_SUCH_FILE		2
-#define SSH2_FX_PERMISSION_DENIED	3
-#define SSH2_FX_FAILURE			4
-#define SSH2_FX_BAD_MESSAGE		5
-#define SSH2_FX_NO_CONNECTION		6
-#define SSH2_FX_CONNECTION_LOST		7
-#define SSH2_FX_OP_UNSUPPORTED		8
-#define SSH2_FX_MAX			8
-
-# define STDIN_FILENO    0
-
-struct bwlimit {
-	size_t buflen;
-	u_int64_t rate, thresh, lamt;
-	struct timeval bwstart, bwend;
-};
-
-struct sftp_conn {
-	int fd_in;
-	int fd_out;
-	u_int transfer_buflen;
-	u_int num_requests;
-	u_int version;
-	u_int msg_id;
-#define SFTP_EXT_POSIX_RENAME	0x00000001
-#define SFTP_EXT_STATVFS	0x00000002
-#define SFTP_EXT_FSTATVFS	0x00000004
-#define SFTP_EXT_HARDLINK	0x00000008
-#define SFTP_EXT_FSYNC		0x00000010
-	u_int exts;
-	u_int64_t limit_kbps;
-	struct bwlimit bwlimit_in, bwlimit_out;
-};
-
-struct complete_ctx {
-    struct sftp_conn *conn;
-    char **remote_pathp;
-};
-
-
-struct iovec 
+static void
+string_init (string *s)
 {
-     void  *iov_base;    /* Starting address */
-     size_t iov_len;     /* Number of bytes to transfer */
-};
+  s->b = s->p = s->e = NULL;
+}
 
-typedef struct Attrib Attrib;
-
-/* File attributes */
-struct Attrib {
-	u_int32_t	flags;
-	u_int64_t	size;
-	u_int32_t	uid;
-	u_int32_t	gid;
-	u_int32_t	perm;
-	u_int32_t	atime;
-	u_int32_t	mtime;
-};
-
-
-typedef void EditLine;
-typedef void History;
-typedef int HistEvent;
-
-
-static int sftpio(void *, size_t );
-int writev(int, struct iovec *, int);
-ssize_t *read(int, void *, size_t);
-
-int batchmode = 0;
-FILE *infile;
-/* Suppress diagnositic messages */
-int quiet = 0;
-
-struct sftp_conn *
-do_init(int fd_in, int fd_out, u_int transfer_buflen, u_int num_requests,
-    u_int64_t limit_kbps)
+static void
+string_append (string *p, const char *s)
 {
-	u_char type;
-	struct sftp_conn *ret;
-	int r;
+	/* We don't care about p in the modeled program
+	*/
+	__USE(s);
+} 
 
-	ret = xcalloc(1, sizeof(*ret)); /* allocation site */
-	ret->msg_id = 1;
-	ret->fd_in = fd_in;
-	ret->fd_out = fd_out;
-	ret->transfer_buflen = transfer_buflen;
-	ret->num_requests = num_requests;
-	ret->exts = 0;
-	ret->limit_kbps = 0;
+char *
+ada_demangle (const char *mangled)
+{
+	int len0;
+	const char *p;
+	char *d;
+	char *demangled;
 
-	if (type != SSH2_FXP_VERSION) {
-		printf("Invalid packet back from SSH2_FXP_INIT (type %u)\n",
-		    type);
-		// memory-leak
-		return(NULL);
-	}
+	/* Discard leading _ada, which is used for library level subprograms */
+	if (strncmp (mangled, "_ada_", 5) == 0)
+		mangled += 5;
 
-	printf("Remote version: %u", ret->version);
+	/* All ada unit names are lower-case */
+	if (!ISLOWER (mangled[0]))
+		goto unknown;
 
-	/* Some filexfer v.0 servers don't support large packets */
-	if (ret->version == 0)
-		ret->transfer_buflen = ret->transfer_buflen < 20480? ret->transfer_buflen : 20480;
 
-	ret->limit_kbps = limit_kbps;
+	len0 = strlen (mangled) + 7 + 1;
+	demangled = XNEWVEC (char, len0); // allocation site
 
-	return ret;
+	d = demangled;
+	p = mangled;
+
+	while (1)
+		{
+			/* An entity name is expected */
+			if (!ISLOWER (*p))
+				{
+					do
+						/* An identifer, which is always lower case */
+						*d++ = *p++;
+					while (ISLOWER (*p) || ISDIGIT (*p)
+							|| (p[0] == '_' && (ISLOWER (p[1]) || ISDIGIT (p[1]))));
+				}
+
+			else if (p[0] == 'O')
+				{
+					/* An operator name.  */
+          static const char * const operators[][2] =
+            {{"Oabs", "abs"},  {"Oand", "and"},    {"Omod", "mod"},
+             {"Onot", "not"},  {"Oor", "or"},      {"Orem", "rem"},
+             {"Oxor", "xor"},  {"Oeq", "="},       {"One", "/="},
+             {"Olt", "<"},     {"Ole", "<="},      {"Ogt", ">"},
+             {"Oge", ">="},    {"Oadd", "+"},      {"Osubtract", "-"},
+             {"Oconcat", "&"}, {"Omultiply", "*"}, {"Odivide", "/"},
+             {"Oexpon", "**"}, {NULL, NULL}};
+          int k;
+
+					for (k = 0; operators[k][0] != NULL; k++)
+            {
+              size_t slen = strlen (operators[k][0]);
+              if (strncmp (p, operators[k][0], slen) == 0)
+                {
+                  p += slen;
+                  slen = strlen (operators[k][1]);
+                  *d++ = '"';
+                  memcpy (d, operators[k][1], slen);
+                  d += slen;
+                  *d++ = '"';
+                  break;
+                }
+            }
+          /* Operator not found.  */
+          if (operators[k][0] == NULL)
+            goto unknown;
+        }
+
+      else
+        {
+          /* Not a GNAT encoding.  */
+          goto unknown;
+        }
+	
+      /* The name can be directly followed by some uppercase letters.  */
+      if (p[0] == 'T' && p[1] == 'K')
+        {
+          /* Task stuff.  */
+          if (p[2] == 'B' && p[3] == 0)
+            {
+              /* Subprogram for task body.  */
+              break;
+            }
+          else if (p[2] == '_' && p[3] == '_')
+            {
+              /* Inner declarations in a task.  */
+              p += 4;
+              *d++ = '.';
+              continue;
+            }
+          else
+            goto unknown;
+        }
+      if (p[0] == 'E' && p[1] == 0)
+        {
+          /* Exception name.  */
+          goto unknown;
+        }
+      if ((p[0] == 'P' || p[0] == 'N') && p[1] == 0)
+        {
+          /* Protected type subprogram.  */
+          break;
+        }
+      if ((*p == 'N' || *p == 'S') && p[1] == 0)
+        {
+          /* Enumerated type name table.  */
+          goto unknown;
+        }
+      if (p[0] == 'X')
+        {
+          /* Body nested.  */
+          p++;
+          while (p[0] == 'n' || p[0] == 'b')
+            p++;
+        }
+      if (p[0] == 'S' && p[1] != 0 && (p[2] == '_' || p[2] == 0))
+        {
+          /* Stream operations.  */
+          const char *name;
+          switch (p[1])
+            {
+            case 'R':
+              name = "'Read";
+              break;
+            case 'W':
+              name = "'Write";
+              break;
+            case 'I':
+              name = "'Input";
+              break;
+            case 'O':
+              name = "'Output";
+              break;
+            default:
+              goto unknown;
+            }
+          p += 2;
+          strcpy (d, name);
+          d += strlen (name);
+        }
+      else if (p[0] == 'D')
+        {
+          /* Controlled type operation.  */
+          const char *name;
+          switch (p[1])
+            {
+            case 'F':
+              name = ".Finalize";
+              break;
+            case 'A':
+              name = ".Adjust";
+              break;
+            default:
+              goto unknown;
+            }
+          strcpy (d, name);
+          d += strlen (name);
+          break;
+        }
+
+      if (p[0] == '_')
+        {
+          /* Separator.  */
+          if (p[1] == '_')
+            {
+              /* Standard separator.  Handled first.  */
+              p += 2;
+
+              if (ISDIGIT (*p))
+                {
+                  /* Overloading number.  */
+                  do
+                    p++;
+                  while (ISDIGIT (*p) || (p[0] == '_' && ISDIGIT (p[1])));
+                  if (*p == 'X')
+                    {
+                      p++;
+                      while (p[0] == 'n' || p[0] == 'b')
+                        p++;
+                    }
+                }
+              else if (p[0] == '_' && p[1] != '_')
+                {
+                  /* Special names.  */
+                  static const char * const special[][2] = {
+                    { "_elabb", "'Elab_Body" },
+                    { "_elabs", "'Elab_Spec" },
+                    { "_size", "'Size" },
+                    { "_alignment", "'Alignment" },
+                    { "_assign", ".\":=\"" },
+                    { NULL, NULL }
+                  };
+                  int k;
+
+                  for (k = 0; special[k][0] != NULL; k++)
+                    {
+                      size_t slen = strlen (special[k][0]);
+                      if (strncmp (p, special[k][0], slen) == 0)
+                        {
+                          p += slen;
+                          slen = strlen (special[k][1]);
+                          memcpy (d, special[k][1], slen);
+                          d += slen;
+                          break;
+                        }
+                    }
+                  if (special[k][0] != NULL)
+                    break;
+                  else
+                    goto unknown;
+                }
+              else
+                {
+                  *d++ = '.';
+                  continue;
+                }
+            }
+          else if (p[1] == 'B' || p[1] == 'E')
+            {
+              /* Entry Body or barrier Evaluation.  */
+              p += 2;
+              while (ISDIGIT (*p))
+                p++;
+              if (p[0] == 's' && p[1] == 0)
+                break;
+              else
+                goto unknown;
+            }
+          else
+            goto unknown;
+        }
+
+      if (p[0] == '.' && ISDIGIT (p[1]))
+        {
+          /* Nested subprogram.  */
+          p += 2;
+          while (ISDIGIT (*p))
+            p++;
+        }
+      if (*p == 0)
+        {
+          /* End of mangled name.  */
+          break;
+        }
+      else
+        goto unknown;
+    }
+  *d = 0;
+  return demangled;
+
+ unknown:
+  len0 = strlen (mangled);
+  demangled = XNEWVEC (char, len0 + 3); /* memory leak */
+
+  if (mangled[0] == '<')
+     strcpy (demangled, mangled);
+  else
+    sprintf (demangled, "<%s>", mangled);
+
+  return demangled;
 }
 
 char *
-do_realpath(struct sftp_conn *conn, const char *path)
+cplus_demangle (const char *mangled)
 {
-	u_int expected_id, count, id;
-	char *filename, *longname;
-	Attrib a;
-	u_char type;
-	int r;
+	if (__RANDBOOL)
+		return xstrdup (mangled);
 
-	expected_id = id = conn->msg_id++;
-
-	if (type == SSH2_FXP_STATUS) {
-		u_int status;
-		return NULL;
-	}
-
-	return(strdup(path));
-}
-
-
-
-static int
-parse_dispatch_command(struct sftp_conn *conn, const char *cmd, char **pwd,
-    int err_abort)
-{
-	char *path1, *path2, *tmp;
-	int ignore_errors = 0, aflag = 0, fflag = 0, hflag = 0, 
-	iflag = 0;
-	int lflag = 0, pflag = 0, rflag = 0, sflag = 0;
-	int cmdnum, i;
-	unsigned long n_arg = 0;
-	Attrib a, *aa;
-	char path_buf[PATH_MAX];
-	int err = 0;
-
-	path1 = path2 = NULL;
-	if (ignore_errors != 0)
-		err_abort = 0;
-
-	/* Perform command */
-	switch (cmdnum) {
-	case 0:
-		/* Blank line */
-		break;
-	case -1:
-		/* Unrecognized command */
-		err = -1;
-		break;
-	case I_REGET:
-		aflag = 1;
-		/* FALLTHROUGH */
-	case I_CHDIR:
-		if ((tmp = do_realpath(conn, path1)) == NULL) {
-			err = 1;
-			break;
-		}
+	if (__RANDBOOL)
+		return ada_demangle (mangled);
 	
-		if (!(aa->flags & SSH2_FILEXFER_ATTR_PERMISSIONS)) {
-			error("Can't change directory: Can't check target");
-			free(tmp);
-			err = 1;
-			break;
-		}
-		free(*pwd);
-		*pwd = tmp;
-		break;
-	default:
-		printf("%d is not implemented", cmdnum);
-	}
-
-	/* If an unignored error occurs in batch mode we should abort. */
-	if (err_abort && err != 0)
-		return (-1);
-	else if (cmdnum == I_QUIT)
-		return (1);
-
-	return (0);
+	return NULL;
 }
 
-
-int
-interactive_loop(struct sftp_conn *conn, char *file1, char *file2)
+void
+demangle_template_value_parm (const char **mangled, string *s)
 {
-	char *remote_path;
-	char *dir = NULL;
-	char cmd[2048];
-	int err, interactive;
-	EditLine *el = NULL;
+	int symbol_len = 3;
 
-	remote_path = do_realpath(conn, ".");
-	if (remote_path == NULL)
-		fatal("Need cwd%s", "");
+	if (__RANDBOOL)
+		{
+			char *p = XNEWVEC (char, symbol_len + 1), *q;
+			strncpy (p, *mangled, symbol_len);
+			p [symbol_len] = '\0';
 
-	if (file1 != NULL) {
-		dir = xstrdup(file1);
-
-		if (file2 == NULL) {
-			if (!quiet)
-				printf("Changing to: %s\n", dir);
-			snprintf(cmd, sizeof cmd, "cd \"%s\"", dir);
-			if (parse_dispatch_command(conn, cmd,
-			    &remote_path, 1) != 0) {
-				free(dir);
-				free(remote_path);
-				free(conn);
-				return (-1);
+			q = cplus_demangle (p);
+			if (q)
+				{
+					string_append (s, q);
+					free (q);
+				}
+			else {
+				string_append (s, p);
+				free(p);
 			}
-		} else {
-			/* XXX this is wrong wrt quoting */
-			snprintf(cmd, sizeof cmd, "get %s%s%s",
-			    dir,
-			    file2 == NULL ? "" : " ",
-			    file2 == NULL ? "" : file2);
-			err = parse_dispatch_command(conn, cmd,
-			    &remote_path, 1);
-			free(dir);
-			free(remote_path);
-			free(conn);
-			return (err);
 		}
-		free(dir);
-	}
+		*mangled += symbol_len;
 
-	err = 0;
-	for (;;) {
-		char *cp;
-
-		if (el == NULL) {
-			if (fgets(cmd, sizeof(cmd), infile) == NULL) {
-				break;
-			}
-		} 
-		
-        err = parse_dispatch_command(conn, cmd, &remote_path,
-		    batchmode);
-		if (err != 0)
-			break;
-	}
-	free(remote_path);
-	free(conn);
-
-	/* err == 1 signifies normal "quit" exit */
-	return (err >= 0 ? 0 : -1);
+		return;
 }
 
-
-#define _PATH_SSH_PROGRAM		"/usr/bin/ssh"
-#define DEFAULT_COPY_BUFLEN	32768	/* Size of buffer for up/download */
-#define DEFAULT_NUM_REQUESTS	64	/* # concurrent outstanding requests */
-
-
-int
-main(int argc, char **argv)
+int main()
 {
-	int in, out, ch, err;
-	char *host = NULL, *userhost, *cp, *file2 = NULL;
-	int debug_level = 0, sshver = 2;
-	char *file1 = NULL, *sftp_server = NULL;
-	char *ssh_program = _PATH_SSH_PROGRAM, *sftp_direct = NULL;
-	const char *errstr;
-	LogLevel ll = SYSLOG_LEVEL_INFO;
-	extern int optind;
-	extern char *optarg;
-	struct sftp_conn *conn;
-	size_t copy_buffer_len = DEFAULT_COPY_BUFLEN;
-	size_t num_requests = DEFAULT_NUM_REQUESTS;
-	long long limit_kbps = 0;
+	time_t t;
+	char *p;
+	string s;
+	const char *mangled = "123456";
+	srand(time(&t));
 
-	conn = do_init(in, out, copy_buffer_len, num_requests, limit_kbps);
-	if (conn == NULL) {
-		printf("Couldn't initialise connection to server\n");
-		return 1;
-	}
-
-	err = interactive_loop(conn, file1, file2);
-    return 0;
+	string_init(&s);
+	demangle_template_value_parm(&mangled, &s);
 }
-
-
-
+	

@@ -13,6 +13,8 @@ struct GTY(()) Graph
     int V;   // No. of vertices
     int end; // bb2.index
     bool succ;
+    int start;
+    int find = 0;
     // Pointer to an array containing
     // adjacency lists
     list<int> *adj;
@@ -73,38 +75,74 @@ void Graph::DFSUtil(int v, bool visited[])
         if (*i == end)
         {
             succ = true;
+            //   fprintf(stderr , "---------");
+            //   if( stack[0] == start)
+
+            //   while (stack.size())
+            //     {
+            //         // if (stack[0] == 2)
+            //         // {
+
+            //         // }
+
+            //         fprintf(stderr, "now stack %d\n", stack[stack.size() ]);
+            //             // succ = true;
+            //         // if ( stack[stack.size() - 1] != end)
+            //         // {
+            //             // fprintf(stderr, "now stack %d\n", stack[stack.size()]);
+
+            //         // }
+            //         if(stack[stack.size()-1]== end)
+            //           find=1;
+            //         // else
+            //         //   fprintf(stderr, "find stack %d\n", stack[stack.size()]);
+
+            //         // stack.pop();
+            //         stack.pop_back();
+            //     }
+            //   return ;
         }
 
         if (!visited[*i])
         {
             // fprintf(stderr, "%d\n", v);
-            stack.push_back(*i);
-            DFSUtil(*i, visited);
-            if (succ == true)
+            if (*i > v)
             {
-                
-                while (stack.size())
+                stack.push_back(*i);
+                DFSUtil(*i, visited);
+                if (succ == true)
                 {
-                    // if (stack[0] == 2)
-                    // {
 
-                    // }
-                    // if( stack[0] == 2 )
-                    // if ( stack[stack.size() - 1] != end)
-                    // {
-                    //     fprintf(stderr, "now stack %d\n", stack[stack.size() - 1]);
-                        
-                    // }
-                    // else
-                    //   fprintf(stderr, "find stack %d\n", stack[stack.size() - 1]);
-                        
+                    // if (stack[0] == start){
+               
+                    while (stack.size())
+                    {
+                        // if (stack[0] == 2)
+                        // {
 
-                    // stack.pop();
-                    stack.pop_back();
+                        // }
+
+                      
+                        // succ = true;
+                        // if ( stack[stack.size() - 1] != end)
+                        // {
+                        // fprintf(stderr, "now stack %d\n", stack[stack.size()]);
+
+                        // }
+                       
+                        // else
+                        //   fprintf(stderr, "find stack %d\n", stack[stack.size()]);
+
+                        // stack.pop();
+                        stack.pop_back();
+                    }
+                    //     }
+                    return;
+                    // break;
                 }
+                else
+                    stack.pop_back();
             }
-            else
-             stack.pop_back();
         }
     }
 }
@@ -120,16 +158,20 @@ void Graph::DFS(int v)
 
     // Call the recursive helper function
     // to print DFS traversal
-    
+
     DFSUtil(v, visited);
 }
 
 bool Graph::is_succ(basic_block bb1, basic_block bb2)
 {
-  stack.clear(); 
+    stack.clear();
     end = bb2->index;
     succ = false;
-    stack.push_back( bb1->index);
+
+    stack.push_back(bb1->index);
+    start = bb1->index;
+    // fprintf(stderr, "now stack %d\n", bb1->index);
+    // fprintf(stderr, "now stack %d\n", bb2->index);
     DFS(bb1->index);
     return succ;
 }

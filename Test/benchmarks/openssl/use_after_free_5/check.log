@@ -1,0 +1,643 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c: In function ‘pitem_new’:
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:83:9: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   83 |         memcpy(item->priority,prio64be,sizeof(item->priority));
+      |         ^~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+   10 | #include "../openssl.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:83:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   83 |         memcpy(item->priority,prio64be,sizeof(item->priority));
+      |         ^~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:83:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c: In function ‘pqueue_new’:
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:105:9: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+  105 |         memset(pq, 0x00, sizeof(pqueue_s));
+      |         ^~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:105:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:105:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:105:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c: In function ‘pqueue_insert’:
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:134:27: warning: implicit declaration of function ‘memcmp’ [-Wimplicit-function-declaration]
+  134 |                 int cmp = memcmp(next->priority, item->priority,8);
+      |                           ^~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:134:27: note: include ‘<string.h>’ or provide a declaration of ‘memcmp’
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:134:65: warning: ‘memcmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+  134 |                 int cmp = memcmp(next->priority, item->priority,8);
+      |                                                                 ^
+<built-in>: note: built-in ‘memcmp’ declared here
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c: In function ‘pqueue_find’:
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:185:54: warning: ‘memcmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+  185 |                 if ( memcmp(next->priority, prio64be,8) == 0)
+      |                                                      ^
+<built-in>: note: built-in ‘memcmp’ declared here
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:193:46: warning: ‘memcmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+  193 |         if ( memcmp(next->priority, prio64be,8) ==0)
+      |                                              ^
+<built-in>: note: built-in ‘memcmp’ declared here
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c: In function ‘dtls1_buffer_record’:
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:283:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  283 |         memcpy(&(rdata->rbuf), &(s->s3->rbuf), sizeof(SSL3_BUFFER));
+      |         ^~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:283:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:298:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  298 |         memset(&(s->s3->rbuf), 0, sizeof(SSL3_BUFFER));
+      |         ^~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:298:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:301:14: warning: implicit declaration of function ‘ssl3_setup_buffers’ [-Wimplicit-function-declaration]
+  301 |         if (!ssl3_setup_buffers(s))
+      |              ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c: In function ‘main’:
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:319:43: warning: passing argument 3 of ‘dtls1_buffer_record’ makes pointer from integer without a cast [-Wint-conversion]
+  319 |         dtls1_buffer_record(NULL, &queue, 1);
+      |                                           ^
+      |                                           |
+      |                                           int
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:262:66: note: expected ‘unsigned char *’ but argument is of type ‘int’
+  262 | dtls1_buffer_record(SSL *s, record_pqueue *queue, unsigned char *priority)
+      |                                                   ~~~~~~~~~~~~~~~^~~~~~~~
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:320:43: warning: passing argument 3 of ‘dtls1_buffer_record’ makes pointer from integer without a cast [-Wint-conversion]
+  320 |         dtls1_buffer_record(NULL, &queue, 2);
+      |                                           ^
+      |                                           |
+      |                                           int
+./benchmarks/openssl/use_after_free_5/openssl_uaf_5.c:262:66: note: expected ‘unsigned char *’ but argument is of type ‘int’
+  262 | dtls1_buffer_record(SSL *s, record_pqueue *queue, unsigned char *priority)
+      |                                                   ~~~~~~~~~~~~~~~^~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 36%)
+ phase parsing                      :   0.02 ( 50%)   0.03 ( 75%)   0.06 ( 75%)  2012k ( 56%)
+ phase opt and generate             :   0.02 ( 50%)   0.01 ( 25%)   0.02 ( 25%)   270k (  8%)
+ dump files                         :   0.01 ( 25%)   0.01 ( 25%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 25%)   153k (  4%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)     0  (  0%)
+ ipa lto gimple out                 :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  1280  (  0%)
+ ipa free lang data                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)  4984  (  0%)
+ preprocessing                      :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 25%)  1084k ( 30%)
+ lexical analysis                   :   0.01 ( 25%)   0.02 ( 50%)   0.03 ( 38%)     0  (  0%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)    58k (  2%)
+ plugin execution                   :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.04          0.04          0.08         3591k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase stream in                    :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)    64k (  3%)
+ ipa lto decl in                    :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)    47k (  2%)
+ TOTAL                              :   0.01          0.00          0.00         2224k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:dtls1_buffer_record=========
+=======node_fun:pqueue_size=========
+=======node_fun:pqueue_pop=========
+=======node_fun:pqueue_insert=========
+=======node_fun:pqueue_free=========
+=======node_fun:pqueue_new=========
+=======node_fun:pitem_free=========
+=======node_fun:pitem_new=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 32 
+===============The second stage : Mapping stmt=================
+# .MEM_15 = VDEF <.MEM_14(D)>
+_1 = pqueue_new ();
+# .MEM_17 = VDEF <.MEM_16>
+dtls1_buffer_record (0B, &queue, 0B);
+# .MEM_18 = VDEF <.MEM_17>
+dtls1_buffer_record (0B, &queue, 1B);
+# .MEM_19 = VDEF <.MEM_18>
+dtls1_buffer_record (0B, &queue, 2B);
+# .MEM_23 = VDEF <.MEM_20>
+printf ("%d\n", item_12);
+# .MEM_24 = VDEF <.MEM_23>
+pitem_free (item_12);
+# .MEM_20 = VDEF <.MEM_13>
+item_12 = pqueue_pop (_2);
+# .MEM_21 = VDEF <.MEM_20>
+pqueue_free (_3);
+# VUSE <.MEM_36(D)>
+_2 = pqueue_size (_1);
+# .MEM_37 = VDEF <.MEM_36(D)>
+rdata_28 = malloc (96);
+# .MEM_38 = VDEF <.MEM_37>
+item_31 = pitem_new (priority_29(D), rdata_28);
+# .MEM_55 = VDEF <.MEM_33>
+pitem_free (item_31);
+# .MEM_41 = VDEF <.MEM_40>
+memcpy (_10, _9, 24);
+# .MEM_42 = VDEF <.MEM_41>
+memcpy (_13, _12, 56);
+# .MEM_44 = VDEF <.MEM_43>
+_15 = pqueue_insert (_14, item_31);
+# .MEM_53 = VDEF <.MEM_52>
+pitem_free (item_31);
+# .MEM_47 = VDEF <.MEM_46>
+memset (_17, 0, 24);
+# .MEM_48 = VDEF <.MEM_47>
+memset (_19, 0, 56);
+# .MEM_49 = VDEF <.MEM_48>
+_20 = ssl3_setup_buffers (s_32(D));
+# .MEM_51 = VDEF <.MEM_50>
+pitem_free (item_31);
+# VUSE <.MEM_19(D)>
+cmp_15 = memcmp (_3, _2, 8);
+# .MEM_8 = VDEF <.MEM_7(D)>
+pq_5 = malloc (16);
+# .MEM_9 = VDEF <.MEM_8>
+memset (pq_5, 0, 16);
+# .MEM_12 = VDEF <.MEM_11(D)>
+item_5 = malloc (24);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+_1 = pqueue_new ();
+queue.q = _1;
+dtls1_buffer_record (0B, &queue, 0B);
+dtls1_buffer_record (0B, &queue, 1B);
+dtls1_buffer_record (0B, &queue, 2B);
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+printf ("%d\n", item_12);
+pitem_free (item_12);
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_2 = queue.q;
+item_12 = pqueue_pop (_2);
+if (item_12 == 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+_3 = queue.q;
+pqueue_free (_3);
+queue ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:dtls1_buffer_record=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = queue_26(D)->q;
+_2 = pqueue_size (_1);
+if (_2 > 99)
+  goto <bb 13>; [51.12%]
+else
+  goto <bb 3>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 524845000]:
+rdata_28 = malloc (96);
+item_31 = pitem_new (priority_29(D), rdata_28);
+_3 = rdata_28 == 0B;
+_4 = item_31 == 0B;
+_5 = _3 | _4;
+if (_5 != 0)
+  goto <bb 4>; [51.12%]
+else
+  goto <bb 9>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 268300766]:
+if (rdata_28 != 0B)
+  goto <bb 5>; [99.96%]
+else
+  goto <bb 6>; [0.04%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 268193446]:
+free (rdata_28);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 268300766]:
+if (item_31 != 0B)
+  goto <bb 7>; [53.47%]
+else
+  goto <bb 8>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 143460419]:
+pitem_free (item_31);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 268300766]:
+goto <bb 13>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 256544234]:
+_6 = s_32(D)->packet;
+rdata_28->packet = _6;
+_7 = s_32(D)->packet_length;
+rdata_28->packet_length = _7;
+_8 = s_32(D)->s3;
+_9 = &_8->rbuf;
+_10 = &rdata_28->rbuf;
+memcpy (_10, _9, 24);
+_11 = s_32(D)->s3;
+_12 = &_11->rrec;
+_13 = &rdata_28->rrec;
+memcpy (_13, _12, 56);
+item_31->data = rdata_28;
+_14 = queue_26(D)->q;
+_15 = pqueue_insert (_14, item_31);
+if (_15 == 0B)
+  goto <bb 10>; [18.09%]
+else
+  goto <bb 11>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 46408852]:
+free (rdata_28);
+pitem_free (item_31);
+goto <bb 13>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 210135382]:
+s_32(D)->packet = 0B;
+s_32(D)->packet_length = 0;
+_16 = s_32(D)->s3;
+_17 = &_16->rbuf;
+memset (_17, 0, 24);
+_18 = s_32(D)->s3;
+_19 = &_18->rrec;
+memset (_19, 0, 56);
+_20 = ssl3_setup_buffers (s_32(D));
+if (_20 == 0)
+  goto <bb 12>; [20.24%]
+else
+  goto <bb 13>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 42531401]:
+free (rdata_28);
+pitem_free (item_31);
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 1073741824]:
+# _21 = PHI <0(2), 0(8), 0(10), 1(11), 0(12)>
+return _21;
+
+=======Mapping node_fun:pqueue_size=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+item_5 = pq_4(D)->items;
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+count_6 = count_2 + 1;
+item_7 = item_1->next;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# item_1 = PHI <item_5(2), item_7(3)>
+# count_2 = PHI <0(2), count_6(3)>
+if (item_1 != 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+return count_2;
+
+=======Mapping node_fun:pqueue_pop=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+item_7 = pq_6(D)->items;
+_1 = pq_6(D)->items;
+if (_1 != 0B)
+  goto <bb 3>; [70.00%]
+else
+  goto <bb 4>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 751619281]:
+_2 = pq_6(D)->items;
+_3 = _2->next;
+pq_6(D)->items = _3;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return item_7;
+
+=======Mapping node_fun:pqueue_insert=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 138730893]:
+_1 = pq_10(D)->items;
+if (_1 == 0B)
+  goto <bb 3>; [18.09%]
+else
+  goto <bb 4>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 25096418]:
+pq_10(D)->items = item_12(D);
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 113634474]:
+next_11 = pq_10(D)->items;
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1034442873]:
+_2 = &item_12(D)->priority;
+_3 = &next_5->priority;
+cmp_15 = memcmp (_3, _2, 8);
+if (cmp_15 > 0)
+  goto <bb 6>; [3.66%]
+else
+  goto <bb 10>; [96.34%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 37860610]:
+item_12(D)->next = next_5;
+if (curr_4 == 0B)
+  goto <bb 7>; [30.00%]
+else
+  goto <bb 8>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 11358183]:
+pq_10(D)->items = item_12(D);
+goto <bb 9>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 26502427]:
+curr_4->next = item_12(D);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 37860610]:
+goto <bb 14>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 996582263]:
+if (cmp_15 == 0)
+  goto <bb 14>; [3.66%]
+else
+  goto <bb 11>; [96.34%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 960107350]:
+next_16 = next_5->next;
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 1073741824]:
+# curr_4 = PHI <0B(4), next_5(11)>
+# next_5 = PHI <next_11(4), next_16(11)>
+if (next_5 != 0B)
+  goto <bb 5>; [96.34%]
+else
+  goto <bb 13>; [3.66%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 39298952]:
+item_12(D)->next = 0B;
+curr_4->next = item_12(D);
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 138730893]:
+# _6 = PHI <item_12(D)(3), item_12(D)(9), 0B(10), item_12(D)(13)>
+return _6;
+
+=======Mapping node_fun:pqueue_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (pq_2(D) == 0B)
+  goto <bb 4>; [30.95%]
+else
+  goto <bb 3>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 741418729]:
+free (pq_2(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:pqueue_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+pq_5 = malloc (16);
+if (pq_5 == 0B)
+  goto <bb 4>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1073312329]:
+memset (pq_5, 0, 16);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _1 = PHI <0B(2), pq_5(3)>
+return _1;
+
+=======Mapping node_fun:pitem_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (item_2(D) == 0B)
+  goto <bb 4>; [30.95%]
+else
+  goto <bb 3>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 741418729]:
+free (item_2(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:pitem_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+item_5 = malloc (24);
+if (item_5 == 0B)
+  goto <bb 4>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1073312329]:
+_7 = MEM <long unsigned int> [(char * {ref-all})prio64be_6(D)];
+MEM <long unsigned int> [(char * {ref-all})item_5] = _7;
+item_5->data = data_9(D);
+item_5->next = 0B;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _1 = PHI <0B(2), item_5(3)>
+return _1;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 5 [0m
+[40;34m    all ptable point : 32 [0m
+[40;34m    analyzable ptable point : 25 [0m
+[40;34m    analyzable ptable all point stmt : 137 [0m
+[40;34m    used_stmt array stack totalsize of : 0.004688 mb[0m
+[40;34m    collect time: : 0.000408 s [0m
+[40;34m    mapping time: : 0.001374 s [0m
+[40;34m    algorithm time: 0.008018 s [0m
+[40;34m    gimple stmt count : : 105 [0m
+[40;34m    this report analysis in Mon Jun 20 14:58:16 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 75%)
+ phase opt and generate             :   0.02 (100%)   0.03 (100%)   0.05 (100%)   647k ( 23%)
+ callgraph functions expansion      :   0.02 (100%)   0.02 ( 67%)   0.03 ( 60%)   531k ( 19%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    80k (  3%)
+ tree CCP                           :   0.01 ( 50%)   0.01 ( 33%)   0.00 (  0%)    32  (  0%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   624  (  0%)
+ loop fini                          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ shorten branches                   :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)    24  (  0%)
+ final                              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    24k (  1%)
+ plugin execution                   :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 20%)  2128  (  0%)
+ rest of compilation                :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    25k (  1%)
+ TOTAL                              :   0.02          0.03          0.05         2860k
+/usr/bin/ld: /tmp/ccJQUaJr.ltrans0.ltrans.o: in function `dtls1_buffer_record':
+<artificial>:(.text+0x223): undefined reference to `ssl3_setup_buffers'
+collect2: error: ld returned 1 exit status

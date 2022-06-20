@@ -1,0 +1,709 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/binutils/leak_2/binutils_leak_2.c:7:
+./benchmarks/binutils/leak_2/../include/bfd.h:55:1: warning: useless storage class specifier in empty declaration
+   55 | };
+      | ^
+./benchmarks/binutils/leak_2/binutils_leak_2.c:9: warning: "S_IREAD" redefined
+    9 | #    define S_IREAD     00400
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:175: note: this is the location of the previous definition
+  175 | # define S_IREAD        S_IRUSR
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:10: warning: "S_IWRITE" redefined
+   10 | #    define S_IWRITE    00200
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:176: note: this is the location of the previous definition
+  176 | # define S_IWRITE       S_IWUSR
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:11: warning: "S_IEXEC" redefined
+   11 | #    define S_IEXEC     00100
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:177: note: this is the location of the previous definition
+  177 | # define S_IEXEC        S_IXUSR
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:13: warning: "S_IRUSR" redefined
+   13 | #    define S_IRUSR     S_IREAD                 /* read, owner */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:168: note: this is the location of the previous definition
+  168 | #define S_IRUSR __S_IREAD       /* Read by owner.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:14: warning: "S_IWUSR" redefined
+   14 | #    define S_IWUSR     S_IWRITE                /* write, owner */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:169: note: this is the location of the previous definition
+  169 | #define S_IWUSR __S_IWRITE      /* Write by owner.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:15: warning: "S_IXUSR" redefined
+   15 | #    define S_IXUSR     S_IEXEC                 /* execute, owner */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:170: note: this is the location of the previous definition
+  170 | #define S_IXUSR __S_IEXEC       /* Execute by owner.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:17: warning: "S_IRGRP" redefined
+   17 | #    define S_IRGRP     (S_IREAD  >> 3)         /* read, group */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:180: note: this is the location of the previous definition
+  180 | #define S_IRGRP (S_IRUSR >> 3)  /* Read by group.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:18: warning: "S_IWGRP" redefined
+   18 | #    define S_IWGRP     (S_IWRITE >> 3)         /* write, group */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:181: note: this is the location of the previous definition
+  181 | #define S_IWGRP (S_IWUSR >> 3)  /* Write by group.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:19: warning: "S_IXGRP" redefined
+   19 | #    define S_IXGRP     (S_IEXEC  >> 3)         /* execute, group */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:182: note: this is the location of the previous definition
+  182 | #define S_IXGRP (S_IXUSR >> 3)  /* Execute by group.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:21: warning: "S_IROTH" redefined
+   21 | #    define S_IROTH     (S_IREAD  >> 6)         /* read, other */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:186: note: this is the location of the previous definition
+  186 | #define S_IROTH (S_IRGRP >> 3)  /* Read by others.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:22: warning: "S_IWOTH" redefined
+   22 | #    define S_IWOTH     (S_IWRITE >> 6)         /* write, other */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:187: note: this is the location of the previous definition
+  187 | #define S_IWOTH (S_IWGRP >> 3)  /* Write by others.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:23: warning: "S_IXOTH" redefined
+   23 | #    define S_IXOTH     (S_IEXEC  >> 6)         /* execute, other */
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:188: note: this is the location of the previous definition
+  188 | #define S_IXOTH (S_IXGRP >> 3)  /* Execute by others.  */
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:25: warning: "S_IRWXU" redefined
+   25 | #  define S_IRWXU       (S_IRUSR | S_IWUSR | S_IXUSR)
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:172: note: this is the location of the previous definition
+  172 | #define S_IRWXU (__S_IREAD|__S_IWRITE|__S_IEXEC)
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:26: warning: "S_IRWXG" redefined
+   26 | #  define S_IRWXG       (S_IRGRP | S_IWGRP | S_IXGRP)
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:184: note: this is the location of the previous definition
+  184 | #define S_IRWXG (S_IRWXU >> 3)
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:27: warning: "S_IRWXO" redefined
+   27 | #  define S_IRWXO       (S_IROTH | S_IWOTH | S_IXOTH)
+      | 
+In file included from ./benchmarks/binutils/leak_2/../include/common.h:3,
+                 from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+/usr/include/x86_64-linux-gnu/sys/stat.h:190: note: this is the location of the previous definition
+  190 | #define S_IRWXO (S_IRWXG >> 3)
+      | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c: In function ‘template_in_dir’:
+./benchmarks/binutils/leak_2/binutils_leak_2.c:45:23: warning: implicit declaration of function ‘strrchr’ [-Wimplicit-function-declaration]
+   45 |   const char *slash = strrchr (path, '/');
+      |                       ^~~~~~~
+./benchmarks/binutils/leak_2/binutils_leak_2.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strrchr’
+    7 | #include "../include/bfd.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/leak_2/binutils_leak_2.c:45:23: warning: incompatible implicit declaration of built-in function ‘strrchr’ [-Wbuiltin-declaration-mismatch]
+   45 |   const char *slash = strrchr (path, '/');
+      |                       ^~~~~~~
+./benchmarks/binutils/leak_2/binutils_leak_2.c:45:23: note: include ‘<string.h>’ or provide a declaration of ‘strrchr’
+./benchmarks/binutils/leak_2/binutils_leak_2.c:53:7: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   53 |       memcpy (tmpname, path, len);
+      |       ^~~~~~
+./benchmarks/binutils/leak_2/binutils_leak_2.c:53:7: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_2/binutils_leak_2.c:53:7: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_2/binutils_leak_2.c:53:7: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_2/binutils_leak_2.c:62:3: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   62 |   memcpy (tmpname + len, template, sizeof (template));
+      |   ^~~~~~
+./benchmarks/binutils/leak_2/binutils_leak_2.c:62:3: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_2/binutils_leak_2.c: In function ‘make_tempname’:
+./benchmarks/binutils/leak_2/binutils_leak_2.c:81:3: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   81 |   close (fd);
+      |   ^~~~~
+      |   pclose
+./benchmarks/binutils/leak_2/binutils_leak_2.c: In function ‘set_times’:
+./benchmarks/binutils/leak_2/binutils_leak_2.c:103:14: warning: implicit declaration of function ‘utime’; did you mean ‘futimens’? [-Wimplicit-function-declaration]
+  103 |     result = utime (destination, tb);
+      |              ^~~~~
+      |              futimens
+./benchmarks/binutils/leak_2/binutils_leak_2.c: In function ‘smart_rename’:
+./benchmarks/binutils/leak_2/binutils_leak_2.c:156:19: warning: implicit declaration of function ‘chown’ [-Wimplicit-function-declaration]
+  156 |               if (chown (to, s.st_uid, s.st_gid) >= 0)
+      |                   ^~~~~
+./benchmarks/binutils/leak_2/binutils_leak_2.c:164:11: warning: implicit declaration of function ‘unlink’ [-Wimplicit-function-declaration]
+  164 |           unlink (from);
+      |           ^~~~~~
+In file included from ./benchmarks/binutils/leak_2/binutils_leak_2.c:5:
+./benchmarks/binutils/leak_2/binutils_leak_2.c: In function ‘write_archive’:
+./benchmarks/binutils/leak_2/binutils_leak_2.c:213:32: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  213 |   old_name = (char *) xmalloc (strlen (bfd_get_filename (iarch)) + 1);
+      |                                ^~~~~~
+./benchmarks/binutils/leak_2/../include/common.h:21:27: note: in definition of macro ‘xmalloc’
+   21 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/binutils/leak_2/binutils_leak_2.c:213:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+  213 |   old_name = (char *) xmalloc (strlen (bfd_get_filename (iarch)) + 1);
+      |                                ^~~~~~
+./benchmarks/binutils/leak_2/../include/common.h:21:27: note: in definition of macro ‘xmalloc’
+   21 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/binutils/leak_2/binutils_leak_2.c:213:32: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  213 |   old_name = (char *) xmalloc (strlen (bfd_get_filename (iarch)) + 1);
+      |                                ^~~~~~
+./benchmarks/binutils/leak_2/../include/common.h:21:27: note: in definition of macro ‘xmalloc’
+   21 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/binutils/leak_2/binutils_leak_2.c:213:32: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+  213 |   old_name = (char *) xmalloc (strlen (bfd_get_filename (iarch)) + 1);
+      |                                ^~~~~~
+./benchmarks/binutils/leak_2/../include/common.h:21:27: note: in definition of macro ‘xmalloc’
+   21 | #define xmalloc(a) malloc(a)
+      |                           ^
+./benchmarks/binutils/leak_2/binutils_leak_2.c:214:3: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+  214 |   strcpy (old_name, bfd_get_filename (iarch));
+      |   ^~~~~~
+./benchmarks/binutils/leak_2/binutils_leak_2.c:214:3: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/leak_2/binutils_leak_2.c:214:3: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_2/binutils_leak_2.c:214:3: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 45%)
+ phase parsing                      :   0.04 ( 67%)   0.01 (100%)   0.05 ( 71%)  1258k ( 44%)
+ phase opt and generate             :   0.02 ( 33%)   0.00 (  0%)   0.01 ( 14%)   288k ( 10%)
+ phase finalize                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ dump files                         :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.02 ( 33%)   0.00 (  0%)   0.01 ( 14%)   166k (  6%)
+ lto stream output                  :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)   399k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ parser (global)                    :   0.01 ( 17%)   0.01 (100%)   0.01 ( 14%)   615k ( 22%)
+ parser function body               :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)   108k (  4%)
+ varconst                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   776  (  0%)
+ branch prediction                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  4736  (  0%)
+ plugin execution                   :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.06          0.01          0.07         2855k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 96%)
+ TOTAL                              :   0.00          0.00          0.00         2251k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:write_archive=========
+=======node_fun:bfd_get_filename=========
+=======node_fun:bfd_close=========
+=======node_fun:bfd_openw=========
+=======node_fun:smart_rename=========
+=======node_fun:set_times=========
+=======node_fun:make_tempname=========
+=======node_fun:template_in_dir=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 45 
+===============The second stage : Mapping stmt=================
+# .MEM_2 = VDEF <.MEM_1(D)>
+write_archive (&iarch);
+# VUSE <.MEM_18(D)>
+_1 = bfd_get_filename (iarch_8(D));
+# VUSE <.MEM_18(D)>
+_2 = strlen (_1);
+# .MEM_19 = VDEF <.MEM_18(D)>
+old_name_11 = malloc (_3);
+# VUSE <.MEM_19>
+_4 = bfd_get_filename (iarch_8(D));
+# .MEM_20 = VDEF <.MEM_19>
+strcpy (old_name_11, _4);
+# .MEM_21 = VDEF <.MEM_20>
+new_name_14 = make_tempname (old_name_11);
+# .MEM_34 = VDEF <.MEM_21>
+printf ("could not create temporary file whilst writing archive%s", "");
+# .MEM_23 = VDEF <.MEM_21>
+obfd_17 = bfd_openw (new_name_14);
+# .MEM_32 = VDEF <.MEM_23>
+printf ("%s", old_name_11);
+# .MEM_24 = VDEF <.MEM_23>
+_5 = bfd_close (obfd_17);
+# .MEM_30 = VDEF <.MEM_24>
+printf ("%s", old_name_11);
+# .MEM_26 = VDEF <.MEM_24>
+bfd_close (iarch_8(D));
+# .MEM_27 = VDEF <.MEM_26>
+_6 = smart_rename (new_name_14, old_name_11, 0);
+# .MEM_9 = VDEF <.MEM_8(D)>
+_1 = rand ();
+# .MEM_8 = VDEF <.MEM_7(D)>
+printf ("%d\n", _1);
+# .MEM_9 = VDEF <.MEM_8>
+nbfd_6 = malloc (48);
+# .MEM_30 = VDEF <.MEM_29(D)>
+_1 = lstat (to_18(D), &s);
+# .MEM_33 = VDEF <.MEM_30>
+ret_26 = rename (from_23(D), to_18(D));
+# .MEM_36 = VDEF <.MEM_33>
+chmod (to_18(D), _7);
+# .MEM_37 = VDEF <.MEM_36>
+_10 = chown (to_18(D), _9, _8);
+# .MEM_38 = VDEF <.MEM_37>
+chmod (to_18(D), _12);
+# .MEM_34 = VDEF <.MEM_33>
+printf ("unable to rename \'%s\';", to_18(D));
+# .MEM_35 = VDEF <.MEM_34>
+unlink (from_23(D));
+# .MEM_31 = VDEF <.MEM_30>
+set_times (to_18(D), &s);
+# .MEM_32 = VDEF <.MEM_27>
+unlink (from_23(D));
+# .MEM_13 = VDEF <.MEM_12(D)>
+tb[0] = _1;
+# .MEM_14 = VDEF <.MEM_13>
+tb[1] = _2;
+# .MEM_15 = VDEF <.MEM_14>
+result_10 = utime (destination_8(D), &tb);
+# .MEM_17 = VDEF <.MEM_16>
+printf ("%s: cannot set time:", destination_8(D));
+# .MEM_11 = VDEF <.MEM_10(D)>
+tmpname_6 = template_in_dir (filename_4(D));
+# .MEM_12 = VDEF <.MEM_11>
+fd_8 = mkstemp (tmpname_6);
+# .MEM_13 = VDEF <.MEM_12>
+close (fd_8);
+# VUSE <.MEM_19(D)>
+slash_10 = strrchr (path_9(D), 47);
+# .MEM_21 = VDEF <.MEM_19(D)>
+tmpname_15 = malloc (_2);
+# .MEM_22 = VDEF <.MEM_21>
+memcpy (tmpname_15, path_9(D), len_13);
+# .MEM_20 = VDEF <.MEM_19(D)>
+tmpname_12 = malloc (9);
+# .MEM_24 = VDEF <.MEM_18>
+memcpy (_4, "stXXXXXX", 9);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+write_archive (&iarch);
+iarch ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:write_archive=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+contents_head_9 = iarch_8(D)->archive_next;
+_1 = bfd_get_filename (iarch_8(D));
+_2 = strlen (_1);
+_3 = _2 + 1;
+old_name_11 = malloc (_3);
+_4 = bfd_get_filename (iarch_8(D));
+strcpy (old_name_11, _4);
+new_name_14 = make_tempname (old_name_11);
+if (new_name_14 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+printf ("could not create temporary file whilst writing archive%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+obfd_17 = bfd_openw (new_name_14);
+if (obfd_17 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 6>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 429324]:
+printf ("%s", old_name_11);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1072883005]:
+_5 = bfd_close (obfd_17);
+if (_5 == 0B)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 8>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 429152]:
+printf ("%s", old_name_11);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1072453853]:
+bfd_close (iarch_8(D));
+_6 = smart_rename (new_name_14, old_name_11, 0);
+if (_6 != 0)
+  goto <bb 9>; [0.04%]
+else
+  goto <bb 10>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 428981]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 1072024872]:
+free (old_name_11);
+return;
+
+=======Mapping node_fun:bfd_get_filename=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_3 = iarch_2(D)->filename;
+return _3;
+
+=======Mapping node_fun:bfd_close=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = rand ();
+_2 = _1 % 2;
+_3 = _2 == 1;
+ret_6 = (bfd_boolean) _3;
+free (abfd_7(D));
+return;
+
+=======Mapping node_fun:bfd_openw=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = MEM[(int *)name_3(D)];
+printf ("%d\n", _1);
+nbfd_6 = malloc (48);
+return nbfd_6;
+
+=======Mapping node_fun:smart_rename=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = lstat (to_18(D), &s);
+_2 = _1 == 0;
+exists_20 = (bfd_boolean) _2;
+if (_1 != 0)
+  goto <bb 5>; [33.00%]
+else
+  goto <bb 3>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 719407024]:
+_3 = BIT_FIELD_REF <s, 32, 192>;
+_4 = _3 & 61568;
+if (_4 == 32896)
+  goto <bb 4>; [34.00%]
+else
+  goto <bb 10>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 244598390]:
+_5 = s.st_nlink;
+if (_5 == 1)
+  goto <bb 5>; [34.00%]
+else
+  goto <bb 10>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 437498253]:
+ret_26 = rename (from_23(D), to_18(D));
+if (ret_26 == 0)
+  goto <bb 6>; [67.00%]
+else
+  goto <bb 9>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 293123831]:
+if (_1 == 0)
+  goto <bb 7>; [33.00%]
+else
+  goto <bb 13>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 96730864]:
+_6 = s.st_mode;
+_7 = _6 & 511;
+chmod (to_18(D), _7);
+_8 = s.st_gid;
+_9 = s.st_uid;
+_10 = chown (to_18(D), _9, _8);
+if (_10 >= 0)
+  goto <bb 8>; [41.48%]
+else
+  goto <bb 13>; [58.52%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 40123963]:
+_11 = s.st_mode;
+_12 = _11 & 4095;
+chmod (to_18(D), _12);
+goto <bb 13>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 144374423]:
+printf ("unable to rename \'%s\';", to_18(D));
+unlink (from_23(D));
+goto <bb 13>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 636243571]:
+if (preserve_dates_21(D) != 0)
+  goto <bb 11>; [33.00%]
+else
+  goto <bb 12>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 209960377]:
+set_times (to_18(D), &s);
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 636243571]:
+unlink (from_23(D));
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 1073741824]:
+# ret_13 = PHI <ret_26(6), ret_26(7), ret_26(8), ret_26(9), 0(12)>
+s ={v} {CLOBBER};
+return ret_13;
+
+=======Mapping node_fun:set_times=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = statbuf_5(D)->st_atim.tv_sec;
+tb[0] = _1;
+_2 = statbuf_5(D)->st_mtim.tv_sec;
+tb[1] = _2;
+result_10 = utime (destination_8(D), &tb);
+tb ={v} {CLOBBER};
+if (result_10 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+printf ("%s: cannot set time:", destination_8(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:make_tempname=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+tmpname_6 = template_in_dir (filename_4(D));
+fd_8 = mkstemp (tmpname_6);
+if (fd_8 == -1)
+  goto <bb 3>; [9.78%]
+else
+  goto <bb 4>; [90.22%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 105011952]:
+free (tmpname_6);
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 968729873]:
+close (fd_8);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# _1 = PHI <0B(3), tmpname_6(4)>
+return _1;
+
+=======Mapping node_fun:template_in_dir=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+slash_10 = strrchr (path_9(D), 47);
+if (slash_10 != 0B)
+  goto <bb 3>; [70.00%]
+else
+  goto <bb 4>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 751619281]:
+_1 = slash_10 - path_9(D);
+len_13 = (size_t) _1;
+_2 = len_13 + 11;
+tmpname_15 = malloc (_2);
+memcpy (tmpname_15, path_9(D), len_13);
+len_17 = len_13 + 1;
+_3 = tmpname_15 + len_13;
+*_3 = 47;
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 322122544]:
+tmpname_12 = malloc (9);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# tmpname_5 = PHI <tmpname_15(3), tmpname_12(4)>
+# len_6 = PHI <len_17(3), 0(4)>
+_4 = tmpname_5 + len_6;
+memcpy (_4, "stXXXXXX", 9);
+return tmpname_5;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 45 [0m
+[40;34m    analyzable ptable point : 35 [0m
+[40;34m    analyzable ptable all point stmt : 140 [0m
+[40;34m    used_stmt array stack totalsize of : 0.006072 mb[0m
+[40;34m    collect time: : 0.000311 s [0m
+[40;34m    mapping time: : 0.000943 s [0m
+[40;34m    algorithm time: 0.005945 s [0m
+[40;34m    gimple stmt count : : 98 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:43 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 76%)
+ phase opt and generate             :   0.03 (100%)   0.02 (100%)   0.05 (100%)   597k ( 21%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.02 (100%)   0.04 ( 80%)   484k ( 17%)
+ ipa points-to                      :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  7488  (  0%)
+ cfg cleanup                        :   0.01 ( 33%)   0.01 ( 50%)   0.00 (  0%)   168  (  0%)
+ varconst                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ combine stack adjustments          :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ final                              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    23k (  1%)
+ plugin execution                   :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)  1576  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)    12k (  0%)
+ TOTAL                              :   0.03          0.02          0.05         2822k

@@ -1,0 +1,509 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/openssl/leak_8/openssl_leak_8.c: In function ‘psk_use_session_cb’:
+./benchmarks/openssl/leak_8/openssl_leak_8.c:41:9: warning: implicit declaration of function ‘SSL_SESSION_up_ref’; did you mean ‘SSL_SESSION_free’? [-Wimplicit-function-declaration]
+   41 |         SSL_SESSION_up_ref(psksess);
+      |         ^~~~~~~~~~~~~~~~~~
+      |         SSL_SESSION_free
+In file included from ./benchmarks/openssl/leak_8/openssl_leak_8.c:9:
+./benchmarks/openssl/leak_8/../openssl.h:10:34: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   10 | #define OPENSSL_hexstr2buf(a, b) strdup(a)
+      |                                  ^~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:45:30: note: in expansion of macro ‘OPENSSL_hexstr2buf’
+   45 |         unsigned char *key = OPENSSL_hexstr2buf(psk_key, &key_len);
+      |                              ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_8/../openssl.h:10:34: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   10 | #define OPENSSL_hexstr2buf(a, b) strdup(a)
+      |                                  ^~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:45:30: note: in expansion of macro ‘OPENSSL_hexstr2buf’
+   45 |         unsigned char *key = OPENSSL_hexstr2buf(psk_key, &key_len);
+      |                              ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:45:49: warning: passing argument 1 of ‘strdup’ makes pointer from integer without a cast [-Wint-conversion]
+   45 |         unsigned char *key = OPENSSL_hexstr2buf(psk_key, &key_len);
+      |                                                 ^~~~~~~
+      |                                                 |
+      |                                                 int
+./benchmarks/openssl/leak_8/../openssl.h:10:41: note: in definition of macro ‘OPENSSL_hexstr2buf’
+   10 | #define OPENSSL_hexstr2buf(a, b) strdup(a)
+      |                                         ^
+./benchmarks/openssl/leak_8/openssl_leak_8.c:45:49: note: expected ‘const char *’ but argument is of type ‘int’
+   45 |         unsigned char *key = OPENSSL_hexstr2buf(psk_key, &key_len);
+      |                                                 ^~~~~~~
+./benchmarks/openssl/leak_8/../openssl.h:10:41: note: in definition of macro ‘OPENSSL_hexstr2buf’
+   10 | #define OPENSSL_hexstr2buf(a, b) strdup(a)
+      |                                         ^
+./benchmarks/openssl/leak_8/openssl_leak_8.c:51:24: warning: implicit declaration of function ‘EVP_MD_size’ [-Wimplicit-function-declaration]
+   51 |         if (key_len == EVP_MD_size(EVP_sha256()))
+      |                        ^~~~~~~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:51:36: warning: implicit declaration of function ‘EVP_sha256’; did you mean ‘LN_sha256’? [-Wimplicit-function-declaration]
+   51 |         if (key_len == EVP_MD_size(EVP_sha256()))
+      |                                    ^~~~~~~~~~
+      |                                    LN_sha256
+./benchmarks/openssl/leak_8/openssl_leak_8.c:52:22: warning: implicit declaration of function ‘SSL_CIPHER_find’ [-Wimplicit-function-declaration]
+   52 |             cipher = SSL_CIPHER_find(s, tls13_aes128gcmsha256_id);
+      |                      ^~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:52:20: warning: assignment to ‘const SSL_CIPHER *’ {aka ‘const struct ssl_cipher_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   52 |             cipher = SSL_CIPHER_find(s, tls13_aes128gcmsha256_id);
+      |                    ^
+./benchmarks/openssl/leak_8/openssl_leak_8.c:53:40: warning: implicit declaration of function ‘EVP_sha384’; did you mean ‘SN_sha384’? [-Wimplicit-function-declaration]
+   53 |         else if(key_len == EVP_MD_size(EVP_sha384()))
+      |                                        ^~~~~~~~~~
+      |                                        SN_sha384
+./benchmarks/openssl/leak_8/openssl_leak_8.c:54:20: warning: assignment to ‘const SSL_CIPHER *’ {aka ‘const struct ssl_cipher_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   54 |             cipher = SSL_CIPHER_find(s, tls13_aes256gcmsha384_id);
+      |                    ^
+./benchmarks/openssl/leak_8/openssl_leak_8.c:66:21: warning: implicit declaration of function ‘SSL_SESSION_set1_master_key’ [-Wimplicit-function-declaration]
+   66 |                 || !SSL_SESSION_set1_master_key(usesess, key, key_len)
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:67:21: warning: implicit declaration of function ‘SSL_SESSION_set_cipher’ [-Wimplicit-function-declaration]
+   67 |                 || !SSL_SESSION_set_cipher(usesess, cipher))
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:71:14: warning: implicit declaration of function ‘SSL_SESSION_get0_cipher’ [-Wimplicit-function-declaration]
+   71 |     cipher = SSL_SESSION_get0_cipher(usesess);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:71:12: warning: assignment to ‘const SSL_CIPHER *’ {aka ‘const struct ssl_cipher_st *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   71 |     cipher = SSL_SESSION_get0_cipher(usesess);
+      |            ^
+./benchmarks/openssl/leak_8/openssl_leak_8.c:75:23: warning: implicit declaration of function ‘SSL_CIPHER_get_handshake_digest’ [-Wimplicit-function-declaration]
+   75 |     if (md != NULL && SSL_CIPHER_get_handshake_digest(cipher) != md) {
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:75:63: warning: comparison between pointer and integer
+   75 |     if (md != NULL && SSL_CIPHER_get_handshake_digest(cipher) != md) {
+      |                                                               ^~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:84:18: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   84 |         *idlen = strlen(psk_identity);
+      |                  ^~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:10:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+    9 | #include "../openssl.h"
+  +++ |+#include <string.h>
+   10 | 
+./benchmarks/openssl/leak_8/openssl_leak_8.c:84:18: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+   84 |         *idlen = strlen(psk_identity);
+      |                  ^~~~~~
+./benchmarks/openssl/leak_8/openssl_leak_8.c:84:18: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)  1298k ( 38%)
+ phase parsing                      :   0.09 ( 90%)   0.01 (100%)   0.10 ( 83%)  1903k ( 56%)
+ phase opt and generate             :   0.01 ( 10%)   0.00 (  0%)   0.01 (  8%)   169k (  5%)
+ callgraph optimization             :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 10%)   0.00 (  0%)   0.01 (  8%)    51k (  2%)
+ lto stream output                  :   0.00 (  0%)   0.00 (  0%)   0.01 (  8%)     0  (  0%)
+ preprocessing                      :   0.01 ( 10%)   0.00 (  0%)   0.03 ( 25%)  1081k ( 32%)
+ lexical analysis                   :   0.01 ( 10%)   0.00 (  0%)   0.01 (  8%)     0  (  0%)
+ parser (global)                    :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)   682k ( 20%)
+ parser struct body                 :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)   102k (  3%)
+ parser function body               :   0.05 ( 50%)   0.01 (100%)   0.06 ( 50%)    27k (  1%)
+ TOTAL                              :   0.10          0.01          0.12         3381k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 98%)
+ TOTAL                              :   0.00          0.00          0.00         2206k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:SSL_CTX_set_psk_use_session_callback=========
+=======node_fun:psk_use_session_cb=========
+=======node_fun:SSL_SESSION_free=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 31 
+===============The second stage : Mapping stmt=================
+# .MEM_14 = VDEF <.MEM_13(D)>
+_1 = malloc (8);
+# .MEM_16 = VDEF <.MEM_10>
+SSL_CTX_set_psk_use_session_callback (&ctx, psk_use_session_cb);
+# .MEM_18 = VDEF <.MEM_17>
+printf ("%d\n", _5);
+# .MEM_88 = VDEF <.MEM_73(D)>
+SSL_SESSION_up_ref (_2);
+# .MEM_74 = VDEF <.MEM_73(D)>
+key_38 = strdup (_5);
+# .MEM_75 = VDEF <.MEM_74>
+_6 = EVP_sha256 ();
+# .MEM_76 = VDEF <.MEM_75>
+_7 = EVP_MD_size (_6);
+# .MEM_80 = VDEF <.MEM_76>
+_9 = SSL_CIPHER_find (s_44(D), &tls13_aes128gcmsha256_id);
+# .MEM_77 = VDEF <.MEM_76>
+_11 = EVP_sha384 ();
+# .MEM_78 = VDEF <.MEM_77>
+_12 = EVP_MD_size (_11);
+# .MEM_79 = VDEF <.MEM_78>
+_14 = SSL_CIPHER_find (s_44(D), &tls13_aes256gcmsha384_id);
+# .MEM_81 = VDEF <.MEM_66>
+usesess_50 = malloc (8);
+# .MEM_82 = VDEF <.MEM_81>
+_16 = SSL_SESSION_set1_master_key (usesess_50, key_38, key_len_41(D));
+# .MEM_83 = VDEF <.MEM_82>
+_17 = SSL_SESSION_set_cipher (usesess_50, cipher_28);
+# .MEM_89 = VDEF <.MEM_69>
+_18 = SSL_SESSION_get0_cipher (usesess_26);
+# .MEM_90 = VDEF <.MEM_89>
+_20 = SSL_CIPHER_get_handshake_digest (cipher_64);
+# .MEM_94 = VDEF <.MEM_93>
+SSL_SESSION_free (usesess_26);
+# VUSE <.MEM_96>
+_25 = strlen (_24);
+# .MEM_98 = VDEF <.MEM_71>
+SSL_SESSION_free (usesess_27);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (psksessf_9(D) != 0B)
+  goto <bb 3>; [53.47%]
+else
+  goto <bb 5>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 574129753]:
+_1 = malloc (8);
+psksess = _1;
+_2 = psksess;
+if (_2 == 0B)
+  goto <bb 4>; [18.09%]
+else
+  goto <bb 5>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 103860072]:
+// predicted unlikely by goto predictor.
+goto <bb 8>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 969881753]:
+_3 = psksess;
+if (_3 != 0B)
+  goto <bb 6>; [53.47%]
+else
+  goto <bb 7>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 518595772]:
+SSL_CTX_set_psk_use_session_callback (&ctx, psk_use_session_cb);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 969881753]:
+_4 = ctx.psk_use_session_cb;
+_4 (0B, 0B, 0B, 0B, &sess);
+_5 = sess;
+printf ("%d\n", _5);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+end:
+ctx ={v} {CLOBBER};
+sess ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:SSL_CTX_set_psk_use_session_callback=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ctx_2(D)->psk_use_session_cb = cb_3(D);
+return;
+
+=======Mapping node_fun:psk_use_session_cb=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = psksess;
+if (_1 != 0B)
+  goto <bb 3>; [70.00%]
+else
+  goto <bb 4>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 751619280]:
+_2 = psksess;
+SSL_SESSION_up_ref (_2);
+usesess_62 = psksess;
+goto <bb 15>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 322122544]:
+_3 = psk_key;
+_4 = (long int) _3;
+_5 = (const char *) _4;
+key_38 = strdup (_5);
+if (key_38 == 0B)
+  goto <bb 22>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 321993695]:
+_6 = EVP_sha256 ();
+_7 = EVP_MD_size (_6);
+_8 = (long int) _7;
+if (_8 == key_len_41(D))
+  goto <bb 6>; [34.00%]
+else
+  goto <bb 7>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 109477857]:
+_9 = SSL_CIPHER_find (s_44(D), &tls13_aes128gcmsha256_id);
+_10 = (long int) _9;
+cipher_48 = (const struct SSL_CIPHER *) _10;
+goto <bb 9>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 212515837]:
+_11 = EVP_sha384 ();
+_12 = EVP_MD_size (_11);
+_13 = (long int) _12;
+if (_13 == key_len_41(D))
+  goto <bb 8>; [33.00%]
+else
+  goto <bb 10>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 70130226]:
+_14 = SSL_CIPHER_find (s_44(D), &tls13_aes256gcmsha384_id);
+_15 = (long int) _14;
+cipher_46 = (const struct SSL_CIPHER *) _15;
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 179608083]:
+# cipher_28 = PHI <cipher_48(6), cipher_46(8)>
+if (cipher_28 == 0B)
+  goto <bb 10>; [30.95%]
+else
+  goto <bb 11>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 197974313]:
+free (key_38);
+*id_54(D) = 0B;
+*idlen_56(D) = 0;
+*sess_58(D) = 0B;
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 124019381]:
+usesess_50 = malloc (8);
+if (usesess_50 == 0B)
+  goto <bb 14>; [0.04%]
+else
+  goto <bb 12>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 123969774]:
+_16 = SSL_SESSION_set1_master_key (usesess_50, key_38, key_len_41(D));
+if (_16 == 0)
+  goto <bb 14>; [51.12%]
+else
+  goto <bb 13>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 60596425]:
+_17 = SSL_SESSION_set_cipher (usesess_50, cipher_28);
+if (_17 == 0)
+  goto <bb 14>; [34.00%]
+else
+  goto <bb 15>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 84025741]:
+// predicted unlikely by goto predictor.
+goto <bb 21>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 791612920]:
+# usesess_26 = PHI <usesess_62(3), usesess_50(13)>
+_18 = SSL_SESSION_get0_cipher (usesess_26);
+_19 = (long int) _18;
+cipher_64 = (const struct SSL_CIPHER *) _19;
+if (_18 == 0)
+  goto <bb 16>; [34.00%]
+else
+  goto <bb 17>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 269148395]:
+// predicted unlikely by goto predictor.
+goto <bb 21>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 522464524]:
+if (md_65(D) != 0B)
+  goto <bb 18>; [53.47%]
+else
+  goto <bb 20>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 279361780]:
+_20 = SSL_CIPHER_get_handshake_digest (cipher_64);
+_21 = (long int) _20;
+_22 = (const struct EVP_MD *) _21;
+if (_22 != md_65(D))
+  goto <bb 19>; [53.47%]
+else
+  goto <bb 20>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 149374744]:
+*id_54(D) = 0B;
+*idlen_56(D) = 0;
+*sess_58(D) = 0B;
+SSL_SESSION_free (usesess_26);
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 373089781]:
+*sess_58(D) = usesess_26;
+_23 = psk_identity;
+*id_54(D) = _23;
+_24 = psk_identity;
+_25 = strlen (_24);
+*idlen_56(D) = _25;
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 353174137]:
+# usesess_27 = PHI <usesess_50(14), usesess_26(16)>
+err:
+SSL_SESSION_free (usesess_27);
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 1073741824]:
+# _29 = PHI <0(4), 0(10), 1(19), 1(20), 0(21)>
+return _29;
+
+=======Mapping node_fun:SSL_SESSION_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+free (ss_2(D));
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 2 [0m
+[40;34m    all ptable point : 31 [0m
+[40;34m    analyzable ptable point : 26 [0m
+[40;34m    analyzable ptable all point stmt : 236 [0m
+[40;34m    used_stmt array stack totalsize of : 0.007064 mb[0m
+[40;34m    collect time: : 0.000203 s [0m
+[40;34m    mapping time: : 0.000739 s [0m
+[40;34m    algorithm time: 0.003254 s [0m
+[40;34m    gimple stmt count : : 80 [0m
+[40;34m    this report analysis in Mon Jun 20 14:58:11 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 85%)
+ phase opt and generate             :   0.01 (100%)   0.01 (100%)   0.02 (100%)   333k ( 13%)
+ callgraph functions expansion      :   0.01 (100%)   0.00 (  0%)   0.01 ( 50%)   255k ( 10%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    10k (  0%)
+ plugin execution                   :   0.00 (  0%)   0.01 (100%)   0.01 ( 50%)  1496  (  0%)
+ rest of compilation                :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)    10k (  0%)
+ TOTAL                              :   0.01          0.01          0.02         2538k
+/usr/bin/ld: /tmp/ccggrDSu.ltrans0.ltrans.o: in function `psk_use_session_cb':
+<artificial>:(.text+0x41): undefined reference to `SSL_SESSION_up_ref'
+/usr/bin/ld: <artificial>:(.text+0x55): undefined reference to `SSL_SESSION_get0_cipher'
+/usr/bin/ld: <artificial>:(.text+0x73): undefined reference to `SSL_CIPHER_get_handshake_digest'
+/usr/bin/ld: <artificial>:(.text+0xc8): undefined reference to `EVP_sha256'
+/usr/bin/ld: <artificial>:(.text+0xd4): undefined reference to `EVP_MD_size'
+/usr/bin/ld: <artificial>:(.text+0xe2): undefined reference to `EVP_sha384'
+/usr/bin/ld: <artificial>:(.text+0xee): undefined reference to `EVP_MD_size'
+/usr/bin/ld: <artificial>:(.text+0x12d): undefined reference to `SSL_CIPHER_find'
+/usr/bin/ld: <artificial>:(.text+0x163): undefined reference to `SSL_SESSION_set1_master_key'
+/usr/bin/ld: <artificial>:(.text+0x183): undefined reference to `SSL_CIPHER_find'
+/usr/bin/ld: <artificial>:(.text+0x19e): undefined reference to `SSL_SESSION_set_cipher'
+collect2: error: ld returned 1 exit status

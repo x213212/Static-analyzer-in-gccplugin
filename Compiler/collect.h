@@ -1484,3 +1484,27 @@ void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 	fun_array.return_type_array.push_back(ret_type);
 	function_return_collect->put(node->get_fun()->decl, fun_array);
 }
+
+void collect_function_continue(gimple *gc, cgraph_node *node, basic_block bb)
+{
+
+	// function_return_array fun_array;
+	tree get_function_return_tree;
+	get_function_return_tree = NULL_TREE;
+	// vector<return_type> ret_type_array;
+
+	// if(gimple_cond_code(gc))
+	// return ;
+	// fun_array.return_type_array = ret_type_array;
+	struct return_type ret_type;
+	ret_type.stmt = gc;
+	ret_type.locfucntion = node->get_fun()->decl;
+	ret_type.return_tree = get_function_return_tree;
+	ret_type.name = predictor_name (gimple_predict_predictor (gc));
+			// fprintf(stderr, "--------------ssssssssssssss------%s-----------------\n",predictor_name (gimple_predict_predictor (gc)));
+	// global
+	global_ret_type_array.push_back(ret_type);
+
+	// fun_array.return_type_array.push_back(ret_type);
+	// function_return_collect->put(node->get_fun()->decl, fun_array);
+}

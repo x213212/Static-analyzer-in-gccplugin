@@ -1,0 +1,757 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/leak_10/binutils_leak_10.c: In function ‘nextword’:
+./benchmarks/binutils/leak_10/binutils_leak_10.c:87:10: warning: implicit declaration of function ‘isspace’ [-Wimplicit-function-declaration]
+   87 |   while (isspace ((unsigned char) *string) || *string == '-')
+      |          ^~~~~~~
+./benchmarks/binutils/leak_10/binutils_leak_10.c:7:1: note: include ‘<ctype.h>’ or provide a declaration of ‘isspace’
+    6 | #include "../include/common.h"
+  +++ |+#include <ctype.h>
+    7 | 
+./benchmarks/binutils/leak_10/binutils_leak_10.c: In function ‘compile’:
+./benchmarks/binutils/leak_10/binutils_leak_10.c:174:11: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  174 |       if (strcmp (word, "var") == 0)
+      |           ^~~~~~
+./benchmarks/binutils/leak_10/binutils_leak_10.c:7:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+    6 | #include "../include/common.h"
+  +++ |+#include <string.h>
+    7 | 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1298k ( 49%)
+ phase parsing                      :   0.02 ( 67%)   0.01 ( 50%)   0.03 ( 50%)  1032k ( 39%)
+ phase opt and generate             :   0.01 ( 33%)   0.01 ( 50%)   0.02 ( 33%)   302k ( 11%)
+ callgraph optimization             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.02 ( 33%)   165k (  6%)
+ ipa lto gimple out                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  2688  (  0%)
+ ipa free lang data                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  9184  (  0%)
+ preprocessing                      :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   289k ( 11%)
+ lexical analysis                   :   0.01 ( 33%)   0.01 ( 50%)   0.01 ( 17%)     0  (  0%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    39k (  1%)
+ plugin execution                   :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)     0  (  0%)
+ TOTAL                              :   0.03          0.02          0.06         2643k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.01 (100%)   0.00 (  0%)   0.01 (100%)  2157k ( 96%)
+ TOTAL                              :   0.01          0.00          0.01         2236k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:compile=========
+=======node_fun:nextword=========
+=======node_fun:add_to_definition=========
+=======node_fun:add_var=========
+=======node_fun:newentry=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 38 
+===============The second stage : Mapping stmt=================
+# .MEM_13 = VDEF <.MEM_12(D)>
+compile ("var second : stored_in_dict 5 ; : next");
+# .MEM_14 = VDEF <.MEM_11>
+__builtin_puts (_1);
+# .MEM_69 = VDEF <.MEM_68(D)>
+string_36 = nextword (string_34(D), &word);
+# .MEM_70 = VDEF <.MEM_67>
+printf ("string: %s\n", string_28);
+# VUSE <.MEM_70>
+_2 = strcmp (_1, "var");
+# .MEM_84 = VDEF <.MEM_70>
+string_57 = nextword (string_28, &word);
+# .MEM_85 = VDEF <.MEM_84>
+add_var (_3);
+# .MEM_86 = VDEF <.MEM_85>
+string_60 = nextword (string_57, &word);
+ <var_decl 0x7f9f08974120 word
+    type <pointer_type 0x7f9f0895ae70
+        type <integer_type 0x7f9f0895adc8 char public QI
+            size <integer_cst 0x7f9f08e56ca8 constant 8>
+            unit-size <integer_cst 0x7f9f08e56cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f9f08e6b3f0 precision:8 min <integer_cst 0x7f9f08951720 -128> max <integer_cst 0x7f9f08951708 127>
+            pointer_to_this <pointer_type 0x7f9f0895ae70>>
+        public unsigned DI
+        size <integer_cst 0x7f9f08e56bb8 constant 64>
+        unit-size <integer_cst 0x7f9f08e56bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7f9f08e61168 ./benchmarks/binutils/leak_10/binutils_leak_10.c>
+        pointer_to_this <pointer_type 0x7f9f08963c78>>
+    addressable unsigned DI ./benchmarks/binutils/leak_10/binutils_leak_10.c:168:9 size <integer_cst 0x7f9f08e56bb8 64> unit-size <integer_cst 0x7f9f08e56bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f9f0895be00 compile>>
+# .MEM_73 = VDEF <.MEM_72>
+string_41 = nextword (string_28, &word);
+# .MEM_74 = VDEF <.MEM_73>
+ptr_43 = newentry (_7);
+# .MEM_75 = VDEF <.MEM_74>
+string_45 = nextword (string_41, &word);
+# .MEM_78 = VDEF <.MEM_64>
+add_to_definition (ptr_43, _13);
+# .MEM_76 = VDEF <.MEM_64>
+printf ("%d\n", _14);
+ <var_decl 0x7f9f08974120 word
+    type <pointer_type 0x7f9f0895ae70
+        type <integer_type 0x7f9f0895adc8 char public QI
+            size <integer_cst 0x7f9f08e56ca8 constant 8>
+            unit-size <integer_cst 0x7f9f08e56cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f9f08e6b3f0 precision:8 min <integer_cst 0x7f9f08951720 -128> max <integer_cst 0x7f9f08951708 127>
+            pointer_to_this <pointer_type 0x7f9f0895ae70>>
+        public unsigned DI
+        size <integer_cst 0x7f9f08e56bb8 constant 64>
+        unit-size <integer_cst 0x7f9f08e56bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7f9f08e61168 ./benchmarks/binutils/leak_10/binutils_leak_10.c>
+        pointer_to_this <pointer_type 0x7f9f08963c78>>
+    addressable unsigned DI ./benchmarks/binutils/leak_10/binutils_leak_10.c:168:9 size <integer_cst 0x7f9f08e56bb8 64> unit-size <integer_cst 0x7f9f08e56bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f9f0895be00 compile>>
+# .MEM_79 = VDEF <.MEM_64>
+printf ("%d\n", _16);
+ <var_decl 0x7f9f08974120 word
+    type <pointer_type 0x7f9f0895ae70
+        type <integer_type 0x7f9f0895adc8 char public QI
+            size <integer_cst 0x7f9f08e56ca8 constant 8>
+            unit-size <integer_cst 0x7f9f08e56cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f9f08e6b3f0 precision:8 min <integer_cst 0x7f9f08951720 -128> max <integer_cst 0x7f9f08951708 127>
+            pointer_to_this <pointer_type 0x7f9f0895ae70>>
+        public unsigned DI
+        size <integer_cst 0x7f9f08e56bb8 constant 64>
+        unit-size <integer_cst 0x7f9f08e56bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality context <translation_unit_decl 0x7f9f08e61168 ./benchmarks/binutils/leak_10/binutils_leak_10.c>
+        pointer_to_this <pointer_type 0x7f9f08963c78>>
+    addressable unsigned DI ./benchmarks/binutils/leak_10/binutils_leak_10.c:168:9 size <integer_cst 0x7f9f08e56bb8 64> unit-size <integer_cst 0x7f9f08e56bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f9f0895be00 compile>>
+# .MEM_81 = VDEF <.MEM_63>
+string_52 = nextword (string_26, &word);
+# .MEM_82 = VDEF <.MEM_65>
+printf ("%d\n", _20);
+# .MEM_83 = VDEF <.MEM_82>
+string_55 = nextword (string_27, &word);
+# .MEM_71 = VDEF <.MEM_70>
+fprintf (_22, "syntax error at %s\n", _21);
+# VUSE <.MEM_88(D)>
+_8 = isspace (_7);
+# VUSE <.MEM_88(D)>
+_17 = isspace (_16);
+# .MEM_89 = VDEF <.MEM_88(D)>
+_20 = malloc (_19);
+# .MEM_6 = VDEF <.MEM_5(D)>
+new_d_4 = newentry (name_2(D));
+# .MEM_8 = VDEF <.MEM_7(D)>
+new_d_5 = malloc (40);
+# .MEM_12 = VDEF <.MEM_11>
+_2 = malloc (8);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+compile ("var second : stored_in_dict 5 ; : next");
+dict_7 = root;
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = dict_3->word;
+__builtin_puts (_1);
+_2 = dict_3->word;
+free (_2);
+dict_10 = dict_3->next;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# dict_3 = PHI <dict_7(2), dict_10(3)>
+if (dict_3 != 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+return 0;
+
+=======Mapping node_fun:compile=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 113634466]:
+string_36 = nextword (string_34(D), &word);
+goto <bb 16>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 960107351]:
+printf ("string: %s\n", string_28);
+_1 = word;
+_2 = strcmp (_1, "var");
+if (_2 == 0)
+  goto <bb 4>; [33.00%]
+else
+  goto <bb 5>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 316835424]:
+string_57 = nextword (string_28, &word);
+_3 = word;
+add_var (_3);
+string_60 = nextword (string_57, &word);
+goto <bb 15>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 643271927]:
+_4 = word;
+_5 = *_4;
+if (_5 == 58)
+  goto <bb 6>; [16.00%]
+else
+  goto <bb 14>; [84.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 102923506]:
+_6 = word;
+free (_6);
+string_41 = nextword (string_28, &word);
+_7 = word;
+ptr_43 = newentry (_7);
+string_45 = nextword (string_41, &word);
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 909209812]:
+_8 = word;
+_9 = *_8;
+_10 = (int) _9;
+switch (_9) <default: <L2> [33.33%], case 34: <L0> [33.33%], case 48 ... 57: <L1> [33.33%]>
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 303069939]:
+<L0>:
+_11 = word;
+_12 = _11 + 1;
+_13 = (void (*<T638>) ()) _12;
+add_to_definition (ptr_43, _13);
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 303069939]:
+<L1>:
+_14 = MEM[(int *)ptr_43];
+printf ("%d\n", _14);
+_15 = word;
+free (_15);
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 303069939]:
+<L2>:
+_16 = MEM[(int *)ptr_43];
+printf ("%d\n", _16);
+_17 = word;
+free (_17);
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 909209819]:
+string_52 = nextword (string_26, &word);
+if (string_52 == 0B)
+  goto <bb 13>; [5.50%]
+else
+  goto <bb 12>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 962126785]:
+# string_26 = PHI <string_45(6), string_52(11)>
+_18 = word;
+_19 = *_18;
+if (_19 != 59)
+  goto <bb 7>; [94.50%]
+else
+  goto <bb 13>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 102923513]:
+# string_27 = PHI <string_52(11), string_26(12)>
+_20 = MEM[(int *)ptr_43];
+printf ("%d\n", _20);
+string_55 = nextword (string_27, &word);
+goto <bb 15>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 540348421]:
+_21 = string_28 + 18446744073709551615;
+_22 = stderr;
+fprintf (_22, "syntax error at %s\n", _21);
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 960107358]:
+# string_62 = PHI <string_60(4), string_55(13), string_28(14)>
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 1073741824]:
+# string_28 = PHI <string_36(2), string_62(15)>
+if (string_28 != 0B)
+  goto <bb 17>; [96.34%]
+else
+  goto <bb 19>; [3.66%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 1034442874]:
+_23 = *string_28;
+if (_23 != 0)
+  goto <bb 18>; [96.34%]
+else
+  goto <bb 19>; [3.66%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 996582263]:
+_24 = word;
+_25 = *_24;
+if (_25 != 0)
+  goto <bb 3>; [96.34%]
+else
+  goto <bb 19>; [3.66%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 113634474]:
+word ={v} {CLOBBER};
+return;
+
+=======Mapping node_fun:nextword=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 46837323]:
+if (string_55(D) == 0B)
+  goto <bb 28>; [8.27%]
+else
+  goto <bb 8>; [91.73%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 738197517]:
+_1 = *string_38;
+if (_1 == 45)
+  goto <bb 5>; [16.00%]
+else
+  goto <bb 6>; [84.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 955630224]:
+string_84 = string_37 + 1;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# string_37 = PHI <string_38(3), string_84(4)>
+_83 = *string_37;
+_2 = _83 != 0;
+_3 = _83 != 10;
+_4 = _2 & _3;
+if (_4 != 0)
+  goto <bb 4>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 620085917]:
+string_82 = string_38 + 1;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 738197517]:
+# string_57 = PHI <string_37(5), string_82(6)>
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 781161393]:
+# string_38 = PHI <string_55(D)(2), string_57(7)>
+_5 = *string_38;
+_6 = (unsigned char) _5;
+_7 = (int) _6;
+_8 = isspace (_7);
+if (_8 != 0)
+  goto <bb 3>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 390580696]:
+_9 = *string_38;
+if (_9 == 45)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 10>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 42963876]:
+_10 = *string_38;
+if (_10 == 0)
+  goto <bb 28>; [17.38%]
+else
+  goto <bb 11>; [82.62%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 35496755]:
+_11 = *string_38;
+if (_11 == 34)
+  goto <bb 12>; [34.00%]
+else
+  goto <bb 16>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 109717244]:
+# string_39 = PHI <string_38(11), string_40(14)>
+# length_47 = PHI <0(11), length_48(14)>
+string_60 = string_39 + 1;
+length_61 = length_47 + 1;
+_12 = MEM[(char *)string_39 + 1B];
+if (_12 == 92)
+  goto <bb 13>; [34.00%]
+else
+  goto <bb 14>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 37303863]:
+string_62 = &MEM <char> [(void *)string_39 + 3B];
+length_63 = length_47 + 3;
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 109717244]:
+# string_40 = PHI <string_60(12), string_62(13)>
+# length_48 = PHI <length_61(12), length_63(13)>
+_13 = *string_40;
+if (_13 != 34)
+  goto <bb 12>; [89.00%]
+else
+  goto <bb 17>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 189552670]:
+string_58 = string_41 + 1;
+length_59 = length_49 + 1;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 212980528]:
+# string_41 = PHI <string_38(11), string_58(15)>
+# length_49 = PHI <0(11), length_59(15)>
+_14 = *string_41;
+_15 = (unsigned char) _14;
+_16 = (int) _15;
+_17 = isspace (_16);
+if (_17 == 0)
+  goto <bb 15>; [89.00%]
+else
+  goto <bb 17>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 35496755]:
+# string_42 = PHI <string_40(14), string_41(16)>
+# length_50 = PHI <length_48(14), length_49(16)>
+_18 = length_50 + 1;
+_19 = (long unsigned int) _18;
+_20 = malloc (_19);
+*word_65(D) = _20;
+dst_67 = *word_65(D);
+goto <bb 25>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 287201027]:
+_21 = (sizetype) idx_44;
+_22 = string_38 + _21;
+_23 = *_22;
+if (_23 == 92)
+  goto <bb 19>; [34.00%]
+else
+  goto <bb 23>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 97648350]:
+_24 = (sizetype) idx_44;
+_25 = _24 + 1;
+_26 = string_38 + _25;
+_27 = *_26;
+_28 = (int) _27;
+switch (_27) <default: <L2> [33.33%], case 34: <L1> [33.33%], case 92: <L1> [33.33%], case 110: <L0> [33.33%]>
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 32549450]:
+<L0>:
+dst_73 = dst_46 + 1;
+*dst_46 = 10;
+idx_75 = idx_44 + 1;
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 32549450]:
+<L1>:
+_29 = (sizetype) idx_44;
+_30 = _29 + 1;
+_31 = string_38 + _30;
+dst_76 = dst_46 + 1;
+_32 = *_31;
+*dst_46 = _32;
+idx_78 = idx_44 + 1;
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 32549450]:
+<L2>:
+dst_79 = dst_46 + 1;
+*dst_46 = 92;
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 189552677]:
+_33 = (sizetype) idx_44;
+_34 = string_38 + _33;
+dst_71 = dst_46 + 1;
+_35 = *_34;
+*dst_46 = _35;
+
+=======is loop:1=========
+
+ bb index 24 
+<bb 24> [local count: 287201028]:
+# idx_43 = PHI <idx_75(20), idx_78(21), idx_44(22), idx_44(23)>
+# dst_45 = PHI <dst_73(20), dst_76(21), dst_79(22), dst_71(23)>
+idx_81 = idx_43 + 1;
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [local count: 322697783]:
+# idx_44 = PHI <0(17), idx_81(24)>
+# dst_46 = PHI <dst_67(17), dst_45(24)>
+if (idx_44 < length_50)
+  goto <bb 18>; [89.00%]
+else
+  goto <bb 26>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [local count: 35496756]:
+dst_68 = dst_46 + 1;
+*dst_46 = 0;
+_36 = *string_42;
+if (_36 != 0)
+  goto <bb 27>; [71.00%]
+else
+  goto <bb 28>; [29.00%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 25202697]:
+_70 = string_42 + 1;
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 46837324]:
+# _51 = PHI <0B(2), 0B(10), 0B(26), _70(27)>
+return _51;
+
+=======Mapping node_fun:add_to_definition=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = entry_19(D)->code_end;
+_2 = entry_19(D)->code_length;
+if (_1 == _2)
+  goto <bb 3>; [20.24%]
+else
+  goto <bb 4>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 217325344]:
+_3 = entry_19(D)->code_length;
+_4 = _3 + 2;
+entry_19(D)->code_length = _4;
+_5 = entry_19(D)->code_length;
+_6 = (long unsigned int) _5;
+_7 = _6 * 8;
+_8 = entry_19(D)->code;
+_9 = realloc (_8, _7);
+entry_19(D)->code = _9;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_10 = entry_19(D)->code;
+_11 = entry_19(D)->code_end;
+_12 = (long unsigned int) _11;
+_13 = _12 * 8;
+_14 = _10 + _13;
+*_14 = word_23(D);
+_15 = entry_19(D)->code_end;
+_16 = _15 + 1;
+entry_19(D)->code_end = _16;
+_26 = (unsigned int) _15;
+return _26;
+
+=======Mapping node_fun:add_var=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+new_d_4 = newentry (name_2(D));
+return;
+
+=======Mapping node_fun:newentry=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+new_d_5 = malloc (40);
+new_d_5->word = word_6(D);
+_1 = root;
+new_d_5->next = _1;
+root = new_d_5;
+_2 = malloc (8);
+new_d_5->code = _2;
+new_d_5->code_length = 1;
+new_d_5->code_end = 0;
+return new_d_5;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 4 [0m
+[40;34m    all ptable point : 38 [0m
+[40;34m    analyzable ptable point : 34 [0m
+[40;34m    analyzable ptable all point stmt : 412 [0m
+[40;34m    used_stmt array stack totalsize of : 0.010856 mb[0m
+[40;34m    collect time: : 0.000327 s [0m
+[40;34m    mapping time: : 0.002964 s [0m
+[40;34m    algorithm time: 0.010029 s [0m
+[40;34m    gimple stmt count : : 179 [0m
+[40;34m    this report analysis in Mon Jun 20 14:57:50 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 74%)
+ phase opt and generate             :   0.04 (100%)   0.02 (100%)   0.06 (100%)   697k ( 24%)
+ callgraph functions expansion      :   0.04 (100%)   0.00 (  0%)   0.04 ( 67%)   559k ( 19%)
+ ipa inlining heuristics            :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ tree SSA incremental               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  8024  (  0%)
+ dominator optimization             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)    26k (  1%)
+ tree copy headers                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  5744  (  0%)
+ dominance computation              :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ LRA non-specific                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  2064  (  0%)
+ shorten branches                   :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ final                              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    25k (  1%)
+ plugin execution                   :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)  2576  (  0%)
+ rest of compilation                :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    18k (  1%)
+ TOTAL                              :   0.04          0.02          0.06         2909k

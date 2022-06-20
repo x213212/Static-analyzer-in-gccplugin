@@ -1,0 +1,162 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/openssl/leak_9/openssl_leak_9.c: In function ‘OSSL_STORE_LOADER_new’:
+./benchmarks/openssl/leak_9/openssl_leak_9.c:128:9: warning: implicit declaration of function ‘OSSL_STOREerr’ [-Wimplicit-function-declaration]
+  128 |         OSSL_STOREerr(OSSL_STORE_F_OSSL_STORE_LOADER_NEW, ERR_R_MALLOC_FAILURE);
+      |         ^~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1298k ( 40%)
+ phase parsing                      :   0.03 (100%)   0.02 (100%)   0.05 ( 83%)  1905k ( 59%)
+ preprocessing                      :   0.01 ( 33%)   0.00 (  0%)   0.02 ( 33%)  1089k ( 34%)
+ parser (global)                    :   0.01 ( 33%)   0.01 ( 50%)   0.01 ( 17%)   695k ( 21%)
+ parser struct body                 :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 17%)   102k (  3%)
+ parser function body               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)  9216  (  0%)
+ TOTAL                              :   0.03          0.02          0.06         3249k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 98%)
+ phase stream out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ whopr wpa I/O                      :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ TOTAL                              :   0.00          0.00          0.01         2194k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:OSSL_STORE_LOADER_new=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 5 
+===============The second stage : Mapping stmt=================
+# .MEM_6 = VDEF <.MEM_5(D)>
+new_4 = OSSL_STORE_LOADER_new (&e, "scheme");
+# .MEM_7 = VDEF <.MEM_6>
+printf ("%s", _1);
+# .MEM_10 = VDEF <.MEM_9(D)>
+res_5 = malloc (64);
+# .MEM_14 = VDEF <.MEM_10>
+OSSL_STOREerr (113, 65);
+# .MEM_13 = VDEF <.MEM_10>
+OSSL_STOREerr (113, 106);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+new_4 = OSSL_STORE_LOADER_new (&e, "scheme");
+_1 = new_4->scheme;
+printf ("%s", _1);
+free (new_4);
+e ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:OSSL_STORE_LOADER_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+res_5 = malloc (64);
+if (res_5 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+OSSL_STOREerr (113, 65);
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+if (scheme_6(D) == 0B)
+  goto <bb 5>; [4.25%]
+else
+  goto <bb 6>; [95.75%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 45615770]:
+OSSL_STOREerr (113, 106);
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1027696559]:
+res_5->engine = e_7(D);
+res_5->scheme = scheme_6(D);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# _1 = PHI <0B(3), 0B(5), res_5(6)>
+return _1;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 1 [0m
+[40;34m    gimple free   count : 1 [0m
+[40;34m    all ptable point : 5 [0m
+[40;34m    analyzable ptable point : 4 [0m
+[40;34m    analyzable ptable all point stmt : 7 [0m
+[40;34m    used_stmt array stack totalsize of : 0.000264 mb[0m
+[40;34m    collect time: : 0.000082 s [0m
+[40;34m    mapping time: : 0.000239 s [0m
+[40;34m    algorithm time: 0.000433 s [0m
+[40;34m    gimple stmt count : : 14 [0m
+[40;34m    this report analysis in Mon Jun 20 14:58:11 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 92%)
+ phase opt and generate             :   0.01 (100%)   0.00 (  0%)   0.02 (100%)   141k (  6%)
+ callgraph functions expansion      :   0.01 (100%)   0.00 (  0%)   0.01 ( 50%)   108k (  5%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)    27k (  1%)
+ initialize rtl                     :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)    12k (  1%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 50%)  4864  (  0%)
+ TOTAL                              :   0.01          0.00          0.02         2334k
+/usr/bin/ld: /tmp/ccn2vrHS.ltrans0.ltrans.o: in function `OSSL_STORE_LOADER_new':
+<artificial>:(.text+0x40): undefined reference to `OSSL_STOREerr'
+/usr/bin/ld: <artificial>:(.text+0x56): undefined reference to `OSSL_STOREerr'
+collect2: error: ld returned 1 exit status

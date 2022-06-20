@@ -1,0 +1,145 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/leak_6/git_leak_6.c:10:
+./benchmarks/git/leak_6/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_6/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_6/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_6/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_6/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_6/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_6/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_6/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_6/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_6/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_6/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_6/git_leak_6.c:9:
+./benchmarks/git/leak_6/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_6/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_6/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_6/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_6/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_6/git_leak_6.c:10:
+./benchmarks/git/leak_6/../git.h: At top level:
+./benchmarks/git/leak_6/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_6/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_6/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_6/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_6/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_6/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_6/git_leak_6.c: In function ‘commit_list_insert_by_date’:
+./benchmarks/git/leak_6/git_leak_6.c:22:16: warning: implicit declaration of function ‘commit_list_insert’; did you mean ‘commit_list_insert_by_date’? [-Wimplicit-function-declaration]
+   22 |         return commit_list_insert(item, pp);
+      |                ^~~~~~~~~~~~~~~~~~
+      |                commit_list_insert_by_date
+./benchmarks/git/leak_6/git_leak_6.c:22:16: warning: returning ‘int’ from a function with return type ‘struct commit_list *’ makes pointer from integer without a cast [-Wint-conversion]
+   22 |         return commit_list_insert(item, pp);
+      |                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c: In function ‘merge_bases_many’:
+./benchmarks/git/leak_6/git_leak_6.c:37:32: warning: returning ‘int’ from a function with return type ‘struct commit_list *’ makes pointer from integer without a cast [-Wint-conversion]
+   37 |                         return commit_list_insert(one, &result);
+      |                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:40:13: warning: implicit declaration of function ‘parse_commit’ [-Wimplicit-function-declaration]
+   40 |         if (parse_commit(one))
+      |             ^~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:47:16: warning: implicit declaration of function ‘paint_down_to_common’ [-Wimplicit-function-declaration]
+   47 |         list = paint_down_to_common(one, n, twos);
+      |                ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:47:14: warning: assignment to ‘struct commit_list *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   47 |         list = paint_down_to_common(one, n, twos);
+      |              ^
+./benchmarks/git/leak_6/git_leak_6.c:50:41: warning: implicit declaration of function ‘pop_commit’ [-Wimplicit-function-declaration]
+   50 |                 struct commit *commit = pop_commit(&list);
+      |                                         ^~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:50:41: warning: initialization of ‘struct commit *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/git/leak_6/git_leak_6.c: At top level:
+./benchmarks/git/leak_6/git_leak_6.c:57:21: error: conflicting types for ‘commit_list_insert’; have ‘struct commit_list *(struct commit *, struct commit_list **)’
+   57 | struct commit_list *commit_list_insert(struct commit *item, struct commit_list **list_p)
+      |                     ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:22:16: note: previous implicit declaration of ‘commit_list_insert’ with type ‘int()’
+   22 |         return commit_list_insert(item, pp);
+      |                ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c: In function ‘get_merge_bases_many_0’:
+./benchmarks/git/leak_6/git_leak_6.c:83:25: warning: implicit declaration of function ‘clear_commit_marks’ [-Wimplicit-function-declaration]
+   83 |                         clear_commit_marks(one, all_flags);
+      |                         ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:84:25: warning: implicit declaration of function ‘clear_commit_marks_many’ [-Wimplicit-function-declaration]
+   84 |                         clear_commit_marks_many(n, twos, all_flags);
+      |                         ^~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:90:15: warning: implicit declaration of function ‘commit_list_count’; did you mean ‘commit_list_insert’? [-Wimplicit-function-declaration]
+   90 |         cnt = commit_list_count(result);
+      |               ^~~~~~~~~~~~~~~~~
+      |               commit_list_insert
+./benchmarks/git/leak_6/git_leak_6.c:94:9: warning: implicit declaration of function ‘free_commit_list’ [-Wimplicit-function-declaration]
+   94 |         free_commit_list(result);
+      |         ^~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:99:15: warning: implicit declaration of function ‘remove_redundant’ [-Wimplicit-function-declaration]
+   99 |         cnt = remove_redundant(rslt, cnt);
+      |               ^~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c: In function ‘show_merge_base’:
+./benchmarks/git/leak_6/git_leak_6.c:124:32: warning: implicit declaration of function ‘oid_to_hex’ [-Wimplicit-function-declaration]
+  124 |                 printf("%s\n", oid_to_hex(&result->item->object.oid));
+      |                                ^~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c: In function ‘handle_independent’:
+./benchmarks/git/leak_6/git_leak_6.c:140:36: warning: implicit declaration of function ‘get_commit_reference’ [-Wimplicit-function-declaration]
+  140 |                 commit_list_insert(get_commit_reference(args[i]), &revs);
+      |                                    ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:140:36: warning: passing argument 1 of ‘commit_list_insert’ makes pointer from integer without a cast [-Wint-conversion]
+  140 |                 commit_list_insert(get_commit_reference(args[i]), &revs);
+      |                                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                    |
+      |                                    int
+./benchmarks/git/leak_6/git_leak_6.c:57:55: note: expected ‘struct commit *’ but argument is of type ‘int’
+   57 | struct commit_list *commit_list_insert(struct commit *item, struct commit_list **list_p)
+      |                                        ~~~~~~~~~~~~~~~^~~~
+./benchmarks/git/leak_6/git_leak_6.c:142:18: warning: implicit declaration of function ‘reduce_heads’ [-Wimplicit-function-declaration]
+  142 |         result = reduce_heads(revs);
+      |                  ^~~~~~~~~~~~
+./benchmarks/git/leak_6/git_leak_6.c:142:16: warning: assignment to ‘struct commit_list *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  142 |         result = reduce_heads(revs);
+      |                ^
+./benchmarks/git/leak_6/git_leak_6.c: In function ‘main’:
+./benchmarks/git/leak_6/git_leak_6.c:159:30: warning: passing argument 2 of ‘handle_independent’ from incompatible pointer type [-Wincompatible-pointer-types]
+  159 |     handle_independent(argc, argv);
+      |                              ^~~~
+      |                              |
+      |                              char **
+./benchmarks/git/leak_6/git_leak_6.c:133:55: note: expected ‘const char **’ but argument is of type ‘char **’
+  133 | static int handle_independent(int count, const char **args)
+      |                                          ~~~~~~~~~~~~~^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1298k ( 52%)
+ phase parsing                      :   0.05 (100%)   0.00 (  0%)   0.04 ( 80%)  1082k ( 43%)
+ preprocessing                      :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   320k ( 13%)
+ parser (global)                    :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 20%)   571k ( 23%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    73k (  3%)
+ parser function body               :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 20%)    86k (  3%)
+ parser inl. func. body             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    23k (  1%)
+ TOTAL                              :   0.05          0.00          0.05         2498k
