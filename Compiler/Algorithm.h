@@ -151,7 +151,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	// count_now collect breakpoint
 	int Entrypoint = 0;
 	clock_gettime(CLOCK_MONOTONIC, &aend);
-	temp = diff(astart2, aend);
+	temp = diff(Globaltime, aend);
 	time_used3 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 	fprintf(stderr, "start PointerConstraint\n");
 
@@ -311,10 +311,10 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		fprintf(stderr, "\n=============== The third stage : detection  End=================\n");
 		// sleep(5); //5s check time
 		clock_gettime(CLOCK_MONOTONIC, &aend);
-		temp = diff(astart2, aend);
+		temp = diff(Globaltime, aend);
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 
-		printfBasicblock();
+		// printfBasicblock();
 	}
 	else
 		fprintf(stderr, "\033[40;41m GIMPLE STMT NO FREE STMT\033[0m\n");
@@ -443,7 +443,7 @@ void detect(struct plugin_argument *argv, int argc)
 	getrusage(RUSAGE_SELF, &ru);
 	utime = ru.ru_utime;
 	stime = ru.ru_stime;
-	clock_gettime(CLOCK_MONOTONIC, &astart2);
+	clock_gettime(CLOCK_MONOTONIC, &Globaltime);
 
 	fprintf(stderr, "=============== The first stage : Point of interest stmt collect =================\n");
 	FOR_EACH_DEFINED_FUNCTION(node)

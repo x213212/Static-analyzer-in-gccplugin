@@ -1,346 +1,448 @@
 /*
-	buggy parent: 9d2cdc8
-	commit id : aba19b625f34fb3d61263fe8044cf0c6d8804570
+	buggy parent : 48291f0
+	commit id : 51ac2a3202d55c439976ecce49229e35865c7ebd
 */
 
-#include "./include/common.h"
-#include "./include/binutils.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
 
-#define INT_MAX       (int)(((unsigned int) ~0) >> 1)          /* 0x7FFFFFFF */ 
-#define ISASCII(c) 1
-#define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
-#define ISDIGIT(c) (ISASCII (c) && isdigit (c))
+#include "./stdio.h"
+#include "./tmux.h"
 
-typedef struct string		/* Beware: these aren't required to be */
-{				/*  '\0' terminated.  */
-  char *b;			/* pointer to start of string */
-  char *p;			/* pointer after last character */
-  char *e;			/* pointer after end of allocated space */
-} string;
+#define SIZE_MAX (1 << 30)
 
-static void
-string_init (string *s)
+/* Key/command line command. */
+struct cmd_ctx {
+	/*
+	 * curclient is the client where this command was executed if inside
+	 * tmux. This is NULL if the command came from the command-line.
+	 *
+	 * cmdclient is the client which sent the MSG_COMMAND to the server, if
+	 * any. This is NULL unless the command came from the command-line.
+	 *
+	 * cmdclient and curclient may both be NULL if the command is in the
+	 * configuration file.
+	 */
+	struct client  *curclient;
+	struct client  *cmdclient;
+
+	struct msg_command_data	*msgdata;
+
+	void (*print)(struct cmd_ctx *, const char *, ...);
+	void (*info)(struct cmd_ctx *, const char *, ...);
+	void (*error)(struct cmd_ctx *, const char *, ...);
+};
+
+#define CMD_RETURN_YIELD CMD_RETURN_WAIT
+#define CMD_RETURN_ATTACH CMD_RETURN_STOP
+
+ARRAY_DECL(causelist, char *);
+
+char			*cfg_cause;
+int			 cfg_finished;
+int	 		 cfg_references;
+struct causelist	 cfg_causes;
+
+void *
+xrealloc(void *oldptr, size_t nmemb, size_t size)
 {
-  s->b = s->p = s->e = NULL;
+	size_t	 newsize = nmemb * size;
+	void	*newptr;
+
+	if (newsize == 0)
+		fatalx("zero size%s", "");
+	if (1 << 30/ nmemb < size)
+		fatalx("nmemb * size > SIZE_MAX%s", "");
+	if ((newptr = realloc(oldptr, newsize)) == NULL)
+		fatal("xrealloc failed%s", "");
+
+	return (newptr);
 }
 
-static void
-string_append (string *p, const char *s)
+int
+cmd_string_getc(const char *s, size_t *p)
 {
-	/* We don't care about p in the modeled program
-	*/
-	__USE(s);
-} 
+	const u_char	*ucs = s;
 
-char *
-ada_demangle (const char *mangled)
-{
-	int len0;
-	const char *p;
-	char *d;
-	char *demangled;
-
-	/* Discard leading _ada, which is used for library level subprograms */
-	if (strncmp (mangled, "_ada_", 5) == 0)
-		mangled += 5;
-
-	/* All ada unit names are lower-case */
-	if (!ISLOWER (mangled[0]))
-		goto unknown;
-
-
-	len0 = strlen (mangled) + 7 + 1;
-	demangled = XNEWVEC (char, len0); // allocation site
-
-	d = demangled;
-	p = mangled;
-
-	while (1)
-		{
-			/* An entity name is expected */
-			if (!ISLOWER (*p))
-				{
-					do
-						/* An identifer, which is always lower case */
-						*d++ = *p++;
-					while (ISLOWER (*p) || ISDIGIT (*p)
-							|| (p[0] == '_' && (ISLOWER (p[1]) || ISDIGIT (p[1]))));
-				}
-
-			else if (p[0] == 'O')
-				{
-					/* An operator name.  */
-          static const char * const operators[][2] =
-            {{"Oabs", "abs"},  {"Oand", "and"},    {"Omod", "mod"},
-             {"Onot", "not"},  {"Oor", "or"},      {"Orem", "rem"},
-             {"Oxor", "xor"},  {"Oeq", "="},       {"One", "/="},
-             {"Olt", "<"},     {"Ole", "<="},      {"Ogt", ">"},
-             {"Oge", ">="},    {"Oadd", "+"},      {"Osubtract", "-"},
-             {"Oconcat", "&"}, {"Omultiply", "*"}, {"Odivide", "/"},
-             {"Oexpon", "**"}, {NULL, NULL}};
-          int k;
-
-					for (k = 0; operators[k][0] != NULL; k++)
-            {
-              size_t slen = strlen (operators[k][0]);
-              if (strncmp (p, operators[k][0], slen) == 0)
-                {
-                  p += slen;
-                  slen = strlen (operators[k][1]);
-                  *d++ = '"';
-                  memcpy (d, operators[k][1], slen);
-                  d += slen;
-                  *d++ = '"';
-                  break;
-                }
-            }
-          /* Operator not found.  */
-          if (operators[k][0] == NULL)
-            goto unknown;
-        }
-
-      else
-        {
-          /* Not a GNAT encoding.  */
-          goto unknown;
-        }
-	
-      /* The name can be directly followed by some uppercase letters.  */
-      if (p[0] == 'T' && p[1] == 'K')
-        {
-          /* Task stuff.  */
-          if (p[2] == 'B' && p[3] == 0)
-            {
-              /* Subprogram for task body.  */
-              break;
-            }
-          else if (p[2] == '_' && p[3] == '_')
-            {
-              /* Inner declarations in a task.  */
-              p += 4;
-              *d++ = '.';
-              continue;
-            }
-          else
-            goto unknown;
-        }
-      if (p[0] == 'E' && p[1] == 0)
-        {
-          /* Exception name.  */
-          goto unknown;
-        }
-      if ((p[0] == 'P' || p[0] == 'N') && p[1] == 0)
-        {
-          /* Protected type subprogram.  */
-          break;
-        }
-      if ((*p == 'N' || *p == 'S') && p[1] == 0)
-        {
-          /* Enumerated type name table.  */
-          goto unknown;
-        }
-      if (p[0] == 'X')
-        {
-          /* Body nested.  */
-          p++;
-          while (p[0] == 'n' || p[0] == 'b')
-            p++;
-        }
-      if (p[0] == 'S' && p[1] != 0 && (p[2] == '_' || p[2] == 0))
-        {
-          /* Stream operations.  */
-          const char *name;
-          switch (p[1])
-            {
-            case 'R':
-              name = "'Read";
-              break;
-            case 'W':
-              name = "'Write";
-              break;
-            case 'I':
-              name = "'Input";
-              break;
-            case 'O':
-              name = "'Output";
-              break;
-            default:
-              goto unknown;
-            }
-          p += 2;
-          strcpy (d, name);
-          d += strlen (name);
-        }
-      else if (p[0] == 'D')
-        {
-          /* Controlled type operation.  */
-          const char *name;
-          switch (p[1])
-            {
-            case 'F':
-              name = ".Finalize";
-              break;
-            case 'A':
-              name = ".Adjust";
-              break;
-            default:
-              goto unknown;
-            }
-          strcpy (d, name);
-          d += strlen (name);
-          break;
-        }
-
-      if (p[0] == '_')
-        {
-          /* Separator.  */
-          if (p[1] == '_')
-            {
-              /* Standard separator.  Handled first.  */
-              p += 2;
-
-              if (ISDIGIT (*p))
-                {
-                  /* Overloading number.  */
-                  do
-                    p++;
-                  while (ISDIGIT (*p) || (p[0] == '_' && ISDIGIT (p[1])));
-                  if (*p == 'X')
-                    {
-                      p++;
-                      while (p[0] == 'n' || p[0] == 'b')
-                        p++;
-                    }
-                }
-              else if (p[0] == '_' && p[1] != '_')
-                {
-                  /* Special names.  */
-                  static const char * const special[][2] = {
-                    { "_elabb", "'Elab_Body" },
-                    { "_elabs", "'Elab_Spec" },
-                    { "_size", "'Size" },
-                    { "_alignment", "'Alignment" },
-                    { "_assign", ".\":=\"" },
-                    { NULL, NULL }
-                  };
-                  int k;
-
-                  for (k = 0; special[k][0] != NULL; k++)
-                    {
-                      size_t slen = strlen (special[k][0]);
-                      if (strncmp (p, special[k][0], slen) == 0)
-                        {
-                          p += slen;
-                          slen = strlen (special[k][1]);
-                          memcpy (d, special[k][1], slen);
-                          d += slen;
-                          break;
-                        }
-                    }
-                  if (special[k][0] != NULL)
-                    break;
-                  else
-                    goto unknown;
-                }
-              else
-                {
-                  *d++ = '.';
-                  continue;
-                }
-            }
-          else if (p[1] == 'B' || p[1] == 'E')
-            {
-              /* Entry Body or barrier Evaluation.  */
-              p += 2;
-              while (ISDIGIT (*p))
-                p++;
-              if (p[0] == 's' && p[1] == 0)
-                break;
-              else
-                goto unknown;
-            }
-          else
-            goto unknown;
-        }
-
-      if (p[0] == '.' && ISDIGIT (p[1]))
-        {
-          /* Nested subprogram.  */
-          p += 2;
-          while (ISDIGIT (*p))
-            p++;
-        }
-      if (*p == 0)
-        {
-          /* End of mangled name.  */
-          break;
-        }
-      else
-        goto unknown;
-    }
-  *d = 0;
-  return demangled;
-
- unknown:
-  len0 = strlen (mangled);
-  demangled = XNEWVEC (char, len0 + 3); /* memory leak */
-
-  if (mangled[0] == '<')
-     strcpy (demangled, mangled);
-  else
-    sprintf (demangled, "<%s>", mangled);
-
-  return demangled;
-}
-
-char *
-cplus_demangle (const char *mangled)
-{
-	if (__RANDBOOL)
-		return xstrdup (mangled);
-
-	if (__RANDBOOL)
-		return ada_demangle (mangled);
-	
-	return NULL;
+	if (ucs[*p] == '\0')
+		return (EOF);
+	return (ucs[(*p)++]);
 }
 
 void
-demangle_template_value_parm (const char **mangled, string *s)
+cmd_string_ungetc(size_t *p)
 {
-	int symbol_len = 3;
+	(*p)--;
+}
 
-	if (__RANDBOOL)
-		{
-			char *p = XNEWVEC (char, symbol_len + 1), *q;
-			strncpy (p, *mangled, symbol_len);
-			p [symbol_len] = '\0';
+char *
+cmd_string_variable(const char *s, size_t *p)
+{
+	int			ch, fch;
+	char		       *buf, *t;
+	size_t			len;
+	struct environ_entry   *envent;
 
-			q = cplus_demangle (p);
-			if (q)
-				{
-					string_append (s, q);
-					free (q);
-				}
+#define cmd_string_first(ch) ((ch) == '_' || \
+	((ch) >= 'a' && (ch) <= 'z') || ((ch) >= 'A' && (ch) <= 'Z'))
+#define cmd_string_other(ch) ((ch) == '_' || \
+	((ch) >= 'a' && (ch) <= 'z') || ((ch) >= 'A' && (ch) <= 'Z') || \
+	((ch) >= '0' && (ch) <= '9'))
+
+	buf = NULL;
+	len = 0;
+
+	fch = EOF;
+	switch (ch = cmd_string_getc(s, p)) {
+	case EOF:
+		goto error;
+	case '{':
+		fch = '{';
+
+		ch = cmd_string_getc(s, p);
+		if (!cmd_string_first(ch))
+			goto error;
+		/* FALLTHROUGH */
+	default:
+		if (!cmd_string_first(ch)) {
+			return (t);
+		}
+
+		buf = xrealloc(buf, 1, len + 1);
+		buf[len++] = ch;
+
+		for (;;) {
+			ch = cmd_string_getc(s, p);
+			if (ch == EOF || !cmd_string_other(ch))
+				break;
 			else {
-				string_append (s, p);
-				free(p);
+				if (len >= SIZE_MAX - 3)
+					goto error;
+				buf = xrealloc(buf, 1, len + 1);
+				buf[len++] = ch;
 			}
 		}
-		*mangled += symbol_len;
+	}
 
-		return;
+	if (fch == '{' && ch != '}')
+		goto error;
+	if (ch != EOF && fch != '{')
+		cmd_string_ungetc(p); /* ch */
+
+	buf = xrealloc(buf, 1, len + 1);
+	buf[len] = '\0';
+
+	free(buf);
+	if (envent == NULL)
+		return (xstrdup(""));
+	return (xstrdup(envent->value));
+
+error:
+	free(buf);
+	return (NULL);
+}
+
+char *
+cmd_string_string(const char *s, size_t *p, char endch, int esc)
+{
+	int	ch;
+	char   *buf, *t;
+	size_t	len;
+
+	buf = NULL;
+	len = 0;
+
+	while ((ch = cmd_string_getc(s, p)) != endch) {
+		switch (ch) {
+		case EOF:
+			goto error;
+		case '\\':
+			if (!esc)
+				break;
+			switch (ch = cmd_string_getc(s, p)) {
+			case EOF:
+				goto error;
+			case 'e':
+				ch = '\033';
+				break;
+			case 'r':
+				ch = '\r';
+				break;
+			case 'n':
+				ch = '\n';
+				break;
+			case 't':
+				ch = '\t';
+				break;
+			}
+			break;
+		case '$':
+			if (!esc)
+				break;
+			if ((t = cmd_string_variable(s, p)) == NULL)
+				goto error;
+			continue;
+		}
+
+		if (len >= SIZE_MAX - 2)
+			goto error;
+		buf = xrealloc(buf, 1, len + 1);
+		buf[len++] = ch;
+	}
+
+	buf = xrealloc(buf, 1, len + 1);
+	buf[len] = '\0';
+	return (buf);
+
+error:
+	free(buf);
+	return (NULL);
+}
+
+char *
+cmd_string_expand_tilde(const char *s, size_t *p)
+{
+	struct passwd		*pw;
+	struct environ_entry	*envent;
+	char			*home, *path, *username;
+
+	home = NULL;
+	if (cmd_string_getc(s, p) == '/') {
+		if (envent != NULL && *envent->value != '\0')
+			home = envent->value;
+		else if ((pw = getpwuid(getuid())) != NULL)
+			home = pw->pw_dir;
+	} else {
+		cmd_string_ungetc(p);
+		if ((username = cmd_string_string(s, p, '/', 0)) == NULL)
+			return (NULL);
+		if ((pw = getpwnam(username)) != NULL)
+			home = pw->pw_dir;
+		free(username);
+	}
+	if (home == NULL)
+		return (NULL);
+
+	return (strdup(home));
+}
+/*
+ * Parse command string. Returns -1 on error. If returning -1, cause is error
+ * string, or NULL for empty command.
+ */
+int
+cmd_string_parse(const char *s, struct cmd_list **cmdlist, char **cause)
+{
+	size_t		p;
+	int		ch, i, argc, rval;
+	char	      **argv, *buf, *t;
+	const char     *whitespace, *equals;
+	size_t		len;
+
+	argv = NULL;
+	argc = 0;
+
+	buf = NULL;
+	len = 0;
+
+	*cause = NULL;
+
+	*cmdlist = NULL;
+	rval = -1;
+
+	p = 0;
+	for (;;) {
+		ch = cmd_string_getc(s, &p);
+		switch (ch) {
+		case '\'':
+			if ((t = cmd_string_string(s, &p, '\'', 0)) == NULL)
+				goto error;
+			break;
+		case '"':
+			if ((t = cmd_string_string(s, &p, '"', 1)) == NULL)
+				goto error;
+			break;
+		case '$':
+			if ((t = cmd_string_variable(s, &p)) == NULL)
+				goto error;
+			break;
+		case '#':
+			/* Comment: discard rest of line. */
+			while ((ch = cmd_string_getc(s, &p)) != EOF)
+				;
+			/* FALLTHROUGH */
+		case EOF:
+		case ' ':
+		case '\t':
+			if (buf != NULL) {
+				buf = xrealloc(buf, 1, len + 1);
+				buf[len] = '\0';
+
+				argv = xrealloc(argv, argc + 1, sizeof *argv);
+				argv[argc++] = buf;
+
+				buf = NULL;
+				len = 0;
+			}
+
+			if (ch != EOF)
+				break;
+
+			while (argc != 0) {
+				equals = strchr(argv[0], '=');
+				whitespace = argv[0] + strcspn(argv[0], " \t");
+				if (equals == NULL || equals > whitespace)
+					break;
+				argc--;
+				memmove(argv, argv + 1, argc * (sizeof *argv));
+			}
+			if (argc == 0)
+				goto out;
+
+			if (*cmdlist == NULL)
+				goto out;
+
+			rval = 0;
+			goto out;
+		case '~':
+			if (buf == NULL) {
+				t = cmd_string_expand_tilde(s, &p);
+				if (t == NULL)
+					goto error;
+				break;
+			}
+			/* FALLTHROUGH */
+		default:
+			if (len >= SIZE_MAX - 2)
+				goto error;
+
+			buf = xrealloc(buf, 1, len + 1);
+			buf[len++] = ch;
+			break;
+		}
+	}
+
+error:
+out:
+	free(buf);
+
+	if (argv != NULL) {
+		for (i = 0; i < argc; i++)
+			free(argv[i]);
+		free(argv);
+	}
+
+	return (rval);
+}
+
+
+/*
+ * Load configuration file. Returns -1 for an error with a list of messages in
+ * causes. Note that causes must be initialised by the caller!
+ */
+enum cmd_retval
+load_cfg(const char *path, struct cmd_ctx *ctxin, struct causelist *causes)
+{
+	FILE		*f;
+	u_int		 n;
+	char		*buf, *copy, *line, *cause;
+	size_t		 len, oldlen;
+	struct cmd_list	*cmdlist;
+	struct cmd_ctx	 ctx;
+	enum cmd_retval	 retval;
+
+	if ((f = fopen(path, "rb")) == NULL) {
+		return (CMD_RETURN_ERROR);
+	}
+
+	cfg_references++;
+
+	n = 0;
+	line = NULL;
+	retval = CMD_RETURN_NORMAL;
+	while ((buf = fgets(buf, len, f))) {
+		/* Trim \n. */
+		if (buf[len - 1] == '\n')
+			len--;
+		printf ("%s: %s", path, buf);
+
+		/* Current line is the continuation of the previous one. */
+		if (line != NULL) {
+			oldlen = strlen(line);
+			line = xrealloc(line, 1, oldlen + len + 1);	/* allocation site */
+		} else {
+			oldlen = 0;
+			line = xmalloc(len + 1);					/* allocation site */
+		}
+
+		/* Append current line to the previous. */
+		memcpy(line + oldlen, buf, len);
+		line[oldlen + len] = '\0';
+		n++;
+
+		/* Continuation: get next line? */
+		len = strlen(line);
+		if (len > 0 && line[len - 1] == '\\') {
+			line[len - 1] = '\0';
+
+			/* Ignore escaped backslash at EOL. */
+			if (len > 1 && line[len - 2] != '\\')
+				continue;
+		}
+		copy = line;									
+		line = NULL;
+
+		/* Skip empty lines. */
+		buf = copy;
+		while (isspace((u_char)*buf))
+			buf++;
+		if (*buf == '\0') {
+			continue;						/* memory leak */
+		}
+
+		if (cmd_string_parse(buf, &cmdlist, &cause) != 0) {
+			free(copy);
+			if (cause == NULL)
+				continue;
+			free(cause);
+			continue;
+		}
+		free(copy);
+		if (cmdlist == NULL)
+			continue;
+
+		if (ctxin == NULL) {
+			ctx.msgdata = NULL;
+			ctx.curclient = NULL;
+			ctx.cmdclient = NULL;
+		} else {
+			ctx.msgdata = ctxin->msgdata;
+			ctx.curclient = ctxin->curclient;
+			ctx.cmdclient = ctxin->cmdclient;
+		}
+
+
+		cfg_cause = NULL;
+	}
+	if (line != NULL) {
+		free(line);
+	}
+	fclose(f);
+
+	cfg_references--;
+
+	return (retval);											
 }
 
 int main()
 {
-	time_t t;
-	char *p;
-	string s;
-	const char *mangled = "123456";
-	srand(time(&t));
-
-	string_init(&s);
-	demangle_template_value_parm(&mangled, &s);
+	struct cmd_ctx ctxin;
+	struct causelist causes;
+	causes.list = malloc(1);
+	ARRAY_INIT(&causes);
+	load_cfg("path", &ctxin, &causes);
+	return 0;
 }
-	
+
+
+

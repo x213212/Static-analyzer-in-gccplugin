@@ -108,17 +108,23 @@ In file included from ./benchmarks/git/double_free_4/git_df_4.c:9:
 
 Time variable                                   usr           sys          wall           GGC
  phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 50%)
- phase parsing                      :   0.03 ( 75%)   0.00 (  0%)   0.04 ( 80%)  1109k ( 42%)
- phase opt and generate             :   0.01 ( 25%)   0.01 (100%)   0.01 ( 20%)   192k (  7%)
- callgraph ipa passes               :   0.01 ( 25%)   0.01 (100%)   0.01 ( 20%)   110k (  4%)
- ipa free lang data                 :   0.01 ( 25%)   0.01 (100%)   0.01 ( 20%)    11k (  0%)
- preprocessing                      :   0.02 ( 50%)   0.00 (  0%)   0.04 ( 80%)   325k ( 12%)
- lexical analysis                   :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- TOTAL                              :   0.04          0.01          0.05         2609k
+ phase parsing                      :   0.02 (100%)   0.02 ( 67%)   0.04 ( 80%)  1109k ( 42%)
+ phase opt and generate             :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 20%)   192k (  7%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 20%)   110k (  4%)
+ lto stream compression             :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   325k ( 12%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 33%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)   575k ( 22%)
+ parser struct body                 :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)    77k (  3%)
+ parser function body               :   0.01 ( 50%)   0.01 ( 33%)   0.00 (  0%)    97k (  4%)
+ TOTAL                              :   0.02          0.03          0.05         2609k
 ../Compiler/newplugin.so 11.2.0 
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ whopr wpa                          :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
  TOTAL                              :   0.00          0.00          0.01         2228k
 ../Compiler/newplugin.so 11.2.0 
 --------plugin argument-----------
@@ -193,356 +199,6 @@ free_ref (_1);
 =============== The third stage : Start detection  =================
 
 =============== The third stage : detection  End=================
-
-===============Print ALL GIMPLE IR=================
-=======Mapping node_fun:main=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 1073741824]:
-_1 = get_local_heads ();
-_2 = (long int) _1;
-local_refs_12 = (struct ref *) _2;
-remote_tail = &remote_refs;
-_3 = remote_refs;
-_4 = match_refs (local_refs_12, _3, &remote_tail, 0, argv_9(D), 1);
-if (_4 != 0)
-  goto <bb 3>; [34.00%]
-else
-  goto <bb 4>; [66.00%]
-
-=======is loop:0=========
-
- bb index 3 
-<bb 3> [local count: 365072224]:
-// predicted unlikely by goto predictor.
-goto <bb 6>; [100.00%]
-
-=======is loop:0=========
-
- bb index 4 
-<bb 4> [local count: 708669601]:
-_5 = remote_refs;
-if (_5 == 0B)
-  goto <bb 5>; [9.81%]
-else
-  goto <bb 6>; [90.19%]
-
-=======is loop:0=========
-
- bb index 5 
-<bb 5> [local count: 69520487]:
-_6 = stderr;
-__builtin_fwrite ("No refs in common and none specified; doing nothing.\n", 1, 53, _6);
-// predicted unlikely by goto predictor.
-
-=======is loop:0=========
-
- bb index 6 
-<bb 6> [local count: 1073741824]:
-cleanup:
-free_refs (local_refs_12);
-_7 = remote_refs;
-free_refs (_7);
-return 0;
-
-=======Mapping node_fun:match_refs=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 118111598]:
-send_all_16 = flags_15(D) & 1;
-send_mirror_17 = flags_15(D) & 2;
-goto <bb 15>; [100.00%]
-
-=======is loop:1=========
-
- bb index 3 
-<bb 3> [local count: 955630225]:
-dst_name_20 = &src_9->name;
-_1 = src_9->peer_ref;
-if (_1 != 0B)
-  goto <bb 4>; [70.00%]
-else
-  goto <bb 5>; [30.00%]
-
-=======is loop:1=========
-
- bb index 4 
-<bb 4> [local count: 668941161]:
-// predicted unlikely by continue predictor.
-goto <bb 14>; [100.00%]
-
-=======is loop:1=========
-
- bb index 5 
-<bb 5> [local count: 286689065]:
-dst_peer_22 = find_ref_by_name (dst_21(D), dst_name_20);
-if (dst_peer_22 != 0B)
-  goto <bb 6>; [70.00%]
-else
-  goto <bb 8>; [30.00%]
-
-=======is loop:1=========
-
- bb index 6 
-<bb 6> [local count: 200682346]:
-_2 = dst_peer_22->peer_ref;
-if (_2 != 0B)
-  goto <bb 7>; [54.59%]
-else
-  goto <bb 12>; [45.41%]
-
-=======is loop:1=========
-
- bb index 7 
-<bb 7> [local count: 109552493]:
-// predicted unlikely by goto predictor.
-goto <bb 13>; [100.00%]
-
-=======is loop:1=========
-
- bb index 8 
-<bb 8> [local count: 86006719]:
-_3 = BIT_FIELD_REF <MEM[(const struct refspec *)0B], 8, 0>;
-_4 = _3 & 4;
-if (_4 != 0)
-  goto <bb 9>; [67.00%]
-else
-  goto <bb 11>; [33.00%]
-
-=======is loop:1=========
-
- bb index 9 
-<bb 9> [local count: 57624502]:
-_5 = flags_15(D) & 3;
-if (_5 == 0)
-  goto <bb 10>; [34.00%]
-else
-  goto <bb 11>; [66.00%]
-
-=======is loop:1=========
-
- bb index 10 
-<bb 10> [local count: 19592331]:
-// predicted unlikely by goto predictor.
-goto <bb 13>; [100.00%]
-
-=======is loop:1=========
-
- bb index 11 
-<bb 11> [local count: 66414388]:
-dst_peer_25 = make_linked_ref (dst_name_20, dst_tail_23(D));
-_6 = &src_9->new_sha1;
-_7 = &dst_peer_25->new_sha1;
-hashcpy (_7, _6);
-
-=======is loop:1=========
-
- bb index 12 
-<bb 12> [local count: 157544241]:
-# dst_peer_10 = PHI <dst_peer_22(6), dst_peer_25(11)>
-dst_peer_10->peer_ref = src_9;
-_8 = MEM[(const struct refspec *)0B].force;
-dst_peer_10->force = _8;
-
-=======is loop:1=========
-
- bb index 13 
-<bb 13> [local count: 286689065]:
-free_name:
-free (dst_name_20);
-
-=======is loop:1=========
-
- bb index 14 
-<bb 14> [local count: 955630227]:
-src_30 = src_9->next;
-
-=======is loop:1=========
-
- bb index 15 
-<bb 15> [local count: 1073741824]:
-# src_9 = PHI <src_18(D)(2), src_30(14)>
-if (src_9 != 0B)
-  goto <bb 3>; [89.00%]
-else
-  goto <bb 16>; [11.00%]
-
-=======is loop:0=========
-
- bb index 16 
-<bb 16> [local count: 118111600]:
-return 0;
-
-=======Mapping node_fun:make_linked_ref=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 1073741824]:
-ret_4 = alloc_ref (name_2(D));
-tail_link_ref (ret_4, tail_5(D));
-return ret_4;
-
-=======Mapping node_fun:tail_link_ref=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 118111600]:
-_1 = *tail_6(D);
-*_1 = ref_7(D);
-goto <bb 4>; [100.00%]
-
-=======is loop:1=========
-
- bb index 3 
-<bb 3> [local count: 955630225]:
-ref_10 = ref_4->next;
-
-=======is loop:1=========
-
- bb index 4 
-<bb 4> [local count: 1073741824]:
-# ref_4 = PHI <ref_7(D)(2), ref_10(3)>
-_2 = ref_4->next;
-if (_2 != 0B)
-  goto <bb 3>; [89.00%]
-else
-  goto <bb 5>; [11.00%]
-
-=======is loop:0=========
-
- bb index 5 
-<bb 5> [local count: 118111600]:
-_3 = &ref_4->next;
-*tail_6(D) = _3;
-return;
-
-=======Mapping node_fun:alloc_ref=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 1073741824]:
-_4 = alloc_ref_with_prefix ("", 0, name_2(D));
-return _4;
-
-=======Mapping node_fun:alloc_ref_with_prefix=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 1073741824]:
-len_8 = strlen (name_7(D));
-_1 = len_8 + prefixlen_9(D);
-_2 = _1 + 81;
-ref_11 = calloc (1, _2);
-_3 = &ref_11->name;
-memcpy (_3, prefix_12(D), prefixlen_9(D));
-_4 = &ref_11->name;
-_5 = _4 + prefixlen_9(D);
-memcpy (_5, name_7(D), len_8);
-return ref_11;
-
-=======Mapping node_fun:find_ref_by_name=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 114863530]:
-goto <bb 5>; [100.00%]
-
-=======is loop:1=========
-
- bb index 3 
-<bb 3> [local count: 1014686026]:
-_1 = &list_3->name;
-_2 = strcmp (_1, name_7(D));
-if (_2 == 0)
-  goto <bb 6>; [5.50%]
-else
-  goto <bb 4>; [94.50%]
-
-=======is loop:1=========
-
- bb index 4 
-<bb 4> [local count: 958878296]:
-list_8 = list_3->next;
-
-=======is loop:1=========
-
- bb index 5 
-<bb 5> [local count: 1073741824]:
-# list_3 = PHI <list_5(D)(2), list_8(4)>
-if (list_3 != 0B)
-  goto <bb 3>; [94.50%]
-else
-  goto <bb 6>; [5.50%]
-
-=======is loop:0=========
-
- bb index 6 
-<bb 6> [local count: 114863531]:
-# _4 = PHI <list_3(3), 0B(5)>
-return _4;
-
-=======Mapping node_fun:free_refs=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 118111600]:
-goto <bb 4>; [100.00%]
-
-=======is loop:1=========
-
- bb index 3 
-<bb 3> [local count: 955630225]:
-next_5 = ref_1->next;
-free_ref (ref_1);
-
-=======is loop:1=========
-
- bb index 4 
-<bb 4> [local count: 1073741824]:
-# ref_1 = PHI <ref_3(D)(2), next_5(3)>
-if (ref_1 != 0B)
-  goto <bb 3>; [89.00%]
-else
-  goto <bb 5>; [11.00%]
-
-=======is loop:0=========
-
- bb index 5 
-<bb 5> [local count: 118111600]:
-return;
-
-=======Mapping node_fun:free_ref=========
-=======is loop:0=========
-
- bb index 2 
-<bb 2> [local count: 1073741824]:
-if (ref_5(D) == 0B)
-  goto <bb 4>; [30.95%]
-else
-  goto <bb 3>; [69.05%]
-
-=======is loop:0=========
-
- bb index 3 
-<bb 3> [local count: 741418729]:
-_1 = ref_5(D)->peer_ref;
-free_ref (_1);
-_2 = ref_5(D)->remote_status;
-free (_2);
-_3 = ref_5(D)->symref;
-free (_3);
-free (ref_5(D));
-
-=======is loop:0=========
-
- bb index 4 
-<bb 4> [local count: 1073741824]:
-return;
-
-
-===============Print ALL GIMPLE IR=================
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
     =()=
@@ -559,29 +215,30 @@ return;
 [40;34m    analyzable ptable point : 34 [0m
 [40;34m    analyzable ptable all point stmt : 98 [0m
 [40;34m    used_stmt array stack totalsize of : 0.003160 mb[0m
-[40;34m    collect time: : 0.000443 s [0m
-[40;34m    mapping time: : 0.000941 s [0m
-[40;34m    algorithm time: 0.004085 s [0m
-[40;34m    gimple stmt count : : 89 [0m
-[40;34m    this report analysis in Mon Jun 20 14:58:01 2022
+[40;34m    collect time: : 0.000554 s [0m
+[40;34m    mapping time: : 0.001114 s [0m
+[40;34m    algorithm time: 0.005112 s [0m
+[40;34m    gimple stmt count : : 0 [0m
+[40;34m    this report analysis in Tue Jun 21 07:24:34 2022
  [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 76%)
- phase opt and generate             :   0.05 (100%)   0.00 (  0%)   0.05 (100%)   627k ( 22%)
- callgraph functions expansion      :   0.04 ( 80%)   0.00 (  0%)   0.04 ( 80%)   521k ( 18%)
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 76%)
+ phase opt and generate             :   0.05 (100%)   0.00 (  0%)   0.04 ( 80%)   625k ( 22%)
+ callgraph functions expansion      :   0.04 ( 80%)   0.00 (  0%)   0.03 ( 60%)   521k ( 18%)
  ipa lto gimple in                  :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    79k (  3%)
- ipa points-to                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  5056  (  0%)
- dominance computation              :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- expand                             :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 20%)    53k (  2%)
- hard reg cprop                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   240  (  0%)
- final                              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    26k (  1%)
- initialize rtl                     :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)    12k (  0%)
- TOTAL                              :   0.05          0.00          0.05         2846k
-/usr/bin/ld: /tmp/cchwZnYE.ltrans0.ltrans.o: in function `match_refs':
+ tree code sinking                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  4520  (  0%)
+ dominance computation              :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ dead store elim2                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  4904  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   220k (  8%)
+ LRA hard reg assignment            :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ hard reg cprop                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   240  (  0%)
+ initialize rtl                     :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.05          0.00          0.05         2844k
+/usr/bin/ld: /tmp/ccoTPopv.ltrans0.ltrans.o: in function `match_refs':
 <artificial>:(.text+0x19c): undefined reference to `hashcpy'
-/usr/bin/ld: /tmp/cchwZnYE.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccoTPopv.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x21b): undefined reference to `get_local_heads'
 collect2: error: ld returned 1 exit status

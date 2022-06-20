@@ -937,6 +937,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 																		fprintf2(stderr, "\n======================================================================\n");
 																	}
+																	break;
 																}
 															}
 														}

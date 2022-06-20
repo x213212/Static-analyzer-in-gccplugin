@@ -52,8 +52,8 @@ bool threadmod = true;
 bool relatemod = true;
 bool freemod = true;
 bool retmod = false;
-bool pthread_detachedmod = true;
-bool pthread_exitmod = true;
+bool pthread_detachedmod = false;
+bool pthread_exitmod = false;
 bool tracerelatestmt = true;
 bool prebranchexit = true;
 bool stmtloopcheck = true;
@@ -334,7 +334,7 @@ CStack stmtStack;
 CstmtStack stmtStack2;
 
 function *main_fun;
-struct timespec astart2, aend2;
+struct timespec Globaltime, Globaltimeend;
 static gimple *now_stmt;
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
 static int levelsize = 0;
