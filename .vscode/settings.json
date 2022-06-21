@@ -55,7 +55,8 @@
         "cinttypes": "c",
         "tmux.h": "c",
         "tree.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "common.h": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
