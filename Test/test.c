@@ -1,526 +1,248 @@
 /*
-	buggy parent : 48291f0
-	commit id : 51ac2a3202d55c439976ecce49229e35865c7ebd
+    commit id : 3cfd3dd0956fe854a07795de12c1302ecabbd819
 */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
+#include "./include/common.h"
+#include "./include/binutils.h"
+#include "./include/bfd.h"
 
-#include "./stdio.h"
-#include "./tmux.h"
+#    define S_IREAD	00400
+#    define S_IWRITE	00200
+#    define S_IEXEC	00100
 
-#define SIZE_MAX (1 << 30)
+#    define S_IRUSR	S_IREAD			/* read, owner */
+#    define S_IWUSR	S_IWRITE		/* write, owner */
+#    define S_IXUSR	S_IEXEC			/* execute, owner */
 
-/* Key/command line command. */
-struct cmd_ctx {
-	/*
-	 * curclient is the client where this command was executed if inside
-	 * tmux. This is NULL if the command came from the command-line.
-	 *
-	 * cmdclient is the client which sent the MSG_COMMAND to the server, if
-	 * any. This is NULL unless the command came from the command-line.
-	 *
-	 * cmdclient and curclient may both be NULL if the command is in the
-	 * configuration file.
-	 */
-	struct client  *curclient;
-	struct client  *cmdclient;
+#    define S_IRGRP	(S_IREAD  >> 3)		/* read, group */
+#    define S_IWGRP	(S_IWRITE >> 3)		/* write, group */
+#    define S_IXGRP	(S_IEXEC  >> 3)		/* execute, group */
 
-	struct msg_command_data	*msgdata;
+#    define S_IROTH	(S_IREAD  >> 6)		/* read, other */
+#    define S_IWOTH	(S_IWRITE >> 6)		/* write, other */
+#    define S_IXOTH	(S_IEXEC  >> 6)		/* execute, other */
 
-	void (*print)(struct cmd_ctx *, const char *, ...);
-	void (*info)(struct cmd_ctx *, const char *, ...);
-	void (*error)(struct cmd_ctx *, const char *, ...);
-};
+#  define S_IRWXU	(S_IRUSR | S_IWUSR | S_IXUSR)
+#  define S_IRWXG	(S_IRGRP | S_IWGRP | S_IXGRP)
+#  define S_IRWXO	(S_IROTH | S_IWOTH | S_IXOTH)
 
-#define CMD_RETURN_YIELD CMD_RETURN_WAIT
-#define CMD_RETURN_ATTACH CMD_RETURN_STOP
+#define S_IRUGO		(S_IRUSR | S_IRGRP | S_IROTH)
+#define S_IWUGO		(S_IWUSR | S_IWGRP | S_IWOTH)
+#define S_IXUGO		(S_IXUSR | S_IXGRP | S_IXOTH)
 
-ARRAY_DECL(causelist, char *);
 
-char			*cfg_cause;
-int			 cfg_finished;
-int	 		 cfg_references;
-struct causelist	 cfg_causes;
+typedef struct {}bfd_target;
+const char *output_filename = "a.out";
+static bfd_boolean make_thin_archive = FALSE;
 
-void *
-xrealloc(void *oldptr, size_t nmemb, size_t size)
+/* Return a path for a new temporary file in the same directory
+   as file PATH.  */
+
+static char *
+template_in_dir (const char *path)
 {
-	size_t	 newsize = nmemb * size;
-	void	*newptr;
+#define template "stXXXXXX"
+  const char *slash = strrchr (path, '/');
+  char *tmpname;
+  size_t len;
 
-	if (newsize == 0)
-		fatalx("zero size%s", "");
-	if (1 << 30/ nmemb < size)
-		fatalx("nmemb * size > SIZE_MAX%s", "");
-	if ((newptr = realloc(oldptr, newsize)) == NULL)
-		fatal("xrealloc failed%s", "");
+  if (slash != (char *) NULL)
+    {
+      len = slash - path;
+      tmpname = (char *) xmalloc (len + sizeof (template) + 2);	/* allocation site */
+      memcpy (tmpname, path, len);
+      tmpname[len++] = '/';
+    }
+  else
+    {
+      tmpname = (char *) xmalloc (sizeof (template));	/* allocation site */
+      len = 0;
+    }
 
-	return (newptr);
+  memcpy (tmpname + len, template, sizeof (template));
+  return tmpname;
 }
 
-int
-cmd_string_getc(const char *s, size_t *p)
-{
-	const u_char	*ucs = s;
+/* Return the name of a created temporary file in the same directory
+   as FILENAME.  */
 
-	if (ucs[*p] == '\0')
-		return (EOF);
-	return (ucs[(*p)++]);
+char *
+make_tempname (char *filename)
+{
+  char *tmpname = template_in_dir (filename);
+  int fd;
+
+  fd = mkstemp (tmpname);
+  if (fd == -1)
+    {
+      free (tmpname);
+      return NULL;
+    }
+  close (fd);
+  return tmpname;
 }
 
 void
-cmd_string_ungetc(size_t *p)
+set_times (const char *destination, const struct stat *statbuf)
 {
-	(*p)--;
+  int result;
+
+  {
+#ifdef HAVE_GOOD_UTIME_H
+    struct utimbuf tb;
+
+    tb.actime = statbuf->st_atime;
+    tb.modtime = statbuf->st_mtime;
+    result = utime (destination, &tb);
+#else /* ! HAVE_GOOD_UTIME_H */
+#ifndef HAVE_UTIMES
+    long tb[2];
+
+    tb[0] = statbuf->st_atime;
+    tb[1] = statbuf->st_mtime;
+    result = utime (destination, tb);
+#else /* HAVE_UTIMES */
+    struct timeval tv[2];
+
+    tv[0].tv_sec = statbuf->st_atime;
+    tv[0].tv_usec = 0;
+    tv[1].tv_sec = statbuf->st_mtime;
+    tv[1].tv_usec = 0;
+    result = utimes (destination, tv);
+#endif /* HAVE_UTIMES */
+#endif /* ! HAVE_GOOD_UTIME_H */
+  }
+
+  if (result != 0)
+    non_fatal (("%s: cannot set time:"), destination);
 }
 
-char *
-cmd_string_variable(const char *s, size_t *p)
-{
-	int			ch, fch;
-	char		       *buf, *t;
-	size_t			len;
-	struct environ_entry   *envent;
-
-#define cmd_string_first(ch) ((ch) == '_' || \
-	((ch) >= 'a' && (ch) <= 'z') || ((ch) >= 'A' && (ch) <= 'Z'))
-#define cmd_string_other(ch) ((ch) == '_' || \
-	((ch) >= 'a' && (ch) <= 'z') || ((ch) >= 'A' && (ch) <= 'Z') || \
-	((ch) >= '0' && (ch) <= '9'))
-
-	buf = NULL;
-	len = 0;
-
-	fch = EOF;
-	switch (ch = cmd_string_getc(s, p)) {
-	case EOF:
-		goto error;
-	case '{':
-		fch = '{';
-
-		ch = cmd_string_getc(s, p);
-		if (!cmd_string_first(ch))
-			goto error;
-		/* FALLTHROUGH */
-	default:
-		if (!cmd_string_first(ch)) {
-			return (t);
-		}
-
-		buf = xrealloc(buf, 1, len + 1);
-		buf[len++] = ch;
-
-		for (;;) {
-			ch = cmd_string_getc(s, p);
-			if (ch == EOF || !cmd_string_other(ch))
-				break;
-			else {
-				if (len >= SIZE_MAX - 3)
-					goto error;
-				buf = xrealloc(buf, 1, len + 1);
-				buf[len++] = ch;
-			}
-		}
-	}
-
-	if (fch == '{' && ch != '}')
-		goto error;
-	if (ch != EOF && fch != '{')
-		cmd_string_ungetc(p); /* ch */
-
-	buf = xrealloc(buf, 1, len + 1);
-	buf[len] = '\0';
-
-	free(buf);
-	if (envent == NULL)
-		return (xstrdup(""));
-	return (xstrdup(envent->value));
-
-error:
-	free(buf);
-	return (NULL);
-}
-
-char *
-cmd_string_string(const char *s, size_t *p, char endch, int esc)
-{
-	int	ch;
-	char   *buf, *t;
-	size_t	len;
-
-	buf = NULL;
-	len = 0;
-
-	while ((ch = cmd_string_getc(s, p)) != endch) {
-		switch (ch) {
-		case EOF:
-			goto error;
-		case '\\':
-			if (!esc)
-				break;
-			switch (ch = cmd_string_getc(s, p)) {
-			case EOF:
-				goto error;
-			case 'e':
-				ch = '\033';
-				break;
-			case 'r':
-				ch = '\r';
-				break;
-			case 'n':
-				ch = '\n';
-				break;
-			case 't':
-				ch = '\t';
-				break;
-			}
-			break;
-		case '$':
-			if (!esc)
-				break;
-			if ((t = cmd_string_variable(s, p)) == NULL)
-				goto error;
-			continue;
-		}
-
-		if (len >= SIZE_MAX - 2)
-			goto error;
-		buf = xrealloc(buf, 1, len + 1);
-		buf[len++] = ch;
-	}
-
-	buf = xrealloc(buf, 1, len + 1);
-	buf[len] = '\0';
-	return (buf);
-
-error:
-	free(buf);
-	return (NULL);
-}
-
-char *
-cmd_string_expand_tilde(const char *s, size_t *p)
-{
-	struct passwd		*pw;
-	struct environ_entry	*envent;
-	char			*home, *path, *username;
-
-	home = NULL;
-	if (cmd_string_getc(s, p) == '/') {
-		if (envent != NULL && *envent->value != '\0')
-			home = envent->value;
-		else if ((pw = getpwuid(getuid())) != NULL)
-			home = pw->pw_dir;
-	} else {
-		cmd_string_ungetc(p);
-		if ((username = cmd_string_string(s, p, '/', 0)) == NULL)
-			return (NULL);
-		if ((pw = getpwnam(username)) != NULL)
-			home = pw->pw_dir;
-		free(username);
-	}
-	if (home == NULL)
-		return (NULL);
-
-	return (strdup(home));
-}
-/*
- * Parse command string. Returns -1 on error. If returning -1, cause is error
- * string, or NULL for empty command.
- */
 int
-cmd_string_parse(const char *s, struct cmd_list **cmdlist, char **cause)
+smart_rename (const char *from, const char *to, int preserve_dates)
 {
-	size_t		p;
-	int		ch, i, argc, rval;
-	char	      **argv, *buf, *t;
-	const char     *whitespace, *equals;
-	size_t		len;
+  bfd_boolean exists;
+  struct stat s;
+  int ret = 0;
 
-	argv = NULL;
-	argc = 0;
+  exists = lstat (to, &s) == 0;
 
-	buf = NULL;
-	len = 0;
-
-	*cause = NULL;
-
-	*cmdlist = NULL;
-	rval = -1;
-
-	p = 0;
-	for (;;) {
-		ch = cmd_string_getc(s, &p);
-		switch (ch) {
-		case '\'':
-			if ((t = cmd_string_string(s, &p, '\'', 0)) == NULL)
-				goto error;
-			break;
-		case '"':
-			if ((t = cmd_string_string(s, &p, '"', 1)) == NULL)
-				goto error;
-			break;
-		case '$':
-			if ((t = cmd_string_variable(s, &p)) == NULL)
-				goto error;
-			break;
-		case '#':
-			/* Comment: discard rest of line. */
-			while ((ch = cmd_string_getc(s, &p)) != EOF)
-				;
-			/* FALLTHROUGH */
-		case EOF:
-		case ' ':
-		case '\t':
-			if (buf != NULL) {
-				buf = xrealloc(buf, 1, len + 1);
-				buf[len] = '\0';
-
-				argv = xrealloc(argv, argc + 1, sizeof *argv);
-				argv[argc++] = buf;
-
-				buf = NULL;
-				len = 0;
-			}
-
-			if (ch != EOF)
-				break;
-
-			while (argc != 0) {
-				equals = strchr(argv[0], '=');
-				whitespace = argv[0] + strcspn(argv[0], " \t");
-				if (equals == NULL || equals > whitespace)
-					break;
-				argc--;
-				memmove(argv, argv + 1, argc * (sizeof *argv));
-			}
-			if (argc == 0)
-				goto out;
-
-			if (*cmdlist == NULL)
-				goto out;
-
-			rval = 0;
-			goto out;
-		case '~':
-			if (buf == NULL) {
-				t = cmd_string_expand_tilde(s, &p);
-				if (t == NULL)
-					goto error;
-				break;
-			}
-			/* FALLTHROUGH */
-		default:
-			if (len >= SIZE_MAX - 2)
-				goto error;
-
-			buf = xrealloc(buf, 1, len + 1);
-			buf[len++] = ch;
-			break;
-		}
+  /* Use rename only if TO is not a symbolic link and has
+     only one hard link, and we have permission to write to it.  */
+  if (! exists
+      || (!S_ISLNK (s.st_mode)
+	  && S_ISREG (s.st_mode)
+	  && (s.st_mode & S_IWUSR)
+	  && s.st_nlink == 1)
+      )
+    {
+      ret = rename (from, to);
+      if (ret == 0)
+	{
+	  if (exists)
+	    {
+	      /* Try to preserve the permission bits and ownership of
+		 TO.  First get the mode right except for the setuid
+		 bit.  Then change the ownership.  Then fix the setuid
+		 bit.  We do the chmod before the chown because if the
+		 chown succeeds, and we are a normal user, we won't be
+		 able to do the chmod afterward.  We don't bother to
+		 fix the setuid bit first because that might introduce
+		 a fleeting security problem, and because the chown
+		 will clear the setuid bit anyhow.  We only fix the
+		 setuid bit if the chown succeeds, because we don't
+		 want to introduce an unexpected setuid file owned by
+		 the user running objcopy.  */
+	      chmod (to, s.st_mode & 0777);
+	      if (chown (to, s.st_uid, s.st_gid) >= 0)
+		chmod (to, s.st_mode & 07777);
+	    }
 	}
-
-error:
-out:
-	free(buf);
-
-	if (argv != NULL) {
-		for (i = 0; i < argc; i++)
-			free(argv[i]);
-		free(argv);
+      else
+	{
+	  /* We have to clean up here.  */
+	  non_fatal (("unable to rename '%s';"), to);
+	  unlink (from);
 	}
+    }
+  else
+    {
+      if (ret != 0)
+				non_fatal (("unable to copy file '%s';"), to);
 
-	return (rval);
+      if (preserve_dates)
+				set_times (to, &s);
+      unlink (from);
+    }
+
+  return ret;
 }
 
-
-/*
- * Load configuration file. Returns -1 for an error with a list of messages in
- * causes. Note that causes must be initialised by the caller!
- */
-enum cmd_retval
-load_cfg(const char *path, struct cmd_ctx *ctxin, struct causelist *causes)
+void unlink_if_ordinary (const char *name)
 {
-	FILE		*f;
-	u_int		 n;
-	char		*buf, *copy, *line, *cause;
-	size_t		 len, oldlen;
-	struct cmd_list	*cmdlist;
-	struct cmd_ctx	 ctx;
-	enum cmd_retval	 retval;
-
-	if ((f = fopen(path, "rb")) == NULL) {
-		return (CMD_RETURN_ERROR);
-	}
-
-	cfg_references++;
-
-	n = 0;
-	line = NULL;
-	retval = CMD_RETURN_NORMAL;
-	while ((buf = fgets(buf, len, f))) {
-		/* Trim \n. */
-		if (buf[len - 1] == '\n')
-			len--;
-		printf ("%s: %s", path, buf);
-
-		/* Current line is the continuation of the previous one. */
-		if (line != NULL) {
-			oldlen = strlen(line);
-			line = xrealloc(line, 1, oldlen + len + 1);	/* allocation site */
-		} else {
-			oldlen = 0;
-			line = xmalloc(len + 1);					/* allocation site */
-		}
-
-		/* Append current line to the previous. */
-		memcpy(line + oldlen, buf, len);
-		line[oldlen + len] = '\0';
-		n++;
-
-		/* Continuation: get next line? */
-		len = strlen(line);
-		if (len > 0 && line[len - 1] == '\\') {
-			line[len - 1] = '\0';
-
-			/* Ignore escaped backslash at EOL. */
-			if (len > 1 && line[len - 2] != '\\')
-				continue;
-		}
-		copy = line;									
-		line = NULL;
-
-		/* Skip empty lines. */
-		buf = copy;
-		while (isspace((u_char)*buf))
-			buf++;
-		if (*buf == '\0') {
-			continue;						/* memory leak */
-		}
-
-		if (cmd_string_parse(buf, &cmdlist, &cause) != 0) {
-			free(copy);
-			if (cause == NULL)
-				continue;
-			free(cause);
-			continue;
-		}
-		free(copy);
-		if (cmdlist == NULL)
-			continue;
-
-		if (ctxin == NULL) {
-			ctx.msgdata = NULL;
-			ctx.curclient = NULL;
-			ctx.cmdclient = NULL;
-		} else {
-			ctx.msgdata = ctxin->msgdata;
-			ctx.curclient = ctxin->curclient;
-			ctx.cmdclient = ctxin->cmdclient;
-		}
-
-
-		cfg_cause = NULL;
-	}
-	if (line != NULL) {
-		free(line);
-	}
-	fclose(f);
-
-	cfg_references--;
-
-	return (retval);											
+	__USE(name);
 }
+
+bfd *bfd_openw(const char *name)
+{
+	__USE(name);
+	
+	bfd *nbfd = malloc(sizeof(bfd));
+	return nbfd;
+}
+
+bfd_boolean *bfd_close(bfd *abfd)
+{
+	bfd_boolean ret;
+	__NONDET(ret, 1, 0);
+
+	free(abfd);
+}
+
+char *bfd_get_filename(bfd *iarch)
+{
+	return iarch->filename;
+}
+
+static void
+write_archive (bfd *iarch)
+{
+  bfd *obfd;
+  char *old_name, *new_name;
+  bfd *contents_head = iarch->archive_next;
+
+  old_name = (char *) xmalloc (strlen (bfd_get_filename (iarch)) + 1);
+  strcpy (old_name, bfd_get_filename (iarch));
+  new_name = make_tempname (old_name);  /* allocation site */
+
+  if (new_name == NULL)
+    bfd_fatal (("could not create temporary file whilst writing archive%s"), "");
+
+  output_filename = new_name;
+
+  obfd = bfd_openw (new_name);
+
+  if (obfd == NULL)
+    bfd_fatal ("%s", old_name);
+
+  if (!bfd_close (obfd))
+    bfd_fatal ("%s", old_name);
+
+  output_filename = NULL;
+
+  /* We don't care if this fails; we might be creating the archive.  */
+  bfd_close (iarch);
+
+  if (smart_rename (new_name, old_name, 0) != 0)
+    exit (1);
+  free (old_name);
+  /* memory leak */
+}   
 
 int main()
 {
-	struct cmd_ctx ctxin;
-	struct causelist causes;
-	causes.list = malloc(1);
-	ARRAY_INIT(&causes);
-	load_cfg("path", &ctxin, &causes);
-	return 0;
+        bfd iarch;
+        write_archive(&iarch);
+        return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

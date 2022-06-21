@@ -314,7 +314,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		temp = diff(Globaltime, aend);
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 
-		// printfBasicblock();
+		printfBasicblock();
 	}
 	else
 		fprintf(stderr, "\033[40;41m GIMPLE STMT NO FREE STMT\033[0m\n");
