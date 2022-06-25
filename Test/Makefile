@@ -182,7 +182,7 @@ all: test.o
 
 test.o:  
 ifeq ($(debug),0)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 -fplugin-arg-newplugin-debugoutput=0)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 -fplugin-arg-newplugin-debugoutput=1 -fplugin-arg-newplugin-debugmod=0)
 else ifeq ($(debug),1)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1)
 else ifeq ($(debug),2)
@@ -194,7 +194,7 @@ else ifeq ($(debug),4)
 endif
 	# @echo $(debug)
 	# mod 1
-	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
 	# @sh ./test.sh $(FILE_NAME)
 	# #mod 2

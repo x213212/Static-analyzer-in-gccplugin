@@ -840,8 +840,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								if (user_tmp->size > 0)
 									FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 									{
-										// fprintf2(stderr, "\n====================test================\n");
-										// debug_gimple_stmt(u_stmt);
+
 										if (function_free_collect->get(function_tree) != NULL)
 										{
 											function_free_array callerFunArray = *(function_free_collect->get(function_tree));
@@ -849,14 +848,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											if ((gimple_code(u_stmt) != GIMPLE_PREDICT) && gimple_block(u_stmt))
 												if ((BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == table_temp->node->get_fun()->decl)
 												{
-													// fprintf2(stderr, "\n====================test2================\n");
-
-													// fprintf2(stderr, "\n====================test2================\n");
 
 													for (int k = 0; k < global_ret_type_array.size(); k++)
 													{
-														// fprintf2(stderr, "\n====================test2================\n");
-														// debug_gimple_stmt((global_ret_type_array)[k].stmt);
+
 														if ((global_ret_type_array)[k].locfucntion == function_tree)
 															if (bb_in_loop_p(gimple_bb(u_stmt)) == bb_in_loop_p(gimple_bb((global_ret_type_array)[k].stmt)))
 																if (dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb(u_stmt)) || fDFS->get(table_temp->node)->is_succ(gimple_bb(u_stmt), gimple_bb((global_ret_type_array)[k].stmt)))
@@ -864,7 +859,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																	{
 																		if ((callerRetTypearray)[k2].stmt != u_stmt &&
 																			(callerRetTypearray)[k2].stmt != (global_ret_type_array)[k].stmt)
-																			if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb(u_stmt)))
+																			if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb(u_stmt)) || fDFS->get(table_temp->node)->is_succ(gimple_bb(u_stmt), gimple_bb((callerRetTypearray)[k2].stmt)))
 																				if (!dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((callerRetTypearray)[k2].stmt)))
 																				{
 																					fprintf2(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
@@ -886,24 +881,14 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																					warning_at2(gimple_location_safe((callerRetTypearray)[k2].stmt), 0, "use location");
 																					fprintf2(stderr, "The path has a release memory in succ := %d \n", gimple_bb((callerRetTypearray)[k2].stmt)->index);
 																					fprintf2(stderr, "\n======================================================================\n");
-																					// if (k + 1 < global_ret_type_array.size())
-																					// 	if ((global_ret_type_array)[k + 1].locfucntion == function_tree)
-																					// 	{
-																					// 		k++;
-																					// 	}
 																				}
 																	}
 													}
 												}
-												// else
-												// {
-												// 	debug_tree((BLOCK_SUPERCONTEXT(gimple_block(u_stmt))));
-												// }
 										}
 										else
 										{
-											// 				fprintf2(stderr, "\n====================test3================\n");
-											// debug_gimple_stmt(u_stmt);
+
 											for (int k = 0; k < global_ret_type_array.size(); k++)
 												if ((global_ret_type_array)[k].locfucntion == function_tree)
 												{
