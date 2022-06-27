@@ -1,0 +1,855 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:10:
+./benchmarks/openssh-portable/leak_1/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_1/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘strlcat’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:31: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   57 |                 return(dlen + strlen(s));
+      |                               ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+   10 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:31: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+   57 |                 return(dlen + strlen(s));
+      |                               ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:57:31: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘match_pattern_list’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:37: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  136 |         unsigned int i, subi, len = strlen(pattern);
+      |                                     ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:136:37: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:154:48: warning: implicit declaration of function ‘isupper’ [-Wimplicit-function-declaration]
+  154 |                         sub[subi] = dolower && isupper((u_char)pattern[i]) ?
+      |                                                ^~~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:11:1: note: include ‘<ctype.h>’ or provide a declaration of ‘isupper’
+   10 | #include "../openssh.h"
+  +++ |+#include <ctype.h>
+   11 | 
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:29: warning: implicit declaration of function ‘tolower’ [-Wimplicit-function-declaration]
+  155 |                             tolower((u_char)pattern[i]) : pattern[i];
+      |                             ^~~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:155:29: note: include ‘<ctype.h>’ or provide a declaration of ‘tolower’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c: In function ‘match_filter_list’:
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:186:18: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  186 |     size_t len = strlen(proposal) + 1;
+      |                  ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:186:18: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:188:23: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  188 |     char *orig_prop = strdup(proposal);
+      |                       ^~~~~~
+./benchmarks/openssh-portable/leak_1/openssh_leak_1.c:188:23: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 44%)
+ phase parsing                      :   0.04 (100%)   0.00 (  0%)   0.04 ( 80%)  1397k ( 48%)
+ phase opt and generate             :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)   214k (  7%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)   113k (  4%)
+ preprocessing                      :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   637k ( 22%)
+ lexical analysis                   :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ parser (global)                    :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)   564k ( 19%)
+ parser struct body                 :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   115k (  4%)
+ tree PTA                           :   0.00 (  0%)   0.01 (100%)   0.01 ( 20%)  2016  (  0%)
+ varconst                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ TOTAL                              :   0.04          0.01          0.05         2921k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    74k (  3%)
+ lto stream decompression           :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ TOTAL                              :   0.00          0.00          0.01         2234k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:match_filter_list=========
+=======node_fun:match_pattern_list=========
+=======node_fun:match_pattern=========
+=======node_fun:strlcat=========
+=======node_fun:strsep=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 29 
+===============The second stage : Mapping stmt=================
+# .MEM_7 = VDEF <.MEM_6(D)>
+proposal_4 = match_filter_list ("proposal", "filter");
+# .MEM_8 = VDEF <.MEM_7>
+__builtin_puts (&"match_filter_list failed"[0]);
+# .MEM_9 = VDEF <.MEM_5>
+printf ("proposal : %s\n", proposal_4);
+# VUSE <.MEM_29(D)>
+_1 = strlen (proposal_12(D));
+# .MEM_30 = VDEF <.MEM_29(D)>
+fix_prop_15 = malloc (len_13);
+# .MEM_31 = VDEF <.MEM_30>
+orig_prop_17 = strdup (proposal_12(D));
+# VUSE <.MEM_34>
+_5 = match_pattern_list (cp_21, filter_24(D), 0);
+# .MEM_36 = VDEF <.MEM_34>
+strlcat (fix_prop_15, ",", len_13);
+# .MEM_37 = VDEF <.MEM_25>
+strlcat (fix_prop_15, cp_21, len_13);
+# .MEM_34 = VDEF <.MEM_27>
+cp_21 = strsep (&tmp, ",");
+# VUSE <.MEM_60(D)>
+_1 = strlen (pattern_42(D));
+# VUSE <.MEM_57>
+_10 = isupper (_9);
+# VUSE <.MEM_57>
+_16 = tolower (_15);
+# .MEM_61 = VDEF <.MEM_57>
+sub[subi_35] = _36;
+# .MEM_62 = VDEF <.MEM_57>
+sub[subi_35] = 0;
+# VUSE <.MEM_62>
+_28 = match_pattern (string_56(D), &sub);
+# VUSE <.MEM_37(D)>
+_3 = strlen (src_20(D));
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+proposal_4 = match_filter_list ("proposal", "filter");
+if (proposal_4 == 0B)
+  goto <bb 3>; [17.43%]
+else
+  goto <bb 4>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 187153200]:
+__builtin_puts (&"match_filter_list failed"[0]);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+printf ("proposal : %s\n", proposal_4);
+return 0;
+
+=======Mapping node_fun:match_filter_list=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 59079431]:
+_1 = strlen (proposal_12(D));
+len_13 = _1 + 1;
+fix_prop_15 = malloc (len_13);
+orig_prop_17 = strdup (proposal_12(D));
+_2 = fix_prop_15 == 0B;
+_3 = orig_prop_17 == 0B;
+_4 = _2 | _3;
+if (_4 != 0)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 23632]:
+free (orig_prop_17);
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 59055799]:
+tmp = orig_prop_17;
+*fix_prop_15 = 0;
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1014686025]:
+_5 = match_pattern_list (cp_21, filter_24(D), 0);
+if (_5 != 1)
+  goto <bb 6>; [5.50%]
+else
+  goto <bb 10>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 55807731]:
+_6 = *fix_prop_15;
+if (_6 != 0)
+  goto <bb 7>; [33.00%]
+else
+  goto <bb 8>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 18416551]:
+strlcat (fix_prop_15, ",", len_13);
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 55807731]:
+strlcat (fix_prop_15, cp_21, len_13);
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 114863530]:
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+cp_21 = strsep (&tmp, ",");
+if (cp_21 != 0B)
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 11>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 59055800]:
+free (orig_prop_17);
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 59079432]:
+# _7 = PHI <0B(3), fix_prop_15(11)>
+tmp ={v} {CLOBBER};
+return _7;
+
+=======Mapping node_fun:match_pattern_list=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 239436848]:
+_1 = strlen (pattern_42(D));
+len_43 = (unsigned int) _1;
+goto <bb 20>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 114863530]:
+_2 = (sizetype) i_34;
+_3 = pattern_42(D) + _2;
+_4 = *_3;
+if (_4 == 33)
+  goto <bb 4>; [34.00%]
+else
+  goto <bb 5>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 39053601]:
+i_47 = i_34 + 1;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 114863530]:
+# negated_29 = PHI <0(3), 1(4)>
+# i_31 = PHI <i_34(3), i_47(4)>
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 958878293]:
+if (dolower_48(D) != 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 479439146]:
+_5 = (sizetype) i_32;
+_6 = pattern_42(D) + _5;
+_7 = *_6;
+_8 = (unsigned char) _7;
+_9 = (int) _8;
+_10 = isupper (_9);
+if (_10 != 0)
+  goto <bb 8>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 239719573]:
+_11 = (sizetype) i_32;
+_12 = pattern_42(D) + _11;
+_13 = *_12;
+_14 = (unsigned char) _13;
+_15 = (int) _14;
+_16 = tolower (_15);
+_49 = (char) _16;
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 719158720]:
+_17 = (sizetype) i_32;
+_18 = pattern_42(D) + _17;
+_50 = *_18;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 958878293]:
+# _36 = PHI <_49(8), _50(9)>
+sub[subi_35] = _36;
+subi_52 = subi_35 + 1;
+i_53 = i_32 + 1;
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 1073741824]:
+# i_32 = PHI <i_31(5), i_53(10)>
+# subi_35 = PHI <0(5), subi_52(10)>
+_19 = i_32 < len_43;
+_20 = subi_35 <= 1022;
+_21 = _19 & _20;
+if (_21 != 0)
+  goto <bb 12>; [94.50%]
+else
+  goto <bb 13>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 1014686025]:
+_22 = (sizetype) i_32;
+_23 = pattern_42(D) + _22;
+_24 = *_23;
+if (_24 != 44)
+  goto <bb 6>; [94.50%]
+else
+  goto <bb 13>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 114863531]:
+if (subi_35 > 1022)
+  goto <bb 21>; [3.66%]
+else
+  goto <bb 14>; [96.34%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 110659526]:
+if (i_32 < len_43)
+  goto <bb 15>; [50.00%]
+else
+  goto <bb 17>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 55329763]:
+_25 = (sizetype) i_32;
+_26 = pattern_42(D) + _25;
+_27 = *_26;
+if (_27 == 44)
+  goto <bb 16>; [34.00%]
+else
+  goto <bb 17>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 18812120]:
+i_54 = i_32 + 1;
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 110659526]:
+# i_33 = PHI <i_32(14), i_32(15), i_54(16)>
+sub[subi_35] = 0;
+_28 = match_pattern (string_56(D), &sub);
+if (_28 != 0)
+  goto <bb 18>; [50.00%]
+else
+  goto <bb 19>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 55329763]:
+if (negated_29 != 0)
+  goto <bb 21>; [3.66%]
+else
+  goto <bb 19>; [96.34%]
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 108634456]:
+# got_positive_46 = PHI <got_positive_30(17), 1(18)>
+# i_44 = PHI <i_33(17), i_33(18)>
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 348071305]:
+# got_positive_30 = PHI <0(2), got_positive_46(19)>
+# i_34 = PHI <0(2), i_44(19)>
+if (i_34 < len_43)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 21>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 239436850]:
+# _37 = PHI <0(13), -1(18), got_positive_30(20)>
+sub ={v} {CLOBBER};
+return _37;
+
+=======Mapping node_fun:match_pattern=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 104094422]:
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1073741824]:
+# s_19 = PHI <s_23(D)(2), s_26(16)>
+# pattern_21 = PHI <pattern_24(D)(2), pattern_27(16)>
+_1 = *pattern_21;
+if (_1 == 0)
+  goto <bb 4>; [2.75%]
+else
+  goto <bb 5>; [97.25%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 29527904]:
+_2 = *s_19;
+_3 = _2 == 0;
+_29 = (int) _3;
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1044213921]:
+_4 = *pattern_21;
+if (_4 == 42)
+  goto <bb 6>; [2.75%]
+else
+  goto <bb 13>; [97.25%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 28715887]:
+_5 = MEM[(const char *)pattern_21 + 1B];
+if (_5 == 0)
+  goto <bb 17>; [34.00%]
+else
+  goto <bb 7>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 18952485]:
+_6 = MEM[(const char *)pattern_21 + 1B];
+_7 = _6 != 63;
+_8 = MEM[(const char *)pattern_21 + 1B];
+_9 = _8 != 42;
+_10 = _7 & _9;
+if (_10 != 0)
+  goto <bb 18>; [50.00%]
+else
+  goto <bb 11>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 9476243]:
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 83711608]:
+_11 = *s_20;
+_12 = MEM[(const char *)pattern_21 + 1B];
+if (_11 == _12)
+  goto <bb 17>; [5.50%]
+else
+  goto <bb 9>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 79107470]:
+s_28 = s_20 + 1;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 88583712]:
+# s_20 = PHI <s_19(18), s_28(9)>
+_13 = *s_20;
+if (_13 != 0)
+  goto <bb 8>; [94.50%]
+else
+  goto <bb 17>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 9476243]:
+_14 = *s_19;
+if (_14 != 0)
+  goto <bb 17>; [50.00%]
+else
+  goto <bb 12>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 4738121]:
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 1015498034]:
+_15 = *s_19;
+if (_15 == 0)
+  goto <bb 17>; [2.75%]
+else
+  goto <bb 14>; [97.25%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 987571833]:
+_16 = *pattern_21;
+if (_16 != 63)
+  goto <bb 15>; [66.00%]
+else
+  goto <bb 16>; [34.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 651797407]:
+_17 = *pattern_21;
+_18 = *s_19;
+if (_17 != _18)
+  goto <bb 17>; [2.75%]
+else
+  goto <bb 16>; [97.25%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 969647403]:
+s_26 = s_19 + 1;
+pattern_27 = pattern_21 + 1;
+goto <bb 3>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 104094421]:
+# _22 = PHI <_29(4), 1(6), 1(8), 0(10), 1(11), 0(12), 0(13), 0(15)>
+return _22;
+
+=======Mapping node_fun:strlcat=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 114863530]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 958878296]:
+d_24 = d_8 + 1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# d_8 = PHI <dst_19(D)(2), d_24(3)>
+# n_12 = PHI <siz_21(D)(2), n_22(3)>
+n_22 = n_12 + 18446744073709551615;
+if (n_12 != 0)
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 6>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1014686026]:
+_1 = *d_8;
+if (_1 != 0)
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 6>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 114863531]:
+_2 = d_8 - dst_19(D);
+dlen_25 = (size_t) _2;
+n_26 = siz_21(D) - dlen_25;
+if (n_26 == 0)
+  goto <bb 7>; [34.00%]
+else
+  goto <bb 11>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 39053601]:
+_3 = strlen (src_20(D));
+_33 = _3 + dlen_25;
+goto <bb 13>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 613371258]:
+if (n_14 != 1)
+  goto <bb 9>; [66.00%]
+else
+  goto <bb 10>; [34.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 404825028]:
+d_29 = d_10 + 1;
+_4 = *s_11;
+*d_10 = _4;
+n_31 = n_14 + 18446744073709551615;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 613371258]:
+# d_9 = PHI <d_10(8), d_29(9)>
+# n_13 = PHI <n_14(8), n_31(9)>
+s_32 = s_11 + 1;
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 689181189]:
+# d_10 = PHI <d_8(6), d_9(10)>
+# s_11 = PHI <src_20(D)(6), s_32(10)>
+# n_14 = PHI <n_26(6), n_13(10)>
+_5 = *s_11;
+if (_5 != 0)
+  goto <bb 8>; [89.00%]
+else
+  goto <bb 12>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 75809930]:
+*d_10 = 0;
+_6 = s_11 - src_20(D);
+_7 = (long unsigned int) _6;
+_28 = _7 + dlen_25;
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 114863531]:
+# _15 = PHI <_33(7), _28(12)>
+return _15;
+
+=======Mapping node_fun:strsep=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 69395768]:
+s_11 = *stringp_10(D);
+if (s_11 == 0B)
+  goto <bb 9>; [14.90%]
+else
+  goto <bb 10>; [85.10%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 59055799]:
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 114863530]:
+# s_3 = PHI <s_11(10), s_12(11)>
+s_12 = s_3 + 1;
+_1 = *s_3;
+c_13 = (int) _1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# spanp_5 = PHI <delim_14(D)(3), spanp_15(12)>
+spanp_15 = spanp_5 + 1;
+_2 = *spanp_5;
+sc_16 = (int) _2;
+if (c_13 == sc_16)
+  goto <bb 5>; [5.50%]
+else
+  goto <bb 8>; [94.50%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 59055800]:
+if (c_13 == 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 6>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 29527900]:
+MEM[(char *)s_12 + -1B] = 0;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 59055800]:
+# s_4 = PHI <0B(5), s_12(6)>
+*stringp_10(D) = s_4;
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1014686025]:
+if (sc_16 != 0)
+  goto <bb 12>; [94.50%]
+else
+  goto <bb 11>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 958878294]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 55807731]:
+goto <bb 3>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 69395769]:
+# _6 = PHI <0B(2), s_11(7)>
+return _6;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 2 [0m
+[40;34m    gimple free   count : 2 [0m
+[40;34m    all ptable point : 29 [0m
+[40;34m    analyzable ptable point : 26 [0m
+[40;34m    analyzable ptable all point stmt : 153 [0m
+[40;34m    used_stmt array stack totalsize of : 0.004264 mb[0m
+[40;34m    collect time: : 0.000274 s [0m
+[40;34m    mapping time: : 0.000628 s [0m
+[40;34m    algorithm time: 0.003837 s [0m
+[40;34m    gimple stmt count : : 148 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:12 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 73%)
+ phase opt and generate             :   0.04 (100%)   0.01 (100%)   0.04 ( 80%)   771k ( 26%)
+ callgraph functions expansion      :   0.03 ( 75%)   0.01 (100%)   0.04 ( 80%)   625k ( 21%)
+ tree canonical iv                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  2448  (  0%)
+ tree copy headers                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  8776  (  0%)
+ expand                             :   0.01 ( 25%)   0.01 (100%)   0.00 (  0%)    70k (  2%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   167k (  6%)
+ plugin execution                   :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)  3336  (  0%)
+ initialize rtl                     :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    20k (  1%)
+ TOTAL                              :   0.04          0.01          0.05         2967k

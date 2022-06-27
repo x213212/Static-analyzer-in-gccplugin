@@ -1,0 +1,2543 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/tmux/double_free_2/tmux_df_2.c: In function ‘window_zoom’:
+./benchmarks/tmux/double_free_2/tmux_df_2.c:185:14: warning: implicit declaration of function ‘window_pane_visible’; did you mean ‘window_pane_cmp’? [-Wimplicit-function-declaration]
+  185 |         if (!window_pane_visible(wp))
+      |              ^~~~~~~~~~~~~~~~~~~
+      |              window_pane_cmp
+In file included from ./benchmarks/tmux/double_free_2/tmux_df_2.c:9:
+./benchmarks/tmux/double_free_2/tmux_df_2.c: In function ‘window_create’:
+./benchmarks/tmux/double_free_2/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/double_free_2/tmux_df_2.c:352:19: note: in expansion of macro ‘xstrdup’
+  352 |         w->name = xstrdup(name);        /* allocation site */
+      |                   ^~~~~~~
+./benchmarks/tmux/double_free_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/double_free_2/tmux_df_2.c:352:19: note: in expansion of macro ‘xstrdup’
+  352 |         w->name = xstrdup(name);        /* allocation site */
+      |                   ^~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)  1298k ( 21%)
+ phase parsing                      :   0.07 ( 54%)   0.03 ( 75%)   0.10 ( 56%)  2965k ( 49%)
+ phase opt and generate             :   0.06 ( 46%)   0.01 ( 25%)   0.07 ( 39%)  1799k ( 30%)
+ callgraph ipa passes               :   0.05 ( 38%)   0.01 ( 25%)   0.06 ( 33%)   884k ( 15%)
+ ipa function summary               :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)    74k (  1%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)     0  (  0%)
+ lto stream output                  :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto gimple out                 :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)  6960  (  0%)
+ ipa lto decl out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)   264  (  0%)
+ ipa free lang data                 :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ preprocessing                      :   0.03 ( 23%)   0.00 (  0%)   0.04 ( 22%)  1088k ( 18%)
+ lexical analysis                   :   0.01 (  8%)   0.02 ( 50%)   0.03 ( 17%)     0  (  0%)
+ parser (global)                    :   0.01 (  8%)   0.00 (  0%)   0.01 (  6%)   624k ( 10%)
+ parser struct body                 :   0.00 (  0%)   0.01 ( 25%)   0.01 (  6%)   154k (  3%)
+ parser function body               :   0.02 ( 15%)   0.00 (  0%)   0.01 (  6%)   998k ( 16%)
+ inline parameters                  :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)    90k (  1%)
+ tree gimplify                      :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)   588k ( 10%)
+ tree CFG cleanup                   :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)  5552  (  0%)
+ tree CCP                           :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)  7776  (  0%)
+ dominance computation              :   0.01 (  8%)   0.00 (  0%)   0.02 ( 11%)     0  (  0%)
+ branch prediction                  :   0.00 (  0%)   0.00 (  0%)   0.01 (  6%)    46k (  1%)
+ TOTAL                              :   0.13          0.04          0.18         6072k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.01 ( 50%)   0.00 (  0%)   0.00 (  0%)  2157k ( 92%)
+ phase opt and generate             :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 50%)     0  (  0%)
+ dump files                         :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 50%)     0  (  0%)
+ TOTAL                              :   0.02          0.00          0.02         2348k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:window_create=========
+=======node_fun:window_create1=========
+=======node_fun:window_pane_visible=========
+=======node_fun:notify_drain=========
+=======node_fun:notify_add=========
+=======node_fun:window_remove_ref=========
+=======node_fun:window_destroy=========
+=======node_fun:window_unzoom=========
+=======node_fun:window_zoom=========
+=======node_fun:notify_window_layout_changed=========
+=======node_fun:window_count_panes=========
+=======node_fun:layout_init=========
+=======node_fun:layout_free=========
+=======node_fun:layout_free_cell=========
+=======node_fun:layout_make_leaf=========
+=======node_fun:layout_set_size=========
+=======node_fun:layout_create_cell=========
+=======node_fun:windows_RB_REMOVE=========
+=======node_fun:windows_RB_INSERT=========
+=======node_fun:windows_RB_REMOVE_COLOR=========
+=======node_fun:windows_RB_INSERT_COLOR=========
+=======node_fun:window_cmp=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 48 
+===============The second stage : Mapping stmt=================
+# .MEM_11 = VDEF <.MEM_10(D)>
+w_9 = window_create ("name", argc_3(D), argv_4(D), "path", sx_5(D), sy_6(D), hlimit_7(D));
+# .MEM_12 = VDEF <.MEM_11>
+window_zoom (_1);
+# VUSE <.MEM_12>
+window_count_panes (w_9);
+# .MEM_13 = VDEF <.MEM_12>
+window_destroy (w_9);
+# .MEM_13 = VDEF <.MEM_12(D)>
+w_7 = window_create1 (sx_4(D), sy_5(D));
+# .MEM_14 = VDEF <.MEM_13>
+layout_init (w_7, wp_8(D));
+# .MEM_16 = VDEF <.MEM_15>
+_2 = strdup (name_11(D));
+# .MEM_18 = VDEF <.MEM_17(D)>
+w_6 = calloc (1, 256);
+# .MEM_31 = VDEF <.MEM_30>
+windows_RB_INSERT (&windows, w_6);
+# .MEM_28 = VDEF <.MEM_25>
+window_remove_ref (_3);
+# .MEM_27 = VDEF <.MEM_26(D)>
+ne_15 = calloc (1, 48);
+# .MEM_12 = VDEF <.MEM_9(D)>
+printf ("bad reference count%s", "");
+# .MEM_11 = VDEF <.MEM_10>
+window_destroy (w_7(D));
+# .MEM_8 = VDEF <.MEM_7(D)>
+window_unzoom (w_5(D));
+# .MEM_9 = VDEF <.MEM_8>
+windows_RB_REMOVE (&windows, w_5(D));
+# .MEM_10 = VDEF <.MEM_9>
+layout_free (w_5(D));
+# .MEM_26 = VDEF <.MEM_25>
+layout_free (w_12(D));
+# .MEM_29 = VDEF <.MEM_22>
+notify_window_layout_changed (w_12(D));
+# VUSE <.MEM_26(D)>
+_3 = window_pane_visible (wp_14(D));
+# VUSE <.MEM_26(D)>
+_4 = window_count_panes (w_15);
+# .MEM_28 = VDEF <.MEM_27>
+layout_init (w_15, wp_14(D));
+# .MEM_30 = VDEF <.MEM_29>
+notify_window_layout_changed (w_15);
+# .MEM_4 = VDEF <.MEM_3(D)>
+notify_add (0, 0B, 0B, w_2(D));
+# .MEM_5 = VDEF <.MEM_4>
+notify_drain ();
+# .MEM_12 = VDEF <.MEM_11(D)>
+_1 = layout_create_cell (0B);
+# .MEM_14 = VDEF <.MEM_13>
+layout_set_size (lc_8, _3, _2, 0, 0);
+# .MEM_15 = VDEF <.MEM_14>
+layout_make_leaf (lc_8, wp_10(D));
+# .MEM_5 = VDEF <.MEM_4(D)>
+layout_free_cell (_1);
+# .MEM_26 = VDEF <.MEM_25>
+layout_free_cell (lcchild_17);
+# .MEM_8 = VDEF <.MEM_7(D)>
+lc_4 = malloc (72);
+# .MEM_73 = VDEF <.MEM_56>
+windows_RB_REMOVE_COLOR (head_36(D), parent_18, child_16);
+# VUSE <.MEM_30(D)>
+comp_24 = window_cmp (elm_14(D), tmp_2);
+# .MEM_38 = VDEF <.MEM_28>
+windows_RB_INSERT_COLOR (head_12(D), elm_14(D));
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+w_9 = window_create ("name", argc_3(D), argv_4(D), "path", sx_5(D), sy_6(D), hlimit_7(D));
+_1 = w_9->active;
+window_zoom (_1);
+window_count_panes (w_9);
+window_destroy (w_9);
+return 0;
+
+=======Mapping node_fun:window_create=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+w_7 = window_create1 (sx_4(D), sy_5(D));
+layout_init (w_7, wp_8(D));
+_1 = w_7->panes.tqh_first;
+w_7->active = _1;
+_2 = strdup (name_11(D));
+w_7->name = _2;
+return w_7;
+
+=======Mapping node_fun:window_create1=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+w_6 = calloc (1, 256);
+w_6->name = 0B;
+w_6->flags = 0;
+w_6->panes.tqh_first = 0B;
+_1 = &w_6->panes.tqh_first;
+w_6->panes.tqh_last = _1;
+w_6->active = 0B;
+w_6->lastlayout = -1;
+w_6->layout_root = 0B;
+w_6->sx = sx_14(D);
+w_6->sy = sy_16(D);
+w_6->references = 0;
+_2 = next_window_id;
+_3 = _2 + 1;
+next_window_id = _3;
+w_6->id = _2;
+windows_RB_INSERT (&windows, w_6);
+return w_6;
+
+=======Mapping node_fun:window_pane_visible=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+w_17 = wp_16(D)->window;
+_1 = wp_16(D)->layout_cell;
+if (_1 == 0B)
+  goto <bb 8>; [18.09%]
+else
+  goto <bb 3>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 879501929]:
+_2 = wp_16(D)->xoff;
+_3 = w_17->sx;
+if (_2 >= _3)
+  goto <bb 8>; [34.00%]
+else
+  goto <bb 4>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 580471270]:
+_4 = wp_16(D)->yoff;
+_5 = w_17->sy;
+if (_4 >= _5)
+  goto <bb 8>; [34.00%]
+else
+  goto <bb 5>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 383111036]:
+_6 = wp_16(D)->xoff;
+_7 = wp_16(D)->sx;
+_8 = _6 + _7;
+_9 = w_17->sx;
+if (_8 > _9)
+  goto <bb 7>; [34.00%]
+else
+  goto <bb 6>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 252853282]:
+_10 = wp_16(D)->yoff;
+_11 = wp_16(D)->sy;
+_12 = _10 + _11;
+_13 = w_17->sy;
+if (_12 > _13)
+  goto <bb 7>; [34.00%]
+else
+  goto <bb 8>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 216227870]:
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# _14 = PHI <0(2), 0(3), 0(4), 1(6), 0(7)>
+return _14;
+
+=======Mapping node_fun:notify_drain=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 178956968]:
+_1 = notify_enabled;
+if (_1 == 0)
+  goto <bb 11>; [34.00%]
+else
+  goto <bb 3>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 118111598]:
+ne_16 = notify_queue.tqh_first;
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 955630224]:
+_2 = ne_10->window;
+if (_2 != 0B)
+  goto <bb 5>; [53.47%]
+else
+  goto <bb 6>; [46.53%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 510975479]:
+_3 = ne_10->window;
+window_remove_ref (_3);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 955630224]:
+_4 = ne_10->entry.tqe_next;
+if (_4 != 0B)
+  goto <bb 7>; [70.00%]
+else
+  goto <bb 8>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 668941160]:
+_5 = ne_10->entry.tqe_next;
+_6 = ne_10->entry.tqe_prev;
+_5->entry.tqe_prev = _6;
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 286689064]:
+_7 = ne_10->entry.tqe_prev;
+notify_queue.tqh_last = _7;
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 955630224]:
+_8 = ne_10->entry.tqe_prev;
+_9 = ne_10->entry.tqe_next;
+*_8 = _9;
+free (ne_10);
+ne_22 = ne_10->entry.tqe_next;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+# ne_10 = PHI <ne_16(3), ne_22(9)>
+if (ne_10 != 0B)
+  goto <bb 4>; [89.00%]
+else
+  goto <bb 11>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 178956970]:
+return;
+
+=======Mapping node_fun:notify_add=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ne_15 = calloc (1, 48);
+ne_15->type = type_16(D);
+ne_15->client = c_18(D);
+ne_15->session = s_20(D);
+ne_15->window = w_22(D);
+ne_15->entry.tqe_next = 0B;
+_1 = notify_queue.tqh_last;
+ne_15->entry.tqe_prev = _1;
+_2 = notify_queue.tqh_last;
+*_2 = ne_15;
+_3 = &ne_15->entry.tqe_next;
+notify_queue.tqh_last = _3;
+if (c_18(D) != 0B)
+  goto <bb 3>; [70.00%]
+else
+  goto <bb 4>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 751619281]:
+_4 = c_18(D)->references;
+_5 = _4 + 1;
+c_18(D)->references = _5;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+if (s_20(D) != 0B)
+  goto <bb 5>; [70.00%]
+else
+  goto <bb 6>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 751619281]:
+_6 = s_20(D)->references;
+_7 = _6 + 1;
+s_20(D)->references = _7;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+if (w_22(D) != 0B)
+  goto <bb 7>; [70.00%]
+else
+  goto <bb 8>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 751619281]:
+_8 = w_22(D)->references;
+_9 = _8 + 1;
+w_22(D)->references = _9;
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:window_remove_ref=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = w_7(D)->references;
+if (_1 == 0)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+printf ("bad reference count%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+_2 = w_7(D)->references;
+_3 = _2 + 4294967295;
+w_7(D)->references = _3;
+_4 = w_7(D)->references;
+if (_4 == 0)
+  goto <bb 5>; [33.00%]
+else
+  goto <bb 6>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 354193067]:
+window_destroy (w_7(D));
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073312330]:
+return;
+
+=======Mapping node_fun:window_destroy=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+window_unzoom (w_5(D));
+windows_RB_REMOVE (&windows, w_5(D));
+_1 = w_5(D)->layout_root;
+if (_1 != 0B)
+  goto <bb 3>; [53.47%]
+else
+  goto <bb 4>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 574129753]:
+layout_free (w_5(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_2 = w_5(D)->name;
+free (_2);
+free (w_5(D));
+return;
+
+=======Mapping node_fun:window_unzoom=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 120632827]:
+_1 = w_12(D)->flags;
+_2 = _1 & 4096;
+if (_2 == 0)
+  goto <bb 7>; [2.09%]
+else
+  goto <bb 3>; [97.91%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 118111600]:
+_3 = w_12(D)->flags;
+_4 = _3 & -4097;
+w_12(D)->flags = _4;
+layout_free (w_12(D));
+_5 = w_12(D)->saved_layout_root;
+w_12(D)->layout_root = _5;
+w_12(D)->saved_layout_root = 0B;
+wp_17 = w_12(D)->panes.tqh_first;
+goto <bb 5>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 955630225]:
+_6 = wp_7->saved_layout_cell;
+wp_7->layout_cell = _6;
+wp_7->saved_layout_cell = 0B;
+wp_21 = wp_7->entry.tqe_next;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# wp_7 = PHI <wp_17(3), wp_21(4)>
+if (wp_7 != 0B)
+  goto <bb 4>; [89.00%]
+else
+  goto <bb 6>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 118111600]:
+notify_window_layout_changed (w_12(D));
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 120632827]:
+# _8 = PHI <-1(2), 0(6)>
+return _8;
+
+=======Mapping node_fun:window_zoom=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 122562430]:
+w_15 = wp_14(D)->window;
+_1 = w_15->flags;
+_2 = _1 & 4096;
+if (_2 != 0)
+  goto <bb 9>; [1.04%]
+else
+  goto <bb 3>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 121287781]:
+_3 = window_pane_visible (wp_14(D));
+if (_3 == 0)
+  goto <bb 9>; [2.09%]
+else
+  goto <bb 4>; [97.91%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 118752866]:
+_4 = window_count_panes (w_15);
+if (_4 == 1)
+  goto <bb 9>; [0.54%]
+else
+  goto <bb 5>; [99.46%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+wp1_16 = w_15->panes.tqh_first;
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 955630224]:
+_5 = wp1_9->layout_cell;
+wp1_9->saved_layout_cell = _5;
+wp1_9->layout_cell = 0B;
+wp1_23 = wp1_9->entry.tqe_next;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# wp1_9 = PHI <wp1_16(5), wp1_23(6)>
+if (wp1_9 != 0B)
+  goto <bb 6>; [89.00%]
+else
+  goto <bb 8>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 118111600]:
+_6 = w_15->layout_root;
+w_15->saved_layout_root = _6;
+layout_init (w_15, wp_14(D));
+_7 = w_15->flags;
+_8 = _7 | 4096;
+w_15->flags = _8;
+notify_window_layout_changed (w_15);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 122562430]:
+# _10 = PHI <-1(2), -1(3), -1(4), 0(8)>
+return _10;
+
+=======Mapping node_fun:notify_window_layout_changed=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+notify_add (0, 0B, 0B, w_2(D));
+notify_drain ();
+return;
+
+=======Mapping node_fun:window_count_panes=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+wp_5 = w_4(D)->panes.tqh_first;
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+n_6 = n_2 + 1;
+wp_7 = wp_1->entry.tqe_next;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# wp_1 = PHI <wp_5(2), wp_7(3)>
+# n_2 = PHI <0(2), n_6(3)>
+if (wp_1 != 0B)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+return n_2;
+
+=======Mapping node_fun:layout_init=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = layout_create_cell (0B);
+w_6(D)->layout_root = _1;
+lc_8 = w_6(D)->layout_root;
+_2 = w_6(D)->sy;
+_3 = w_6(D)->sx;
+layout_set_size (lc_8, _3, _2, 0, 0);
+layout_make_leaf (lc_8, wp_10(D));
+return;
+
+=======Mapping node_fun:layout_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = w_3(D)->layout_root;
+layout_free_cell (_1);
+return;
+
+=======Mapping node_fun:layout_free_cell=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 708669596]:
+_1 = lc_15(D)->type;
+switch (_1) <default: <L3> [33.33%], case 0 ... 1: <L0> [33.33%], case 2: <L2> [33.33%]>
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 236223200]:
+<L0>:
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 837518625]:
+lcchild_17 = lc_15(D)->cells.tqh_first;
+_2 = lcchild_17->entry.tqe_next;
+if (_2 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 586263040]:
+_3 = lcchild_17->entry.tqe_next;
+_4 = lcchild_17->entry.tqe_prev;
+_3->entry.tqe_prev = _4;
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 251255585]:
+_5 = lcchild_17->entry.tqe_prev;
+lc_15(D)->cells.tqh_last = _5;
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 637802637]:
+_6 = lcchild_17->entry.tqe_prev;
+_7 = lcchild_17->entry.tqe_next;
+*_6 = _7;
+layout_free_cell (lcchild_17);
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+<L1>:
+_8 = lc_15(D)->cells.tqh_first;
+if (_8 != 0B)
+  goto <bb 3>; [78.00%]
+else
+  goto <bb 10>; [22.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 236223200]:
+<L2>:
+_9 = lc_15(D)->wp;
+if (_9 != 0B)
+  goto <bb 9>; [70.00%]
+else
+  goto <bb 10>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 165356241]:
+_10 = lc_15(D)->wp;
+_10->layout_cell = 0B;
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 708669601]:
+<L3>:
+free (lc_15(D));
+return;
+
+=======Mapping node_fun:layout_make_leaf=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+lc_3(D)->type = 2;
+lc_3(D)->cells.tqh_first = 0B;
+_1 = &lc_3(D)->cells.tqh_first;
+lc_3(D)->cells.tqh_last = _1;
+wp_7(D)->layout_cell = lc_3(D);
+lc_3(D)->wp = wp_7(D);
+return;
+
+=======Mapping node_fun:layout_set_size=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+lc_2(D)->sx = sx_3(D);
+lc_2(D)->sy = sy_5(D);
+lc_2(D)->xoff = xoff_7(D);
+lc_2(D)->yoff = yoff_9(D);
+return;
+
+=======Mapping node_fun:layout_create_cell=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+lc_4 = malloc (72);
+lc_4->type = 2;
+lc_4->parent = lcparent_6(D);
+lc_4->cells.tqh_first = 0B;
+_1 = &lc_4->cells.tqh_first;
+lc_4->cells.tqh_last = _1;
+lc_4->sx = 1073741824;
+lc_4->sy = 1073741824;
+lc_4->xoff = 1073741824;
+lc_4->yoff = 1073741824;
+lc_4->wp = 0B;
+return lc_4;
+
+=======Mapping node_fun:windows_RB_REMOVE=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 309087481]:
+_1 = elm_28(D)->entry.rbe_left;
+if (_1 == 0B)
+  goto <bb 3>; [30.00%]
+else
+  goto <bb 4>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 92726243]:
+child_48 = elm_28(D)->entry.rbe_right;
+goto <bb 27>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 216361238]:
+_2 = elm_28(D)->entry.rbe_right;
+if (_2 == 0B)
+  goto <bb 5>; [45.41%]
+else
+  goto <bb 6>; [54.59%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 98249638]:
+child_47 = elm_28(D)->entry.rbe_left;
+goto <bb 27>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 118111600]:
+elm_30 = elm_28(D)->entry.rbe_right;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# elm_14 = PHI <elm_30(6), left_31(39)>
+left_31 = elm_14->entry.rbe_left;
+if (left_31 != 0B)
+  goto <bb 39>; [89.00%]
+else
+  goto <bb 8>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 39 
+<bb 39> [local count: 955630225]:
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 118111600]:
+child_32 = elm_14->entry.rbe_right;
+parent_33 = elm_14->entry.rbe_parent;
+color_34 = elm_14->entry.rbe_color;
+if (child_32 != 0B)
+  goto <bb 9>; [70.00%]
+else
+  goto <bb 10>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 82678121]:
+child_32->entry.rbe_parent = parent_33;
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 118111600]:
+if (parent_33 != 0B)
+  goto <bb 11>; [70.00%]
+else
+  goto <bb 14>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 82678121]:
+_3 = parent_33->entry.rbe_left;
+if (_3 == elm_14)
+  goto <bb 12>; [30.00%]
+else
+  goto <bb 13>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 24803436]:
+parent_33->entry.rbe_left = child_32;
+goto <bb 15>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 57874685]:
+parent_33->entry.rbe_right = child_32;
+goto <bb 15>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 35433480]:
+head_36(D)->rbh_root = child_32;
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 118111600]:
+_4 = elm_14->entry.rbe_parent;
+if (_4 == elm_28(D))
+  goto <bb 16>; [30.00%]
+else
+  goto <bb 17>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 35433480]:
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 118111600]:
+# parent_17 = PHI <parent_33(15), elm_14(16)>
+elm_14->entry = elm_28(D)->entry;
+_5 = elm_28(D)->entry.rbe_parent;
+if (_5 != 0B)
+  goto <bb 18>; [70.00%]
+else
+  goto <bb 21>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 82678121]:
+_6 = elm_28(D)->entry.rbe_parent;
+_7 = _6->entry.rbe_left;
+if (_7 == elm_28(D))
+  goto <bb 19>; [30.00%]
+else
+  goto <bb 20>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 24803436]:
+_8 = elm_28(D)->entry.rbe_parent;
+_8->entry.rbe_left = elm_14;
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 57874685]:
+_9 = elm_28(D)->entry.rbe_parent;
+_9->entry.rbe_right = elm_14;
+goto <bb 22>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 35433480]:
+head_36(D)->rbh_root = elm_14;
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 118111600]:
+_10 = elm_28(D)->entry.rbe_left;
+_10->entry.rbe_parent = elm_14;
+_11 = elm_28(D)->entry.rbe_right;
+if (_11 != 0B)
+  goto <bb 23>; [70.00%]
+else
+  goto <bb 24>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [local count: 82678121]:
+_12 = elm_28(D)->entry.rbe_right;
+_12->entry.rbe_parent = elm_14;
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 118111600]:
+if (parent_17 != 0B)
+  goto <bb 37>; [70.00%]
+else
+  goto <bb 26>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 37 
+<bb 37> [local count: 82678121]:
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [local count: 751619282]:
+# left_20 = PHI <parent_17(37), left_46(38)>
+left_46 = left_20->entry.rbe_parent;
+if (left_46 != 0B)
+  goto <bb 38>; [89.00%]
+else
+  goto <bb 26>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 38 
+<bb 38> [local count: 668941161]:
+goto <bb 25>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [local count: 118111600]:
+// predicted unlikely by goto predictor.
+goto <bb 34>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 190975881]:
+# child_15 = PHI <child_48(3), child_47(5)>
+parent_49 = elm_28(D)->entry.rbe_parent;
+color_50 = elm_28(D)->entry.rbe_color;
+if (child_15 != 0B)
+  goto <bb 28>; [70.00%]
+else
+  goto <bb 29>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 133683117]:
+child_15->entry.rbe_parent = parent_49;
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [local count: 190975881]:
+if (parent_49 != 0B)
+  goto <bb 30>; [70.00%]
+else
+  goto <bb 33>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [local count: 133683117]:
+_13 = parent_49->entry.rbe_left;
+if (_13 == elm_28(D))
+  goto <bb 31>; [30.00%]
+else
+  goto <bb 32>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [local count: 40104935]:
+parent_49->entry.rbe_left = child_15;
+goto <bb 34>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 32 
+<bb 32> [local count: 93578183]:
+parent_49->entry.rbe_right = child_15;
+goto <bb 34>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 33 
+<bb 33> [local count: 57292764]:
+head_36(D)->rbh_root = child_15;
+
+=======is loop:0=========
+
+ bb index 34 
+<bb 34> [local count: 309087482]:
+# child_16 = PHI <child_32(26), child_15(31), child_15(32), child_15(33)>
+# parent_18 = PHI <parent_17(26), parent_49(31), parent_49(32), parent_49(33)>
+# color_19 = PHI <color_34(26), color_50(31), color_50(32), color_50(33)>
+color:
+if (color_19 == 0)
+  goto <bb 35>; [33.00%]
+else
+  goto <bb 36>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 35 
+<bb 35> [local count: 101998868]:
+windows_RB_REMOVE_COLOR (head_36(D), parent_18, child_16);
+
+=======is loop:0=========
+
+ bb index 36 
+<bb 36> [local count: 309087482]:
+return elm_28(D);
+
+=======Mapping node_fun:windows_RB_INSERT=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 91982362]:
+tmp_13 = head_12(D)->rbh_root;
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1014686024]:
+comp_24 = window_cmp (elm_14(D), tmp_2);
+if (comp_24 < 0)
+  goto <bb 4>; [41.00%]
+else
+  goto <bb 5>; [59.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 416021266]:
+tmp_27 = tmp_2->entry.rbe_left;
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 598664758]:
+if (comp_24 > 0)
+  goto <bb 6>; [94.50%]
+else
+  goto <bb 15>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 565738197]:
+tmp_26 = tmp_2->entry.rbe_right;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 981759463]:
+# tmp_23 = PHI <tmp_27(4), tmp_26(6)>
+# parent_25 = PHI <tmp_2(4), tmp_2(6)>
+# comp_9 = PHI <comp_24(4), comp_24(6)>
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# tmp_2 = PHI <tmp_13(2), tmp_23(7)>
+# parent_3 = PHI <0B(2), parent_25(7)>
+# comp_4 = PHI <0(2), comp_9(7)>
+if (tmp_2 != 0B)
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 9>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 59055800]:
+elm_14(D)->entry.rbe_parent = parent_3;
+elm_14(D)->entry.rbe_right = 0B;
+_1 = elm_14(D)->entry.rbe_right;
+elm_14(D)->entry.rbe_left = _1;
+elm_14(D)->entry.rbe_color = 1;
+if (parent_3 != 0B)
+  goto <bb 10>; [70.00%]
+else
+  goto <bb 13>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 41339060]:
+if (comp_4 < 0)
+  goto <bb 11>; [41.00%]
+else
+  goto <bb 12>; [59.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 16949015]:
+parent_3->entry.rbe_left = elm_14(D);
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 24390046]:
+parent_3->entry.rbe_right = elm_14(D);
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 17716740]:
+head_12(D)->rbh_root = elm_14(D);
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 59055800]:
+windows_RB_INSERT_COLOR (head_12(D), elm_14(D));
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 91982362]:
+# _5 = PHI <tmp_2(5), 0B(14)>
+return _5;
+
+=======Mapping node_fun:windows_RB_REMOVE_COLOR=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 65054214]:
+goto <bb 82>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1037535244]:
+_1 = parent_90->entry.rbe_left;
+if (_1 == elm_91)
+  goto <bb 4>; [30.00%]
+else
+  goto <bb 40>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 311260570]:
+tmp_166 = parent_90->entry.rbe_right;
+_2 = tmp_166->entry.rbe_color;
+if (_2 == 1)
+  goto <bb 5>; [34.00%]
+else
+  goto <bb 13>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 105828595]:
+tmp_166->entry.rbe_color = 0;
+parent_90->entry.rbe_color = 1;
+tmp_169 = parent_90->entry.rbe_right;
+_3 = tmp_169->entry.rbe_left;
+parent_90->entry.rbe_right = _3;
+_4 = parent_90->entry.rbe_right;
+if (_4 != 0B)
+  goto <bb 6>; [70.00%]
+else
+  goto <bb 7>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 74080017]:
+_5 = tmp_169->entry.rbe_left;
+_5->entry.rbe_parent = parent_90;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 105828595]:
+_6 = parent_90->entry.rbe_parent;
+tmp_169->entry.rbe_parent = _6;
+_7 = tmp_169->entry.rbe_parent;
+if (_7 != 0B)
+  goto <bb 8>; [70.00%]
+else
+  goto <bb 11>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 74080017]:
+_8 = parent_90->entry.rbe_parent;
+_9 = _8->entry.rbe_left;
+if (_9 == parent_90)
+  goto <bb 9>; [30.00%]
+else
+  goto <bb 10>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 22224005]:
+_10 = parent_90->entry.rbe_parent;
+_10->entry.rbe_left = tmp_169;
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 51856012]:
+_11 = parent_90->entry.rbe_parent;
+_11->entry.rbe_right = tmp_169;
+goto <bb 12>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 31748578]:
+head_123(D)->rbh_root = tmp_169;
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 105828595]:
+tmp_169->entry.rbe_left = parent_90;
+parent_90->entry.rbe_parent = tmp_169;
+_12 = tmp_169->entry.rbe_parent;
+tmp_178 = parent_90->entry.rbe_right;
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 311260570]:
+# tmp_93 = PHI <tmp_166(4), tmp_178(12)>
+_13 = tmp_93->entry.rbe_left;
+if (_13 == 0B)
+  goto <bb 15>; [30.00%]
+else
+  goto <bb 14>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 217882400]:
+_14 = tmp_93->entry.rbe_left;
+_15 = _14->entry.rbe_color;
+if (_15 == 0)
+  goto <bb 15>; [98.00%]
+else
+  goto <bb 18>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 306902922]:
+_16 = tmp_93->entry.rbe_right;
+if (_16 == 0B)
+  goto <bb 17>; [30.00%]
+else
+  goto <bb 16>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 214832046]:
+_17 = tmp_93->entry.rbe_right;
+_18 = _17->entry.rbe_color;
+if (_18 == 0)
+  goto <bb 17>; [98.00%]
+else
+  goto <bb 18>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 302606280]:
+tmp_93->entry.rbe_color = 1;
+parent_181 = parent_90->entry.rbe_parent;
+goto <bb 76>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 8654290]:
+_19 = tmp_93->entry.rbe_right;
+if (_19 == 0B)
+  goto <bb 20>; [30.00%]
+else
+  goto <bb 19>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 6058003]:
+_20 = tmp_93->entry.rbe_right;
+_21 = _20->entry.rbe_color;
+if (_21 == 0)
+  goto <bb 20>; [50.00%]
+else
+  goto <bb 30>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 5625289]:
+oleft_182 = tmp_93->entry.rbe_left;
+if (oleft_182 != 0B)
+  goto <bb 21>; [70.00%]
+else
+  goto <bb 22>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 3937702]:
+oleft_182->entry.rbe_color = 0;
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 5625289]:
+tmp_93->entry.rbe_color = 1;
+oleft_185 = tmp_93->entry.rbe_left;
+_22 = oleft_185->entry.rbe_right;
+tmp_93->entry.rbe_left = _22;
+_23 = tmp_93->entry.rbe_left;
+if (_23 != 0B)
+  goto <bb 23>; [70.00%]
+else
+  goto <bb 24>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [local count: 3937702]:
+_24 = oleft_185->entry.rbe_right;
+_24->entry.rbe_parent = tmp_93;
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 5625289]:
+_25 = tmp_93->entry.rbe_parent;
+oleft_185->entry.rbe_parent = _25;
+_26 = oleft_185->entry.rbe_parent;
+if (_26 != 0B)
+  goto <bb 25>; [70.00%]
+else
+  goto <bb 28>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 25 
+<bb 25> [local count: 3937702]:
+_27 = tmp_93->entry.rbe_parent;
+_28 = _27->entry.rbe_left;
+if (_28 == tmp_93)
+  goto <bb 26>; [30.00%]
+else
+  goto <bb 27>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [local count: 1181311]:
+_29 = tmp_93->entry.rbe_parent;
+_29->entry.rbe_left = oleft_185;
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 2756391]:
+_30 = tmp_93->entry.rbe_parent;
+_30->entry.rbe_right = oleft_185;
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 1687587]:
+head_123(D)->rbh_root = oleft_185;
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [local count: 5625289]:
+oleft_185->entry.rbe_right = tmp_93;
+tmp_93->entry.rbe_parent = oleft_185;
+_31 = oleft_185->entry.rbe_parent;
+tmp_194 = parent_90->entry.rbe_right;
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [local count: 8654290]:
+# tmp_94 = PHI <tmp_93(19), tmp_194(29)>
+_32 = parent_90->entry.rbe_color;
+tmp_94->entry.rbe_color = _32;
+parent_90->entry.rbe_color = 0;
+_33 = tmp_94->entry.rbe_right;
+if (_33 != 0B)
+  goto <bb 31>; [70.00%]
+else
+  goto <bb 32>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [local count: 6058003]:
+_34 = tmp_94->entry.rbe_right;
+_34->entry.rbe_color = 0;
+
+=======is loop:0=========
+
+ bb index 32 
+<bb 32> [local count: 8654290]:
+tmp_198 = parent_90->entry.rbe_right;
+_35 = tmp_198->entry.rbe_left;
+parent_90->entry.rbe_right = _35;
+_36 = parent_90->entry.rbe_right;
+if (_36 != 0B)
+  goto <bb 33>; [70.00%]
+else
+  goto <bb 34>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 33 
+<bb 33> [local count: 6058003]:
+_37 = tmp_198->entry.rbe_left;
+_37->entry.rbe_parent = parent_90;
+
+=======is loop:0=========
+
+ bb index 34 
+<bb 34> [local count: 8654290]:
+_38 = parent_90->entry.rbe_parent;
+tmp_198->entry.rbe_parent = _38;
+_39 = tmp_198->entry.rbe_parent;
+if (_39 != 0B)
+  goto <bb 35>; [70.00%]
+else
+  goto <bb 38>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 35 
+<bb 35> [local count: 6058003]:
+_40 = parent_90->entry.rbe_parent;
+_41 = _40->entry.rbe_left;
+if (_41 == parent_90)
+  goto <bb 36>; [30.00%]
+else
+  goto <bb 37>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 36 
+<bb 36> [local count: 1817401]:
+_42 = parent_90->entry.rbe_parent;
+_42->entry.rbe_left = tmp_198;
+goto <bb 39>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 37 
+<bb 37> [local count: 4240602]:
+_43 = parent_90->entry.rbe_parent;
+_43->entry.rbe_right = tmp_198;
+goto <bb 39>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 38 
+<bb 38> [local count: 2596287]:
+head_123(D)->rbh_root = tmp_198;
+
+=======is loop:0=========
+
+ bb index 39 
+<bb 39> [local count: 8654290]:
+tmp_198->entry.rbe_left = parent_90;
+parent_90->entry.rbe_parent = tmp_198;
+_44 = tmp_198->entry.rbe_parent;
+elm_207 = head_123(D)->rbh_root;
+goto <bb 79>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 40 
+<bb 40> [local count: 726274675]:
+tmp_124 = parent_90->entry.rbe_left;
+_45 = tmp_124->entry.rbe_color;
+if (_45 == 1)
+  goto <bb 41>; [34.00%]
+else
+  goto <bb 49>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 41 
+<bb 41> [local count: 246933392]:
+tmp_124->entry.rbe_color = 0;
+parent_90->entry.rbe_color = 1;
+tmp_127 = parent_90->entry.rbe_left;
+_46 = tmp_127->entry.rbe_right;
+parent_90->entry.rbe_left = _46;
+_47 = parent_90->entry.rbe_left;
+if (_47 != 0B)
+  goto <bb 42>; [70.00%]
+else
+  goto <bb 43>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 42 
+<bb 42> [local count: 172853375]:
+_48 = tmp_127->entry.rbe_right;
+_48->entry.rbe_parent = parent_90;
+
+=======is loop:1=========
+
+ bb index 43 
+<bb 43> [local count: 246933392]:
+_49 = parent_90->entry.rbe_parent;
+tmp_127->entry.rbe_parent = _49;
+_50 = tmp_127->entry.rbe_parent;
+if (_50 != 0B)
+  goto <bb 44>; [70.00%]
+else
+  goto <bb 47>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 44 
+<bb 44> [local count: 172853375]:
+_51 = parent_90->entry.rbe_parent;
+_52 = _51->entry.rbe_left;
+if (_52 == parent_90)
+  goto <bb 45>; [30.00%]
+else
+  goto <bb 46>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 45 
+<bb 45> [local count: 51856012]:
+_53 = parent_90->entry.rbe_parent;
+_53->entry.rbe_left = tmp_127;
+goto <bb 48>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 46 
+<bb 46> [local count: 120997363]:
+_54 = parent_90->entry.rbe_parent;
+_54->entry.rbe_right = tmp_127;
+goto <bb 48>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 47 
+<bb 47> [local count: 74080017]:
+head_123(D)->rbh_root = tmp_127;
+
+=======is loop:1=========
+
+ bb index 48 
+<bb 48> [local count: 246933392]:
+tmp_127->entry.rbe_right = parent_90;
+parent_90->entry.rbe_parent = tmp_127;
+_55 = tmp_127->entry.rbe_parent;
+tmp_136 = parent_90->entry.rbe_left;
+
+=======is loop:1=========
+
+ bb index 49 
+<bb 49> [local count: 726274676]:
+# tmp_95 = PHI <tmp_124(40), tmp_136(48)>
+_56 = tmp_95->entry.rbe_left;
+if (_56 == 0B)
+  goto <bb 51>; [30.00%]
+else
+  goto <bb 50>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 50 
+<bb 50> [local count: 508392274]:
+_57 = tmp_95->entry.rbe_left;
+_58 = _57->entry.rbe_color;
+if (_58 == 0)
+  goto <bb 51>; [98.00%]
+else
+  goto <bb 54>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 51 
+<bb 51> [local count: 716106828]:
+_59 = tmp_95->entry.rbe_right;
+if (_59 == 0B)
+  goto <bb 53>; [30.00%]
+else
+  goto <bb 52>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 52 
+<bb 52> [local count: 501274781]:
+_60 = tmp_95->entry.rbe_right;
+_61 = _60->entry.rbe_color;
+if (_61 == 0)
+  goto <bb 53>; [98.00%]
+else
+  goto <bb 54>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 53 
+<bb 53> [local count: 706081331]:
+tmp_95->entry.rbe_color = 1;
+parent_139 = parent_90->entry.rbe_parent;
+goto <bb 76>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 54 
+<bb 54> [local count: 20193344]:
+_62 = tmp_95->entry.rbe_left;
+if (_62 == 0B)
+  goto <bb 56>; [30.00%]
+else
+  goto <bb 55>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 55 
+<bb 55> [local count: 14135341]:
+_63 = tmp_95->entry.rbe_left;
+_64 = _63->entry.rbe_color;
+if (_64 == 0)
+  goto <bb 56>; [50.00%]
+else
+  goto <bb 66>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 56 
+<bb 56> [local count: 13125674]:
+oright_140 = tmp_95->entry.rbe_right;
+if (oright_140 != 0B)
+  goto <bb 57>; [70.00%]
+else
+  goto <bb 58>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 57 
+<bb 57> [local count: 9187972]:
+oright_140->entry.rbe_color = 0;
+
+=======is loop:0=========
+
+ bb index 58 
+<bb 58> [local count: 13125674]:
+tmp_95->entry.rbe_color = 1;
+oright_143 = tmp_95->entry.rbe_right;
+_65 = oright_143->entry.rbe_left;
+tmp_95->entry.rbe_right = _65;
+_66 = tmp_95->entry.rbe_right;
+if (_66 != 0B)
+  goto <bb 59>; [70.00%]
+else
+  goto <bb 60>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 59 
+<bb 59> [local count: 9187972]:
+_67 = oright_143->entry.rbe_left;
+_67->entry.rbe_parent = tmp_95;
+
+=======is loop:0=========
+
+ bb index 60 
+<bb 60> [local count: 13125674]:
+_68 = tmp_95->entry.rbe_parent;
+oright_143->entry.rbe_parent = _68;
+_69 = oright_143->entry.rbe_parent;
+if (_69 != 0B)
+  goto <bb 61>; [70.00%]
+else
+  goto <bb 64>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 61 
+<bb 61> [local count: 9187972]:
+_70 = tmp_95->entry.rbe_parent;
+_71 = _70->entry.rbe_left;
+if (_71 == tmp_95)
+  goto <bb 62>; [30.00%]
+else
+  goto <bb 63>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 62 
+<bb 62> [local count: 2756391]:
+_72 = tmp_95->entry.rbe_parent;
+_72->entry.rbe_left = oright_143;
+goto <bb 65>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 63 
+<bb 63> [local count: 6431580]:
+_73 = tmp_95->entry.rbe_parent;
+_73->entry.rbe_right = oright_143;
+goto <bb 65>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 64 
+<bb 64> [local count: 3937702]:
+head_123(D)->rbh_root = oright_143;
+
+=======is loop:0=========
+
+ bb index 65 
+<bb 65> [local count: 13125674]:
+oright_143->entry.rbe_left = tmp_95;
+tmp_95->entry.rbe_parent = oright_143;
+_74 = oright_143->entry.rbe_parent;
+tmp_152 = parent_90->entry.rbe_left;
+
+=======is loop:0=========
+
+ bb index 66 
+<bb 66> [local count: 20193344]:
+# tmp_96 = PHI <tmp_95(55), tmp_152(65)>
+_75 = parent_90->entry.rbe_color;
+tmp_96->entry.rbe_color = _75;
+parent_90->entry.rbe_color = 0;
+_76 = tmp_96->entry.rbe_left;
+if (_76 != 0B)
+  goto <bb 67>; [70.00%]
+else
+  goto <bb 68>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 67 
+<bb 67> [local count: 14135341]:
+_77 = tmp_96->entry.rbe_left;
+_77->entry.rbe_color = 0;
+
+=======is loop:0=========
+
+ bb index 68 
+<bb 68> [local count: 20193344]:
+tmp_156 = parent_90->entry.rbe_left;
+_78 = tmp_156->entry.rbe_right;
+parent_90->entry.rbe_left = _78;
+_79 = parent_90->entry.rbe_left;
+if (_79 != 0B)
+  goto <bb 69>; [70.00%]
+else
+  goto <bb 70>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 69 
+<bb 69> [local count: 14135341]:
+_80 = tmp_156->entry.rbe_right;
+_80->entry.rbe_parent = parent_90;
+
+=======is loop:0=========
+
+ bb index 70 
+<bb 70> [local count: 20193344]:
+_81 = parent_90->entry.rbe_parent;
+tmp_156->entry.rbe_parent = _81;
+_82 = tmp_156->entry.rbe_parent;
+if (_82 != 0B)
+  goto <bb 71>; [70.00%]
+else
+  goto <bb 74>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 71 
+<bb 71> [local count: 14135341]:
+_83 = parent_90->entry.rbe_parent;
+_84 = _83->entry.rbe_left;
+if (_84 == parent_90)
+  goto <bb 72>; [30.00%]
+else
+  goto <bb 73>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 72 
+<bb 72> [local count: 4240602]:
+_85 = parent_90->entry.rbe_parent;
+_85->entry.rbe_left = tmp_156;
+goto <bb 75>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 73 
+<bb 73> [local count: 9894739]:
+_86 = parent_90->entry.rbe_parent;
+_86->entry.rbe_right = tmp_156;
+goto <bb 75>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 74 
+<bb 74> [local count: 6058003]:
+head_123(D)->rbh_root = tmp_156;
+
+=======is loop:0=========
+
+ bb index 75 
+<bb 75> [local count: 20193344]:
+tmp_156->entry.rbe_right = parent_90;
+parent_90->entry.rbe_parent = tmp_156;
+_87 = tmp_156->entry.rbe_parent;
+elm_165 = head_123(D)->rbh_root;
+goto <bb 79>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 76 
+<bb 76> [local count: 1008687611]:
+# parent_138 = PHI <parent_181(17), parent_139(53)>
+# elm_180 = PHI <parent_90(17), parent_90(53)>
+
+=======is loop:1=========
+
+ bb index 82 
+<bb 82> [local count: 1073741824]:
+# parent_90 = PHI <parent_120(D)(2), parent_138(76)>
+# elm_91 = PHI <elm_121(D)(2), elm_180(76)>
+if (elm_91 == 0B)
+  goto <bb 78>; [30.00%]
+else
+  goto <bb 77>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 77 
+<bb 77> [local count: 751619281]:
+_88 = elm_91->entry.rbe_color;
+if (_88 == 0)
+  goto <bb 78>; [98.00%]
+else
+  goto <bb 79>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 78 
+<bb 78> [local count: 1058709437]:
+_89 = head_123(D)->rbh_root;
+if (_89 != elm_91)
+  goto <bb 3>; [98.00%]
+else
+  goto <bb 79>; [2.00%]
+
+=======is loop:0=========
+
+ bb index 79 
+<bb 79> [local count: 65054215]:
+# elm_92 = PHI <elm_207(39), elm_165(75), elm_91(77), elm_91(78)>
+if (elm_92 != 0B)
+  goto <bb 80>; [70.00%]
+else
+  goto <bb 81>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 80 
+<bb 80> [local count: 45537951]:
+elm_92->entry.rbe_color = 0;
+
+=======is loop:0=========
+
+ bb index 81 
+<bb 81> [local count: 65054215]:
+return;
+
+=======Mapping node_fun:windows_RB_INSERT_COLOR=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 114863528]:
+goto <bb 47>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 958878293]:
+gparent_67 = parent_66->entry.rbe_parent;
+_1 = gparent_67->entry.rbe_left;
+if (_1 == parent_66)
+  goto <bb 4>; [30.00%]
+else
+  goto <bb 24>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 287663485]:
+tmp_94 = gparent_67->entry.rbe_right;
+if (tmp_94 != 0B)
+  goto <bb 5>; [70.00%]
+else
+  goto <bb 7>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 201364440]:
+_2 = tmp_94->entry.rbe_color;
+if (_2 == 1)
+  goto <bb 6>; [20.24%]
+else
+  goto <bb 7>; [79.76%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 40756163]:
+tmp_94->entry.rbe_color = 0;
+parent_66->entry.rbe_color = 0;
+gparent_67->entry.rbe_color = 1;
+// predicted unlikely by continue predictor.
+goto <bb 44>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 246907322]:
+_3 = parent_66->entry.rbe_right;
+if (_3 == elm_50)
+  goto <bb 8>; [30.00%]
+else
+  goto <bb 16>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 74072196]:
+tmp_98 = parent_66->entry.rbe_right;
+_4 = tmp_98->entry.rbe_left;
+parent_66->entry.rbe_right = _4;
+_5 = parent_66->entry.rbe_right;
+if (_5 != 0B)
+  goto <bb 9>; [70.00%]
+else
+  goto <bb 10>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 51850537]:
+_6 = tmp_98->entry.rbe_left;
+_6->entry.rbe_parent = parent_66;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 74072196]:
+_7 = parent_66->entry.rbe_parent;
+tmp_98->entry.rbe_parent = _7;
+_8 = tmp_98->entry.rbe_parent;
+if (_8 != 0B)
+  goto <bb 11>; [70.00%]
+else
+  goto <bb 14>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 51850537]:
+_9 = parent_66->entry.rbe_parent;
+_10 = _9->entry.rbe_left;
+if (_10 == parent_66)
+  goto <bb 12>; [30.00%]
+else
+  goto <bb 13>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 15555161]:
+_11 = parent_66->entry.rbe_parent;
+_11->entry.rbe_left = tmp_98;
+goto <bb 15>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 36295376]:
+_12 = parent_66->entry.rbe_parent;
+_12->entry.rbe_right = tmp_98;
+goto <bb 15>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 22221659]:
+head_76(D)->rbh_root = tmp_98;
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 74072196]:
+tmp_98->entry.rbe_left = parent_66;
+parent_66->entry.rbe_parent = tmp_98;
+_13 = tmp_98->entry.rbe_parent;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 246907322]:
+# elm_48 = PHI <elm_50(7), parent_66(15)>
+# parent_51 = PHI <parent_66(7), elm_50(15)>
+parent_51->entry.rbe_color = 0;
+gparent_67->entry.rbe_color = 1;
+tmp_110 = gparent_67->entry.rbe_left;
+_14 = tmp_110->entry.rbe_right;
+gparent_67->entry.rbe_left = _14;
+_15 = gparent_67->entry.rbe_left;
+if (_15 != 0B)
+  goto <bb 17>; [70.00%]
+else
+  goto <bb 18>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 172835126]:
+_16 = tmp_110->entry.rbe_right;
+_16->entry.rbe_parent = gparent_67;
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 246907322]:
+_17 = gparent_67->entry.rbe_parent;
+tmp_110->entry.rbe_parent = _17;
+_18 = tmp_110->entry.rbe_parent;
+if (_18 != 0B)
+  goto <bb 19>; [70.00%]
+else
+  goto <bb 22>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 172835126]:
+_19 = gparent_67->entry.rbe_parent;
+_20 = _19->entry.rbe_left;
+if (_20 == gparent_67)
+  goto <bb 20>; [30.00%]
+else
+  goto <bb 21>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 51850537]:
+_21 = gparent_67->entry.rbe_parent;
+_21->entry.rbe_left = tmp_110;
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 120984589]:
+_22 = gparent_67->entry.rbe_parent;
+_22->entry.rbe_right = tmp_110;
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 74072196]:
+head_76(D)->rbh_root = tmp_110;
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 246907322]:
+tmp_110->entry.rbe_right = gparent_67;
+gparent_67->entry.rbe_parent = tmp_110;
+_23 = tmp_110->entry.rbe_parent;
+goto <bb 44>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 24 
+<bb 24> [local count: 671214808]:
+tmp_68 = gparent_67->entry.rbe_left;
+if (tmp_68 != 0B)
+  goto <bb 25>; [70.00%]
+else
+  goto <bb 27>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [local count: 469850367]:
+_24 = tmp_68->entry.rbe_color;
+if (_24 == 1)
+  goto <bb 26>; [20.24%]
+else
+  goto <bb 27>; [79.76%]
+
+=======is loop:1=========
+
+ bb index 26 
+<bb 26> [local count: 95097714]:
+tmp_68->entry.rbe_color = 0;
+parent_66->entry.rbe_color = 0;
+gparent_67->entry.rbe_color = 1;
+// predicted unlikely by continue predictor.
+goto <bb 44>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 27 
+<bb 27> [local count: 576117095]:
+_25 = parent_66->entry.rbe_left;
+if (_25 == elm_50)
+  goto <bb 28>; [30.00%]
+else
+  goto <bb 36>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 28 
+<bb 28> [local count: 172835127]:
+tmp_72 = parent_66->entry.rbe_left;
+_26 = tmp_72->entry.rbe_right;
+parent_66->entry.rbe_left = _26;
+_27 = parent_66->entry.rbe_left;
+if (_27 != 0B)
+  goto <bb 29>; [70.00%]
+else
+  goto <bb 30>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 29 
+<bb 29> [local count: 120984589]:
+_28 = tmp_72->entry.rbe_right;
+_28->entry.rbe_parent = parent_66;
+
+=======is loop:1=========
+
+ bb index 30 
+<bb 30> [local count: 172835127]:
+_29 = parent_66->entry.rbe_parent;
+tmp_72->entry.rbe_parent = _29;
+_30 = tmp_72->entry.rbe_parent;
+if (_30 != 0B)
+  goto <bb 31>; [70.00%]
+else
+  goto <bb 34>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 31 
+<bb 31> [local count: 120984589]:
+_31 = parent_66->entry.rbe_parent;
+_32 = _31->entry.rbe_left;
+if (_32 == parent_66)
+  goto <bb 32>; [30.00%]
+else
+  goto <bb 33>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 32 
+<bb 32> [local count: 36295376]:
+_33 = parent_66->entry.rbe_parent;
+_33->entry.rbe_left = tmp_72;
+goto <bb 35>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 33 
+<bb 33> [local count: 84689213]:
+_34 = parent_66->entry.rbe_parent;
+_34->entry.rbe_right = tmp_72;
+goto <bb 35>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 34 
+<bb 34> [local count: 51850537]:
+head_76(D)->rbh_root = tmp_72;
+
+=======is loop:1=========
+
+ bb index 35 
+<bb 35> [local count: 172835127]:
+tmp_72->entry.rbe_right = parent_66;
+parent_66->entry.rbe_parent = tmp_72;
+_35 = tmp_72->entry.rbe_parent;
+
+=======is loop:1=========
+
+ bb index 36 
+<bb 36> [local count: 576117095]:
+# elm_49 = PHI <elm_50(27), parent_66(35)>
+# parent_52 = PHI <parent_66(27), elm_50(35)>
+parent_52->entry.rbe_color = 0;
+gparent_67->entry.rbe_color = 1;
+tmp_85 = gparent_67->entry.rbe_right;
+_36 = tmp_85->entry.rbe_left;
+gparent_67->entry.rbe_right = _36;
+_37 = gparent_67->entry.rbe_right;
+if (_37 != 0B)
+  goto <bb 37>; [70.00%]
+else
+  goto <bb 38>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 37 
+<bb 37> [local count: 403281968]:
+_38 = tmp_85->entry.rbe_left;
+_38->entry.rbe_parent = gparent_67;
+
+=======is loop:1=========
+
+ bb index 38 
+<bb 38> [local count: 576117095]:
+_39 = gparent_67->entry.rbe_parent;
+tmp_85->entry.rbe_parent = _39;
+_40 = tmp_85->entry.rbe_parent;
+if (_40 != 0B)
+  goto <bb 39>; [70.00%]
+else
+  goto <bb 42>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 39 
+<bb 39> [local count: 403281968]:
+_41 = gparent_67->entry.rbe_parent;
+_42 = _41->entry.rbe_left;
+if (_42 == gparent_67)
+  goto <bb 40>; [30.00%]
+else
+  goto <bb 41>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 40 
+<bb 40> [local count: 120984589]:
+_43 = gparent_67->entry.rbe_parent;
+_43->entry.rbe_left = tmp_85;
+goto <bb 43>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 41 
+<bb 41> [local count: 282297379]:
+_44 = gparent_67->entry.rbe_parent;
+_44->entry.rbe_right = tmp_85;
+goto <bb 43>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 42 
+<bb 42> [local count: 172835127]:
+head_76(D)->rbh_root = tmp_85;
+
+=======is loop:1=========
+
+ bb index 43 
+<bb 43> [local count: 576117096]:
+tmp_85->entry.rbe_left = gparent_67;
+gparent_67->entry.rbe_parent = tmp_85;
+_45 = tmp_85->entry.rbe_parent;
+
+=======is loop:1=========
+
+ bb index 44 
+<bb 44> [local count: 958878295]:
+# elm_82 = PHI <gparent_67(6), elm_48(23), gparent_67(26), elm_49(43)>
+
+=======is loop:1=========
+
+ bb index 47 
+<bb 47> [local count: 1073741824]:
+# elm_50 = PHI <elm_64(D)(2), elm_82(44)>
+parent_66 = elm_50->entry.rbe_parent;
+if (parent_66 != 0B)
+  goto <bb 45>; [94.50%]
+else
+  goto <bb 46>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 45 
+<bb 45> [local count: 1014686024]:
+_46 = parent_66->entry.rbe_color;
+if (_46 == 1)
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 46>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 46 
+<bb 46> [local count: 114863531]:
+_47 = head_76(D)->rbh_root;
+_47->entry.rbe_color = 0;
+return;
+
+=======Mapping node_fun:window_cmp=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = w1_5(D)->id;
+_2 = w2_6(D)->id;
+_3 = _1 - _2;
+_7 = (int) _3;
+return _7;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 4 [0m
+[40;34m    all ptable point : 48 [0m
+[40;34m    analyzable ptable point : 41 [0m
+[40;34m    analyzable ptable all point stmt : 339 [0m
+[40;34m    used_stmt array stack totalsize of : 0.009704 mb[0m
+[40;34m    collect time: : 0.001430 s [0m
+[40;34m    mapping time: : 0.005295 s [0m
+[40;34m    algorithm time: 0.079808 s [0m
+[40;34m    gimple stmt count : : 643 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:40 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)  2157k ( 48%)
+ phase opt and generate             :   0.22 ( 96%)   0.01 (100%)   0.22 ( 92%)  2231k ( 49%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)   136k (  3%)
+ dump files                         :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph functions expansion      :   0.12 ( 52%)   0.01 (100%)   0.13 ( 54%)  1724k ( 38%)
+ ipa lto decl in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)   118k (  3%)
+ df live&initialized regs           :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ df reg dead/unused notes           :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)    22k (  1%)
+ tree SSA incremental               :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)    32k (  1%)
+ dominator optimization             :   0.01 (  4%)   0.00 (  0%)   0.02 (  8%)   113k (  3%)
+ tree forward propagate             :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)   888  (  0%)
+ tree iv optimization               :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)  8752  (  0%)
+ tree strlen optimization           :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)    25k (  1%)
+ expand                             :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)   280k (  6%)
+ CSE                                :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)  2120  (  0%)
+ integrated RA                      :   0.01 (  4%)   0.00 (  0%)   0.00 (  0%)   596k ( 13%)
+ thread pro- & epilogue             :   0.00 (  0%)   0.00 (  0%)   0.01 (  4%)    36k (  1%)
+ plugin execution                   :   0.10 ( 43%)   0.01 (100%)   0.09 ( 38%)    11k (  0%)
+ initialize rtl                     :   0.01 (  4%)   0.00 (  0%)   0.01 (  4%)    12k (  0%)
+ rest of compilation                :   0.01 (  4%)   0.00 (  0%)   0.05 ( 21%)    66k (  1%)
+ TOTAL                              :   0.23          0.01          0.24         4527k

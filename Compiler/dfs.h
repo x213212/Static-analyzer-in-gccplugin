@@ -57,88 +57,26 @@ void Graph::DFSUtil(int v, bool visited[])
     // Recur for all the vertices adjacent
     // to this vertex
     list<int>::iterator i;
-    // if (succ == true)
-    // {
-    //     while (stack.size())
-    //     {
-    //         fprintf(stderr, "now stack %d\n", stack[stack.size()]);
-    //         // stack.pop();
-    //         stack.pop_back();
-    //     }
-    // }
-    // else
-    //     stack.pop_back();
     for (i = adj[v].begin(); i != adj[v].end(); ++i)
     {
-        // fprintf(stderr, "(%d)\n", *i);
-        // fprintf(stderr , "kkkk%d\n" , end);
+
         if (*i == end)
         {
             succ = true;
-            //   fprintf(stderr , "---------");
-            //   if( stack[0] == start)
-
-            //   while (stack.size())
-            //     {
-            //         // if (stack[0] == 2)
-            //         // {
-
-            //         // }
-
-            //         fprintf(stderr, "now stack %d\n", stack[stack.size() ]);
-            //             // succ = true;
-            //         // if ( stack[stack.size() - 1] != end)
-            //         // {
-            //             // fprintf(stderr, "now stack %d\n", stack[stack.size()]);
-
-            //         // }
-            //         if(stack[stack.size()-1]== end)
-            //           find=1;
-            //         // else
-            //         //   fprintf(stderr, "find stack %d\n", stack[stack.size()]);
-
-            //         // stack.pop();
-            //         stack.pop_back();
-            //     }
-            //   return ;
         }
-
         if (!visited[*i])
         {
-            // fprintf(stderr, "%d\n", v);
             if (*i > v)
             {
                 stack.push_back(*i);
                 DFSUtil(*i, visited);
                 if (succ == true)
                 {
-
-                    // if (stack[0] == start){
-               
                     while (stack.size())
                     {
-                        // if (stack[0] == 2)
-                        // {
-
-                        // }
-
-                      
-                        // succ = true;
-                        // if ( stack[stack.size() - 1] != end)
-                        // {
-                        // fprintf(stderr, "now stack %d\n", stack[stack.size()]);
-
-                        // }
-                       
-                        // else
-                        //   fprintf(stderr, "find stack %d\n", stack[stack.size()]);
-
-                        // stack.pop();
                         stack.pop_back();
                     }
-                    //     }
                     return;
-                    // break;
                 }
                 else
                     stack.pop_back();

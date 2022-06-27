@@ -1,0 +1,166 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_5/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_5/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_5/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_5/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_5/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_5/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_5/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_5/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_5/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_5/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:8:
+./benchmarks/git/leak_5/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_5/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_5/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_5/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_5/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h: At top level:
+./benchmarks/git/leak_5/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_5/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_5/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_5/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_5/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_5/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_5/git_leak_5.c: At top level:
+./benchmarks/git/leak_5/git_leak_5.c:17:6: error: redeclaration of ‘enum object_type’
+   17 | enum object_type {
+      |      ^~~~~~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:135:6: note: originally defined here
+  135 | enum object_type {
+      |      ^~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:18:9: error: redeclaration of enumerator ‘OBJ_BAD’
+   18 |         OBJ_BAD = -1,
+      |         ^~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:136:9: note: previous definition of ‘OBJ_BAD’ with type ‘enum object_type’
+  136 |         OBJ_BAD = -1,
+      |         ^~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:19:9: error: redeclaration of enumerator ‘OBJ_NONE’
+   19 |         OBJ_NONE = 0,
+      |         ^~~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:137:9: note: previous definition of ‘OBJ_NONE’ with type ‘enum object_type’
+  137 |         OBJ_NONE = 0,
+      |         ^~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:20:9: error: redeclaration of enumerator ‘OBJ_COMMIT’
+   20 |         OBJ_COMMIT = 1,
+      |         ^~~~~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:138:9: note: previous definition of ‘OBJ_COMMIT’ with type ‘enum object_type’
+  138 |         OBJ_COMMIT = 1,
+      |         ^~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:21:9: error: redeclaration of enumerator ‘OBJ_TREE’
+   21 |         OBJ_TREE = 2,
+      |         ^~~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:139:9: note: previous definition of ‘OBJ_TREE’ with type ‘enum object_type’
+  139 |         OBJ_TREE = 2,
+      |         ^~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:22:9: error: redeclaration of enumerator ‘OBJ_BLOB’
+   22 |         OBJ_BLOB = 3,
+      |         ^~~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:140:9: note: previous definition of ‘OBJ_BLOB’ with type ‘enum object_type’
+  140 |         OBJ_BLOB = 3,
+      |         ^~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:23:9: error: redeclaration of enumerator ‘OBJ_TAG’
+   23 |         OBJ_TAG = 4,
+      |         ^~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:141:9: note: previous definition of ‘OBJ_TAG’ with type ‘enum object_type’
+  141 |         OBJ_TAG = 4,
+      |         ^~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:25:9: error: redeclaration of enumerator ‘OBJ_OFS_DELTA’
+   25 |         OBJ_OFS_DELTA = 6,
+      |         ^~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:143:9: note: previous definition of ‘OBJ_OFS_DELTA’ with type ‘enum object_type’
+  143 |         OBJ_OFS_DELTA = 6,
+      |         ^~~~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:26:9: error: redeclaration of enumerator ‘OBJ_REF_DELTA’
+   26 |         OBJ_REF_DELTA = 7,
+      |         ^~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:144:9: note: previous definition of ‘OBJ_REF_DELTA’ with type ‘enum object_type’
+  144 |         OBJ_REF_DELTA = 7,
+      |         ^~~~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:27:9: error: redeclaration of enumerator ‘OBJ_ANY’
+   27 |         OBJ_ANY,
+      |         ^~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:145:9: note: previous definition of ‘OBJ_ANY’ with type ‘enum object_type’
+  145 |         OBJ_ANY,
+      |         ^~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:28:9: error: redeclaration of enumerator ‘OBJ_MAX’
+   28 |         OBJ_MAX
+      |         ^~~~~~~
+In file included from ./benchmarks/git/leak_5/git_leak_5.c:9:
+./benchmarks/git/leak_5/../git.h:146:9: note: previous definition of ‘OBJ_MAX’ with type ‘enum object_type’
+  146 |         OBJ_MAX
+      |         ^~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c: In function ‘remove_redundant’:
+./benchmarks/git/leak_5/git_leak_5.c:50:17: warning: implicit declaration of function ‘parse_commit’ [-Wimplicit-function-declaration]
+   50 |                 parse_commit(array[i]);
+      |                 ^~~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:62:26: warning: implicit declaration of function ‘paint_down_to_common’ [-Wimplicit-function-declaration]
+   62 |                 common = paint_down_to_common(array[i], filled, work);
+      |                          ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:62:24: warning: assignment to ‘struct commit_list *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   62 |                 common = paint_down_to_common(array[i], filled, work);
+      |                        ^
+./benchmarks/git/leak_5/git_leak_5.c:68:17: warning: implicit declaration of function ‘clear_commit_marks’ [-Wimplicit-function-declaration]
+   68 |                 clear_commit_marks(array[i], all_flags);
+      |                 ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:71:17: warning: implicit declaration of function ‘free_commit_list’ [-Wimplicit-function-declaration]
+   71 |                 free_commit_list(common);
+      |                 ^~~~~~~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c: At top level:
+./benchmarks/git/leak_5/git_leak_5.c:110:6: warning: conflicting types for ‘free_commit_list’; have ‘void(struct commit_list *)’
+  110 | void free_commit_list(struct commit_list *list)
+      |      ^~~~~~~~~~~~~~~~
+./benchmarks/git/leak_5/git_leak_5.c:71:17: note: previous implicit declaration of ‘free_commit_list’ with type ‘void(struct commit_list *)’
+   71 |                 free_commit_list(common);
+      |                 ^~~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 52%)
+ phase parsing                      :   0.03 (100%)   0.01 (100%)   0.04 (100%)  1084k ( 43%)
+ preprocessing                      :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 25%)   322k ( 13%)
+ lexical analysis                   :   0.01 ( 33%)   0.01 (100%)   0.01 ( 25%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)   567k ( 23%)
+ parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    88k (  4%)
+ parser inl. func. body             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    23k (  1%)
+ TOTAL                              :   0.03          0.01          0.04         2514k

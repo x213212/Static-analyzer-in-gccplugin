@@ -1,0 +1,545 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/leak_6/binutils_leak_6.c: In function ‘add_symbol_file_command’:
+./benchmarks/binutils/leak_6/binutils_leak_6.c:108:50: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  108 |                                         else if (strcmp (arg, "-s") == 0)
+      |                                                  ^~~~~~
+./benchmarks/binutils/leak_6/binutils_leak_6.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+    7 | #include "../include/vec.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/leak_6/binutils_leak_6.c: In function ‘main’:
+./benchmarks/binutils/leak_6/binutils_leak_6.c:149:33: warning: passing argument 1 of ‘add_symbol_file_command’ from incompatible pointer type [-Wincompatible-pointer-types]
+  149 |         add_symbol_file_command(args);
+      |                                 ^~~~
+      |                                 |
+      |                                 const char **
+./benchmarks/binutils/leak_6/binutils_leak_6.c:49:33: note: expected ‘char **’ but argument is of type ‘const char **’
+   49 | add_symbol_file_command (char **args)
+      |                          ~~~~~~~^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.03 ( 75%)   0.00 (  0%)   0.04 ( 80%)  1198k ( 43%)
+ phase opt and generate             :   0.01 ( 25%)   0.01 (100%)   0.01 ( 20%)   253k (  9%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.01 (100%)   0.01 ( 20%)   140k (  5%)
+ ipa function summary               :   0.01 ( 25%)   0.01 (100%)   0.00 (  0%)    22k (  1%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   464k ( 17%)
+ lexical analysis                   :   0.02 ( 50%)   0.00 (  0%)   0.02 ( 40%)     0  (  0%)
+ parser (global)                    :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   593k ( 22%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1520  (  0%)
+ TOTAL                              :   0.04          0.01          0.05         2761k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ TOTAL                              :   0.00          0.00          0.01         2222k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:add_symbol_file_command=========
+=======node_fun:xrealloc=========
+=======node_fun:null_cleanup=========
+=======node_fun:make_cleanup=========
+=======node_fun:make_my_cleanup=========
+=======node_fun:make_my_cleanup2=========
+=======node_fun:do_cleanups=========
+=======node_fun:do_my_cleanups=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 27 
+===============The second stage : Mapping stmt=================
+# .MEM_2 = VDEF <.MEM_1(D)>
+args[0] = "prog";
+# .MEM_3 = VDEF <.MEM_2>
+args[1] = "v";
+# .MEM_4 = VDEF <.MEM_3>
+args[2] = "-s";
+# .MEM_5 = VDEF <.MEM_4>
+args[3] = "idx";
+# .MEM_6 = VDEF <.MEM_5>
+args[4] = "addr";
+# .MEM_7 = VDEF <.MEM_6>
+args[5] = 0B;
+# .MEM_8 = VDEF <.MEM_7>
+add_symbol_file_command (&args);
+# .MEM_82 = VDEF <.MEM_81(D)>
+my_cleanups_47 = make_cleanup (null_cleanup, 0B);
+# .MEM_83 = VDEF <.MEM_82>
+sect_opts_49 = malloc (64);
+# .MEM_96 = VDEF <.MEM_95>
+sect_opts_75 = xrealloc (sect_opts_39, _8);
+# .MEM_92 = VDEF <.MEM_91>
+sect_opts_68 = xrealloc (sect_opts_39, _16);
+# VUSE <.MEM_79>
+_17 = strcmp (arg_31, "-s");
+# .MEM_84 = VDEF <.MEM_79>
+section_addrs_53 = malloc (24);
+# .MEM_85 = VDEF <.MEM_84>
+make_cleanup (free, section_addrs_53);
+# .MEM_87 = VDEF <.MEM_86>
+do_cleanups (my_cleanups_47);
+# .MEM_7 = VDEF <.MEM_6(D)>
+_5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+# .MEM_8 = VDEF <.MEM_7(D)>
+_6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+# .MEM_14 = VDEF <.MEM_13(D)>
+new_4 = malloc (32);
+# .MEM_4 = VDEF <.MEM_3(D)>
+do_my_cleanups (&cleanup_chain, old_chain_2(D));
+# .MEM_19 = VDEF <.MEM_18>
+__builtin_puts (&"cleanup!!!!! ========="[0]);
+# .MEM_20 = VDEF <.MEM_19>
+printf ("%x\n", _4);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+args[0] = "prog";
+args[1] = "v";
+args[2] = "-s";
+args[3] = "idx";
+args[4] = "addr";
+args[5] = 0B;
+add_symbol_file_command (&args);
+args ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:add_symbol_file_command=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 59124318]:
+my_cleanups_47 = make_cleanup (null_cleanup, 0B);
+sect_opts_49 = malloc (64);
+if (args_50(D) == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 23650]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 59100668]:
+arg_51 = *args_50(D);
+goto <bb 18>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1014686024]:
+if (argcnt_36 == 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 334846386]:
+// predicted unlikely by continue predictor.
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 679839639]:
+if (argcnt_36 == 1)
+  goto <bb 8>; [34.00%]
+else
+  goto <bb 10>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 231145479]:
+_1 = (long unsigned int) section_index_29;
+_2 = _1 * 16;
+_3 = sect_opts_39 + _2;
+_3->name = ".text";
+_4 = (long unsigned int) section_index_29;
+_5 = _4 * 16;
+_6 = sect_opts_39 + _5;
+_6->value = arg_31;
+section_index_72 = section_index_29 + 1;
+_7 = (long unsigned int) section_index_72;
+if (_7 >= num_sect_opts_41)
+  goto <bb 9>; [33.00%]
+else
+  goto <bb 17>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 76278008]:
+num_sect_opts_73 = num_sect_opts_41 * 2;
+_8 = num_sect_opts_41 * 32;
+sect_opts_75 = xrealloc (sect_opts_39, _8);
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 448694159]:
+if (expecting_sec_name_35 != 0)
+  goto <bb 11>; [50.00%]
+else
+  goto <bb 12>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 224347079]:
+_9 = (long unsigned int) section_index_29;
+_10 = _9 * 16;
+_11 = sect_opts_39 + _10;
+_11->value = arg_31;
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 224347079]:
+if (expecting_sec_addr_33 != 0)
+  goto <bb 13>; [50.00%]
+else
+  goto <bb 15>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 112173540]:
+_12 = (long unsigned int) section_index_29;
+_13 = _12 * 16;
+_14 = sect_opts_39 + _13;
+_14->value = arg_31;
+section_index_65 = section_index_29 + 1;
+_15 = (long unsigned int) section_index_65;
+if (_15 >= num_sect_opts_41)
+  goto <bb 14>; [33.00%]
+else
+  goto <bb 17>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 37017268]:
+num_sect_opts_66 = num_sect_opts_41 * 2;
+_16 = num_sect_opts_41 * 32;
+sect_opts_68 = xrealloc (sect_opts_39, _16);
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 112173540]:
+_17 = strcmp (arg_31, "-s");
+if (_17 == 0)
+  goto <bb 17>; [99.96%]
+else
+  goto <bb 16>; [0.04%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 44869]:
+exit (1);
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 1014641157]:
+# section_index_28 = PHI <section_index_29(6), section_index_72(8), section_index_72(9), section_index_29(11), section_index_65(13), section_index_65(14), section_index_29(15)>
+# expecting_sec_addr_32 = PHI <expecting_sec_addr_33(6), expecting_sec_addr_33(8), expecting_sec_addr_33(9), 0(11), 0(13), 0(14), 1(15)>
+# expecting_sec_name_34 = PHI <expecting_sec_name_35(6), expecting_sec_name_35(8), expecting_sec_name_35(9), expecting_sec_name_35(11), expecting_sec_name_35(13), expecting_sec_name_35(14), 1(15)>
+# sect_opts_38 = PHI <sect_opts_39(6), sect_opts_39(8), sect_opts_75(9), sect_opts_39(11), sect_opts_39(13), sect_opts_68(14), sect_opts_39(15)>
+# num_sect_opts_40 = PHI <num_sect_opts_41(6), num_sect_opts_41(8), num_sect_opts_73(9), num_sect_opts_41(11), num_sect_opts_41(13), num_sect_opts_66(14), num_sect_opts_41(15)>
+argcnt_76 = argcnt_36 + 1;
+_18 = (long unsigned int) argcnt_76;
+_19 = _18 * 8;
+_20 = args_50(D) + _19;
+arg_77 = *_20;
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 1073741824]:
+# section_index_29 = PHI <0(4), section_index_28(17)>
+# arg_31 = PHI <arg_51(4), arg_77(17)>
+# expecting_sec_addr_33 = PHI <0(4), expecting_sec_addr_32(17)>
+# expecting_sec_name_35 = PHI <0(4), expecting_sec_name_34(17)>
+# argcnt_36 = PHI <0(4), argcnt_76(17)>
+# sect_opts_39 = PHI <sect_opts_49(4), sect_opts_38(17)>
+# num_sect_opts_41 = PHI <4(4), num_sect_opts_40(17)>
+if (arg_31 != 0B)
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 19>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 59055800]:
+if (section_index_29 <= 0)
+  goto <bb 20>; [0.04%]
+else
+  goto <bb 21>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 23622]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 59032178]:
+section_addrs_53 = malloc (24);
+make_cleanup (free, section_addrs_53);
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 477623986]:
+_21 = (long unsigned int) i_37;
+_22 = _21 * 16;
+_23 = sect_opts_39 + _22;
+val_57 = _23->value;
+_24 = (long unsigned int) i_37;
+_25 = _24 * 16;
+_26 = sect_opts_39 + _25;
+sec_58 = _26->name;
+section_addrs_53->other[sec_num_30].name = sec_58;
+sec_num_60 = sec_num_30 + 1;
+i_61 = i_37 + 1;
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 536656164]:
+# sec_num_30 = PHI <0(21), sec_num_60(22)>
+# i_37 = PHI <0(21), i_61(22)>
+if (section_index_29 > i_37)
+  goto <bb 22>; [89.00%]
+else
+  goto <bb 24>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 59032178]:
+_27 = (long unsigned int) sec_num_30;
+section_addrs_53->num_sections = _27;
+do_cleanups (my_cleanups_47);
+return;
+
+=======Mapping node_fun:xrealloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_6 = MAX_EXPR <1, size_1(D)>;
+newmem_5 = realloc (oldmem_3(D), _6);
+if (newmem_5 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+return newmem_5;
+
+=======Mapping node_fun:null_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:make_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_5 = make_my_cleanup (&cleanup_chain, function_2(D), arg_3(D));
+return _5;
+
+=======Mapping node_fun:make_my_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_6 = make_my_cleanup2 (pmy_chain_2(D), function_3(D), arg_4(D), 0B);
+return _6;
+
+=======Mapping node_fun:make_my_cleanup2=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+new_4 = malloc (32);
+old_chain_6 = *pmy_chain_5(D);
+_1 = *pmy_chain_5(D);
+new_4->next = _1;
+new_4->function = function_8(D);
+new_4->free_arg = free_arg_10(D);
+new_4->arg = arg_12(D);
+*pmy_chain_5(D) = new_4;
+if (old_chain_6 == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+return old_chain_6;
+
+=======Mapping node_fun:do_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+do_my_cleanups (&cleanup_chain, old_chain_2(D));
+return;
+
+=======Mapping node_fun:do_my_cleanups=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111598]:
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = ptr_12->next;
+*pmy_chain_11(D) = _1;
+_2 = ptr_12->function;
+_3 = ptr_12->arg;
+_2 (_3);
+__builtin_puts (&"cleanup!!!!! ========="[0]);
+_4 = ptr_12->arg;
+printf ("%x\n", _4);
+_5 = ptr_12->free_arg;
+if (_5 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 668941161]:
+_6 = ptr_12->free_arg;
+_7 = ptr_12->arg;
+_6 (_7);
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+free (ptr_12);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+ptr_12 = *pmy_chain_11(D);
+if (ptr_12 != old_chain_13(D))
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 1 [0m
+[40;34m    all ptable point : 27 [0m
+[40;34m    analyzable ptable point : 26 [0m
+[40;34m    analyzable ptable all point stmt : 124 [0m
+[40;34m    used_stmt array stack totalsize of : 0.003504 mb[0m
+[40;34m    collect time: : 0.000287 s [0m
+[40;34m    mapping time: : 0.001115 s [0m
+[40;34m    algorithm time: 0.009617 s [0m
+[40;34m    gimple stmt count : : 116 [0m
+[40;34m    this report analysis in Sun Jun 26 13:52:59 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 75%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.04 ( 80%)   681k ( 24%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.00 (  0%)   0.03 ( 60%)   562k ( 19%)
+ tree forward propagate             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   616  (  0%)
+ dominance computation              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   222k (  8%)
+ plugin execution                   :   0.01 ( 33%)   0.01 (100%)   0.01 ( 20%)  1728  (  0%)
+ rest of compilation                :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)    24k (  1%)
+ TOTAL                              :   0.03          0.01          0.05         2887k

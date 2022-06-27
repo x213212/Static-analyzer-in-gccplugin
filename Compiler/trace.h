@@ -846,6 +846,109 @@ void walk_function_path(tree function_tree, int fucntion_level, ptb *ptable, gim
 		checkPointerConstraint(function_tree, ptable, user_tmp, NULL, 0);
 }
 
+void record_fucntion(cgraph_node *node)
+{
+	cgraph_edge *e;
+	basic_block bb;
+	FOR_EACH_DEFINED_FUNCTION(node)
+	{
+
+		if (!gimple_has_body_p(node->decl))
+			continue;
+		push_cfun(node->get_fun());
+
+		if (cfun == NULL)
+		{
+			pop_cfun();
+			continue;
+		}
+		enum availability avail;
+
+		function_path_array fun_array;
+
+		vector<function_path> function_path_array;
+		fun_array.function_path_array = function_path_array;
+
+		for (e = node->callees; e; e = e->next_callee)
+		{
+			cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
+			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
+
+			if (callee != NULL)
+			{
+				int find = 0;
+				vector<function_path>::iterator it_i;
+				for (it_i = fun_array.function_path_array.begin(); it_i != fun_array.function_path_array.end(); ++it_i)
+				{
+					if (it_i->next == callee->decl)
+						find = 1;
+				}
+
+				if (find == 0)
+				{
+
+					struct function_path path_type;
+					path_type.cgnext = callee;
+					path_type.next = callee->decl;
+					fun_array.function_path_array.push_back(path_type);
+				}
+			}
+		}
+
+		FOR_EACH_BB_FN(bb, cfun)
+		{
+			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+			{
+				gimple *gc = gsi_stmt(gsi);
+				if (gimple_cond_code(gc))
+				{
+					enum tree_code code = gimple_cond_code(gc);
+					// if (code == LT_EXPR || code == GT_EXPR || code == LE_EXPR || code == GE_EXPR || code == EQ_EXPR || code == NE_EXPR)
+
+					// 	fprintf(stderr, "--------GIMPLE ok -------\n");
+					// if (dom_info_state(CDI_DOMINATORS) == DOM_OK)
+
+					if (!is_gimple_assign(gc))
+					{
+						symbolicExecution.push_back(bb);
+						symbolicinfo symbolicinfo;
+						symbolicinfo.cond_stmt = gc;
+						symbolicinfo.cond_lhs = gimple_cond_lhs(gc);
+						symbolicinfo.cond_rhs = gimple_cond_rhs(gc);
+						symbolicinfo.node = node;
+
+						if (bb != cfun->cfg->x_exit_block_ptr->prev_bb)
+						{
+							edge e;
+							edge_iterator ei;
+
+							int init = 0;
+							FOR_EACH_EDGE(e, ei, bb->succs)
+							{
+								if (init == 0)
+								{
+									symbolicinfo.cond_truebranch = e->dest;
+									// fprintf(stderr, " true succs:= %d\n", e->dest->index);
+								}
+
+								else
+								{
+									symbolicinfo.cond_falsebranch = e->dest;
+									// fprintf(stderr, " false succs:= %d\n", e->dest->index);
+								}
+								init++;
+							}
+						}
+						syminfo->put(bb, symbolicinfo);
+					}
+				}
+			}
+		}
+		function_path_collect->put(node->get_fun()->decl, fun_array);
+		pop_cfun();
+	}
+}
+
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 {
 

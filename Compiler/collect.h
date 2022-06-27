@@ -72,11 +72,7 @@ void collect_function_call(gimple *gc, cgraph_node *node, basic_block bb)
 				const char *name2;
 				name2 = get_name(gimple_call_fndecl(gc));
 				// if()
-				if (strcmp(name2, "realloc") && strcmp(name2, "malloc") 
-				  && strcmp(get_name(gimple_call_fn(gc)), "calloc") && strcmp(name2, "xcalloc")
-				  && strcmp(name2, "xmalloc") && strcmp(name2, "strdup") && strcmp(name2, "xstrdup") 
-				  && strcmp(name2, "free") && strcmp(name2, "printf")&& strcmp(name2,"pthread_attr_setdetachstate")
-				  && strcmp(name2,"pthread_create") && strcmp(name2,"pthread_join") && strcmp(name2 ,"pthread_attr_init"))
+				if (strcmp(name2, "realloc") && strcmp(name2, "malloc") && strcmp(get_name(gimple_call_fn(gc)), "calloc") && strcmp(name2, "xcalloc") && strcmp(name2, "xmalloc") && strcmp(name2, "strdup") && strcmp(name2, "xstrdup") && strcmp(name2, "free") && strcmp(name2, "printf") && strcmp(name2, "pthread_attr_setdetachstate") && strcmp(name2, "pthread_create") && strcmp(name2, "pthread_join") && strcmp(name2, "pthread_attr_init"))
 				{
 
 					// fprintf(stderr, "------Juliet_Test_Suite please disable------%s--\n", name2);
@@ -396,7 +392,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			}
 			else if (!strcmp(name, "pthread_create"))
 			{
-				fprintf(stderr,"----------------test-------------\n");
+				fprintf(stderr, "----------------test-------------\n");
 				tree getFunctionCallarg = gimple_call_arg(gc, 0);
 				getFunctionCallarg = TREE_OPERAND(getFunctionCallarg, 0);
 				function_assign_array assign_array;
@@ -458,14 +454,14 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 					assign_array.assign_type_array.push_back(assign_type);
 					function_assign_collect->put(getFunctionCallarg, assign_array);
 					// debug_gimple_stmt(gc);
-			
+
 					if (TREE_CODE(getFunctionCallarg) == VAR_DECL)
 					{
 						ptb *table1 = ptable;
 						tree t2 = NULL_TREE;
 						if (ptable->size >= 0)
 						{
-					
+
 							FOR_EACH_TABLE(table1, t2)
 							{
 
@@ -474,7 +470,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 									tree second = TREE_OPERAND(table1->target, 0);
 									if (getFunctionCallarg == second)
 									{
-							
+
 										table1->swap_target = table1->target;
 										table1->swap_stmt = table1->last_stmt;
 										table1->target = getFunctionCallarg;
@@ -488,7 +484,6 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 										// function_assign_collect->put(getFunctionAssignRHS, assign_array);
 										// set_ptb(bb, ptable, gimple_call_arg(gc, 0), loc, 0, gc, node);
 									}
-							
 								}
 							}
 						}
@@ -729,7 +724,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 		tree getFunctionAssignRHS = gimple_assign_rhs1(gc);
 		tree getFunctionAssignLHS = gimple_assign_lhs(gc);
 		// debug_tree(getFunctionAssignLHS);
-			// debug_tree(getFunctionAssignRHS);
+		// debug_tree(getFunctionAssignRHS);
 		if (TREE_CODE(getFunctionAssignRHS) == SSA_NAME)
 		{
 			// p$a_13
@@ -934,9 +929,9 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 
 			if (TREE_CODE(getFunctionAssignLHS) == MEM_REF)
 			{
-				
+
 				tree first = TREE_OPERAND(gimple_assign_lhs(gc), 0);
-			
+
 				if (TREE_CODE(first) == ADDR_EXPR)
 				{
 					// debug_gimple_stmt(gc);
@@ -1033,7 +1028,7 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			if (TREE_CODE(getFunctionAssignRHS) == MEM_REF)
 			{
 				tree first = TREE_OPERAND(getFunctionAssignRHS, 0);
-					// debug(first);
+				// debug(first);
 				if (TREE_CODE(first) == ADDR_EXPR)
 				{
 					// debug_gimple_stmt(gc);
@@ -1488,23 +1483,14 @@ void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 void collect_function_continue(gimple *gc, cgraph_node *node, basic_block bb)
 {
 
-	// function_return_array fun_array;
 	tree get_function_return_tree;
 	get_function_return_tree = NULL_TREE;
-	// vector<return_type> ret_type_array;
-
-	// if(gimple_cond_code(gc))
-	// return ;
-	// fun_array.return_type_array = ret_type_array;
 	struct return_type ret_type;
 	ret_type.stmt = gc;
 	ret_type.locfucntion = node->get_fun()->decl;
 	ret_type.return_tree = get_function_return_tree;
-	ret_type.name = predictor_name (gimple_predict_predictor (gc));
-			// fprintf(stderr, "--------------ssssssssssssss------%s-----------------\n",predictor_name (gimple_predict_predictor (gc)));
+	ret_type.name = predictor_name(gimple_predict_predictor(gc));
+
 	// global
 	global_ret_type_array.push_back(ret_type);
-
-	// fun_array.return_type_array.push_back(ret_type);
-	// function_return_collect->put(node->get_fun()->decl, fun_array);
 }

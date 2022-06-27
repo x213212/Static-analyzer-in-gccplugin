@@ -1,0 +1,538 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c: In function ‘cgen_get_insn_value’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:116:24: warning: implicit declaration of function ‘bfd_get_bits’; did you mean ‘bfd_put_bits’? [-Wimplicit-function-declaration]
+  116 |           this_value = bfd_get_bits (& buf[bit_index / 8], insn_chunk_bitsize, big_p);
+      |                        ^~~~~~~~~~~~
+      |                        bfd_put_bits
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c: In function ‘cgen_dis_lookup_insn’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:163:5: warning: implicit declaration of function ‘build_dis_hash_table’ [-Wimplicit-function-declaration]
+  163 |     build_dis_hash_table (cd);
+      |     ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c: In function ‘main’:
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:210:39: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  210 |     unsigned char *insn_bytes_value = strdup("insn_value");
+      |                                       ^~~~~~
+./benchmarks/binutils/use_after_free_3/binutils_uaf_3.c:210:39: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.03 (100%)   0.00 (  0%)   0.04 ( 67%)  1168k ( 42%)
+ phase opt and generate             :   0.00 (  0%)   0.01 (100%)   0.02 ( 33%)   276k ( 10%)
+ callgraph optimization             :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.00 (  0%)   0.01 (100%)   0.02 ( 33%)   163k (  6%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ preprocessing                      :   0.01 ( 33%)   0.00 (  0%)   0.02 ( 33%)   376k ( 14%)
+ lexical analysis                   :   0.02 ( 67%)   0.00 (  0%)   0.02 ( 33%)     0  (  0%)
+ inline parameters                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    24k (  1%)
+ TOTAL                              :   0.03          0.01          0.06         2754k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase stream in                    :   0.01 (100%)   0.00 (  0%)   0.01 (100%)    66k (  3%)
+ ipa function summary               :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)  5072  (  0%)
+ ipa lto decl in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    47k (  2%)
+ TOTAL                              :   0.01          0.00          0.01         2226k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:cgen_lookup_insn=========
+=======node_fun:cgen_dis_lookup_insn=========
+=======node_fun:cgen_put_insn_value=========
+=======node_fun:cgen_get_insn_value=========
+=======node_fun:bfd_put_bits=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 29 
+===============The second stage : Mapping stmt=================
+# .MEM_11 = VDEF <.MEM_10(D)>
+cd_7 = malloc (16);
+# .MEM_12 = VDEF <.MEM_11>
+insn_bytes_value_9 = strdup ("insn_value");
+# .MEM_13 = VDEF <.MEM_12>
+_1 = rand ();
+# .MEM_15 = VDEF <.MEM_14>
+cgen_lookup_insn (cd_7, 0B, 0, insn_bytes_value_9);
+# .MEM_27 = VDEF <.MEM_25(D)>
+buf_14 = malloc (4);
+# .MEM_28 = VDEF <.MEM_27>
+cgen_put_insn_value (cd_8(D), buf_14, length_10(D), insn_int_value_15(D));
+# .MEM_26 = VDEF <.MEM_25(D)>
+base_insn_12 = cgen_get_insn_value (cd_8(D), insn_bytes_value_9(D), length_10(D));
+# .MEM_30 = VDEF <.MEM_23>
+insn_list_20 = cgen_dis_lookup_insn (cd_8(D), buf_2, base_insn_3);
+# .MEM_58 = VDEF <.MEM_57(D)>
+build_dis_hash_table (cd_39(D));
+# .MEM_26 = VDEF <.MEM_22>
+bfd_put_bits (_8, _7, insn_chunk_bitsize_13(D), big_p_18(D));
+# .MEM_25 = VDEF <.MEM_24(D)>
+bfd_put_bits (_9, buf_17(D), length_14(D), big_p_18(D));
+# .MEM_26 = VDEF <.MEM_22>
+_4 = bfd_get_bits (buf_15(D), insn_chunk_bitsize_12(D), big_p_16(D));
+# .MEM_25 = VDEF <.MEM_24(D)>
+_7 = bfd_get_bits (buf_15(D), length_13(D), big_p_16(D));
+# .MEM_24 = VDEF <.MEM_22(D)>
+abort ();
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+cd_7 = malloc (16);
+insn_bytes_value_9 = strdup ("insn_value");
+_1 = rand ();
+_2 = _1 % 2;
+_3 = _2 == 1;
+_4 = (int) _3;
+cd_7->int_insn_p = _4;
+cgen_lookup_insn (cd_7, 0B, 0, insn_bytes_value_9);
+free (insn_bytes_value_9);
+free (cd_7);
+return 0;
+
+=======Mapping node_fun:cgen_lookup_insn=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 677633965]:
+_1 = cd_8(D)->int_insn_p;
+if (_1 != 0)
+  goto <bb 3>; [50.00%]
+else
+  goto <bb 4>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 338816982]:
+buf_14 = malloc (4);
+cgen_put_insn_value (cd_8(D), buf_14, length_10(D), insn_int_value_15(D));
+free (buf_14);
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 338816982]:
+base_insn_12 = cgen_get_insn_value (cd_8(D), insn_bytes_value_9(D), length_10(D));
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 677633965]:
+# buf_2 = PHI <buf_14(3), insn_bytes_value_9(D)(4)>
+# base_insn_3 = PHI <insn_int_value_15(D)(3), base_insn_12(4)>
+if (insn_18(D) == 0B)
+  goto <bb 6>; [17.43%]
+else
+  goto <bb 9>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 118111600]:
+insn_list_20 = cgen_dis_lookup_insn (cd_8(D), buf_2, base_insn_3);
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 955630224]:
+insn_21 = insn_list_4->insn;
+insn_list_22 = insn_list_4->next;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# insn_list_4 = PHI <insn_list_20(6), insn_list_22(7)>
+if (insn_list_4 != 0B)
+  goto <bb 7>; [89.00%]
+else
+  goto <bb 9>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 677633965]:
+return 0B;
+
+=======Mapping node_fun:cgen_dis_lookup_insn=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = cd_39(D)->dis_hash_table;
+if (_1 == 0B)
+  goto <bb 3>; [17.43%]
+else
+  goto <bb 4>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 187153200]:
+build_dis_hash_table (cd_39(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_2 = MEM[(unsigned char *)buf_41(D)];
+_3 = (int) _2;
+_47 = _2 & 240;
+_4 = (int) _47;
+_5 = MEM[(unsigned char *)buf_41(D)];
+_6 = (int) _5;
+_50 = _5 & 240;
+_42 = (int) _50;
+_7 = _42 != 64;
+_8 = _42 != 224;
+_9 = _7 & _8;
+if (_9 != 0)
+  goto <bb 5>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 536870913]:
+_10 = MEM[(unsigned char *)buf_41(D)];
+_11 = (int) _10;
+_51 = _10 & 240;
+_12 = (int) _51;
+if (_51 != 96)
+  goto <bb 6>; [66.00%]
+else
+  goto <bb 14>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 354334800]:
+_13 = MEM[(unsigned char *)buf_41(D)];
+_14 = (int) _13;
+_52 = _13 & 240;
+_15 = (int) _52;
+if (_52 != 80)
+  goto <bb 7>; [66.00%]
+else
+  goto <bb 14>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 233860967]:
+_16 = MEM[(unsigned char *)buf_41(D)];
+_17 = (int) _16;
+_53 = _16 & 240;
+_43 = (int) _53;
+_18 = _43 == 112;
+_19 = _43 == 240;
+_20 = _18 | _19;
+if (_20 != 0)
+  goto <bb 8>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 116930483]:
+_21 = MEM[(unsigned char *)buf_41(D)];
+_22 = (int) _21;
+_55 = _21 & 15;
+_46 = (int) _55;
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 116930483]:
+_23 = MEM[(unsigned char *)buf_41(D)];
+_24 = (int) _23;
+_54 = _23 & 240;
+_25 = (int) _54;
+if (_54 == 48)
+  goto <bb 10>; [34.00%]
+else
+  goto <bb 11>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 39756365]:
+_26 = MEM[(unsigned char *)buf_41(D) + 1B];
+_27 = (int) _26;
+_28 = _27 >> 4;
+_45 = _28 & 7;
+goto <bb 14>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 77174119]:
+_29 = MEM[(unsigned char *)buf_41(D) + 1B];
+_30 = _29 >> 4;
+_44 = (int) _30;
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 1073741824]:
+# _36 = PHI <0(4), 0(5), 0(6), _46(8), _45(10), _44(11)>
+_31 = _4 | _36;
+hash_48 = (unsigned int) _31;
+_32 = cd_39(D)->dis_hash_table;
+_33 = (long unsigned int) hash_48;
+_34 = _33 * 8;
+_35 = _32 + _34;
+_49 = *_35;
+return _49;
+
+=======Mapping node_fun:cgen_put_insn_value=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 176285970]:
+_1 = insn_chunk_bitsize_13(D) != 0;
+_2 = insn_chunk_bitsize_13(D) < length_14(D);
+_3 = _1 & _2;
+if (_3 != 0)
+  goto <bb 7>; [67.00%]
+else
+  goto <bb 5>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_4 = length_14(D) - insn_chunk_bitsize_13(D);
+_5 = _4 / 8;
+_6 = (sizetype) _5;
+_7 = buf_17(D) + _6;
+_8 = (long int) value_10;
+bfd_put_bits (_8, _7, insn_chunk_bitsize_13(D), big_p_18(D));
+value_21 = value_10 >> insn_chunk_bitsize_13(D);
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# value_10 = PHI <value_15(D)(7), value_21(3)>
+if (length_14(D) > 0)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 6>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 58174370]:
+_9 = (long int) value_15(D);
+bfd_put_bits (_9, buf_17(D), length_14(D), big_p_18(D));
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 176285970]:
+return;
+
+=======Mapping node_fun:cgen_get_insn_value=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 176285970]:
+_1 = insn_chunk_bitsize_12(D) != 0;
+_2 = insn_chunk_bitsize_12(D) < length_13(D);
+_3 = _1 & _2;
+if (_3 != 0)
+  goto <bb 7>; [67.00%]
+else
+  goto <bb 5>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_4 = bfd_get_bits (buf_15(D), insn_chunk_bitsize_12(D), big_p_16(D));
+this_value_20 = (bfd_vma) _4;
+_5 = value_8 << insn_chunk_bitsize_12(D);
+_6 = (unsigned int) this_value_20;
+value_21 = _5 | _6;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# value_8 = PHI <0(7), value_21(3)>
+if (length_13(D) > 0)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 6>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 58174370]:
+_7 = bfd_get_bits (buf_15(D), length_13(D), big_p_16(D));
+value_18 = (CGEN_INSN_INT) _7;
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 176285970]:
+# value_9 = PHI <value_8(4), value_18(5)>
+return value_9;
+
+=======Mapping node_fun:bfd_put_bits=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+_1 = (unsigned int) bits_12(D);
+_2 = _1 & 7;
+if (_2 != 0)
+  goto <bb 3>; [0.00%]
+else
+  goto <bb 4>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [count: 0]:
+abort ();
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 118111600]:
+bytes_13 = bits_12(D) / 8;
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+if (big_p_16(D) != 0)
+  goto <bb 6>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 477815112]:
+_3 = bytes_13 - i_8;
+_17 = _3 + -1;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 955630225]:
+# _9 = PHI <i_8(5), _17(6)>
+_4 = (sizetype) _9;
+_5 = p_11(D) + _4;
+_6 = (unsigned char) data_7;
+*_5 = _6;
+data_19 = data_7 >> 8;
+i_20 = i_8 + 1;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# data_7 = PHI <data_14(D)(4), data_19(7)>
+# i_8 = PHI <0(4), i_20(7)>
+if (i_8 < bytes_13)
+  goto <bb 5>; [89.00%]
+else
+  goto <bb 9>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 118111600]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 29 [0m
+[40;34m    analyzable ptable point : 26 [0m
+[40;34m    analyzable ptable all point stmt : 162 [0m
+[40;34m    used_stmt array stack totalsize of : 0.004792 mb[0m
+[40;34m    collect time: : 0.000462 s [0m
+[40;34m    mapping time: : 0.001155 s [0m
+[40;34m    algorithm time: 0.004092 s [0m
+[40;34m    gimple stmt count : : 124 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:05 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 78%)
+ phase opt and generate             :   0.04 (100%)   0.00 (  0%)   0.04 ( 80%)   562k ( 20%)
+ callgraph functions expansion      :   0.03 ( 75%)   0.00 (  0%)   0.03 ( 60%)   451k ( 16%)
+ ipa lto gimple in                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    82k (  3%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1304  (  0%)
+ integrated RA                      :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 20%)   147k (  5%)
+ machine dep reorg                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 40%)  1848  (  0%)
+ initialize rtl                     :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ TOTAL                              :   0.04          0.00          0.05         2764k
+/usr/bin/ld: /tmp/cc0XXIMt.ltrans0.ltrans.o: in function `cgen_get_insn_value':
+<artificial>:(.text+0x6f): undefined reference to `bfd_get_bits'
+/usr/bin/ld: /tmp/cc0XXIMt.ltrans0.ltrans.o: in function `cgen_dis_lookup_insn':
+<artificial>:(.text+0xd5): undefined reference to `build_dis_hash_table'
+collect2: error: ld returned 1 exit status

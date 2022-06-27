@@ -1,0 +1,1040 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:12:
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/use_after_free_1/../openssh.h:1067:41: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+ 1067 | typedef int (ssh_packet_hook_fn)(struct ssh *, struct sshbuf *,
+      |                                         ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:160:37: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  160 | typedef void channel_open_fn(struct ssh *, int, int, void *);
+      |                                     ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:161:41: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  161 | typedef void channel_callback_fn(struct ssh *, int, void *);
+      |                                         ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:162:54: warning: ‘struct Channel’ declared inside parameter list will not be visible outside of this definition or declaration
+  162 | typedef int channel_infilter_fn(struct ssh *, struct Channel *, char *, int);
+      |                                                      ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:162:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  162 | typedef int channel_infilter_fn(struct ssh *, struct Channel *, char *, int);
+      |                                        ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:163:47: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  163 | typedef void channel_filter_cleanup_fn(struct ssh *, int, void *);
+      |                                               ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:164:59: warning: ‘struct Channel’ declared inside parameter list will not be visible outside of this definition or declaration
+  164 | typedef u_char *channel_outfilter_fn(struct ssh *, struct Channel *,
+      |                                                           ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:164:45: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  164 | typedef u_char *channel_outfilter_fn(struct ssh *, struct Channel *,
+      |                                             ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:166:50: warning: ‘struct Channel’ declared inside parameter list will not be visible outside of this definition or declaration
+  166 | typedef int mux_callback_fn(struct ssh *, struct Channel *);
+      |                                                  ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:166:36: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  166 | typedef int mux_callback_fn(struct ssh *, struct Channel *);
+      |                                    ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:255:29: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  255 | typedef void chan_fn(struct ssh *, Channel *c,
+      |                             ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:352:48: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  352 | typedef int dispatch_fn(int, u_int32_t, struct ssh *);
+      |                                                ^~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘sshbuf_init’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:395:9: warning: implicit declaration of function ‘explicit_bzero’ [-Wimplicit-function-declaration]
+  395 |         explicit_bzero(ret, sizeof(*ret));
+      |         ^~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘sshbuf_free’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:418:13: warning: implicit declaration of function ‘sshbuf_check_sanity’ [-Wimplicit-function-declaration]
+  418 |         if (sshbuf_check_sanity(buf) != 0)
+      |             ^~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘sshbuf_reset’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:457:26: warning: implicit declaration of function ‘recallocarray’; did you mean ‘reallocarray’? [-Wimplicit-function-declaration]
+  457 |                 if ((d = recallocarray(buf->d, buf->alloc, SSHBUF_SIZE_INIT,
+      |                          ^~~~~~~~~~~~~
+      |                          reallocarray
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:457:24: warning: assignment to ‘u_char *’ {aka ‘unsigned char *’} from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  457 |                 if ((d = recallocarray(buf->d, buf->alloc, SSHBUF_SIZE_INIT,
+      |                        ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘client_suspend_self’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:32:42: warning: implicit declaration of function ‘sshbuf_len’; did you mean ‘sshbuf_free’? [-Wimplicit-function-declaration]
+   32 | #define buffer_len(b)           ((u_int) sshbuf_len(b))
+      |                                          ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:470:13: note: in expansion of macro ‘buffer_len’
+  470 |         if (buffer_len(bout) > 0)
+      |             ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:471:17: warning: implicit declaration of function ‘atomicio’ [-Wimplicit-function-declaration]
+  471 |                 atomicio(vwrite, fileno(stdout), buffer_ptr(bout),
+      |                 ^~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:33:33: warning: implicit declaration of function ‘sshbuf_mutable_ptr’ [-Wimplicit-function-declaration]
+   33 | #define buffer_ptr(b)           sshbuf_mutable_ptr(b)
+      |                                 ^~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:471:50: note: in expansion of macro ‘buffer_ptr’
+  471 |                 atomicio(vwrite, fileno(stdout), buffer_ptr(bout),
+      |                                                  ^~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘channel_new’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:526:32: warning: implicit declaration of function ‘xrecallocarray’; did you mean ‘reallocarray’? [-Wimplicit-function-declaration]
+  526 |                 sc->channels = xrecallocarray(sc->channels, sc->channels_alloc,
+      |                                ^~~~~~~~~~~~~~
+      |                                reallocarray
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:526:30: warning: assignment to ‘Channel **’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  526 |                 sc->channels = xrecallocarray(sc->channels, sc->channels_alloc,
+      |                              ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:529:17: warning: implicit declaration of function ‘debug2’ [-Wimplicit-function-declaration]
+  529 |                 debug2("channel: expanding %d", sc->channels_alloc);
+      |                 ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:533:25: warning: implicit declaration of function ‘sshbuf_new’; did you mean ‘sshbuf_free’? [-Wimplicit-function-declaration]
+  533 |         if ((c->input = sshbuf_new()) == NULL || /* allocation site */
+      |                         ^~~~~~~~~~
+      |                         sshbuf_free
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:533:23: warning: assignment to ‘struct sshbuf *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  533 |         if ((c->input = sshbuf_new()) == NULL || /* allocation site */
+      |                       ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:534:24: warning: assignment to ‘struct sshbuf *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  534 |             (c->output = sshbuf_new()) == NULL || /* allocation site */
+      |                        ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:535:26: warning: assignment to ‘struct sshbuf *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  535 |             (c->extended = sshbuf_new()) == NULL) /* allocation site */
+      |                          ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:539:9: warning: implicit declaration of function ‘channel_register_fds’ [-Wimplicit-function-declaration]
+  539 |         channel_register_fds(ssh, c, rfd, wfd, efd, extusage, nonblock, 0);
+      |         ^~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:11:
+./benchmarks/openssh-portable/use_after_free_1/../stdio.h:266:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:546:26: note: in expansion of macro ‘xstrdup’
+  546 |         c->remote_name = xstrdup(remote_name);
+      |                          ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/../stdio.h:266:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  266 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:546:26: note: in expansion of macro ‘xstrdup’
+  546 |         c->remote_name = xstrdup(remote_name);
+      |                          ^~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:549:9: warning: implicit declaration of function ‘debug’ [-Wimplicit-function-declaration]
+  549 |         debug("channel %d: new [%s]", found, remote_name);
+      |         ^~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘channel_init_channels’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:566:9: warning: implicit declaration of function ‘channel_handler_init’ [-Wimplicit-function-declaration]
+  566 |         channel_handler_init(sc);
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c: In function ‘channel_free’:
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:599:17: warning: implicit declaration of function ‘mux_remove_remote_forwardings’ [-Wimplicit-function-declaration]
+  599 |                 mux_remove_remote_forwardings(ssh, c);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:601:13: warning: implicit declaration of function ‘channel_open_message’ [-Wimplicit-function-declaration]
+  601 |         s = channel_open_message(ssh);
+      |             ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:601:11: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  601 |         s = channel_open_message(ssh);
+      |           ^
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:602:9: warning: implicit declaration of function ‘debug3’ [-Wimplicit-function-declaration]
+  602 |         debug3("channel %d: status: %s", c->self, s);
+      |         ^~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:605:9: warning: implicit declaration of function ‘channel_close_fds’ [-Wimplicit-function-declaration]
+  605 |         channel_close_fds(ssh, c);
+      |         ^~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:617:9: warning: implicit declaration of function ‘bzero’ [-Wimplicit-function-declaration]
+  617 |         bzero(c, sizeof(*c));
+      |         ^~~~~
+./benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c:617:9: warning: incompatible implicit declaration of built-in function ‘bzero’ [-Wbuiltin-declaration-mismatch]
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 41%)
+ phase parsing                      :   0.05 ( 71%)   0.02 (100%)   0.07 ( 78%)  1504k ( 47%)
+ phase opt and generate             :   0.02 ( 29%)   0.00 (  0%)   0.02 ( 22%)   376k ( 12%)
+ callgraph ipa passes               :   0.02 ( 29%)   0.00 (  0%)   0.02 ( 22%)   176k (  6%)
+ lto stream compression             :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ ipa pure const                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)  2288  (  0%)
+ ipa free lang data                 :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ preprocessing                      :   0.02 ( 29%)   0.02 (100%)   0.02 ( 22%)   662k ( 21%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ parser (global)                    :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 11%)   597k ( 19%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   133k (  4%)
+ parser function body               :   0.02 ( 29%)   0.00 (  0%)   0.02 ( 22%)    82k (  3%)
+ TOTAL                              :   0.07          0.02          0.09         3189k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 95%)
+ phase stream out                   :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl out                   :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.00          0.01          0.00         2276k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:channel_free_all=========
+=======node_fun:channel_free=========
+=======node_fun:channel_init_channels=========
+=======node_fun:channel_new=========
+=======node_fun:client_suspend_self=========
+=======node_fun:sshbuf_free=========
+=======node_fun:sshbuf_init=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 82 
+===============The second stage : Mapping stmt=================
+# .MEM_21 = VDEF <.MEM_20(D)>
+channel_init_channels (&ssh);
+# .MEM_25 = VDEF <.MEM_19>
+c_17 = channel_new (&ssh, "stdio-forward", 3, in_14(D), out_15(D), -1, 2097152, 32768, 0, "stdio-forward", 0);
+# .MEM_22 = VDEF <.MEM_19>
+client_suspend_self (_3, _2, _1);
+# .MEM_23 = VDEF <.MEM_22>
+channel_free_all (&ssh);
+# .MEM_25 = VDEF <.MEM_23>
+channel_free (ssh_19(D), _12);
+# .MEM_73 = VDEF <.MEM_70>
+debug ("channel %d: free: %s, nchannels %u", _10, _31, n_30);
+# .MEM_74 = VDEF <.MEM_73>
+mux_remove_remote_forwardings (ssh_36(D), c_38(D));
+# .MEM_75 = VDEF <.MEM_71>
+_12 = channel_open_message (ssh_36(D));
+# .MEM_76 = VDEF <.MEM_75>
+debug3 ("channel %d: status: %s", _14, s_43);
+# .MEM_78 = VDEF <.MEM_77>
+channel_close_fds (ssh_36(D), c_38(D));
+# .MEM_79 = VDEF <.MEM_78>
+sshbuf_free (_15);
+# .MEM_80 = VDEF <.MEM_79>
+sshbuf_free (_16);
+# .MEM_81 = VDEF <.MEM_80>
+sshbuf_free (_17);
+# .MEM_92 = VDEF <.MEM_91>
+__builtin_memset (c_38(D), 0, 272);
+# .MEM_23 = VDEF <.MEM_22(D)>
+sc_11 = calloc (1, 112);
+# .MEM_24 = VDEF <.MEM_23>
+_1 = calloc (21, 8);
+# .MEM_26 = VDEF <.MEM_25>
+_3 = calloc (21, 8);
+# .MEM_33 = VDEF <.MEM_21>
+printf ("%s: allocation failed", &__func__);
+# .MEM_29 = VDEF <.MEM_28>
+_7 = calloc (_6, 8);
+# .MEM_31 = VDEF <.MEM_30>
+channel_handler_init (sc_11);
+# .MEM_90 = VDEF <.MEM_85(D)>
+printf ("%s: internal error: channels_alloc too big", &__func__);
+# .MEM_86 = VDEF <.MEM_85(D)>
+_13 = xrecallocarray (_12, _11, _10, 8);
+# .MEM_89 = VDEF <.MEM_88>
+debug2 ("channel: expanding %d", _18);
+# .MEM_92 = VDEF <.MEM_83>
+_23 = calloc (1, 272);
+# .MEM_94 = VDEF <.MEM_93>
+_24 = sshbuf_new ();
+# .MEM_96 = VDEF <.MEM_95>
+_28 = sshbuf_new ();
+# .MEM_98 = VDEF <.MEM_97>
+_32 = sshbuf_new ();
+# .MEM_114 = VDEF <.MEM_84>
+printf ("%s: sshbuf_new failed", &__func__);
+# .MEM_102 = VDEF <.MEM_101>
+channel_register_fds (ssh_44(D), c_57, rfd_66(D), wfd_67(D), efd_68(D), extusage_69(D), nonblock_70(D), 0);
+# .MEM_109 = VDEF <.MEM_108>
+_37 = strdup (remote_name_82(D));
+# .MEM_113 = VDEF <.MEM_112>
+debug ("channel %d: new [%s]", found_40, remote_name_82(D));
+# .MEM_32 = VDEF <.MEM_31(D)>
+_1 = sshbuf_len (bout_16(D));
+# .MEM_33 = VDEF <.MEM_32>
+_2 = sshbuf_len (bout_16(D));
+# .MEM_34 = VDEF <.MEM_33>
+_4 = sshbuf_mutable_ptr (bout_16(D));
+# .MEM_35 = VDEF <.MEM_34>
+_6 = fileno (_5);
+# .MEM_36 = VDEF <.MEM_35>
+atomicio (vwrite, _6, _4, _3);
+# .MEM_37 = VDEF <.MEM_29>
+_7 = sshbuf_len (berr_22(D));
+# .MEM_38 = VDEF <.MEM_37>
+_8 = sshbuf_len (berr_22(D));
+# .MEM_39 = VDEF <.MEM_38>
+_10 = sshbuf_mutable_ptr (berr_22(D));
+# .MEM_40 = VDEF <.MEM_39>
+_12 = fileno (_11);
+# .MEM_41 = VDEF <.MEM_40>
+atomicio (vwrite, _12, _10, _9);
+# .MEM_42 = VDEF <.MEM_30>
+sshbuf_free (bin_28(D));
+# .MEM_43 = VDEF <.MEM_42>
+sshbuf_free (bout_16(D));
+# .MEM_44 = VDEF <.MEM_43>
+sshbuf_free (berr_22(D));
+# .MEM_46 = VDEF <.MEM_45>
+sshbuf_init (bin_28(D));
+# .MEM_47 = VDEF <.MEM_46>
+sshbuf_init (bout_16(D));
+# .MEM_48 = VDEF <.MEM_47>
+sshbuf_init (berr_22(D));
+# .MEM_22 = VDEF <.MEM_21(D)>
+_1 = sshbuf_check_sanity (buf_12(D));
+# .MEM_23 = VDEF <.MEM_22>
+sshbuf_free (_2);
+# .MEM_26 = VDEF <.MEM_25>
+explicit_bzero (_8, _7);
+# .MEM_28 = VDEF <.MEM_19>
+explicit_bzero (buf_12(D), 72);
+# .MEM_10 = VDEF <.MEM_9(D)>
+explicit_bzero (ret_7(D), 72);
+# .MEM_16 = VDEF <.MEM_15>
+_2 = calloc (1, _1);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+channel_init_channels (&ssh);
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+c_17 = channel_new (&ssh, "stdio-forward", 3, in_14(D), out_15(D), -1, 2097152, 32768, 0, "stdio-forward", 0);
+i_18 = i_5 + 1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# c_4 = PHI <c_9(D)(2), c_17(3)>
+# i_5 = PHI <1(2), i_18(3)>
+if (i_5 < argc_10(D))
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+_1 = c_4->extended;
+_2 = c_4->output;
+_3 = c_4->input;
+client_suspend_self (_3, _2, _1);
+channel_free_all (&ssh);
+ssh ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:channel_free_all=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = ssh_19(D)->chanctxt;
+_2 = _1->channels;
+_3 = (long unsigned int) i_15;
+_4 = _3 * 8;
+_5 = _2 + _4;
+_6 = *_5;
+if (_6 != 0B)
+  goto <bb 4>; [53.47%]
+else
+  goto <bb 5>; [46.53%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 510975480]:
+_7 = ssh_19(D)->chanctxt;
+_8 = _7->channels;
+_9 = (long unsigned int) i_15;
+_10 = _9 * 8;
+_11 = _8 + _10;
+_12 = *_11;
+channel_free (ssh_19(D), _12);
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+i_21 = i_15 + 1;
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# i_15 = PHI <0(2), i_21(5)>
+_13 = ssh_19(D)->chanctxt;
+_14 = _13->channels_alloc;
+if (_14 > i_15)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+return;
+
+=======Mapping node_fun:channel_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111598]:
+sc_37 = ssh_36(D)->chanctxt;
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = sc_37->channels;
+_2 = (long unsigned int) i_28;
+_3 = _2 * 8;
+_4 = _1 + _3;
+other_62 = *_4;
+if (other_62 == 0B)
+  goto <bb 4>; [17.43%]
+else
+  goto <bb 5>; [82.57%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 166566348]:
+// predicted unlikely by continue predictor.
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 789063877]:
+n_63 = n_30 + 1;
+_5 = c_38(D)->type;
+if (_5 == 16)
+  goto <bb 6>; [34.00%]
+else
+  goto <bb 9>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 268281721]:
+_6 = other_62->type;
+if (_6 == 20)
+  goto <bb 7>; [34.00%]
+else
+  goto <bb 9>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 91215786]:
+_7 = other_62->mux_ctx;
+if (_7 == c_38(D))
+  goto <bb 8>; [30.00%]
+else
+  goto <bb 9>; [70.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 27364736]:
+other_62->mux_ctx = 0B;
+other_62->type = 4;
+other_62->istate = 3;
+other_62->ostate = 3;
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 955630227]:
+# n_29 = PHI <n_30(4), n_63(5), n_63(6), n_63(7), n_63(8)>
+i_68 = i_28 + 1;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+# i_28 = PHI <0(2), i_68(9)>
+# n_30 = PHI <0(2), n_29(9)>
+_8 = sc_37->channels_alloc;
+if (_8 > i_28)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 11>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 118111600]:
+_9 = c_38(D)->remote_name;
+if (_9 != 0B)
+  goto <bb 12>; [70.00%]
+else
+  goto <bb 13>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 82678121]:
+_39 = c_38(D)->remote_name;
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 118111600]:
+# _31 = PHI <"???"(11), _39(12)>
+_10 = c_38(D)->self;
+debug ("channel %d: free: %s, nchannels %u", _10, _31, n_30);
+_11 = c_38(D)->type;
+if (_11 == 16)
+  goto <bb 14>; [20.24%]
+else
+  goto <bb 15>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 23905788]:
+mux_remove_remote_forwardings (ssh_36(D), c_38(D));
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 118111600]:
+_12 = channel_open_message (ssh_36(D));
+_13 = (long int) _12;
+s_43 = (char *) _13;
+_14 = c_38(D)->self;
+debug3 ("channel %d: status: %s", _14, s_43);
+free (s_43);
+channel_close_fds (ssh_36(D), c_38(D));
+_15 = c_38(D)->input;
+sshbuf_free (_15);
+_16 = c_38(D)->output;
+sshbuf_free (_16);
+_17 = c_38(D)->extended;
+sshbuf_free (_17);
+c_38(D)->extended = 0B;
+_18 = c_38(D)->extended;
+c_38(D)->output = _18;
+_19 = c_38(D)->output;
+c_38(D)->input = _19;
+_20 = c_38(D)->remote_name;
+free (_20);
+c_38(D)->remote_name = 0B;
+_21 = c_38(D)->path;
+free (_21);
+c_38(D)->path = 0B;
+_22 = c_38(D)->listening_addr;
+free (_22);
+c_38(D)->listening_addr = 0B;
+_23 = sc_37->channels;
+_24 = c_38(D)->self;
+_25 = (long unsigned int) _24;
+_26 = _25 * 8;
+_27 = _23 + _26;
+*_27 = 0B;
+__builtin_memset (c_38(D), 0, 272);
+free (c_38(D));
+return;
+
+=======Mapping node_fun:channel_init_channels=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+sc_11 = calloc (1, 112);
+if (sc_11 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1073312329]:
+_1 = calloc (21, 8);
+sc_11->channel_pre = _1;
+_2 = sc_11->channel_pre;
+if (_2 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1072883005]:
+_3 = calloc (21, 8);
+sc_11->channel_post = _3;
+_4 = sc_11->channel_post;
+if (_4 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 6>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1287973]:
+printf ("%s: allocation failed", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1072453853]:
+sc_11->channels_alloc = 10;
+_5 = sc_11->channels_alloc;
+_6 = (long unsigned int) _5;
+_7 = calloc (_6, 8);
+sc_11->channels = _7;
+channel_handler_init (sc_11);
+ssh_20(D)->chanctxt = sc_11;
+return;
+
+=======Mapping node_fun:channel_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 114863530]:
+sc_45 = ssh_44(D)->chanctxt;
+goto <bb 5>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1014686026]:
+_1 = sc_45->channels;
+_2 = (long unsigned int) i_38;
+_3 = _2 * 8;
+_4 = _1 + _3;
+_5 = *_4;
+if (_5 == 0B)
+  goto <bb 6>; [5.50%]
+else
+  goto <bb 4>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 958878296]:
+i_47 = i_38 + 1;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# i_38 = PHI <0(2), i_47(4)>
+_6 = sc_45->channels_alloc;
+if (_6 > i_38)
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 6>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 114863531]:
+# found_39 = PHI <i_38(3), found_46(D)(5)>
+_7 = sc_45->channels_alloc;
+if (_7 <= i_38)
+  goto <bb 7>; [67.00%]
+else
+  goto <bb 10>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 76958566]:
+found_48 = sc_45->channels_alloc;
+_8 = sc_45->channels_alloc;
+if (_8 > 16384)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 30783]:
+printf ("%s: internal error: channels_alloc too big", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 76927783]:
+_9 = sc_45->channels_alloc;
+_10 = _9 + 10;
+_11 = sc_45->channels_alloc;
+_12 = sc_45->channels;
+_13 = xrecallocarray (_12, _11, _10, 8);
+_14 = (long int) _13;
+_15 = (struct Channel * *) _14;
+sc_45->channels = _15;
+_16 = sc_45->channels_alloc;
+_17 = _16 + 10;
+sc_45->channels_alloc = _17;
+_18 = sc_45->channels_alloc;
+debug2 ("channel: expanding %d", _18);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 114832748]:
+# found_40 = PHI <found_39(6), found_48(9)>
+_19 = sc_45->channels;
+_20 = (long unsigned int) found_40;
+_21 = _20 * 8;
+_22 = _19 + _21;
+_23 = calloc (1, 272);
+*_22 = _23;
+c_57 = *_22;
+_24 = sshbuf_new ();
+_25 = (long int) _24;
+_26 = (struct sshbuf *) _25;
+c_57->input = _26;
+_27 = c_57->input;
+if (_27 == 0B)
+  goto <bb 13>; [0.04%]
+else
+  goto <bb 11>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 114786815]:
+_28 = sshbuf_new ();
+_29 = (long int) _28;
+_30 = (struct sshbuf *) _29;
+c_57->output = _30;
+_31 = c_57->output;
+if (_31 == 0B)
+  goto <bb 13>; [0.04%]
+else
+  goto <bb 12>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 114740900]:
+_32 = sshbuf_new ();
+_33 = (long int) _32;
+_34 = (struct sshbuf *) _33;
+c_57->extended = _34;
+_35 = c_57->extended;
+if (_35 == 0B)
+  goto <bb 13>; [0.04%]
+else
+  goto <bb 14>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 137744]:
+printf ("%s: sshbuf_new failed", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 114695004]:
+c_57->ostate = 0;
+c_57->istate = 0;
+channel_register_fds (ssh_44(D), c_57, rfd_66(D), wfd_67(D), efd_68(D), extusage_69(D), nonblock_70(D), 0);
+_36 = (int) found_40;
+c_57->self = _36;
+c_57->type = type_73(D);
+c_57->ctype = ctype_75(D);
+c_57->local_window = window_77(D);
+c_57->local_window_max = window_77(D);
+c_57->local_maxpacket = maxpack_80(D);
+_37 = strdup (remote_name_82(D));
+c_57->remote_name = _37;
+c_57->ctl_chan = -1;
+c_57->delayed = 1;
+debug ("channel %d: new [%s]", found_40, remote_name_82(D));
+return c_57;
+
+=======Mapping node_fun:client_suspend_self=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = sshbuf_len (bout_16(D));
+if (_1 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+_2 = sshbuf_len (bout_16(D));
+_3 = (unsigned int) _2;
+_4 = sshbuf_mutable_ptr (bout_16(D));
+_5 = stdout;
+_6 = fileno (_5);
+atomicio (vwrite, _6, _4, _3);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_7 = sshbuf_len (berr_22(D));
+if (_7 != 0)
+  goto <bb 5>; [33.00%]
+else
+  goto <bb 6>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 354334800]:
+_8 = sshbuf_len (berr_22(D));
+_9 = (unsigned int) _8;
+_10 = sshbuf_mutable_ptr (berr_22(D));
+_11 = stderr;
+_12 = fileno (_11);
+atomicio (vwrite, _12, _10, _9);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+sshbuf_free (bin_28(D));
+sshbuf_free (bout_16(D));
+sshbuf_free (berr_22(D));
+received_window_change_signal ={v} 1;
+sshbuf_init (bin_28(D));
+sshbuf_init (bout_16(D));
+sshbuf_init (berr_22(D));
+return;
+
+=======Mapping node_fun:sshbuf_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (buf_12(D) == 0B)
+  goto <bb 9>; [30.95%]
+else
+  goto <bb 3>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 741418729]:
+_1 = sshbuf_check_sanity (buf_12(D));
+if (_1 != 0)
+  goto <bb 9>; [51.12%]
+else
+  goto <bb 4>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 362405472]:
+_2 = buf_12(D)->parent;
+sshbuf_free (_2);
+buf_12(D)->parent = 0B;
+_3 = buf_12(D)->refcount;
+_4 = _3 + 4294967295;
+buf_12(D)->refcount = _4;
+_5 = buf_12(D)->refcount;
+if (_5 != 0)
+  goto <bb 9>; [34.00%]
+else
+  goto <bb 5>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 239187610]:
+dont_free_18 = buf_12(D)->dont_free;
+_6 = buf_12(D)->readonly;
+if (_6 == 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 78931911]:
+_7 = buf_12(D)->alloc;
+_8 = buf_12(D)->d;
+explicit_bzero (_8, _7);
+_9 = buf_12(D)->d;
+free (_9);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 239187610]:
+explicit_bzero (buf_12(D), 72);
+if (dont_free_18 == 0)
+  goto <bb 8>; [33.00%]
+else
+  goto <bb 9>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 78931911]:
+free (buf_12(D));
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:sshbuf_init=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+explicit_bzero (ret_7(D), 72);
+ret_7(D)->alloc = 256;
+ret_7(D)->max_size = 134217728;
+ret_7(D)->readonly = 0;
+ret_7(D)->dont_free = 1;
+ret_7(D)->refcount = 1;
+_1 = ret_7(D)->alloc;
+_2 = calloc (1, _1);
+ret_7(D)->d = _2;
+_3 = ret_7(D)->d;
+ret_7(D)->cd = _3;
+_4 = ret_7(D)->cd;
+if (_4 == 0B)
+  goto <bb 3>; [30.00%]
+else
+  goto <bb 4>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 322122544]:
+ret_7(D)->alloc = 0;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 7 [0m
+[40;34m    gimple free   count : 7 [0m
+[40;34m    all ptable point : 82 [0m
+[40;34m    analyzable ptable point : 72 [0m
+[40;34m    analyzable ptable all point stmt : 954 [0m
+[40;34m    used_stmt array stack totalsize of : 0.027000 mb[0m
+[40;34m    collect time: : 0.000697 s [0m
+[40;34m    mapping time: : 0.005993 s [0m
+[40;34m    algorithm time: 0.031565 s [0m
+[40;34m    gimple stmt count : : 251 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:19 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)  2157k ( 68%)
+ phase opt and generate             :   0.07 ( 88%)   0.00 (  0%)   0.08 ( 89%)   912k ( 29%)
+ phase stream in                    :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)   106k (  3%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)     0  (  0%)
+ callgraph functions expansion      :   0.04 ( 50%)   0.00 (  0%)   0.04 ( 44%)   702k ( 22%)
+ ipa lto decl in                    :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)    88k (  3%)
+ tree CFG cleanup                   :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)   248  (  0%)
+ dominance computation              :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ combiner                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    24k (  1%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   226k (  7%)
+ LRA non-specific                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)  4552  (  0%)
+ plugin execution                   :   0.03 ( 38%)   0.00 (  0%)   0.04 ( 44%)  2672  (  0%)
+ initialize rtl                     :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ rest of compilation                :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)    24k (  1%)
+ TOTAL                              :   0.08          0.00          0.09         3178k
+/usr/bin/ld: /tmp/ccXRiCD8.ltrans0.ltrans.o: in function `sshbuf_free':
+<artificial>:(.text+0x73): undefined reference to `sshbuf_check_sanity'
+/usr/bin/ld: /tmp/ccXRiCD8.ltrans0.ltrans.o: in function `client_suspend_self':
+<artificial>:(.text+0xf8): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x109): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x161): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x171): undefined reference to `sshbuf_mutable_ptr'
+/usr/bin/ld: <artificial>:(.text+0x18d): undefined reference to `vwrite'
+/usr/bin/ld: <artificial>:(.text+0x197): undefined reference to `atomicio'
+/usr/bin/ld: <artificial>:(.text+0x1a9): undefined reference to `sshbuf_len'
+/usr/bin/ld: <artificial>:(.text+0x1b9): undefined reference to `sshbuf_mutable_ptr'
+/usr/bin/ld: <artificial>:(.text+0x1d5): undefined reference to `vwrite'
+/usr/bin/ld: <artificial>:(.text+0x1df): undefined reference to `atomicio'
+/usr/bin/ld: /tmp/ccXRiCD8.ltrans0.ltrans.o: in function `channel_new':
+<artificial>:(.text+0x257): undefined reference to `xrecallocarray'
+/usr/bin/ld: <artificial>:(.text+0x274): undefined reference to `debug2'
+/usr/bin/ld: <artificial>:(.text+0x29c): undefined reference to `sshbuf_new'
+/usr/bin/ld: <artificial>:(.text+0x2b5): undefined reference to `sshbuf_new'
+/usr/bin/ld: <artificial>:(.text+0x2ce): undefined reference to `sshbuf_new'
+/usr/bin/ld: <artificial>:(.text+0x314): undefined reference to `channel_register_fds'
+/usr/bin/ld: <artificial>:(.text+0x370): undefined reference to `debug'
+/usr/bin/ld: /tmp/ccXRiCD8.ltrans0.ltrans.o: in function `channel_init_channels':
+<artificial>:(.text+0x443): undefined reference to `channel_handler_init'
+/usr/bin/ld: /tmp/ccXRiCD8.ltrans0.ltrans.o: in function `channel_free':
+<artificial>:(.text+0x50c): undefined reference to `debug'
+/usr/bin/ld: <artificial>:(.text+0x522): undefined reference to `channel_open_message'
+/usr/bin/ld: <artificial>:(.text+0x53a): undefined reference to `debug3'
+/usr/bin/ld: <artificial>:(.text+0x552): undefined reference to `channel_close_fds'
+/usr/bin/ld: <artificial>:(.text+0x624): undefined reference to `mux_remove_remote_forwardings'
+collect2: error: ld returned 1 exit status

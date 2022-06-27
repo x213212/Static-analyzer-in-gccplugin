@@ -1,0 +1,653 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:10:
+./benchmarks/openssh-portable/leak_8/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_8/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘key_parse_private_type’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:115:24: warning: implicit declaration of function ‘key_parse_private_rsa1’; did you mean ‘key_parse_private_type’? [-Wimplicit-function-declaration]
+  115 |                 return key_parse_private_rsa1(blob, passphrase, commentp);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~
+      |                        key_parse_private_type
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:115:24: warning: returning ‘int’ from a function with return type ‘Key *’ makes pointer from integer without a cast [-Wint-conversion]
+  115 |                 return key_parse_private_rsa1(blob, passphrase, commentp);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘load_identity_file’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:157:29: warning: implicit declaration of function ‘strcmp’ [-Wimplicit-function-declaration]
+  157 |                         if (strcmp(passphrase, "") != 0) {
+      |                             ^~~~~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strcmp’
+   10 | #include "../openssh.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:162:33: warning: implicit declaration of function ‘debug2’ [-Wimplicit-function-declaration]
+  162 |                                 debug2("no passphrase given, try next key");
+      |                                 ^~~~~~
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c: In function ‘main’:
+./benchmarks/openssh-portable/leak_8/openssh_leak_8.c:176:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  176 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 45%)
+ phase parsing                      :   0.06 ( 60%)   0.05 (100%)   0.11 ( 73%)  1405k ( 48%)
+ phase opt and generate             :   0.04 ( 40%)   0.00 (  0%)   0.04 ( 27%)   185k (  6%)
+ dump files                         :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)     0  (  0%)
+ callgraph ipa passes               :   0.04 ( 40%)   0.00 (  0%)   0.04 ( 27%)   103k (  4%)
+ ipa function summary               :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)    12k (  0%)
+ ipa lto decl out                   :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)   264  (  0%)
+ preprocessing                      :   0.03 ( 30%)   0.01 ( 20%)   0.01 (  7%)   640k ( 22%)
+ lexical analysis                   :   0.01 ( 10%)   0.01 ( 20%)   0.05 ( 33%)     0  (  0%)
+ parser (global)                    :   0.01 ( 10%)   0.01 ( 20%)   0.02 ( 13%)   568k ( 20%)
+ parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.02 ( 13%)   118k (  4%)
+ parser function body               :   0.01 ( 10%)   0.01 ( 20%)   0.00 (  0%)    51k (  2%)
+ tree SSA other                     :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)  1096  (  0%)
+ tree CCP                           :   0.01 ( 10%)   0.00 (  0%)   0.01 (  7%)   528  (  0%)
+ plugin execution                   :   0.01 ( 10%)   0.01 ( 20%)   0.01 (  7%)     0  (  0%)
+ TOTAL                              :   0.10          0.05          0.15         2899k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 97%)
+ phase stream out                   :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ whopr wpa I/O                      :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.00          0.01          0.01         2232k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:load_identity_file=========
+=======node_fun:key_load_private_type=========
+=======node_fun:key_parse_private_type=========
+=======node_fun:key_parse_private_pem=========
+=======node_fun:key_free=========
+=======node_fun:key_new=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 39 
+===============The second stage : Mapping stmt=================
+# .MEM_20 = VDEF <.MEM_19(D)>
+id_14 = malloc (56);
+# .MEM_21 = VDEF <.MEM_20>
+_1 = time (0B);
+# .MEM_22 = VDEF <.MEM_21>
+srand (_2);
+# .MEM_24 = VDEF <.MEM_23>
+_6 = load_identity_file (_5, _4);
+# .MEM_26 = VDEF <.MEM_25>
+printf ("%d\n", _8);
+# .MEM_27 = VDEF <.MEM_26>
+key_free (_10);
+# .MEM_33 = VDEF <.MEM_32>
+private_20 = key_load_private_type (11, filename_18(D), "", 0B, &perm_ok);
+# .MEM_34 = VDEF <.MEM_33>
+_2 = rand ();
+# .MEM_36 = VDEF <.MEM_29>
+private_26 = key_load_private_type (11, filename_18(D), passphrase_22(D), 0B, 0B);
+# .MEM_35 = VDEF <.MEM_29>
+debug2 ("no passphrase given, try next key");
+# .MEM_15 = VDEF <.MEM_14(D)>
+_1 = rand ();
+# .MEM_17 = VDEF <.MEM_13>
+ret_12 = key_parse_private_type (0B, type_8(D), passphrase_9(D), commentp_10(D));
+# .MEM_17 = VDEF <.MEM_15(D)>
+_1 = key_parse_private_rsa1 (blob_7(D), passphrase_8(D), commentp_9(D));
+# .MEM_16 = VDEF <.MEM_15(D)>
+_11 = key_parse_private_pem (blob_7(D), type_5(D), passphrase_8(D), commentp_9(D));
+# .MEM_18 = VDEF <.MEM_15(D)>
+printf ("%s: cannot parse key type %d\n", &__func__, type_5(D));
+# .MEM_36 = VDEF <.MEM_35(D)>
+_1 = rand ();
+# .MEM_51 = VDEF <.MEM_36>
+printf ("%s: PEM_read_PrivateKey failed\n", &__func__);
+# .MEM_37 = VDEF <.MEM_36>
+_3 = rand ();
+# .MEM_38 = VDEF <.MEM_37>
+prv_24 = key_new (11);
+# .MEM_39 = VDEF <.MEM_38>
+_8 = malloc (168);
+# .MEM_42 = VDEF <.MEM_41>
+_9 = rand ();
+# .MEM_43 = VDEF <.MEM_42>
+printf ("%s: RSA_blinding_on failed\n", &__func__);
+# .MEM_44 = VDEF <.MEM_43>
+key_free (prv_24);
+# .MEM_45 = VDEF <.MEM_37>
+_11 = rand ();
+# .MEM_46 = VDEF <.MEM_45>
+prv_33 = key_new (11);
+# .MEM_47 = VDEF <.MEM_46>
+_16 = malloc (24);
+# .MEM_50 = VDEF <.MEM_45>
+printf ("%s: PEM_read_PrivateKey: mismatch or unknown EVP_PKEY save_type\n");
+# .MEM_22 = VDEF <.MEM_14(D)>
+printf ("key_free: key is NULL%s", "");
+# .MEM_20 = VDEF <.MEM_14(D)>
+printf ("key_free: bad key type %d", _6);
+# .MEM_8 = VDEF <.MEM_7(D)>
+k_5 = calloc (1, 64);
+# .MEM_15 = VDEF <.MEM_14>
+printf ("key_new: bad key type %d", _2);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+id_14 = malloc (56);
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+_3 = *argv_17(D);
+id_14->filename = _3;
+_4 = id_14->userprovided;
+_5 = id_14->filename;
+_6 = load_identity_file (_5, _4);
+id_14->key = _6;
+_7 = id_14->key;
+_8 = _7->rsa;
+printf ("%d\n", _8);
+_9 = id_14->key;
+if (_9 != 0B)
+  goto <bb 3>; [53.47%]
+else
+  goto <bb 4>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 574129753]:
+_10 = id_14->key;
+key_free (_10);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+free (id_14);
+return 0;
+
+=======Mapping node_fun:load_identity_file=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 532644412]:
+perm_ok = 0;
+private_20 = key_load_private_type (11, filename_18(D), "", 0B, &perm_ok);
+_1 = perm_ok;
+if (_1 == 0)
+  goto <bb 11>; [17.38%]
+else
+  goto <bb 3>; [82.62%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 440070814]:
+if (private_20 == 0B)
+  goto <bb 4>; [17.43%]
+else
+  goto <bb 11>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 76704343]:
+_2 = rand ();
+_3 = _2 % 2;
+if (_3 == 1)
+  goto <bb 11>; [9.78%]
+else
+  goto <bb 12>; [90.22%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 69202658]:
+goto <bb 10>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1063004409]:
+_23 = MEM[(const unsigned char * {ref-all})passphrase_22(D)];
+_4 = (int) _23;
+if (_23 != 0)
+  goto <bb 6>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 531502204]:
+private_26 = key_load_private_type (11, filename_18(D), passphrase_22(D), 0B, 0B);
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 531502204]:
+debug2 ("no passphrase given, try next key");
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1063004409]:
+# private_8 = PHI <private_26(6), private_9(7)>
+# quit_11 = PHI <0(6), 1(7)>
+_5 = private_8 != 0B;
+_6 = quit_11 != 0;
+_7 = _5 | _6;
+if (_7 != 0)
+  goto <bb 11>; [5.50%]
+else
+  goto <bb 9>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 1004539167]:
+i_27 = i_10 + 1;
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+# private_9 = PHI <private_20(12), private_8(9)>
+# i_10 = PHI <0(12), i_27(9)>
+if (i_10 <= 99)
+  goto <bb 5>; [99.00%]
+else
+  goto <bb 11>; [1.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 532644412]:
+# _12 = PHI <0B(2), private_20(3), 0B(4), private_8(8), private_9(10)>
+perm_ok ={v} {CLOBBER};
+return _12;
+
+=======Mapping node_fun:key_load_private_type=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = rand ();
+_2 = _1 % 2;
+if (_2 == 1)
+  goto <bb 3>; [34.00%]
+else
+  goto <bb 4>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 365072224]:
+*perm_ok_6(D) = 1;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+ret_12 = key_parse_private_type (0B, type_8(D), passphrase_9(D), commentp_10(D));
+return ret_12;
+
+=======Mapping node_fun:key_parse_private_type=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741817]:
+switch (type_5(D)) <default: <L2> [33.33%], case 0: <L0> [33.33%], case 1 ... 3: <L1> [33.33%], case 11: <L1> [33.33%]>
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 357913942]:
+<L0>:
+_1 = key_parse_private_rsa1 (blob_7(D), passphrase_8(D), commentp_9(D));
+_2 = (long int) _1;
+_13 = (struct Key *) _2;
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 357913942]:
+<L1>:
+_11 = key_parse_private_pem (blob_7(D), type_5(D), passphrase_8(D), commentp_9(D));
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 357913942]:
+<L2>:
+printf ("%s: cannot parse key type %d\n", &__func__, type_5(D));
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# _3 = PHI <_13(3), _11(4), 0B(5)>
+return _3;
+
+=======Mapping node_fun:key_parse_private_pem=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = rand ();
+_2 = _1 % 2;
+if (_2 == 1)
+  goto <bb 3>; [17.38%]
+else
+  goto <bb 4>; [82.62%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 186616328]:
+printf ("%s: PEM_read_PrivateKey failed\n", &__func__);
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 887125497]:
+_3 = rand ();
+_4 = _3 % 2;
+if (_4 == 1)
+  goto <bb 5>; [51.12%]
+else
+  goto <bb 8>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 453498557]:
+_5 = type_22(D) == 11;
+_6 = type_22(D) == 1;
+_7 = _5 | _6;
+if (_7 != 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 8>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 149654523]:
+prv_24 = key_new (11);
+_8 = malloc (168);
+prv_24->rsa = _8;
+prv_24->type = 1;
+_9 = rand ();
+_10 = _9 % 5;
+if (_10 == 0)
+  goto <bb 7>; [16.75%]
+else
+  goto <bb 12>; [83.25%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 25067132]:
+printf ("%s: RSA_blinding_on failed\n", &__func__);
+key_free (prv_24);
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 737470974]:
+_11 = rand ();
+_12 = _11 % 2;
+if (_12 == 1)
+  goto <bb 9>; [71.91%]
+else
+  goto <bb 11>; [28.09%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 530315376]:
+_13 = type_22(D) == 11;
+_14 = type_22(D) == 2;
+_15 = _13 | _14;
+if (_15 != 0)
+  goto <bb 10>; [54.67%]
+else
+  goto <bb 11>; [45.33%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 289923416]:
+prv_33 = key_new (11);
+_16 = malloc (24);
+prv_33->dsa = _16;
+prv_33->type = 2;
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 447547557]:
+printf ("%s: PEM_read_PrivateKey: mismatch or unknown EVP_PKEY save_type\n");
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 1073741824]:
+# prv_17 = PHI <0B(3), prv_24(6), 0B(7), prv_33(10), 0B(11)>
+return prv_17;
+
+=======Mapping node_fun:key_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (k_10(D) == 0B)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+printf ("key_free: key is NULL%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+_1 = k_10(D)->type;
+switch (_1) <default: <L2> [0.05%], case 0 ... 1: <L0> [33.32%], case 2: <L1> [33.32%], case 5: <L0> [33.32%], case 6: <L1> [33.32%], case 9: <L0> [33.32%], case 10: <L1> [33.32%], case 11: <L3> [33.32%]>
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 357591890]:
+<L0>:
+_2 = k_10(D)->rsa;
+if (_2 != 0B)
+  goto <bb 6>; [53.47%]
+else
+  goto <bb 7>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 191204383]:
+_3 = k_10(D)->rsa;
+free (_3);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 357591890]:
+k_10(D)->rsa = 0B;
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 357591890]:
+<L1>:
+_4 = k_10(D)->dsa;
+if (_4 != 0B)
+  goto <bb 9>; [53.47%]
+else
+  goto <bb 10>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 191204383]:
+_5 = k_10(D)->dsa;
+free (_5);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 357591890]:
+k_10(D)->dsa = 0B;
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 536649]:
+<L2>:
+_6 = k_10(D)->type;
+printf ("key_free: bad key type %d", _6);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 1072775671]:
+<L3>:
+free (k_10(D));
+return;
+
+=======Mapping node_fun:key_new=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+k_5 = calloc (1, 64);
+k_5->type = type_6(D);
+k_5->ecdsa = 0B;
+k_5->ecdsa_nid = -1;
+k_5->dsa = 0B;
+k_5->rsa = 0B;
+k_5->cert = 0B;
+_1 = k_5->type;
+if (_1 == 11)
+  goto <bb 4>; [99.96%]
+else
+  goto <bb 3>; [0.04%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+<L0>:
+_2 = k_5->type;
+printf ("key_new: bad key type %d", _2);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+return k_5;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 4 [0m
+[40;34m    all ptable point : 39 [0m
+[40;34m    analyzable ptable point : 35 [0m
+[40;34m    analyzable ptable all point stmt : 134 [0m
+[40;34m    used_stmt array stack totalsize of : 0.003968 mb[0m
+[40;34m    collect time: : 0.000812 s [0m
+[40;34m    mapping time: : 0.001683 s [0m
+[40;34m    algorithm time: 0.007602 s [0m
+[40;34m    gimple stmt count : : 127 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:17 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)  2157k ( 74%)
+ phase opt and generate             :   0.08 (100%)   0.00 (  0%)   0.07 ( 87%)   669k ( 23%)
+ callgraph functions expansion      :   0.06 ( 75%)   0.00 (  0%)   0.06 ( 75%)   533k ( 18%)
+ ipa lto gimple in                  :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)    92k (  3%)
+ dominator optimization             :   0.02 ( 25%)   0.00 (  0%)   0.01 ( 12%)    16k (  1%)
+ tree canonical iv                  :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)   568  (  0%)
+ expand                             :   0.01 ( 12%)   0.00 (  0%)   0.00 (  0%)    79k (  3%)
+ CSE                                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)   552  (  0%)
+ combiner                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)    38k (  1%)
+ integrated RA                      :   0.01 ( 13%)   0.00 (  0%)   0.00 (  0%)   197k (  7%)
+ shorten branches                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 13%)     0  (  0%)
+ plugin execution                   :   0.01 ( 12%)   0.00 (  0%)   0.01 ( 12%)  2320  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 12%)    12k (  0%)
+ rest of compilation                :   0.01 ( 12%)   0.00 (  0%)   0.01 ( 12%)    19k (  1%)
+ TOTAL                              :   0.08          0.00          0.08         2898k
+/usr/bin/ld: /tmp/cc5q8OXi.ltrans0.ltrans.o: in function `key_parse_private_type':
+<artificial>:(.text+0x23a): undefined reference to `key_parse_private_rsa1'
+/usr/bin/ld: /tmp/cc5q8OXi.ltrans0.ltrans.o: in function `load_identity_file':
+<artificial>:(.text+0x356): undefined reference to `debug2'
+collect2: error: ld returned 1 exit status

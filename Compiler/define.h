@@ -1,6 +1,6 @@
 #define FOR_EACH_TABLE(TABLE, TAR)                           \
 	for ((TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target; \
-		 (TAR) != NULL;               \
+		 (TAR) != NULL;                                      \
 		 (TABLE) = (TABLE)->next, (TAR) = ((TABLE) == NULL) ? NULL : (TABLE)->target)
 #define FOR_EACH_USE_TABLE(USE, STMT) \
 	for ((STMT) = ((USE) == NULL) ? NULL : (USE)->stmt; (USE) != NULL; (USE) = (USE)->next, (STMT) = ((USE) == NULL) ? NULL : (USE)->stmt)
@@ -78,8 +78,8 @@ struct ptb
 	bool removed;
 	bool inbranch;
 	gimple *swap_stmt;
-	tree swap_target=NULL;
-	int swap_type=0;
+	tree swap_target = NULL;
+	int swap_type = 0;
 	int pthread_type = 0;
 	int size = 0;
 };
@@ -163,7 +163,7 @@ struct return_type
 	gimple *stmt;
 	tree locfucntion;
 	tree return_tree;
-	const char* name;
+	const char *name;
 };
 struct assign_type
 {
@@ -386,3 +386,4 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp);
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);
 void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mallocStmt_tree);
+void PointerConstraint(ptb *ptable, ptb *ftable);

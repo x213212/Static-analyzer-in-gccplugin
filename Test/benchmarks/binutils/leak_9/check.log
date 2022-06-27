@@ -1,0 +1,1299 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/leak_9/binutils_leak_9.c: In function ‘ada_demangle’:
+./benchmarks/binutils/leak_9/binutils_leak_9.c:44:13: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   44 |         if (strncmp (mangled, "_ada_", 5) == 0)
+      |             ^~~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+    7 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/leak_9/binutils_leak_9.c:44:40: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   44 |         if (strncmp (mangled, "_ada_", 5) == 0)
+      |                                        ^
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/leak_9/binutils_leak_9.c:52:16: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+   52 |         len0 = strlen (mangled) + 7 + 1;
+      |                ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:52:16: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:52:16: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_9/binutils_leak_9.c:52:16: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:12:36: warning: implicit declaration of function ‘isdigit’ [-Wimplicit-function-declaration]
+   12 | #define ISDIGIT(c) (ISASCII (c) && isdigit (c))
+      |                                    ^~~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:66:64: note: in expansion of macro ‘ISDIGIT’
+   66 |                                         while (ISLOWER (*p) || ISDIGIT (*p)
+      |                                                                ^~~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:8:1: note: include ‘<ctype.h>’ or provide a declaration of ‘isdigit’
+    7 | #include "../include/binutils.h"
+  +++ |+#include <ctype.h>
+    8 | 
+./benchmarks/binutils/leak_9/binutils_leak_9.c:91:19: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+   91 |                   memcpy (d, operators[k][1], slen);
+      |                   ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:91:19: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:91:19: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_9/binutils_leak_9.c:91:19: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:171:11: warning: implicit declaration of function ‘strcpy’ [-Wimplicit-function-declaration]
+  171 |           strcpy (d, name);
+      |           ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:171:11: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:171:11: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_9/binutils_leak_9.c:171:11: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:189:11: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+  189 |           strcpy (d, name);
+      |           ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:189:11: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:235:27: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  235 |                           memcpy (d, special[k][1], slen);
+      |                           ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:235:27: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:289:6: warning: incompatible implicit declaration of built-in function ‘strcpy’ [-Wbuiltin-declaration-mismatch]
+  289 |      strcpy (demangled, mangled);
+      |      ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:289:6: note: include ‘<string.h>’ or provide a declaration of ‘strcpy’
+In file included from ./benchmarks/binutils/leak_9/binutils_leak_9.c:6:
+./benchmarks/binutils/leak_9/binutils_leak_9.c: In function ‘cplus_demangle’:
+./benchmarks/binutils/leak_9/../include/common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:300:24: note: in expansion of macro ‘xstrdup’
+  300 |                 return xstrdup (mangled);
+      |                        ^~~~~~~
+./benchmarks/binutils/leak_9/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:300:24: note: in expansion of macro ‘xstrdup’
+  300 |                 return xstrdup (mangled);
+      |                        ^~~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c: In function ‘demangle_template_value_parm’:
+./benchmarks/binutils/leak_9/binutils_leak_9.c:316:25: warning: implicit declaration of function ‘strncpy’ [-Wimplicit-function-declaration]
+  316 |                         strncpy (p, *mangled, symbol_len);
+      |                         ^~~~~~~
+./benchmarks/binutils/leak_9/binutils_leak_9.c:316:25: note: include ‘<string.h>’ or provide a declaration of ‘strncpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c:316:25: warning: incompatible implicit declaration of built-in function ‘strncpy’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/binutils/leak_9/binutils_leak_9.c:316:25: note: include ‘<string.h>’ or provide a declaration of ‘strncpy’
+./benchmarks/binutils/leak_9/binutils_leak_9.c: In function ‘main’:
+./benchmarks/binutils/leak_9/binutils_leak_9.c:341:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  341 |         srand(time(&t));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 43%)
+ phase parsing                      :   0.02 ( 50%)   0.02 (100%)   0.04 ( 67%)  1232k ( 41%)
+ phase opt and generate             :   0.02 ( 50%)   0.00 (  0%)   0.02 ( 33%)   455k ( 15%)
+ callgraph optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 33%)   191k (  6%)
+ lto stream compression             :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl out                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)   264  (  0%)
+ preprocessing                      :   0.02 ( 50%)   0.01 ( 50%)   0.02 ( 33%)   372k ( 12%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)     0  (  0%)
+ parser function body               :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)   180k (  6%)
+ loop init                          :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)    16k (  1%)
+ TOTAL                              :   0.04          0.02          0.06         2995k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 96%)
+ TOTAL                              :   0.00          0.00          0.00         2240k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:demangle_template_value_parm=========
+=======node_fun:cplus_demangle=========
+=======node_fun:ada_demangle=========
+=======node_fun:string_append=========
+=======node_fun:string_init=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 54 
+===============The second stage : Mapping stmt=================
+# .MEM_5 = VDEF <.MEM_4>
+_1 = time (&t);
+# .MEM_6 = VDEF <.MEM_5>
+srand (_2);
+# .MEM_7 = VDEF <.MEM_6>
+string_init (&s);
+# .MEM_8 = VDEF <.MEM_7>
+demangle_template_value_parm (&mangled, &s);
+# .MEM_19 = VDEF <.MEM_18(D)>
+_1 = rand ();
+# .MEM_20 = VDEF <.MEM_19>
+p_10 = malloc (4);
+# .MEM_21 = VDEF <.MEM_20>
+strncpy (p_10, _3, 3);
+# .MEM_23 = VDEF <.MEM_22>
+q_15 = cplus_demangle (p_10);
+# .MEM_26 = VDEF <.MEM_23>
+string_append (s_16(D), q_15);
+# .MEM_24 = VDEF <.MEM_23>
+string_append (s_16(D), p_10);
+# .MEM_17 = VDEF <.MEM_16(D)>
+_1 = rand ();
+# .MEM_20 = VDEF <.MEM_17>
+_14 = strdup (mangled_10(D));
+# .MEM_18 = VDEF <.MEM_17>
+_3 = rand ();
+# .MEM_19 = VDEF <.MEM_18>
+_12 = ada_demangle (mangled_10(D));
+# VUSE <.MEM_229(D)>
+_1 = strncmp (mangled_169(D), "_ada_", 5);
+# VUSE <.MEM_229(D)>
+_5 = strlen (mangled_132);
+# .MEM_230 = VDEF <.MEM_229(D)>
+demangled_173 = malloc (_8);
+# VUSE <.MEM_227>
+slen_175 = strlen (_35);
+# VUSE <.MEM_227>
+_37 = strncmp (p_133, _36, slen_175);
+# VUSE <.MEM_227>
+slen_178 = strlen (_38);
+# .MEM_232 = VDEF <.MEM_231>
+memcpy (d_179, _40, slen_178);
+# .MEM_236 = VDEF <.MEM_221>
+strcpy (d_149, name_154);
+# VUSE <.MEM_236>
+_78 = strlen (name_154);
+# .MEM_237 = VDEF <.MEM_221>
+strcpy (d_149, name_155);
+# VUSE <.MEM_237>
+_82 = strlen (name_155);
+# VUSE <.MEM_222>
+slen_201 = strlen (_103);
+# VUSE <.MEM_222>
+_105 = strncmp (p_200, _104, slen_201);
+# VUSE <.MEM_222>
+slen_204 = strlen (_106);
+# .MEM_238 = VDEF <.MEM_222>
+memcpy (d_150, _107, slen_204);
+# VUSE <.MEM_225>
+_128 = strlen (mangled_132);
+# .MEM_241 = VDEF <.MEM_225>
+demangled_218 = malloc (_130);
+# .MEM_243 = VDEF <.MEM_241>
+strcpy (demangled_218, mangled_132);
+# .MEM_242 = VDEF <.MEM_241>
+sprintf (demangled_218, "<%s>", mangled_132);
+# .MEM_5 = VDEF <.MEM_4(D)>
+printf ("%d\n", _1);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+mangled = "123456";
+_1 = time (&t);
+_2 = (unsigned int) _1;
+srand (_2);
+string_init (&s);
+demangle_template_value_parm (&mangled, &s);
+t ={v} {CLOBBER};
+s ={v} {CLOBBER};
+mangled ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:demangle_template_value_parm=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = rand ();
+_2 = _1 % 2;
+if (_2 == 1)
+  goto <bb 3>; [20.24%]
+else
+  goto <bb 6>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 217325344]:
+p_10 = malloc (4);
+_3 = *mangled_11(D);
+strncpy (p_10, _3, 3);
+MEM[(char *)p_10 + 3B] = 0;
+q_15 = cplus_demangle (p_10);
+if (q_15 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 152127741]:
+string_append (s_16(D), q_15);
+free (q_15);
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 65197602]:
+string_append (s_16(D), p_10);
+free (p_10);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+_4 = *mangled_11(D);
+_5 = _4 + 3;
+*mangled_11(D) = _5;
+return;
+
+=======Mapping node_fun:cplus_demangle=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = rand ();
+_2 = _1 % 2;
+if (_2 == 1)
+  goto <bb 3>; [20.97%]
+else
+  goto <bb 4>; [79.03%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 225163664]:
+_14 = strdup (mangled_10(D));
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 848578159]:
+_3 = rand ();
+_4 = _3 % 2;
+if (_4 == 1)
+  goto <bb 5>; [24.24%]
+else
+  goto <bb 6>; [75.76%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 205695344]:
+_12 = ada_demangle (mangled_10(D));
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# _5 = PHI <_14(3), 0B(4), _12(5)>
+return _5;
+
+=======Mapping node_fun:ada_demangle=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 119800838]:
+_1 = strncmp (mangled_169(D), "_ada_", 5);
+if (_1 == 0)
+  goto <bb 3>; [50.00%]
+else
+  goto <bb 4>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 59900419]:
+mangled_170 = mangled_169(D) + 5;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 119800838]:
+# mangled_132 = PHI <mangled_169(D)(2), mangled_170(3)>
+_2 = *mangled_132;
+_3 = (unsigned char) _2;
+_4 = _3 + 159;
+if (_4 > 25)
+  goto <bb 5>; [51.12%]
+else
+  goto <bb 6>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 61242189]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 58558649]:
+_5 = strlen (mangled_132);
+_6 = (unsigned int) _5;
+_7 = _6 + 8;
+len0_171 = (int) _7;
+_8 = (long unsigned int) len0_171;
+demangled_173 = malloc (_8);
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 56304878]:
+# p_174 = PHI <p_188(27), p_200(74)>
+# d_39 = PHI <d_189(27), d_207(74)>
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 114863528]:
+# p_133 = PHI <mangled_132(6), p_174(7)>
+# d_146 = PHI <demangled_173(6), d_39(7)>
+_9 = *p_133;
+_10 = (unsigned char) _9;
+_11 = _10 + 159;
+if (_11 > 25)
+  goto <bb 10>; [50.00%]
+else
+  goto <bb 13>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 1016310061]:
+# p_13 = PHI <p_185(10), p_185(12)>
+# d_215 = PHI <d_186(10), d_186(12)>
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+# p_134 = PHI <p_133(8), p_13(9)>
+# d_147 = PHI <d_146(8), d_215(9)>
+p_185 = p_134 + 1;
+d_186 = d_147 + 1;
+_14 = *p_134;
+*d_147 = _14;
+_15 = *p_185;
+_16 = (unsigned char) _15;
+_17 = _16 + 159;
+_18 = _17 <= 25;
+_19 = *p_185;
+_20 = (unsigned char) _19;
+_21 = _20 + 208;
+_22 = _21 <= 9;
+_23 = _18 | _22;
+if (_23 != 0)
+  goto <bb 9>; [50.00%]
+else
+  goto <bb 11>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 536870913]:
+_24 = *p_185;
+if (_24 == 95)
+  goto <bb 12>; [94.50%]
+else
+  goto <bb 21>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 507343013]:
+_25 = MEM[(const char *)p_185 + 1B];
+_26 = (unsigned char) _25;
+_27 = _26 + 159;
+_28 = _27 <= 25;
+_29 = MEM[(const char *)p_185 + 1B];
+_30 = (unsigned char) _29;
+_31 = _30 + 208;
+_32 = _31 <= 9;
+_33 = _28 | _32;
+if (_33 != 0)
+  goto <bb 9>; [94.50%]
+else
+  goto <bb 21>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 57431764]:
+_34 = *p_133;
+if (_34 == 79)
+  goto <bb 17>; [98.00%]
+else
+  goto <bb 20>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 497196142]:
+_35 = operators[k_153][0];
+slen_175 = strlen (_35);
+_36 = operators[k_153][0];
+_37 = strncmp (p_133, _36, slen_175);
+if (_37 == 0)
+  goto <bb 15>; [5.50%]
+else
+  goto <bb 16>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 27345788]:
+p_177 = p_133 + slen_175;
+_38 = operators[k_153][1];
+slen_178 = strlen (_38);
+d_179 = d_146 + 1;
+*d_146 = 34;
+_40 = operators[k_153][1];
+memcpy (d_179, _40, slen_178);
+d_182 = d_179 + slen_178;
+d_183 = d_182 + 1;
+*d_182 = 34;
+goto <bb 18>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 469850355]:
+k_176 = k_153 + 1;
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 526133484]:
+# k_153 = PHI <0(13), k_176(16)>
+_41 = operators[k_153][0];
+if (_41 != 0B)
+  goto <bb 14>; [94.50%]
+else
+  goto <bb 18>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 56283129]:
+# p_135 = PHI <p_177(15), p_133(17)>
+# d_148 = PHI <d_183(15), d_146(17)>
+_42 = operators[k_153][0];
+if (_42 == 0B)
+  goto <bb 19>; [2.00%]
+else
+  goto <bb 21>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 1125663]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 1148635]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 112589232]:
+# p_136 = PHI <p_185(11), p_185(12), p_135(18)>
+# d_149 = PHI <d_186(11), d_186(12), d_148(18)>
+_43 = *p_136;
+if (_43 == 84)
+  goto <bb 22>; [34.00%]
+else
+  goto <bb 29>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 38280339]:
+_44 = MEM[(const char *)p_136 + 1B];
+if (_44 == 75)
+  goto <bb 23>; [34.00%]
+else
+  goto <bb 29>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 13015315]:
+_45 = MEM[(const char *)p_136 + 2B];
+if (_45 == 66)
+  goto <bb 24>; [34.00%]
+else
+  goto <bb 25>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 24 
+<bb 24> [local count: 4425207]:
+_46 = MEM[(const char *)p_136 + 3B];
+if (_46 == 0)
+  goto <bb 90>; [2.00%]
+else
+  goto <bb 25>; [98.00%]
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [local count: 12926811]:
+_47 = MEM[(const char *)p_136 + 2B];
+if (_47 == 95)
+  goto <bb 26>; [98.00%]
+else
+  goto <bb 28>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 26 
+<bb 26> [local count: 12668275]:
+_48 = MEM[(const char *)p_136 + 3B];
+if (_48 == 95)
+  goto <bb 27>; [33.00%]
+else
+  goto <bb 28>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 27 
+<bb 27> [local count: 4180531]:
+p_188 = p_136 + 4;
+d_189 = d_149 + 1;
+*d_149 = 46;
+// predicted unlikely by continue predictor.
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 8746281]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 29 
+<bb 29> [local count: 99573917]:
+_49 = *p_136;
+if (_49 == 69)
+  goto <bb 30>; [34.00%]
+else
+  goto <bb 32>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 30 
+<bb 30> [local count: 33855132]:
+_50 = MEM[(const char *)p_136 + 1B];
+if (_50 == 0)
+  goto <bb 31>; [2.00%]
+else
+  goto <bb 32>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [local count: 677103]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 32 
+<bb 32> [local count: 98896814]:
+_51 = *p_136;
+_52 = _51 == 80;
+_53 = *p_136;
+_54 = _53 == 78;
+_55 = _52 | _54;
+if (_55 != 0)
+  goto <bb 33>; [50.00%]
+else
+  goto <bb 34>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 33 
+<bb 33> [local count: 49448407]:
+_56 = MEM[(const char *)p_136 + 1B];
+if (_56 == 0)
+  goto <bb 90>; [2.00%]
+else
+  goto <bb 34>; [98.00%]
+
+=======is loop:1=========
+
+ bb index 34 
+<bb 34> [local count: 97907846]:
+_57 = *p_136;
+_58 = _57 == 78;
+_59 = *p_136;
+_60 = _59 == 83;
+_61 = _58 | _60;
+if (_61 != 0)
+  goto <bb 35>; [50.00%]
+else
+  goto <bb 37>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 35 
+<bb 35> [local count: 48953923]:
+_62 = MEM[(const char *)p_136 + 1B];
+if (_62 == 0)
+  goto <bb 36>; [2.00%]
+else
+  goto <bb 37>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 36 
+<bb 36> [local count: 979079]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 37 
+<bb 37> [local count: 96928767]:
+_63 = *p_136;
+if (_63 == 88)
+  goto <bb 38>; [16.00%]
+else
+  goto <bb 41>; [84.00%]
+
+=======is loop:1=========
+
+ bb index 38 
+<bb 38> [local count: 15508602]:
+p_191 = p_136 + 1;
+goto <bb 40>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 39 
+<bb 39> [local count: 125478693]:
+p_192 = p_137 + 1;
+
+=======is loop:1=========
+
+ bb index 40 
+<bb 40> [local count: 140987295]:
+# p_137 = PHI <p_191(38), p_192(39)>
+_64 = *p_137;
+_65 = _64 == 110;
+_66 = *p_137;
+_67 = _66 == 98;
+_68 = _65 | _67;
+if (_68 != 0)
+  goto <bb 39>; [89.00%]
+else
+  goto <bb 41>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 41 
+<bb 41> [local count: 96928767]:
+# p_138 = PHI <p_136(37), p_137(40)>
+_69 = *p_138;
+if (_69 == 83)
+  goto <bb 42>; [34.00%]
+else
+  goto <bb 50>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 42 
+<bb 42> [local count: 32955781]:
+_70 = MEM[(const char *)p_138 + 1B];
+if (_70 != 0)
+  goto <bb 43>; [50.00%]
+else
+  goto <bb 50>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 43 
+<bb 43> [local count: 16477891]:
+_71 = MEM[(const char *)p_138 + 2B];
+_72 = _71 == 95;
+_73 = MEM[(const char *)p_138 + 2B];
+_74 = _73 == 0;
+_75 = _72 | _74;
+if (_75 != 0)
+  goto <bb 44>; [50.00%]
+else
+  goto <bb 50>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 44 
+<bb 44> [local count: 8238945]:
+_76 = MEM[(const char *)p_138 + 1B];
+_77 = (int) _76;
+switch (_76) <default: <L3> [20.00%], case 73: <L1> [20.00%], case 79: <L2> [20.00%], case 82: <L4> [20.00%], case 87: <L0> [20.00%]>
+
+=======is loop:1=========
+
+ bb index 45 
+<bb 45> [local count: 1647789]:
+<L0>:
+goto <bb 49>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 46 
+<bb 46> [local count: 1647789]:
+<L1>:
+goto <bb 49>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 47 
+<bb 47> [local count: 1647789]:
+<L2>:
+goto <bb 49>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 48 
+<bb 48> [local count: 1647789]:
+<L3>:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 49 
+<bb 49> [local count: 6591156]:
+# name_154 = PHI <"\'Read"(44), "\'Write"(45), "\'Input"(46), "\'Output"(47)>
+<L4>:
+p_193 = p_138 + 2;
+strcpy (d_149, name_154);
+_78 = strlen (name_154);
+d_195 = d_149 + _78;
+goto <bb 55>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 50 
+<bb 50> [local count: 88689822]:
+_79 = *p_138;
+if (_79 == 68)
+  goto <bb 51>; [2.00%]
+else
+  goto <bb 55>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 51 
+<bb 51> [local count: 1773797]:
+_80 = MEM[(const char *)p_138 + 1B];
+_81 = (int) _80;
+switch (_80) <default: <L6> [33.33%], case 65: <L5> [33.33%], case 70: <L7> [33.33%]>
+
+=======is loop:0=========
+
+ bb index 52 
+<bb 52> [local count: 591266]:
+<L5>:
+goto <bb 54>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 53 
+<bb 53> [local count: 591266]:
+<L6>:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 54 
+<bb 54> [local count: 1182531]:
+# name_155 = PHI <".Finalize"(51), ".Adjust"(52)>
+<L7>:
+strcpy (d_149, name_155);
+_82 = strlen (name_155);
+d_197 = d_149 + _82;
+goto <bb 90>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 55 
+<bb 55> [local count: 93507181]:
+# p_139 = PHI <p_193(49), p_138(50)>
+# d_150 = PHI <d_195(49), d_149(50)>
+_83 = *p_139;
+if (_83 == 95)
+  goto <bb 56>; [98.00%]
+else
+  goto <bb 83>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 56 
+<bb 56> [local count: 91637037]:
+_84 = MEM[(const char *)p_139 + 1B];
+if (_84 == 95)
+  goto <bb 57>; [98.00%]
+else
+  goto <bb 75>; [2.00%]
+
+=======is loop:1=========
+
+ bb index 57 
+<bb 57> [local count: 89804296]:
+p_200 = p_139 + 2;
+_85 = MEM[(const char *)p_139 + 2B];
+_86 = (unsigned int) _85;
+_87 = _86 + 4294967248;
+if (_87 <= 9)
+  goto <bb 59>; [2.00%]
+else
+  goto <bb 66>; [98.00%]
+
+=======is loop:1=========
+
+ bb index 58 
+<bb 58> [local count: 31783466]:
+# p_166 = PHI <p_209(59), p_209(61)>
+
+=======is loop:1=========
+
+ bb index 59 
+<bb 59> [local count: 33579552]:
+# p_140 = PHI <p_200(57), p_166(58)>
+p_209 = p_140 + 1;
+_88 = *p_209;
+_89 = (unsigned int) _88;
+_90 = _89 + 4294967248;
+if (_90 <= 9)
+  goto <bb 58>; [50.00%]
+else
+  goto <bb 60>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 60 
+<bb 60> [local count: 16789776]:
+_91 = *p_209;
+if (_91 == 95)
+  goto <bb 61>; [94.50%]
+else
+  goto <bb 62>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 61 
+<bb 61> [local count: 15866338]:
+_92 = MEM[(const char *)p_209 + 1B];
+_93 = (unsigned int) _92;
+_94 = _93 + 4294967248;
+if (_94 <= 9)
+  goto <bb 58>; [94.50%]
+else
+  goto <bb 62>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 62 
+<bb 62> [local count: 1796086]:
+_95 = *p_209;
+if (_95 == 88)
+  goto <bb 63>; [34.00%]
+else
+  goto <bb 83>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 63 
+<bb 63> [local count: 610669]:
+p_210 = p_140 + 2;
+goto <bb 65>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 64 
+<bb 64> [local count: 4940870]:
+p_211 = p_141 + 1;
+
+=======is loop:1=========
+
+ bb index 65 
+<bb 65> [local count: 5551539]:
+# p_141 = PHI <p_210(63), p_211(64)>
+_96 = *p_141;
+_97 = _96 == 110;
+_98 = *p_141;
+_99 = _98 == 98;
+_100 = _97 | _99;
+if (_100 != 0)
+  goto <bb 64>; [89.00%]
+else
+  goto <bb 83>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 66 
+<bb 66> [local count: 88008210]:
+_101 = MEM[(const char *)p_139 + 2B];
+if (_101 == 95)
+  goto <bb 67>; [51.12%]
+else
+  goto <bb 74>; [48.88%]
+
+=======is loop:1=========
+
+ bb index 67 
+<bb 67> [local count: 44989797]:
+_102 = MEM[(const char *)p_139 + 3B];
+if (_102 != 95)
+  goto <bb 71>; [79.76%]
+else
+  goto <bb 74>; [20.24%]
+
+=======is loop:1=========
+
+ bb index 68 
+<bb 68> [local count: 316992292]:
+_103 = special[k_156][0];
+slen_201 = strlen (_103);
+_104 = special[k_156][0];
+_105 = strncmp (p_200, _104, slen_201);
+if (_105 == 0)
+  goto <bb 69>; [5.50%]
+else
+  goto <bb 70>; [94.50%]
+
+=======is loop:0=========
+
+ bb index 69 
+<bb 69> [local count: 17434576]:
+p_203 = p_200 + slen_201;
+_106 = special[k_156][1];
+slen_204 = strlen (_106);
+_107 = special[k_156][1];
+memcpy (d_150, _107, slen_204);
+d_206 = d_150 + slen_204;
+goto <bb 72>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 70 
+<bb 70> [local count: 299557716]:
+k_202 = k_156 + 1;
+
+=======is loop:1=========
+
+ bb index 71 
+<bb 71> [local count: 335441579]:
+# k_156 = PHI <0(67), k_202(70)>
+_108 = special[k_156][0];
+if (_108 != 0B)
+  goto <bb 68>; [94.50%]
+else
+  goto <bb 72>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 72 
+<bb 72> [local count: 35883863]:
+# d_151 = PHI <d_206(69), d_150(71)>
+_109 = special[k_156][0];
+if (_109 != 0B)
+  goto <bb 90>; [81.91%]
+else
+  goto <bb 73>; [18.09%]
+
+=======is loop:0=========
+
+ bb index 73 
+<bb 73> [local count: 6491391]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 74 
+<bb 74> [local count: 52124348]:
+d_207 = d_150 + 1;
+*d_150 = 46;
+// predicted unlikely by continue predictor.
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 75 
+<bb 75> [local count: 1832741]:
+_110 = MEM[(const char *)p_139 + 1B];
+_111 = _110 == 66;
+_112 = MEM[(const char *)p_139 + 1B];
+_113 = _112 == 69;
+_114 = _111 | _113;
+if (_114 != 0)
+  goto <bb 76>; [66.00%]
+else
+  goto <bb 82>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 76 
+<bb 76> [local count: 1209609]:
+p_198 = p_139 + 2;
+goto <bb 78>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 77 
+<bb 77> [local count: 9786837]:
+p_199 = p_142 + 1;
+
+=======is loop:1=========
+
+ bb index 78 
+<bb 78> [local count: 10996446]:
+# p_142 = PHI <p_198(76), p_199(77)>
+_115 = *p_142;
+_116 = (unsigned int) _115;
+_117 = _116 + 4294967248;
+if (_117 <= 9)
+  goto <bb 77>; [89.00%]
+else
+  goto <bb 79>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 79 
+<bb 79> [local count: 1209609]:
+_118 = *p_142;
+if (_118 == 115)
+  goto <bb 80>; [50.00%]
+else
+  goto <bb 81>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 80 
+<bb 80> [local count: 604805]:
+_119 = MEM[(const char *)p_142 + 1B];
+if (_119 == 0)
+  goto <bb 90>; [66.00%]
+else
+  goto <bb 81>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 81 
+<bb 81> [local count: 810438]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 82 
+<bb 82> [local count: 623132]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 83 
+<bb 83> [local count: 3666230]:
+# p_143 = PHI <p_139(55), p_209(62), p_141(65)>
+_120 = *p_143;
+if (_120 == 46)
+  goto <bb 84>; [34.00%]
+else
+  goto <bb 88>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 84 
+<bb 84> [local count: 1246518]:
+_121 = MEM[(const char *)p_143 + 1B];
+_122 = (unsigned int) _121;
+_123 = _122 + 4294967248;
+if (_123 <= 9)
+  goto <bb 85>; [50.00%]
+else
+  goto <bb 88>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 85 
+<bb 85> [local count: 623259]:
+p_212 = p_143 + 2;
+goto <bb 87>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 86 
+<bb 86> [local count: 5042733]:
+p_213 = p_144 + 1;
+
+=======is loop:1=========
+
+ bb index 87 
+<bb 87> [local count: 5665992]:
+# p_144 = PHI <p_212(85), p_213(86)>
+_124 = *p_144;
+_125 = (unsigned int) _124;
+_126 = _125 + 4294967248;
+if (_126 <= 9)
+  goto <bb 86>; [89.00%]
+else
+  goto <bb 88>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 88 
+<bb 88> [local count: 3666230]:
+# p_145 = PHI <p_143(83), p_143(84), p_144(87)>
+_127 = *p_145;
+if (_127 == 0)
+  goto <bb 90>; [66.00%]
+else
+  goto <bb 89>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 89 
+<bb 89> [local count: 1246518]:
+// predicted unlikely by goto predictor.
+goto <bb 91>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 90 
+<bb 90> [local count: 34471359]:
+# d_152 = PHI <d_149(24), d_149(33), d_197(54), d_151(72), d_150(80), d_150(88)>
+*d_152 = 0;
+goto <bb 94>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 91 
+<bb 91> [local count: 85329483]:
+unknown:
+_128 = strlen (mangled_132);
+len0_216 = (int) _128;
+_129 = len0_216 + 3;
+_130 = (long unsigned int) _129;
+demangled_218 = malloc (_130);
+_131 = *mangled_132;
+if (_131 == 60)
+  goto <bb 92>; [34.00%]
+else
+  goto <bb 93>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 92 
+<bb 92> [local count: 29012024]:
+strcpy (demangled_218, mangled_132);
+goto <bb 94>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 93 
+<bb 93> [local count: 56317458]:
+sprintf (demangled_218, "<%s>", mangled_132);
+
+=======is loop:0=========
+
+ bb index 94 
+<bb 94> [local count: 119800842]:
+# _157 = PHI <demangled_173(90), demangled_218(92), demangled_218(93)>
+return _157;
+
+=======Mapping node_fun:string_append=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = MEM[(int *)s_3(D)];
+printf ("%d\n", _1);
+return;
+
+=======Mapping node_fun:string_init=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+s_4(D)->e = 0B;
+_1 = s_4(D)->e;
+s_4(D)->p = _1;
+_2 = s_4(D)->p;
+s_4(D)->b = _2;
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 2 [0m
+[40;34m    all ptable point : 54 [0m
+[40;34m    analyzable ptable point : 47 [0m
+[40;34m    analyzable ptable all point stmt : 2521 [0m
+[40;34m    used_stmt array stack totalsize of : 0.064064 mb[0m
+[40;34m    collect time: : 0.000372 s [0m
+[40;34m    mapping time: : 0.025409 s [0m
+[40;34m    algorithm time: 3.247594 s [0m
+[40;34m    gimple stmt count : : 296 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:03 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 73%)
+ phase opt and generate             :   3.23 (100%)   0.05 (100%)   3.28 (100%)   730k ( 25%)
+ callgraph functions expansion      :   0.02 (  1%)   0.01 ( 20%)   0.02 (  1%)   520k ( 18%)
+ df reg dead/unused notes           :   0.00 (  0%)   0.00 (  0%)   0.01 (  0%)  6744  (  0%)
+ tree operand scan                  :   0.00 (  0%)   0.00 (  0%)   0.01 (  0%)    30k (  1%)
+ dominance computation              :   0.01 (  0%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ loop init                          :   0.01 (  0%)   0.00 (  0%)   0.00 (  0%)    30k (  1%)
+ integrated RA                      :   0.01 (  0%)   0.00 (  0%)   0.00 (  0%)   147k (  5%)
+ plugin execution                   :   3.20 ( 99%)   0.04 ( 80%)   3.25 ( 99%)  4976  (  0%)
+ rest of compilation                :   0.00 (  0%)   0.01 ( 20%)   0.00 (  0%)    21k (  1%)
+ address taken                      :   0.00 (  0%)   0.00 (  0%)   0.01 (  0%)     0  (  0%)
+ TOTAL                              :   3.23          0.05          3.28         2945k

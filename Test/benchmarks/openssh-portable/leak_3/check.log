@@ -1,0 +1,773 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:10:
+./benchmarks/openssh-portable/leak_3/../openssh.h:675:60: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  675 |         int     (*verify_host_key)(struct sshkey *, struct ssh *);
+      |                                                            ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:676:65: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  676 |         struct sshkey *(*load_host_public_key)(int, int, struct ssh *);
+      |                                                                 ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:677:66: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  677 |         struct sshkey *(*load_host_private_key)(int, int, struct ssh *);
+      |                                                                  ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:678:64: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  678 |         int     (*host_key_index)(struct sshkey *, int, struct ssh *);
+      |                                                                ^~~
+./benchmarks/openssh-portable/leak_3/../openssh.h:681:40: warning: ‘struct ssh’ declared inside parameter list will not be visible outside of this definition or declaration
+  681 |         int     (*kex[KEX_MAX])(struct ssh *);
+      |                                        ^~~
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c: In function ‘main’:
+./benchmarks/openssh-portable/leak_3/openssh_leak_3.c:207:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  207 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 44%)
+ phase parsing                      :   0.02 ( 67%)   0.03 (100%)   0.05 ( 83%)  1415k ( 48%)
+ phase opt and generate             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)   205k (  7%)
+ callgraph ipa passes               :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)   108k (  4%)
+ ipa free lang data                 :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 17%)  5584  (  0%)
+ preprocessing                      :   0.01 ( 33%)   0.01 ( 33%)   0.03 ( 50%)   642k ( 22%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 33%)   0.02 ( 33%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 33%)   0.00 (  0%)   568k ( 19%)
+ parser struct body                 :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)   117k (  4%)
+ TOTAL                              :   0.03          0.03          0.06         2929k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ TOTAL                              :   0.00          0.00          0.00         2214k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:client_input_hostkeys=========
+=======node_fun:client_global_request_reply=========
+=======node_fun:client_register_global_confirm=========
+=======node_fun:client_global_hostkeys_private_confirm=========
+=======node_fun:update_known_hosts=========
+=======node_fun:hostkeys_update_ctx_free=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 18 
+===============The second stage : Mapping stmt=================
+# .MEM_18 = VDEF <.MEM_17(D)>
+_1 = time (0B);
+# .MEM_19 = VDEF <.MEM_18>
+srand (_2);
+# .MEM_22 = VDEF <.MEM_20>
+client_input_hostkeys (argc_13(D), argv_14(D));
+# .MEM_20 = VDEF <.MEM_15>
+_3 = rand ();
+# .MEM_21 = VDEF <.MEM_16>
+client_global_request_reply (0, 0, 0B);
+# .MEM_72 = VDEF <.MEM_71(D)>
+ctx_48 = calloc (1, 64);
+# .MEM_86 = VDEF <.MEM_66>
+printf ("parse key %s error\n", _9);
+# .MEM_84 = VDEF <.MEM_66>
+printf ("%s: server sent no hostkeys\n", &__func__);
+# .MEM_73 = VDEF <.MEM_66>
+_14 = calloc (_13, 4);
+# .MEM_82 = VDEF <.MEM_74>
+printf ("%s: calloc failed\n", &__func__);
+# .MEM_79 = VDEF <.MEM_68>
+_16 = rand ();
+# .MEM_76 = VDEF <.MEM_68>
+printf ("%zu keys from server: %zu new, %zu retained. \n", _34, _33, _32);
+# VUSE <.MEM_76>
+update_known_hosts (ctx_48);
+# .MEM_77 = VDEF <.MEM_76>
+printf ("asking server to prove ownership for %zu keys\n", _37);
+# .MEM_78 = VDEF <.MEM_77>
+client_register_global_confirm (client_global_hostkeys_private_confirm, ctx_48);
+# .MEM_87 = VDEF <.MEM_69>
+hostkeys_update_ctx_free (ctx_39);
+# .MEM_24 = VDEF <.MEM_23>
+printf ("%s: last_gc->ref_count \n", &__func__);
+# .MEM_26 = VDEF <.MEM_22(D)>
+gc_20 = calloc (1, 40);
+# .MEM_34 = VDEF <.MEM_28(D)>
+printf ("%s: ctx->nnew == 0\n", &__func__);
+# .MEM_29 = VDEF <.MEM_28(D)>
+_2 = rand ();
+# .MEM_32 = VDEF <.MEM_29>
+__builtin_puts (&"Server failed to confirm ownership of private host keys"[0]);
+# .MEM_33 = VDEF <.MEM_32>
+hostkeys_update_ctx_free (_ctx_18(D));
+# .MEM_30 = VDEF <.MEM_25>
+_8 = rand ();
+# VUSE <.MEM_25>
+update_known_hosts (_ctx_18(D));
+# .MEM_31 = VDEF <.MEM_26>
+hostkeys_update_ctx_free (_ctx_18(D));
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+client_input_hostkeys (argc_13(D), argv_14(D));
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_3 = rand ();
+_4 = _3 % 2;
+if (_4 == 1)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 8>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 118111600]:
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+client_global_request_reply (0, 0, 0B);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+_5 = global_confirms.tqh_first;
+if (_5 != 0B)
+  goto <bb 5>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+return 0;
+
+=======Mapping node_fun:client_input_hostkeys=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 145341681]:
+ctx_48 = calloc (1, 64);
+if (argc_49(D) == 1)
+  goto <bb 21>; [20.97%]
+else
+  goto <bb 6>; [79.03%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1014686025]:
+_1 = (long unsigned int) i_40;
+_2 = _1 * 8;
+_3 = argv_63(D) + _2;
+_4 = *_3;
+_5 = *_4;
+if (_5 != 107)
+  goto <bb 4>; [5.50%]
+else
+  goto <bb 5>; [94.50%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 55807731]:
+_6 = (long unsigned int) i_40;
+_7 = _6 * 8;
+_8 = argv_63(D) + _7;
+_9 = *_8;
+printf ("parse key %s error\n", _9);
+// predicted unlikely by goto predictor.
+goto <bb 20>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 958878294]:
+_10 = ctx_48->nkeys;
+_11 = _10 + 1;
+ctx_48->nkeys = _11;
+i_65 = i_40 + 1;
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# i_40 = PHI <1(2), i_65(5)>
+if (i_40 < argc_49(D))
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 7>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 59055800]:
+_12 = ctx_48->nkeys;
+if (_12 == 0)
+  goto <bb 8>; [34.00%]
+else
+  goto <bb 9>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 20078972]:
+printf ("%s: server sent no hostkeys\n", &__func__);
+// predicted unlikely by goto predictor.
+goto <bb 20>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 38976828]:
+_13 = ctx_48->nkeys;
+_14 = calloc (_13, 4);
+ctx_48->keys_seen = _14;
+_15 = ctx_48->keys_seen;
+if (_15 == 0B)
+  goto <bb 10>; [0.04%]
+else
+  goto <bb 11>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 15591]:
+printf ("%s: calloc failed\n", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 38961237]:
+ctx_48->nnew = 0;
+goto <bb 15>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 315231830]:
+_16 = rand ();
+_17 = _16 % 2;
+_18 = _17 == 1;
+_19 = ctx_48->keys_seen;
+_20 = i_38 * 4;
+_21 = _19 + _20;
+_22 = (int) _18;
+*_21 = _22;
+_23 = ctx_48->keys_seen;
+_24 = i_38 * 4;
+_25 = _23 + _24;
+_26 = *_25;
+if (_26 == 0)
+  goto <bb 13>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 157615915]:
+_27 = ctx_48->nnew;
+_28 = _27 + 1;
+ctx_48->nnew = _28;
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 315231830]:
+i_59 = i_38 + 1;
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 354193067]:
+# i_38 = PHI <0(11), i_59(14)>
+_29 = ctx_48->nkeys;
+if (_29 > i_38)
+  goto <bb 12>; [89.00%]
+else
+  goto <bb 16>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 38961237]:
+_30 = ctx_48->nkeys;
+_31 = ctx_48->nnew;
+_32 = _30 - _31;
+_33 = ctx_48->nnew;
+_34 = ctx_48->nkeys;
+printf ("%zu keys from server: %zu new, %zu retained. \n", _34, _33, _32);
+_35 = ctx_48->nnew;
+if (_35 == 0)
+  goto <bb 17>; [33.00%]
+else
+  goto <bb 18>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 12857208]:
+update_known_hosts (ctx_48);
+goto <bb 20>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 26104029]:
+_36 = ctx_48->nnew;
+if (_36 != 0)
+  goto <bb 19>; [33.00%]
+else
+  goto <bb 20>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 8614330]:
+_37 = ctx_48->nnew;
+printf ("asking server to prove ownership for %zu keys\n", _37);
+client_register_global_confirm (client_global_hostkeys_private_confirm, ctx_48);
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 114847941]:
+# ctx_39 = PHI <ctx_48(4), ctx_48(8), ctx_48(17), ctx_48(18), 0B(19)>
+out:
+hostkeys_update_ctx_free (ctx_39);
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 145326092]:
+return 1;
+
+=======Mapping node_fun:client_global_request_reply=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+gc_17 = global_confirms.tqh_first;
+if (gc_17 == 0B)
+  goto <bb 10>; [18.09%]
+else
+  goto <bb 3>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 879501927]:
+_1 = gc_17->cb;
+if (_1 != 0B)
+  goto <bb 4>; [70.00%]
+else
+  goto <bb 5>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 615651352]:
+_2 = gc_17->cb;
+_3 = gc_17->ctx;
+_2 (type_18(D), seq_19(D), _3);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 879501927]:
+_4 = gc_17->ref_count;
+_5 = _4 + -1;
+gc_17->ref_count = _5;
+_6 = gc_17->ref_count;
+if (_6 <= 0)
+  goto <bb 6>; [41.00%]
+else
+  goto <bb 10>; [59.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 360595787]:
+_7 = gc_17->entry.tqe_next;
+if (_7 != 0B)
+  goto <bb 7>; [70.00%]
+else
+  goto <bb 8>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 252417052]:
+_8 = gc_17->entry.tqe_next;
+_9 = gc_17->entry.tqe_prev;
+_8->entry.tqe_prev = _9;
+goto <bb 9>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 108178735]:
+_10 = gc_17->entry.tqe_prev;
+global_confirms.tqh_last = _10;
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 360595787]:
+_11 = gc_17->entry.tqe_prev;
+_12 = gc_17->entry.tqe_next;
+*_11 = _12;
+free (gc_17);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+return 0;
+
+=======Mapping node_fun:client_register_global_confirm=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = global_confirms.tqh_last;
+_2 = MEM[(struct global_confirms *)_1].tqh_last;
+last_gc_13 = *_2;
+if (last_gc_13 != 0B)
+  goto <bb 3>; [82.57%]
+else
+  goto <bb 7>; [17.43%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 886588625]:
+_3 = last_gc_13->cb;
+if (_3 == cb_14(D))
+  goto <bb 4>; [30.00%]
+else
+  goto <bb 7>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 265976585]:
+_4 = last_gc_13->ctx;
+if (_4 == ctx_15(D))
+  goto <bb 5>; [30.00%]
+else
+  goto <bb 7>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 79792975]:
+_5 = last_gc_13->ref_count;
+_6 = _5 + 1;
+last_gc_13->ref_count = _6;
+_7 = last_gc_13->ref_count;
+if (_7 > 9999)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 8>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 31917]:
+printf ("%s: last_gc->ref_count \n", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 993948850]:
+gc_20 = calloc (1, 40);
+gc_20->cb = cb_14(D);
+gc_20->ctx = ctx_15(D);
+gc_20->ref_count = 1;
+gc_20->entry.tqe_next = 0B;
+_8 = global_confirms.tqh_last;
+gc_20->entry.tqe_prev = _8;
+_9 = global_confirms.tqh_last;
+*_9 = gc_20;
+_10 = &gc_20->entry.tqe_next;
+global_confirms.tqh_last = _10;
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073709907]:
+return;
+
+=======Mapping node_fun:client_global_hostkeys_private_confirm=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 98365515]:
+_1 = MEM[(struct hostkeys_update_ctx *)_ctx_18(D)].nnew;
+if (_1 == 0)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 39346]:
+printf ("%s: ctx->nnew == 0\n", &__func__);
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 98326169]:
+_2 = rand ();
+_3 = _2 % 2;
+if (_3 == 1)
+  goto <bb 5>; [11.56%]
+else
+  goto <bb 12>; [88.44%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 11366505]:
+__builtin_puts (&"Server failed to confirm ownership of private host keys"[0]);
+hostkeys_update_ctx_free (_ctx_18(D));
+goto <bb 15>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1014686026]:
+_4 = MEM[(struct hostkeys_update_ctx *)_ctx_18(D)].keys_seen;
+_5 = i_11 * 4;
+_6 = _4 + _5;
+_7 = *_6;
+if (_7 != 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 8>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 507343013]:
+// predicted unlikely by continue predictor.
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 507343013]:
+_8 = rand ();
+_9 = _8 % 2;
+if (_9 == 1)
+  goto <bb 9>; [5.50%]
+else
+  goto <bb 10>; [94.50%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 27903866]:
+// predicted unlikely by goto predictor.
+goto <bb 14>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 479439147]:
+ndone_22 = ndone_13 + 1;
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 986782160]:
+# ndone_12 = PHI <ndone_13(7), ndone_22(10)>
+i_23 = i_11 + 1;
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 1073741824]:
+# i_11 = PHI <0(4), i_23(11)>
+# ndone_13 = PHI <0(4), ndone_12(11)>
+_10 = MEM[(struct hostkeys_update_ctx *)_ctx_18(D)].nkeys;
+if (_10 > i_11)
+  goto <bb 6>; [94.50%]
+else
+  goto <bb 13>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 59055800]:
+update_known_hosts (_ctx_18(D));
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 86959666]:
+out:
+hostkeys_update_ctx_free (_ctx_18(D));
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 98326170]:
+return;
+
+=======Mapping node_fun:update_known_hosts=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = ctx_8(D)->keys_seen;
+_2 = i_6 * 4;
+_3 = _1 + _2;
+_4 = *_3;
+if (_4 != 2)
+  goto <bb 4>; [48.88%]
+else
+  goto <bb 5>; [51.12%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 467112051]:
+// predicted unlikely by continue predictor.
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+i_9 = i_6 + 1;
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# i_6 = PHI <0(2), i_9(5)>
+_5 = ctx_8(D)->nkeys;
+if (_5 > i_6)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 118111600]:
+return;
+
+=======Mapping node_fun:hostkeys_update_ctx_free=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (ctx_3(D) == 0B)
+  goto <bb 4>; [30.95%]
+else
+  goto <bb 3>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 741418729]:
+_1 = ctx_3(D)->keys_seen;
+free (_1);
+free (ctx_3(D));
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 3 [0m
+[40;34m    gimple free   count : 3 [0m
+[40;34m    all ptable point : 18 [0m
+[40;34m    analyzable ptable point : 15 [0m
+[40;34m    analyzable ptable all point stmt : 48 [0m
+[40;34m    used_stmt array stack totalsize of : 0.001560 mb[0m
+[40;34m    collect time: : 0.000619 s [0m
+[40;34m    mapping time: : 0.001043 s [0m
+[40;34m    algorithm time: 0.004638 s [0m
+[40;34m    gimple stmt count : : 171 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:13 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 74%)
+ phase opt and generate             :   0.03 (100%)   0.02 (100%)   0.05 (100%)   721k ( 25%)
+ callgraph functions expansion      :   0.03 (100%)   0.01 ( 50%)   0.04 ( 80%)   570k ( 19%)
+ df live&initialized regs           :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ tree CFG cleanup                   :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)   256  (  0%)
+ tree backward propagate            :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ tree forward propagate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1520  (  0%)
+ expand                             :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)    76k (  3%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)   173k (  6%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2936  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.01 ( 20%)    12k (  0%)
+ TOTAL                              :   0.03          0.02          0.05         2932k

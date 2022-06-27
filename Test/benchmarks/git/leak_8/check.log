@@ -1,0 +1,1053 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:10:
+./benchmarks/git/leak_8/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_8/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_8/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_8/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_8/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_8/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_8/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_8/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_8/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_8/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_8/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:9:
+./benchmarks/git/leak_8/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_8/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_8/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_8/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_8/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:10:
+./benchmarks/git/leak_8/../git.h: At top level:
+./benchmarks/git/leak_8/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_8/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_8/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_8/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_8/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_8/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘add_entry’:
+./benchmarks/git/leak_8/git_leak_8.c:167:51: warning: implicit declaration of function ‘get_entry_index’ [-Wimplicit-function-declaration]
+  167 |         int index = insert_at != -1 ? insert_at : get_entry_index(list, string, &exact_match);
+      |                                                   ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:10:
+./benchmarks/git/leak_8/../git.h:112:29: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+  112 |                         if (alloc_nr(alloc) < (nr)) \
+      |                             ^~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:172:9: note: in expansion of macro ‘ALLOC_GROW’
+  172 |         ALLOC_GROW(list->items, list->nr+1, list->alloc);
+      |         ^~~~~~~~~~
+In file included from ./benchmarks/git/leak_8/git_leak_8.c:9:
+./benchmarks/git/leak_8/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:177:17: note: in expansion of macro ‘xstrdup’
+  177 |                 xstrdup(string) : (char *)string;       /* allocaiont site */
+      |                 ^~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘get_unmerged’:
+./benchmarks/git/leak_8/git_leak_8.c:209:22: warning: implicit declaration of function ‘ce_stage’ [-Wimplicit-function-declaration]
+  209 |                 if (!ce_stage(ce))
+      |                      ^~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:212:24: warning: implicit declaration of function ‘string_list_lookup’; did you mean ‘string_list_insert’? [-Wimplicit-function-declaration]
+  212 |                 item = string_list_lookup(unmerged, ce->name);
+      |                        ^~~~~~~~~~~~~~~~~~
+      |                        string_list_insert
+./benchmarks/git/leak_8/git_leak_8.c:212:22: warning: assignment to ‘struct string_list_item *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  212 |                 item = string_list_lookup(unmerged, ce->name);
+      |                      ^
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘get_renames’:
+./benchmarks/git/leak_8/git_leak_8.c:248:25: warning: implicit declaration of function ‘diff_free_filepair’ [-Wimplicit-function-declaration]
+  248 |                         diff_free_filepair(pair);
+      |                         ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:254:22: warning: assignment to ‘struct string_list_item *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  254 |                 item = string_list_lookup(entries, re->pair->two->path);
+      |                      ^
+./benchmarks/git/leak_8/git_leak_8.c: In function ‘merge_trees’:
+./benchmarks/git/leak_8/git_leak_8.c:271:16: warning: implicit declaration of function ‘git_merge_trees’; did you mean ‘merge_trees’? [-Wimplicit-function-declaration]
+  271 |         code = git_merge_trees(o->call_depth, common, head, merge);
+      |                ^~~~~~~~~~~~~~~
+      |                merge_trees
+./benchmarks/git/leak_8/git_leak_8.c:24:26: warning: implicit declaration of function ‘unmerged_index’ [-Wimplicit-function-declaration]
+   24 | #define unmerged_cache() unmerged_index(&the_index)
+      |                          ^~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:273:13: note: in expansion of macro ‘unmerged_cache’
+  273 |         if (unmerged_cache()) {
+      |             ^~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:276:17: warning: implicit declaration of function ‘get_files_dirs’ [-Wimplicit-function-declaration]
+  276 |                 get_files_dirs(o, head);
+      |                 ^~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:280:17: warning: implicit declaration of function ‘record_df_conflict_files’ [-Wimplicit-function-declaration]
+  280 |                 record_df_conflict_files(o, entries);
+      |                 ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:283:25: warning: implicit declaration of function ‘process_renames’ [-Wimplicit-function-declaration]
+  283 |                 clean = process_renames(o, re_head, re_merge);
+      |                         ^~~~~~~~~~~~~~~
+./benchmarks/git/leak_8/git_leak_8.c:290:43: warning: implicit declaration of function ‘process_entry’ [-Wimplicit-function-declaration]
+  290 |                                 int ret = process_entry(o, path, e);
+      |                                           ^~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.03 ( 75%)   0.02 (100%)   0.05 ( 83%)  1146k ( 42%)
+ phase opt and generate             :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   281k ( 10%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   147k (  5%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ lto stream output                  :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 50%)   0.04 ( 67%)   347k ( 13%)
+ lexical analysis                   :   0.02 ( 50%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ parser (global)                    :   0.01 ( 25%)   0.01 ( 50%)   0.00 (  0%)   573k ( 21%)
+ TOTAL                              :   0.04          0.02          0.06         2736k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 95%)
+ phase stream out                   :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto decl out                   :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.01          0.00          0.00         2263k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:merge_trees=========
+=======node_fun:get_renames=========
+=======node_fun:get_unmerged=========
+=======node_fun:string_list_insert=========
+=======node_fun:add_entry=========
+=======node_fun:string_list_clear=========
+=======node_fun:xrealloc=========
+=======node_fun:move_array=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 75 
+===============The second stage : Mapping stmt=================
+# .MEM_2 = VDEF <.MEM_1(D)>
+merge_trees (&o, &head, &merge, &common, &result);
+# .MEM_75 = VDEF <.MEM_74(D)>
+code_42 = git_merge_trees (_1, common_38(D), head_39(D), merge_40(D));
+# .MEM_76 = VDEF <.MEM_75>
+_2 = unmerged_index (&the_index);
+# .MEM_77 = VDEF <.MEM_76>
+get_files_dirs (o_37(D), head_39(D));
+# .MEM_78 = VDEF <.MEM_77>
+get_files_dirs (o_37(D), merge_40(D));
+# .MEM_79 = VDEF <.MEM_78>
+entries_47 = get_unmerged ();
+# .MEM_80 = VDEF <.MEM_79>
+record_df_conflict_files (o_37(D), entries_47);
+# .MEM_81 = VDEF <.MEM_80>
+re_head_50 = get_renames (o_37(D), head_39(D), common_38(D), head_39(D), merge_40(D), entries_47);
+# .MEM_82 = VDEF <.MEM_81>
+re_merge_52 = get_renames (o_37(D), merge_40(D), common_38(D), head_39(D), merge_40(D), entries_47);
+# .MEM_83 = VDEF <.MEM_82>
+clean_54 = process_renames (o_37(D), re_head_50, re_merge_52);
+# .MEM_92 = VDEF <.MEM_72>
+ret_69 = process_entry (o_37(D), path_66, e_67);
+# .MEM_90 = VDEF <.MEM_72>
+printf ("BUG: unprocessed path??? %s", _25);
+# .MEM_84 = VDEF <.MEM_72>
+string_list_clear (re_merge_52, 0);
+# .MEM_85 = VDEF <.MEM_84>
+string_list_clear (re_head_50, 0);
+# .MEM_86 = VDEF <.MEM_85>
+string_list_clear (entries_47, 1);
+# .MEM_41 = VDEF <.MEM_40(D)>
+renames_21 = calloc (1, 32);
+# .MEM_49 = VDEF <.MEM_38>
+diff_free_filepair (pair_24);
+# .MEM_43 = VDEF <.MEM_38>
+re_26 = malloc (32);
+# .MEM_46 = VDEF <.MEM_45>
+_10 = string_list_lookup (entries_29(D), _9);
+# .MEM_47 = VDEF <.MEM_46>
+item_33 = string_list_insert (renames_21, _13);
+# .MEM_36 = VDEF <.MEM_35(D)>
+unmerged_20 = calloc (1, 32);
+# .MEM_38 = VDEF <.MEM_34>
+_5 = ce_stage (ce_22);
+# .MEM_39 = VDEF <.MEM_38>
+_7 = string_list_lookup (unmerged_20, _6);
+# .MEM_40 = VDEF <.MEM_39>
+item_27 = string_list_insert (unmerged_20, _9);
+# .MEM_41 = VDEF <.MEM_40>
+_10 = calloc (1, 112);
+# .MEM_13 = VDEF <.MEM_12(D)>
+index_9 = add_entry (-1, list_6(D), string_7(D));
+# .MEM_85 = VDEF <.MEM_84>
+_62 = get_entry_index (list_59(D), string_60(D), &exact_match);
+# .MEM_86 = VDEF <.MEM_77>
+_6 = alloc_nr (_5);
+# .MEM_87 = VDEF <.MEM_86>
+_13 = alloc_nr (_12);
+# .MEM_90 = VDEF <.MEM_78>
+_16 = st_mult (16, _15);
+# .MEM_91 = VDEF <.MEM_90>
+_19 = xrealloc (_18, _17);
+# .MEM_93 = VDEF <.MEM_79>
+move_array (_34, _29, _25, 16);
+# .MEM_94 = VDEF <.MEM_80>
+_72 = strdup (string_60(D));
+# .MEM_32 = VDEF <.MEM_25>
+printf ("Out of memory, realloc failed%s", "");
+# .MEM_12 = VDEF <.MEM_11(D)>
+_1 = st_mult (size_6(D), n_4(D));
+# .MEM_13 = VDEF <.MEM_12>
+memmove (dst_8(D), src_9(D), _2);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+merge_trees (&o, &head, &merge, &common, &result);
+o ={v} {CLOBBER};
+head ={v} {CLOBBER};
+merge ={v} {CLOBBER};
+common ={v} {CLOBBER};
+result ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:merge_trees=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 280908245]:
+_1 = o_37(D)->call_depth;
+code_42 = git_merge_trees (_1, common_38(D), head_39(D), merge_40(D));
+_2 = unmerged_index (&the_index);
+if (_2 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 15>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 92699720]:
+get_files_dirs (o_37(D), head_39(D));
+get_files_dirs (o_37(D), merge_40(D));
+entries_47 = get_unmerged ();
+record_df_conflict_files (o_37(D), entries_47);
+re_head_50 = get_renames (o_37(D), head_39(D), common_38(D), head_39(D), merge_40(D), entries_47);
+re_merge_52 = get_renames (o_37(D), merge_40(D), common_38(D), head_39(D), merge_40(D), entries_47);
+clean_54 = process_renames (o_37(D), re_head_50, re_merge_52);
+if (clean_54 < 0)
+  goto <bb 15>; [26.36%]
+else
+  goto <bb 4>; [73.64%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 68264074]:
+_3 = entries_47->nr;
+_4 = _3 + 4294967295;
+i_55 = (int) _4;
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1014686026]:
+_5 = entries_47->items;
+_6 = (long unsigned int) i_30;
+_7 = _6 * 16;
+_8 = _5 + _7;
+path_66 = _8->string;
+_9 = entries_47->items;
+_10 = (long unsigned int) i_30;
+_11 = _10 * 16;
+_12 = _9 + _11;
+e_67 = _12->util;
+_13 = BIT_FIELD_REF <*e_67, 8, 832>;
+_14 = _13 & 1;
+if (_14 == 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 8>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 334846387]:
+ret_69 = process_entry (o_37(D), path_66, e_67);
+if (ret_69 == 0)
+  goto <bb 8>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 167423193]:
+if (ret_69 < 0)
+  goto <bb 15>; [5.50%]
+else
+  goto <bb 8>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1005477750]:
+# clean_28 = PHI <clean_29(5), 0(6), clean_29(7)>
+i_70 = i_30 + -1;
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 1073741824]:
+# clean_29 = PHI <clean_54(4), clean_28(8)>
+# i_30 = PHI <i_55(4), i_70(8)>
+if (i_30 >= 0)
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 13>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 1007759974]:
+_15 = entries_47->items;
+_16 = (long unsigned int) i_31;
+_17 = _16 * 16;
+_18 = _15 + _17;
+e_62 = _18->util;
+_19 = BIT_FIELD_REF <*e_62, 8, 832>;
+_20 = _19 & 1;
+if (_20 == 0)
+  goto <bb 11>; [0.04%]
+else
+  goto <bb 12>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 403103]:
+_21 = entries_47->items;
+_22 = (long unsigned int) i_31;
+_23 = _22 * 16;
+_24 = _21 + _23;
+_25 = _24->string;
+printf ("BUG: unprocessed path??? %s", _25);
+exit (1);
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 1007356870]:
+i_63 = i_31 + 1;
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 1066412670]:
+# i_31 = PHI <0(9), i_63(12)>
+_26 = entries_47->nr;
+_27 = (unsigned int) i_31;
+if (_26 > _27)
+  goto <bb 10>; [94.50%]
+else
+  goto <bb 14>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 58652696]:
+string_list_clear (re_merge_52, 0);
+string_list_clear (re_head_50, 0);
+string_list_clear (entries_47, 1);
+free (re_merge_52);
+free (re_head_50);
+free (entries_47);
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 280505143]:
+# _32 = PHI <1(2), clean_54(3), ret_69(7), clean_29(14)>
+return _32;
+
+=======Mapping node_fun:get_renames=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 178956971]:
+renames_21 = calloc (1, 32);
+_1 = o_22(D)->detect_rename;
+if (_1 == 0)
+  goto <bb 9>; [34.00%]
+else
+  goto <bb 10>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 118111600]:
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_2 = diff_queued_diff.queue;
+_3 = (long unsigned int) i_15;
+_4 = _3 * 8;
+_5 = _2 + _4;
+pair_24 = *_5;
+_6 = pair_24->status;
+if (_6 != 82)
+  goto <bb 4>; [48.88%]
+else
+  goto <bb 5>; [51.12%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 467112050]:
+diff_free_filepair (pair_24);
+// predicted unlikely by continue predictor.
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 488518174]:
+re_26 = malloc (32);
+re_26->processed = 0;
+re_26->pair = pair_24;
+_7 = re_26->pair;
+_8 = _7->two;
+_9 = _8->path;
+_10 = string_list_lookup (entries_29(D), _9);
+_11 = (long int) _10;
+item_31 = (struct string_list_item *) _11;
+_12 = pair_24->one;
+_13 = _12->path;
+item_33 = string_list_insert (renames_21, _13);
+item_33->util = re_26;
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 955630225]:
+i_36 = i_15 + 1;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# i_15 = PHI <0(10), i_36(6)>
+_14 = diff_queued_diff.nr;
+if (_14 > i_15)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 8>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 118111600]:
+diff_queued_diff.nr = 0;
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 178956971]:
+return renames_21;
+
+=======Mapping node_fun:get_unmerged=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+unmerged_20 = calloc (1, 32);
+unmerged_20->strdup_strings = 1;
+goto <bb 9>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = the_index.cache;
+_2 = (long unsigned int) i_13;
+_3 = _2 * 8;
+_4 = _1 + _3;
+ce_22 = *_4;
+_5 = ce_stage (ce_22);
+if (_5 == 0)
+  goto <bb 4>; [50.00%]
+else
+  goto <bb 5>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 477815112]:
+// predicted unlikely by continue predictor.
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 477815112]:
+_6 = &ce_22->name;
+_7 = string_list_lookup (unmerged_20, _6);
+_8 = (long int) _7;
+item_25 = (struct string_list_item *) _8;
+if (_7 == 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 157678986]:
+_9 = &ce_22->name;
+item_27 = string_list_insert (unmerged_20, _9);
+_10 = calloc (1, 112);
+item_27->util = _10;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 477815112]:
+# item_14 = PHI <item_25(5), item_27(6)>
+e_30 = item_14->util;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 955630225]:
+i_31 = i_13 + 1;
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 1073741824]:
+# i_13 = PHI <0(2), i_31(8)>
+_11 = the_index.cache_nr;
+_12 = (unsigned int) i_13;
+if (_11 > _12)
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 10>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 118111600]:
+return unmerged_20;
+
+=======Mapping node_fun:string_list_insert=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+index_9 = add_entry (-1, list_6(D), string_7(D));
+if (index_9 < 0)
+  goto <bb 3>; [41.00%]
+else
+  goto <bb 4>; [59.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 440234144]:
+index_10 = ~index_9;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# index_4 = PHI <index_9(2), index_10(3)>
+_1 = list_6(D)->items;
+_2 = (long unsigned int) index_4;
+_3 = _2 * 16;
+_11 = _1 + _3;
+return _11;
+
+=======Mapping node_fun:add_entry=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+exact_match = 0;
+if (insert_at_58(D) == -1)
+  goto <bb 3>; [20.24%]
+else
+  goto <bb 4>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 217325344]:
+_62 = get_entry_index (list_59(D), string_60(D), &exact_match);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741823]:
+# _47 = PHI <insert_at_58(D)(2), _62(3)>
+_1 = exact_match;
+if (_1 != 0)
+  goto <bb 5>; [34.00%]
+else
+  goto <bb 6>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 365072224]:
+_76 = ~_47;
+goto <bb 16>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 708669600]:
+_2 = list_59(D)->nr;
+_3 = _2 + 1;
+_4 = list_59(D)->alloc;
+if (_3 > _4)
+  goto <bb 7>; [33.00%]
+else
+  goto <bb 11>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 233860966]:
+_5 = list_59(D)->alloc;
+_6 = alloc_nr (_5);
+_7 = (unsigned int) _6;
+_8 = list_59(D)->nr;
+_9 = _8 + 1;
+if (_7 < _9)
+  goto <bb 8>; [67.00%]
+else
+  goto <bb 9>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 156686848]:
+_10 = list_59(D)->nr;
+_11 = _10 + 1;
+list_59(D)->alloc = _11;
+goto <bb 10>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 77174119]:
+_12 = list_59(D)->alloc;
+_13 = alloc_nr (_12);
+_14 = (unsigned int) _13;
+list_59(D)->alloc = _14;
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 233860967]:
+_15 = list_59(D)->alloc;
+_16 = st_mult (16, _15);
+_17 = (long unsigned int) _16;
+_18 = list_59(D)->items;
+_19 = xrealloc (_18, _17);
+list_59(D)->items = _19;
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 708669601]:
+_20 = list_59(D)->nr;
+_21 = (unsigned int) _47;
+if (_20 > _21)
+  goto <bb 12>; [33.00%]
+else
+  goto <bb 13>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 233860967]:
+_22 = list_59(D)->nr;
+_23 = (unsigned int) _47;
+_24 = _22 - _23;
+_25 = (long unsigned int) _24;
+_26 = list_59(D)->items;
+_27 = (long unsigned int) _47;
+_28 = _27 * 16;
+_29 = _26 + _28;
+_30 = list_59(D)->items;
+_31 = (sizetype) _47;
+_32 = _31 + 1;
+_33 = _32 * 16;
+_34 = _30 + _33;
+move_array (_34, _29, _25, 16);
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 708669601]:
+_35 = BIT_FIELD_REF <*list_59(D), 8, 128>;
+_36 = _35 & 1;
+if (_36 != 0)
+  goto <bb 14>; [33.00%]
+else
+  goto <bb 15>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 233860967]:
+_72 = strdup (string_60(D));
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 708669601]:
+# _49 = PHI <string_60(D)(13), _72(14)>
+_37 = list_59(D)->items;
+_38 = (long unsigned int) _47;
+_39 = _38 * 16;
+_40 = _37 + _39;
+_40->string = _49;
+_41 = list_59(D)->items;
+_42 = (long unsigned int) _47;
+_43 = _42 * 16;
+_44 = _41 + _43;
+_44->util = 0B;
+_45 = list_59(D)->nr;
+_46 = _45 + 1;
+list_59(D)->nr = _46;
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 1073741824]:
+# _48 = PHI <_76(5), _47(15)>
+exact_match ={v} {CLOBBER};
+return _48;
+
+=======Mapping node_fun:string_list_clear=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 337461713]:
+_1 = list_28(D)->items;
+if (_1 != 0B)
+  goto <bb 3>; [70.00%]
+else
+  goto <bb 10>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 236223200]:
+_2 = BIT_FIELD_REF <*list_28(D), 8, 128>;
+_3 = _2 & 1;
+if (_3 != 0)
+  goto <bb 12>; [50.00%]
+else
+  goto <bb 6>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 118111600]:
+goto <bb 5>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 955630226]:
+_4 = list_28(D)->items;
+_5 = (long unsigned int) i_20;
+_6 = _5 * 16;
+_7 = _4 + _6;
+_8 = _7->string;
+free (_8);
+i_30 = i_20 + 1;
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# i_20 = PHI <0(12), i_30(4)>
+_9 = list_28(D)->nr;
+_10 = (unsigned int) i_20;
+if (_9 > _10)
+  goto <bb 4>; [89.00%]
+else
+  goto <bb 6>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 236223200]:
+if (free_util_31(D) != 0)
+  goto <bb 11>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 118111600]:
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 955630226]:
+_11 = list_28(D)->items;
+_12 = (long unsigned int) i_21;
+_13 = _12 * 16;
+_14 = _11 + _13;
+_15 = _14->util;
+free (_15);
+i_33 = i_21 + 1;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# i_21 = PHI <0(11), i_33(7)>
+_16 = list_28(D)->nr;
+_17 = (unsigned int) i_21;
+if (_16 > _17)
+  goto <bb 7>; [89.00%]
+else
+  goto <bb 9>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 236223200]:
+_18 = list_28(D)->items;
+free (_18);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 337461713]:
+list_28(D)->items = 0B;
+list_28(D)->alloc = 0;
+_19 = list_28(D)->alloc;
+list_28(D)->nr = _19;
+return;
+
+=======Mapping node_fun:xrealloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ret_17 = realloc (ptr_14(D), size_15(D));
+_1 = ret_17 == 0B;
+_2 = size_15(D) == 0;
+_3 = _1 & _2;
+if (_3 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+ret_19 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# ret_7 = PHI <ret_17(2), ret_19(3)>
+if (ret_7 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 429496]:
+ret_21 = realloc (ptr_14(D), size_15(D));
+_4 = ret_21 == 0B;
+_5 = size_15(D) == 0;
+_6 = _4 & _5;
+if (_6 != 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 141734]:
+ret_23 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 429496]:
+# ret_8 = PHI <ret_21(5), ret_23(6)>
+if (ret_8 == 0B)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 172]:
+printf ("Out of memory, realloc failed%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 1073741653]:
+# ret_9 = PHI <ret_7(4), ret_8(7)>
+return ret_9;
+
+=======Mapping node_fun:move_array=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (n_4(D) != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+_1 = st_mult (size_6(D), n_4(D));
+_2 = (long unsigned int) _1;
+memmove (dst_8(D), src_9(D), _2);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 9 [0m
+[40;34m    gimple free   count : 6 [0m
+[40;34m    all ptable point : 75 [0m
+[40;34m    analyzable ptable point : 66 [0m
+[40;34m    analyzable ptable all point stmt : 1131 [0m
+[40;34m    used_stmt array stack totalsize of : 0.034608 mb[0m
+[40;34m    collect time: : 0.000675 s [0m
+[40;34m    mapping time: : 0.004416 s [0m
+[40;34m    algorithm time: 0.045717 s [0m
+[40;34m    gimple stmt count : : 249 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:09 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 66%)
+ phase opt and generate             :   0.09 (100%)   0.00 (  0%)   0.09 (100%)  1034k ( 31%)
+ callgraph functions expansion      :   0.04 ( 44%)   0.00 (  0%)   0.04 ( 44%)   835k ( 25%)
+ ipa points-to                      :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 11%)    11k (  0%)
+ dominator optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    39k (  1%)
+ tree strlen optimization           :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)    17k (  1%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   117k (  4%)
+ forward prop                       :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)   872  (  0%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   248k (  8%)
+ plugin execution                   :   0.05 ( 56%)   0.00 (  0%)   0.04 ( 44%)  3352  (  0%)
+ initialize rtl                     :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 11%)    12k (  0%)
+ TOTAL                              :   0.09          0.00          0.09         3292k
+/usr/bin/ld: /tmp/ccAxt1Av.ltrans0.ltrans.o: in function `move_array':
+<artificial>:(.text+0x1e): undefined reference to `st_mult'
+/usr/bin/ld: /tmp/ccAxt1Av.ltrans0.ltrans.o: in function `add_entry':
+<artificial>:(.text+0x1ab): undefined reference to `get_entry_index'
+/usr/bin/ld: <artificial>:(.text+0x1c2): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x1de): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x1fe): undefined reference to `alloc_nr'
+/usr/bin/ld: /tmp/ccAxt1Av.ltrans0.ltrans.o: in function `get_unmerged':
+<artificial>:(.text+0x27c): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x290): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x299): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x2aa): undefined reference to `ce_stage'
+/usr/bin/ld: <artificial>:(.text+0x2c2): undefined reference to `string_list_lookup'
+/usr/bin/ld: /tmp/ccAxt1Av.ltrans0.ltrans.o: in function `get_renames':
+<artificial>:(.text+0x338): undefined reference to `diff_free_filepair'
+/usr/bin/ld: <artificial>:(.text+0x37e): undefined reference to `string_list_lookup'
+/usr/bin/ld: /tmp/ccAxt1Av.ltrans0.ltrans.o: in function `merge_trees':
+<artificial>:(.text+0x3da): undefined reference to `git_merge_trees'
+/usr/bin/ld: <artificial>:(.text+0x3df): undefined reference to `the_index'
+/usr/bin/ld: <artificial>:(.text+0x3e9): undefined reference to `unmerged_index'
+/usr/bin/ld: <artificial>:(.text+0x415): undefined reference to `get_files_dirs'
+/usr/bin/ld: <artificial>:(.text+0x425): undefined reference to `get_files_dirs'
+/usr/bin/ld: <artificial>:(.text+0x43d): undefined reference to `record_df_conflict_files'
+/usr/bin/ld: <artificial>:(.text+0x489): undefined reference to `process_renames'
+/usr/bin/ld: <artificial>:(.text+0x4d3): undefined reference to `process_entry'
+collect2: error: ld returned 1 exit status

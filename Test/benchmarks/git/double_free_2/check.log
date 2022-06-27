@@ -1,0 +1,1192 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:11:
+./benchmarks/git/double_free_2/../git.h: In function ‘copy_array’:
+./benchmarks/git/double_free_2/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_2/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/double_free_2/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/double_free_2/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_2/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/double_free_2/../git.h: In function ‘move_array’:
+./benchmarks/git/double_free_2/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/double_free_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/double_free_2/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_2/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:10:
+./benchmarks/git/double_free_2/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/double_free_2/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/double_free_2/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/double_free_2/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:11:
+./benchmarks/git/double_free_2/../git.h: At top level:
+./benchmarks/git/double_free_2/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/double_free_2/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/double_free_2/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/double_free_2/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/double_free_2/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_release’:
+./benchmarks/git/double_free_2/git_df_2.c:16:5: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   16 |     memset(sb, 0, sizeof(*sb));
+      |     ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:12:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+   11 | #include "../git.h"
+  +++ |+#include <string.h>
+   12 | 
+./benchmarks/git/double_free_2/git_df_2.c:16:5: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+   16 |     memset(sb, 0, sizeof(*sb));
+      |     ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:16:5: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+In file included from ./benchmarks/git/double_free_2/git_df_2.c:11:
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_grow’:
+./benchmarks/git/double_free_2/../git.h:112:29: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+  112 |                         if (alloc_nr(alloc) < (nr)) \
+      |                             ^~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:23:9: note: in expansion of macro ‘ALLOC_GROW’
+   23 |         ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc);    /* allocation site */
+      |         ^~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_reset’:
+./benchmarks/git/double_free_2/git_df_2.c:29:17: warning: implicit declaration of function ‘strbuf_setlen’; did you mean ‘strbuf_reset’? [-Wimplicit-function-declaration]
+   29 |                 strbuf_setlen(sb, 0);
+      |                 ^~~~~~~~~~~~~
+      |                 strbuf_reset
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strbuf_add’:
+./benchmarks/git/double_free_2/git_df_2.c:35:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+   35 |         memcpy(sb->buf + sb->len, data, len);
+      |         ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:35:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘strtoul’:
+./benchmarks/git/double_free_2/git_df_2.c:62:13: warning: assignment discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   62 |     *endptr = str + base;
+      |             ^
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘unquote_c_style’:
+./benchmarks/git/double_free_2/git_df_2.c:87:23: warning: implicit declaration of function ‘strcspn’ [-Wimplicit-function-declaration]
+   87 |                 len = strcspn(quoted, "\"\\");
+      |                       ^~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:87:23: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/git/double_free_2/git_df_2.c:87:23: warning: incompatible implicit declaration of built-in function ‘strcspn’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_2/git_df_2.c:87:23: note: include ‘<string.h>’ or provide a declaration of ‘strcspn’
+./benchmarks/git/double_free_2/git_df_2.c:128:17: warning: implicit declaration of function ‘strbuf_addch’; did you mean ‘strbuf_add’? [-Wimplicit-function-declaration]
+  128 |                 strbuf_addch(sb, ch);
+      |                 ^~~~~~~~~~~~
+      |                 strbuf_add
+./benchmarks/git/double_free_2/git_df_2.c: In function ‘read_index_info’:
+./benchmarks/git/double_free_2/git_df_2.c:141:9: warning: implicit declaration of function ‘strbuf_init’ [-Wimplicit-function-declaration]
+  141 |         strbuf_init(&buf, 0);
+      |         ^~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:174:23: warning: implicit declaration of function ‘strchr’ [-Wimplicit-function-declaration]
+  174 |                 tab = strchr(ptr, '\t');
+      |                       ^~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:174:23: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/git/double_free_2/git_df_2.c:174:23: warning: incompatible implicit declaration of built-in function ‘strchr’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/double_free_2/git_df_2.c:174:23: note: include ‘<string.h>’ or provide a declaration of ‘strchr’
+./benchmarks/git/double_free_2/git_df_2.c:188:21: warning: implicit declaration of function ‘get_sha1_hex’ [-Wimplicit-function-declaration]
+  188 |                 if (get_sha1_hex(tab - 40, sha1) || tab[-41] != ' ')
+      |                     ^~~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:200:22: warning: implicit declaration of function ‘verify_path’ [-Wimplicit-function-declaration]
+  200 |                 if (!verify_path(path_name)) {
+      |                      ^~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:207:29: warning: implicit declaration of function ‘remove_file_from_cache’ [-Wimplicit-function-declaration]
+  207 |                         if (remove_file_from_cache(path_name))
+      |                             ^~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/double_free_2/git_df_2.c:217:29: warning: implicit declaration of function ‘add_cacheinfo’ [-Wimplicit-function-declaration]
+  217 |                         if (add_cacheinfo(mode, sha1, path_name, stage))
+      |                             ^~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.04 ( 67%)   0.01 (100%)   0.06 ( 86%)  1126k ( 41%)
+ phase opt and generate             :   0.02 ( 33%)   0.00 (  0%)   0.01 ( 14%)   304k ( 11%)
+ callgraph ipa passes               :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)   161k (  6%)
+ lto stream compression             :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto gimple out                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  1520  (  0%)
+ preprocessing                      :   0.01 ( 17%)   0.00 (  0%)   0.02 ( 29%)   342k ( 13%)
+ lexical analysis                   :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ parser (global)                    :   0.01 ( 17%)   0.00 (  0%)   0.03 ( 43%)   573k ( 21%)
+ parser function body               :   0.01 ( 17%)   0.01 (100%)   0.00 (  0%)   106k (  4%)
+ tree gimplify                      :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    85k (  3%)
+ TOTAL                              :   0.06          0.01          0.07         2739k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 96%)
+ phase stream out                   :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ whopr wpa I/O                      :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)     0  (  0%)
+ TOTAL                              :   0.00          0.00          0.01         2235k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:read_index_info=========
+=======node_fun:unquote_c_style=========
+=======node_fun:strtoul=========
+=======node_fun:strbuf_getline=========
+=======node_fun:strbuf_add=========
+=======node_fun:strbuf_reset=========
+=======node_fun:strbuf_grow=========
+=======node_fun:strbuf_release=========
+=======node_fun:xrealloc=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 59 
+===============The second stage : Mapping stmt=================
+# .MEM_4 = VDEF <.MEM_3(D)>
+read_index_info (line_2(D));
+# .MEM_80 = VDEF <.MEM_79(D)>
+strbuf_init (&buf, 0);
+# .MEM_81 = VDEF <.MEM_80>
+strbuf_init (&uq, 0);
+_1 = __errno_location ();
+# .MEM_88 = VDEF <.MEM_87>
+ul_59 = strtoul (_2, &ptr, 8);
+_7 = __errno_location ();
+# VUSE <.MEM_88>
+tab_61 = strchr (_10, 9);
+# .MEM_91 = VDEF <.MEM_72>
+_21 = get_sha1_hex (_20, &sha1);
+# .MEM_92 = VDEF <.MEM_91>
+strbuf_reset (&uq);
+# .MEM_93 = VDEF <.MEM_92>
+_24 = unquote_c_style (&uq, path_name_68, 0B);
+# .MEM_94 = VDEF <.MEM_93>
+printf ("git-update-index: bad quoting of path name%s", "");
+# .MEM_96 = VDEF <.MEM_73>
+_25 = verify_path (path_name_39);
+# .MEM_106 = VDEF <.MEM_96>
+fprintf (_26, "Ignoring path %s\n", path_name_39);
+# .MEM_102 = VDEF <.MEM_96>
+_27 = remove_file_from_cache (path_name_39);
+# .MEM_103 = VDEF <.MEM_102>
+printf ("git-update-index: unable to remove %s", _28);
+# .MEM_99 = VDEF <.MEM_98>
+_33 = add_cacheinfo (mode_60, &sha1, path_name_39, stage_40);
+# .MEM_100 = VDEF <.MEM_99>
+printf ("git-update-index: unable to update %s", path_name_39);
+# .MEM_109 = VDEF <.MEM_76>
+printf ("malformed index info %s", _35);
+# .MEM_82 = VDEF <.MEM_78>
+_37 = strbuf_getline (&buf, _36, line_termination_51(D));
+# .MEM_83 = VDEF <.MEM_82>
+strbuf_release (&buf);
+# .MEM_84 = VDEF <.MEM_83>
+strbuf_release (&uq);
+# VUSE <.MEM_36>
+len_23 = strcspn (quoted_12, "\"\\");
+# .MEM_39 = VDEF <.MEM_36>
+strbuf_add (sb_19(D), quoted_12, len_23);
+# .MEM_40 = VDEF <.MEM_39>
+strbuf_addch (sb_19(D), ch_14);
+# .MEM_42 = VDEF <.MEM_39>
+strbuf_setlen (sb_19(D), oldlen_20);
+# .MEM_26 = VDEF <.MEM_25(D)>
+strbuf_grow (sb_15(D), 0);
+# .MEM_27 = VDEF <.MEM_26>
+_1 = feof (fp_17(D));
+# .MEM_28 = VDEF <.MEM_27>
+strbuf_reset (sb_15(D));
+# .MEM_30 = VDEF <.MEM_29>
+strbuf_grow (sb_15(D), 1);
+# .MEM_29 = VDEF <.MEM_23>
+ch_21 = fgetc (fp_17(D));
+# .MEM_12 = VDEF <.MEM_11(D)>
+strbuf_grow (sb_7(D), len_8(D));
+# .MEM_13 = VDEF <.MEM_12>
+memcpy (_3, data_10(D), len_8(D));
+# .MEM_14 = VDEF <.MEM_13>
+strbuf_setlen (sb_7(D), _5);
+# .MEM_7 = VDEF <.MEM_6(D)>
+strbuf_setlen (sb_4(D), 0);
+# .MEM_41 = VDEF <.MEM_33(D)>
+printf ("you want to use way too much memory %s", "");
+# .MEM_34 = VDEF <.MEM_33(D)>
+_10 = alloc_nr (_9);
+# .MEM_35 = VDEF <.MEM_34>
+_19 = alloc_nr (_18);
+# .MEM_38 = VDEF <.MEM_31>
+_22 = st_mult (1, _21);
+# .MEM_39 = VDEF <.MEM_38>
+_25 = xrealloc (_24, _23);
+# .MEM_6 = VDEF <.MEM_5>
+memset (sb_3(D), 0, 24);
+# .MEM_32 = VDEF <.MEM_25>
+printf ("Out of memory, realloc failed%s", "");
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+read_index_info (line_2(D));
+return 0;
+
+=======Mapping node_fun:read_index_info=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 25231916]:
+strbuf_init (&buf, 0);
+strbuf_init (&uq, 0);
+goto <bb 36>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1052266986]:
+_1 = __errno_location ();
+*_1 = 0;
+_2 = buf.buf;
+ul_59 = strtoul (_2, &ptr, 8);
+_3 = buf.buf;
+_4 = ptr;
+if (_3 == _4)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1051846080]:
+_5 = ptr;
+_6 = *_5;
+if (_6 != 32)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1051425343]:
+_7 = __errno_location ();
+_8 = *_7;
+if (_8 != 0)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 6>; [99.96%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1051004773]:
+_9 = (unsigned int) ul_59;
+_65 = ul_59 & 4294967295;
+if (ul_59 != _65)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 8>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1682614]:
+// predicted unlikely by goto predictor.
+goto <bb 34>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1050584373]:
+mode_60 = (unsigned int) ul_59;
+_10 = ptr;
+tab_61 = strchr (_10, 9);
+if (tab_61 == 0B)
+  goto <bb 10>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 1050164139]:
+_11 = ptr;
+_12 = tab_61 - _11;
+if (_12 <= 40)
+  goto <bb 10>; [0.04%]
+else
+  goto <bb 11>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 840298]:
+// predicted unlikely by goto predictor.
+goto <bb 34>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 1049744074]:
+_13 = MEM[(char *)tab_61 + -2B];
+if (_13 == 32)
+  goto <bb 12>; [34.00%]
+else
+  goto <bb 15>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 356912989]:
+_14 = MEM[(char *)tab_61 + -1B];
+if (_14 > 47)
+  goto <bb 13>; [50.00%]
+else
+  goto <bb 15>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 178456494]:
+_15 = MEM[(char *)tab_61 + -1B];
+if (_15 <= 51)
+  goto <bb 14>; [50.00%]
+else
+  goto <bb 15>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 89228247]:
+_16 = MEM[(char *)tab_61 + -1B];
+_17 = (int) _16;
+stage_62 = _17 + -48;
+_18 = tab_61 + 1;
+ptr = _18;
+tab_64 = tab_61 + 18446744073709551614;
+goto <bb 16>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 960515828]:
+_19 = tab_61 + 1;
+ptr = _19;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 1049744075]:
+# tab_38 = PHI <tab_64(14), tab_61(15)>
+# stage_40 = PHI <stage_62(14), 0(15)>
+_20 = tab_38 + 18446744073709551576;
+_21 = get_sha1_hex (_20, &sha1);
+if (_21 != 0)
+  goto <bb 18>; [0.04%]
+else
+  goto <bb 17>; [99.96%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 1049324178]:
+_22 = MEM[(char *)tab_38 + -41B];
+if (_22 != 32)
+  goto <bb 18>; [0.04%]
+else
+  goto <bb 19>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 839626]:
+// predicted unlikely by goto predictor.
+goto <bb 34>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 1048904450]:
+path_name_68 = ptr;
+if (line_termination_51(D) != 0)
+  goto <bb 20>; [67.00%]
+else
+  goto <bb 24>; [33.00%]
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 702765983]:
+_23 = *path_name_68;
+if (_23 == 34)
+  goto <bb 21>; [20.24%]
+else
+  goto <bb 24>; [79.76%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 142239834]:
+strbuf_reset (&uq);
+_24 = unquote_c_style (&uq, path_name_68, 0B);
+if (_24 != 0)
+  goto <bb 22>; [0.04%]
+else
+  goto <bb 23>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 56896]:
+printf ("git-update-index: bad quoting of path name%s", "");
+exit (1);
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 142182938]:
+path_name_71 = uq.buf;
+
+=======is loop:1=========
+
+ bb index 24 
+<bb 24> [local count: 1048847554]:
+# path_name_39 = PHI <path_name_68(19), path_name_68(20), path_name_71(23)>
+_25 = verify_path (path_name_39);
+if (_25 == 0)
+  goto <bb 25>; [19.52%]
+else
+  goto <bb 26>; [80.48%]
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [local count: 204735046]:
+_26 = stderr;
+fprintf (_26, "Ignoring path %s\n", path_name_39);
+// predicted unlikely by continue predictor.
+goto <bb 35>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 26 
+<bb 26> [local count: 844112509]:
+if (mode_60 == 0)
+  goto <bb 27>; [50.00%]
+else
+  goto <bb 29>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 27 
+<bb 27> [local count: 422056254]:
+_27 = remove_file_from_cache (path_name_39);
+if (_27 != 0)
+  goto <bb 28>; [0.04%]
+else
+  goto <bb 31>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 168822]:
+_28 = ptr;
+printf ("git-update-index: unable to remove %s", _28);
+exit (1);
+
+=======is loop:1=========
+
+ bb index 29 
+<bb 29> [local count: 422056254]:
+_29 = ptr;
+_30 = _29 + 18446744073709551615;
+MEM[(char *)_29 + -1B] = 0;
+_31 = ptr;
+_32 = MEM[(char *)_29 + -1B];
+MEM[(char *)_31 + -42B] = _32;
+_33 = add_cacheinfo (mode_60, &sha1, path_name_39, stage_40);
+if (_33 != 0)
+  goto <bb 30>; [0.04%]
+else
+  goto <bb 31>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [local count: 168822]:
+printf ("git-update-index: unable to update %s", path_name_39);
+exit (1);
+
+=======is loop:1=========
+
+ bb index 31 
+<bb 31> [local count: 843774864]:
+_34 = ptr;
+if (_34 != path_name_39)
+  goto <bb 32>; [53.47%]
+else
+  goto <bb 33>; [46.53%]
+
+=======is loop:1=========
+
+ bb index 32 
+<bb 32> [local count: 451166418]:
+free (path_name_39);
+
+=======is loop:1=========
+
+ bb index 33 
+<bb 33> [local count: 843774864]:
+// predicted unlikely by continue predictor.
+goto <bb 35>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 34 
+<bb 34> [local count: 3362538]:
+bad_line:
+_35 = buf.buf;
+printf ("malformed index info %s", _35);
+exit (1);
+
+=======is loop:1=========
+
+ bb index 35 
+<bb 35> [local count: 1048509911]:
+ptr ={v} {CLOBBER};
+sha1 ={v} {CLOBBER};
+
+=======is loop:1=========
+
+ bb index 36 
+<bb 36> [local count: 1073741824]:
+_36 = stdin;
+_37 = strbuf_getline (&buf, _36, line_termination_51(D));
+if (_37 != -1)
+  goto <bb 3>; [98.00%]
+else
+  goto <bb 37>; [2.00%]
+
+=======is loop:0=========
+
+ bb index 37 
+<bb 37> [local count: 21474840]:
+strbuf_release (&buf);
+strbuf_release (&uq);
+buf ={v} {CLOBBER};
+uq ={v} {CLOBBER};
+return;
+
+=======Mapping node_fun:unquote_c_style=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 769793699]:
+oldlen_20 = sb_19(D)->len;
+quoted_22 = quoted_21(D) + 1;
+_1 = *quoted_21(D);
+if (_1 != 34)
+  goto <bb 25>; [2.00%]
+else
+  goto <bb 3>; [98.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1073741824]:
+# quoted_12 = PHI <quoted_22(2), quoted_13(23)>
+len_23 = strcspn (quoted_12, "\"\\");
+strbuf_add (sb_19(D), quoted_12, len_23);
+quoted_25 = quoted_12 + len_23;
+_2 = *quoted_25;
+_3 = (int) _2;
+switch (_2) <default: <L1> [33.33%], case 34: <L0> [33.33%], case 92: <L2> [33.33%]>
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 357913944]:
+<L0>:
+if (endp_35(D) != 0B)
+  goto <bb 5>; [70.00%]
+else
+  goto <bb 25>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 250539762]:
+_4 = &MEM <const char> [(void *)quoted_25 + 2B];
+*endp_35(D) = _4;
+goto <bb 25>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 357913944]:
+<L1>:
+// predicted unlikely by goto predictor.
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 357913944]:
+<L2>:
+quoted_26 = &MEM <const char> [(void *)quoted_25 + 2B];
+_5 = MEM[(const char *)quoted_25 + 1B];
+ch_27 = (int) _5;
+switch (_5) <default: <L11> [10.00%], case 34: <L12> [10.00%], case 48 ... 51: <L10> [10.00%], case 92: <L12> [10.00%], case 97: <L3> [10.00%], case 98: <L4> [10.00%], case 102: <L5> [10.00%], case 110: <L6> [10.00%], case 114: <L7> [10.00%], case 116: <L8> [10.00%], case 118: <L9> [10.00%]>
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 35791395]:
+<L3>:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 35791395]:
+<L4>:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 35791395]:
+<L5>:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 35791395]:
+<L6>:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 35791395]:
+<L7>:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 35791395]:
+<L8>:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 35791395]:
+<L9>:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 35791395]:
+<L10>:
+_6 = ch_27 + -48;
+ac_28 = _6 << 6;
+_7 = MEM[(const char *)quoted_25 + 2B];
+ch_29 = (int) _7;
+if (ch_29 <= 47)
+  goto <bb 17>; [2.00%]
+else
+  goto <bb 16>; [98.00%]
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 35075567]:
+if (ch_29 > 55)
+  goto <bb 17>; [2.00%]
+else
+  goto <bb 18>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 1417339]:
+// predicted unlikely by goto predictor.
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 34374055]:
+_8 = ch_29 + -48;
+_9 = _8 << 3;
+ac_30 = _9 | ac_28;
+quoted_31 = &MEM <const char> [(void *)quoted_25 + 4B];
+_10 = MEM[(const char *)quoted_25 + 3B];
+ch_32 = (int) _10;
+if (ch_32 <= 47)
+  goto <bb 20>; [2.00%]
+else
+  goto <bb 19>; [98.00%]
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 33686574]:
+if (ch_32 > 55)
+  goto <bb 20>; [2.00%]
+else
+  goto <bb 21>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 1361213]:
+// predicted unlikely by goto predictor.
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 33012843]:
+_11 = ch_32 + -48;
+ac_33 = _11 | ac_30;
+goto <bb 23>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 35791395]:
+<L11>:
+// predicted unlikely by goto predictor.
+goto <bb 24>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 319344003]:
+# quoted_13 = PHI <quoted_26(7), quoted_26(8), quoted_26(9), quoted_26(10), quoted_26(11), quoted_26(12), quoted_26(13), quoted_26(14), quoted_31(21)>
+# ch_14 = PHI <ch_27(7), 7(8), 8(9), 12(10), 10(11), 13(12), 9(13), 11(14), ac_33(21)>
+<L12>:
+strbuf_addch (sb_19(D), ch_14);
+goto <bb 3>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 396483892]:
+error:
+strbuf_setlen (sb_19(D), oldlen_20);
+
+=======is loop:0=========
+
+ bb index 25 
+<bb 25> [local count: 769793713]:
+# _15 = PHI <-1(2), 0(4), 0(5), -1(24)>
+return _15;
+
+=======Mapping node_fun:strtoul=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = (sizetype) base_3(D);
+_2 = str_4(D) + _1;
+*endptr_6(D) = _2;
+_8 = (long unsigned int) base_3(D);
+return _8;
+
+=======Mapping node_fun:strbuf_getline=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 117315423]:
+strbuf_grow (sb_15(D), 0);
+_1 = feof (fp_17(D));
+if (_1 != 0)
+  goto <bb 10>; [2.09%]
+else
+  goto <bb 3>; [97.91%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 114863530]:
+strbuf_reset (sb_15(D));
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1014686025]:
+if (ch_21 == term_22(D))
+  goto <bb 7>; [5.50%]
+else
+  goto <bb 5>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 958878294]:
+strbuf_grow (sb_15(D), 1);
+_2 = sb_15(D)->buf;
+_3 = sb_15(D)->len;
+_4 = _3 + 1;
+sb_15(D)->len = _4;
+_5 = _2 + _3;
+_6 = (char) ch_21;
+*_5 = _6;
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+ch_21 = fgetc (fp_17(D));
+if (ch_21 != -1)
+  goto <bb 4>; [94.50%]
+else
+  goto <bb 7>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 114863531]:
+if (ch_21 == -1)
+  goto <bb 8>; [34.00%]
+else
+  goto <bb 9>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 39053601]:
+_7 = sb_15(D)->len;
+if (_7 == 0)
+  goto <bb 10>; [1.04%]
+else
+  goto <bb 9>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 114457374]:
+_8 = sb_15(D)->buf;
+_9 = sb_15(D)->len;
+_10 = _8 + _9;
+*_10 = 0;
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 117315424]:
+# _11 = PHI <-1(2), -1(8), 0(9)>
+return _11;
+
+=======Mapping node_fun:strbuf_add=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+strbuf_grow (sb_7(D), len_8(D));
+_1 = sb_7(D)->buf;
+_2 = sb_7(D)->len;
+_3 = _1 + _2;
+memcpy (_3, data_10(D), len_8(D));
+_4 = sb_7(D)->len;
+_5 = _4 + len_8(D);
+strbuf_setlen (sb_7(D), _5);
+return;
+
+=======Mapping node_fun:strbuf_reset=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = sb_4(D)->len;
+if (_1 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+strbuf_setlen (sb_4(D), 0);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:strbuf_grow=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = sb_29(D)->len;
+_2 = _1 + extra_30(D);
+_3 = _2 + 1;
+_4 = sb_29(D)->len;
+if (_3 <= _4)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+printf ("you want to use way too much memory %s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+_5 = sb_29(D)->len;
+_6 = _5 + extra_30(D);
+_7 = _6 + 1;
+_8 = sb_29(D)->alloc;
+if (_7 > _8)
+  goto <bb 5>; [33.00%]
+else
+  goto <bb 9>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 354193067]:
+_9 = sb_29(D)->alloc;
+_10 = alloc_nr (_9);
+_11 = (long unsigned int) _10;
+_12 = sb_29(D)->len;
+_13 = _12 + extra_30(D);
+_14 = _13 + 1;
+if (_11 < _14)
+  goto <bb 6>; [67.00%]
+else
+  goto <bb 7>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 237309355]:
+_15 = sb_29(D)->len;
+_16 = _15 + extra_30(D);
+_17 = _16 + 1;
+sb_29(D)->alloc = _17;
+goto <bb 8>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 116883711]:
+_18 = sb_29(D)->alloc;
+_19 = alloc_nr (_18);
+_20 = (long unsigned int) _19;
+sb_29(D)->alloc = _20;
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 354193067]:
+_21 = sb_29(D)->alloc;
+_22 = st_mult (1, _21);
+_23 = (long unsigned int) _22;
+_24 = sb_29(D)->buf;
+_25 = xrealloc (_24, _23);
+sb_29(D)->buf = _25;
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 1073312330]:
+return;
+
+=======Mapping node_fun:strbuf_release=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = sb_3(D)->buf;
+free (_1);
+memset (sb_3(D), 0, 24);
+return;
+
+=======Mapping node_fun:xrealloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ret_17 = realloc (ptr_14(D), size_15(D));
+_1 = ret_17 == 0B;
+_2 = size_15(D) == 0;
+_3 = _1 & _2;
+if (_3 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+ret_19 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# ret_7 = PHI <ret_17(2), ret_19(3)>
+if (ret_7 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 429496]:
+ret_21 = realloc (ptr_14(D), size_15(D));
+_4 = ret_21 == 0B;
+_5 = size_15(D) == 0;
+_6 = _4 & _5;
+if (_6 != 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 141734]:
+ret_23 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 429496]:
+# ret_8 = PHI <ret_21(5), ret_23(6)>
+if (ret_8 == 0B)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 172]:
+printf ("Out of memory, realloc failed%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 1073741653]:
+# ret_9 = PHI <ret_7(4), ret_8(7)>
+return ret_9;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 4 [0m
+[40;34m    gimple free   count : 2 [0m
+[40;34m    all ptable point : 59 [0m
+[40;34m    analyzable ptable point : 56 [0m
+[40;34m    analyzable ptable all point stmt : 433 [0m
+[40;34m    used_stmt array stack totalsize of : 0.012960 mb[0m
+[40;34m    collect time: : 0.000505 s [0m
+[40;34m    mapping time: : 0.001994 s [0m
+[40;34m    algorithm time: 0.020721 s [0m
+[40;34m    gimple stmt count : : 248 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:11 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  2157k ( 69%)
+ phase opt and generate             :   0.06 (100%)   0.01 (100%)   0.06 ( 86%)   917k ( 29%)
+ callgraph functions expansion      :   0.03 ( 50%)   0.01 (100%)   0.04 ( 57%)   718k ( 23%)
+ ipa points-to                      :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%) 10128  (  0%)
+ trivially dead code                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ integrated RA                      :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)   250k (  8%)
+ thread pro- & epilogue             :   0.01 ( 17%)   0.01 (100%)   0.00 (  0%)    24k (  1%)
+ final                              :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)    40k (  1%)
+ plugin execution                   :   0.02 ( 33%)   0.00 (  0%)   0.02 ( 29%)  4344  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    12k (  0%)
+ remove unused locals               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ TOTAL                              :   0.06          0.01          0.07         3146k
+/usr/bin/ld: /tmp/cc8QZ1Z3.ltrans0.ltrans.o: in function `strbuf_grow':
+<artificial>:(.text+0xe4): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x104): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x123): undefined reference to `alloc_nr'
+/usr/bin/ld: /tmp/cc8QZ1Z3.ltrans0.ltrans.o: in function `strbuf_reset':
+<artificial>:(.text+0x143): undefined reference to `strbuf_setlen'
+/usr/bin/ld: /tmp/cc8QZ1Z3.ltrans0.ltrans.o: in function `strbuf_add':
+<artificial>:(.text+0x184): undefined reference to `strbuf_setlen'
+/usr/bin/ld: /tmp/cc8QZ1Z3.ltrans0.ltrans.o: in function `unquote_c_style':
+<artificial>:(.text+0x289): undefined reference to `strbuf_setlen'
+/usr/bin/ld: <artificial>:(.text+0x2e6): undefined reference to `strbuf_addch'
+/usr/bin/ld: /tmp/cc8QZ1Z3.ltrans0.ltrans.o: in function `read_index_info':
+<artificial>:(.text+0x380): undefined reference to `strbuf_init'
+/usr/bin/ld: <artificial>:(.text+0x394): undefined reference to `strbuf_init'
+/usr/bin/ld: <artificial>:(.text+0x44c): undefined reference to `add_cacheinfo'
+/usr/bin/ld: <artificial>:(.text+0x51e): undefined reference to `get_sha1_hex'
+/usr/bin/ld: <artificial>:(.text+0x554): undefined reference to `verify_path'
+/usr/bin/ld: <artificial>:(.text+0x571): undefined reference to `remove_file_from_cache'
+collect2: error: ld returned 1 exit status

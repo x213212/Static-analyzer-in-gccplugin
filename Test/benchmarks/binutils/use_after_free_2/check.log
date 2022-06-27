@@ -1,0 +1,726 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘bfd_generic_archive_p’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:53:7: warning: implicit declaration of function ‘bfd_bread’ [-Wimplicit-function-declaration]
+   53 |   if (bfd_bread (armag, SARMAG, abfd) != SARMAG)
+      |       ^~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:55:11: warning: implicit declaration of function ‘bfd_get_error’ [-Wimplicit-function-declaration]
+   55 |       if (bfd_get_error () != bfd_error_system_call)
+      |           ^~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:56:9: warning: implicit declaration of function ‘bfd_set_error’ [-Wimplicit-function-declaration]
+   56 |         bfd_set_error (bfd_error_wrong_format);
+      |         ^~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:60:33: warning: implicit declaration of function ‘strncmp’ [-Wimplicit-function-declaration]
+   60 |   bfd_is_thin_archive (abfd) = (strncmp (armag, ARMAGT, SARMAG) == 0);
+      |                                 ^~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:8:1: note: include ‘<string.h>’ or provide a declaration of ‘strncmp’
+    7 | #include "../include/binutils.h"
+  +++ |+#include <string.h>
+    8 | 
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:12:16: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   12 | #define SARMAG 8
+      |                ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:60:57: note: in expansion of macro ‘SARMAG’
+   60 |   bfd_is_thin_archive (abfd) = (strncmp (armag, ARMAGT, SARMAG) == 0);
+      |                                                         ^~~~~~
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:12:16: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   12 | #define SARMAG 8
+      |                ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:62:30: note: in expansion of macro ‘SARMAG’
+   62 |   if (strncmp (armag, ARMAG, SARMAG) != 0
+      |                              ^~~~~~
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:12:16: warning: ‘strncmp’ argument 3 type is ‘int’ where ‘long unsigned int’ is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
+   12 | #define SARMAG 8
+      |                ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:63:34: note: in expansion of macro ‘SARMAG’
+   63 |       && strncmp (armag, ARMAGB, SARMAG) != 0
+      |                                  ^~~~~~
+<built-in>: note: built-in ‘strncmp’ declared here
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘bfd_fopen’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:76:10: warning: implicit declaration of function ‘_bfd_new_bfd’ [-Wimplicit-function-declaration]
+   76 |   nbfd = _bfd_new_bfd ();       /* allocation site */
+      |          ^~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:76:8: warning: assignment to ‘bfd *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   76 |   nbfd = _bfd_new_bfd ();       /* allocation site */
+      |        ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:82:16: warning: implicit declaration of function ‘bfd_find_target’ [-Wimplicit-function-declaration]
+   82 |   target_vec = bfd_find_target (target, nbfd);
+      |                ^~~~~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:82:14: warning: assignment to ‘const bfd_target *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+   82 |   target_vec = bfd_find_target (target, nbfd);
+      |              ^
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:86:9: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+   86 |         close (fd);
+      |         ^~~~~
+      |         pclose
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:87:7: warning: implicit declaration of function ‘_bfd_delete_bfd’ [-Wimplicit-function-declaration]
+   87 |       _bfd_delete_bfd (nbfd);
+      |       ^~~~~~~~~~~~~~~
+In file included from ./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:6:
+./benchmarks/binutils/use_after_free_2/../include/common.h:22:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:93:20: note: in expansion of macro ‘xstrdup’
+   93 |   nbfd->filename = xstrdup (filename);
+      |                    ^~~~~~~
+./benchmarks/binutils/use_after_free_2/../include/common.h:22:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+   22 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:93:20: note: in expansion of macro ‘xstrdup’
+   93 |   nbfd->filename = xstrdup (filename);
+      |                    ^~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘_bfd_archive_close_and_cleanup’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:108:7: warning: implicit declaration of function ‘bfd_read_p’ [-Wimplicit-function-declaration]
+  108 |   if (bfd_read_p (abfd) && abfd->format == bfd_archive)
+      |       ^~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:117:11: warning: implicit declaration of function ‘bfd_close’; did you mean ‘fclose’? [-Wimplicit-function-declaration]
+  117 |           bfd_close (nbfd);
+      |           ^~~~~~~~~
+      |           fclose
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘find_nested_archive’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:146:7: warning: implicit declaration of function ‘filename_cmp’ [-Wimplicit-function-declaration]
+  146 |   if (filename_cmp (filename, arch_bfd->filename) == 0)
+      |       ^~~~~~~~~~~~
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c: In function ‘main’:
+./benchmarks/binutils/use_after_free_2/binutils_uaf_2.c:186:8: warning: implicit declaration of function ‘bfd_check_format’ [-Wimplicit-function-declaration]
+  186 |   if (!bfd_check_format (archive, bfd_archive))
+      |        ^~~~~~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 47%)
+ phase parsing                      :   0.05 (100%)   0.00 (  0%)   0.05 ( 71%)  1167k ( 42%)
+ phase opt and generate             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   277k ( 10%)
+ phase finalize                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ callgraph optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ callgraph ipa passes               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   153k (  6%)
+ preprocessing                      :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   371k ( 13%)
+ lexical analysis                   :   0.01 ( 20%)   0.00 (  0%)   0.02 ( 29%)     0  (  0%)
+ parser (global)                    :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 14%)   600k ( 22%)
+ parser enumerator list             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    29k (  1%)
+ parser function body               :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 14%)   107k (  4%)
+ TOTAL                              :   0.05          0.00          0.07         2753k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 96%)
+ TOTAL                              :   0.00          0.00          0.00         2237k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:find_nested_archive=========
+=======node_fun:open_nested_file=========
+=======node_fun:_bfd_archive_close_and_cleanup=========
+=======node_fun:bfd_openr=========
+=======node_fun:bfd_fopen=========
+=======node_fun:bfd_generic_archive_p=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 39 
+===============The second stage : Mapping stmt=================
+# .MEM_56 = VDEF <.MEM_40(D)>
+printf ("usage: bfdtest1 <archive>%s", "");
+# .MEM_41 = VDEF <.MEM_40(D)>
+archive_20 = bfd_openr (_1, 0B);
+# .MEM_54 = VDEF <.MEM_41>
+printf ("no such archive%s", "");
+# .MEM_52 = VDEF <.MEM_37>
+nbfd_34 = find_nested_archive (_5, archive_20);
+# .MEM_53 = VDEF <.MEM_52>
+printf ("%d\n", _6);
+# .MEM_42 = VDEF <.MEM_37>
+_7 = bfd_check_format (archive_20, 2);
+# .MEM_49 = VDEF <.MEM_42>
+bfd_close (archive_20);
+# .MEM_50 = VDEF <.MEM_49>
+printf ("bfd_check_format%s", "");
+# .MEM_43 = VDEF <.MEM_42>
+_bfd_archive_close_and_cleanup (archive_20);
+# .MEM_44 = VDEF <.MEM_43>
+bfd_generic_archive_p (archive_20);
+# .MEM_45 = VDEF <.MEM_38>
+printf ("%d\n", _9);
+# .MEM_46 = VDEF <.MEM_39>
+_10 = bfd_close (archive_20);
+# .MEM_47 = VDEF <.MEM_46>
+printf ("bfd_close%s", "");
+# .MEM_24 = VDEF <.MEM_23(D)>
+_2 = filename_cmp (filename_12(D), _1);
+# .MEM_29 = VDEF <.MEM_24>
+bfd_set_error (10);
+# .MEM_28 = VDEF <.MEM_21>
+_4 = filename_cmp (filename_12(D), _3);
+# .MEM_25 = VDEF <.MEM_21>
+abfd_16 = open_nested_file (filename_12(D), arch_bfd_11(D));
+# .MEM_14 = VDEF <.MEM_13(D)>
+n_bfd_11 = bfd_openr (filename_9(D), target_4);
+# .MEM_14 = VDEF <.MEM_13(D)>
+_1 = bfd_read_p (abfd_7(D));
+# .MEM_15 = VDEF <.MEM_11>
+bfd_close (nbfd_3);
+# .MEM_7 = VDEF <.MEM_6(D)>
+_5 = bfd_fopen (filename_2(D), target_3(D), "r", -1);
+# .MEM_22 = VDEF <.MEM_21(D)>
+_1 = _bfd_new_bfd ();
+# .MEM_23 = VDEF <.MEM_22>
+_3 = bfd_find_target (target_12(D), nbfd_11);
+# .MEM_26 = VDEF <.MEM_23>
+close (fd_18(D));
+# .MEM_27 = VDEF <.MEM_19>
+_bfd_delete_bfd (nbfd_11);
+# .MEM_24 = VDEF <.MEM_23>
+_5 = strdup (filename_15(D));
+# .MEM_20 = VDEF <.MEM_19(D)>
+_1 = bfd_bread (&armag, 8, abfd_13(D));
+# .MEM_22 = VDEF <.MEM_20>
+_2 = bfd_get_error ();
+# .MEM_23 = VDEF <.MEM_22>
+bfd_set_error (3);
+# VUSE <.MEM_20>
+_3 = strncmp (&armag, "!<thin>\n", 8);
+# VUSE <.MEM_21>
+_5 = strncmp (&armag, "!<arch>\n", 8);
+# VUSE <.MEM_21>
+_6 = strncmp (&armag, "!<bout>\n", 8);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118206146]:
+if (argc_16(D) != 2)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 47282]:
+printf ("usage: bfdtest1 <archive>%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 118158864]:
+_1 = *argv_18(D);
+archive_20 = bfd_openr (_1, 0B);
+if (archive_20 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 7>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 47263]:
+printf ("no such archive%s", "");
+exit (1);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 955630225]:
+_2 = (long unsigned int) i_12;
+_3 = _2 * 8;
+_4 = argv_18(D) + _3;
+_5 = *_4;
+nbfd_34 = find_nested_archive (_5, archive_20);
+_6 = MEM[(int *)nbfd_34];
+printf ("%d\n", _6);
+i_36 = i_12 + 1;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# i_12 = PHI <1(4), i_36(6)>
+if (i_12 < argc_16(D))
+  goto <bb 6>; [89.00%]
+else
+  goto <bb 8>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 118111600]:
+_7 = bfd_check_format (archive_20, 2);
+if (_7 == 0)
+  goto <bb 9>; [0.04%]
+else
+  goto <bb 10>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 47245]:
+bfd_close (archive_20);
+printf ("bfd_check_format%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 118064356]:
+_bfd_archive_close_and_cleanup (archive_20);
+bfd_generic_archive_p (archive_20);
+_8 = archive_20->format;
+if (_8 != 0)
+  goto <bb 11>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 59032178]:
+nbfd_24 = archive_20->nested_archives;
+goto <bb 13>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 477623987]:
+_9 = MEM[(int *)nbfd_11];
+printf ("%d\n", _9);
+nbfd_26 = nbfd_11->archive_next;
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 536656165]:
+# nbfd_11 = PHI <nbfd_24(11), nbfd_26(12)>
+if (nbfd_11 != 0B)
+  goto <bb 12>; [89.00%]
+else
+  goto <bb 14>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 118064356]:
+_10 = bfd_close (archive_20);
+if (_10 == 0)
+  goto <bb 15>; [0.04%]
+else
+  goto <bb 16>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 47226]:
+printf ("bfd_close%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 118017130]:
+return 0;
+
+=======Mapping node_fun:find_nested_archive=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 126766947]:
+_1 = arch_bfd_11(D)->filename;
+_2 = filename_cmp (filename_12(D), _1);
+if (_2 == 0)
+  goto <bb 3>; [9.39%]
+else
+  goto <bb 4>; [90.61%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 11903417]:
+bfd_set_error (10);
+goto <bb 10>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 114863530]:
+abfd_14 = arch_bfd_11(D)->nested_archives;
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 1014686025]:
+_3 = abfd_6->filename;
+_4 = filename_cmp (filename_12(D), _3);
+if (_4 == 0)
+  goto <bb 10>; [5.50%]
+else
+  goto <bb 6>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 958878294]:
+abfd_20 = abfd_6->archive_next;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# abfd_6 = PHI <abfd_14(4), abfd_20(6)>
+if (abfd_6 != 0B)
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 8>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 59055800]:
+abfd_16 = open_nested_file (filename_12(D), arch_bfd_11(D));
+if (abfd_16 != 0B)
+  goto <bb 9>; [70.00%]
+else
+  goto <bb 10>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 41339060]:
+_5 = arch_bfd_11(D)->nested_archives;
+abfd_16->archive_next = _5;
+arch_bfd_11(D)->nested_archives = abfd_16;
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 126766948]:
+# _7 = PHI <0B(3), abfd_6(5), abfd_16(8), abfd_16(9)>
+return _7;
+
+=======Mapping node_fun:open_nested_file=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = BIT_FIELD_REF <*archive_7(D), 8, 512>;
+_2 = _1 & 1;
+if (_2 == 0)
+  goto <bb 3>; [50.00%]
+else
+  goto <bb 4>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 536870913]:
+_3 = archive_7(D)->xvec;
+target_8 = _3->name;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# target_4 = PHI <0B(2), target_8(3)>
+n_bfd_11 = bfd_openr (filename_9(D), target_4);
+if (n_bfd_11 != 0B)
+  goto <bb 5>; [70.00%]
+else
+  goto <bb 6>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 751619281]:
+n_bfd_11->my_archive = archive_7(D);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+return n_bfd_11;
+
+=======Mapping node_fun:_bfd_archive_close_and_cleanup=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 694774112]:
+_1 = bfd_read_p (abfd_7(D));
+if (_1 != 0)
+  goto <bb 3>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 347387056]:
+_2 = abfd_7(D)->format;
+if (_2 == 2)
+  goto <bb 4>; [34.00%]
+else
+  goto <bb 7>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 118111600]:
+nbfd_9 = abfd_7(D)->nested_archives;
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 955630225]:
+next_10 = nbfd_3->archive_next;
+bfd_close (nbfd_3);
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# nbfd_3 = PHI <nbfd_9(4), next_10(5)>
+if (nbfd_3 != 0B)
+  goto <bb 5>; [89.00%]
+else
+  goto <bb 7>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 694774112]:
+return 1;
+
+=======Mapping node_fun:bfd_openr=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_5 = bfd_fopen (filename_2(D), target_3(D), "r", -1);
+return _5;
+
+=======Mapping node_fun:bfd_fopen=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = _bfd_new_bfd ();
+_2 = (long int) _1;
+nbfd_11 = (struct bfd *) _2;
+if (_1 == 0)
+  goto <bb 8>; [29.93%]
+else
+  goto <bb 3>; [70.07%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 752370896]:
+_3 = bfd_find_target (target_12(D), nbfd_11);
+_4 = (long int) _3;
+target_vec_14 = (const struct bfd_target *) _4;
+if (_3 == 0)
+  goto <bb 4>; [29.93%]
+else
+  goto <bb 7>; [70.07%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 225184609]:
+if (fd_18(D) != -1)
+  goto <bb 5>; [48.88%]
+else
+  goto <bb 6>; [51.12%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 110070236]:
+close (fd_18(D));
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 225184609]:
+_bfd_delete_bfd (nbfd_11);
+goto <bb 8>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 527186286]:
+_5 = strdup (filename_15(D));
+nbfd_11->filename = _5;
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# _6 = PHI <0B(2), 0B(6), nbfd_11(7)>
+return _6;
+
+=======Mapping node_fun:bfd_generic_archive_p=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = bfd_bread (&armag, 8, abfd_13(D));
+if (_1 != 8)
+  goto <bb 3>; [16.75%]
+else
+  goto <bb 6>; [83.25%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 179851752]:
+_2 = bfd_get_error ();
+if (_2 != 1)
+  goto <bb 4>; [48.88%]
+else
+  goto <bb 5>; [51.12%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 87911536]:
+bfd_set_error (3);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 179851752]:
+goto <bb 10>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 893890071]:
+_3 = strncmp (&armag, "!<thin>\n", 8);
+_4 = _3 == 0;
+abfd_13(D)->is_thin_archive = _4;
+_5 = strncmp (&armag, "!<arch>\n", 8);
+if (_5 != 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 446945035]:
+_6 = strncmp (&armag, "!<bout>\n", 8);
+if (_6 != 0)
+  goto <bb 8>; [50.00%]
+else
+  goto <bb 9>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 223472518]:
+_7 = BIT_FIELD_REF <*abfd_13(D), 8, 224>;
+_8 = _7 & 2;
+if (_8 == 0)
+  goto <bb 10>; [17.38%]
+else
+  goto <bb 9>; [82.62%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 855050548]:
+_16 = abfd_13(D)->xvec;
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 1073741824]:
+# _9 = PHI <0B(5), 0B(8), _16(9)>
+armag ={v} {CLOBBER};
+return _9;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 1 [0m
+[40;34m    gimple free   count : 0 [0m
+[40;34m    all ptable point : 39 [0m
+[40;34m    analyzable ptable point : 39 [0m
+[40;34m    analyzable ptable all point stmt : 223 [0m
+[40;34m    used_stmt array stack totalsize of : 0.006872 mb[0m
+[40;34m    collect time: : 0.000230 s [0m
+[40;34m    mapping time: : 0.001101 s [0m
+[40;34m    algorithm time: 0.004883 s [0m
+[40;34m    gimple stmt count : : 104 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:04 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 77%)
+ phase opt and generate             :   0.01 (100%)   0.02 (100%)   0.03 ( 75%)   580k ( 21%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    51k (  2%)
+ callgraph functions expansion      :   0.00 (  0%)   0.02 (100%)   0.03 ( 75%)   467k ( 17%)
+ ipa lto cgraph I/O                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)  9728  (  0%)
+ df live regs                       :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)     0  (  0%)
+ CSE                                :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)   504  (  0%)
+ if-conversion 2                    :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)     0  (  0%)
+ plugin execution                   :   0.01 (100%)   0.00 (  0%)   0.00 (  0%)  2400  (  0%)
+ initialize rtl                     :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 25%)    21k (  1%)
+ TOTAL                              :   0.01          0.02          0.04         2792k
+/usr/bin/ld: /tmp/cc5PM6WH.ltrans0.ltrans.o: in function `bfd_generic_archive_p':
+<artificial>:(.text+0x1b): undefined reference to `bfd_bread'
+/usr/bin/ld: <artificial>:(.text+0x91): undefined reference to `bfd_get_error'
+/usr/bin/ld: <artificial>:(.text+0xa7): undefined reference to `bfd_set_error'
+/usr/bin/ld: /tmp/cc5PM6WH.ltrans0.ltrans.o: in function `bfd_fopen':
+<artificial>:(.text+0xd2): undefined reference to `_bfd_new_bfd'
+/usr/bin/ld: <artificial>:(.text+0xee): undefined reference to `bfd_find_target'
+/usr/bin/ld: <artificial>:(.text+0x11e): undefined reference to `_bfd_delete_bfd'
+/usr/bin/ld: /tmp/cc5PM6WH.ltrans0.ltrans.o: in function `_bfd_archive_close_and_cleanup':
+<artificial>:(.text+0x17b): undefined reference to `bfd_read_p'
+/usr/bin/ld: <artificial>:(.text+0x1a6): undefined reference to `bfd_close'
+/usr/bin/ld: /tmp/cc5PM6WH.ltrans0.ltrans.o: in function `find_nested_archive':
+<artificial>:(.text+0x1c4): undefined reference to `filename_cmp'
+/usr/bin/ld: <artificial>:(.text+0x1e2): undefined reference to `filename_cmp'
+/usr/bin/ld: <artificial>:(.text+0x222): undefined reference to `bfd_set_error'
+/usr/bin/ld: /tmp/cc5PM6WH.ltrans0.ltrans.o: in function `main':
+<artificial>:(.text+0x283): undefined reference to `bfd_check_format'
+/usr/bin/ld: <artificial>:(.text+0x2d1): undefined reference to `bfd_close'
+/usr/bin/ld: <artificial>:(.text+0x32a): undefined reference to `bfd_close'
+collect2: error: ld returned 1 exit status

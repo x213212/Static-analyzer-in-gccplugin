@@ -1,0 +1,816 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/leak_7/git_leak_7.c:10:
+./benchmarks/git/leak_7/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_7/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_7/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_7/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_7/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_7/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_7/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_7/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_7/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_7/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_7/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_7/git_leak_7.c:9:
+./benchmarks/git/leak_7/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_7/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_7/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_7/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_7/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_7/git_leak_7.c:10:
+./benchmarks/git/leak_7/../git.h: At top level:
+./benchmarks/git/leak_7/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_7/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_7/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_7/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_7/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_7/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+In file included from ./benchmarks/git/leak_7/git_leak_7.c:9:
+./benchmarks/git/leak_7/git_leak_7.c: In function ‘add_object_array_with_path’:
+./benchmarks/git/leak_7/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_7/git_leak_7.c:47:31: note: in expansion of macro ‘xstrdup’
+   47 |                 entry->name = xstrdup(name);    /* allocation site */
+      |                               ^~~~~~~
+./benchmarks/git/leak_7/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_7/git_leak_7.c:50:31: note: in expansion of macro ‘xstrdup’
+   50 |                 entry->path = xstrdup(path);    /* allocation site */
+      |                               ^~~~~~~
+./benchmarks/git/leak_7/git_leak_7.c: In function ‘commit_is_complete’:
+./benchmarks/git/leak_7/git_leak_7.c:80:9: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   80 |         memset(&study, 0, sizeof(study));
+      |         ^~~~~~
+./benchmarks/git/leak_7/git_leak_7.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+   10 | #include "../git.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/git/leak_7/git_leak_7.c:80:9: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+   80 |         memset(&study, 0, sizeof(study));
+      |         ^~~~~~
+./benchmarks/git/leak_7/git_leak_7.c:80:9: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/git/leak_7/git_leak_7.c:90:43: warning: implicit declaration of function ‘parse_object’ [-Wimplicit-function-declaration]
+   90 |                 if (!c->object.parsed && !parse_object(&c->object.oid))
+      |                                           ^~~~~~~~~~~~
+./benchmarks/git/leak_7/git_leak_7.c:116:30: warning: implicit declaration of function ‘tree_is_complete’; did you mean ‘commit_is_complete’? [-Wimplicit-function-declaration]
+  116 |                         if (!tree_is_complete(&c->tree->object.oid)) {
+      |                              ^~~~~~~~~~~~~~~~
+      |                              commit_is_complete
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 50%)
+ phase parsing                      :   0.04 ( 80%)   0.00 (  0%)   0.04 ( 80%)  1073k ( 41%)
+ phase opt and generate             :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)   206k (  8%)
+ callgraph optimization             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 20%)   0.00 (  0%)   0.01 ( 20%)   110k (  4%)
+ preprocessing                      :   0.01 ( 20%)   0.00 (  0%)   0.02 ( 40%)   320k ( 12%)
+ lexical analysis                   :   0.02 ( 40%)   0.00 (  0%)   0.02 ( 40%)     0  (  0%)
+ parser function body               :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)    81k (  3%)
+ tree CCP                           :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   816  (  0%)
+ TOTAL                              :   0.05          0.00          0.05         2588k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 97%)
+ phase stream in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    54k (  2%)
+ ipa lto decl in                    :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)    43k (  2%)
+ TOTAL                              :   0.00          0.00          0.01         2214k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:commit_is_complete=========
+=======node_fun:add_object_array=========
+=======node_fun:add_object_array_with_path=========
+=======node_fun:xrealloc=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 27 
+===============The second stage : Mapping stmt=================
+# .MEM_2 = VDEF <.MEM_1(D)>
+commit_is_complete (&commit);
+# .MEM_171 = VDEF <.MEM_170(D)>
+memset (&study, 0, 16);
+# .MEM_172 = VDEF <.MEM_171>
+memset (&found, 0, 16);
+# .MEM_173 = VDEF <.MEM_172>
+add_object_array (_7, 0B, &study);
+# .MEM_174 = VDEF <.MEM_173>
+add_object_array (_8, 0B, &found);
+# .MEM_177 = VDEF <.MEM_176>
+_21 = parse_object (_20);
+# .MEM_180 = VDEF <.MEM_179>
+add_object_array (_35, 0B, &study);
+# .MEM_181 = VDEF <.MEM_180>
+add_object_array (_36, 0B, &found);
+# .MEM_183 = VDEF <.MEM_163>
+_44 = tree_is_complete (_43);
+# .MEM_6 = VDEF <.MEM_5(D)>
+add_object_array_with_path (obj_2(D), name_3(D), array_4(D), 12288, 0B);
+# .MEM_43 = VDEF <.MEM_42(D)>
+_2 = st_mult (32, alloc_18);
+# .MEM_44 = VDEF <.MEM_43>
+objects_21 = xrealloc (objects_17, _3);
+# .MEM_48 = VDEF <.MEM_47>
+_7 = strdup (name_27(D));
+# .MEM_54 = VDEF <.MEM_52>
+_8 = strdup (path_34(D));
+# .MEM_32 = VDEF <.MEM_25>
+printf ("Out of memory, realloc failed%s", "");
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+commit_is_complete (&commit);
+commit ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:commit_is_complete=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 102253939]:
+_1 = commit_121(D)->object.flags;
+_2 = (unsigned int) _1;
+_119 = _1 & 1;
+_3 = (unsigned int) _119;
+if (_119 != 0)
+  goto <bb 35>; [34.00%]
+else
+  goto <bb 3>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 67487599]:
+_4 = commit_121(D)->object.flags;
+_5 = (unsigned int) _4;
+_137 = _4 & 1024;
+_6 = (unsigned int) _137;
+if (_137 != 0)
+  goto <bb 35>; [51.12%]
+else
+  goto <bb 4>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 32987938]:
+memset (&study, 0, 16);
+memset (&found, 0, 16);
+_7 = &commit_121(D)->object;
+add_object_array (_7, 0B, &study);
+_8 = &commit_121(D)->object;
+add_object_array (_8, 0B, &found);
+_9 = commit_121(D)->object.flags;
+_10 = _9 | 2048;
+commit_121(D)->object.flags = _10;
+goto <bb 18>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 291410163]:
+_11 = study.objects;
+_12 = study.nr;
+_13 = _12 + 4294967295;
+study.nr = _13;
+_14 = study.nr;
+_15 = (long unsigned int) _14;
+_16 = _15 * 32;
+_17 = _11 + _16;
+c_128 = _17->item;
+_18 = BIT_FIELD_REF <c_128->object, 8, 0>;
+_19 = _18 & 1;
+if (_19 == 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 8>; [67.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 96165353]:
+_20 = &c_128->object.oid;
+_21 = parse_object (_20);
+if (_21 == 0)
+  goto <bb 7>; [50.00%]
+else
+  goto <bb 8>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 48082677]:
+_22 = c_128->object.flags;
+_23 = _22 | 1024;
+c_128->object.flags = _23;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 291410164]:
+_24 = c_128->object.flags;
+_25 = (unsigned int) _24;
+_138 = _24 & 1024;
+_26 = (unsigned int) _138;
+if (_138 != 0)
+  goto <bb 19>; [5.50%]
+else
+  goto <bb 9>; [94.50%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 275382605]:
+_27 = c_128->object.flags;
+_28 = (unsigned int) _27;
+_139 = _27 & 1;
+_29 = (unsigned int) _139;
+if (_139 != 0)
+  goto <bb 10>; [57.11%]
+else
+  goto <bb 11>; [42.89%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 157271005]:
+// predicted unlikely by continue predictor.
+goto <bb 17>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 118111600]:
+parent_131 = c_128->parents;
+goto <bb 16>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 955630226]:
+p_132 = parent_104->item;
+_30 = p_132->object.flags;
+_31 = (unsigned int) _30;
+_144 = _30 & 2048;
+_32 = (unsigned int) _144;
+if (_144 != 0)
+  goto <bb 13>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 477815113]:
+// predicted unlikely by continue predictor.
+goto <bb 15>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 477815113]:
+_33 = p_132->object.flags;
+_34 = _33 | 2048;
+p_132->object.flags = _34;
+_35 = &p_132->object;
+add_object_array (_35, 0B, &study);
+_36 = &p_132->object;
+add_object_array (_36, 0B, &found);
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 955630226]:
+parent_136 = parent_104->next;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 1073741824]:
+# parent_104 = PHI <parent_131(11), parent_136(15)>
+if (parent_104 != 0B)
+  goto <bb 12>; [89.00%]
+else
+  goto <bb 17>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 275382605]:
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 308370543]:
+_37 = study.nr;
+if (_37 != 0)
+  goto <bb 5>; [94.50%]
+else
+  goto <bb 19>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 32987939]:
+# is_incomplete_96 = PHI <1(8), 0(18)>
+if (is_incomplete_96 == 0)
+  goto <bb 38>; [50.00%]
+else
+  goto <bb 27>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 38 
+<bb 38> [local count: 16493970]:
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 133451207]:
+_38 = found.objects;
+_39 = (long unsigned int) i_100;
+_40 = _39 * 32;
+_41 = _38 + _40;
+c_142 = _41->item;
+_42 = c_142->tree;
+_43 = &_42->object.oid;
+_44 = tree_is_complete (_43);
+if (_44 == 0)
+  goto <bb 21>; [50.00%]
+else
+  goto <bb 22>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 66725604]:
+_45 = c_142->object.flags;
+_46 = _45 | 1024;
+c_142->object.flags = _46;
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 133451207]:
+# is_incomplete_97 = PHI <is_incomplete_98(20), 1(21)>
+i_146 = i_100 + 1;
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 149945177]:
+# is_incomplete_98 = PHI <is_incomplete_96(38), is_incomplete_97(22)>
+# i_100 = PHI <0(38), i_146(22)>
+_47 = found.nr;
+_48 = (unsigned int) i_100;
+if (_47 > _48)
+  goto <bb 20>; [89.00%]
+else
+  goto <bb 24>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 16493969]:
+if (is_incomplete_98 == 0)
+  goto <bb 37>; [50.00%]
+else
+  goto <bb 27>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 37 
+<bb 37> [local count: 8246985]:
+goto <bb 26>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 25 
+<bb 25> [local count: 66725604]:
+_49 = found.objects;
+_50 = (long unsigned int) i_101;
+_51 = _50 * 32;
+_52 = _49 + _51;
+_53 = _52->item;
+_54 = _53->flags;
+_55 = found.objects;
+_56 = (long unsigned int) i_101;
+_57 = _56 * 32;
+_58 = _55 + _57;
+_59 = _58->item;
+_60 = _54 | 1;
+_59->flags = _60;
+i_141 = i_101 + 1;
+
+=======is loop:1=========
+
+ bb index 26 
+<bb 26> [local count: 74972588]:
+# i_101 = PHI <0(37), i_141(25)>
+_61 = found.nr;
+_62 = (unsigned int) i_101;
+if (_61 > _62)
+  goto <bb 25>; [89.00%]
+else
+  goto <bb 27>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 32987939]:
+# is_incomplete_99 = PHI <is_incomplete_96(19), is_incomplete_98(24), is_incomplete_98(26)>
+goto <bb 29>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 28 
+<bb 28> [local count: 266902415]:
+_63 = found.objects;
+_64 = (long unsigned int) i_102;
+_65 = _64 * 32;
+_66 = _63 + _65;
+_67 = _66->item;
+_68 = _67->flags;
+_69 = found.objects;
+_70 = (long unsigned int) i_102;
+_71 = _70 * 32;
+_72 = _69 + _71;
+_73 = _72->item;
+_74 = _68 & 134215679;
+_73->flags = _74;
+i_155 = i_102 + 1;
+
+=======is loop:1=========
+
+ bb index 29 
+<bb 29> [local count: 299890354]:
+# i_102 = PHI <0(27), i_155(28)>
+_75 = found.nr;
+_76 = (unsigned int) i_102;
+if (_75 > _76)
+  goto <bb 28>; [89.00%]
+else
+  goto <bb 30>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 30 
+<bb 30> [local count: 32987939]:
+if (is_incomplete_99 != 0)
+  goto <bb 31>; [50.00%]
+else
+  goto <bb 36>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 36 
+<bb 36> [local count: 16493970]:
+goto <bb 33>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 31 
+<bb 31> [local count: 16493969]:
+_77 = commit_121(D)->object.flags;
+_78 = _77 | 1024;
+commit_121(D)->object.flags = _78;
+goto <bb 34>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 32 
+<bb 32> [local count: 133451207]:
+_79 = found.objects;
+_80 = (long unsigned int) i_103;
+_81 = _80 * 32;
+_82 = _79 + _81;
+_83 = _82->item;
+_84 = _83->flags;
+_85 = found.objects;
+_86 = (long unsigned int) i_103;
+_87 = _86 * 32;
+_88 = _85 + _87;
+_89 = _88->item;
+_90 = _84 | 1;
+_89->flags = _90;
+i_149 = i_103 + 1;
+
+=======is loop:1=========
+
+ bb index 33 
+<bb 33> [local count: 149945177]:
+# i_103 = PHI <0(36), i_149(32)>
+_91 = found.nr;
+_92 = (unsigned int) i_103;
+if (_91 > _92)
+  goto <bb 32>; [89.00%]
+else
+  goto <bb 34>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 34 
+<bb 34> [local count: 32987939]:
+_93 = study.objects;
+free (_93);
+_94 = found.objects;
+free (_94);
+_95 = is_incomplete_99 == 0;
+_153 = (int) _95;
+
+=======is loop:0=========
+
+ bb index 35 
+<bb 35> [local count: 102253939]:
+# _105 = PHI <1(2), 0(3), _153(34)>
+study ={v} {CLOBBER};
+found ={v} {CLOBBER};
+return _105;
+
+=======Mapping node_fun:add_object_array=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+add_object_array_with_path (obj_2(D), name_3(D), array_4(D), 12288, 0B);
+return;
+
+=======Mapping node_fun:add_object_array_with_path=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+nr_15 = array_14(D)->nr;
+alloc_16 = array_14(D)->alloc;
+objects_17 = array_14(D)->objects;
+if (nr_15 >= alloc_16)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+_1 = alloc_16 + 32;
+alloc_18 = _1 * 2;
+_2 = st_mult (32, alloc_18);
+_3 = (long unsigned int) _2;
+objects_21 = xrealloc (objects_17, _3);
+array_14(D)->alloc = alloc_18;
+array_14(D)->objects = objects_21;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# objects_9 = PHI <objects_17(2), objects_21(3)>
+_4 = (long unsigned int) nr_15;
+_5 = _4 * 32;
+entry_24 = objects_9 + _5;
+entry_24->item = obj_25(D);
+if (name_27(D) == 0B)
+  goto <bb 5>; [30.00%]
+else
+  goto <bb 6>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 322122544]:
+entry_24->name = 0B;
+goto <bb 9>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 751619281]:
+_6 = *name_27(D);
+if (_6 == 0)
+  goto <bb 7>; [67.00%]
+else
+  goto <bb 8>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 503584919]:
+entry_24->name = &object_array_slopbuf;
+goto <bb 9>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 248034361]:
+_7 = strdup (name_27(D));
+entry_24->name = _7;
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 1073741824]:
+entry_24->mode = mode_32(D);
+if (path_34(D) != 0B)
+  goto <bb 10>; [53.47%]
+else
+  goto <bb 11>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 574129753]:
+_8 = strdup (path_34(D));
+entry_24->path = _8;
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 499612072]:
+entry_24->path = 0B;
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 1073741824]:
+nr_38 = nr_15 + 1;
+array_14(D)->nr = nr_38;
+return;
+
+=======Mapping node_fun:xrealloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ret_17 = realloc (ptr_14(D), size_15(D));
+_1 = ret_17 == 0B;
+_2 = size_15(D) == 0;
+_3 = _1 & _2;
+if (_3 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+ret_19 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# ret_7 = PHI <ret_17(2), ret_19(3)>
+if (ret_7 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 429496]:
+ret_21 = realloc (ptr_14(D), size_15(D));
+_4 = ret_21 == 0B;
+_5 = size_15(D) == 0;
+_6 = _4 & _5;
+if (_6 != 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 141734]:
+ret_23 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 429496]:
+# ret_8 = PHI <ret_21(5), ret_23(6)>
+if (ret_8 == 0B)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 172]:
+printf ("Out of memory, realloc failed%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 1073741653]:
+# ret_9 = PHI <ret_7(4), ret_8(7)>
+return ret_9;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 6 [0m
+[40;34m    gimple free   count : 2 [0m
+[40;34m    all ptable point : 27 [0m
+[40;34m    analyzable ptable point : 25 [0m
+[40;34m    analyzable ptable all point stmt : 147 [0m
+[40;34m    used_stmt array stack totalsize of : 0.003632 mb[0m
+[40;34m    collect time: : 0.000256 s [0m
+[40;34m    mapping time: : 0.000936 s [0m
+[40;34m    algorithm time: 0.005521 s [0m
+[40;34m    gimple stmt count : : 201 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:09 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2157k ( 73%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.04 ( 80%)   757k ( 26%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)     0  (  0%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.01 (100%)   0.03 ( 60%)   595k ( 20%)
+ ipa points-to                      :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  6336  (  0%)
+ tree phiprop                       :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ dead store elim2                   :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)  6880  (  0%)
+ final                              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    24k (  1%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  2656  (  0%)
+ initialize rtl                     :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    16k (  1%)
+ TOTAL                              :   0.03          0.01          0.05         2968k
+/usr/bin/ld: /tmp/ccsdTS3N.ltrans0.ltrans.o: in function `add_object_array_with_path':
+<artificial>:(.text+0x108): undefined reference to `st_mult'
+/usr/bin/ld: /tmp/ccsdTS3N.ltrans0.ltrans.o: in function `commit_is_complete':
+<artificial>:(.text+0x22f): undefined reference to `parse_object'
+/usr/bin/ld: <artificial>:(.text+0x2bc): undefined reference to `tree_is_complete'
+collect2: error: ld returned 1 exit status

@@ -1,5 +1,3 @@
-#include <set>
-
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int calleetype)
 {
 

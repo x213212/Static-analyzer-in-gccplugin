@@ -1,0 +1,1039 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/tmux/leak_9/../tmux.h:23,
+                 from ./benchmarks/tmux/leak_9/tmux_leak_9.c:12:
+./benchmarks/tmux/leak_9/tmux_leak_9.c: In function ‘paste_free_top’:
+./benchmarks/tmux/leak_9/../array.h:65:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:81:9: note: in expansion of macro ‘ARRAY_REMOVE’
+   81 |         ARRAY_REMOVE(ps, 0);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:13:1: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   12 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   13 | 
+In file included from ./benchmarks/tmux/leak_9/../tmux.h:23,
+                 from ./benchmarks/tmux/leak_9/tmux_leak_9.c:12:
+./benchmarks/tmux/leak_9/../array.h:65:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:81:9: note: in expansion of macro ‘ARRAY_REMOVE’
+   81 |         ARRAY_REMOVE(ps, 0);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/leak_9/../array.h:65:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:81:9: note: in expansion of macro ‘ARRAY_REMOVE’
+   81 |         ARRAY_REMOVE(ps, 0);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c: In function ‘paste_free_index’:
+./benchmarks/tmux/leak_9/../array.h:65:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:99:9: note: in expansion of macro ‘ARRAY_REMOVE’
+   99 |         ARRAY_REMOVE(ps, idx);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/leak_9/../array.h:65:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   65 |                 memmove((a)->list + (i), (a)->list + (i) + 1,           \
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:99:9: note: in expansion of macro ‘ARRAY_REMOVE’
+   99 |         ARRAY_REMOVE(ps, idx);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c: In function ‘paste_add’:
+./benchmarks/tmux/leak_9/../array.h:57:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+   57 |                 memmove((a)->list + (i) + 1, (a)->list + (i),           \
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:126:9: note: in expansion of macro ‘ARRAY_INSERT’
+  126 |         ARRAY_INSERT(ps, 0, pb);
+      |         ^~~~~~~~~~~~
+./benchmarks/tmux/leak_9/../array.h:57:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+   57 |                 memmove((a)->list + (i) + 1, (a)->list + (i),           \
+      |                 ^~~~~~~
+./benchmarks/tmux/leak_9/tmux_leak_9.c:126:9: note: in expansion of macro ‘ARRAY_INSERT’
+  126 |         ARRAY_INSERT(ps, 0, pb);
+      |         ^~~~~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.01 (100%)   0.01 (  9%)  1298k ( 30%)
+ phase parsing                      :   0.07 ( 70%)   0.00 (  0%)   0.07 ( 64%)  2111k ( 49%)
+ phase opt and generate             :   0.03 ( 30%)   0.00 (  0%)   0.03 ( 27%)   931k ( 21%)
+ callgraph ipa passes               :   0.02 ( 20%)   0.00 (  0%)   0.02 ( 18%)   405k (  9%)
+ lto stream compression             :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ ipa lto gimple out                 :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)  3184  (  0%)
+ preprocessing                      :   0.04 ( 40%)   0.00 (  0%)   0.02 ( 18%)   940k ( 22%)
+ lexical analysis                   :   0.01 ( 10%)   0.00 (  0%)   0.02 ( 18%)     0  (  0%)
+ parser (global)                    :   0.01 ( 10%)   0.00 (  0%)   0.02 ( 18%)   628k ( 14%)
+ parser function body               :   0.01 ( 10%)   0.00 (  0%)   0.01 (  9%)   290k (  7%)
+ tree gimplify                      :   0.01 ( 10%)   0.00 (  0%)   0.01 (  9%)   256k (  6%)
+ tree CFG cleanup                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  9%)  2056  (  0%)
+ tree PTA                           :   0.01 ( 10%)   0.00 (  0%)   0.00 (  0%)    18k (  0%)
+ TOTAL                              :   0.10          0.01          0.11         4351k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 94%)
+ phase opt and generate             :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ ipa modref                         :   0.00 (  0%)   0.01 (100%)   0.00 (  0%)  3824  (  0%)
+ TOTAL                              :   0.00          0.01          0.00         2287k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:args_has=========
+=======node_fun:args_find=========
+=======node_fun:cmd_load_buffer_callback=========
+=======node_fun:paste_replace=========
+=======node_fun:paste_add=========
+=======node_fun:paste_free_top=========
+=======node_fun:paste_get_index=========
+=======node_fun:paste_get_top=========
+=======node_fun:xrealloc=========
+=======node_fun:args_tree_RB_FIND=========
+=======node_fun:args_cmp=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 56 
+===============The second stage : Mapping stmt=================
+# .MEM_66 = VDEF <.MEM_65(D)>
+args_34 = calloc (_1, 24);
+# .MEM_67 = VDEF <.MEM_59>
+_10 = malloc (96);
+# .MEM_82 = VDEF <.MEM_69>
+cmd_load_buffer_callback (&c, closed_53(D), data_54(D));
+# .MEM_69 = VDEF <.MEM_60>
+_11 = getchar ();
+# VUSE <.MEM_70>
+_12 = args_has (args_34, 98);
+# .MEM_78 = VDEF <.MEM_70>
+scanf ("%d", &buffer);
+# VUSE <.MEM_61>
+pb_50 = paste_get_top (&global_buffers);
+# VUSE <.MEM_61>
+pb_49 = paste_get_index (&global_buffers, _15);
+# .MEM_80 = VDEF <.MEM_61>
+printf ("buffer : %s\n", _16);
+# VUSE <.MEM_62>
+_17 = args_has (args_34, 100);
+# .MEM_81 = VDEF <.MEM_62>
+paste_free_top (&global_buffers);
+# VUSE <.MEM_62>
+paste_get_index (&global_buffers, _20);
+# .MEM_70 = VDEF <.MEM_64>
+_21 = getchar ();
+# VUSE <.MEM_8(D)>
+_2 = args_find (args_6(D), _1);
+# VUSE <.MEM_8>
+_6 = args_tree_RB_FIND (_1, &entry);
+# .MEM_36 = VDEF <.MEM_35>
+pdata_24 = malloc (_5);
+# .MEM_40 = VDEF <.MEM_37>
+paste_add (&global_buffers, pdata_24, psize_22(D), limit_28(D));
+# .MEM_38 = VDEF <.MEM_37>
+_10 = paste_replace (&global_buffers, _9, pdata_24, psize_22(D));
+# .MEM_39 = VDEF <.MEM_38>
+printf ("no buffer %d\n", _11);
+# .MEM_43 = VDEF <.MEM_31>
+printf ("cmdq_continue");
+# .MEM_75 = VDEF <.MEM_69>
+pb_50 = malloc (96);
+# .MEM_89 = VDEF <.MEM_75>
+printf ("number too big%s", "");
+# .MEM_87 = VDEF <.MEM_75>
+printf ("size too big%s", "");
+# .MEM_77 = VDEF <.MEM_76>
+_20 = xrealloc (_19, 1, _18);
+# .MEM_84 = VDEF <.MEM_71>
+_23 = xrealloc (_22, 2, _21);
+# .MEM_79 = VDEF <.MEM_71>
+memmove (_37, _35, _34);
+# .MEM_27 = VDEF <.MEM_26(D)>
+memmove (_10, _9, _7);
+# .MEM_18 = VDEF <.MEM_12(D)>
+printf ("zero size%s", "");
+# .MEM_16 = VDEF <.MEM_12(D)>
+printf ("nmemb * size > SIZE_MAX%s", "");
+# .MEM_14 = VDEF <.MEM_13>
+printf ("xrealloc failed%s", "");
+# VUSE <.MEM_14(D)>
+comp_10 = args_cmp (elm_9(D), tmp_1);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 118111600]:
+_1 = (long unsigned int) argc_31(D);
+args_34 = calloc (_1, 24);
+goto <bb 4>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_2 = (long unsigned int) i_24;
+_3 = _2 * 8;
+_4 = argv_56(D) + _3;
+_5 = args_34->argv;
+_6 = (long unsigned int) i_24;
+_7 = _6 * 8;
+_8 = _5 + _7;
+_9 = *_4;
+*_8 = _9;
+i_58 = i_24 + 1;
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# i_24 = PHI <0(2), i_58(3)>
+if (i_24 < argc_31(D))
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 5>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 118111600]:
+_10 = malloc (96);
+global_buffers.list = _10;
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 955630225]:
+cmd_load_buffer_callback (&c, closed_53(D), data_54(D));
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+_11 = getchar ();
+if (_11 != 0)
+  goto <bb 6>; [89.00%]
+else
+  goto <bb 21>; [11.00%]
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 955630225]:
+_12 = args_has (args_34, 98);
+if (_12 == 0)
+  goto <bb 9>; [67.00%]
+else
+  goto <bb 10>; [33.00%]
+
+=======is loop:1=========
+
+ bb index 9 
+<bb 9> [local count: 640272253]:
+buffer = -1;
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 10 
+<bb 10> [local count: 315357972]:
+scanf ("%d", &buffer);
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 955630225]:
+_13 = buffer;
+if (_13 == -1)
+  goto <bb 12>; [34.00%]
+else
+  goto <bb 13>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 324914280]:
+pb_50 = paste_get_top (&global_buffers);
+goto <bb 14>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 630715945]:
+_14 = buffer;
+_15 = (unsigned int) _14;
+pb_49 = paste_get_index (&global_buffers, _15);
+
+=======is loop:1=========
+
+ bb index 14 
+<bb 14> [local count: 955630225]:
+# pb_23 = PHI <pb_50(12), pb_49(13)>
+if (pb_23 != 0B)
+  goto <bb 15>; [53.47%]
+else
+  goto <bb 16>; [46.53%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 510975480]:
+_16 = pb_23->data;
+printf ("buffer : %s\n", _16);
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 955630225]:
+_17 = args_has (args_34, 100);
+if (_17 != 0)
+  goto <bb 17>; [50.00%]
+else
+  goto <bb 20>; [50.00%]
+
+=======is loop:1=========
+
+ bb index 17 
+<bb 17> [local count: 477815112]:
+_18 = buffer;
+if (_18 == -1)
+  goto <bb 18>; [20.24%]
+else
+  goto <bb 19>; [79.76%]
+
+=======is loop:1=========
+
+ bb index 18 
+<bb 18> [local count: 96709778]:
+paste_free_top (&global_buffers);
+goto <bb 20>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 19 
+<bb 19> [local count: 381105334]:
+_19 = buffer;
+_20 = (unsigned int) _19;
+paste_get_index (&global_buffers, _20);
+
+=======is loop:1=========
+
+ bb index 20 
+<bb 20> [local count: 955630227]:
+
+=======is loop:1=========
+
+ bb index 21 
+<bb 21> [local count: 1073741824]:
+_21 = getchar ();
+if (_21 != 0)
+  goto <bb 8>; [89.00%]
+else
+  goto <bb 22>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 118111600]:
+_22 = global_buffers.list;
+free (_22);
+global_buffers.num = 0;
+global_buffers.list = 0B;
+global_buffers.space = 0;
+free (args_34);
+c ={v} {CLOBBER};
+buffer ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:args_has=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = (int) ch_4(D);
+_2 = args_find (args_6(D), _1);
+_3 = _2 != 0B;
+_7 = (int) _3;
+return _7;
+
+=======Mapping node_fun:args_find=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+entry.flag = ch_3(D);
+_1 = &args_5(D)->tree;
+_6 = args_tree_RB_FIND (_1, &entry);
+entry ={v} {CLOBBER};
+return _6;
+
+=======Mapping node_fun:cmd_load_buffer_callback=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+if (closed_17(D) == 0)
+  goto <bb 13>; [34.00%]
+else
+  goto <bb 3>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 708669600]:
+c_19(D)->stdin_callback = 0B;
+_1 = c_19(D)->references;
+_2 = _1 + -1;
+c_19(D)->references = _2;
+_3 = c_19(D)->flags;
+_4 = _3 & 512;
+if (_4 != 0)
+  goto <bb 13>; [34.00%]
+else
+  goto <bb 4>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 467721933]:
+if (psize_22(D) == 0)
+  goto <bb 6>; [34.00%]
+else
+  goto <bb 5>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 308696474]:
+_5 = psize_22(D) + 1;
+pdata_24 = malloc (_5);
+if (pdata_24 == 0B)
+  goto <bb 6>; [0.04%]
+else
+  goto <bb 7>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 159148937]:
+free (data_16(D));
+// predicted unlikely by goto predictor.
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 308572996]:
+_6 = pdata_24 + psize_22(D);
+*_6 = 0;
+_7 = MEM[(int *)data_16(D)];
+if (_7 == -1)
+  goto <bb 8>; [34.00%]
+else
+  goto <bb 9>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 104914820]:
+paste_add (&global_buffers, pdata_24, psize_22(D), limit_28(D));
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 203658176]:
+_8 = MEM[(int *)data_16(D)];
+_9 = (unsigned int) _8;
+_10 = paste_replace (&global_buffers, _9, pdata_24, psize_22(D));
+if (_10 != 0)
+  goto <bb 10>; [33.00%]
+else
+  goto <bb 11>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 67207198]:
+_11 = MEM[(int *)data_16(D)];
+printf ("no buffer %d\n", _11);
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 308572996]:
+free (data_16(D));
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 467721933]:
+out:
+printf ("cmdq_continue");
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:paste_replace=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (size_9(D) == 0)
+  goto <bb 5>; [34.00%]
+else
+  goto <bb 3>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 708669601]:
+_1 = ps_11(D)->num;
+if (_1 <= idx_12(D))
+  goto <bb 5>; [2.09%]
+else
+  goto <bb 4>; [97.91%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 693858404]:
+_2 = ps_11(D)->list;
+_3 = (long unsigned int) idx_12(D);
+_4 = _3 * 8;
+_5 = _2 + _4;
+pb_13 = *_5;
+_6 = pb_13->data;
+free (_6);
+pb_13->data = data_15(D);
+pb_13->size = size_9(D);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# _7 = PHI <0(2), -1(3), 0(4)>
+return _7;
+
+=======Mapping node_fun:paste_add=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 178956971]:
+if (size_45(D) == 0)
+  goto <bb 20>; [34.00%]
+else
+  goto <bb 7>; [66.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 955630225]:
+_1 = ps_47(D)->list;
+_2 = ps_47(D)->num;
+_3 = _2 + 4294967295;
+_4 = (long unsigned int) _3;
+_5 = _4 * 8;
+_6 = _1 + _5;
+pb_67 = *_6;
+_7 = pb_67->data;
+free (_7);
+free (pb_67);
+_8 = ps_47(D)->num;
+if (_8 > 1)
+  goto <bb 4>; [74.50%]
+else
+  goto <bb 5>; [25.50%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 711944515]:
+_9 = ps_47(D)->num;
+_10 = _9 + 4294967295;
+ps_47(D)->num = _10;
+goto <bb 6>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 243685710]:
+_11 = ps_47(D)->list;
+free (_11);
+ps_47(D)->num = 0;
+ps_47(D)->list = 0B;
+ps_47(D)->space = 0;
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 955630225]:
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+_12 = ps_47(D)->num;
+if (_12 >= limit_48(D))
+  goto <bb 3>; [89.00%]
+else
+  goto <bb 8>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 118111600]:
+pb_50 = malloc (96);
+_13 = ps_47(D)->num;
+if (_13 > 1073741823)
+  goto <bb 9>; [0.04%]
+else
+  goto <bb 10>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 47245]:
+printf ("number too big%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 118064356]:
+_14 = ps_47(D)->num;
+_15 = _14 + 1;
+_16 = 1073741824 / _15;
+if (_16 <= 7)
+  goto <bb 11>; [0.04%]
+else
+  goto <bb 12>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 47226]:
+printf ("size too big%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 118017130]:
+_17 = ps_47(D)->space;
+if (_17 == 0)
+  goto <bb 13>; [33.00%]
+else
+  goto <bb 14>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 38945653]:
+ps_47(D)->space = 80;
+_18 = ps_47(D)->space;
+_19 = ps_47(D)->list;
+_20 = xrealloc (_19, 1, _18);
+ps_47(D)->list = _20;
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 118017130]:
+goto <bb 16>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 15 
+<bb 15> [local count: 954865876]:
+_21 = ps_47(D)->space;
+_22 = ps_47(D)->list;
+_23 = xrealloc (_22, 2, _21);
+ps_47(D)->list = _23;
+_24 = ps_47(D)->space;
+_25 = _24 * 2;
+ps_47(D)->space = _25;
+
+=======is loop:1=========
+
+ bb index 16 
+<bb 16> [local count: 1072883005]:
+_26 = ps_47(D)->space;
+_27 = ps_47(D)->num;
+_28 = _27 + 1;
+_29 = (long unsigned int) _28;
+_30 = _29 * 8;
+if (_26 <= _30)
+  goto <bb 15>; [89.00%]
+else
+  goto <bb 17>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 118017130]:
+_31 = ps_47(D)->num;
+if (_31 != 0)
+  goto <bb 18>; [33.00%]
+else
+  goto <bb 19>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 38945653]:
+_32 = ps_47(D)->num;
+_33 = (long unsigned int) _32;
+_34 = _33 * 8;
+_35 = ps_47(D)->list;
+_36 = ps_47(D)->list;
+_37 = _36 + 8;
+memmove (_37, _35, _34);
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 118017130]:
+_38 = ps_47(D)->list;
+*_38 = pb_50;
+_39 = ps_47(D)->num;
+_40 = _39 + 1;
+ps_47(D)->num = _40;
+pb_50->data = data_57(D);
+pb_50->size = size_45(D);
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 178862501]:
+return;
+
+=======Mapping node_fun:paste_free_top=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = ps_21(D)->num;
+if (_1 == 0)
+  goto <bb 8>; [1.04%]
+else
+  goto <bb 3>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1062574911]:
+_2 = ps_21(D)->list;
+pb_22 = *_2;
+_3 = ps_21(D)->num;
+if (_3 != 1)
+  goto <bb 4>; [48.88%]
+else
+  goto <bb 5>; [51.12%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 519386613]:
+_4 = ps_21(D)->num;
+_5 = _4 + 4294967295;
+_6 = (long unsigned int) _5;
+_7 = _6 * 8;
+_8 = ps_21(D)->list;
+_9 = _8 + 8;
+_10 = ps_21(D)->list;
+memmove (_10, _9, _7);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1062574912]:
+_11 = ps_21(D)->num;
+_12 = _11 + 4294967295;
+ps_21(D)->num = _12;
+_13 = ps_21(D)->num;
+if (_13 == 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 350649719]:
+_14 = ps_21(D)->list;
+free (_14);
+ps_21(D)->num = 0;
+ps_21(D)->list = 0B;
+ps_21(D)->space = 0;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1062574913]:
+_15 = pb_22->data;
+free (_15);
+free (pb_22);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# _16 = PHI <-1(2), 0(7)>
+return _16;
+
+=======Mapping node_fun:paste_get_index=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = ps_8(D)->num;
+if (_1 <= idx_9(D))
+  goto <bb 4>; [17.38%]
+else
+  goto <bb 3>; [82.62%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 887125497]:
+_2 = ps_8(D)->list;
+_3 = (long unsigned int) idx_9(D);
+_4 = _3 * 8;
+_5 = _2 + _4;
+_10 = *_5;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _6 = PHI <0B(2), _10(3)>
+return _6;
+
+=======Mapping node_fun:paste_get_top=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = ps_5(D)->num;
+if (_1 == 0)
+  goto <bb 4>; [17.38%]
+else
+  goto <bb 3>; [82.62%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 887125497]:
+_2 = ps_5(D)->list;
+_6 = *_2;
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# _3 = PHI <0B(2), _6(3)>
+return _3;
+
+=======Mapping node_fun:xrealloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+newsize_7 = nmemb_5(D) * size_6(D);
+if (newsize_7 == 0)
+  goto <bb 3>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 429496]:
+printf ("zero size%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073312329]:
+_1 = 30 / nmemb_5(D);
+_2 = (unsigned int) _1;
+_3 = 1 << _2;
+_4 = (long unsigned int) _3;
+if (_4 < size_6(D))
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 6>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 429324]:
+printf ("nmemb * size > SIZE_MAX%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1072883005]:
+newptr_11 = realloc (oldptr_9(D), newsize_7);
+if (newptr_11 == 0B)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 8>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 429152]:
+printf ("xrealloc failed%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 1072453853]:
+return newptr_11;
+
+=======Mapping node_fun:args_tree_RB_FIND=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 91982362]:
+tmp_7 = head_6(D)->rbh_root;
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1014686024]:
+comp_10 = args_cmp (elm_9(D), tmp_1);
+if (comp_10 < 0)
+  goto <bb 4>; [41.00%]
+else
+  goto <bb 5>; [59.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 416021266]:
+tmp_13 = tmp_1->entry.rbe_left;
+goto <bb 7>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 598664758]:
+if (comp_10 > 0)
+  goto <bb 6>; [94.50%]
+else
+  goto <bb 9>; [5.50%]
+
+=======is loop:1=========
+
+ bb index 6 
+<bb 6> [local count: 565738197]:
+tmp_12 = tmp_1->entry.rbe_right;
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 981759463]:
+# tmp_11 = PHI <tmp_13(4), tmp_12(6)>
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# tmp_1 = PHI <tmp_7(2), tmp_11(7)>
+if (tmp_1 != 0B)
+  goto <bb 3>; [94.50%]
+else
+  goto <bb 9>; [5.50%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 91982362]:
+# _2 = PHI <tmp_1(5), 0B(8)>
+return _2;
+
+=======Mapping node_fun:args_cmp=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = a1_6(D)->flag;
+_2 = (int) _1;
+_3 = a2_7(D)->flag;
+_4 = (int) _3;
+_8 = _2 - _4;
+return _8;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 5 [0m
+[40;34m    gimple free   count : 11 [0m
+[40;34m    all ptable point : 56 [0m
+[40;34m    analyzable ptable point : 44 [0m
+[40;34m    analyzable ptable all point stmt : 344 [0m
+[40;34m    used_stmt array stack totalsize of : 0.010952 mb[0m
+[40;34m    collect time: : 0.001059 s [0m
+[40;34m    mapping time: : 0.005675 s [0m
+[40;34m    algorithm time: 0.032981 s [0m
+[40;34m    gimple stmt count : : 244 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:34 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 64%)
+ phase opt and generate             :   0.09 (100%)   0.01 (100%)   0.10 (100%)  1084k ( 32%)
+ callgraph functions expansion      :   0.05 ( 56%)   0.01 (100%)   0.06 ( 60%)   866k ( 26%)
+ ipa lto gimple in                  :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)   143k (  4%)
+ df scan insns                      :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)   576  (  0%)
+ df reg dead/unused notes           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)    14k (  0%)
+ tree CFG cleanup                   :   0.01 ( 11%)   0.00 (  0%)   0.00 (  0%)   120  (  0%)
+ dominator optimization             :   0.00 (  0%)   0.01 (100%)   0.01 ( 10%)    38k (  1%)
+ integrated RA                      :   0.00 (  0%)   0.00 (  0%)   0.01 ( 10%)   320k ( 10%)
+ plugin execution                   :   0.04 ( 44%)   0.00 (  0%)   0.04 ( 40%)  3912  (  0%)
+ initialize rtl                     :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)    12k (  0%)
+ rest of compilation                :   0.01 ( 11%)   0.00 (  0%)   0.01 ( 10%)    35k (  1%)
+ TOTAL                              :   0.09          0.01          0.10         3349k

@@ -1,0 +1,667 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/binutils/leak_8/binutils_leak_8.c:8:
+./benchmarks/binutils/leak_8/../include/bfd.h:55:1: warning: useless storage class specifier in empty declaration
+   55 | };
+      | ^
+./benchmarks/binutils/leak_8/binutils_leak_8.c: In function ‘bfd_get_section_contents’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:17: warning: implicit declaration of function ‘memset’ [-Wimplicit-function-declaration]
+   34 |                 memset (location, 0, 4);
+      |                 ^~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:9:1: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+    8 | #include "../include/bfd.h"
+  +++ |+#include <string.h>
+    9 | 
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:17: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+   34 |                 memset (location, 0, 4);
+      |                 ^~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:17: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:25: warning: passing argument 1 of ‘memset’ discards ‘const’ qualifier from pointer target type [-Wdiscarded-qualifiers]
+   34 |                 memset (location, 0, 4);
+      |                         ^~~~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:34:25: note: expected ‘void *’ but argument is of type ‘const void *’
+./benchmarks/binutils/leak_8/binutils_leak_8.c: In function ‘copy_section’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:170:25: warning: incompatible implicit declaration of built-in function ‘memset’ [-Wbuiltin-declaration-mismatch]
+  170 |                         memset (memhunk, 0, 4);
+      |                         ^~~~~~
+./benchmarks/binutils/leak_8/binutils_leak_8.c:170:25: note: include ‘<string.h>’ or provide a declaration of ‘memset’
+./benchmarks/binutils/leak_8/binutils_leak_8.c: In function ‘main’:
+./benchmarks/binutils/leak_8/binutils_leak_8.c:183:15: warning: implicit declaration of function ‘time’ [-Wimplicit-function-declaration]
+  183 |         srand(time(NULL));
+      |               ^~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)  1298k ( 46%)
+ phase parsing                      :   0.03 ( 75%)   0.01 (100%)   0.03 ( 50%)  1232k ( 44%)
+ phase opt and generate             :   0.01 ( 25%)   0.00 (  0%)   0.02 ( 33%)   268k ( 10%)
+ dump files                         :   0.01 ( 25%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph ipa passes               :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   145k (  5%)
+ lto stream compression             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)     0  (  0%)
+ preprocessing                      :   0.02 ( 50%)   0.01 (100%)   0.00 (  0%)   393k ( 14%)
+ lexical analysis                   :   0.00 (  0%)   0.00 (  0%)   0.02 ( 33%)     0  (  0%)
+ parser (global)                    :   0.01 ( 25%)   0.00 (  0%)   0.01 ( 17%)   612k ( 22%)
+ tree CFG construction              :   0.00 (  0%)   0.00 (  0%)   0.01 ( 17%)    32k (  1%)
+ TOTAL                              :   0.04          0.01          0.06         2809k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 96%)
+ TOTAL                              :   0.00          0.00          0.01         2244k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:copy_section=========
+=======node_fun:bfd_set_section_contents=========
+=======node_fun:bfd_convert_section_contents=========
+=======node_fun:bfd_get_full_section_contents=========
+=======node_fun:bfd_get_section_contents=========
+=======node_fun:bfd_malloc=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 36 
+===============The second stage : Mapping stmt=================
+# .MEM_7 = VDEF <.MEM_6(D)>
+_1 = time (0B);
+# .MEM_8 = VDEF <.MEM_7>
+srand (_2);
+# .MEM_9 = VDEF <.MEM_8>
+_3 = rand ();
+# .MEM_11 = VDEF <.MEM_10>
+copy_section (&sec);
+# .MEM_30 = VDEF <.MEM_29>
+_1 = rand ();
+# .MEM_35 = VDEF <.MEM_30>
+_3 = bfd_get_full_section_contents (isection_23(D), &memhunk);
+# .MEM_36 = VDEF <.MEM_35>
+_4 = bfd_convert_section_contents (isection_23(D), &memhunk);
+# .MEM_37 = VDEF <.MEM_36>
+printf ("%d\n", _6);
+# .MEM_38 = VDEF <.MEM_37>
+_8 = bfd_set_section_contents (_7);
+ <var_decl 0x7f9c2d603f30 memhunk
+    type <pointer_type 0x7f9c2c85df18
+        type <integer_type 0x7f9c2c85de70 bfd_byte public unsigned QI
+            size <integer_cst 0x7f9c2cd59ca8 constant 8>
+            unit-size <integer_cst 0x7f9c2cd59cc0 constant 1>
+            align:8 warn_if_not_align:0 symtab:0 alias-set -1 canonical-type 0x7f9c2cd6e3f0 precision:8 min <integer_cst 0x7f9c2cd59cd8 0> max <integer_cst 0x7f9c2cd59c78 255> context <translation_unit_decl 0x7f9c2cd64168 ./benchmarks/binutils/leak_8/binutils_leak_8.c>
+            pointer_to_this <pointer_type 0x7f9c2c85df18>>
+        public unsigned DI
+        size <integer_cst 0x7f9c2cd59bb8 constant 64>
+        unit-size <integer_cst 0x7f9c2cd59bd0 constant 8>
+        align:64 warn_if_not_align:0 symtab:0 alias-set -1 structural-equality
+        pointer_to_this <pointer_type 0x7f9c2c85d348>>
+    addressable unsigned DI ./benchmarks/binutils/leak_8/binutils_leak_8.c:141:12 size <integer_cst 0x7f9c2cd59bb8 64> unit-size <integer_cst 0x7f9c2cd59bd0 8>
+    align:64 warn_if_not_align:0 context <function_decl 0x7f9c2c85ef00 copy_section>>
+# .MEM_31 = VDEF <.MEM_30>
+memhunk_19 = malloc (4);
+# .MEM_32 = VDEF <.MEM_31>
+memset (memhunk_19, 0, 4);
+# .MEM_33 = VDEF <.MEM_32>
+_10 = bfd_set_section_contents (memhunk_19);
+# .MEM_13 = VDEF <.MEM_12(D)>
+printf ("%d\n", _1);
+# .MEM_14 = VDEF <.MEM_11>
+_2 = rand ();
+# .MEM_27 = VDEF <.MEM_26(D)>
+_1 = rand ();
+# .MEM_28 = VDEF <.MEM_27>
+contents_19 = bfd_malloc (4);
+# .MEM_29 = VDEF <.MEM_23>
+printf ("%d\n", _4);
+# .MEM_30 = VDEF <.MEM_24>
+_5 = rand ();
+# .MEM_49 = VDEF <.MEM_40(D)>
+p_33 = bfd_malloc (4);
+# .MEM_51 = VDEF <.MEM_50>
+_3 = bfd_get_section_contents (sec_20(D), p_7);
+# .MEM_41 = VDEF <.MEM_40(D)>
+compressed_buffer_22 = bfd_malloc (4);
+# .MEM_42 = VDEF <.MEM_41>
+_5 = rand ();
+# .MEM_43 = VDEF <.MEM_42>
+p_25 = bfd_malloc (4);
+# .MEM_47 = VDEF <.MEM_40(D)>
+p_30 = bfd_malloc (4);
+# .MEM_13 = VDEF <.MEM_11(D)>
+memset (location_6(D), 0, 4);
+# .MEM_12 = VDEF <.MEM_11(D)>
+_1 = rand ();
+# .MEM_15 = VDEF <.MEM_12(D)>
+__builtin_puts (&"bfd_error_no_memory"[0]);
+# .MEM_13 = VDEF <.MEM_12(D)>
+ptr_10 = malloc (size_7(D));
+# .MEM_14 = VDEF <.MEM_13>
+__builtin_puts (&"bfd_error_no_memory"[0]);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = time (0B);
+_2 = (unsigned int) _1;
+srand (_2);
+_3 = rand ();
+_4 = _3 % 3;
+_5 = (<unnamed-unsigned:2>) _4;
+sec.compress_status = _5;
+copy_section (&sec);
+sec ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:copy_section=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+memhunk = 0B;
+_1 = rand ();
+_2 = _1 % 2;
+if (_2 == 1)
+  goto <bb 3>; [34.00%]
+else
+  goto <bb 8>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 365072224]:
+_3 = bfd_get_full_section_contents (isection_23(D), &memhunk);
+if (_3 == 0)
+  goto <bb 5>; [51.12%]
+else
+  goto <bb 4>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 178447302]:
+_4 = bfd_convert_section_contents (isection_23(D), &memhunk);
+if (_4 == 0)
+  goto <bb 5>; [51.12%]
+else
+  goto <bb 6>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 277847183]:
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 87225041]:
+_5 = memhunk;
+_6 = MEM[(int *)_5];
+printf ("%d\n", _6);
+_7 = memhunk;
+_8 = bfd_set_section_contents (_7);
+if (_8 == 0)
+  goto <bb 11>; [51.12%]
+else
+  goto <bb 7>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 42635600]:
+_9 = memhunk;
+free (_9);
+goto <bb 10>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 708669600]:
+memhunk_19 = malloc (4);
+memset (memhunk_19, 0, 4);
+_10 = bfd_set_section_contents (memhunk_19);
+if (_10 == 0)
+  goto <bb 11>; [51.12%]
+else
+  goto <bb 9>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 346397698]:
+free (memhunk_19);
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 389033297]:
+memhunk ={v} {CLOBBER};
+goto <bb 12>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 684708527]:
+memhunk ={v} {CLOBBER};
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:bfd_set_section_contents=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (location_6(D) != 0B)
+  goto <bb 3>; [53.47%]
+else
+  goto <bb 4>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 574129753]:
+_1 = MEM[(int *)location_6(D)];
+printf ("%d\n", _1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+_2 = rand ();
+_3 = _2 % 2;
+_4 = _3 == 1;
+_10 = (int) _4;
+return _10;
+
+=======Mapping node_fun:bfd_convert_section_contents=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+_1 = rand ();
+_2 = _1 % 2;
+_3 = _2 == 1;
+use_memmove_15 = (bfd_boolean) _3;
+contents_17 = *ptr_16(D);
+if (_2 != 1)
+  goto <bb 3>; [48.88%]
+else
+  goto <bb 4>; [51.12%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 524844999]:
+contents_19 = bfd_malloc (4);
+if (contents_19 == 0B)
+  goto <bb 7>; [0.04%]
+else
+  goto <bb 4>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073531886]:
+# contents_8 = PHI <contents_17(2), contents_19(3)>
+if (contents_8 != 0B)
+  goto <bb 5>; [53.47%]
+else
+  goto <bb 6>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 574017499]:
+_4 = MEM[(int *)contents_8];
+printf ("%d\n", _4);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073531887]:
+_5 = rand ();
+_6 = _5 % 2;
+_7 = _6 == 1;
+_22 = (int) _7;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# _9 = PHI <0(3), _22(6)>
+return _9;
+
+=======Mapping node_fun:bfd_get_full_section_contents=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+p_19 = *ptr_18(D);
+_1 = sec_20(D)->compress_status;
+_2 = (int) _1;
+switch (_1) <default: <L4> [0.05%], case 0: <L0> [33.32%], case 1: <L3> [33.32%], case 2: <L1> [33.32%]>
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 357734984]:
+<L0>:
+if (p_19 == 0B)
+  goto <bb 4>; [30.00%]
+else
+  goto <bb 5>; [70.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 107320494]:
+p_33 = bfd_malloc (4);
+if (p_33 == 0B)
+  goto <bb 24>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 357692056]:
+# p_7 = PHI <p_19(3), p_33(4)>
+*p_7 = 12;
+_3 = bfd_get_section_contents (sec_20(D), p_7);
+if (_3 == 0)
+  goto <bb 6>; [34.00%]
+else
+  goto <bb 9>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 121615300]:
+_4 = *ptr_18(D);
+if (_4 != p_7)
+  goto <bb 7>; [53.47%]
+else
+  goto <bb 8>; [46.53%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 65027701]:
+free (p_7);
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 121615300]:
+goto <bb 24>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 236076756]:
+*ptr_18(D) = p_7;
+goto <bb 24>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 357734984]:
+<L1>:
+compressed_buffer_22 = bfd_malloc (4);
+if (compressed_buffer_22 == 0B)
+  goto <bb 24>; [0.04%]
+else
+  goto <bb 11>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 357591890]:
+_5 = rand ();
+_6 = _5 % 2;
+if (_6 == 1)
+  goto <bb 12>; [20.97%]
+else
+  goto <bb 13>; [79.03%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 74987021]:
+// predicted unlikely by goto predictor.
+goto <bb 18>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 282604870]:
+if (p_19 == 0B)
+  goto <bb 14>; [17.43%]
+else
+  goto <bb 15>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 49258029]:
+p_25 = bfd_malloc (4);
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 282604870]:
+# p_8 = PHI <p_19(13), p_25(14)>
+if (p_8 == 0B)
+  goto <bb 16>; [30.95%]
+else
+  goto <bb 17>; [69.05%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 87466208]:
+// predicted unlikely by goto predictor.
+goto <bb 18>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 195138662]:
+free (compressed_buffer_22);
+*ptr_18(D) = p_8;
+goto <bb 24>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 162453228]:
+fail_compressed:
+free (compressed_buffer_22);
+goto <bb 24>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 357734984]:
+<L3>:
+if (p_19 == 0B)
+  goto <bb 20>; [17.43%]
+else
+  goto <bb 21>; [82.57%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 62353208]:
+p_30 = bfd_malloc (4);
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 357734985]:
+# p_9 = PHI <p_19(19), p_30(20)>
+if (p_9 == 0B)
+  goto <bb 24>; [18.09%]
+else
+  goto <bb 22>; [81.91%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 293020726]:
+*ptr_18(D) = p_9;
+goto <bb 24>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [local count: 536864]:
+<L4>:
+exit (1);
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 1073204955]:
+# _10 = PHI <0(4), 0(8), 1(9), 0(10), 1(17), 0(18), 0(21), 1(22)>
+return _10;
+
+=======Mapping node_fun:bfd_get_section_contents=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+if (location_6(D) != 0B)
+  goto <bb 3>; [54.59%]
+else
+  goto <bb 4>; [45.41%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 586155665]:
+memset (location_6(D), 0, 4);
+goto <bb 5>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 487586160]:
+_1 = rand ();
+_2 = _1 % 2;
+_3 = _2 == 1;
+_9 = (int) _3;
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1073741824]:
+# _4 = PHI <1(3), _9(4)>
+return _4;
+
+=======Mapping node_fun:bfd_malloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = (long int) size_7(D);
+if (_1 < 0)
+  goto <bb 3>; [12.76%]
+else
+  goto <bb 4>; [87.24%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 137009456]:
+__builtin_puts (&"bfd_error_no_memory"[0]);
+goto <bb 6>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 936732369]:
+ptr_10 = malloc (size_7(D));
+_2 = ptr_10 == 0B;
+_3 = size_7(D) != 0;
+_4 = _2 & _3;
+if (_4 != 0)
+  goto <bb 5>; [33.00%]
+else
+  goto <bb 6>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 309121680]:
+__builtin_puts (&"bfd_error_no_memory"[0]);
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1073741824]:
+# _5 = PHI <0B(3), ptr_10(4), ptr_10(5)>
+return _5;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 2 [0m
+[40;34m    gimple free   count : 5 [0m
+[40;34m    all ptable point : 36 [0m
+[40;34m    analyzable ptable point : 30 [0m
+[40;34m    analyzable ptable all point stmt : 100 [0m
+[40;34m    used_stmt array stack totalsize of : 0.002920 mb[0m
+[40;34m    collect time: : 0.000289 s [0m
+[40;34m    mapping time: : 0.001016 s [0m
+[40;34m    algorithm time: 0.004653 s [0m
+[40;34m    gimple stmt count : : 113 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:00 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 76%)
+ phase opt and generate             :   0.03 (100%)   0.01 (100%)   0.03 (100%)   600k ( 21%)
+ dump files                         :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ callgraph functions expansion      :   0.02 ( 67%)   0.01 (100%)   0.02 ( 67%)   481k ( 17%)
+ tree SSA incremental               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  8416  (  0%)
+ dominance computation              :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ expand                             :   0.01 ( 33%)   0.01 (100%)   0.00 (  0%)    65k (  2%)
+ plugin execution                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)  2560  (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 33%)    20k (  1%)
+ TOTAL                              :   0.03          0.01          0.03         2822k

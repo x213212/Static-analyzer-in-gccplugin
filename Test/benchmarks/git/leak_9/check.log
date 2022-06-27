@@ -1,0 +1,1394 @@
+../Compiler/newplugin.so 11.2.0 
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:12:
+./benchmarks/git/leak_9/../git.h: In function ‘copy_array’:
+./benchmarks/git/leak_9/../git.h:161:17: warning: implicit declaration of function ‘memcpy’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_9/../git.h:1:1: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  +++ |+#include <string.h>
+    1 | #define STRING_LIST_INIT_NODUP { NULL, 0, 0, 0, NULL }
+./benchmarks/git/leak_9/../git.h:161:17: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                 ^~~~~~
+./benchmarks/git/leak_9/../git.h:161:17: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+./benchmarks/git/leak_9/../git.h:161:34: warning: implicit declaration of function ‘st_mult’ [-Wimplicit-function-declaration]
+  161 |                 memcpy(dst, src, st_mult(size, n));
+      |                                  ^~~~~~~
+./benchmarks/git/leak_9/../git.h: In function ‘move_array’:
+./benchmarks/git/leak_9/../git.h:169:17: warning: implicit declaration of function ‘memmove’ [-Wimplicit-function-declaration]
+  169 |                 memmove(dst, src, st_mult(size, n));
+      |                 ^~~~~~~
+./benchmarks/git/leak_9/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+./benchmarks/git/leak_9/../git.h:169:17: warning: incompatible implicit declaration of built-in function ‘memmove’ [-Wbuiltin-declaration-mismatch]
+./benchmarks/git/leak_9/../git.h:169:17: note: include ‘<string.h>’ or provide a declaration of ‘memmove’
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:11:
+./benchmarks/git/leak_9/../git.h: In function ‘xstrdup_or_null’:
+./benchmarks/git/leak_9/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_9/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+./benchmarks/git/leak_9/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_9/../git.h:174:22: note: in expansion of macro ‘xstrdup’
+  174 |         return str ? xstrdup(str) : NULL;
+      |                      ^~~~~~~
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:12:
+./benchmarks/git/leak_9/../git.h: At top level:
+./benchmarks/git/leak_9/../git.h:236:62: warning: ‘struct archiver_args’ declared inside parameter list will not be visible outside of this definition or declaration
+  236 |         int (*write_archive)(const struct archiver *, struct archiver_args *);
+      |                                                              ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/../git.h: In function ‘strbuf_swap’:
+./benchmarks/git/leak_9/../git.h:126:9: warning: incompatible implicit declaration of built-in function ‘memcpy’ [-Wbuiltin-declaration-mismatch]
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_9/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_9/../git.h:126:9: note: include ‘<string.h>’ or provide a declaration of ‘memcpy’
+  126 |         memcpy(_swap_buffer, _swap_a_ptr, sizeof(a));           \
+      |         ^~~~~~
+./benchmarks/git/leak_9/../git.h:407:9: note: in expansion of macro ‘SWAP’
+  407 |         SWAP(*a, *b);
+      |         ^~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘strbuf_grow’:
+./benchmarks/git/leak_9/git_leak_9.c:102:13: warning: implicit declaration of function ‘unsigned_add_overflows’ [-Wimplicit-function-declaration]
+  102 |         if (unsigned_add_overflows(extra, 1) ||
+      |             ^~~~~~~~~~~~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:12:
+./benchmarks/git/leak_9/../git.h:112:29: warning: implicit declaration of function ‘alloc_nr’; did you mean ‘alloca’? [-Wimplicit-function-declaration]
+  112 |                         if (alloc_nr(alloc) < (nr)) \
+      |                             ^~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:107:9: note: in expansion of macro ‘ALLOC_GROW’
+  107 |         ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc); /* allocation site */
+      |         ^~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘strbuf_release’:
+./benchmarks/git/leak_9/git_leak_9.c:117:17: warning: implicit declaration of function ‘strbuf_init’ [-Wimplicit-function-declaration]
+  117 |                 strbuf_init(sb, 0);
+      |                 ^~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘strbuf_readlink’:
+./benchmarks/git/leak_9/git_leak_9.c:132:23: warning: implicit declaration of function ‘readlink’ [-Wimplicit-function-declaration]
+  132 |                 len = readlink(path, sb->buf, hint);
+      |                       ^~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:137:25: warning: implicit declaration of function ‘strbuf_setlen’; did you mean ‘strbuf_readlink’? [-Wimplicit-function-declaration]
+  137 |                         strbuf_setlen(sb, len);
+      |                         ^~~~~~~~~~~~~
+      |                         strbuf_readlink
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘files_read_raw_ref’:
+./benchmarks/git/leak_9/git_leak_9.c:154:17: warning: implicit declaration of function ‘files_downcast’ [-Wimplicit-function-declaration]
+  154 |                 files_downcast(ref_store, REF_STORE_READ, "read_raw_ref");
+      |                 ^~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:154:17: warning: initialization of ‘struct files_ref_store *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+./benchmarks/git/leak_9/git_leak_9.c:165:9: warning: implicit declaration of function ‘strbuf_reset’; did you mean ‘strbuf_release’? [-Wimplicit-function-declaration]
+  165 |         strbuf_reset(&sb_path);
+      |         ^~~~~~~~~~~~
+      |         strbuf_release
+./benchmarks/git/leak_9/git_leak_9.c:167:9: warning: implicit declaration of function ‘files_ref_path’ [-Wimplicit-function-declaration]
+  167 |         files_ref_path(refs, &sb_path, refname);
+      |         ^~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:191:21: warning: implicit declaration of function ‘resolve_packed_ref’ [-Wimplicit-function-declaration]
+  191 |                 if (resolve_packed_ref(refs, refname, sha1, type)) {
+      |                     ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:208:9: warning: implicit declaration of function ‘starts_with’ [-Wimplicit-function-declaration]
+  208 |     if (starts_with(sb_contents.buf, "refs/") &&
+      |         ^~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:209:9: warning: implicit declaration of function ‘check_refname_format’ [-Wimplicit-function-declaration]
+  209 |        !check_refname_format(sb_contents.buf, 0)) {
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:217:13: warning: implicit declaration of function ‘strbuf_read’; did you mean ‘strbuf_swap’? [-Wimplicit-function-declaration]
+  217 |         if (strbuf_read(&sb_contents, fd, 256) < 0) {
+      |             ^~~~~~~~~~~
+      |             strbuf_swap
+./benchmarks/git/leak_9/git_leak_9.c:219:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+  219 |                 close(fd);
+      |                 ^~~~~
+      |                 pclose
+./benchmarks/git/leak_9/git_leak_9.c:223:9: warning: implicit declaration of function ‘strbuf_rtrim’; did you mean ‘strbuf_grow’? [-Wimplicit-function-declaration]
+  223 |         strbuf_rtrim(&sb_contents);
+      |         ^~~~~~~~~~~~
+      |         strbuf_grow
+./benchmarks/git/leak_9/git_leak_9.c:227:24: warning: implicit declaration of function ‘isspace’ [-Wimplicit-function-declaration]
+  227 |                 while (isspace(*buf))
+      |                        ^~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:13:1: note: include ‘<ctype.h>’ or provide a declaration of ‘isspace’
+   12 | #include "../git.h"
+  +++ |+#include <ctype.h>
+   13 | 
+./benchmarks/git/leak_9/git_leak_9.c:231:17: warning: implicit declaration of function ‘strbuf_addstr’ [-Wimplicit-function-declaration]
+  231 |                 strbuf_addstr(referent, buf);
+      |                 ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:241:13: warning: implicit declaration of function ‘get_sha1_hex’ [-Wimplicit-function-declaration]
+  241 |         if (get_sha1_hex(buf, sha1) ||
+      |             ^~~~~~~~~~~~
+In file included from ./benchmarks/git/leak_9/git_leak_9.c:11:
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘lock_raw_ref’:
+./benchmarks/git/leak_9/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:276:26: note: in expansion of macro ‘xstrdup’
+  276 |         lock->ref_name = xstrdup(refname);
+      |                          ^~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:289:33: warning: implicit declaration of function ‘strbuf_addf’ [-Wimplicit-function-declaration]
+  289 |                                 strbuf_addf(err, "unable to resolve reference '%s'",
+      |                                 ^~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:300:9: warning: implicit declaration of function ‘unlock_ref’ [-Wimplicit-function-declaration]
+  300 |         unlock_ref(lock);
+      |         ^~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c: In function ‘lock_ref_for_update’:
+./benchmarks/git/leak_9/git_leak_9.c:335:23: warning: implicit declaration of function ‘split_head_update’ [-Wimplicit-function-declaration]
+  335 |                 ret = split_head_update(update, transaction, head_ref,
+      |                       ^~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:348:26: warning: implicit declaration of function ‘strbuf_detach’ [-Wimplicit-function-declaration]
+  348 |                 reason = strbuf_detach(err, NULL);
+      |                          ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:348:24: warning: assignment to ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  348 |                 reason = strbuf_detach(err, NULL);
+      |                        ^
+./benchmarks/git/leak_9/git_leak_9.c:350:29: warning: implicit declaration of function ‘original_update_refname’ [-Wimplicit-function-declaration]
+  350 |                             original_update_refname(update), reason);
+      |                             ^~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:364:29: warning: implicit declaration of function ‘refs_read_ref_full’ [-Wimplicit-function-declaration]
+  364 |                         if (refs_read_ref_full(&refs->base,
+      |                             ^~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:373:36: warning: implicit declaration of function ‘check_old_oid’ [-Wimplicit-function-declaration]
+  373 |                         } else if (check_old_oid(update, &lock->old_oid, err)) {
+      |                                    ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:384:31: warning: implicit declaration of function ‘split_symref_update’ [-Wimplicit-function-declaration]
+  384 |                         ret = split_symref_update(refs, update,
+      |                               ^~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:402:22: warning: implicit declaration of function ‘oidcmp’ [-Wimplicit-function-declaration]
+  402 |                     !oidcmp(&lock->old_oid, &update->new_oid)) {
+      |                      ^~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:407:28: warning: implicit declaration of function ‘write_ref_to_lockfile’ [-Wimplicit-function-declaration]
+  407 |                 } else if (write_ref_to_lockfile(lock, &update->new_oid,
+      |                            ^~~~~~~~~~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:409:43: warning: initialization of ‘char *’ from ‘int’ makes pointer from integer without a cast [-Wint-conversion]
+  409 |                         char *write_err = strbuf_detach(err, NULL);
+      |                                           ^~~~~~~~~~~~~
+./benchmarks/git/leak_9/git_leak_9.c:427:21: warning: implicit declaration of function ‘close_ref’ [-Wimplicit-function-declaration]
+  427 |                 if (close_ref(lock)) {
+      |                     ^~~~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 42%)
+ phase parsing                      :   0.05 ( 83%)   0.01 (100%)   0.06 ( 86%)  1341k ( 44%)
+ phase opt and generate             :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)   431k ( 14%)
+ callgraph ipa passes               :   0.01 ( 17%)   0.00 (  0%)   0.01 ( 14%)   188k (  6%)
+ ipa lto gimple out                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)  1272  (  0%)
+ preprocessing                      :   0.00 (  0%)   0.00 (  0%)   0.02 ( 29%)   498k ( 16%)
+ lexical analysis                   :   0.02 ( 33%)   0.01 (100%)   0.00 (  0%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.00 (  0%)   0.02 ( 29%)   603k ( 20%)
+ parser struct body                 :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)    81k (  3%)
+ parser function body               :   0.02 ( 33%)   0.00 (  0%)   0.02 ( 29%)    93k (  3%)
+ dominance computation              :   0.01 ( 17%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ TOTAL                              :   0.06          0.01          0.07         3081k
+../Compiler/newplugin.so 11.2.0 
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.01 (100%)  2157k ( 95%)
+ TOTAL                              :   0.00          0.00          0.01         2265k
+../Compiler/newplugin.so 11.2.0 
+--------plugin argument-----------
+contextsentive 1
+debugoutput 0
+debugmod 0
+=======ipa_pta=========
+=============== The first stage : Point of interest stmt collect =================
+=======node_fun:main=========
+=======node_fun:lock_ref_for_update=========
+=======node_fun:lock_raw_ref=========
+=======node_fun:files_read_raw_ref=========
+=======node_fun:strbuf_readlink=========
+=======node_fun:strbuf_release=========
+=======node_fun:strbuf_grow=========
+=======node_fun:xrealloc=========
+=======node_fun:strbuf_swap=========
+=============== The first stage :  record fucntion =================
+start PointerConstraint
+ptable point 126 
+===============The second stage : Mapping stmt=================
+# .MEM_4 = VDEF <.MEM_3(D)>
+lock_ref_for_update (&refs, &update, &transaction, head_ref_2(D), &affected_refnames, &err);
+# .MEM_92 = VDEF <.MEM_91>
+ret_61 = split_head_update (update_56(D), transaction_57(D), head_ref_55(D), affected_refnames_58(D), err_59(D));
+# .MEM_93 = VDEF <.MEM_83>
+ret_65 = lock_raw_ref (refs_62(D), _2, mustexist_63(D), affected_refnames_58(D), 0B, &lock, &referent, _1, err_59(D));
+# .MEM_107 = VDEF <.MEM_93>
+_3 = strbuf_detach (err_59(D), 0B);
+# .MEM_108 = VDEF <.MEM_107>
+_5 = original_update_refname (update_56(D));
+# .MEM_109 = VDEF <.MEM_108>
+strbuf_addf (err_59(D), "cannot lock ref \'%s\': %s", _5, reason_82);
+# .MEM_97 = VDEF <.MEM_94>
+_15 = refs_read_ref_full (_14, _13, 0, _12, 0B);
+# .MEM_99 = VDEF <.MEM_97>
+_18 = original_update_refname (update_56(D));
+# .MEM_100 = VDEF <.MEM_99>
+strbuf_addf (err_59(D), "cannot lock ref \'%s\': error reading reference", _18);
+# .MEM_98 = VDEF <.MEM_97>
+_21 = check_old_oid (update_56(D), _20, err_59(D));
+# .MEM_96 = VDEF <.MEM_94>
+ret_69 = split_symref_update (refs_62(D), update_56(D), _22, transaction_57(D), affected_refnames_58(D), err_59(D));
+# .MEM_95 = VDEF <.MEM_94>
+_25 = check_old_oid (update_56(D), _24, err_59(D));
+# .MEM_101 = VDEF <.MEM_84>
+_33 = oidcmp (_32, _30);
+# .MEM_102 = VDEF <.MEM_85>
+_36 = write_ref_to_lockfile (_35, _34, err_59(D));
+# .MEM_104 = VDEF <.MEM_102>
+_37 = strbuf_detach (err_59(D), 0B);
+# .MEM_106 = VDEF <.MEM_86>
+_44 = close_ref (_43);
+# .MEM_34 = VDEF <.MEM_33>
+lock_16 = calloc (1, 40);
+# .MEM_36 = VDEF <.MEM_35>
+_1 = strdup (refname_19(D));
+# .MEM_38 = VDEF <.MEM_37>
+files_ref_path (refs_22(D), &ref_file, refname_19(D));
+# .MEM_39 = VDEF <.MEM_38>
+_4 = files_read_raw_ref (_3, refname_19(D), _2, referent_24(D), type_13(D));
+_5 = __errno_location ();
+# .MEM_40 = VDEF <.MEM_39>
+strbuf_addf (err_27(D), "unable to resolve reference \'%s\'", refname_19(D));
+# .MEM_41 = VDEF <.MEM_40>
+unlock_ref (lock_16);
+# .MEM_43 = VDEF <.MEM_28>
+strbuf_release (&ref_file);
+# .MEM_95 = VDEF <.MEM_94(D)>
+_1 = files_downcast (ref_store_45(D), 1, "read_raw_ref");
+# .MEM_103 = VDEF <.MEM_102>
+strbuf_reset (&sb_path);
+# .MEM_104 = VDEF <.MEM_103>
+files_ref_path (refs_47, &sb_path, refname_57(D));
+# .MEM_105 = VDEF <.MEM_91>
+_3 = lstat (path_59, &st);
+_4 = __errno_location ();
+# .MEM_124 = VDEF <.MEM_105>
+_6 = resolve_packed_ref (refs_47, refname_57(D), sha1_75(D), type_54(D));
+_7 = __errno_location ();
+# .MEM_106 = VDEF <.MEM_105>
+strbuf_reset (&sb_contents);
+# .MEM_107 = VDEF <.MEM_106>
+_8 = strbuf_readlink (&sb_contents, path_59, 0);
+_9 = __errno_location ();
+# .MEM_108 = VDEF <.MEM_107>
+_14 = starts_with (_13, "refs/");
+# .MEM_109 = VDEF <.MEM_108>
+_16 = check_refname_format (_15, 0);
+# .MEM_110 = VDEF <.MEM_109>
+strbuf_swap (&sb_contents, referent_66(D));
+# .MEM_112 = VDEF <.MEM_92>
+strbuf_reset (&sb_contents);
+# .MEM_113 = VDEF <.MEM_112>
+_19 = strbuf_read (&sb_contents, fd_70(D), 256);
+_20 = __errno_location ();
+# .MEM_122 = VDEF <.MEM_113>
+close (fd_70(D));
+_21 = __errno_location ();
+# .MEM_114 = VDEF <.MEM_113>
+strbuf_rtrim (&sb_contents);
+# .MEM_115 = VDEF <.MEM_114>
+_22 = starts_with (buf_73, "ref:");
+# VUSE <.MEM_115>
+_25 = isspace (_24);
+# .MEM_119 = VDEF <.MEM_115>
+strbuf_reset (referent_66(D));
+# .MEM_120 = VDEF <.MEM_119>
+strbuf_addstr (referent_66(D), buf_38);
+# .MEM_116 = VDEF <.MEM_115>
+_28 = get_sha1_hex (buf_73, sha1_75(D));
+# VUSE <.MEM_116>
+_32 = isspace (_31);
+_35 = __errno_location ();
+_36 = __errno_location ();
+# .MEM_126 = VDEF <.MEM_93>
+strbuf_release (&sb_path);
+# .MEM_127 = VDEF <.MEM_126>
+strbuf_release (&sb_contents);
+_37 = __errno_location ();
+# .MEM_26 = VDEF <.MEM_22>
+strbuf_grow (sb_11(D), hint_5);
+# .MEM_27 = VDEF <.MEM_26>
+len_17 = readlink (path_15(D), _1, hint_5);
+_2 = __errno_location ();
+# .MEM_28 = VDEF <.MEM_27>
+strbuf_setlen (sb_11(D), len_17);
+# .MEM_29 = VDEF <.MEM_23>
+strbuf_release (sb_11(D));
+# .MEM_9 = VDEF <.MEM_8>
+strbuf_init (sb_5(D), 0);
+# .MEM_44 = VDEF <.MEM_43(D)>
+_3 = unsigned_add_overflows (extra_37(D), 1);
+# .MEM_45 = VDEF <.MEM_44>
+_6 = unsigned_add_overflows (_5, _4);
+# .MEM_55 = VDEF <.MEM_38>
+printf ("you want to use way too much memory%s", "");
+# .MEM_47 = VDEF <.MEM_39>
+_12 = alloc_nr (_11);
+# .MEM_48 = VDEF <.MEM_47>
+_21 = alloc_nr (_20);
+# .MEM_51 = VDEF <.MEM_40>
+_24 = st_mult (1, _23);
+# .MEM_52 = VDEF <.MEM_51>
+_27 = xrealloc (_26, _25);
+# .MEM_32 = VDEF <.MEM_25>
+printf ("Out of memory, realloc failed%s", "");
+# .MEM_5 = VDEF <.MEM_4>
+memcpy (a_1(D), b_2(D), 24);
+===============The second stage : Program slicing=================
+===============The second stage : build fucntion type=================
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+      |||
+      |||
+      |||
+      |||
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;41mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+=============== The third stage : Start detection  =================
+
+=============== The third stage : detection  End=================
+
+===============Print ALL GIMPLE IR=================
+=======Mapping node_fun:main=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+lock_ref_for_update (&refs, &update, &transaction, head_ref_2(D), &affected_refnames, &err);
+refs ={v} {CLOBBER};
+update ={v} {CLOBBER};
+transaction ={v} {CLOBBER};
+affected_refnames ={v} {CLOBBER};
+err ={v} {CLOBBER};
+return 0;
+
+=======Mapping node_fun:lock_ref_for_update=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741823]:
+referent.alloc = 0;
+referent.len = 0;
+referent.buf = &strbuf_slopbuf;
+if (head_ref_55(D) != 0B)
+  goto <bb 3>; [70.00%]
+else
+  goto <bb 4>; [30.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 751619280]:
+ret_61 = split_head_update (update_56(D), transaction_57(D), head_ref_55(D), affected_refnames_58(D), err_59(D));
+if (ret_61 != 0)
+  goto <bb 23>; [34.00%]
+else
+  goto <bb 4>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 818191265]:
+_1 = &update_56(D)->type;
+_2 = &update_56(D)->refname;
+ret_65 = lock_raw_ref (refs_62(D), _2, mustexist_63(D), affected_refnames_58(D), 0B, &lock, &referent, _1, err_59(D));
+if (ret_65 != 0)
+  goto <bb 5>; [20.24%]
+else
+  goto <bb 6>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 165601911]:
+_3 = strbuf_detach (err_59(D), 0B);
+_4 = (long int) _3;
+reason_82 = (char *) _4;
+_5 = original_update_refname (update_56(D));
+strbuf_addf (err_59(D), "cannot lock ref \'%s\': %s", _5, reason_82);
+free (reason_82);
+goto <bb 23>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 652589355]:
+_6 = lock;
+update_56(D)->backend_data = _6;
+_7 = update_56(D)->type;
+_8 = _7 & 1;
+if (_8 != 0)
+  goto <bb 7>; [67.00%]
+else
+  goto <bb 13>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 437234868]:
+_9 = update_56(D)->flags;
+_10 = _9 & 1;
+if (_10 != 0)
+  goto <bb 8>; [50.00%]
+else
+  goto <bb 12>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 218617434]:
+_11 = lock;
+_12 = &_11->old_oid.hash;
+_13 = referent.buf;
+_14 = &refs_62(D)->base;
+_15 = refs_read_ref_full (_14, _13, 0, _12, 0B);
+if (_15 != 0)
+  goto <bb 9>; [67.00%]
+else
+  goto <bb 11>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 146473681]:
+_16 = update_56(D)->flags;
+_17 = _16 & 16;
+if (_17 != 0)
+  goto <bb 10>; [0.52%]
+else
+  goto <bb 14>; [99.48%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 761663]:
+_18 = original_update_refname (update_56(D));
+strbuf_addf (err_59(D), "cannot lock ref \'%s\': error reading reference", _18);
+goto <bb 23>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 72143753]:
+_19 = lock;
+_20 = &_19->old_oid;
+_21 = check_old_oid (update_56(D), _20, err_59(D));
+if (_21 != 0)
+  goto <bb 23>; [1.04%]
+else
+  goto <bb 14>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 218617434]:
+_22 = referent.buf;
+ret_69 = split_symref_update (refs_62(D), update_56(D), _22, transaction_57(D), affected_refnames_58(D), err_59(D));
+if (ret_69 != 0)
+  goto <bb 23>; [34.00%]
+else
+  goto <bb 14>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 215354486]:
+_23 = lock;
+_24 = &_23->old_oid;
+_25 = check_old_oid (update_56(D), _24, err_59(D));
+if (_25 != 0)
+  goto <bb 23>; [1.04%]
+else
+  goto <bb 14>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 574507783]:
+_26 = BIT_FIELD_REF <*update_56(D), 32, 320>;
+_27 = _26 & 138;
+if (_27 == 8)
+  goto <bb 15>; [34.00%]
+else
+  goto <bb 20>; [66.00%]
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 195332648]:
+_28 = update_56(D)->type;
+_29 = _28 & 1;
+if (_29 == 0)
+  goto <bb 16>; [50.00%]
+else
+  goto <bb 17>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 97666324]:
+_30 = &update_56(D)->new_oid;
+_31 = lock;
+_32 = &_31->old_oid;
+_33 = oidcmp (_32, _30);
+if (_33 == 0)
+  goto <bb 20>; [50.00%]
+else
+  goto <bb 17>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 146499486]:
+_34 = &update_56(D)->new_oid;
+_35 = lock;
+_36 = write_ref_to_lockfile (_35, _34, err_59(D));
+if (_36 != 0)
+  goto <bb 18>; [0.52%]
+else
+  goto <bb 19>; [99.48%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 761797]:
+_37 = strbuf_detach (err_59(D), 0B);
+_38 = (long int) _37;
+write_err_78 = (char *) _38;
+update_56(D)->backend_data = 0B;
+goto <bb 23>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 145737689]:
+_39 = update_56(D)->flags;
+_40 = _39 | 32;
+update_56(D)->flags = _40;
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 573745986]:
+_41 = update_56(D)->flags;
+_42 = _41 & 32;
+if (_42 == 0)
+  goto <bb 21>; [33.00%]
+else
+  goto <bb 23>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 189336174]:
+_43 = lock;
+_44 = close_ref (_43);
+if (_44 != 0)
+  goto <bb 22>; [1.04%]
+else
+  goto <bb 23>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 22 
+<bb 22> [local count: 1969096]:
+
+=======is loop:0=========
+
+ bb index 23 
+<bb 23> [local count: 1073741824]:
+# _45 = PHI <ret_61(3), ret_65(5), -1(10), -2(11), ret_69(12), -2(13), -2(18), 0(20), 0(21), -2(22)>
+referent ={v} {CLOBBER};
+lock ={v} {CLOBBER};
+return _45;
+
+=======Mapping node_fun:lock_raw_ref=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ref_file.alloc = 0;
+ref_file.len = 0;
+ref_file.buf = &strbuf_slopbuf;
+*type_13(D) = 0;
+lock_16 = calloc (1, 40);
+*lock_p_17(D) = lock_16;
+_1 = strdup (refname_19(D));
+lock_16->ref_name = _1;
+files_ref_path (refs_22(D), &ref_file, refname_19(D));
+_2 = &lock_16->old_oid.hash;
+_3 = &refs_22(D)->base;
+_4 = files_read_raw_ref (_3, refname_19(D), _2, referent_24(D), type_13(D));
+if (_4 != 0)
+  goto <bb 3>; [66.00%]
+else
+  goto <bb 6>; [34.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 708669601]:
+_5 = __errno_location ();
+_6 = *_5;
+if (_6 == 2)
+  goto <bb 4>; [50.00%]
+else
+  goto <bb 6>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 354334800]:
+if (mustexist_26(D) != 0)
+  goto <bb 5>; [1.00%]
+else
+  goto <bb 6>; [99.00%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 3543347]:
+strbuf_addf (err_27(D), "unable to resolve reference \'%s\'", refname_19(D));
+// predicted unlikely by goto predictor.
+unlock_ref (lock_16);
+*lock_p_17(D) = 0B;
+goto <bb 7>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 1070198478]:
+// predicted unlikely by goto predictor.
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1073741824]:
+# ret_7 = PHI <-2(5), 0(6)>
+out:
+strbuf_release (&ref_file);
+ref_file ={v} {CLOBBER};
+return ret_7;
+
+=======Mapping node_fun:files_read_raw_ref=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 333062948]:
+_1 = files_downcast (ref_store_45(D), 1, "read_raw_ref");
+_2 = (long int) _1;
+refs_47 = (struct files_ref_store *) _2;
+sb_contents.alloc = 0;
+sb_contents.len = 0;
+sb_contents.buf = &strbuf_slopbuf;
+sb_path.alloc = 0;
+sb_path.len = 0;
+sb_path.buf = &strbuf_slopbuf;
+*type_54(D) = 0;
+strbuf_reset (&sb_path);
+files_ref_path (refs_47, &sb_path, refname_57(D));
+path_59 = sb_path.buf;
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1073741824]:
+# remaining_retries_40 = PHI <3(2), remaining_retries_60(13)>
+stat_ref:
+remaining_retries_60 = remaining_retries_40 + -1;
+if (remaining_retries_40 <= 0)
+  goto <bb 4>; [25.00%]
+else
+  goto <bb 5>; [75.00%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 268435456]:
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 805306369]:
+_3 = lstat (path_59, &st);
+if (_3 < 0)
+  goto <bb 6>; [2.75%]
+else
+  goto <bb 11>; [97.25%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 22145928]:
+_4 = __errno_location ();
+_5 = *_4;
+if (_5 != 2)
+  goto <bb 7>; [3.98%]
+else
+  goto <bb 8>; [96.02%]
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 881408]:
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 21264520]:
+_6 = resolve_packed_ref (refs_47, refname_57(D), sha1_75(D), type_54(D));
+if (_6 != 0)
+  goto <bb 9>; [2.00%]
+else
+  goto <bb 10>; [98.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 425290]:
+_7 = __errno_location ();
+*_7 = 2;
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 20839230]:
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 11 
+<bb 11> [local count: 783160441]:
+strbuf_reset (&sb_contents);
+_8 = strbuf_readlink (&sb_contents, path_59, 0);
+if (_8 < 0)
+  goto <bb 12>; [97.25%]
+else
+  goto <bb 15>; [2.75%]
+
+=======is loop:1=========
+
+ bb index 12 
+<bb 12> [local count: 761623526]:
+_9 = __errno_location ();
+_87 = *_9;
+_10 = _87 == 2;
+_11 = _87 == 22;
+_12 = _10 | _11;
+if (_12 != 0)
+  goto <bb 13>; [97.25%]
+else
+  goto <bb 14>; [2.75%]
+
+=======is loop:1=========
+
+ bb index 13 
+<bb 13> [local count: 740678875]:
+// predicted unlikely by goto predictor.
+goto <bb 3>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 20944650]:
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 15 
+<bb 15> [local count: 21536915]:
+_13 = sb_contents.buf;
+_14 = starts_with (_13, "refs/");
+if (_14 != 0)
+  goto <bb 16>; [50.00%]
+else
+  goto <bb 18>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 16 
+<bb 16> [local count: 10768457]:
+_15 = sb_contents.buf;
+_16 = check_refname_format (_15, 0);
+if (_16 == 0)
+  goto <bb 17>; [20.24%]
+else
+  goto <bb 18>; [79.76%]
+
+=======is loop:0=========
+
+ bb index 17 
+<bb 17> [local count: 2179536]:
+strbuf_swap (&sb_contents, referent_66(D));
+_17 = *type_54(D);
+_18 = _17 | 1;
+*type_54(D) = _18;
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 18 
+<bb 18> [local count: 19357379]:
+strbuf_reset (&sb_contents);
+_19 = strbuf_read (&sb_contents, fd_70(D), 256);
+if (_19 < 0)
+  goto <bb 19>; [0.73%]
+else
+  goto <bb 20>; [99.27%]
+
+=======is loop:0=========
+
+ bb index 19 
+<bb 19> [local count: 141309]:
+_20 = __errno_location ();
+save_errno_84 = *_20;
+close (fd_70(D));
+_21 = __errno_location ();
+*_21 = save_errno_84;
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 20 
+<bb 20> [local count: 19216070]:
+strbuf_rtrim (&sb_contents);
+buf_73 = sb_contents.buf;
+_22 = starts_with (buf_73, "ref:");
+if (_22 != 0)
+  goto <bb 21>; [51.12%]
+else
+  goto <bb 25>; [48.88%]
+
+=======is loop:0=========
+
+ bb index 21 
+<bb 21> [local count: 9823255]:
+buf_79 = buf_73 + 4;
+goto <bb 23>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 22 
+<bb 22> [local count: 79479066]:
+buf_83 = buf_38 + 1;
+
+=======is loop:1=========
+
+ bb index 23 
+<bb 23> [local count: 89302321]:
+# buf_38 = PHI <buf_79(21), buf_83(22)>
+_23 = *buf_38;
+_24 = (int) _23;
+_25 = isspace (_24);
+if (_25 != 0)
+  goto <bb 22>; [89.00%]
+else
+  goto <bb 24>; [11.00%]
+
+=======is loop:0=========
+
+ bb index 24 
+<bb 24> [local count: 9823255]:
+strbuf_reset (referent_66(D));
+strbuf_addstr (referent_66(D), buf_38);
+_26 = *type_54(D);
+_27 = _26 | 1;
+*type_54(D) = _27;
+// predicted unlikely by goto predictor.
+goto <bb 29>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 25 
+<bb 25> [local count: 9392815]:
+_28 = get_sha1_hex (buf_73, sha1_75(D));
+if (_28 != 0)
+  goto <bb 28>; [1.04%]
+else
+  goto <bb 26>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 26 
+<bb 26> [local count: 9295130]:
+_29 = MEM[(const char *)buf_73 + 40B];
+if (_29 != 0)
+  goto <bb 27>; [50.00%]
+else
+  goto <bb 29>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 27 
+<bb 27> [local count: 4647565]:
+_30 = MEM[(const char *)buf_73 + 40B];
+_31 = (int) _30;
+_32 = isspace (_31);
+if (_32 == 0)
+  goto <bb 28>; [1.04%]
+else
+  goto <bb 29>; [98.96%]
+
+=======is loop:0=========
+
+ bb index 28 
+<bb 28> [local count: 146020]:
+_33 = *type_54(D);
+_34 = _33 | 4;
+*type_54(D) = _34;
+_35 = __errno_location ();
+*_35 = 22;
+// predicted unlikely by goto predictor.
+
+=======is loop:0=========
+
+ bb index 29 
+<bb 29> [local count: 333062949]:
+# ret_39 = PHI <-1(4), -1(7), -1(9), 0(10), -1(14), 0(17), -1(19), 0(24), 0(26), 0(27), -1(28)>
+out:
+_36 = __errno_location ();
+save_errno_90 = *_36;
+strbuf_release (&sb_path);
+strbuf_release (&sb_contents);
+_37 = __errno_location ();
+*_37 = save_errno_90;
+sb_contents ={v} {CLOBBER};
+sb_path ={v} {CLOBBER};
+st ={v} {CLOBBER};
+return ret_39;
+
+=======Mapping node_fun:strbuf_readlink=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 77159562]:
+oldalloc_12 = sb_11(D)->alloc;
+_21 = MAX_EXPR <32, hint_13(D)>;
+goto <bb 8>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 3 
+<bb 3> [local count: 1034442873]:
+strbuf_grow (sb_11(D), hint_5);
+_1 = sb_11(D)->buf;
+len_17 = readlink (path_15(D), _1, hint_5);
+if (len_17 < 0)
+  goto <bb 4>; [41.00%]
+else
+  goto <bb 5>; [59.00%]
+
+=======is loop:1=========
+
+ bb index 4 
+<bb 4> [local count: 424121574]:
+_2 = __errno_location ();
+_3 = *_2;
+if (_3 != 34)
+  goto <bb 9>; [3.66%]
+else
+  goto <bb 7>; [96.34%]
+
+=======is loop:1=========
+
+ bb index 5 
+<bb 5> [local count: 610321299]:
+_4 = (long unsigned int) len_17;
+if (_4 < hint_5)
+  goto <bb 6>; [3.66%]
+else
+  goto <bb 7>; [96.34%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 22337760]:
+strbuf_setlen (sb_11(D), len_17);
+goto <bb 11>; [100.00%]
+
+=======is loop:1=========
+
+ bb index 7 
+<bb 7> [local count: 996582263]:
+hint_19 = hint_5 * 2;
+
+=======is loop:1=========
+
+ bb index 8 
+<bb 8> [local count: 1073741824]:
+# hint_5 = PHI <_21(2), hint_19(7)>
+if (hint_5 <= 8191)
+  goto <bb 3>; [96.34%]
+else
+  goto <bb 9>; [3.66%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 54821802]:
+if (oldalloc_12 == 0)
+  goto <bb 10>; [33.00%]
+else
+  goto <bb 11>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 18091195]:
+strbuf_release (sb_11(D));
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 77159562]:
+# _6 = PHI <0(6), -1(9), -1(10)>
+return _6;
+
+=======Mapping node_fun:strbuf_release=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = sb_5(D)->alloc;
+if (_1 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+_2 = sb_5(D)->buf;
+free (_2);
+strbuf_init (sb_5(D), 0);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+return;
+
+=======Mapping node_fun:strbuf_grow=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+_1 = sb_35(D)->alloc;
+_2 = _1 == 0;
+new_buf_36 = (int) _2;
+_3 = unsigned_add_overflows (extra_37(D), 1);
+if (_3 != 0)
+  goto <bb 4>; [0.04%]
+else
+  goto <bb 3>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 1073312329]:
+_4 = extra_37(D) + 1;
+_5 = sb_35(D)->len;
+_6 = unsigned_add_overflows (_5, _4);
+if (_6 != 0)
+  goto <bb 4>; [0.04%]
+else
+  goto <bb 5>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 858820]:
+printf ("you want to use way too much memory%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 1072883005]:
+if (_1 == 0)
+  goto <bb 6>; [50.00%]
+else
+  goto <bb 7>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 536441502]:
+sb_35(D)->buf = 0B;
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 1072883005]:
+_7 = sb_35(D)->len;
+_8 = _7 + extra_37(D);
+_9 = _8 + 1;
+_10 = sb_35(D)->alloc;
+if (_9 > _10)
+  goto <bb 8>; [33.00%]
+else
+  goto <bb 12>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 354051390]:
+_11 = sb_35(D)->alloc;
+_12 = alloc_nr (_11);
+_13 = (long unsigned int) _12;
+_14 = sb_35(D)->len;
+_15 = _14 + extra_37(D);
+_16 = _15 + 1;
+if (_13 < _16)
+  goto <bb 9>; [67.00%]
+else
+  goto <bb 10>; [33.00%]
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 237214432]:
+_17 = sb_35(D)->len;
+_18 = _17 + extra_37(D);
+_19 = _18 + 1;
+sb_35(D)->alloc = _19;
+goto <bb 11>; [100.00%]
+
+=======is loop:0=========
+
+ bb index 10 
+<bb 10> [local count: 116836958]:
+_20 = sb_35(D)->alloc;
+_21 = alloc_nr (_20);
+_22 = (long unsigned int) _21;
+sb_35(D)->alloc = _22;
+
+=======is loop:0=========
+
+ bb index 11 
+<bb 11> [local count: 354051390]:
+_23 = sb_35(D)->alloc;
+_24 = st_mult (1, _23);
+_25 = (long unsigned int) _24;
+_26 = sb_35(D)->buf;
+_27 = xrealloc (_26, _25);
+sb_35(D)->buf = _27;
+
+=======is loop:0=========
+
+ bb index 12 
+<bb 12> [local count: 1072883006]:
+if (_1 == 0)
+  goto <bb 13>; [50.00%]
+else
+  goto <bb 14>; [50.00%]
+
+=======is loop:0=========
+
+ bb index 13 
+<bb 13> [local count: 536441503]:
+_28 = sb_35(D)->buf;
+*_28 = 0;
+
+=======is loop:0=========
+
+ bb index 14 
+<bb 14> [local count: 1072883006]:
+return;
+
+=======Mapping node_fun:xrealloc=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+ret_17 = realloc (ptr_14(D), size_15(D));
+_1 = ret_17 == 0B;
+_2 = size_15(D) == 0;
+_3 = _1 & _2;
+if (_3 != 0)
+  goto <bb 3>; [33.00%]
+else
+  goto <bb 4>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 3 
+<bb 3> [local count: 354334800]:
+ret_19 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 4 
+<bb 4> [local count: 1073741824]:
+# ret_7 = PHI <ret_17(2), ret_19(3)>
+if (ret_7 == 0B)
+  goto <bb 5>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 5 
+<bb 5> [local count: 429496]:
+ret_21 = realloc (ptr_14(D), size_15(D));
+_4 = ret_21 == 0B;
+_5 = size_15(D) == 0;
+_6 = _4 & _5;
+if (_6 != 0)
+  goto <bb 6>; [33.00%]
+else
+  goto <bb 7>; [67.00%]
+
+=======is loop:0=========
+
+ bb index 6 
+<bb 6> [local count: 141734]:
+ret_23 = realloc (ptr_14(D), 1);
+
+=======is loop:0=========
+
+ bb index 7 
+<bb 7> [local count: 429496]:
+# ret_8 = PHI <ret_21(5), ret_23(6)>
+if (ret_8 == 0B)
+  goto <bb 8>; [0.04%]
+else
+  goto <bb 9>; [99.96%]
+
+=======is loop:0=========
+
+ bb index 8 
+<bb 8> [local count: 172]:
+printf ("Out of memory, realloc failed%s", "");
+exit (1);
+
+=======is loop:0=========
+
+ bb index 9 
+<bb 9> [local count: 1073741653]:
+# ret_9 = PHI <ret_7(4), ret_8(7)>
+return ret_9;
+
+=======Mapping node_fun:strbuf_swap=========
+=======is loop:0=========
+
+ bb index 2 
+<bb 2> [local count: 1073741824]:
+MEM <unsigned char[24]> [(char * {ref-all})&_swap_buffer] = MEM <unsigned char[24]> [(char * {ref-all})a_1(D)];
+memcpy (a_1(D), b_2(D), 24);
+MEM <unsigned char[24]> [(char * {ref-all})b_2(D)] = MEM <unsigned char[24]> [(char * {ref-all})&_swap_buffer];
+_swap_buffer ={v} {CLOBBER};
+return;
+
+
+===============Print ALL GIMPLE IR=================
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+    =()=
+ ,/'_||_
+  (___  `.
+ ./  `=='
+                   
+    ~~~~~~~~~~~  
+ ~~~~~~
+           ~~~~~~~
+[40;34m    gimple malloc count : 6 [0m
+[40;34m    gimple free   count : 2 [0m
+[40;34m    all ptable point : 126 [0m
+[40;34m    analyzable ptable point : 123 [0m
+[40;34m    analyzable ptable all point stmt : 1525 [0m
+[40;34m    used_stmt array stack totalsize of : 0.046312 mb[0m
+[40;34m    collect time: : 0.000577 s [0m
+[40;34m    mapping time: : 0.005303 s [0m
+[40;34m    algorithm time: 0.099278 s [0m
+[40;34m    gimple stmt count : : 299 [0m
+[40;34m    this report analysis in Sun Jun 26 13:53:10 2022
+ [0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+[40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  2157k ( 62%)
+ phase opt and generate             :   0.13 (100%)   0.02 (100%)   0.15 (100%)  1204k ( 35%)
+ callgraph functions expansion      :   0.03 ( 23%)   0.01 ( 50%)   0.04 ( 27%)   930k ( 27%)
+ ipa points-to                      :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)    14k (  0%)
+ df live regs                       :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)     0  (  0%)
+ register information               :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ tree forward propagate             :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)  3616  (  0%)
+ expand                             :   0.01 (  8%)   0.00 (  0%)   0.00 (  0%)   162k (  5%)
+ integrated RA                      :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)   303k (  9%)
+ LRA non-specific                   :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)  7376  (  0%)
+ hard reg cprop                     :   0.00 (  0%)   0.00 (  0%)   0.01 (  7%)   408  (  0%)
+ plugin execution                   :   0.10 ( 77%)   0.01 ( 50%)   0.11 ( 73%)  4328  (  0%)
+ TOTAL                              :   0.13          0.02          0.15         3462k
+/usr/bin/ld: /tmp/ccuRNbyw.ltrans0.ltrans.o: in function `strbuf_grow':
+<artificial>:(.text+0xb2): undefined reference to `unsigned_add_overflows'
+/usr/bin/ld: <artificial>:(.text+0xc6): undefined reference to `unsigned_add_overflows'
+/usr/bin/ld: <artificial>:(.text+0x127): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x13d): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x16e): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x18f): undefined reference to `st_mult'
+/usr/bin/ld: <artificial>:(.text+0x1ae): undefined reference to `alloc_nr'
+/usr/bin/ld: <artificial>:(.text+0x1d3): undefined reference to `st_mult'
+/usr/bin/ld: /tmp/ccuRNbyw.ltrans0.ltrans.o: in function `strbuf_release':
+<artificial>:(.text+0x20e): undefined reference to `strbuf_init'
+/usr/bin/ld: /tmp/ccuRNbyw.ltrans0.ltrans.o: in function `strbuf_readlink':
+<artificial>:(.text+0x29d): undefined reference to `strbuf_setlen'
+/usr/bin/ld: /tmp/ccuRNbyw.ltrans0.ltrans.o: in function `files_read_raw_ref':
+<artificial>:(.text+0x2e6): undefined reference to `files_downcast'
+/usr/bin/ld: <artificial>:(.text+0x30d): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x331): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x34b): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x363): undefined reference to `files_ref_path'
+/usr/bin/ld: <artificial>:(.text+0x39e): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x3f9): undefined reference to `resolve_packed_ref'
+/usr/bin/ld: <artificial>:(.text+0x42a): undefined reference to `starts_with'
+/usr/bin/ld: <artificial>:(.text+0x445): undefined reference to `check_refname_format'
+/usr/bin/ld: <artificial>:(.text+0x45d): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x479): undefined reference to `strbuf_read'
+/usr/bin/ld: <artificial>:(.text+0x48f): undefined reference to `strbuf_rtrim'
+/usr/bin/ld: <artificial>:(.text+0x4a9): undefined reference to `starts_with'
+/usr/bin/ld: <artificial>:(.text+0x51e): undefined reference to `strbuf_reset'
+/usr/bin/ld: <artificial>:(.text+0x52e): undefined reference to `strbuf_addstr'
+/usr/bin/ld: <artificial>:(.text+0x545): undefined reference to `get_sha1_hex'
+/usr/bin/ld: /tmp/ccuRNbyw.ltrans0.ltrans.o: in function `lock_raw_ref':
+<artificial>:(.text+0x5f7): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x632): undefined reference to `files_ref_path'
+/usr/bin/ld: <artificial>:(.text+0x696): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x6a3): undefined reference to `unlock_ref'
+/usr/bin/ld: /tmp/ccuRNbyw.ltrans0.ltrans.o: in function `lock_ref_for_update':
+<artificial>:(.text+0x6ed): undefined reference to `strbuf_slopbuf'
+/usr/bin/ld: <artificial>:(.text+0x70b): undefined reference to `split_head_update'
+/usr/bin/ld: <artificial>:(.text+0x78d): undefined reference to `refs_read_ref_full'
+/usr/bin/ld: <artificial>:(.text+0x7a8): undefined reference to `original_update_refname'
+/usr/bin/ld: <artificial>:(.text+0x7bc): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x7d8): undefined reference to `strbuf_detach'
+/usr/bin/ld: <artificial>:(.text+0x7e8): undefined reference to `original_update_refname'
+/usr/bin/ld: <artificial>:(.text+0x7ff): undefined reference to `strbuf_addf'
+/usr/bin/ld: <artificial>:(.text+0x81d): undefined reference to `check_old_oid'
+/usr/bin/ld: <artificial>:(.text+0x848): undefined reference to `split_symref_update'
+/usr/bin/ld: <artificial>:(.text+0x864): undefined reference to `check_old_oid'
+/usr/bin/ld: <artificial>:(.text+0x8a7): undefined reference to `oidcmp'
+/usr/bin/ld: <artificial>:(.text+0x8be): undefined reference to `write_ref_to_lockfile'
+/usr/bin/ld: <artificial>:(.text+0x8da): undefined reference to `strbuf_detach'
+/usr/bin/ld: <artificial>:(.text+0x8f6): undefined reference to `close_ref'
+collect2: error: ld returned 1 exit status

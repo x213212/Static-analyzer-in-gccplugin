@@ -758,9 +758,6 @@ void Varnew_search_imm_use(gimple_array *used_stmt, gimple *use_stmt, tree targe
 							}
 							else if (gimple_assign_lhs(nowstmt) && TREE_CODE(gimple_assign_lhs(nowstmt)) == MEM_REF)
 							{
-						
-
-
 								if (!check_stmtStack(gimple_assign_lhs(nowstmt)))
 								{
 									tree second = TREE_OPERAND(gimple_assign_lhs(nowstmt), 0);
@@ -934,7 +931,7 @@ void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 												if (TREE_CODE(gimple_assign_lhs((assign_array.assign_type_array)[i].stmt)) == MEM_REF)
 												{
-															
+
 													// fprintf(stderr, "=======fist hit2========\n");
 													// fprintf(stderr, "=======fist hit3=======\n");
 													// debug_gimple_stmt((assign_array.assign_type_array)[i].stmt);
@@ -1240,8 +1237,8 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 				use_stmt = USE_STMT(use_p);
 				if (!check_stmtStack4(use_stmt))
 				{
-	// 				debug_gimple_stmt(use_stmt);
-	// fprintf(stderr, "------------------GIMPLE_RETURN : LHS------------------\n");
+					// 				debug_gimple_stmt(use_stmt);
+					// fprintf(stderr, "------------------GIMPLE_RETURN : LHS------------------\n");
 				has_single_use_jump:
 					if (gimple_cond_code(use_stmt))
 					{
@@ -1367,7 +1364,6 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 
 						if (gimpleassignlhs && TREE_CODE(gimpleassignlhs) == MEM_REF)
 						{
-							
 
 							tree fundecl = TREE_OPERAND(gimpleassignlhs, 0);
 

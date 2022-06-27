@@ -1,0 +1,362 @@
+../Compiler/newplugin.so 11.2.0 
+./benchmarks/tmux/leak_5/tmux_leak_5.c:86:8: error: redefinition of ‘struct args_entry’
+   86 | struct args_entry {
+      |        ^~~~~~~~~~
+In file included from ./benchmarks/tmux/leak_5/tmux_leak_5.c:10:
+./benchmarks/tmux/leak_5/../tmux.h:1215:8: note: originally defined here
+ 1215 | struct args_entry {
+      |        ^~~~~~~~~~
+In file included from ./benchmarks/tmux/leak_5/../tmux.h:22,
+                 from ./benchmarks/tmux/leak_5/tmux_leak_5.c:10:
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘args_tree_RB_INSERT_COLOR’:
+./benchmarks/tmux/leak_5/../tree.h:383:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  383 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:480:33: note: in expansion of macro ‘RB_ROTATE_LEFT’
+  480 |                                 RB_ROTATE_LEFT(head, parent, tmp, field);\
+      |                                 ^~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:453:9: note: in expansion of macro ‘RB_GENERATE_INSERT_COLOR’
+  453 |         RB_GENERATE_INSERT_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:403:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  403 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:486:25: note: in expansion of macro ‘RB_ROTATE_RIGHT’
+  486 |                         RB_ROTATE_RIGHT(head, gparent, tmp, field);     \
+      |                         ^~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:453:9: note: in expansion of macro ‘RB_GENERATE_INSERT_COLOR’
+  453 |         RB_GENERATE_INSERT_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:403:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  403 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:496:33: note: in expansion of macro ‘RB_ROTATE_RIGHT’
+  496 |                                 RB_ROTATE_RIGHT(head, parent, tmp, field);\
+      |                                 ^~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:453:9: note: in expansion of macro ‘RB_GENERATE_INSERT_COLOR’
+  453 |         RB_GENERATE_INSERT_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:383:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  383 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:502:25: note: in expansion of macro ‘RB_ROTATE_LEFT’
+  502 |                         RB_ROTATE_LEFT(head, gparent, tmp, field);      \
+      |                         ^~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:453:9: note: in expansion of macro ‘RB_GENERATE_INSERT_COLOR’
+  453 |         RB_GENERATE_INSERT_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘args_tree_RB_REMOVE_COLOR’:
+./benchmarks/tmux/leak_5/../tree.h:514:17: warning: comparison of distinct pointer types lacks a cast
+  514 |             elm != RB_ROOT(head)) {                                     \
+      |                 ^~
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:383:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  383 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:519:33: note: in expansion of macro ‘RB_ROTATE_LEFT’
+  519 |                                 RB_ROTATE_LEFT(head, parent, tmp, field);\
+      |                                 ^~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:403:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  403 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:537:41: note: in expansion of macro ‘RB_ROTATE_RIGHT’
+  537 |                                         RB_ROTATE_RIGHT(head, tmp, oleft, field);\
+      |                                         ^~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:383:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  383 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:544:33: note: in expansion of macro ‘RB_ROTATE_LEFT’
+  544 |                                 RB_ROTATE_LEFT(head, parent, tmp, field);\
+      |                                 ^~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:545:37: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  545 |                                 elm = RB_ROOT(head);                    \
+      |                                     ^
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:403:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  403 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:552:33: note: in expansion of macro ‘RB_ROTATE_RIGHT’
+  552 |                                 RB_ROTATE_RIGHT(head, parent, tmp, field);\
+      |                                 ^~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:383:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  383 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:570:41: note: in expansion of macro ‘RB_ROTATE_LEFT’
+  570 |                                         RB_ROTATE_LEFT(head, tmp, oright, field);\
+      |                                         ^~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:403:34: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  403 |                 (head)->rbh_root = (tmp);                               \
+      |                                  ^
+./benchmarks/tmux/leak_5/../tree.h:577:33: note: in expansion of macro ‘RB_ROTATE_RIGHT’
+  577 |                                 RB_ROTATE_RIGHT(head, parent, tmp, field);\
+      |                                 ^~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:578:37: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  578 |                                 elm = RB_ROOT(head);                    \
+      |                                     ^
+./benchmarks/tmux/leak_5/../tree.h:454:9: note: in expansion of macro ‘RB_GENERATE_REMOVE_COLOR’
+  454 |         RB_GENERATE_REMOVE_COLOR(name, type, field, attr)               \
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘args_tree_RB_INSERT’:
+./benchmarks/tmux/leak_5/../tree.h:663:13: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  663 |         tmp = RB_ROOT(head);                                            \
+      |             ^
+./benchmarks/tmux/leak_5/../tree.h:455:9: note: in expansion of macro ‘RB_GENERATE_INSERT’
+  455 |         RB_GENERATE_INSERT(name, type, field, cmp, attr)                \
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:682:31: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  682 |                 RB_ROOT(head) = elm;                                    \
+      |                               ^
+./benchmarks/tmux/leak_5/../tree.h:455:9: note: in expansion of macro ‘RB_GENERATE_INSERT’
+  455 |         RB_GENERATE_INSERT(name, type, field, cmp, attr)                \
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘args_tree_RB_REMOVE’:
+./benchmarks/tmux/leak_5/../tree.h:614:39: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  614 |                         RB_ROOT(head) = child;                          \
+      |                                       ^
+./benchmarks/tmux/leak_5/../tree.h:456:9: note: in expansion of macro ‘RB_GENERATE_REMOVE’
+  456 |         RB_GENERATE_REMOVE(name, type, field, attr)                     \
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:625:39: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  625 |                         RB_ROOT(head) = elm;                            \
+      |                                       ^
+./benchmarks/tmux/leak_5/../tree.h:456:9: note: in expansion of macro ‘RB_GENERATE_REMOVE’
+  456 |         RB_GENERATE_REMOVE(name, type, field, attr)                     \
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:648:31: warning: assignment to ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  648 |                 RB_ROOT(head) = child;                                  \
+      |                               ^
+./benchmarks/tmux/leak_5/../tree.h:456:9: note: in expansion of macro ‘RB_GENERATE_REMOVE’
+  456 |         RB_GENERATE_REMOVE(name, type, field, attr)                     \
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘args_tree_RB_FIND’:
+./benchmarks/tmux/leak_5/../tree.h:353:41: warning: initialization of ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  353 | #define RB_ROOT(head)                   (head)->rbh_root
+      |                                         ^
+./benchmarks/tmux/leak_5/../tree.h:692:28: note: in expansion of macro ‘RB_ROOT’
+  692 |         struct type *tmp = RB_ROOT(head);                               \
+      |                            ^~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:457:9: note: in expansion of macro ‘RB_GENERATE_FIND’
+  457 |         RB_GENERATE_FIND(name, type, field, cmp, attr)                  \
+      |         ^~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘args_tree_RB_NFIND’:
+./benchmarks/tmux/leak_5/../tree.h:353:41: warning: initialization of ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  353 | #define RB_ROOT(head)                   (head)->rbh_root
+      |                                         ^
+./benchmarks/tmux/leak_5/../tree.h:711:28: note: in expansion of macro ‘RB_ROOT’
+  711 |         struct type *tmp = RB_ROOT(head);                               \
+      |                            ^~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:458:9: note: in expansion of macro ‘RB_GENERATE_NFIND’
+  458 |         RB_GENERATE_NFIND(name, type, field, cmp, attr)                 \
+      |         ^~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘args_tree_RB_MINMAX’:
+./benchmarks/tmux/leak_5/../tree.h:353:41: warning: initialization of ‘struct args_entry *’ from incompatible pointer type ‘struct args_entry *’ [-Wincompatible-pointer-types]
+  353 | #define RB_ROOT(head)                   (head)->rbh_root
+      |                                         ^
+./benchmarks/tmux/leak_5/../tree.h:778:28: note: in expansion of macro ‘RB_ROOT’
+  778 |         struct type *tmp = RB_ROOT(head);                               \
+      |                            ^~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:461:9: note: in expansion of macro ‘RB_GENERATE_MINMAX’
+  461 |         RB_GENERATE_MINMAX(name, type, field, attr)
+      |         ^~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/../tree.h:449:9: note: in expansion of macro ‘RB_GENERATE_INTERNAL’
+  449 |         RB_GENERATE_INTERNAL(name, type, field, cmp,)
+      |         ^~~~~~~~~~~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:99:1: note: in expansion of macro ‘RB_GENERATE’
+   99 | RB_GENERATE(args_tree, args_entry, entry, args_cmp);
+      | ^~~~~~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘job_run’:
+./benchmarks/tmux/leak_5/tmux_leak_5.c:119:23: warning: implicit declaration of function ‘fork’ [-Wimplicit-function-declaration]
+  119 |         switch (pid = fork()) {
+      |                       ^~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:121:17: warning: implicit declaration of function ‘close’; did you mean ‘pclose’? [-Wimplicit-function-declaration]
+  121 |                 close(out[0]);
+      |                 ^~~~~
+      |                 pclose
+./benchmarks/tmux/leak_5/tmux_leak_5.c:126:17: warning: implicit declaration of function ‘execl’ [-Wimplicit-function-declaration]
+  126 |                 execl(_PATH_BSHELL, "sh", "-c", cmd, (char *) NULL);
+      |                 ^~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:126:17: warning: incompatible implicit declaration of built-in function ‘execl’ [-Wbuiltin-declaration-mismatch]
+In file included from ./benchmarks/tmux/leak_5/tmux_leak_5.c:9:
+./benchmarks/tmux/leak_5/../stdio.h:138:20: warning: implicit declaration of function ‘strdup’ [-Wimplicit-function-declaration]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:136:20: note: in expansion of macro ‘xstrdup’
+  136 |         job->cmd = xstrdup(cmd);
+      |                    ^~~~~~~
+./benchmarks/tmux/leak_5/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:136:20: note: in expansion of macro ‘xstrdup’
+  136 |         job->cmd = xstrdup(cmd);
+      |                    ^~~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c: In function ‘cmd_if_shell_exec’:
+./benchmarks/tmux/leak_5/tmux_leak_5.c:175:27: warning: implicit declaration of function ‘strlen’ [-Wimplicit-function-declaration]
+  175 |         shellcmd = malloc(strlen(args->argv[0]));               /* allocation site */
+      |                           ^~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:11:1: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+   10 | #include "../tmux.h"
+  +++ |+#include <string.h>
+   11 | 
+./benchmarks/tmux/leak_5/tmux_leak_5.c:175:27: warning: incompatible implicit declaration of built-in function ‘strlen’ [-Wbuiltin-declaration-mismatch]
+  175 |         shellcmd = malloc(strlen(args->argv[0]));               /* allocation site */
+      |                           ^~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:175:27: note: include ‘<string.h>’ or provide a declaration of ‘strlen’
+In file included from ./benchmarks/tmux/leak_5/tmux_leak_5.c:9:
+./benchmarks/tmux/leak_5/../stdio.h:138:20: warning: incompatible implicit declaration of built-in function ‘strdup’ [-Wbuiltin-declaration-mismatch]
+  138 | #define xstrdup(a) strdup(a)
+      |                    ^~~~~~
+./benchmarks/tmux/leak_5/tmux_leak_5.c:196:25: note: in expansion of macro ‘xstrdup’
+  196 |         cdata->cmd_if = xstrdup(args->argv[1]);
+      |                         ^~~~~~~
+
+Time variable                                   usr           sys          wall           GGC
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 35%)
+ phase parsing                      :   0.02 (100%)   0.04 (100%)   0.06 (100%)  1988k ( 53%)
+ preprocessing                      :   0.00 (  0%)   0.01 ( 25%)   0.00 (  0%)   856k ( 23%)
+ lexical analysis                   :   0.01 ( 50%)   0.01 ( 25%)   0.02 ( 33%)     0  (  0%)
+ parser (global)                    :   0.00 (  0%)   0.01 ( 25%)   0.02 ( 33%)   593k ( 16%)
+ parser struct body                 :   0.01 ( 50%)   0.00 (  0%)   0.01 ( 17%)   161k (  4%)
+ parser function body               :   0.00 (  0%)   0.01 ( 25%)   0.01 ( 17%)   278k (  7%)
+ TOTAL                              :   0.02          0.04          0.06         3734k

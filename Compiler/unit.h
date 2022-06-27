@@ -306,3 +306,118 @@ bool warning_at2(rich_location *richloc, int opt, const char *gmsgid, ...)
 		return 0;
 	return warning_at(richloc, opt, gmsgid);
 }
+
+// void insert_always_inline()
+// {
+// 	cgraph_node *node;
+// 	const char *name;
+// 	bool always_inline;
+// 	// fprintf(stderr,"=======inline=========\n");
+
+// 	FOR_EACH_DEFINED_FUNCTION(node)
+// 	{
+// 		basic_block bb;
+// 		cgraph_edge *e;
+
+// 		if (!gimple_has_body_p(node->decl))
+// 			continue;
+// 		// fprintf(stderr, "=======node_fun:%s=========\n", get_name(cfun->decl));
+
+// 		tree attr;
+// 		enum availability avail;
+// 		for (e = node->callees; e; e = e->next_callee)
+// 		{
+
+// 			cgraph_node *caller = e->caller->inlined_to ? e->caller->inlined_to : e->caller;
+// 			cgraph_node *callee = e->callee->ultimate_alias_target(&avail, caller);
+// 			tree callee_tree = callee ? DECL_FUNCTION_SPECIFIC_OPTIMIZATION(callee->decl) : NULL;
+// 			// DECL_DISREGARD_INLINE_LIMITS (callee->decl)=1;
+// 			if (DECL_ATTRIBUTES(callee->decl) != NULL)
+// 			{
+// 				attr = get_attribute_name(DECL_ATTRIBUTES(callee->decl));
+// 				// debug_tree(attr);
+// 			}
+// 			else
+// 			{
+// 				// if(callee->decl)
+// 				// DECL_ATTRIBUTES (callee->decl) = tree_cons (get_identifier ("always_inline"),
+// 				// NULL, DECL_ATTRIBUTES (callee->decl));
+// 			}
+
+// 			if (lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)) == NULL)
+// 			{
+
+// 				fprintf(stderr, "=======node_fun:%s=========\n", get_name(callee->decl));
+// 				DECL_ATTRIBUTES(callee->decl) = tree_cons(get_identifier("noinline"), NULL, DECL_ATTRIBUTES(callee->decl));
+// 				DECL_DISREGARD_INLINE_LIMITS(callee->decl) = 1;
+// 				debug_tree(DECL_ATTRIBUTES(callee->decl));
+// 			}
+// 			else
+// 			{
+// 				fprintf(stderr, "=======node_fun:%s=========\n", get_name(callee->decl));
+
+// 				debug_tree(DECL_ATTRIBUTES(callee->decl));
+// 			}
+// 			// if (!lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)))
+// 			// {
+// 			// 	fprintf(stderr, "=======node_fun:%s=========\n", get_name(callee->decl));
+// 			// 	DECL_ATTRIBUTES(callee->decl) = tree_cons(get_identifier("noinline"), NULL, DECL_ATTRIBUTES(callee->decl));
+// 			// 	DECL_DISREGARD_INLINE_LIMITS(callee->decl) = 1;
+// 			// 	debug_tree(DECL_ATTRIBUTES(callee->decl));
+// 			// }
+// 			// 	always_inline = (DECL_DISREGARD_INLINE_LIMITS(callee->decl) && lookup_attribute("noinline", DECL_ATTRIBUTES(callee->decl)));
+// 			// debug_tree(DECL_ATTRIBUTES(callee->decl));
+// 		}
+// 		push_cfun(DECL_STRUCT_FUNCTION(node->decl));
+// 		// if (cfun == NULL)
+// 		// {
+// 		// }
+
+// 		// if (!MAIN_NAME_P(DECL_NAME(node->decl)))
+// 		// {
+// 		// debug_tree(DECL_ATTRIBUTES(cfun->decl));
+// 		// if( !lookup_attribute("noinline", DECL_ATTRIBUTES(node->decl))){
+// 		// DECL_ATTRIBUTES(cfun->decl) = tree_cons(get_identifier("noinline"), NULL, DECL_ATTRIBUTES(cfun->decl));
+// 		// DECL_DISREGARD_INLINE_LIMITS(cfun->decl) = 1;}
+
+// 		// debug_tree(DECL_ATTRIBUTES(cfun->decl));
+// 		// }
+// 		// FOR_EACH_BB_FN(bb, cfun)
+// 		// {
+
+// 		// 	for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
+// 		// 	{
+// 		// 		gimple *gc = gsi_stmt(gsi);
+
+// 		// 		if (is_gimple_call(gc))
+// 		// 		{
+
+// 		// 			if (gimple_call_fn(gc) == NULL)
+// 		// 				continue;
+// 		// 			name = get_name(gimple_call_fn(gc));
+// 		// 			if (name == NULL)
+// 		// 				continue;
+
+// 		// 			if (!strcmp(name, "free") ||
+// 		// 				!strcmp(name, "xfree") ||
+// 		// 				!strcmp(name, "malloc") ||
+// 		// 				!strcmp(name, "realloc") ||
+// 		// 				!strcmp(name, "xmalloc") ||
+// 		// 				!strcmp(name, "calloc") ||
+// 		// 				!strcmp(name, "xcalloc") ||
+// 		// 				!strcmp(name, "strdup"))
+// 		// 			{
+
+// 		// 				//always_inline = (DECL_DISREGARD_INLINE_LIMITS(node->decl) && lookup_attribute("no_inline", DECL_ATTRIBUTES(node->decl)));
+// 		// 				if ( !MAIN_NAME_P(DECL_NAME(node->decl)))
+// 		// 				{
+// 		// 					DECL_ATTRIBUTES(node->decl) = tree_cons(get_identifier("no_inline"), NULL, DECL_ATTRIBUTES(node->decl));
+// 		// 					DECL_DISREGARD_INLINE_LIMITS(node->decl) = 1;
+// 		// 				}
+// 		// 			}
+// 		// 		}
+// 		// 	}
+// 		// }
+// 		pop_cfun();
+// 	}
+// };
