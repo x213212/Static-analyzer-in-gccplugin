@@ -15,7 +15,7 @@ endif
 
 
 GCCPLUGINS_DIR:= $(shell $(GCC) -print-file-name=plugin)
-CFLAGS+=   -I$(GCCPLUGINS_DIR)/include  -fPIC -fdump-tree-cfg-graph -g -fno-rtti $(RDOPTS)  -w  
+CFLAGS+=   -I$(GCCPLUGINS_DIR)/include  -fPIC -g -fno-rtti $(RDOPTS)  -w  
 
 #-fopenmp
 #LDFLAGS+= -shared  -fopenmp -flto  -Wl,--print-memory-usage

@@ -34,7 +34,6 @@ int GIMPLE_MALLOC_COUNT = 0;
 int GIMPLE_FREE_COUNT = 0;
 /*dump file */
 FILE *fp;
-ofstream cfginfo("cfginfo.txt");
 
 /*interprocedural analysis*/
 bool ipa = true;
