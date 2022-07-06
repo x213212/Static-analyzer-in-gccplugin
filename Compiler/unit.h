@@ -230,7 +230,56 @@ unsigned int SDBMHash(char *str)
 
 	return (hash & 0x7FFFFFFF);
 }
+void output_basic_block_stage()
+{
+	if (symbolicexecution)
+	{
+		fprintf(stderr, "alloc index %d\n", alloc_index);
+		for (int i = 0; i < bestfreepaths.size(); i++)
+		{
+			// // if(bestfreepaths[i].mttindex == alloc_index)
+			// fprintf(stderr, "bb index %d: mmt :%d, has stmt :%d has free:%d has exit:%d\n", (bestfreepaths[i].bb)->index, bestfreepaths[i].mttindex,
+			// 		bestfreepaths[i].has_stmt, bestfreepaths[i].has_free, bestfreepaths[i].has_exit);
+			// z3 mod
+			fprintf(stderr, "[%d,%d,%d,%d],\n", (bestfreepaths[i].bb)->index,
+					bestfreepaths[i].has_stmt, bestfreepaths[i].has_free, bestfreepaths[i].has_exit);
 
+		}
+	}
+}
+int update_basic_block(basic_block bb, int setmttindex, int sethas_stmt, int sethas_free, int sethas_exit)
+{
+	if (symbolicexecution)
+	{
+		int find = 0;
+		for (int i = 0; i < bestfreepaths.size(); i++)
+		{
+			if (bestfreepaths[i].bb == bb)
+			{
+				find = 1;
+				if (setmttindex >= 1)
+					bestfreepaths[i].mttindex = setmttindex;
+				if (sethas_stmt >= 1)
+					bestfreepaths[i].has_stmt = sethas_stmt;
+				if (sethas_free >= 1)
+					bestfreepaths[i].has_free = sethas_free;
+				if (sethas_exit >= 1)
+					bestfreepaths[i].has_exit = sethas_exit;
+				// fprintf(stderr, "\n ================== find free stmt %d====%d============== \n",bestfreepaths[i].bb->index,bestfreepaths[i].has_exit );
+			}
+		}
+		if (!find)
+		{
+			basic_block_attributes add;
+			add.bb = bb;
+			add.mttindex = setmttindex;
+			add.has_stmt = sethas_stmt;
+			add.has_free = sethas_free;
+			add.has_exit = sethas_exit;
+			bestfreepaths.push_back(add);
+		}
+	}
+}
 int fprintf2(FILE *stream, const char *format, ...)
 {
 	if (!debugoutput)

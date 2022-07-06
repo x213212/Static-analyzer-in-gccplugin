@@ -107,18 +107,18 @@ In file included from ./benchmarks/git/double_free_4/git_df_4.c:9:
       |                    ^
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)  1298k ( 50%)
- phase parsing                      :   0.05 ( 71%)   0.02 (100%)   0.07 ( 78%)  1109k ( 42%)
- phase opt and generate             :   0.01 ( 14%)   0.00 (  0%)   0.02 ( 22%)   192k (  7%)
- dump files                         :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- callgraph ipa passes               :   0.01 ( 14%)   0.00 (  0%)   0.02 ( 22%)   110k (  4%)
- ipa lto decl out                   :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)   264  (  0%)
- ipa free lang data                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    11k (  0%)
- preprocessing                      :   0.03 ( 43%)   0.02 (100%)   0.03 ( 33%)   325k ( 12%)
- lexical analysis                   :   0.02 ( 29%)   0.00 (  0%)   0.02 ( 22%)     0  (  0%)
- parser struct body                 :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    77k (  3%)
- parser function body               :   0.00 (  0%)   0.00 (  0%)   0.01 ( 11%)    97k (  4%)
- TOTAL                              :   0.07          0.02          0.09         2609k
+ phase setup                        :   0.00 (  0%)   0.00 (  0%)   0.00 (  0%)  1298k ( 50%)
+ phase parsing                      :   0.03 ( 60%)   0.02 (100%)   0.05 ( 71%)  1109k ( 42%)
+ phase opt and generate             :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 14%)   192k (  7%)
+ callgraph ipa passes               :   0.02 ( 40%)   0.00 (  0%)   0.01 ( 14%)   110k (  4%)
+ lto stream compression             :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ alias stmt walking                 :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
+ preprocessing                      :   0.02 ( 40%)   0.00 (  0%)   0.03 ( 43%)   325k ( 12%)
+ lexical analysis                   :   0.00 (  0%)   0.01 ( 50%)   0.02 ( 29%)     0  (  0%)
+ parser (global)                    :   0.01 ( 20%)   0.00 (  0%)   0.00 (  0%)   575k ( 22%)
+ parser function body               :   0.00 (  0%)   0.01 ( 50%)   0.00 (  0%)    97k (  4%)
+ tree CCP                           :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)   784  (  0%)
+ TOTAL                              :   0.05          0.02          0.07         2609k
 ../Compiler/newplugin.so 11.2.0 
 
 Time variable                                   usr           sys          wall           GGC
@@ -564,27 +564,32 @@ return;
 [40;34m    analyzable ptable point : 34 [0m
 [40;34m    analyzable ptable all point stmt : 98 [0m
 [40;34m    used_stmt array stack totalsize of : 0.003160 mb[0m
-[40;34m    collect time: : 0.000565 s [0m
-[40;34m    mapping time: : 0.000943 s [0m
-[40;34m    algorithm time: 0.006380 s [0m
+[40;34m    collect time: : 0.000628 s [0m
+[40;34m    mapping time: : 0.001141 s [0m
+[40;34m    algorithm time: 0.004537 s [0m
 [40;34m    gimple stmt count : : 89 [0m
-[40;34m    this report analysis in Sun Jun 26 13:53:12 2022
+[40;34m    this report analysis in Fri Jul  1 17:21:41 2022
  [0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 [40;32mSTART CHECKSTART CHECKSTART CHECKSTART CHECKSTART CHECK[0m
 
 Time variable                                   usr           sys          wall           GGC
- phase setup                        :   0.00 (  0%)   0.01 ( 50%)   0.01 ( 20%)  2157k ( 76%)
- phase opt and generate             :   0.03 (100%)   0.01 ( 50%)   0.04 ( 80%)   627k ( 22%)
- callgraph functions expansion      :   0.03 (100%)   0.00 (  0%)   0.03 ( 60%)   521k ( 18%)
- tree CFG cleanup                   :   0.02 ( 67%)   0.00 (  0%)   0.00 (  0%)     0  (  0%)
- dominator optimization             :   0.01 ( 33%)   0.00 (  0%)   0.00 (  0%)    10k (  0%)
- tree loop invariant motion         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)  1088  (  0%)
- plugin execution                   :   0.00 (  0%)   0.01 ( 50%)   0.02 ( 40%)  1728  (  0%)
- rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.01 ( 20%)    29k (  1%)
- TOTAL                              :   0.03          0.02          0.05         2846k
-/usr/bin/ld: /tmp/ccZ4ZwPR.ltrans0.ltrans.o: in function `match_refs':
+ phase setup                        :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 14%)  2157k ( 76%)
+ phase opt and generate             :   0.06 ( 86%)   0.00 (  0%)   0.06 ( 86%)   627k ( 22%)
+ dump files                         :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)     0  (  0%)
+ callgraph functions expansion      :   0.05 ( 71%)   0.00 (  0%)   0.05 ( 71%)   521k ( 18%)
+ ipa lto gimple in                  :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    79k (  3%)
+ cfg cleanup                        :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)   128  (  0%)
+ tree forward propagate             :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)   752  (  0%)
+ expand                             :   0.00 (  0%)   0.00 (  0%)   0.01 ( 14%)    53k (  2%)
+ forward prop                       :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)   120  (  0%)
+ reload CSE regs                    :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)  2272  (  0%)
+ plugin execution                   :   0.01 ( 14%)   0.00 (  0%)   0.00 (  0%)  1728  (  0%)
+ initialize rtl                     :   0.01 ( 14%)   0.00 (  0%)   0.01 ( 14%)    12k (  0%)
+ rest of compilation                :   0.00 (  0%)   0.00 (  0%)   0.02 ( 29%)    29k (  1%)
+ TOTAL                              :   0.07          0.00          0.07         2846k
+/usr/bin/ld: /tmp/ccN5rWZC.ltrans0.ltrans.o: in function `match_refs':
 <artificial>:(.text+0x19c): undefined reference to `hashcpy'
-/usr/bin/ld: /tmp/ccZ4ZwPR.ltrans0.ltrans.o: in function `main':
+/usr/bin/ld: /tmp/ccN5rWZC.ltrans0.ltrans.o: in function `main':
 <artificial>:(.text+0x21b): undefined reference to `get_local_heads'
 collect2: error: ld returned 1 exit status

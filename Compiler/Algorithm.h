@@ -254,7 +254,13 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 					processtable = processtable->next;
 					continue;
 				}
-
+				// debug_tree(processtable->target);
+				// fprintf(stderr, "===============pt_solution=================\n");
+				// struct ptr_info_def *pi1;
+				// pi1 = SSA_NAME_PTR_INFO(processtable->target);
+				// struct pt_solution *pt1 = &pi1->pt;
+				// dump_points_to_solution(stderr, pt1);
+				// fprintf(stderr, "===============pt_solution=================\n");
 				int colectCount = 0;
 				used_stmt = NULL;
 				gimple_array start;

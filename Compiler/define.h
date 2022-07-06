@@ -61,6 +61,7 @@ bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
 bool pathconstraint = false;
 bool contextsentive = true;
+bool symbolicexecution = true;
 
 /*allocation and deallocation table*/
 struct ptb
@@ -177,6 +178,19 @@ struct free_type
 	gimple *stmt;
 	tree free_tree;
 	int Looserulesfree = 0;
+};
+static int alloc_index = -1;
+struct basic_block_attributes
+{
+	int index;
+	int mttindex;
+	int has_stmt;
+	int has_free;
+	int has_exit;
+	int num;
+	gimple *stmt;
+	basic_block bb;
+	tree stmt_tree;
 };
 
 struct defmalloc_type
@@ -302,6 +316,8 @@ hash_map<tree, gimple_array> *treeGimpleArray;
 
 /**/
 hash_map<basic_block, symbolicinfo> *syminfo;
+// hash_map<basic_block, basic_block_attributes> *bestfreepaths;
+vector<basic_block_attributes> bestfreepaths;
 // hash_map<gimple *, tree> *symbolicExecutionPathConstraintNode;
 
 /*record each DFS graph*/
@@ -334,6 +350,7 @@ CStack stmtStack;
 CstmtStack stmtStack2;
 
 function *main_fun;
+
 struct timespec Globaltime, Globaltimeend;
 static gimple *now_stmt;
 static int totalsize; //宣告一個整數型態size變數，用來儲存x的位元組大小
@@ -377,7 +394,16 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp);
 void FunctionStmtMappingAssign(ptb *ptable, gimple_array *user_tmp);
 
 struct timespec diff(struct timespec start, struct timespec end);
+int fprintf2(FILE *stream, const char *format, ...);
+DEBUG_FUNCTION void debug_gimple_stmt2(gimple *gs);
+DEBUG_FUNCTION void debug_tree2(tree node);
+DEBUG_FUNCTION void debug2(const tree_node *ptr);
+DEBUG_FUNCTION void debug2(gimple *ptr);
+bool warning_at2(location_t location, int opt, const char *gmsgid, ...);
+bool warning_at2(rich_location *richloc, int opt, const char *gmsgid, ...);
 
+
+int update_basic_block(basic_block bb, int setmttindex, int sethas_stmt, int sethas_free, int sethas_exit);
 void printfBasicblock();
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2);
