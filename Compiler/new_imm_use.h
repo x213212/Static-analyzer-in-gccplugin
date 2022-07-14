@@ -1423,6 +1423,7 @@ void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2)
 						if (gimple_phi_result(use_stmt) && TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
 						{
 							if (TREE_CODE(gimple_phi_result(use_stmt)) == SSA_NAME)
+							
 								if (!check_stmtStack(gimple_phi_result(use_stmt)) && !check_stmtStack2(use_stmt))
 								{
 									set_gimple_array(used_stmt, use_stmt, gimple_phi_result(use_stmt), target, NULL);

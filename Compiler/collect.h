@@ -392,13 +392,13 @@ void collect_FunctionMapping_Assign(gimple *gc, cgraph_node *node, basic_block b
 			}
 			else if (!strcmp(name, "pthread_create"))
 			{
-				fprintf(stderr, "----------------test-------------\n");
+				// fprintf(stderr, "----------------test-------------\n");
 				tree getFunctionCallarg = gimple_call_arg(gc, 0);
 				getFunctionCallarg = TREE_OPERAND(getFunctionCallarg, 0);
 				function_assign_array assign_array;
 				vector<assign_type> assign_type_array;
 
-				debug(gc);
+				// debug(gc);
 				// debug_tree(getFunctionAssignRHS);
 				if (function_assign_collect->get(getFunctionCallarg) == NULL)
 				{
@@ -1462,9 +1462,9 @@ void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 		get_function_return_tree = NULL_TREE;
 	vector<return_type> ret_type_array;
 
-	// debug_gimple_stmt(gc);
-	// fprintf(stderr, "GIMPLE_RETURN\n");
-	// debug_tree(get_function_return_tree);
+	debug_gimple_stmt(gc);
+	fprintf(stderr, "GIMPLE_RETURN\n");
+	debug_tree(get_function_return_tree);
 	// debug_tree(node->get_fun()->decl);
 	// warning_at(gimple_location_safe(gc), 0, "use location");
 

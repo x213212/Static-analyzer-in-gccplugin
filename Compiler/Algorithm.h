@@ -8,10 +8,6 @@ void detect(struct plugin_argument *argv, int argc)
 	const int N = 1e2;
 	unsigned i;
 	breakpoint getbp;
-	tree ptr;
-	tree attr;
-	function *ofun;
-	function *fn;
 	basic_block bb;
 	ipa = true;
 	cgraph_edge *e;

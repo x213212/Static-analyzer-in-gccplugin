@@ -243,7 +243,6 @@ void output_basic_block_stage()
 			// z3 mod
 			fprintf(stderr, "[%d,%d,%d,%d],\n", (bestfreepaths[i].bb)->index,
 					bestfreepaths[i].has_stmt, bestfreepaths[i].has_free, bestfreepaths[i].has_exit);
-
 		}
 	}
 }
@@ -252,7 +251,7 @@ int update_basic_block(basic_block bb, int setmttindex, int sethas_stmt, int set
 	if (symbolicexecution)
 	{
 		int find = 0;
-		for (int i = 0; i < bestfreepaths.size(); i++)
+		for (int i = bestfreepaths.size() - 1; i >= 0; i--)
 		{
 			if (bestfreepaths[i].bb == bb)
 			{

@@ -160,7 +160,8 @@ WHOLE=-fwhole-program
 # https://gcc.gnu.org/onlinedocs/gcc/Developer-Options.html
 #-fno-inline-functions-called-once
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread   -ftime-report
-FLAGS=-O1 -fno-tree-dse -fno-tree-dce  -fno-tree-fre -fipa-pta -fno-inline  -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions -ftime-report 
+# -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions
+FLAGS=-O1 -fno-tree-dse -fno-tree-dce  -fno-tree-fre -fipa-pta -fno-inline  -pthread   -ftime-report 
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fdump-tree-cfg-graph -pthread  --param max-ssa-name-query-depth=10  -ftime-report
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta   --param max-ssa-name-query-depth=10 -ftime-report
 # -fno-inline 
@@ -182,7 +183,7 @@ all: test.o
 
 test.o:  
 ifeq ($(debug),0)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 -fplugin-arg-newplugin-debugoutput=0 -fplugin-arg-newplugin-debugmod=0)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-contextsentive=1 -fplugin-arg-newplugin-debugoutput=1 -fplugin-arg-newplugin-debugmod=0)
 else ifeq ($(debug),1)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1)
 else ifeq ($(debug),2)

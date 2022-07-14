@@ -71,7 +71,6 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 
 void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tree target, gimple *ret_stmt)
 {
-	// fprintf(stderr, "set_gimple_array----------------\n");
 
 	if (table->stmt == NULL)
 	{
@@ -87,9 +86,9 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tre
 		bool same = false;
 		int size_tmp = 0;
 		// check_stmtStack4(used_stmt)
-		while (table->next != NULL)
+		while (table->next )
 		{
-			//  fprintf(stderr, "set_gimple_array----------------\n");
+	
 			//  debug(table->stmt);
 			//  debug_tree(target);
 			//  if (table == NULL)
@@ -97,10 +96,10 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tre
 
 			if (table->stmt == used_stmt)
 			{
-
 				same = true;
 				// break;
 			}
+
 			size_tmp = size_tmp + 1;
 			table = table->next;
 		}

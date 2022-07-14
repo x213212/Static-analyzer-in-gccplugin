@@ -548,11 +548,22 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											if (name != NULL)
 												if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 												{
-													fprintf(stderr, "\n ================== find free stmt ====%d============== \n", gimple_bb(u_stmt)->index);
+													// keep same stmt diff gimple tree only free stmt
+													int filter_out_duplicates_free = 0;
+													for (int i = 0; i < free_array.size(); i++)
+													{
+														if (free_array[i].stmt == u_stmt)
+														{
+															filter_out_duplicates_free = 1;
+														}
+													}
+													if (filter_out_duplicates_free)
+														continue;
+													fprintf(stderr, "\n ================== find free stmt ================== \n", gimple_bb(u_stmt)->index);
 													update_basic_block(gimple_bb(u_stmt), gimple_bb(u_stmt)->index != alloc_index ? 1 : 0, 1, 1, 0);
 													free_type.stmt = u_stmt;
 													free_array.push_back(free_type);
-													fprintf2(stderr, "\n ================== find free stmt ================== \n");
+													// fprintf2(stderr, "\n ================== find free stmt ================== \n");
 													debug2(u_stmt);
 													warning_at2(gimple_location_safe(u_stmt), 0, "use location");
 													if (!strcmp(name, "realloc"))
@@ -848,17 +859,30 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 										if (function_free_collect->get(function_tree) != NULL)
 										{
+
 											function_free_array callerFunArray = *(function_free_collect->get(function_tree));
 											vector<free_type> callerRetTypearray = callerFunArray.free_type_array;
 											if ((gimple_code(u_stmt) != GIMPLE_PREDICT) && gimple_block(u_stmt))
-												if ((BLOCK_SUPERCONTEXT(gimple_block(u_stmt))) == table_temp->node->get_fun()->decl)
-												{
+											{
 
-													for (int k = 0; k < global_ret_type_array.size(); k++)
+												tree getsupercontex = BLOCK_SUPERCONTEXT(gimple_block(u_stmt));
+												while (TREE_CODE(getsupercontex) != FUNCTION_DECL)
+												{
+													getsupercontex = BLOCK_SUPERCONTEXT(getsupercontex);
+													if (getsupercontex == NULL_TREE)
+														break;
+												}
+												if (getsupercontex)
+													if (getsupercontex == table_temp->node->get_fun()->decl)
 													{
 
-														if ((global_ret_type_array)[k].locfucntion == function_tree)
-															if (bb_in_loop_p(gimple_bb(u_stmt)) == bb_in_loop_p(gimple_bb((global_ret_type_array)[k].stmt)))
+														for (int k = 0; k < global_ret_type_array.size(); k++)
+														{
+
+															if ((global_ret_type_array)[k].locfucntion == function_tree)
+																// need gcc option keep jump;
+																//  if (bb_in_loop_p(gimple_bb(u_stmt)) == bb_in_loop_p(gimple_bb((global_ret_type_array)[k].stmt)))
+																//  {
 																if (dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb(u_stmt)) || fDFS->get(table_temp->node)->is_succ(gimple_bb(u_stmt), gimple_bb((global_ret_type_array)[k].stmt)))
 																	for (int k2 = 0; k2 < callerRetTypearray.size(); k2++)
 																	{
@@ -894,8 +918,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																					update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 1, 1, 1);
 																				}
 																	}
+															// }
+														}
 													}
-												}
+											}
 										}
 										else
 										{
@@ -904,8 +930,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												if ((global_ret_type_array)[k].locfucntion == function_tree)
 												{
 													// debug_gimple_stmt((global_ret_type_array)[k].stmt);
-													if(gimple_bb((global_ret_type_array)[k].stmt)->index == gimple_bb(u_stmt)->index)
-													update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 1, 0, 1);
+													if (gimple_bb((global_ret_type_array)[k].stmt)->index == gimple_bb(u_stmt)->index)
+														update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 1, 0, 1);
 													basic_block bb;
 													FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 													{

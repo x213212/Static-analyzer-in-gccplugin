@@ -19,7 +19,7 @@ CFLAGS+=   -I$(GCCPLUGINS_DIR)/include  -fPIC -g -fno-rtti $(RDOPTS)  -w
 
 #-fopenmp
 #LDFLAGS+= -shared  -fopenmp -flto  -Wl,--print-memory-usage
-LDFLAGS+=  -shared  -flto   -Ofast
+LDFLAGS+=  -shared  -flto  
 all: newplugin.so
 
 %.o: %.cpp

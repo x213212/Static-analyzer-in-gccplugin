@@ -60,7 +60,7 @@ bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
 bool pathconstraint = false;
 bool contextsentive = true;
-bool symbolicexecution = true;
+bool symbolicexecution = false;
 
 /*allocation and deallocation table*/
 struct ptb
