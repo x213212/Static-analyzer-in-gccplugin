@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Fri Jul 15 05:27:51 2022
+# Make data base, printed on Wed Jul 20 08:13:13 2022
 
 # Variables
 
@@ -17,7 +17,7 @@ LC_ALL = C
 # environment
 PULSE_SERVER = /mnt/wslg/PulseServer
 # environment
-WSLENV = VSCODE_WSL_EXT_LOCATION/up
+WSLENV = VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up
 # environment
 VSCODE_CWD = /mnt/c/Users/x213212/AppData/Local/Programs/Microsoft VS Code
 # default
@@ -79,7 +79,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"zh-tw","availableLanguages":{"*":"zh-tw"},"_languagePackId":"a0b772d00248b7f5c117cab9736199be.zh-tw","_translationsConfigFile":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw/tcf.json","_cacheRoot":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw","_resolvedLanguagePackCoreLocation":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9","_corruptedFile":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw/corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"zh-tw","availableLanguages":{"*":"zh-tw"},"_languagePackId":"a0b772d00248b7f5c117cab9736199be.zh-tw","_translationsConfigFile":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw/tcf.json","_cacheRoot":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw","_resolvedLanguagePackCoreLocation":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a","_corruptedFile":"/root/.vscode-server/data/clp/a0b772d00248b7f5c117cab9736199be.zh-tw/corrupted.info","_languagePackSupport":true}
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # makefile
@@ -97,7 +97,7 @@ MAKE = make
 # environment
 FC = /usr/local/gcc-11.2.0/bin/gfortran-11.2
 # environment
-PATH = /root/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/bin/remote-cli:/usr/local/texlive/2021/bin/x86_64-linux/:/root/riscv-toolchain/bin:/usr/local/gcc-11.2.0/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Workstation/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/IDM Computer Solutions/UltraEdit:/mnt/c/Program Files/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/Graphviz/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.9.0:/mnt/c/flutter/bin:/mnt/c/Program Files/010 Editor:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/x213212/.cargo/bin:/mnt/c/Users/x213212/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/x213212/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/x213212/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/x213212/.dotnet/tools:/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2019.3.2/bin:/mnt/h/apache-maven-3.8.2/bin:/mnt/c/Users/x213212/AppData/Roaming/npm:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Users/x213212/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/flutter/bin:/snap/bin:/bin
+PATH = /root/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/bin/remote-cli:/usr/local/texlive/2021/bin/x86_64-linux/:/root/riscv-toolchain/bin:/usr/local/gcc-11.2.0/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Workstation/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/IDM Computer Solutions/UltraEdit:/mnt/c/Program Files/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/Graphviz/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.9.0:/mnt/c/flutter/bin:/mnt/c/Program Files/010 Editor:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Users/x213212/.cargo/bin:/mnt/c/Users/x213212/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/x213212/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/x213212/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/x213212/.dotnet/tools:/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2019.3.2/bin:/mnt/h/apache-maven-3.8.2/bin:/mnt/c/Users/x213212/AppData/Roaming/npm:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Users/x213212/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/flutter/bin:/snap/bin:/bin
 # default
 MAKEFILES := 
 # automatic
@@ -110,6 +110,8 @@ LESSCLOSE = /usr/bin/lesspipe %s %s
 ?F = $(notdir $?)
 # environment
 NAME = HOME-X213212
+# environment
+VSCODE_SERVER_TAR = /mnt/c/Users/x213212/AppData/Local/Temp/vscode-remote-wsl/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/vscode-server-stable-linux-x64.tar.gz
 # makefile (from 'Makefile', line 8)
 PARTIALS = $(patsubst %Makefile,%newplugin,$(COMPLILER_FILES))
 # environment
@@ -119,7 +121,7 @@ LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:
 # automatic
 +F = $(notdir $+)
 # environment
-WSL_INTEROP = /run/WSL/641_interop
+WSL_INTEROP = /run/WSL/56_interop
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -137,13 +139,13 @@ MAKE_VERSION := 4.3
 # environment
 DEBUGINFOD_URLS = 
 # environment
-_ = /root/.vscode-server/bin/92d25e35d9bf1a6b16f7d0758f25d48ace11e5b9/node
+_ = /root/.vscode-server/bin/b06ae3b2d2dbfe28bca3134cc6be65935cdfea6a/node
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # makefile (from 'Makefile', line 4)
 CFLAGS = -g 
 # environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-793bc5fb-bf67-4b33-bd71-d7a57e8248a3.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-1c010671-5958-4958-b64d-7e39249af546.sock
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -167,7 +169,7 @@ CXX = /usr/local/gcc-11.2.0/bin/g++-11.2
 # makefile (from 'Makefile', line 3)
 CC = gcc-11.2
 # variable set hash-table stats:
-# Load=77/1024=8%, Rehash=0, Collisions=1/114=1%
+# Load=78/1024=8%, Rehash=0, Collisions=1/115=1%
 
 # Pattern-specific Variable Values
 
@@ -175,7 +177,7 @@ CC = gcc-11.2
 
 # Directories
 
-# . (device 2096, inode 137971): 19 files, no impossibilities.
+# . (device 2080, inode 137971): 19 files, no impossibilities.
 
 # 19 files, no impossibilities in 1 directories.
 
@@ -240,6 +242,6 @@ Test/test.o: Compiler/newplugin
 # strcache performance: lookups = 35 / hit rate = 22%
 # hash-table stats:
 # Load=27/8192=0%, Rehash=0, Collisions=0/35=0%
-# Finished Make data base on Fri Jul 15 05:27:51 2022
+# Finished Make data base on Wed Jul 20 08:13:13 2022
 
  

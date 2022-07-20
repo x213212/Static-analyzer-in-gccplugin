@@ -502,6 +502,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 									fprintf2(stderr, "\033[40;31m  this fucntion return heap-object  \033[0m\n");
 									debug_gimple_stmt2((callerRetTypearray)[k].stmt);
 									warning_at2(gimple_location_safe((callerRetTypearray)[k].stmt), 0, "use location");
+									++(*freecount);
 								}
 						}
 				}

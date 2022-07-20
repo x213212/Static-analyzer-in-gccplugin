@@ -373,7 +373,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		temp = diff(Globaltime, aend);
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 
-		printfBasicblock();
+		// printfBasicblock();
 	}
 	else
 		fprintf(stderr, "\033[40;41m GIMPLE STMT NO FREE STMT\033[0m\n");
@@ -395,7 +395,8 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    gimple free   count : %d \033[0m\n", GIMPLE_FREE_COUNT);
 	fprintf(stderr, "\033[40;34m    all ptable point : %d \033[0m\n", pointtablecount);
 	fprintf(stderr, "\033[40;34m    analyzable ptable point : %d \033[0m\n", Entrypoint);
-	fprintf(stderr, "\033[40;34m    analyzable ptable all point stmt : %d \033[0m\n", allcolectCount);
+	fprintf(stderr, "\033[40;34m    analyzable ptable point (function return heap-object): %d \033[0m\n", FUCNTION_RETURN_HEAP_OBJECT+GIMPLE_MALLOC_COUNT);
+	fprintf(stderr, "\033[40;34m    relate stmt of analyzable ptable : %d \033[0m\n", allcolectCount);
 	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %f mb\033[0m\n", (totalsize * 0.000001));
 	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used3);
 	fprintf(stderr, "\033[40;34m    mapping time: : %f s \033[0m\n", time_used);

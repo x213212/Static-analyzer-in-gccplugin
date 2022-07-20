@@ -2,25 +2,20 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 {
 
 	gimple *u_stmt;
-	gimple *u_stmt2;
 	gimple_array start;
-	gimple_array start2;
-
 	start.stmt = NULL;
-	start2.stmt = NULL;
 	gimple_array *used_stmt = &start;
-	gimple_array *used_stmt2 = &start;
-	gimple_array *user_tmp2 = user_tmp;
 	ptb *table_temp = ptable;
 
 	tree t;
-
-	while (traceStack.size())
-	{
-		// fprintf2(stderr, "check stmt\n");
-		// debug2(stmtStack.top());
-		traceStack.pop_back();
-	}
+	//show or clean
+	traceStack.clear();
+	// while (traceStack.size())
+	// {
+	// 	// fprintf2(stderr, "check stmt\n");
+	// 	// debug2(stmtStack.top());
+	// 	traceStack.pop_back();
+	// }
 
 	fprintf2(stderr, "\033[40;42m =======pre_check_funciton:%s========= \033[0m\n", get_name(function_tree));
 	if (calleetype == FUNCITON_THREAD && threadmod == true)
@@ -58,7 +53,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 		int childptable_type = 0;
 		int find_phistmt = 0;
 		int find_freestmt = 0;
-		int find_retheapstmt = -2;
+		int find_retheapstmt = 0;
 		int find_pthread_detched = 0;
 		int find_pthread_join = 0;
 		int is_pthread_detched = 0;
@@ -117,8 +112,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 								fprintf2(stderr, "trace fucntion name:%s \n", name);
 								trace_function_path(table_temp->target, RET_HEAP_OBJECT, table_temp->target, &find_retheapstmt);
+								// fprintf2(stderr, "trace fucntion name:%d \n", find_retheapstmt);
 								if (find_retheapstmt > 0)
+								{
 									fprintf2(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
+									// GIMPLE_MALLOC_COUNT++;
+									FUCNTION_RETURN_HEAP_OBJECT++;
+								}
 							}
 							else if (TREE_CODE(table_temp->target) != ADDR_EXPR && TREE_CODE(table_temp->target) != PARM_DECL)
 							{
@@ -130,8 +130,13 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										fprintf2(stderr, "trace fucntion name:%s \n", name);
 
 										trace_function_path(gimple_call_fndecl(def_stmt), RET_HEAP_OBJECT, table_temp->target, &find_retheapstmt);
+										// fprintf2(stderr, "trace fucntion name:%d \n", find_retheapstmt);
 										if (find_retheapstmt > 0)
+										{
 											fprintf2(stderr, "some fucntion return value is heap-object and with Collection SSA_NAME alias relation\n");
+											// GIMPLE_MALLOC_COUNT++;
+											FUCNTION_RETURN_HEAP_OBJECT++;
+										}
 									}
 							}
 						fprintf2(stderr, "\n ================== pre trace ptable finish================== \n");
@@ -154,7 +159,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						!strcmp(name, "xstrdup"))
 					{
 						ptable_type = IS_MALLOC_FUCNTION;
-
+						// fprintf2(stderr, "oioioi\n");
 						fprintf2(stderr, "is Reserved word function :%s\n", name);
 					}
 					else
@@ -162,7 +167,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						ptable_type = IS_OTHRER_FUCNTION;
 						debug_tree2(table_temp->target);
 						fprintf2(stderr, "is Other function %s\n", name);
-						// continue;
+						// if (!find_retheapstmt)
+						// 	continue;
+
+						// GIMPLE_MALLOC_COUNT++;
 					}
 				alloc_index = table_temp->bb->index;
 				user_tmp = treeGimpleArray->get(table_temp->target);
@@ -552,7 +560,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													int filter_out_duplicates_free = 0;
 													for (int i = 0; i < free_array.size(); i++)
 													{
-														if (free_array[i].stmt == u_stmt)
+														if (free_array[i].stmt == u_stmt && free_array[i].free_tree == user_tmp->target)
 														{
 															filter_out_duplicates_free = 1;
 														}
@@ -562,6 +570,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													fprintf(stderr, "\n ================== find free stmt ================== \n", gimple_bb(u_stmt)->index);
 													update_basic_block(gimple_bb(u_stmt), gimple_bb(u_stmt)->index != alloc_index ? 1 : 0, 1, 1, 0);
 													free_type.stmt = u_stmt;
+													free_type.free_tree = user_tmp->target;
 													free_array.push_back(free_type);
 													// fprintf2(stderr, "\n ================== find free stmt ================== \n");
 													debug2(u_stmt);
@@ -904,6 +913,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																					fprintf2(stderr, "gimple stmt in succ := %d \n", gimple_bb(u_stmt)->index);
 																					debug_gimple_stmt2((global_ret_type_array)[k].stmt);
 																					warning_at2(gimple_location_safe((global_ret_type_array)[k].stmt), 0, "use location");
+																					// fprintf2(stderr, "%d\n", (global_ret_type_array)[k].name);
+																					// fprintf(stderr, "branch in succ := %d", gimple_bb((global_ret_type_array)[k].stmt)->index);
+																					// fprintf(stderr, "%s\n", (global_ret_type_array)[k].name);
 																					if ((global_ret_type_array)[k].name)
 																						fprintf2(stderr, "branch in succ := %d have %s\n", gimple_bb((global_ret_type_array)[k].stmt)->index, (global_ret_type_array)[k].name);
 																					else

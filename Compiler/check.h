@@ -75,7 +75,11 @@ void Checknew_search_imm_use_rhs(gimple_array *used_stmt, gimple *use_stmt, tree
 		def_stmt = SSA_NAME_DEF_STMT(gimple_assign_rhs1(use_stmt));
 	if (def_stmt)
 	{
-		if (gimple_assign_rhs1(def_stmt))
+		// debug_gimple_stmt(def_stmt);
+		// debug_tree(gimple_assign_rhs1(use_stmt));
+		if (gimple_code(def_stmt) == GIMPLE_NOP)
+			return;
+		else if (gimple_assign_rhs1(def_stmt))
 		{
 			// debug_gimple_stmt(def_stmt);
 			if (TREE_CODE(gimple_assign_rhs1(def_stmt)) == ARRAY_REF)

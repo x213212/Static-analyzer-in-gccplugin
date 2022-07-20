@@ -1462,9 +1462,9 @@ void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 		get_function_return_tree = NULL_TREE;
 	vector<return_type> ret_type_array;
 
-	debug_gimple_stmt(gc);
-	fprintf(stderr, "GIMPLE_RETURN\n");
-	debug_tree(get_function_return_tree);
+	// debug_gimple_stmt(gc);
+	// fprintf(stderr, "GIMPLE_RETURN\n");
+	// debug_tree(get_function_return_tree);
 	// debug_tree(node->get_fun()->decl);
 	// warning_at(gimple_location_safe(gc), 0, "use location");
 
@@ -1473,6 +1473,9 @@ void collect_function_return(gimple *gc, cgraph_node *node, basic_block bb)
 	ret_type.stmt = gc;
 	ret_type.locfucntion = node->get_fun()->decl;
 	ret_type.return_tree = get_function_return_tree;
+	ret_type.name = "";
+		// fprintf(stderr,"wwwwww%s\n","WWWWWWWWWW");
+	
 	// global
 	global_ret_type_array.push_back(ret_type);
 
@@ -1489,7 +1492,10 @@ void collect_function_continue(gimple *gc, cgraph_node *node, basic_block bb)
 	ret_type.stmt = gc;
 	ret_type.locfucntion = node->get_fun()->decl;
 	ret_type.return_tree = get_function_return_tree;
-	ret_type.name = predictor_name(gimple_predict_predictor(gc));
+	const char *pername= predictor_name(gimple_predict_predictor(gc));
+	ret_type.name =(char*) pername;
+		// fprintf(stderr,"wwwwww222%s\n","WWWWWWWWW22W");
+	
 
 	// global
 	global_ret_type_array.push_back(ret_type);

@@ -31,7 +31,9 @@ unsigned int CREATE_JOINABLE = 0;
 unsigned int CREATE_DETACHED = 1;
 unsigned int DISABLE_TREACE = -100;
 int GIMPLE_MALLOC_COUNT = 0;
+int FUCNTION_RETURN_HEAP_OBJECT = 0;
 int GIMPLE_FREE_COUNT = 0;
+int debug_count=0;
 /*dump file */
 FILE *fp;
 
@@ -50,7 +52,7 @@ bool debugoutput = true;
 bool threadmod = true;
 bool relatemod = true;
 bool freemod = true;
-bool retmod = false;
+bool retmod = true;
 bool pthread_detachedmod = false;
 bool pthread_exitmod = false;
 bool tracerelatestmt = true;
@@ -163,7 +165,7 @@ struct return_type
 	gimple *stmt;
 	tree locfucntion;
 	tree return_tree;
-	const char *name;
+	char *name= "";
 };
 struct assign_type
 {
