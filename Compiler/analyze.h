@@ -567,7 +567,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													}
 													if (filter_out_duplicates_free)
 														continue;
-													fprintf(stderr, "\n ================== find free stmt ================== \n", gimple_bb(u_stmt)->index);
+													// fprintf(stderr, "\n ================== find free stmt ================== \n", gimple_bb(u_stmt)->index);
 													update_basic_block(gimple_bb(u_stmt), gimple_bb(u_stmt)->index != alloc_index ? 1 : 0, 1, 1, 0);
 													free_type.stmt = u_stmt;
 													free_type.free_tree = user_tmp->target;
