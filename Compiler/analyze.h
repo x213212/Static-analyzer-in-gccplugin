@@ -8,7 +8,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 	ptb *table_temp = ptable;
 
 	tree t;
-	//show or clean
+	// show or clean
 	traceStack.clear();
 	// while (traceStack.size())
 	// {
@@ -75,7 +75,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				if (TREE_CODE(table_temp->target) == INTEGER_CST || TREE_CODE(table_temp->target) == STRING_CST)
 				{
 					fprintf2(stderr, "\n ================== collect possiable invalid ================== \n");
-					debug_tree2(table_temp->target);
+					// debug_tree2(table_temp->target);
+					debug2(table_temp->last_stmt);
+					// debug_tree2(table_temp->target);
 					continue;
 				}
 				// debug2(table_temp->last_stmt);
@@ -86,10 +88,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					if (TREE_CODE(table_temp->target) != VAR_DECL && TREE_CODE(table_temp->target) != PARM_DECL)
 					{
 						// debug_gimple_stmt2(def_stmt);
-						debug_tree2(table_temp->target);
+						// debug_tree2(table_temp->target);
 						if (def_stmt)
 						{
-							debug_tree2(table_temp->target);
+							// debug_tree2(table_temp->target);
 							// debug2(def_stmt);
 							if (TREE_CODE(table_temp->target) == FUNCTION_DECL)
 								name = get_name(table_temp->target);
@@ -104,6 +106,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						}
 
 						fprintf2(stderr, "\n ================== pre trace ptable ================== \n");
+
 						if (def_stmt)
 							if (TREE_CODE(table_temp->target) == FUNCTION_DECL)
 							{
@@ -143,7 +146,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					}
 					else
 					{
-						debug_tree2(table_temp->target);
+						// debug_tree2(table_temp->target);
 						// debug2(table_temp->last_stmt);
 						// debug2(table_temp->last_stmt);
 						fprintf2(stderr, "\n ================== this stmt hava call fucntion ================== \n");
@@ -160,16 +163,23 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						ptable_type = IS_MALLOC_FUCNTION;
 						// fprintf2(stderr, "oioioi\n");
+						fprintf2(stderr, "\n ================== gimple stmt ================== \n");
+						debug_gimple_stmt2(table_temp->last_stmt);
 						fprintf2(stderr, "is Reserved word function :%s\n", name);
+						fprintf2(stderr, "\n ================== gimple tree ================== \n");
+						debug_tree2(table_temp->target);
 					}
 					else
 					{
 						ptable_type = IS_OTHRER_FUCNTION;
-						debug_tree2(table_temp->target);
+						fprintf2(stderr, "\n ================== gimple stmt ================== \n");
+						debug_gimple_stmt2(table_temp->last_stmt);
 						fprintf2(stderr, "is Other function %s\n", name);
-						// if (!find_retheapstmt)
-						// 	continue;
-
+						if(retnotheapobjskipcheck)
+						if (!find_retheapstmt)
+							continue;
+						fprintf2(stderr, "\n ================== gimple tree ================== \n");
+						debug_tree2(table_temp->target);
 						// GIMPLE_MALLOC_COUNT++;
 					}
 				alloc_index = table_temp->bb->index;
@@ -227,6 +237,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 								}
 							if (samefucntioncheck)
 							{
+
 								if (gimple_code(table_temp->last_stmt) == GIMPLE_CALL)
 								{
 									if (gimple_code(u_stmt) == GIMPLE_CALL)
@@ -556,6 +567,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 											if (name != NULL)
 												if (!strcmp(name, "free") || !strcmp(name, "xfree") || !strcmp(name, "realloc"))
 												{
+
 													// keep same stmt diff gimple tree only free stmt
 													int filter_out_duplicates_free = 0;
 													for (int i = 0; i < free_array.size(); i++)

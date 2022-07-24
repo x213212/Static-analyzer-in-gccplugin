@@ -46,23 +46,25 @@ bool defmemoryleak = true;
 bool memoryleakcheck = true;
 // Korea testcase need turn on
 bool Looserulesfree = true;
-bool useafterfree = true;
+bool useafterfree = false;
 bool debugmod = false;
 bool debugoutput = true;
 bool threadmod = true;
-bool relatemod = true;
+bool relatemod = false;
 bool freemod = true;
 bool retmod = true;
 bool pthread_detachedmod = false;
 bool pthread_exitmod = false;
 bool tracerelatestmt = true;
-bool prebranchexit = true;
-bool stmtloopcheck = true;
+bool prebranchexit = false;
+bool traceallfucntion =false;
+bool retnotheapobjskipcheck=true;
+bool stmtloopcheck = false;
 bool samefucntioncheck = true;
 bool maxbasicblockcalc = true;
 bool pathconstraint = false;
 bool contextsentive = true;
-bool symbolicexecution = false;
+bool symbolicexecution = true;
 
 /*allocation and deallocation table*/
 struct ptb

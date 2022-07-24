@@ -28,6 +28,28 @@ void detect(struct plugin_argument *argv, int argc)
 	fprintf(stderr, "--------plugin argument-----------\n");
 	for (int i = 0; i < argc; i++)
 	{
+
+		// relatemod
+		if (!strcmp(argv[i].key, "relatemod"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				relatemod = true;
+			else
+				relatemod = false;
+		if (!strcmp(argv[i].key, "retnotheapobjskipcheck"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				retnotheapobjskipcheck = true;
+			else
+				retnotheapobjskipcheck = false;
+		if (!strcmp(argv[i].key, "traceallfucntion"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				traceallfucntion = true;
+			else
+				traceallfucntion = false;
+		if (!strcmp(argv[i].key, "prebranchexit"))
+			if (strtol(argv[i].value, NULL, 10)) // char* to int
+				prebranchexit = true;
+			else
+				prebranchexit = false;
 		if (!strcmp(argv[i].key, "debugoutput"))
 			if (strtol(argv[i].value, NULL, 10)) // char* to int
 				debugoutput = true;
@@ -94,11 +116,11 @@ void detect(struct plugin_argument *argv, int argc)
 	fprintf(stderr, "=============== The first stage : Point of interest stmt collect =================\n");
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
-		fprintf(stderr, "=======node_fun:%s=========\n", get_name(node->decl));
 		// debug_tree(DECL_ATTRIBUTES(node->decl));
 
 		if (!gimple_has_body_p(node->decl))
 			continue;
+		fprintf(stderr, "=======node_fun:%s=========\n", get_name(node->decl));
 		push_cfun(node->get_fun());
 
 		if (cfun == NULL)
@@ -265,6 +287,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				const char *name;
 				if ((TREE_CODE(processtable->target) == SSA_NAME))
 				{
+					// a=(_1,_b,&a,b)
 					// debug_tree(processtable->target);
 					gimple *def_stmt = SSA_NAME_DEF_STMT(processtable->target);
 					levelsize = 0;
@@ -312,11 +335,12 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 				while (new_gimple_array.size())
 				{
 					colectCount++;
-					// debug_gimple_stmt(new_gimple_array.back());
+					// debug_gimple_stmt(new_gimple_array[new_gimple_array.size()]);
 					new_gimple_array.pop_back();
 				}
 				while (new_gimpletree_array.size())
 				{
+
 					new_gimpletree_array.pop_back();
 				}
 
@@ -373,7 +397,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 		temp = diff(Globaltime, aend);
 		time_used2 = temp.tv_sec + (double)temp.tv_nsec / 1000000000.0;
 
-		// printfBasicblock();
+		printfBasicblock();
 	}
 	else
 		fprintf(stderr, "\033[40;41m GIMPLE STMT NO FREE STMT\033[0m\n");
@@ -395,7 +419,7 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 	fprintf(stderr, "\033[40;34m    gimple free   count : %d \033[0m\n", GIMPLE_FREE_COUNT);
 	fprintf(stderr, "\033[40;34m    all ptable point : %d \033[0m\n", pointtablecount);
 	fprintf(stderr, "\033[40;34m    analyzable ptable point : %d \033[0m\n", Entrypoint);
-	fprintf(stderr, "\033[40;34m    analyzable ptable point (function return heap-object): %d \033[0m\n", FUCNTION_RETURN_HEAP_OBJECT+GIMPLE_MALLOC_COUNT);
+	fprintf(stderr, "\033[40;34m    analyzable ptable point (function return heap-object): %d \033[0m\n", FUCNTION_RETURN_HEAP_OBJECT + GIMPLE_MALLOC_COUNT);
 	fprintf(stderr, "\033[40;34m    relate stmt of analyzable ptable : %d \033[0m\n", allcolectCount);
 	fprintf(stderr, "\033[40;34m    used_stmt array stack totalsize of : %f mb\033[0m\n", (totalsize * 0.000001));
 	fprintf(stderr, "\033[40;34m    collect time: : %f s \033[0m\n", time_used3);

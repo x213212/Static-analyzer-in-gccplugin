@@ -455,6 +455,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 				function_relate_collect->put(mallocStmt_tree, fun_array);
 			}
 		}
+
 		pop_cfun();
 	}
 	fprintf2(stderr, "fucntion collect path finsh\n");
@@ -642,7 +643,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 
 			struct ptr_info_def *pi1, *pi2, *pi3;
 			pi1 = SSA_NAME_PTR_INFO(mallocStmt_tree);
-			debug_tree2(mallocStmt_tree);
+			// debug_tree2(mallocStmt_tree);
 			struct pt_solution *pt1 = &pi1->pt;
 			if (pt1 && pt1->null)
 			{
@@ -954,9 +955,9 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 {
 
 	cgraph_edge *e;
-	if (node == NULL)
+	// if (node == NULL)
 
-		fprintf2(stderr, "=======node_fun: =========\n");
+	// 	fprintf2(stderr, "=======node_fun: =========\n");
 
 	FOR_EACH_DEFINED_FUNCTION(node)
 	{
@@ -974,18 +975,29 @@ void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp)
 			continue;
 		}
 		// mutlple entry point
-		// if (!strcmp(get_name(cfun->decl), "main"))
-		// {
+		if (!traceallfucntion)
+		{
+			if (!strcmp(get_name(cfun->decl), "main"))
+			{
 
-		// fprintf2(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
-		// fprintf2(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
+				// fprintf2(stderr, "\033[40;44m =======node_fun:%s========= \033[0m\n", get_name(cfun->decl));
+				// fprintf2(stderr, "\033[40;44m fucntion collect path  \033[0m\n");
 
-		pathStack.push_back(cfun->decl);
-		// debug_tree2(node->get_fun()->decl );
-		walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
-		// fprintf2(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
-		pathStack.pop_back();
-		// }
+				pathStack.push_back(cfun->decl);
+				// debug_tree2(node->get_fun()->decl );
+				walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
+				// fprintf2(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+				pathStack.pop_back();
+			}
+		}
+		else
+		{
+			pathStack.push_back(cfun->decl);
+			// debug_tree2(node->get_fun()->decl );
+			walk_function_path(cfun->decl, fucntion_level, ptable, user_tmp);
+			// fprintf2(stderr, "\033[40;33m =======POP node_fun stack:%s========= \033[0m\n", get_name(pathStack.back()));
+			pathStack.pop_back();
+		}
 		pop_cfun();
 	}
 	fprintf2(stderr, "fucntion collect path finsh\n");

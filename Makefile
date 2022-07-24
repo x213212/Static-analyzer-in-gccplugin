@@ -17,5 +17,9 @@ $(PARTIALS):
 	$(MAKE) -C $(dir $@) $(notdir $@).so 
 
 clean:
-	rm -rf Compiler/*.o Test/*.o
-
+	-rm -rf Compiler/*.o Test/*.o
+	-rm -rf Test/test ./test.dSYM *.o
+	-rm -rf Test/graph.dot
+	-rm -rf Test/graph.log
+	-rm -rf Test/graph.svg
+	

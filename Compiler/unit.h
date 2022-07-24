@@ -234,6 +234,7 @@ void output_basic_block_stage()
 {
 	if (symbolicexecution)
 	{
+		fprintf2(stderr, "\n=============================output_basic_block_stage==================================\n");
 		fprintf(stderr, "alloc index %d\n", alloc_index);
 		for (int i = 0; i < bestfreepaths.size(); i++)
 		{
