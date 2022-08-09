@@ -6,7 +6,8 @@
 3. [Use](#use)
 4. [Experiment](#experiment)
 5. [Support](#support)
-
+6. [Contributing](#contributing)
+7. [License](#license)
 # Introduction <a name="introduction"></a>
 Use GCC PLUGIN to implement a static analyzer to help users detect memory deallocation errors, including memleak, double free, use-after-free, and currently experimental nature of symbolic execution and pthread resouce leak detection.
 
@@ -350,6 +351,10 @@ The parser only reads the breakpoint.txt breakpoint data,But it must be set acco
 ```
 This allows you to do filter in a lot of code.
 
-## License
+# Contributing
+Feel free to dive in! Open an issue or submit PRs.
 
-[MIT](LICENSE) © x213212
+Standard Readme follows the Contributor Covenant Code of Conduct.
+
+# License
+[MIT license](LICENSE) © x213212
