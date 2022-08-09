@@ -284,9 +284,17 @@ add grep -r   "algorithm time" ./  | cut -d " " -f 7
 
 # Draw graphviz report
 With graphviz it is currently possible to output analysis graphs for test data
-```bahs
+
+```bash
 cd Test
 make gpz
+```
+It is important to note that
+Compile/Test/Makefile
+The following flags must be enabled
+```bash
+-fplugin-arg-newplugin-debugoutput=1 
+-fplugin-arg-newplugin-debugmod=1
 ```
 ![](https://i.imgur.com/jSMgN6P.png)
 
