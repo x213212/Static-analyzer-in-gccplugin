@@ -24,7 +24,7 @@ void detect(struct plugin_argument *argv, int argc)
 	function_free_collect = new hash_map<tree, function_free_array>;
 	function_graph_collect = new hash_map<tree, function_graph_array>;
 	function_relate_collect = new hash_map<tree, function_relate_array>;
-
+	
 	fprintf(stderr, "--------plugin argument-----------\n");
 	for (int i = 0; i < argc; i++)
 	{

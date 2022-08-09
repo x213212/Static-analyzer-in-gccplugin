@@ -73,7 +73,7 @@ void printfBasicblock()
 		if (!gimple_has_body_p(node->decl))
 			continue;
 		push_cfun(node->get_fun());
-	
+
 		if (cfun == NULL)
 		{
 			pop_cfun();
@@ -85,7 +85,6 @@ void printfBasicblock()
 		{
 
 			fprintf(stderr, "=======Mapping node_fun:%s=========\n", name);
-	
 		}
 		calculate_dominance_info(CDI_DOMINATORS);
 
@@ -97,6 +96,8 @@ void printfBasicblock()
 			for (gimple_stmt_iterator gsi = gsi_start_bb(bb); !gsi_end_p(gsi); gsi_next(&gsi))
 			{
 				gimple *gc = gsi_stmt(gsi);
+				location_t loc = gimple_location_safe(gc);
+				warning_at(gimple_location_safe(gc), 0, "use location");
 				gimplestmt_count += 1;
 			}
 		}
@@ -263,7 +264,7 @@ void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp)
 				if (user_tmp->size > 0)
 					FOR_EACH_USE_TABLE(user_tmp, u_stmt)
 					{
-				
+
 						if (user_tmp->ret_stmt != NULL)
 						{
 							location_t loc = gimple_location_safe(user_tmp->ret_stmt);
@@ -297,7 +298,7 @@ void printfPointerConstraint2(ptb *ftable, gimple_array *user_tmp)
 	FOR_EACH_TABLE(table_temp, t)
 	{
 		fprintf(stderr, "\n ------------------------------------------\n");
-	
+
 		if (table_temp->target != NULL)
 		{
 			debug_tree(table_temp->target);

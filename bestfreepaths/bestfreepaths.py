@@ -60,7 +60,8 @@ for  option in  options:
     # print(answer, s.check(), s.assertions())
     if s.check() != sat:
         print(x_back[index])    
-        result.append(index)
+        result.append(x_back[index])
+        
     index = index+1
     s.pop()
 print("Answer：", (result))
