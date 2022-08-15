@@ -160,7 +160,7 @@ WHOLE=-fwhole-program
 #-fno-inline-functions-called-once
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fno-inline  -pthread   -ftime-report
 # -pthread  --param max-ssa-name-query-depth=10   -fno-inline-small-functions   -fno-strict-aliasing -fno-inline-functions
-FLAGS=-O1 -fno-tree-dse -fno-tree-dce  -fno-tree-fre -fipa-pta -fno-inline  -pthread   -ftime-report 
+FLAGS=-O1 -fno-tree-dse -fno-tree-dce  -fno-tree-fre -fipa-pta -fno-inline  -pthread   -ftime-report -g
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta -fdump-tree-cfg-graph -pthread  --param max-ssa-name-query-depth=10  -ftime-report
 # FLAGS=-O1 -fno-tree-dse  -fno-tree-fre -fipa-pta   --param max-ssa-name-query-depth=10 -ftime-report
 # -fno-inline 
@@ -173,7 +173,7 @@ FLAGS=-O1 -fno-tree-dse -fno-tree-dce  -fno-tree-fre -fipa-pta -fno-inline  -pth
 # PLUGIN=
 # PLUGIN=-fplugin=../Compiler/newplugin.so  -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1
 PLUGIN :=-fplugin=../Compiler/newplugin.so 
-DEBUGMOD= -fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1
+DEBUGMOD= -fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=1 
 debug=0
 # $(eval PLUGIN=-fanalyzer -Wanalyzer-malloc-leak -Wanalyzer-double-free -Wanalyzer-use-after-free)
 
@@ -194,7 +194,7 @@ else ifeq ($(debug),4)
 endif
 	# @echo $(debug)
 	# mod 1
-	# # $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
+	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
 	@sh ./draw.sh $(FILE_NAME)
 	# # #mod 2

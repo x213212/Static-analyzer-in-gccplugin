@@ -1,4 +1,6 @@
 make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+make: *** No rule to make target 'all'.  Stop.
+
 # GNU Make 4.3
 # Built for x86_64-pc-linux-gnu
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -6,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug  9 19:52:50 2022
+# Make data base, printed on Mon Aug 15 08:58:12 2022
 
 # Variables
 
@@ -22,8 +24,6 @@ VSCODE_CWD = /mnt/c/Users/x213212/AppData/Local/Programs/Microsoft VS Code
 MAKE_COMMAND := make
 # environment
 VSCODE_HANDLES_SIGPIPE = true
-# environment
-VSCODE_GIT_ASKPASS_EXTRA_ARGS = 
 # environment
 GOPATH = /root/go
 # automatic
@@ -55,7 +55,7 @@ MAKEFLAGS = pqrR
 # makefile
 CURDIR := /root/x21321219/new_gccplugin
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # environment
 LESSOPEN = | /usr/bin/lesspipe %s
 # automatic
@@ -68,8 +68,6 @@ MFLAGS = -pqrR
 WAYLAND_DISPLAY = wayland-0
 # automatic
 +D = $(patsubst %/,%,$(dir $+))
-# environment
-GIT_ASKPASS = /root/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/extensions/git/dist/askpass.sh
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
 # automatic
@@ -91,7 +89,7 @@ MAKECMDGOALS := all
 # environment
 LD_LIBRARY_PATH = /usr/local/systemc-2.3.3/lib-linux64
 # environment
-SHLVL = 1
+SHLVL = 0
 # environment
 MAKELEVEL := 0
 # makefile (from 'Makefile', line 2)
@@ -99,21 +97,15 @@ MAKE = make
 # environment
 FC = /usr/local/gcc-11.2.0/bin/gfortran-11.2
 # environment
-PATH = /usr/local/texlive/2021/bin/x86_64-linux/:/root/riscv-toolchain/bin:/usr/local/gcc-11.2.0/bin:/root/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/bin/remote-cli:/usr/local/texlive/2021/bin/x86_64-linux/:/root/riscv-toolchain/bin:/usr/local/gcc-11.2.0/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Workstation/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/IDM Computer Solutions/UltraEdit:/mnt/c/Program Files/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/Graphviz/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.9.0:/mnt/c/flutter/bin:/mnt/c/Program Files/010 Editor:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/Java/jdk-11.0.15.1/bin:/mnt/c/Users/x213212/.cargo/bin:/mnt/c/Users/x213212/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/x213212/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/x213212/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/x213212/.dotnet/tools:/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2019.3.2/bin:/mnt/h/apache-maven-3.8.2/bin:/mnt/c/Users/x213212/AppData/Roaming/npm:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Users/x213212/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/flutter/bin:/snap/bin:/bin:/root/go/bin
+PATH = /root/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/bin/remote-cli:/usr/local/texlive/2021/bin/x86_64-linux/:/root/riscv-toolchain/bin:/usr/local/gcc-11.2.0/bin:/root/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/VMware/VMware Workstation/bin/:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/Scripts/:/mnt/c/Users/x213212/AppData/Local/Programs/Python/Python39/:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files (x86)/IDM Computer Solutions/UltraEdit:/mnt/c/Program Files/dotnet/:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files (x86)/dotnet/:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Program Files/Graphviz/bin:/mnt/c/Program Files (x86)/AOMEI/AOMEI Backupper/6.9.0:/mnt/c/flutter/bin:/mnt/c/Program Files/010 Editor:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/ProgramData/DockerDesktop/version-bin:/mnt/c/Program Files/Java/jdk-11.0.15.1/bin:/mnt/c/Users/x213212/.cargo/bin:/mnt/c/Users/x213212/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/x213212/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/x213212/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/x213212/.dotnet/tools:/mnt/c/Program Files/JetBrains/IntelliJ IDEA 2019.3.2/bin:/mnt/h/apache-maven-3.8.2/bin:/mnt/c/Users/x213212/AppData/Roaming/npm:/mnt/c/Program Files/Intel/WiFi/bin/:/mnt/c/Program Files/Common Files/Intel/WirelessCommon/:/mnt/c/Users/x213212/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/flutter/bin:/snap/bin:/bin
 # default
 MAKEFILES := 
 # environment
-VSCODE_GIT_IPC_HANDLE = /mnt/wslg/runtime-dir/vscode-git-6701f6124a.sock
-# environment
-VSCODE_GIT_ASKPASS_NODE = /root/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/node
+MOTD_SHOWN = update-motd
 # automatic
 ^F = $(notdir $^)
-# environment
-VSCODE_GIT_ASKPASS_MAIN = /root/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/extensions/git/dist/askpass-main.js
 # makefile (from 'Makefile', line 7)
 COMPLILER_FILES = Compiler/Makefile
-# environment
-TERM_PROGRAM = vscode
 # environment
 LESSCLOSE = /usr/bin/lesspipe %s %s
 # automatic
@@ -125,11 +117,11 @@ PARTIALS = $(patsubst %Makefile,%newplugin,$(COMPLILER_FILES))
 # environment
 HOSTTYPE = x86_64
 # environment
-LS_COLORS = rs
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:
 # automatic
 +F = $(notdir $+)
 # environment
-WSL_INTEROP = /run/WSL/193_interop
+WSL_INTEROP = /run/WSL/237_interop
 # 'override' directive
 GNUMAKEFLAGS := 
 # environment
@@ -147,15 +139,13 @@ MAKE_VERSION := 4.3
 # environment
 DEBUGINFOD_URLS = 
 # environment
-_ = /usr/bin/printenv
+_ = /root/.vscode-server/bin/da76f93349a72022ca4670c1b84860304616aaa2/node
 # environment
 XDG_RUNTIME_DIR = /mnt/wslg/runtime-dir
 # makefile (from 'Makefile', line 4)
 CFLAGS = -g 
 # environment
-COLORTERM = truecolor
-# environment
-VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-6600bc18-12b9-487b-8c0e-a10f5cf682d7.sock
+VSCODE_IPC_HOOK_CLI = /mnt/wslg/runtime-dir/vscode-ipc-5d716d9c-f8e2-4fb3-a79f-7994bd69ef29.sock
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -178,10 +168,8 @@ WSL_DISTRO_NAME = Ubuntu-20.04
 CXX = /usr/local/gcc-11.2.0/bin/g++-11.2
 # makefile (from 'Makefile', line 3)
 CC = gcc-11.2
-# environment
-TERM_PROGRAM_VERSION = 1.70.0
 # variable set hash-table stats:
-# Load=85/1024=8%, Rehash=0, Collisions=1/122=1%
+# Load=78/1024=8%, Rehash=0, Collisions=1/115=1%
 
 # Pattern-specific Variable Values
 
@@ -259,8 +247,6 @@ Test/test.o: Compiler/newplugin
 # strcache performance: lookups = 35 / hit rate = 22%
 # hash-table stats:
 # Load=27/8192=0%, Rehash=0, Collisions=0/35=0%
-# Finished Make data base on Tue Aug  9 19:52:50 2022
+# Finished Make data base on Mon Aug 15 08:58:12 2022
 
  
-make: *** No rule to make target 'all'.  Stop.
-

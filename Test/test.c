@@ -8,7 +8,7 @@ int main() {
         int test;
         for (int i = 0;i < 10 ; i++){
                 test= rand()% (10 - 0 + 1) + 0;
-                p=foo();
+                p=(int *)malloc(sizeof(int )*10);
                 p[0]=1;
                 p[1]=2;
                 p[2]=3;
@@ -19,7 +19,7 @@ int main() {
                 p[7]=8;
                 p[8]=9;
                 p[9]=10;
-                printf("%d\n", p);
+                // printf("%d\n",p[0]);
                 if(test >5)
                         goto EXIT;
                 free(p);
