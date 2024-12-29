@@ -270,4 +270,3 @@ value=`cat graph.log`
 echo "digraph {   graph [bgcolor=black];node [fillcolor=black color=lightgray  penwidth=5   fontsize = 18 fontcolor=white  style="'"'"filled"','"dashed"'"'"]; edge [color=lightgray penwidth=2  ]; constraint=false ;rankdir = LR; rank=same; nodesep=1.0;" "$value" "}" >> graph.dot
 dot -Tsvg -o graph.svg  graph.dot 
 gvpr -f graphinfo.gvpr graph.dot 
-echo "Username: $user";
