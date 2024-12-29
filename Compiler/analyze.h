@@ -175,9 +175,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						fprintf2(stderr, "\n ================== gimple stmt ================== \n");
 						debug_gimple_stmt2(table_temp->last_stmt);
 						fprintf2(stderr, "is Other function %s\n", name);
-						if(retnotheapobjskipcheck)
-						if (!find_retheapstmt)
-							continue;
+						if (retnotheapobjskipcheck)
+							if (!find_retheapstmt)
+								continue;
 						fprintf2(stderr, "\n ================== gimple tree ================== \n");
 						debug_tree2(table_temp->target);
 						// GIMPLE_MALLOC_COUNT++;
@@ -225,7 +225,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 							// r
 
-							update_basic_block(gimple_bb(u_stmt), gimple_bb(u_stmt)->index != alloc_index ? 1 : 0, 1, 0, 0);
+							// update_basic_block(gimple_bb(u_stmt), gimple_bb(u_stmt)->index != alloc_index ? 1 : 0, 1, 0, 0);
 							if (stmtloopcheck)
 								if (bb_in_loop_p(gimple_bb(u_stmt)))
 								{
@@ -495,7 +495,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 										if (gimple_code(u_stmt) == GIMPLE_PHI)
 										{
 											find_phistmt = 1;
-											fprintf2(stderr, "this stmt have mutiple branch ---%s-----\n", name);
+											// fprintf2(stderr, "this stmt have mutiple branch ---%s-----\n", name);
 										}
 										if (name != NULL)
 											if (!strcmp(name, "realloc") ||
@@ -507,7 +507,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												!strcmp(name, "xstrdup"))
 											{
 
-												fprintf2(stderr, "\nThis stmt may duplicate memory requests.\n");
+												fprintf2(stderr, "\nThis stmt could potentially be called repeatedly by other functions, causing multiple allocations in memory\n");
 												find_mallocstmt = IS_MALLOC_FUCNTION;
 											}
 											else
@@ -580,7 +580,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													if (filter_out_duplicates_free)
 														continue;
 													// fprintf(stderr, "\n ================== find free stmt ================== \n", gimple_bb(u_stmt)->index);
-													update_basic_block(gimple_bb(u_stmt), gimple_bb(u_stmt)->index != alloc_index ? 1 : 0, 1, 1, 0);
+													// update_basic_block(gimple_bb(u_stmt), gimple_bb(u_stmt)->index != alloc_index ? 1 : 0, 1, 1, 0);
 													free_type.stmt = u_stmt;
 													free_type.free_tree = user_tmp->target;
 													free_array.push_back(free_type);
@@ -912,8 +912,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																			if (dominated_by_p(CDI_DOMINATORS, gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb(u_stmt)) || fDFS->get(table_temp->node)->is_succ(gimple_bb(u_stmt), gimple_bb((callerRetTypearray)[k2].stmt)))
 																				if (!dominated_by_p(CDI_DOMINATORS, gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((callerRetTypearray)[k2].stmt)))
 																				{
-																					update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 0, 0, 1);
-																					update_basic_block(gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb((callerRetTypearray)[k2].stmt)->index != alloc_index ? 1 : 0, 1, 1, 0);
+																					// update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 0, 0, 1);
+																					// update_basic_block(gimple_bb((callerRetTypearray)[k2].stmt), gimple_bb((callerRetTypearray)[k2].stmt)->index != alloc_index ? 1 : 0, 1, 1, 0);
 																					fprintf2(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
 																					name = get_name(table_temp->node->get_fun()->decl);
 																					if (name)
@@ -937,10 +937,10 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																					fprintf2(stderr, "The path has a release memory in succ := %d \n", gimple_bb((callerRetTypearray)[k2].stmt)->index);
 																					fprintf2(stderr, "\n======================================================================\n");
 																				}
-																				else
-																				{
-																					update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 1, 1, 1);
-																				}
+																				// else
+																				// {
+																				// 	update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 1, 1, 1);
+																				// }
 																	}
 															// }
 														}
@@ -954,8 +954,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 												if ((global_ret_type_array)[k].locfucntion == function_tree)
 												{
 													// debug_gimple_stmt((global_ret_type_array)[k].stmt);
-													if (gimple_bb((global_ret_type_array)[k].stmt)->index == gimple_bb(u_stmt)->index)
-														update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 1, 0, 1);
+													// if (gimple_bb((global_ret_type_array)[k].stmt)->index == gimple_bb(u_stmt)->index)
+													// 	update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 1, 0, 1);
 													basic_block bb;
 													FOR_EACH_BB_FN(bb, table_temp->node->get_fun())
 													{
@@ -963,13 +963,15 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 														edge_iterator ei;
 														FOR_EACH_EDGE(e, ei, bb->succs)
 														{
-
+															// if(u_stmt){
+														
+															if(gimple_bb(u_stmt)){
 															if (e->dest->index == gimple_bb(u_stmt)->index || bb->index == gimple_bb(u_stmt)->index)
 															{
 
 																if (fDFS->get(table_temp->node)->is_succ(e->dest, gimple_bb((global_ret_type_array)[k].stmt)))
 																{
-																	update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 0, 0, 1);
+																	// update_basic_block(gimple_bb((global_ret_type_array)[k].stmt), gimple_bb((global_ret_type_array)[k].stmt)->index != alloc_index ? 1 : 0, 0, 0, 1);
 																	// fprintf2(stderr, "\n================qweqwe================================%d=\n", e->dest->index);
 																	fprintf2(stderr, "\n======================================================================\n");
 																	fprintf2(stderr, "\033[40;31m    branch possiable have return or exit  \033[0m\n");
@@ -993,7 +995,8 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 																	fprintf2(stderr, "\n======================================================================\n");
 																}
 																break;
-															}
+															}}
+															// }
 														}
 													}
 												}
@@ -1255,9 +1258,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				fprintf2(stderr, "\n======================================================================\n");
 			}
 
-		output_basic_block_stage();
-		bestfreepaths.clear();
-		alloc_index = -1;
+		// output_basic_block_stage();
+		// bestfreepaths.clear();
+		// alloc_index = -1;
 		// defmemoryleak check experiment
 		// if (defmemoryleak)
 		// {

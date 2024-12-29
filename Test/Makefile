@@ -1,4 +1,4 @@
-CC=gcc-11.2
+CC=gcc
 
 BINUTILSL=./benchmarks/binutils/leak_
 BINUTILSD=./benchmarks/binutils/double_free_
@@ -188,16 +188,15 @@ else ifeq ($(debug),1)
 else ifeq ($(debug),2)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=1 -fplugin-arg-newplugin-debugoutput=1 -fplugin-arg-newplugin-contextsentive=1)
 else ifeq ($(debug),3)
-	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=0  -fplugin-arg-newplugin-contextsentive=0)
+	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=1 -fplugin-arg-newplugin-vscode_extensionmod=0  -fplugin-arg-newplugin-contextsentive=1)
 else ifeq ($(debug),4)
 	$(eval PLUGIN=-fplugin=../Compiler/newplugin.so -fplugin-arg-newplugin-debugmod=0 -fplugin-arg-newplugin-vscode_extensionmod=0 )
 endif
 	# @echo $(debug)
 	# mod 1
-	# $(CC) $(PLUGIN) $(FLAGS) $(LTO)  $(FILE_NAME) -o $@ 
 	$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(FILE_NAME) -o $@ 2> check.log
 	@sh ./draw.sh $(FILE_NAME)
-	# # #mod 2
+	# # #mod 2 
 	# #binutils
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME1)  -o $@ 2> $(BINUTILSL)1/check.log
 	# -$(CC) $(PLUGIN) $(FLAGS) $(LTO)   $(BFILE_NAME2)  -o $@ 2> $(BINUTILSL)2/check.log

@@ -344,7 +344,11 @@ bool warning_at2(location_t location, int opt, const char *gmsgid, ...)
 {
 	if (!debugoutput)
 		return 0;
-	return warning_at(location, opt, gmsgid);
+	expanded_location xloc = expand_location(location);
+
+	return 1;
+	inform_n(location, 0, /* msgid */ "", /* default_msg */ "");
+	// return warning_at(location, opt, gmsgid);
 }
 
 /* Same as "warning at" above, but using RICHLOC.  */
@@ -353,6 +357,9 @@ bool warning_at2(rich_location *richloc, int opt, const char *gmsgid, ...)
 {
 	if (!debugoutput)
 		return 0;
+	// 		 inform_n(location, 0, /* msgid */ "note", /* default_msg */
+	//  "This is an informational message");
+	//  return 1;
 	return warning_at(richloc, opt, gmsgid);
 }
 

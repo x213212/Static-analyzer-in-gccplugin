@@ -97,7 +97,7 @@ void printfBasicblock()
 			{
 				gimple *gc = gsi_stmt(gsi);
 				location_t loc = gimple_location_safe(gc);
-				warning_at(gimple_location_safe(gc), 0, "use location");
+				// warning_at(gimple_location_safe(gc), 0, "use location");
 				gimplestmt_count += 1;
 			}
 		}
