@@ -8,6 +8,22 @@
 #include "../stdio.h"
 #include "../openssh.h"
 
+size_t strlcat(char *, const char *, size_t);
+void debug(const char *, ...);
+void debug2(const char *, ...);
+void verbose(const char *, ...);
+void temporarily_use_uid(struct passwd *);
+void restore_uid(void);
+FILE *auth_openkeyfile(const char *, struct passwd *, int);
+Key *key_new(int);
+int key_read(Key *, char **);
+int key_equal(const Key *, const Key *);
+int auth_parse_options(struct passwd *, char *, const char *, u_long);
+char *key_fingerprint(const Key *, enum fp_type, int);
+const char *key_type(const Key *);
+void key_free(Key *);
+char *authorized_keys_file2(struct passwd *);
+
 #  define MAXPATHLEN 64
 
 
@@ -226,7 +242,6 @@ int main()
     user_key_allowed(&pw, &key);
     return 0;
 }
-
 
 
 

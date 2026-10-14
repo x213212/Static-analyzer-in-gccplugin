@@ -1,6 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
+#include <ctype.h>
+#include <locale.h>
+#include <string.h>
 #include <sys/stat.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+
+#define HAVE_GOOD_UTIME_H 1
+#define _(message) (message)
+#define IS_DIR_SEPARATOR(character) ((character) == '/')
+#define gdb_assert(condition) assert(condition)
+
+void warning(const char *format, ...);
 
 #define FALSE 0
 #define TRUE 1
@@ -150,4 +164,3 @@ make_cleanup (make_cleanup_ftype *function, void *arg)
 {
   return make_my_cleanup (&cleanup_chain, function, arg);
 }
-

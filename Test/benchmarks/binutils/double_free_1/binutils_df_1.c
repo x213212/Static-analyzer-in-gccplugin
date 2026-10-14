@@ -122,7 +122,7 @@ int main() {
 	srand(time(&t));
 
 	char buf[10];
-	int len;
+	ULONGEST len;
 	gdb_byte *writebuf;
 	ULONGEST *xfered_len = &len;
 	

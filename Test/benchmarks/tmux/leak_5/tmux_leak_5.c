@@ -83,12 +83,6 @@ struct cmd_if_shell_data {
 	int			 references;
 };
 
-struct args_entry {
-	u_char			 flag;
-	char			*value;
-	RB_ENTRY(args_entry)	 entry;
-};
-
 /* Arguments tree comparison function. */
 int
 args_cmp(struct args_entry *a1, struct args_entry *a2)
@@ -217,5 +211,4 @@ int main()
 	cmd_if_shell_exec(&self, &cmdq);
 	return 0;
 }
-
 

@@ -52,6 +52,11 @@
 
 
 #define N_(msgid) msgid
+
+struct startup_info {
+	const char *prefix;
+	int have_repository;
+};
 const char git_usage_string[] =
 	"git [--version] [--help] [-C <path>] [-c name=value]\n"
 	"           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n"
@@ -247,10 +252,14 @@ static int handle_alias(int *argcp, const char ***argv)
 
 int main(int argc, char **argv)
 {
-    handle_alias(&argc, &argv);
-    new_handle_alias(&argc, &argv);
+    const char *initial_argv[argc + 1];
+    const char **alias_argv = initial_argv;
+    int i;
+
+    for (i = 0; i < argc; i++)
+        initial_argv[i] = argv[i];
+    initial_argv[argc] = NULL;
+    handle_alias(&argc, &alias_argv);
+    new_handle_alias(&argc, &alias_argv);
     return 0;
 }
-
-
-

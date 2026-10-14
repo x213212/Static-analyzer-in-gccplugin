@@ -57,6 +57,15 @@ char *value;
 
 typedef void (*OPENSSL_sk_freefunc)(void *);
 
+OPENSSL_STACK *OPENSSL_sk_new_null(void);
+int OPENSSL_sk_push(OPENSSL_STACK *, const void *);
+int OPENSSL_sk_insert(OPENSSL_STACK *, const void *, int);
+void OPENSSL_sk_pop_free(OPENSSL_STACK *, OPENSSL_sk_freefunc);
+void OPENSSL_sk_free(OPENSSL_STACK *);
+int sk_reserve(OPENSSL_STACK *, int, int);
+char *OPENSSL_strdup(const char *);
+char *strip_spaces(char *);
+
 OPENSSL_STACK *OPENSSL_sk_new_null(void)
 {
     return OPENSSL_zalloc(sizeof(OPENSSL_STACK));   /* allocation site */
@@ -241,6 +250,4 @@ int main(int argc, char **argv)
 		sk_CONF_VALUE_pop_free(values, X509V3_conf_free);   /* double-free */	
 	return 0;
 }
-
-
 

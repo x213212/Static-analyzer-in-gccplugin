@@ -48,6 +48,8 @@ int vasprintf(char **ret, const char *fmt, char *ap)
 	return 0;
 }
 
+int xvasprintf(char **, const char *, va_list);
+
 int
 xasprintf(char **ret, const char *fmt, char *ap)
 {

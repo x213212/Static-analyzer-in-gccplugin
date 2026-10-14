@@ -11,7 +11,7 @@
 # define STACK_OF(type) struct stack_st_##type
 # define LHASH_OF(type) struct lhash_st_##type
 # define DEFINE_LHASH_OF(type) \
-    LHASH_OF(type) { union lh_##type##_dummy { void* d1; unsigned long d2; int d3; } dummy; }; \
+	    LHASH_OF(type) { OPENSSL_LHASH table; };
 
 typedef struct lhash_node_st OPENSSL_LH_NODE;
 typedef int (*OPENSSL_LH_COMPFUNC) (const void *, const void *);
@@ -79,6 +79,16 @@ struct conf_st {
     LHASH_OF(CONF_VALUE) *data;
 };
 
+struct stack_st_CONF_VALUE;
+void CONF_set_nconf(CONF *, LHASH_OF(CONF_VALUE) *);
+BIO *BIO_new_file(const char *, const char *);
+int BIO_free(BIO *);
+void CONF_free(LHASH_OF(CONF_VALUE) *);
+int sk_CONF_VALUE_num(const STACK_OF(CONF_VALUE) *);
+CONF_VALUE *sk_CONF_VALUE_value(const STACK_OF(CONF_VALUE) *, int);
+int X509_NAME_add_entry_by_NID(X509_NAME *, int, int, const unsigned char *,
+    int, int, int);
+
 static OPENSSL_LH_NODE **getrn(OPENSSL_LHASH *lh,
                                const void *data, unsigned long *rhash)
 {
@@ -110,8 +120,10 @@ static OPENSSL_LH_NODE **getrn(OPENSSL_LHASH *lh,
     return (ret);
 }
 
-CONF_VALUE *lh_CONF_VALUE_retrieve(OPENSSL_LHASH *lh, const void *data)
+CONF_VALUE *lh_CONF_VALUE_retrieve(LHASH_OF(CONF_VALUE) *typed_lh,
+                                   const void *data)
 {
+    OPENSSL_LHASH *lh = &typed_lh->table;
     unsigned long hash;
     OPENSSL_LH_NODE **rn;
     void *ret;
@@ -168,9 +180,9 @@ STACK_OF(CONF_VALUE) *CONF_get_section(const CONF *conf, const char *section)
     return _CONF_get_section_values(conf, section);
 }
 
-CONF_VALUE *lh_CONF_VALUE_new()
+LHASH_OF(CONF_VALUE) *lh_CONF_VALUE_new(void)
 {
-	CONF_VALUE *ret;
+	LHASH_OF(CONF_VALUE) *ret;
 	if((ret = OPENSSL_zalloc(sizeof(*ret))) == NULL)	/* allocation site */
 		return NULL;
 	return ret;
@@ -235,6 +247,7 @@ static int certify_spkac(const char *infile, unsigned long chtype)
 {
     STACK_OF(CONF_VALUE) *sk = NULL;
     LHASH_OF(CONF_VALUE) *parms = NULL;
+    CONF parms_view;
     CONF_VALUE *cv = NULL;
     char *type, *buf;
     X509_NAME *n = NULL;
@@ -253,7 +266,9 @@ static int certify_spkac(const char *infile, unsigned long chtype)
         goto end;
     }
 
-    sk = CONF_get_section(parms, "default");
+    memset(&parms_view, 0, sizeof(parms_view));
+    parms_view.data = parms;
+    sk = CONF_get_section(&parms_view, "default");
     if (sk_CONF_VALUE_num(sk) == 0) {
         CONF_free(parms);	/* freed */
         goto end;
@@ -295,5 +310,3 @@ int main(int argc, char **argv)
 	certify_spkac(argv[0], argc);
 	return 0;
 }
-
-

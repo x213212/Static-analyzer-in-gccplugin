@@ -7,6 +7,7 @@
 
 #define WINDOW_MODE
 #define WINDOW
+#define SESSION
 #include "../stdio.h"
 #include "../tmux.h"
 
@@ -68,6 +69,7 @@ struct window_scroll_mode_data {
 	u_int	size;
 };
 
+/* Keep the layout from the tmux revision represented by this fixture. */
 struct session {
 	char		*name;
 
@@ -79,6 +81,7 @@ struct session {
 
 #define SESSION_UNATTACHED 0x1	/* not attached to any clients */
 #define SESSION_DEAD 0x2
+	int		 flags;
 };
 
 struct windows windows;
@@ -309,13 +312,14 @@ int main(int argc, char **argv)
 	struct window *w;
 	int key;
 	uint8_t sx, sy;
-	char *cause, env;
+	char *cause;
+	const char *env[] = { NULL };
 
 	if(argc == 1)
 		return 1;
 	
 	s = session_create("name", argv[0], "cwd", NULL, NULL, 0, sx, sy, &cause);
-	w = window_create(argv[1], "cwd", &env, sx, sy);
+	w = window_create(argv[1], "cwd", env, sx, sy);
 	s->curw = session_attach(s, w, 0, &cause);
 
 	while(1) {
@@ -331,4 +335,3 @@ int main(int argc, char **argv)
 	session_destroy(s);	
 	return 0;
 }
-

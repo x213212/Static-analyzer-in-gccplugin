@@ -14,21 +14,6 @@
 #define STALE		(1u<<18)
 #define RESULT		(1u<<19)
 
-enum object_type {
-	OBJ_BAD = -1,
-	OBJ_NONE = 0,
-	OBJ_COMMIT = 1,
-	OBJ_TREE = 2,
-	OBJ_BLOB = 3,
-	OBJ_TAG = 4,
-	/* 5 for future expansion */
-	OBJ_OFS_DELTA = 6,
-	OBJ_REF_DELTA = 7,
-	OBJ_ANY,
-	OBJ_MAX
-};
-
-
 static int remove_redundant(struct commit **array, int cnt)
 {
 	/*
@@ -159,7 +144,6 @@ int main()
     free_commit_list(list);
     return 0;
 }
-
 
 
 

@@ -8,6 +8,18 @@
 #include "../stdio.h"
 #include "../openssh.h"
 
+char *hpdelim(char **);
+int a2port(const char *);
+char *cleanhostname(char *);
+void leave_raw_mode(void);
+char *read_passphrase(const char *, int);
+void logit(const char *, ...);
+void ssh_local_cmd(const char *);
+int channel_request_rforward_cancel(const char *, u_short);
+int channel_setup_local_fwd_listener(const char *, u_short, const char *, u_short);
+int channel_request_remote_forwarding(const char *, u_short, const char *, u_short);
+void enter_raw_mode(void);
+
 
 /*
  * First, socket and INET6 related definitions 
@@ -327,5 +339,4 @@ int main() {
     process_cmdline();
     return 0;
 }
-
 

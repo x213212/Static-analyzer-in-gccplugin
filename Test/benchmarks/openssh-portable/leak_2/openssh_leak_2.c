@@ -1,6 +1,7 @@
 // commit id : 66d2e229baa9fe57b86
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/time.h>
 #include <errno.h>
 
 #include "../stdio.h"
@@ -90,6 +91,5 @@ int main (int argc, char **argv) {
 		ssh_packet_write_wait(&ssh);
         return 0;
 }
-
 
 

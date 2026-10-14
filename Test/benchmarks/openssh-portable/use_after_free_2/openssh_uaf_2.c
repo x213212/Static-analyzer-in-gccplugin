@@ -6,9 +6,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <pthread.h>
 
 #include "../stdio.h"
 #include "../openssh.h"
+
+void debug2(const char *, ...);
+void debug3(const char *, ...);
+void error(const char *, ...);
+void sshpam_thread_cleanup(void);
+void buffer_init(Buffer *);
+void buffer_put_cstring(Buffer *, const char *);
+void buffer_free(Buffer *);
+void buffer_clear(Buffer *);
+void mm_request_send(int, int, Buffer *);
+u_int buffer_get_int(Buffer *);
+char *buffer_get_string(Buffer *, u_int *);
+void mm_request_receive(int, Buffer *);
+u_char buffer_get_char(Buffer *);
+void monitor_permit();
+int auth_root_allowed(const char *);
 
 /* Please keep *_REQ_* values on even numbers and *_ANS_* on odd numbers */
 enum monitor_reqtype {
@@ -322,7 +339,7 @@ static char badpw[] = "\b\n\r\177INCORRECT";
 static struct pam_ctxt *cleanup_ctxt;
 static Authctxt *authctxt;
 
-typedef pid_t sp_pthread_t;
+typedef pthread_t sp_pthread_t;
 struct pam_ctxt {
 	sp_pthread_t	 pam_thread;
 	int		 pam_psock;
@@ -354,6 +371,7 @@ static void *
 sshpam_init_ctx(Authctxt *authctxt)
 {
 	struct pam_ctxt *ctxt;
+	int thread_error;
 	int socks[2];
 
     ctxt = xcalloc(1, sizeof *ctxt); /* allocation site */
@@ -361,9 +379,10 @@ sshpam_init_ctx(Authctxt *authctxt)
 	/* Start the authentication thread */
 	ctxt->pam_psock = socks[0];
 	ctxt->pam_csock = socks[1];
-	if (pthread_create(&ctxt->pam_thread, NULL, sshpam_thread, ctxt) == -1) {
+	thread_error = pthread_create(&ctxt->pam_thread, NULL, sshpam_thread, ctxt);
+	if (thread_error != 0) {
 		error("PAM: failed to start authentication thread: %s",
-		    strerror(errno));
+		    strerror(thread_error));
 		close(socks[0]);
 		close(socks[1]);
 		free(ctxt);
@@ -560,4 +579,3 @@ int main() {
     monitor_child_preauth(&authctxt, &pmonitor);
     return 0;
 }
-

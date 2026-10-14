@@ -198,7 +198,7 @@ int match_refs(struct ref *src, struct ref *dst, struct ref ***dst_tail,
 int main (int argc, char **argv)
 {
 	int nr_refspec = 0;
-	char **refspec = NULL;
+	const char *refspec[argc + 1];
 	struct remote_lock *ref_lock = NULL;
 	struct remote_lock *info_ref_lock = NULL;
 	struct rev_info revs;
@@ -210,13 +210,16 @@ int main (int argc, char **argv)
 	int new_refs;
 	struct ref *ref, *local_refs;
 	char *rewritten_url = NULL;
+	int arg_index;
 
-    refspec = argv;
+	for (arg_index = 0; arg_index < argc; arg_index++)
+		refspec[arg_index] = argv[arg_index];
+	refspec[argc] = NULL;
 	local_refs = get_local_heads();
 	remote_tail = &remote_refs;
     
-   if (match_refs(local_refs, remote_refs, &remote_tail,
-		       nr_refspec, (const char **) refspec, 1)) {
+	if (match_refs(local_refs, remote_refs, &remote_tail,
+		       nr_refspec, refspec, 1)) {
 		rc = -1;
 		goto cleanup;
 	}
@@ -231,5 +234,4 @@ cleanup:
     free_refs(local_refs);     
     free_refs(remote_refs); /* double free */   
 }
-
 

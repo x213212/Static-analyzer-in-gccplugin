@@ -1,3 +1,10 @@
+#include <assert.h>
+#include <ctype.h>
+#include <stdarg.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
+
 #define INT_MAX 10000 
 #define ULONG_MAX 10000
 
@@ -127,6 +134,9 @@ struct passwd {
 	int      pw_expire;		/* account expiration */
 };
 
+struct passwd *getpwnam(const char *);
+struct passwd *getpwuid(uid_t);
+
 
 #define die_errno(a, b) die(a, b)
 #define die(a, b) fatal(a, b)
@@ -146,5 +156,3 @@ struct passwd {
 #define __RANDBOOL ((rand() % 2 == 1) ? 1 : 0)
 
 // #define xasprintf(a, b, c) do { *a = malloc(strlen(b) + strlen(c)); if(*a == NULL) fatal("xasprintf: %s", ""); } while(0) 
-
-

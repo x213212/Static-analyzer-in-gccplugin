@@ -7,8 +7,6 @@
 #include "../include/common.h"
 #include "../include/binutils.h"
 
-#define LC_ALL "LC_ALL"
-
 char *python_libdir = 0;
 
 const char *

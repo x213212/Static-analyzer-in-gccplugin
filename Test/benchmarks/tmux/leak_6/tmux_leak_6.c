@@ -88,17 +88,6 @@ struct cmd_if_shell_data {
  * string!
  */
 
-struct paste_buffer {
-	char		*data;
-	size_t		 size;
-
-	char		*name;
-	int		 automatic;
-	u_int		 order;
-
-	RB_ENTRY(paste_buffer) name_entry;
-};
-
 u_int	paste_next_index;
 u_int	paste_next_order;
 u_int	paste_num_automatic;
@@ -108,12 +97,6 @@ int paste_cmp_names(const struct paste_buffer *, const struct paste_buffer *);
 RB_PROTOTYPE(paste_name_tree, paste_buffer, name_entry, paste_cmp_names);
 RB_GENERATE(paste_name_tree, paste_buffer, name_entry, paste_cmp_names);
 
-
-struct args_entry {
-	u_char			 flag;
-	char			*value;
-	RB_ENTRY(args_entry)	 entry;
-};
 
 /* Arguments tree comparison function. */
 int

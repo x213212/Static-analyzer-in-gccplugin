@@ -5,9 +5,19 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 #include "../stdio.h"
 #include "../git.h"
+
+void strbuf_addstr(struct strbuf *sb, const char *text);
+void strbuf_addbuf(struct strbuf *sb, const struct strbuf *source);
+
+struct hashmap_iter {
+	struct hashmap *map;
+	struct hashmap_entry *next;
+	unsigned int tablepos;
+};
 
 struct checkout {
 	struct index_state *istate;
@@ -240,8 +250,12 @@ finish:
 int main(int argc, char **argv)
 {
     int symlinks;
-    run_dir_diff("extcmd", symlinks, "prefix", argc, argv);
+    const char *args[argc + 1];
+    int i;
+
+    for (i = 0; i < argc; i++)
+        args[i] = argv[i];
+    args[argc] = NULL;
+    run_dir_diff("extcmd", symlinks, "prefix", argc, args);
     return 0;
 }
-
-

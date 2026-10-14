@@ -9,6 +9,8 @@
 #include "../stdio.h"
 #include "../openssh.h"
 
+void debug2(const char *, ...);
+
 typedef struct identity Identity;
 struct identity {
 	TAILQ_ENTRY(identity) next;
@@ -23,6 +25,8 @@ struct identity {
 #define RSA_new() malloc(sizeof(RSA))
 #define BN_new() malloc(sizeof(BIGNUM))
 #define DSA_new() malloc(sizeof(BIGNUM))
+Key *key_parse_private_rsa1(Buffer *, const char *, char **);
+
 Key *
 key_new(int type)
 {
@@ -182,5 +186,3 @@ int main(int argc, char **argv)
 	free(id);
 	return 0;
 }
-
-

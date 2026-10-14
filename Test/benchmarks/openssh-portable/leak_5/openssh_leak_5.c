@@ -174,7 +174,8 @@ typedef int HistEvent;
 
 static int sftpio(void *, size_t );
 int writev(int, struct iovec *, int);
-ssize_t *read(int, void *, size_t);
+ssize_t read(int, void *, size_t);
+void error(const char *, ...);
 
 int batchmode = 0;
 FILE *infile;
@@ -393,7 +394,6 @@ main(int argc, char **argv)
 	err = interactive_loop(conn, file1, file2);
     return 0;
 }
-
 
 
 

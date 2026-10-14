@@ -8,6 +8,21 @@
 #include "../stdio.h"
 #include "../openssh.h"
 
+void error(const char *, ...);
+void buffer_init(Buffer *);
+int key_type_plain(int);
+u_int buffer_len(const Buffer *);
+u_char *buffer_ptr(const Buffer *);
+void buffer_free(Buffer *);
+void *buffer_append_space(Buffer *, u_int);
+void buffer_put_int(Buffer *, u_int);
+void buffer_put_char(Buffer *, u_char);
+void buffer_put_cstring(Buffer *, const char *);
+char *get_string(u_int *);
+int pkcs11_add_provider(const char *, const char *, Key ***);
+void add_key(Key *, const char *);
+void send_msg(Buffer *);
+
 static int
 to_blob(const Key *key, u_char **blobp, u_int *lenp, int force_plain)
 {
@@ -98,5 +113,4 @@ int main () {
     process_add();
     return 0;
 }
-
 

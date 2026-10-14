@@ -9,6 +9,24 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+char *OPENSSL_strdup(const char *);
+int IS_INET_FLAG(int);
+int IS_UNIX_FLAG(int);
+int IS_PROT_FLAG(int);
+int BIO_printf(BIO *, const char *, ...);
+char *opt_arg(void);
+int opt_num_rest(void);
+BIO *BIO_new_file(const char *, const char *);
+void ERR_print_errors(BIO *);
+SSL_SESSION *PEM_read_bio_SSL_SESSION();
+int BIO_free(BIO *);
+int SSL_set_session(SSL *, SSL_SESSION *);
+const char *SSL_SESSION_get0_hostname(const SSL_SESSION *);
+void SSL_SESSION_free(SSL_SESSION *);
+int SSL_set_tlsext_host_name(SSL *, const char *);
+void print_stuff();
+void do_ssl_shutdown(SSL *);
+
 # define DB_type         0
 # define DB_exp_date     1
 # define DB_rev_date     2
@@ -485,7 +503,6 @@ int main(int argc, char **argv)
     OPENSSL_free(host);
     return ret; /* memory leak */
 }
-
 
 
 

@@ -4,7 +4,9 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#if defined(__FreeBSD__) || defined(__OpenBSD__) || defined(__NetBSD__)
 #include <sys/sysctl.h>
+#endif
 #include <errno.h>
 #include <sys/stat.h>
 
@@ -43,6 +45,10 @@ struct kinfo_proc {
 	char *p_comm;
 	int p_pid;
 };
+
+#if !defined(__FreeBSD__) && !defined(__OpenBSD__) && !defined(__NetBSD__)
+int sysctl(const int *, u_int, void *, size_t *, const void *, size_t);
+#endif
 
 struct kinfo_proc	*cmp_procs(struct kinfo_proc *, struct kinfo_proc *);
 char			*get_proc_name(int, char *);

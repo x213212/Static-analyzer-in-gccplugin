@@ -145,7 +145,7 @@ add_symbol_file_command (char **args)
 
 int main ()
 {
-	const char *args[6] = {"prog", "v", "-s", "idx", "addr", NULL};
+	char *args[6] = {"prog", "v", "-s", "idx", "addr", NULL};
 	add_symbol_file_command(args);
 
 }

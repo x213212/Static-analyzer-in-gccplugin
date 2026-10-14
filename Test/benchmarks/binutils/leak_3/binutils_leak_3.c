@@ -24,13 +24,14 @@ struct bfd_hash_entry
   unsigned long hash;
 };
 
+struct objalloc;
+
 struct bfd_hash_table
 {
 	struct bfd_hash_entry **table;
 
-	/* An objalloc for this hash table.  This is a struct objalloc *,
-		but we use void * to avoid requiring the inclusion of objalloc.h.  */
-	void *memory;
+	/* An objalloc for this hash table.  */
+	struct objalloc *memory;
 	/* The number of slots in the hash table.  */
   unsigned int size;
   /* The number of entries in the hash table.  */
@@ -43,7 +44,7 @@ struct objalloc
 {
 	char *current_ptr;
 	unsigned int current_space;
-	void *chunks;
+	struct objalloc_chunk *chunks;
 };
 
 struct objalloc_chunk
@@ -63,14 +64,14 @@ objalloc_create (void)
 	if (ret == NULL)
 		return NULL;
 
-	ret->chunks = (PTR) malloc (CHUNK_SIZE); /* allocation site */
+	ret->chunks = malloc (CHUNK_SIZE); /* allocation site */
 	if (ret->chunks == NULL)
 		{
 			free (ret);
 			return NULL;
 		}
 
-	chunk = (struct objalloc_chunk *) ret->chunks;
+	chunk = ret->chunks;
 	chunk->next = NULL;
 	chunk->current_ptr = NULL;
 	chunk->next = NULL;
@@ -84,38 +85,34 @@ objalloc_create (void)
 PTR
 objalloc_alloc (struct objalloc *o, unsigned long len)
 {
-	char *ret;
 	struct objalloc_chunk *chunk;
 	
 	/* We don't care this case in modelled program */
 	if (len > CHUNK_SIZE)
 		exit (1);
 
-	chunk = (struct objalloc_chunk *) malloc (CHUNK_SIZE); /* allocation site */
+	chunk = malloc (CHUNK_SIZE); /* allocation site */
 	if (chunk == NULL)
 		return NULL;
 
-	chunk->next = (struct objalloc_chunk *) o->chunks;
+	chunk->next = o->chunks;
 	chunk->current_ptr = NULL;
 
 	o->current_ptr = (char *) chunk + CHUNK_HEADER_SIZE;
 	o->current_space = CHUNK_SIZE - CHUNK_HEADER_SIZE;
 
-	o->chunks = (PTR) chunk;
+	o->chunks = chunk;
 
-	return (PTR) (chunk + CHUNK_HEADER_SIZE);
+	return (char *) chunk + CHUNK_HEADER_SIZE;
 }
 
 void
 objalloc_free (struct objalloc *o)
 {
 	struct objalloc_chunk *l;
-	void *data;
-
-	l = (struct objalloc_chunk *) o->chunks;
+	l = o->chunks;
 	while (l != NULL)
 		{
-			data = l + CHUNK_HEADER_SIZE;
 			struct objalloc_chunk *next;
 
 			next = l->next;
@@ -134,18 +131,18 @@ bfd_hash_table_init_n (struct bfd_hash_table *table,
 
 	alloc = size;
 	alloc *= sizeof (struct bfd_hash_entry *);
-	table->memory = (void *) objalloc_create ();
+	table->memory = objalloc_create ();
 	if (table->memory == NULL)
 		{
 			return FALSE;
 		}
 	
   table->table = (struct bfd_hash_entry **)
-      objalloc_alloc ((struct objalloc *) table->memory, alloc);
+      objalloc_alloc (table->memory, alloc);
 
 	if (table->table == NULL)
 		{
-			objalloc_free(table);
+			objalloc_free(table->memory);
 			return FALSE;
 		}
 
@@ -197,7 +194,7 @@ int main()
 	srand(time(&t));
 
 	if (! bfd_hash_table_init_n (&table, entsize, size))
-		return;
+		return 0;
 
 	while ((cnt < entsize))
 		{
@@ -210,4 +207,3 @@ int main()
 	memset (&table, 0, sizeof(struct bfd_hash_table)); /* memory leak */
 	
 }
-

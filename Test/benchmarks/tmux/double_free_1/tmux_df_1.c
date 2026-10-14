@@ -256,6 +256,11 @@ session_find(const char *name)
 	return (NULL);
 }
 
+int session_index(struct session *, u_int *);
+int session_last(struct session *);
+int session_next(struct session *);
+int session_previous(struct session *);
+
 /* Destroy a session. */
 void
 session_destroy(struct session *s)
@@ -455,7 +460,7 @@ int main (int argc, char **argv)
 {
 	struct session *s;
 	struct winlink *wl;
-	char *name, cmd;
+	char *name, *cmd;
 	u_int sx, sy;
 	int i = 0;
 	int idx;
@@ -471,6 +476,5 @@ int main (int argc, char **argv)
   	wl->idx = idx;
 	session_destroy(s);
 }
-
 
 

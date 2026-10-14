@@ -1,3 +1,23 @@
+#include <assert.h>
+#include <ctype.h>
+#include <fcntl.h>
+#include <libgen.h>
+#include <signal.h>
+#include <stdarg.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
+#include <utime.h>
+
+#define _(message) (message)
+#define ARRAY_SIZE(array) (sizeof(array) / sizeof((array)[0]))
+#define S_ISGITLINK(mode) (((mode) & 0170000) == 0160000)
+
+static inline int is_dir_sep(int character)
+{
+	return character == '/' || character == '\\';
+}
+
 #define INT_MAX 10000 
 #define ULONG_MAX 10000
 
@@ -146,5 +166,3 @@ struct passwd {
 #define __RANDBOOL ((rand() % 2 == 1) ? 1 : 0)
 
 // #define xasprintf(a, b, c) do { *a = malloc(strlen(b) + strlen(c)); if(*a == NULL) fatal("xasprintf: %s", ""); } while(0) 
-
-

@@ -24,26 +24,23 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 	}
 	else
 	{
-		// fprintf(stderr, "\n======================================================================\n");
-		// debug_tree(t);
-		bool same = false;
-		// ptb *tmp =table;
-		while (table->next != NULL)
+		ptb *head = table;
+		while (table != NULL)
 		{
-			if (table->target == t)
-			// if (table->stmt == used_stmt && LOCATION_LINE(gimple_location(table->stmt)) == LOCATION_LINE(gimple_location(used_stmt)))
-			{
-				same = true;
-				// fprintf(stderr, "\n======================================================================\n");
-			}
+			// De-duplicate collection of the same event, including the tail.
+			// The same tree at a different statement is a different lifetime
+			// event and must not be collapsed.
+			if (table->target == t && table->last_stmt == stmt &&
+				table->state == s)
+				return;
+			if (table->next == NULL)
+				break;
 			table = table->next;
 		}
 
-		if (!same)
+		if (table != NULL)
 		{
 			pointtablecount++;
-			// fprintf(stderr, "\n======================================================================\n");
-			// debug_tree(t);
 			table->next = new ptb();
 			table = table->next;
 			table->bb = b;
@@ -64,7 +61,8 @@ void set_ptb(basic_block b, ptb *table, tree t, location_t l, int s, gimple *stm
 			else
 				table->is_phi_stmt = false;
 			table->removed = false;
-			table->size = table->size + 1;
+			table->size = head->size;
+			head->size++;
 		}
 	}
 }
@@ -83,37 +81,24 @@ void set_gimple_array(gimple_array *table, gimple *used_stmt, tree fucntion, tre
 	}
 	else
 	{
-		bool same = false;
-		int size_tmp = 0;
-		// check_stmtStack4(used_stmt)
-		while (table->next )
+		gimple_array *head = table;
+		while (table != NULL)
 		{
-	
-			//  debug(table->stmt);
-			//  debug_tree(target);
-			//  if (table == NULL)
-			//  break;
-
-			if (table->stmt == used_stmt)
-			{
-				same = true;
-				// break;
-			}
-
-			size_tmp = size_tmp + 1;
+			if (table->stmt == used_stmt && table->aptr == fucntion &&
+				table->target == target && table->ret_stmt == ret_stmt)
+				return;
+			if (table->next == NULL)
+				break;
 			table = table->next;
 		}
-		// if(!	check_stmtStack4(used_stmt))
-		if (!same)
-		{
-			table->next = new gimple_array();
-			table = table->next;
-			table->stmt = used_stmt;
-			table->ret_stmt = ret_stmt;
-			table->target = target;
-			table->size = size_tmp;
-			table->aptr = fucntion;
-			table->next = NULL;
-		}
+		table->next = new gimple_array();
+		table = table->next;
+		table->stmt = used_stmt;
+		table->ret_stmt = ret_stmt;
+		table->target = target;
+		table->size = head->size;
+		table->aptr = fucntion;
+		table->next = NULL;
+		head->size++;
 	}
 }

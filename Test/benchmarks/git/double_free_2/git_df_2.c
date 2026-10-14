@@ -10,6 +10,8 @@
 #include "../stdio.h"
 #include "../git.h"
 
+void strbuf_setlen(struct strbuf *sb, size_t len);
+
 void strbuf_release(struct strbuf *sb)
 {
     free(sb->buf);

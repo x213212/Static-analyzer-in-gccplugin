@@ -9,6 +9,12 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+int conv_ascii2bin(unsigned char);
+void CTerr(int, int);
+EVP_PKEY *d2i_PUBKEY(EVP_PKEY **, const unsigned char **, long);
+CTLOG *CTLOG_new(EVP_PKEY *, const char *);
+void EVP_PKEY_free(EVP_PKEY *);
+
 /*
  * CT function codes.
  */

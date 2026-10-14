@@ -5,7 +5,7 @@
 
 #include "../include/common.h"
 
-typedef char symbol;
+struct symbol { char unused; };
 
 struct badness_vector
 {
@@ -107,8 +107,8 @@ find_oload_champ_namespace_loop (
 }
 
 int main() {
-	symbol **symvec[10];
-	struct badness_vector *bvvec[10];
+	struct symbol **symvec;
+	struct badness_vector *bvvec;
 	int oload_champ;
 	const char *namespace = "A::B::C";
 

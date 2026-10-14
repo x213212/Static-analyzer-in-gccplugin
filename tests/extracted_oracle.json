@@ -1,0 +1,2059 @@
+{
+  "schema_version": 1,
+  "provenance": {
+    "revision": "bb14c2d",
+    "path": "Test/benchmarks (1)/**/_spec.json",
+    "description": "Current-line migration of the 100 historical extracted-corpus allocation-site specifications. Source hashes make fixture drift an explicit oracle error."
+  },
+  "cases": [
+    {
+      "source": "Test/benchmarks/binutils/double_free_1/binutils_df_1.c",
+      "source_sha256": "fd3a1aad847c335e8af95345f02767b6e918a0086f2955183a49d389b0e5154c",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 68,
+          "original_line": 68,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "void *ldi = malloc (ldi_size); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/double_free_2/binutils_df_2.c",
+      "source_sha256": "60095a8f33d32e05837b1a118956a4324ced670ef65bf7e43e6df665104238c8",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 41,
+          "original_line": 41,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "internal_relocs = alloc2"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/double_free_3/binutils_df_3.c",
+      "source_sha256": "52d01c0370063d834869236720348a1ed6331932cb11d45b1088e915e33232d8",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 32,
+          "original_line": 27,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return strdup (filename); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/double_free_4/binutils_df_4.c",
+      "source_sha256": "8a19f51d05908b6ae3e4dd662b1caf4a5046448e3dfaad5e1bc32fb2349613b0",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 25,
+          "original_line": 25,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*filename_opened = strdup(name); /* allocation site */"
+        },
+        {
+          "line": 66,
+          "original_line": 66,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "name = strdup (name);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/double_free_5/binutils_df_5.c",
+      "source_sha256": "ddd9dc9366193f7a901acd189f72d16a464f9fe156be79e82842a61ae0d7f8c0",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 76,
+          "original_line": 76,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "new_oload_syms = malloc(100 * sizeof(struct symbol *));\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_1/binutils_leak_1.c",
+      "source_sha256": "234efd85ef8589b0e47b3ddeec544ca4a09121660aeae8901b01cf1175b5c743",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 177,
+          "original_line": 177,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "tmpname = (char *) xmalloc (len + sizeof (template) + 2);\t/* allocation site */"
+        },
+        {
+          "line": 183,
+          "original_line": 183,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "tmpname = (char *) xmalloc (sizeof (template));\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_10/binutils_leak_10.c",
+      "source_sha256": "ef3d10456343519c3f63ff597f12e59a09cdc5a4e5e30e2d70385c55b5fa31db",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 131,
+          "original_line": 131,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*word = (char *) malloc (length + 1); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_2/binutils_leak_2.c",
+      "source_sha256": "3dc37f054d28da162bbe6678b08aa58d566538d1a1cd6d8db31e428633b25606",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 52,
+          "original_line": 52,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "tmpname = (char *) xmalloc (len + sizeof (template) + 2);\t/* allocation site */"
+        },
+        {
+          "line": 58,
+          "original_line": 58,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "tmpname = (char *) xmalloc (sizeof (template));\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_3/binutils_leak_3.c",
+      "source_sha256": "12a40aa95edd18e1ec211cc553cdd245d0d32c64b77a81a6af9b8129c4819125",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 62,
+          "original_line": 61,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ret = (struct objalloc *) malloc (sizeof *ret); /* allocation site */"
+        },
+        {
+          "line": 67,
+          "original_line": 66,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "reviewed-marker",
+          "source_text": "ret->chunks = malloc (CHUNK_SIZE); /* allocation site */"
+        },
+        {
+          "line": 94,
+          "original_line": 94,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "reviewed-marker",
+          "source_text": "chunk = malloc (CHUNK_SIZE); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_4/binutils_leak_4.c",
+      "source_sha256": "4b7377e25f3404e3a1e761945b78c85b194d1fdab901e8211b00aa1daecc846d",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 73,
+          "original_line": 73,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "seq = (struct line_sequence *) malloc (amt);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_5/binutils_leak_5.c",
+      "source_sha256": "7b2c6ae42f161f734cb7c5511d16e8d25d3928ca39a76fb2c592b4602d81526f",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 52,
+          "original_line": 52,
+          "allocator": "VEC_btrace_insn_alloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "bfunc->insn = VEC_alloc (btrace_insn, 10); /* allocation site */"
+        },
+        {
+          "line": 60,
+          "original_line": 60,
+          "allocator": "VEC_btrace_insn_alloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "insn_vec_p = VEC_alloc (btrace_insn, 10); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_6/binutils_leak_6.c",
+      "source_sha256": "5c2eb26c743afc0b3c35807940fa88f5dc1b6fdddbbcd6f7358ce6642d31bcf8",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 40,
+          "original_line": 40,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "newmem = realloc (oldmem, size); /* allocation site */"
+        },
+        {
+          "line": 66,
+          "original_line": 66,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "sect_opts = xmalloc (sizeof(struct sect_opt) * num_sect_opts); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_7/binutils_leak_7.c",
+      "source_sha256": "4bd3f294cd9b8b65f72dbbe7dcef079451db4cc882ae33de5883db5a21583983",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 41,
+          "original_line": 43,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "dirname = (char *) xmalloc (base - filename + 2);         /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_8/binutils_leak_8.c",
+      "source_sha256": "c6299e558a1301e1b8eff36979ce02dfc7de516e3d594db8cf4dbfa3977d9f87",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 23,
+          "original_line": 23,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ptr = malloc (sz); // allocation site"
+        },
+        {
+          "line": 169,
+          "original_line": 169,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "void *memhunk = xmalloc (4);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/leak_9/binutils_leak_9.c",
+      "source_sha256": "f81c1b46bf1d8372b3030e2686a13c4599384cdef5e8ddec71ab822d3d19b84b",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 53,
+          "original_line": 53,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "demangled = XNEWVEC (char, len0); // allocation site"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/use_after_free_1/binutils_uaf_1.c",
+      "source_sha256": "0f0a5c45b019c3ce7340ea8589eeb986b0d883690988de0031e8ebb6ed2c7d7b",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 95,
+          "original_line": 95,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "char *subset = xstrdup (p), *q = subset;  /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/use_after_free_2/binutils_uaf_2.c",
+      "source_sha256": "20ae231066f2dc21804e8fe886d3cc4231b99b0b0c63bbb292323d6fdedc5f67",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 87,
+          "original_line": 76,
+          "allocator": "_bfd_new_bfd",
+          "deallocator": "bfd_close",
+          "mapping": "exact-line",
+          "source_text": "nbfd = _bfd_new_bfd ();\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/use_after_free_3/binutils_uaf_3.c",
+      "source_sha256": "e6881d41b264553b4c359f055bf7d7679d5b0e99a177bdf81983ddd1b324c31b",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 184,
+          "original_line": 180,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "buf = (unsigned char *) xmalloc (4);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/use_after_free_4/binutils_uaf_4.c",
+      "source_sha256": "f2d980df0d3207305308157a2cb2e6e5181ad07f11261f43d1dfbab47824c959",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 79,
+          "original_line": 70,
+          "allocator": "xcalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "new = XCNEW (struct so_list);\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/binutils/use_after_free_5/binutils_uaf_5.c",
+      "source_sha256": "99791561d1ac1841295afdbacb068d2b069f6e185bf53a45172e12324f94f0cf",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 24,
+          "original_line": 19,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "char *p = (char *) xmalloc (len + 1);\t/* allocation site */"
+        },
+        {
+          "line": 57,
+          "original_line": 52,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return xstrdup (args);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/double_free_1/git_df_1.c",
+      "source_sha256": "e6bc39a6f61e8fd82859a4a6fdfde23edd500cbb1e0db88ac86041c19cb59058",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 185,
+          "original_line": 185,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "char *url = xmalloc(strlen(remote->url) + strlen(path) + 1);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/double_free_2/git_df_2.c",
+      "source_sha256": "722dd5406b9215ccc8f6e5fee2de6c3d461932ddbe0c4cef1aba4aaf295bfd77",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 25,
+          "original_line": 23,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/double_free_3/git_df_3.c",
+      "source_sha256": "ba0db4885bbe32db4c0aaef119dab195696a9b7965372087a362987b8f2580e9",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 221,
+          "original_line": 218,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "strbuf_grow(sb, hint);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/double_free_4/git_df_4.c",
+      "source_sha256": "037c446e56a871ac05ad78f6f559d80ca7886d87b207d60f8ec25575f75e1646",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 90,
+          "original_line": 90,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "struct ref *ref = xcalloc(1, sizeof(struct ref) + prefixlen + len + 1);"
+        },
+        {
+          "line": 108,
+          "original_line": 108,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "cpy = xmalloc(sizeof(struct ref) + len + 1);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_1/git_leak_1.c",
+      "source_sha256": "f5657ee549f4b1269cd227eec9d05e8c4d12b3e75fdd50cc9e3d1ca7063fc957",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 111,
+          "original_line": 111,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "list->items[index].string = list->strdup_strings ?"
+        },
+        {
+          "line": 156,
+          "original_line": 156,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "pathspec->items = item = xcalloc(1, sizeof(*item)); /* allocation site */"
+        },
+        {
+          "line": 157,
+          "original_line": 157,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "item->match = xstrdup(prefix);                      /* allocation site */"
+        },
+        {
+          "line": 158,
+          "original_line": 158,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "item->original = xstrdup(prefix);                   /* allocation site */"
+        },
+        {
+          "line": 169,
+          "original_line": 169,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ALLOC_ARRAY(pathspec->items, n + 1);                    /* allocation site */"
+        },
+        {
+          "line": 176,
+          "original_line": 176,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "item[i].match = xmalloc(10);                        /* allocation site */"
+        },
+        {
+          "line": 177,
+          "original_line": 177,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "item[i].original = malloc(100);                     /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_10/git_leak_10.c",
+      "source_sha256": "9bbb8b7919781aa3e90d39ce63a84b678ba01d9fc4d7f26644b252b34b243b10",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 228,
+          "original_line": 228,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "buf = malloc(100); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_2/git_leak_2.c",
+      "source_sha256": "f3204e772282b0a0afae8b17b6e122788e47281316499697e2e4085179b6009c",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 32,
+          "original_line": 32,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "struct commit_list *new_list = xmalloc(sizeof(struct commit_list)); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_3/git_leak_3.c",
+      "source_sha256": "25fec710b83a7b8334aa371191cd869f9f5f2c0686d41e4448e3afcd01db9465",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 51,
+          "original_line": 51,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "struct commit_list *new_list = xmalloc(sizeof(struct commit_list));"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_4/git_leak_4.c",
+      "source_sha256": "32fe7b8c067559bd8c9c84a7f41463b98951ac582439137e498c6d6f6a16a631",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 14,
+          "original_line": 14,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "struct commit_list *new_list = xmalloc(sizeof(struct commit_list));"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_5/git_leak_5.c",
+      "source_sha256": "37762eed8b36babc62a06ee3dc2e1ef289f17e518460cf3fb43e6c14095180f4",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 120,
+          "original_line": 135,
+          "allocator": "xcalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "array = xcalloc(num_head, sizeof(*array)); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_6/git_leak_6.c",
+      "source_sha256": "184da29326ebb800486a92e81a390df5a06d9697f8a55d1d43925594fe324511",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 64,
+          "original_line": 59,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "struct commit_list *new_list = xmalloc(sizeof(struct commit_list)); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_7/git_leak_7.c",
+      "source_sha256": "4f5c94e6d6e18f88425e61db68eb6d11c9f3bb3b163a1fc8380f86070afebdc3",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 47,
+          "original_line": 47,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "entry->name = xstrdup(name);    /* allocation site */"
+        },
+        {
+          "line": 50,
+          "original_line": 50,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "entry->path = xstrdup(path);    /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_8/git_leak_8.c",
+      "source_sha256": "cab54380269ebb7a6a3ee764a8a0d833a549d5aeb20ec9dda419b3e4d11601a4",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 176,
+          "original_line": 176,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "list->items[index].string = list->strdup_strings ?"
+        },
+        {
+          "line": 200,
+          "original_line": 200,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "struct string_list *unmerged = xcalloc(1, sizeof(struct string_list));\t/* allocation site */"
+        },
+        {
+          "line": 215,
+          "original_line": 215,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "item->util = xcalloc(1, sizeof(struct stage_data));\t/* allocation site */"
+        },
+        {
+          "line": 239,
+          "original_line": 239,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "renames = xcalloc(1, sizeof(struct string_list));\t/* allocation site */"
+        },
+        {
+          "line": 251,
+          "original_line": 251,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "re = xmalloc(sizeof(*re));\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/leak_9/git_leak_9.c",
+      "source_sha256": "84b939f216d74242f674a14e930f433fe09bb2e01c82e570f5fa95a30dcfc4cc",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 110,
+          "original_line": 107,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/use_after_free_1/git_uaf_1.c",
+      "source_sha256": "6d921fb7d3140047bba4321e015088eb4f783a710d7dcd7d7773b876d287c624",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 89,
+          "original_line": 79,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ALLOC_GROW(sb->buf, sb->len + extra + 1, sb->alloc);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/use_after_free_2/git_uaf_2.c",
+      "source_sha256": "8e6c34446c5f7bce0d8cdf1373080e288875b066a5199400d0956a226de17ac8",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 205,
+          "original_line": 191,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "pp->children = xcalloc(n, sizeof(*pp->children));"
+        },
+        {
+          "line": 206,
+          "original_line": 192,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "pp->pfd = xcalloc(n, sizeof(*pp->pfd));"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/use_after_free_3/git_uaf_3.c",
+      "source_sha256": "19bb0136f10be3a9c849c198baa91eb00975dfeea2b998ecf17cbcf107178f35",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 88,
+          "original_line": 83,
+          "allocator": "xgetcwd",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "orig_cwd = xgetcwd();                               /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/use_after_free_4/git_uaf_4.c",
+      "source_sha256": "363ba13706dcb8f87349014e5b2083cb9a8e01e15e200a9bcf3b6e8e076d92d2",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 303,
+          "original_line": 310,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ce = malloc(sizeof(struct cache_entry)); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/use_after_free_5/git_uaf_5.c",
+      "source_sha256": "6b1460908b68c66c17857aced526238d12ac362193fd1e00eb017b58bbe3b170",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 178,
+          "original_line": 192,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "buf = xmalloc(st.st_size + 1);                          /* allocation site */"
+        },
+        {
+          "line": 202,
+          "original_line": 216,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "dir = xmalloc(dirlen + 1);                          /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/git/use_after_free_6/git_uaf_6.c",
+      "source_sha256": "9fa8f305bb6afff67504677e8eef1144f2585b4f5d5821822b16b73b061ae706",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 49,
+          "original_line": 48,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "char *with_slash = xmalloc(len + 2);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/double_free_1/openssh_df_1.c",
+      "source_sha256": "7047a89bc2f2368332c79f4dda4b704811725ba1bb8b185a872b08fa273a5c19",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 96,
+          "original_line": 96,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if ((private = malloc(sizeof(DSA))) == NULL) { /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/double_free_2/openssh_df_2.c",
+      "source_sha256": "f207a746b1485f84d1b7e1eae11c42ecb45e3e19a0c03f86680a8145a25c6f98",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 29,
+          "original_line": 29,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*commentp = xstrdup(filename); /* allocation site */"
+        },
+        {
+          "line": 54,
+          "original_line": 54,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "value = xmalloc(len + 1); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/double_free_3/openssh_df_3.c",
+      "source_sha256": "397a79a7b07e44962f99b50e213eb5486b8caa46a57e176f370f81306dca7192",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 37,
+          "original_line": 37,
+          "allocator": "xmalloc",
+          "deallocator": "xfree",
+          "mapping": "exact-line",
+          "source_text": "value = xmalloc(len + 1);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/double_free_4/openssh_df_4.c",
+      "source_sha256": "7e52a7a9eb08a39ebde47ff18a66f30d3ee01f11277ab6865bf239d49385bf24",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 225,
+          "original_line": 209,
+          "allocator": "authorized_keys_file",
+          "deallocator": "xfree",
+          "mapping": "exact-line",
+          "source_text": "file = authorized_keys_file(pw);"
+        },
+        {
+          "line": 232,
+          "original_line": 216,
+          "allocator": "authorized_keys_file2",
+          "deallocator": "xfree",
+          "mapping": "exact-line",
+          "source_text": "file = authorized_keys_file2(pw);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/double_free_5/openssh_df_5.c",
+      "source_sha256": "e236183914cf36b77a0f812a5f009d3d9e93309094e8d9ba2db8ab08aed78f66",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 284,
+          "original_line": 253,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*client = xmalloc(10); /* allocation site */"
+        },
+        {
+          "line": 377,
+          "original_line": 346,
+          "allocator": "packet_get_string",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "client_user = packet_get_string(&ulen);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/double_free_6/openssh_df_6.c",
+      "source_sha256": "4129e087888237a301b389a58d48ac60b7844d17f5ae04be468b95cd90be629d",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 218,
+          "original_line": 210,
+          "allocator": "xstrdup",
+          "deallocator": "xfree",
+          "mapping": "exact-line",
+          "source_text": "return xstrdup(\"\");"
+        },
+        {
+          "line": 222,
+          "original_line": 214,
+          "allocator": "xstrdup",
+          "deallocator": "xfree",
+          "mapping": "exact-line",
+          "source_text": "pass = xstrdup(buf); /* allocation site */"
+        },
+        {
+          "line": 266,
+          "original_line": 258,
+          "allocator": "read_passphrase",
+          "deallocator": "xfree",
+          "mapping": "exact-line",
+          "source_text": "pass = read_passphrase(buf, 1);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/double_free_7/openssh_df_7.c",
+      "source_sha256": "fc3e522b5d712cd50acc3be6cd49db53aa18a7f680e5afb2f64ec5f554766402",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 157,
+          "original_line": 145,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "fwd->connect_host = xstrdup(\"socks\");"
+        },
+        {
+          "line": 161,
+          "original_line": 149,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "fwd->listen_host = xstrdup(cleanhostname(fwdarg[0]));"
+        },
+        {
+          "line": 163,
+          "original_line": 151,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "fwd->connect_host = xstrdup(\"socks\");"
+        },
+        {
+          "line": 169,
+          "original_line": 157,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "fwd->connect_host = xstrdup(cleanhostname(fwdarg[1]));"
+        },
+        {
+          "line": 174,
+          "original_line": 162,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "fwd->listen_host = xstrdup(cleanhostname(fwdarg[0]));"
+        },
+        {
+          "line": 176,
+          "original_line": 164,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "fwd->connect_host = xstrdup(cleanhostname(fwdarg[2]));"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_1/openssh_leak_1.c",
+      "source_sha256": "b6e805207a5ca2ddab3b2fa482b00beebb6d2a64579f8af375d8e200e21a5ce9",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 187,
+          "original_line": 187,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "char *fix_prop = malloc(len);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_10/openssh_leak_10.c",
+      "source_sha256": "db2089ba3fe5a3dc481bf81590773178946f6a7cd3323a28f870de32130d6783",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 45,
+          "original_line": 45,
+          "allocator": "srtdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return (xstrdup(filename));\t\t/* allocation site */"
+        },
+        {
+          "line": 63,
+          "original_line": 63,
+          "allocator": "srtdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return (xstrdup(ret));\t\t\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_2/openssh_leak_2.c",
+      "source_sha256": "574a7652ea8706aaf89530a752f9cc20afd52ff1f2fb4a77bc12f24493a1a7d8",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 38,
+          "original_line": 37,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "setp = malloc(howmany(state->connection_out + 1,"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_3/openssh_leak_3.c",
+      "source_sha256": "510ff3e39e2f02a36b77995ac8d20e0bf9840e1b71ecf87829b5a6091770274e",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 147,
+          "original_line": 147,
+          "allocator": "xcalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ctx = xcalloc(1, sizeof(*ctx));\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_4/openssh_leak_4.c",
+      "source_sha256": "2a856e31a77bb69fbcf54208a6882a5ed30668ced27246f9a26a89e365d3f080",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 66,
+          "original_line": 65,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "logfile = xstrdup(optarg);\t/* allocation site, memory leak */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_5/openssh_leak_5.c",
+      "source_sha256": "c7b9f62b5569d286ccdb4e951abe89e1fb89ac41f6d484798a36eeeb730e6446",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 193,
+          "original_line": 192,
+          "allocator": "xcalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ret = xcalloc(1, sizeof(*ret)); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_6/openssh_leak_6.c",
+      "source_sha256": "dfd2591a26d7e3ec4e2fc7a4ccf3101cb01fec0c515c0235d47db48314ce066e",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 66,
+          "original_line": 64,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if (blob == NULL || len > SSHBUF_SIZE_MAX ||"
+        },
+        {
+          "line": 142,
+          "original_line": 140,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if ((*valp = malloc(len + 1)) == NULL) {\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_7/openssh_leak_7.c",
+      "source_sha256": "431856e742e3d9a9fd3433f473602d3a0cacc7bd12b6aa82c1ae3de74d2b0bd0",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 86,
+          "original_line": 87,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*pval = OPENSSL_malloc(it->size);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_8/openssh_leak_8.c",
+      "source_sha256": "33bc2b4bf3b101aca46b23479c2de70925d6703e657c94d97feb7e486545bd67",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 36,
+          "original_line": 32,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "k = xcalloc(1, sizeof(*k));\t\t\t\t/* allocation site */"
+        },
+        {
+          "line": 95,
+          "original_line": 91,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "prv->rsa = RSA_new();\t/* allocation site */"
+        },
+        {
+          "line": 104,
+          "original_line": 100,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "prv->dsa = DSA_new();\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/leak_9/openssh_leak_9.c",
+      "source_sha256": "f5c20bd5a0278788c652736c4b537ff6365615d8159607f2179b083e10482de8",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 177,
+          "original_line": 177,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*dir = xcalloc(1, sizeof(**dir));\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/use_after_free_1/openssh_uaf_1.c",
+      "source_sha256": "fd3d28987cfaaed30fe036e037640bd59af3d7fd0f8b1d15377dfe04b27f03e0",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 554,
+          "original_line": 533,
+          "allocator": "sshbuf_new",
+          "deallocator": "sshbuf_free",
+          "mapping": "exact-line",
+          "source_text": "if ((c->input = sshbuf_new()) == NULL || /* allocation site */"
+        },
+        {
+          "line": 555,
+          "original_line": 534,
+          "allocator": "sshbuf_new",
+          "deallocator": "sshbuf_free",
+          "mapping": "exact-line",
+          "source_text": "(c->output = sshbuf_new()) == NULL || /* allocation site */"
+        },
+        {
+          "line": 556,
+          "original_line": 535,
+          "allocator": "sshbuf_new",
+          "deallocator": "sshbuf_free",
+          "mapping": "exact-line",
+          "source_text": "(c->extended = sshbuf_new()) == NULL) /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/use_after_free_2/openssh_uaf_2.c",
+      "source_sha256": "e96c4502e2fabb41e0655560f5abd88c93564e5dd866f7cae985d129d0fc531c",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 377,
+          "original_line": 359,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ctxt = xcalloc(1, sizeof *ctxt); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssh-portable/use_after_free_3/openssh_uaf_3.c",
+      "source_sha256": "83dd23175cf5d7d29e4edcb760c62f0a04e890a100a5edc456eef54f133424bc",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 43,
+          "original_line": 28,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*blobp = xmalloc(len); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/double_free_1/openssl_df_1.c",
+      "source_sha256": "bfd8ec44cec8d177af2e38df56c406edfd121a9f2e69792e473a304a083408aa",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 71,
+          "original_line": 62,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return OPENSSL_zalloc(sizeof(OPENSSL_STACK));   /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/double_free_2/openssl_df_2.c",
+      "source_sha256": "832ef5eb3f43febb3ff5a0bdd3883d491e6fa52fb3938f3807ab0720d8d127eb",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 71,
+          "original_line": 67,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "pms = OPENSSL_malloc(pmslen);       /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/double_free_3/openssl_df_3.c",
+      "source_sha256": "10f0d11992dc6b48b9dc1000dfb631be52125e25b39a355c2ecdf567d2427274",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 65,
+          "original_line": 58,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*data = OPENSSL_memdup(pkt->curr, length);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/double_free_4/openssl_df_4.c",
+      "source_sha256": "03dabba4cfc0b987530f98ea913c1b969b25012ec5dfa6dc2aabe55452d5da8a",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 285,
+          "original_line": 271,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*key = OPENSSL_hexstr2buf(refdata[recnum].key, NULL);\t/* custom allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/double_free_5/openssl_df_5.c",
+      "source_sha256": "b8bb178c91069f469fc7384e11d8ff92ce04b1bfaae3c52dfbb10a0b433af53e",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 186,
+          "original_line": 174,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if((ret = OPENSSL_zalloc(sizeof(*ret))) == NULL)\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_1/openssl_leak_1.c",
+      "source_sha256": "625c026cab6c3389076daefd6c55d3c0bf4fa030d34a387228f47aad7b5760cc",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 320,
+          "original_line": 288,
+          "allocator": "OCSP_BASICRESP_new",
+          "deallocator": "OCSP_BASICRESP_free",
+          "mapping": "exact-line",
+          "source_text": "OCSP_BASICRESP *bs = OCSP_BASICRESP_new();\t\t\t\t\t/* allocation site */"
+        },
+        {
+          "line": 223,
+          "original_line": 191,
+          "allocator": "ASN1_STRING_new",
+          "deallocator": "ASN1_STRING_free",
+          "mapping": "exact-line",
+          "source_text": "tmps = ASN1_STRING_new();\t/* allocation site */"
+        },
+        {
+          "line": 324,
+          "original_line": 292,
+          "allocator": "X509_NAME_new",
+          "deallocator": "X509_NAME_free",
+          "mapping": "exact-line",
+          "source_text": "X509_NAME *name = X509_NAME_new();                          /* allocation site */"
+        },
+        {
+          "line": 325,
+          "original_line": 293,
+          "allocator": "ASN1_BIT_STRING_new",
+          "deallocator": "ASN1_BIT_STRING_free",
+          "mapping": "exact-line",
+          "source_text": "ASN1_BIT_STRING *key = ASN1_BIT_STRING_new();               /* allocation site */"
+        },
+        {
+          "line": 326,
+          "original_line": 294,
+          "allocator": "ASN1_INTEGER_new",
+          "deallocator": "ASN1_INTEGER_free",
+          "mapping": "exact-line",
+          "source_text": "ASN1_INTEGER *serial = ASN1_INTEGER_new();                  /* allocation site */"
+        },
+        {
+          "line": 333,
+          "original_line": 301,
+          "allocator": "OCSP_cert_id_new",
+          "deallocator": "OCSP_CERTID_free",
+          "mapping": "exact-line",
+          "source_text": "cid = OCSP_cert_id_new(EVP_sha256(), name, key, serial);    /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_10/openssl_leak_10.c",
+      "source_sha256": "2dd13a95991e5cd5d4912e8fea0ee93fa34e539754ddde0e0a9f2c8951766524",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 151,
+          "original_line": 145,
+          "allocator": "OPENSSL_malloc",
+          "deallocator": "OPENSSL_free",
+          "mapping": "exact-line",
+          "source_text": "outbuf = OPENSSL_malloc(outlen);\t\t\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_2/openssl_leak_2.c",
+      "source_sha256": "301db23d3d923771f830e2cab8bb96a6356408b0a4a7963fcc22e41f2dc2fcc3",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 465,
+          "original_line": 447,
+          "allocator": "OPENSSL_strdup",
+          "deallocator": "OPENSSL_free",
+          "mapping": "exact-line",
+          "source_text": "servername = OPENSSL_strdup(sni); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_3/openssl_leak_3.c",
+      "source_sha256": "1a3aed94b761ecaa6a854d85793e65b05d33eb68fc933cd376eb3c989edcdf3d",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 201,
+          "original_line": 185,
+          "allocator": "ASN1_STRING_type_new",
+          "deallocator": "ASN1_TYPE_free",
+          "mapping": "exact-line",
+          "source_text": "str = ASN1_STRING_type_new(utype); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_4/openssl_leak_4.c",
+      "source_sha256": "cc29a51060e1903044ae1ce3372b87d9ec4e76d0e01f6e3c180c17e454947786",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 494,
+          "original_line": 445,
+          "allocator": "ENGINE_get_pkey_meth_engine",
+          "deallocator": "ENGINE_finish",
+          "mapping": "exact-line",
+          "source_text": "e = ENGINE_get_pkey_meth_engine(id); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_5/openssl_leak_5.c",
+      "source_sha256": "a621edf3e9bb140c7de5f939ea580ad609d1893ea0529e4096fbc07a91afa614",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 364,
+          "original_line": 336,
+          "allocator": "X509_VERIFY_PARAM_new",
+          "deallocator": "X509_VERIFY_PARAM_free",
+          "mapping": "exact-line",
+          "source_text": "X509_VERIFY_PARAM *param = X509_VERIFY_PARAM_new();\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_6/openssl_leak_6.c",
+      "source_sha256": "d7956b3e47e31875aafe337f2b728ff24c503fd5c0535ecbc15d8b7cc58a45d3",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 129,
+          "original_line": 121,
+          "allocator": "BN_dup",
+          "deallocator": "BN_free",
+          "mapping": "exact-line",
+          "source_text": "BIGNUM *q = BN_dup(dh->p);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_7/openssl_leak_7.c",
+      "source_sha256": "e6c0ab8e2806c50fea1323da91dccc5414a7477383d21279cc2a24d3689925ad",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 66,
+          "original_line": 66,
+          "allocator": "OPENSSL_zalloc",
+          "deallocator": "OPENSSL_free",
+          "mapping": "exact-line",
+          "source_text": "local = OPENSSL_zalloc(sizeof *local);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_8/openssl_leak_8.c",
+      "source_sha256": "98adcbd0dd42e960bcc1f6eab87901c709c7403c15821caeae7a9c922351d590",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 117,
+          "original_line": 107,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "psksess = malloc(sizeof(SSL_SESSION)); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/leak_9/openssl_leak_9.c",
+      "source_sha256": "2176fac5481c2b3a21fb8c5af22b598d1ac5433af60cd5d0467b46ee76f0ce89",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 127,
+          "original_line": 125,
+          "allocator": "OPENSSL_zalloc",
+          "deallocator": "OPENSSL_free",
+          "mapping": "exact-line",
+          "source_text": "OSSL_STORE_LOADER *res = OPENSSL_zalloc(sizeof(*res));\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/use_after_free_1/openssl_uaf_1.c",
+      "source_sha256": "800bd0041f55a2bfe433d7736ebb9452500f559067afa4a6393dd161c2492e0f",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 144,
+          "original_line": 135,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if ((ret = OPENSSL_zalloc(sizeof(*ret))) == NULL)"
+        },
+        {
+          "line": 147,
+          "original_line": 137,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "reviewed-override",
+          "source_text": "if ((lh->b = OPENSSL_zalloc(sizeof(*lh->b) * 1)) == NULL)"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/use_after_free_2/openssl_uaf_2.c",
+      "source_sha256": "802a43460e6f09a483d18c1bde34b61b300a26ba5a4d38b2f67f76c767085bd3",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 113,
+          "original_line": 113,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "fds = app_malloc(sizeof(OSSL_ASYNC_FD) * numfds, \"allocate async fds\"); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/use_after_free_3/openssl_uaf_3.c",
+      "source_sha256": "e104f97f5d61f331ad10fa64fac36742f13d81fb66adb006b76ffd0b4f202ee9",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 72,
+          "original_line": 72,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "result = OPENSSL_malloc(sz);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/use_after_free_4/openssl_uaf_4.c",
+      "source_sha256": "3f5fd0961267b7b082dacf2c60e7bd41e806945954f8b746b5d03c0760598af2",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 452,
+          "original_line": 442,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if(!(p = OPENSSL_malloc(outlen + 1))) {\t\t\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/openssl/use_after_free_5/openssl_uaf_5.c",
+      "source_sha256": "885af843905232a087d51f1aa01c5fef41368bf07160bc5119ec87f6c42fbc3a",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 274,
+          "original_line": 271,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "rdata = OPENSSL_malloc(sizeof(DTLS1_RECORD_DATA));\t/* allocation site */"
+        },
+        {
+          "line": 82,
+          "original_line": 80,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "pitem *item = (pitem *) OPENSSL_malloc(sizeof(pitem));\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/double_free_1/tmux_df_1.c",
+      "source_sha256": "6848e8edda40a376a5a2541b591e55fdab8af48bdf9c528894fdea134aa55095",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 197,
+          "original_line": 197,
+          "allocator": "xcalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "wl = xcalloc(1, sizeof *wl);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/double_free_2/tmux_df_2.c",
+      "source_sha256": "e28b144dab1e278047773dfddd9fdb27250192388aa67914bd5d8caace765be9",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 77,
+          "original_line": 77,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "lc = xmalloc(sizeof *lc);\t/* allocation site */"
+        },
+        {
+          "line": 324,
+          "original_line": 322,
+          "allocator": "xcalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "w->name = NULL;"
+        },
+        {
+          "line": 355,
+          "original_line": 353,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": ""
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/double_free_3/tmux_df_3.c",
+      "source_sha256": "95b82d689e2ec806c894dd9d0761936d4ec41d9f7dba9a1374a1033bddbe2a06",
+      "category": "double_free",
+      "target_rule": "SA002",
+      "allocation_sites": [
+        {
+          "line": 252,
+          "original_line": 252,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "buf = xrealloc(buf, 1, len + 1); /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_1/tmux_leak_1.c",
+      "source_sha256": "86c88a4408d31fd36c461b37cc542560742b019d4d4888a11e2eb77f99a9a3e7",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 223,
+          "original_line": 221,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "out = malloc(strlen(fmt));                      /* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_10/tmux_leak_10.c",
+      "source_sha256": "d2936561ec703704a76b349e3433c9379c3a2f523b0631684beb919904545f59",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 372,
+          "original_line": 372,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "line = xrealloc(line, 1, oldlen + len + 1);\t/* allocation site */"
+        },
+        {
+          "line": 375,
+          "original_line": 375,
+          "allocator": "xmalloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "line = xmalloc(len + 1);\t\t\t\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_2/tmux_leak_2.c",
+      "source_sha256": "a01e23406672187b2cac279c47721318bcddc4690975a8698b99d069513d56ab",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 157,
+          "original_line": 149,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "out = xstrdup(list[0]);\t\t\t\t\t\t\t\t/* allocation site */"
+        },
+        {
+          "line": 86,
+          "original_line": 78,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "out = xstrdup(list[0]);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_3/tmux_leak_3.c",
+      "source_sha256": "e65c70ad1d09694d5729be297f76c250eba10d5841f2616bfaff1c4a588bec2e",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 77,
+          "original_line": 77,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "path = xstrdup(file);\t\t\t\t/* allocation site */"
+        },
+        {
+          "line": 81,
+          "original_line": 81,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return (xstrdup(resolved));\t\t\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_4/tmux_leak_4.c",
+      "source_sha256": "071d9af57cd5ca240813fffd0dea9379fa3bf6ca7464b258c8bdaee1a141af2a",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 46,
+          "original_line": 46,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "*ret = malloc(strlen(fmt) + strlen(ap));\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_5/tmux_leak_5.c",
+      "source_sha256": "a85b69dace9970389a97d83797555a4c89c1662f820ce4930069141e41f58b00",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 169,
+          "original_line": 175,
+          "allocator": "format_expand",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "shellcmd = malloc(strlen(args->argv[0]));\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_6/tmux_leak_6.c",
+      "source_sha256": "301c032a2b72ea8d38993e05a3a74c8a0fe54be0305f1a99a948c3f3aa5ec074",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 267,
+          "original_line": 284,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return (xstrdup(\"\"));\t\t\t\t\t\t\t\t\t/* allocation site */"
+        },
+        {
+          "line": 269,
+          "original_line": 286,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "buf = xstrdup(\"\");\t\t\t\t\t\t\t\t\t\t\t/* allocation site */"
+        },
+        {
+          "line": 295,
+          "original_line": 312,
+          "allocator": "xstrdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "return (xstrdup(\"\"));\t\t\t\t\t\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_7/tmux_leak_7.c",
+      "source_sha256": "2e3392862425aedab2129c48844fff946c8b49aa87dbcd4a61d0d0e8a7c10e34",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 180,
+          "original_line": 179,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "find_data.list_ctx = xstrdup(\"\");\t\t\t\t/* allocation site */"
+        },
+        {
+          "line": 186,
+          "original_line": 185,
+          "allocator": "strdup",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "find_data.list_ctx = strdup(wp->base.title);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_8/tmux_leak_8.c",
+      "source_sha256": "e7434b2418acf699bb84ad693e0318d3c0ac30518dabb2273a87e535fb3aa94d",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 118,
+          "original_line": 112,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if ((newbuf = realloc(buf, len)) == NULL)\t\t\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/leak_9/tmux_leak_9.c",
+      "source_sha256": "9218e21524b2cdbf8568f97a466c4bb72178ee2bc12649fc3378b63ec08edfc1",
+      "category": "leak",
+      "target_rule": "SA001",
+      "allocation_sites": [
+        {
+          "line": 173,
+          "original_line": 173,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "if (psize == 0 || (pdata = malloc(psize + 1)) == NULL) {\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/use_after_free_1/tmux_uaf_1.c",
+      "source_sha256": "8491c28dc92213009fed70090c9cf086a3b5da08c731306164aa2db2add951b0",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 256,
+          "original_line": 256,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "wp->modedata = data = xmalloc(sizeof *data);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/use_after_free_2/tmux_uaf_2.c",
+      "source_sha256": "a466c36bca80c5d313c98207abb0225c6321e9e06e7b3bccd63c7852fe7bc791",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 156,
+          "original_line": 156,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "w = xmalloc(sizeof *w);"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/use_after_free_3/tmux_uaf_3.c",
+      "source_sha256": "05a0290a8864c754f7d7e433bac80f05c82dd979004693dc9112221e5fcafa85",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 121,
+          "original_line": 121,
+          "allocator": "",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "ARRAY_EXPAND(&data->list, 1);\t/* allocation site */"
+        },
+        {
+          "line": 124,
+          "original_line": 124,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "item->name = malloc(10);\t\t/* allocation site */"
+        },
+        {
+          "line": 138,
+          "original_line": 138,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "wp->modedata = data = xmalloc(sizeof *data);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/use_after_free_4/tmux_uaf_4.c",
+      "source_sha256": "97c2cc40cc97ae41009f25c07ae1c77169efc74cf79fca37dcc3c67f892fb081",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 236,
+          "original_line": 236,
+          "allocator": "calloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "wl = xcalloc(1, sizeof *wl);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/use_after_free_5/tmux_uaf_5.c",
+      "source_sha256": "bc19d976ce282558089a73e9dab8f5a836e59392dfda7dc509af9141e41966d4",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 223,
+          "original_line": 223,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "b = xmalloc(sizeof *b);\t\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/use_after_free_6/tmux_uaf_6.c",
+      "source_sha256": "65e9d6826978ce9100e89157ac6ca8c1983f7a9e877eeb21fcb37b30d1f8373d",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 180,
+          "original_line": 178,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "wl = xmalloc(sizeof *wl);\t/* allocation site */"
+        }
+      ]
+    },
+    {
+      "source": "Test/benchmarks/tmux/use_after_free_7/tmux_uaf_7.c",
+      "source_sha256": "778cc15434743a0189f9f652021b652467f99b750c77d404974d80af8005c873",
+      "category": "use_after_free",
+      "target_rule": "SA003",
+      "allocation_sites": [
+        {
+          "line": 102,
+          "original_line": 99,
+          "allocator": "malloc",
+          "deallocator": "free",
+          "mapping": "exact-line",
+          "source_text": "w->modedata = data = xmalloc(sizeof *data);\t/* allocation site */"
+        }
+      ]
+    }
+  ]
+}
+

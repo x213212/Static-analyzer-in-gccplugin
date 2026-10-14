@@ -11,6 +11,20 @@
 #include "../stdio.h"
 #include "../openssh.h"
 
+struct ssh;
+struct ssh_channels;
+
+size_t sshbuf_len(const struct sshbuf *);
+u_char *sshbuf_mutable_ptr(struct sshbuf *);
+int sshbuf_check_sanity(const struct sshbuf *);
+void *recallocarray(void *, size_t, size_t, size_t);
+size_t atomicio();
+void *xrecallocarray(void *, size_t, size_t, size_t);
+struct sshbuf *sshbuf_new(void);
+void debug(const char *, ...);
+void debug2(const char *, ...);
+void debug3(const char *, ...);
+
 # define SSHBUF_SIZE_INIT	256		/* Initial allocation */
 # define SSHBUF_SIZE_INC	256		/* Preferred increment length */
 # define SSHBUF_PACK_MIN	8192		/* Minimim packable offset */
@@ -242,6 +256,13 @@ struct Channel {
 };
 
 typedef struct Channel Channel;
+
+void channel_register_fds(struct ssh *, Channel *, int, int, int, int, int,
+    int);
+void channel_handler_init(struct ssh_channels *);
+void mux_remove_remote_forwardings(struct ssh *, Channel *);
+char *channel_open_message(struct ssh *);
+void channel_close_fds(struct ssh *, Channel *);
 
 typedef struct {
 	char *host_to_connect;		/* Connect to 'host'. */

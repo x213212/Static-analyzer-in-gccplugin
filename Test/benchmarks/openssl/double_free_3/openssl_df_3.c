@@ -17,6 +17,13 @@ typedef struct {
 
 typedef void WPACKET;
 
+size_t PACKET_remaining(const PACKET *);
+int PACKET_as_length_prefixed_2(PACKET *, PACKET *);
+int WPACKET_put_bytes_u16(WPACKET *, unsigned int);
+int WPACKET_start_sub_packet_u16(WPACKET *);
+int WPACKET_sub_memcpy_u16(WPACKET *, const void *, size_t);
+int WPACKET_close(WPACKET *);
+
 struct ssl_st {
     struct {
         unsigned char *tls13_cookie;
@@ -118,4 +125,3 @@ int main()
     SSL_free(s);
     return 0;
 }
-

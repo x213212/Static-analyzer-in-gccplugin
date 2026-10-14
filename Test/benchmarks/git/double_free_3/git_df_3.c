@@ -201,6 +201,9 @@ static unsigned int cmd_save = 100;
 static uintmax_t next_mark;
 static struct strbuf new_data = STRBUF_INIT;
 
+static inline void strbuf_setlen(struct strbuf *sb, size_t len);
+static void cmd_data(struct strbuf *sb);
+
 void strbuf_grow(struct strbuf *sb, size_t extra)
 {
 	if (sb->len + extra + 1 <= sb->len)
@@ -473,5 +476,4 @@ int main(int argc, const char **argv)
 	}
 	return failure ? 1 : 0;
 }
-
 

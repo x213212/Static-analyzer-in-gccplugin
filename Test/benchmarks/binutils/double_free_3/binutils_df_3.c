@@ -20,6 +20,11 @@ struct objfile{
     char *name;
 };
 
+struct build_id *build_id_bfd_get(struct build_id *abfd);
+char *build_id_to_debug_filename(const struct build_id *build_id);
+char *get_debug_link_info(struct objfile *objfile, unsigned long *crc32);
+int separate_debug_file_exists(const char *filename, unsigned long crc32);
+
 char *
 lrealpath (const char *filename)
 {
@@ -164,5 +169,4 @@ int main()
     find_separate_debug_file(&objfile);
     return 0;
 }
-
 

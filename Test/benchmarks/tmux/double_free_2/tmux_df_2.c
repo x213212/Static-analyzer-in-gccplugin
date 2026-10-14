@@ -165,6 +165,8 @@ window_count_panes(struct window *w)
 	return (n);
 }
 
+int window_pane_visible(struct window_pane *);
+
 
 void
 notify_window_layout_changed(struct window *w)
@@ -363,4 +365,3 @@ int main(int argc, char **argv)
 	window_count_panes(w);
 	window_destroy(w);
 }
-

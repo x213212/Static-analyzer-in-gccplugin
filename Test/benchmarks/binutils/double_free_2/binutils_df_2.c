@@ -1,13 +1,13 @@
 #include "../include/common.h"
 #include "../include/binutils.h"
 #include "../include/bfd.h"
+#include <time.h>
 
 /* buggy parent: cc917fd
 	commit id: be74fad95edc8827516e144cf38d135b503249cd
 */
 
 typedef int bool;
-typedef int bfd_vma;
 typedef bool bfd_boolean;
 typedef int Elf_Internal_Rela;
 
@@ -114,4 +114,3 @@ int main() {
 	*((int *)bfd.memory) = 1;	
 	free(bfd.memory);
 }
-

@@ -3,6 +3,7 @@
 	commit id : 1e0eb914d945e0f287716d56669d0de409e86e59
 */
 
+#define _GNU_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
@@ -10,6 +11,9 @@
 #include "../stdio.h"
 #include "../tmux.h"
 
+#undef va_list
+
+int winlink_cmp(struct winlink *wl1, struct winlink *wl2);
 
 RB_GENERATE(winlinks, winlink, entry, winlink_cmp);
 
@@ -43,19 +47,23 @@ struct cmd_entry {
 	enum cmd_retval	 (*exec)(struct cmd *, struct cmdq_item *);
 };
 
+static int xvasprintf(char **, const char *, va_list);
 
 int
-xasprintf(char **ret, const char *fmt, char *ap)
+xasprintf(char **ret, const char *fmt, ...)
 {
+	va_list ap;
 	int i;
 
+	va_start(ap, fmt);
 	i = xvasprintf(ret, fmt, ap);
+	va_end(ap);
 
 	return i;
 }
 
-int
-xvasprintf(char **ret, const char *fmt, char *ap)
+static int
+xvasprintf(char **ret, const char *fmt, va_list ap)
 {
 	int i;
 
@@ -218,8 +226,4 @@ int main()
 	status_prompt_complete(&session, "string");
 	return 0;
 }
-
-
-
-
 

@@ -54,7 +54,7 @@ struct ASN1_TEMPLATE_st {
 	#ifndef NO_ASN1_FIELD_NAMES
 	const char *field_name;     /* Field name */
 	#endif
-	ASN1_ITEM *item;        /* Relevant ASN1_ITEM or ASN1_ADB */
+	const ASN1_ITEM *item;  /* Relevant ASN1_ITEM or ASN1_ADB */
 };
 
 struct ASN1_ITEM_st {
@@ -76,11 +76,10 @@ ASN1_SEQUENCE(ECDSA_SIG) = {
 	ASN1_SIMPLE(ECDSA_SIG, s, BIGNUM)
 } ASN1_SEQUENCE_END(ECDSA_SIG)
 
-int ASN1_item_new(ASN1_VALUE **pval, ASN1_ITEM *it)
+int ASN1_item_new(ASN1_VALUE **pval, const ASN1_ITEM *it)
 {
 	int i;
-	ASN1_VALUE *pseqval;
-	ASN1_TEMPLATE *tt = it->templates;
+	const ASN1_TEMPLATE *tt = it->templates;
 	switch(it->itype) {
 	
 	case ASN1_ITYPE_PRIMITIVE:
@@ -94,12 +93,15 @@ int ASN1_item_new(ASN1_VALUE **pval, ASN1_ITEM *it)
 		if (!*pval)
 			goto memerr;
 		memset(*pval, 0, it->size);
-        for (i = 0, tt = it->templates; i < it->tcount; tt++, i++)
-            {
-            pseqval = *pval + tt->offset;
-            if (!ASN1_item_new(pseqval, tt->item))
-                goto memerr;
-            }
+	        for (i = 0, tt = it->templates; i < it->tcount; tt++, i++)
+	            {
+	            ASN1_VALUE *child = NULL;
+	            BIGNUM **field = (BIGNUM **)((char *)*pval + tt->offset);
+
+	            if (!ASN1_item_new(&child, tt->item))
+	                goto memerr;
+	            *field = child;
+	            }
 	break;
 	}
 	return 1;
@@ -111,7 +113,8 @@ memerr:
 
 ECDSA_SIG *ECDSA_SIG_new(void)
 {
-	ECDSA_SIG *ret;
+	ASN1_VALUE *ret = NULL;
+
 	ASN1_item_new(&ret, &ECDSA_SIG_it);
 	return ret;
 }
@@ -142,5 +145,3 @@ int main() {
 	ECDSA_SIG_free(sig);
     return 0;
 }
-
-

@@ -262,6 +262,20 @@ typedef struct ssl3_record_st {
     unsigned char seq_num[SEQ_NUM_SIZE];
 } SSL3_RECORD;
 
+#define OSSL_NELEM(x) (sizeof(x) / sizeof((x)[0]))
+const EVP_CIPHER *EVP_aes_128_gcm(void);
+void *TLS_method(void);
+SSL_CTX *SSL_CTX_new(const void *);
+SSL *SSL_new(SSL_CTX *);
+size_t EVP_CIPHER_iv_length(const EVP_CIPHER *);
+unsigned char *RECORD_LAYER_get_read_sequence(RECORD_LAYER *);
+unsigned char *RECORD_LAYER_get_write_sequence(RECORD_LAYER *);
+int EVP_CipherInit_ex();
+int tls13_enc();
+int test_record();
+void SSL_free(SSL *);
+void SSL_CTX_free(SSL_CTX *);
+
 static int load_record(SSL3_RECORD *rec, size_t recnum, unsigned char **key,
                        unsigned char *iv, size_t ivlen, unsigned char *seq)
 {
@@ -394,5 +408,4 @@ int main()
 	test_tls13_encryption();
 	return 0;
 }
-
 

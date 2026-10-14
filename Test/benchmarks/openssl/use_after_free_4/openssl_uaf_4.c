@@ -9,6 +9,16 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+void ASN1_STRING_free(ASN1_STRING *);
+int ASN1_STRING_set(ASN1_STRING *, const void *, int);
+int ASN1_mbstring_ncopy();
+void ASN1err(int, int);
+int BIO_snprintf(char *, size_t, const char *, ...);
+char *BUF_strndup(const char *, size_t);
+void ERR_add_error_data(int, ...);
+void skip_prefix();
+int traverse_string();
+
 /* Function codes. */
 #define ASN1_F_A2D_ASN1_OBJECT				 100
 #define ASN1_F_A2I_ASN1_ENUMERATED			 101
@@ -523,4 +533,3 @@ int main ()
 	do_check_string(&a, cmp_type, equal_nocase, flags, b, blen, &peername);
 	return 0;
 }
-

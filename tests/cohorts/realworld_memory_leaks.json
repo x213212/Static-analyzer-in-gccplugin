@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "scope": "Upstream-confirmed leaks and their actual fixes. These references do not establish analyzer accuracy until compiled and reviewed. No generated replacement implementations are used.",
+  "ffmpeg_pairs": [
+    {
+      "id": "ffmpeg-rtsp",
+      "file": "libavformat/rtsp.c",
+      "function": "udp_read_packet",
+      "parent": "9481b7d932e895b903c260c54c7b26adfe402e1f",
+      "fix": "14f9e47314ab70a2c786cb040ca0ca2fc1a0e163",
+      "reference": "https://github.com/FFmpeg/FFmpeg/commit/14f9e47314ab70a2c786cb040ca0ca2fc1a0e163",
+      "defect": "fds is received through ffurl_get_multi_file_handle's output parameter; fdsnum != 2 returns without av_freep(&fds).",
+      "required_analysis": ["out-parameter allocation origin", "av_freep pointer-to-pointer release", "error-exit feasibility"]
+    },
+    {
+      "id": "ffmpeg-hls",
+      "file": "libavformat/hlsenc.c",
+      "function": "hls_write_trailer",
+      "parent": "b113050d96d9d36ac2e7f10b3af8b9c61684c33f",
+      "fix": "9481b7d932e895b903c260c54c7b26adfe402e1f",
+      "reference": "https://github.com/FFmpeg/FFmpeg/commit/9481b7d932e895b903c260c54c7b26adfe402e1f",
+      "defect": "Filename allocation failure returns without freeing the options dictionary; the fix adds av_dict_free(&options).",
+      "required_analysis": ["container ownership", "nested cleanup", "allocation-failure path"]
+    },
+    {
+      "id": "ffmpeg-colorcorrect",
+      "file": "libavfilter/vf_colorcorrect.c",
+      "function": "uninit",
+      "parent": "f1f973313b6edc460339c2dfa4675dd3ad72fe98",
+      "fix": "5f87a68cf70dafeab2fb89b42e41a4c29053b89b",
+      "reference": "https://github.com/FFmpeg/FFmpeg/commit/5f87a68cf70dafeab2fb89b42e41a4c29053b89b",
+      "defect": "The context destructor frees analyzeret but omits uhistogram and vhistogram; the fix frees both fields.",
+      "required_analysis": ["heap fields", "allocation-init-destructor lifecycle", "callback dispatch"]
+    }
+  ],
+  "confirmed_references_not_yet_compiled": [
+    {
+      "id": "curl-CVE-2024-2398",
+      "reference": "https://curl.se/docs/CVE-2024-2398.html",
+      "issue": "https://github.com/curl/curl/pull/13054",
+      "fix": "deca8039991886a559b67bcd6701db800a5cf764",
+      "parent": "1347cf255b6293730b506d63c583bb8ec6b63d4e",
+      "file": "lib/http2.c",
+      "defect": "HTTP/2 push error cleanup freed the array without freeing previously allocated header strings.",
+      "required_analysis": ["container elements", "loop cleanup", "HTTP/2 callback error paths"]
+    },
+    {
+      "id": "sqlite-7486aa54b968e9b5",
+      "reference": "https://www.sqlite.org/releaselog/3_20_1.html",
+      "fixed_release": "3.20.1",
+      "defect": "Upstream release notes confirm a potential leak in sqlite3_result_pointer; the historical fix and sources still need retrieval before compilation.",
+      "required_analysis": ["callback destructor ownership", "value lifetime"]
+    }
+  ]
+}

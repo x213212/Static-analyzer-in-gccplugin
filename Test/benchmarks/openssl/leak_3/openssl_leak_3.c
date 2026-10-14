@@ -9,6 +9,8 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+#define STACK_OF(type) struct benchmark_stack_st_##type
+
 /* Field is optional */
 # define ASN1_TFLG_OPTIONAL      (0x1)
 
@@ -98,6 +100,20 @@
 # define ASN1_ITYPE_MSTRING              0x5
 
 # define ASN1_ITYPE_NDEF_SEQUENCE        0x6
+
+static int asn1_template_new(ASN1_VALUE **pval, const ASN1_TEMPLATE *tt);
+static void asn1_template_clear(ASN1_VALUE **pval, const ASN1_TEMPLATE *tt);
+static void asn1_primitive_clear(ASN1_VALUE **pval, const ASN1_ITEM *it);
+int ASN1_item_ex_new(ASN1_VALUE **, const ASN1_ITEM *);
+int asn1_item_embed_new(ASN1_VALUE **, const ASN1_ITEM *, int);
+void ASN1_item_ex_free(ASN1_VALUE **, const ASN1_ITEM *);
+ASN1_STRING *ASN1_STRING_type_new(int);
+ASN1_VALUE **asn1_get_field_ptr(ASN1_VALUE **, const ASN1_TEMPLATE *);
+const ASN1_ITEM *ASN1_ITEM_ptr(const ASN1_ITEM *(*)(void));
+void *sk_ASN1_VALUE_new_null(void);
+void OPENSSL_mem_debug_push(const char *);
+void OPENSSL_mem_debug_pop(void);
+void ASN1_item_free(ASN1_VALUE *, const ASN1_ITEM *);
 
 /* Use a reference count */
 # define ASN1_AFLG_REFCOUNT      1
@@ -438,6 +454,3 @@ int main ()
    free(value);
    return 0;
 }
-
-
-

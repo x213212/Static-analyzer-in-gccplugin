@@ -712,6 +712,7 @@ struct x509_store_ctx_st {      /* X509_STORE_CTX */
     /* The cert to check */
     X509 *cert;
     /* chain of X509s - untrusted - passed in */
+    struct benchmark_openssl_stack_st *chain;
     /* set of CRLs passed in */
     X509_VERIFY_PARAM *param;
     /* Other info for use with get_issuer() */
@@ -764,5 +765,3 @@ struct x509_store_ctx_st {      /* X509_STORE_CTX */
     /* signed via bare TA public key, rather than CA certificate */
     int bare_ta_signed;
 };
-
-

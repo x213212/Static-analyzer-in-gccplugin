@@ -9,6 +9,8 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+int ssl3_setup_buffers(SSL *);
+
 typedef struct _pitem
 	{
 	unsigned char priority[8]; /* 64-bit value in big-endian encoding */
@@ -75,7 +77,7 @@ typedef struct dtls1_record_data_st
 	} DTLS1_RECORD_DATA;
 
 pitem *
-pitem_new(unsigned char *prio64be, void *data)
+pitem_new(const unsigned char *prio64be, void *data)
 	{
 	pitem *item = (pitem *) OPENSSL_malloc(sizeof(pitem));	/* allocation site */
 	if (item == NULL) return NULL;
@@ -172,7 +174,7 @@ pqueue_pop(pqueue_s *pq)
 	}
 
 pitem *
-pqueue_find(pqueue_s *pq, unsigned char *prio64be)
+pqueue_find(pqueue_s *pq, const unsigned char *prio64be)
 	{
 	pitem *next;
 	pitem *found = NULL;
@@ -259,7 +261,8 @@ pqueue_size(pqueue_s *pq)
 }
 
 static int
-dtls1_buffer_record(SSL *s, record_pqueue *queue, unsigned char *priority)
+dtls1_buffer_record(SSL *s, record_pqueue *queue,
+                    const unsigned char *priority)
 	{
 	DTLS1_RECORD_DATA *rdata;
 	pitem *item;
@@ -312,13 +315,22 @@ dtls1_buffer_record(SSL *s, record_pqueue *queue, unsigned char *priority)
 
 int main()
 {
-	record_pqueue queue;
+	record_pqueue queue = { 0, NULL };
+	SSL3_STATE state = { 0 };
+	SSL ssl = { 0 };
+	const unsigned char priorities[3][8] = {
+		{ 0, 0, 0, 0, 0, 0, 0, 0 },
+		{ 0, 0, 0, 0, 0, 0, 0, 1 },
+		{ 0, 0, 0, 0, 0, 0, 0, 2 }
+	};
 	pitem *item;
+
+	ssl.s3 = &state;
 	queue.q = pqueue_new(); 
-	dtls1_buffer_record(NULL, &queue, 0);
-	dtls1_buffer_record(NULL, &queue, 1);
-	dtls1_buffer_record(NULL, &queue, 2);
-	while(!(item = pqueue_pop(queue.q))){
+	dtls1_buffer_record(&ssl, &queue, priorities[0]);
+	dtls1_buffer_record(&ssl, &queue, priorities[1]);
+	dtls1_buffer_record(&ssl, &queue, priorities[2]);
+	while ((item = pqueue_pop(queue.q)) != NULL) {
 		__USE(item); // use-after-free
 		pitem_free(item);
 	}

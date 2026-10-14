@@ -8,7 +8,56 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+int BIO_flush(BIO *);
+int BIO_free(BIO *);
+void BIO_free_all(BIO *);
+BIO *BIO_new_file(const char *, const char *);
+int BIO_printf(BIO *, const char *, ...);
+int BIO_puts(BIO *, const char *);
+int BIO_write(BIO *, const void *, int);
+int ENGINE_finish(ENGINE *);
+const EVP_PKEY_ASN1_METHOD *ENGINE_get_pkey_asn1_meth_str();
+const EVP_PKEY_METHOD *ENGINE_get_pkey_meth();
+ENGINE *ENGINE_get_pkey_meth_engine(int);
+int ENGINE_init(ENGINE *);
+void ERR_clear_error(void);
+void ERR_print_errors(BIO *);
+void *EVP_PKEY_CTX_get_app_data(EVP_PKEY_CTX *);
+int EVP_PKEY_CTX_get_keygen_info(EVP_PKEY_CTX *, int);
+void EVP_PKEY_CTX_set_app_data(EVP_PKEY_CTX *, void *);
+void EVP_PKEY_CTX_set_cb(EVP_PKEY_CTX *, void *);
+const EVP_PKEY_ASN1_METHOD *EVP_PKEY_asn1_find_str();
+void EVP_PKEY_asn1_get0_info();
+void EVP_PKEY_free(EVP_PKEY *);
+int EVP_PKEY_keygen(EVP_PKEY_CTX *, EVP_PKEY **);
+int EVP_PKEY_keygen_init(EVP_PKEY_CTX *);
+const EVP_PKEY_METHOD *EVP_PKEY_meth_find(int);
+int EVP_PKEY_paramgen(EVP_PKEY_CTX *, EVP_PKEY **);
+int EVP_PKEY_paramgen_init(EVP_PKEY_CTX *);
+int EVP_PKEY_print_params();
+int EVP_PKEY_print_private();
+int EVP_PKEY_up_ref(EVP_PKEY *);
+void EVPerr(int, int);
+EVP_PKEY *PEM_read_bio_Parameters();
+int PEM_write_bio_Parameters(BIO *, EVP_PKEY *);
+int PEM_write_bio_PrivateKey();
+int app_passwd();
+BIO *bio_open_owner();
+int i2d_PrivateKey_bio(BIO *, EVP_PKEY *);
+char *opt_arg(void);
+int opt_cipher(const char *, const EVP_CIPHER **);
+void opt_help();
+int opt_num_rest(void);
+char *opt_unknown(void);
+int pkey_ctrl_string(EVP_PKEY_CTX *, const char *);
+void release_engine(ENGINE *);
+ENGINE *setup_engine(const char *);
+
+#define STACK_OF(type) struct benchmark_stack_st_##type
+
 BIO *bio_err;
+
+EVP_PKEY_CTX *EVP_PKEY_CTX_new_id(int id, ENGINE *e);
 
 # define EVP_PKEY_OP_UNDEFINED           0
 # define EVP_PKEY_OP_PARAMGEN            (1<<1)
@@ -768,5 +817,3 @@ int main (int argc, char **argv)
     genpkey_main(argc, argv);
     return 0;
 }
-
-

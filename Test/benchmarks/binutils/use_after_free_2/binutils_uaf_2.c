@@ -43,6 +43,17 @@ struct bfd
   unsigned int target_defaulted : 1;
 };
 
+bfd_size_type bfd_bread(void *buffer, bfd_size_type size, bfd *abfd);
+int bfd_get_error(void);
+void bfd_set_error(int error_code);
+bfd *_bfd_new_bfd(void);
+const bfd_target *bfd_find_target(const char *target, bfd *abfd);
+void _bfd_delete_bfd(bfd *abfd);
+int bfd_read_p(const bfd *abfd);
+int bfd_close(bfd *abfd);
+int filename_cmp(const char *left, const char *right);
+int bfd_check_format(bfd *abfd, bfd_format format);
+
 const bfd_target *
 bfd_generic_archive_p (bfd *abfd)
 {

@@ -1,3 +1,10 @@
+#include <assert.h>
+#include <ctype.h>
+#include <stdarg.h>
+#include <string.h>
+#include <time.h>
+#include <unistd.h>
+
 #include "array.h"
 #include "tree.h"
 
@@ -274,5 +281,4 @@ struct passwd {
 #define __RANDBOOL ((rand() % 2 == 1) ? 1 : 0)
 
 // #define xasprintf(a, b, c) do { *a = malloc(strlen(b) + strlen(c)); if(*a == NULL) fatal("xasprintf: %s", ""); } while(0) 
-
 

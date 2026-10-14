@@ -52,7 +52,7 @@ void FunctionStmtMappingRet(ptb *ptable, ptb *ftable, gimple_array *user_tmp)
 										// fprintf(stderr, "RETURN with possible malloc2 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 										// debug(table_temp->last_stmt);
 										// debug((ret_type_array)[i].stmt);
-										if (ptr_derefs_may_alias_p(table_temp->target, (ret_type_array)[i].return_tree))
+										if (static_analyzer::alias::may_alias(table_temp->target, (ret_type_array)[i].return_tree))
 										{
 											fun_array.return_type_num = 2;
 											function_return_collect->put(table_temp->node->get_fun()->decl, fun_array);

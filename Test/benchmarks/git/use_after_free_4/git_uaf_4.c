@@ -82,13 +82,6 @@ struct dir_entry {
 typedef int (*hashmap_cmp_fn)(const void *entry, const void *entry_or_key,
 		const void *keydata);
 
-
-struct hashmap {
-	struct hashmap_entry **table;
-	hashmap_cmp_fn cmpfn;
-	unsigned int size, tablesize, grow_at, shrink_at;
-};
-
 struct hashmap_iter {
 	struct hashmap *map;
 	struct hashmap_entry *next;

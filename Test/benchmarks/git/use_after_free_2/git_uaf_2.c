@@ -127,6 +127,20 @@ struct parallel_processes {
 	struct strbuf buffered_output; /* of finished children */
 };
 
+void strbuf_addstr(struct strbuf *sb, const char *text);
+void strbuf_addbuf(struct strbuf *sb, const struct strbuf *source);
+void child_process_init(struct child_process *child);
+int start_command(struct child_process *child);
+int finish_command(struct child_process *child);
+int wait_or_whine(pid_t pid, const char *name, int in_signal);
+void child_process_clear(struct child_process *child);
+void argv_array_clear(struct argv_array *array);
+void pp_buffer_stderr(struct parallel_processes *pp, int timeout);
+void pp_output(struct parallel_processes *pp);
+void pp_cleanup(struct parallel_processes *pp);
+void argv_array_pushv(struct argv_array *array, const char **values);
+int run_command(struct child_process *child);
+
 
 static int default_start_failure(struct child_process *cp,
 				 struct strbuf *err,
@@ -410,11 +424,16 @@ static int task_finished(int result,
 int main(int argc, char **argv)
 {
 	struct child_process proc = CHILD_PROCESS_INIT;
+	const char *args[argc + 1];
 	int jobs;
+	int i;
 
 	if (argc < 3)
 		return 1;
-	proc.argv = (const char **)argv + 2;
+	for (i = 0; i < argc; i++)
+		args[i] = argv[i];
+	args[argc] = NULL;
+	proc.argv = args + 2;
 
 	if (!strcmp(argv[1], "start-command-ENOENT")) {
 		if (start_command(&proc) < 0 && errno == ENOENT)
@@ -426,7 +445,7 @@ int main(int argc, char **argv)
 		exit(run_command(&proc));
 
 	jobs = atoi(argv[2]);
-	proc.argv = (const char **)argv + 3;
+	proc.argv = args + 3;
 
 	if (!strcmp(argv[1], "run-command-parallel"))
 		exit(run_processes_parallel(jobs, parallel_next,
@@ -443,4 +462,3 @@ int main(int argc, char **argv)
 	fprintf(stderr, "check usage\n");
 	return 1;
 }
-

@@ -8,6 +8,37 @@
 #include "../stdio.h"
 #include "../openssh.h"
 
+u_int buffer_get_int(Buffer *);
+void buffer_get(Buffer *, void *, u_int);
+int krb_rd_req();
+int kuserok();
+void debug(const char *, ...);
+void verbose(const char *, ...);
+int auth_password();
+void auth_log();
+int packet_read(int *);
+void packet_integrity_check();
+void packet_send_debug(const char *, ...);
+int auth_rhosts();
+RSA *RSA_new(void);
+BIGNUM *BN_new(void);
+u_int packet_get_int(void);
+void packet_get_bignum();
+int BN_num_bits(const BIGNUM *);
+int auth_rhosts_rsa();
+void RSA_free(RSA *);
+int auth_rsa();
+void BN_clear_free(BIGNUM *);
+int auth_pam_password();
+void packet_start(int);
+void packet_put_cstring(const char *);
+void packet_send(void);
+void packet_write_wait(void);
+int verify_response();
+int do_pam_account();
+const char *get_authname(int);
+void packet_disconnect(const char *, ...);
+
 #define USE_PAM
 
 /*
@@ -166,6 +197,7 @@
 
 
 typedef struct Authctxt Authctxt;
+char *get_challenge(Authctxt *);
 typedef struct KbdintDevice KbdintDevice;
 typedef int *KTEXT;
 typedef int KTEXT_ST;
@@ -239,7 +271,6 @@ int
 auth_krb4(Authctxt *authctxt, KTEXT auth, char **client)
 {
 	AUTH_DAT adat = {0};
-	struct sockaddr_in local, foreign;
 	char instance[10];
 	u_int cksum;
 	int r, s;
@@ -254,7 +285,7 @@ auth_krb4(Authctxt *authctxt, KTEXT auth, char **client)
 	
 	/* Check ~/.klogin authorization now. */
 	if (kuserok(&adat, authctxt->user) != KSUCCESS) {
-		log("Kerberos v4 .klogin authorization failed for %s to "
+        printf("Kerberos v4 .klogin authorization failed for %s to "
 		    "account %s", *client, authctxt->user);
 		xfree(*client);
 		return (0);
@@ -461,7 +492,7 @@ do_authloop(Authctxt *authctxt)
 			 * Any unknown messages will be ignored (and failure
 			 * returned) during authentication.
 			 */
-			log("Unknown message during authentication: type %d", type);
+			printf("Unknown message during authentication: type %d", type);
 			break;
 		}
 #ifdef BSD_AUTH
@@ -511,6 +542,3 @@ int main ()
     do_authloop(&authctxt);
     return 0;
 }
-
-
-

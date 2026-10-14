@@ -33,6 +33,15 @@ struct so_list
     char so_name[SO_NAME_MAX_PATH_SIZE];
   };
 
+struct lm_info *lm_info_read(CORE_ADDR address);
+const char *paddress(void *gdbarch, CORE_ADDR address);
+void *target_gdbarch(void);
+struct svr4_info *get_svr4_info(void);
+int target_read_string(CORE_ADDR address, char **buffer, int limit,
+                       int *error_code);
+const char *safe_strerror(int error_code);
+int match_main(const char *name);
+
 void
 free_so (struct so_list *so)
 {
@@ -148,4 +157,3 @@ int main(int argc, char **argv)
 	svr4_read_so_list(argc, argc - 1, &link_ptr, 1); 	
 	return 0;
 }
-

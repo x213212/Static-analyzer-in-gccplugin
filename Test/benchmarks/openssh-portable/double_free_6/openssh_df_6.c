@@ -7,9 +7,26 @@
 #include <stdlib.h>
 #include <errno.h>
 #include <sys/stat.h>
+#include <sys/wait.h>
 
 #include "../stdio.h"
 #include "../openssh.h"
+
+void error(const char *, ...);
+Key *key_load_private(const char *, const char *, char **);
+char *read_passphrase(const char *, int);
+size_t strlcpy(char *, const char *, size_t);
+int ssh_add_identity(AuthenticationConnection *, Key *, const char *);
+void key_free(Key *);
+char *get_progname(char *);
+void init_rng(void);
+void SSLeay_add_all_algorithms(void);
+AuthenticationConnection *ssh_get_authentication_connection(void);
+void list_identities(AuthenticationConnection *, int);
+void delete_all(AuthenticationConnection *);
+void delete_file(AuthenticationConnection *, const char *);
+struct passwd *getpwuid(uid_t);
+void ssh_close_authentication_connection(AuthenticationConnection *);
 
 #ifndef ETCDIR
 #define ETCDIR				"/etc"
@@ -148,21 +165,12 @@
 # define SSH_PRNG_COMMAND_FILE   ETCDIR "/ssh_prng_cmds"
 #endif /* SSH_PRNG_COMMAND_FILE */
 
-#include "../stdio.h"
-#include "../openssh.h"
-
-
 #ifdef HAVE___PROGNAME
 extern char *__progname;
 #else
 char *__progname;
 #endif
 
-
-enum fp_type {
-	SSH_FP_SHA1,
-	SSH_FP_MD5
-};
 
 /* we keep a cache of one passphrases */
 static char *pass = NULL;
@@ -340,4 +348,3 @@ main(int argc, char **argv)
 	ssh_close_authentication_connection(ac);
 	return 0;
 }
-

@@ -9,6 +9,11 @@
 #include "../stdio.h"
 #include "../git.h"
 
+int remove_redundant(struct commit **array, int count);
+
+struct commit_list *commit_list_insert(struct commit *item,
+				       struct commit_list **list_p);
+
 struct commit_list * commit_list_insert_by_date(struct commit *item, struct commit_list **list)
 {
 	struct commit_list **pp = list;
@@ -155,12 +160,15 @@ int main (int argc, char **argv)
 {
     struct commit *rev;
     int show_all, rev_nr;
+    const char *args[argc + 1];
+    int i;
+
+    for (i = 0; i < argc; i++)
+        args[i] = argv[i];
+    args[argc] = NULL;
     show_merge_base(&rev, rev_nr, show_all);
-    handle_independent(argc, argv);
+    handle_independent(argc, args);
     return 0;
 }
-
-
-
 
 

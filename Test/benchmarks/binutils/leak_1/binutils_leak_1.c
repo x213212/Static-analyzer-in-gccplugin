@@ -346,7 +346,7 @@ copy_main (int argc, char *argv[])
   bfd_boolean change_warn = TRUE;
   bfd_boolean formats_info = FALSE;
   int c;
-  int statbuf;
+  struct stat statbuf;
   const bfd_arch_info_type *input_arch = NULL;
 
   input_filename = argv[optind];
@@ -388,4 +388,3 @@ main (int argc, char *argv[])
 
   return status;
 }
-

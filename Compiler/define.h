@@ -411,6 +411,7 @@ void printfBasicblock();
 void dump_fucntion(cgraph_node *node, ptb *ptable, gimple_array *user_tmp);
 void new_search_imm_use(gimple_array *used_stmt, tree target, tree target2);
 void Prenew_search_imm_use(gimple_array *used_stmt, tree target, tree target2);
+void collect_builtin_imm_uses(gimple_array *used_stmt, tree root);
 void printfPointerConstraint(ptb *ptable, gimple_array *user_tmp);
 void print_function_return(tree function_tree);
 void print_function_return2(tree function_tree);

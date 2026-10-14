@@ -13,6 +13,11 @@ struct attach_command_continuation_args
   int async_exec;
 };
 
+struct target_ops;
+struct target_ops *find_attach_target(void);
+int target_can_async_p(void);
+void attach_command_post_wait(char *args, int from_tty, int async_exec);
+
 char *
 savestring (const char *ptr, size_t len)
 {
@@ -97,4 +102,3 @@ int main(int argc, char **argv)
 		attach_command (argv[i], i);
 	return 0;
 }
-

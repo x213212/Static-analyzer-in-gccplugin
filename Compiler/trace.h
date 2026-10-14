@@ -83,19 +83,19 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 										if (pt2)
 										{
 
-											if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+											if (static_analyzer::alias::may_alias(mallocStmt_tree, gimple_assign_lhs(gc)))
 											{
 
 												if (gimple_assign_rhs1(gc) != NULL)
 												{
 
-													if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+													if (static_analyzer::alias::may_alias(mallocStmt_tree, gimple_assign_lhs(gc)))
 													{
 
 														if (TREE_CODE(gimple_assign_lhs(gc)) == ADDR_EXPR)
 														{
 
-															if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+															if (static_analyzer::alias::may_alias(mallocStmt_tree, gimple_assign_rhs1(gc)))
 															{
 																debug_tree2(gimple_assign_rhs1(gc));
 																fprintf2(stderr, "\n ================== warring ================== \n");
@@ -148,7 +148,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 																								if (gimple_assign_rhs1(def_stmt) != NULL)
 																									if (is_global_var(gimple_assign_rhs1(def_stmt)))
 																									{
-																										if (!ptr_derefs_may_alias_p(mallocStmt_tree, first))
+																							if (!static_analyzer::alias::may_alias(mallocStmt_tree, first))
 																										{
 																											continue;
 																										}
@@ -170,7 +170,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 													else if (TREE_CODE(gimple_assign_rhs1(gc)) == VAR_DECL)
 													{
 
-														if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)))
+															if (static_analyzer::alias::may_alias(mallocStmt_tree, gimple_assign_lhs(gc)))
 														{
 															if (is_global_var(gimple_assign_rhs1(gc)))
 															{
@@ -187,7 +187,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 														struct pt_solution *pt4 = &pi4->pt;
 														if (!pt3 || !pt4)
 															continue;
-														else if (!ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+														else if (!static_analyzer::alias::may_alias(mallocStmt_tree, gimple_assign_rhs1(gc)))
 															continue;
 													}
 												}
@@ -310,7 +310,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 									gimple *def_stmt = SSA_NAME_DEF_STMT(gimple_assign_rhs1(gc));
 
 									if (def_stmt != NULL)
-										if ((gimple_code(def_stmt) != GIMPLE_PHI) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_lhs(gc)) && ptr_derefs_may_alias_p(mallocStmt_tree, gimple_assign_rhs1(gc)))
+									if ((gimple_code(def_stmt) != GIMPLE_PHI) && static_analyzer::alias::may_alias(mallocStmt_tree, gimple_assign_lhs(gc)) && static_analyzer::alias::may_alias(mallocStmt_tree, gimple_assign_rhs1(gc)))
 										{
 											fprintf2(stderr, "\033[40;36m ======= relate node_fun argument:%s========= \033[0m\n", get_name(function_tree));
 											fprintf2(stderr, "\033[40;36m ======= relate gimple_assign_lhs:%s========= \033[0m\n", gimple_assign_lhs(gc));
@@ -353,7 +353,7 @@ void trace_fucntion_relate_stmt(cgraph_node *node, tree function_tree, tree mall
 
 											if (pt2)
 											{
-												if (ptr_derefs_may_alias_p(mallocStmt_tree, gimple_call_arg(gc, 0)))
+														if (static_analyzer::alias::may_alias(mallocStmt_tree, gimple_call_arg(gc, 0)))
 												{
 													unsigned long x = rand();
 													if (debugmod)
@@ -497,7 +497,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 							pi = SSA_NAME_PTR_INFO(mallocStmt_tree);
 							struct pt_solution *pt = &pi->pt;
 							if (pi)
-								if (ptr_derefs_may_alias_p((callerRetTypearray)[k].return_tree, mallocStmt_tree))
+								if (static_analyzer::alias::may_alias((callerRetTypearray)[k].return_tree, mallocStmt_tree))
 								{
 									fprintf2(stderr, "\033[40;31m  find return stmt  \033[0m\n");
 									fprintf2(stderr, "\033[40;31m  this fucntion return heap-object  \033[0m\n");
@@ -524,7 +524,7 @@ int trace_function_path(tree function_tree, int fucntion_level, tree mallocStmt_
 			for (int k = 0; k < callerRetTypearray.size(); k++)
 			{
 				debug_gimple_stmt2((callerRetTypearray)[k].stmt);
-				if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, mallocStmt_tree))
+			if (static_analyzer::alias::may_alias((callerRetTypearray)[k].free_tree, mallocStmt_tree))
 				{
 					fprintf2(stderr, "\033[40;31m  find free stmt free same pointer \033[0m\n");
 					debug_gimple_stmt2((callerRetTypearray)[k].stmt);

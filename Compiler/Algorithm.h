@@ -1,4 +1,4 @@
-void detect(struct plugin_argument *argv, int argc)
+void detect()
 {
 	struct rusage ru;
 	struct timeval utime;
@@ -25,54 +25,6 @@ void detect(struct plugin_argument *argv, int argc)
 	function_graph_collect = new hash_map<tree, function_graph_array>;
 	function_relate_collect = new hash_map<tree, function_relate_array>;
 	
-	fprintf(stderr, "--------plugin argument-----------\n");
-	for (int i = 0; i < argc; i++)
-	{
-
-		// relatemod
-		if (!strcmp(argv[i].key, "relatemod"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				relatemod = true;
-			else
-				relatemod = false;
-		if (!strcmp(argv[i].key, "retnotheapobjskipcheck"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				retnotheapobjskipcheck = true;
-			else
-				retnotheapobjskipcheck = false;
-		if (!strcmp(argv[i].key, "traceallfucntion"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				traceallfucntion = true;
-			else
-				traceallfucntion = false;
-		if (!strcmp(argv[i].key, "prebranchexit"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				prebranchexit = true;
-			else
-				prebranchexit = false;
-		if (!strcmp(argv[i].key, "debugoutput"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				debugoutput = true;
-			else
-				debugoutput = false;
-		else if (!strcmp(argv[i].key, "debugmod"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				debugmod = true;
-			else
-				debugmod = false;
-		else if (!strcmp(argv[i].key, "vscode_extensionmod"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				vscode_extensionmod = true;
-			else
-				vscode_extensionmod = false;
-		else if (!strcmp(argv[i].key, "contextsentive"))
-			if (strtol(argv[i].value, NULL, 10)) // char* to int
-				contextsentive = true;
-			else
-				contextsentive = false;
-		fprintf(stderr, "%s %s\n", argv[i].key, argv[i].value);
-	}
-
 	if (vscode_extensionmod)
 	{
 		std::ifstream ifs("/root/.vscode-server/data/User/globalStorage/x213212.helloworld-sample/breakpoint.txt", std::ios::in);
@@ -323,7 +275,10 @@ void PointerConstraint(ptb *ptable, ptb *ftable)
 
 				now_tree = processtable->target;
 				// debug_tree( processtable->target);
-				new_search_imm_use(used_stmt, processtable->target, processtable->target);
+				if (TREE_CODE(processtable->target) == SSA_NAME)
+					collect_builtin_imm_uses(used_stmt, processtable->target);
+				else
+					new_search_imm_use(used_stmt, processtable->target, processtable->target);
 				set_gimple_array(used_stmt, processtable->last_stmt, processtable->target, processtable->target, NULL);
 
 				if (!strcmp(get_tree_code_name(TREE_CODE(used_stmt->target)), "<invalid tree code>"))

@@ -20,6 +20,10 @@
 
 typedef void WPACKET;
 
+int RAND_bytes(unsigned char *, int);
+int ssl_log_rsa_client_key_exchange(SSL *, const unsigned char *, size_t,
+    const unsigned char *, size_t);
+
 struct ssl_st {
     struct ssl3_state_st *s3;   /* SSLv3 variables */
     int client_version;
@@ -118,4 +122,3 @@ end:
     ssl3_free(&s);
     return 0;
 }
-

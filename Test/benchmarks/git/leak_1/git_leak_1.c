@@ -64,10 +64,10 @@ typedef struct {
 	void *(*start_routine)(void*);
 	void *arg;
 	DWORD tid;
-} pthread_t;
+} benchmark_thread_t;
 
 struct thread_data {
-	pthread_t pthread;
+	benchmark_thread_t pthread;
 	struct index_state *index;
 	struct pathspec pathspec;
 	int offset, nr;
@@ -336,8 +336,12 @@ int main(int argc, char **argv)
 {
     struct commit *current_head;
     int is_status;
-    prepare_index(argc, argv, "prefix", current_head, is_status);
+    const char *args[argc + 1];
+    int i;
+
+    for (i = 0; i < argc; i++)
+        args[i] = argv[i];
+    args[argc] = NULL;
+    prepare_index(argc, args, "prefix", current_head, is_status);
     return 0;
 }
-
-

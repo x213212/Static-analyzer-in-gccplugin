@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <fnmatch.h>
 
 #include "../stdio.h"
 #include "../tmux.h"

@@ -1,0 +1,1582 @@
+[
+  {
+    "name": "memory-leak/direct-leak",
+    "source": "cases/memory_leak/direct_leak.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "proof-policy/solver-disabled-is-inconclusive",
+    "source": "cases/memory_leak/direct_leak.c",
+    "plugin_args": {
+      "smt": 0
+    },
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "solver-disabled": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "proof-policy/exploratory-is-explicit-fail-open",
+    "source": "cases/memory_leak/direct_leak.c",
+    "plugin_args": {
+      "analysispolicy": "exploratory",
+      "smt": 0
+    },
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "memory-leak/freed-copy",
+    "source": "cases/memory_leak/freed_copy.c",
+    "expect": {}
+  },
+  {
+    "name": "memory-leak/conditional-free",
+    "source": "cases/memory_leak/conditional_free.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "memory-leak/escape-or-free",
+    "source": "cases/memory_leak/escape_or_free.c",
+    "expect": {}
+  },
+  {
+    "name": "memory-leak/inline-asm-unknown",
+    "source": "cases/memory_leak/inline_asm_unknown.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "inline-asm-ownership-unknown": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "memory-leak/gcc-allocator-metadata",
+    "source": "cases/memory_leak/gcc_allocator_metadata.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "allocator-release-contract-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "memory-leak/free-compatible-allocator-metadata",
+    "source": "cases/memory_leak/free_compatible_allocator_metadata.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "double-free/direct",
+    "source": "cases/double_free/direct.c",
+    "expect": {
+      "SA002": 1
+    }
+  },
+  {
+    "name": "double-free/exclusive-branches",
+    "source": "cases/double_free/exclusive_branches.c",
+    "expect": {}
+  },
+  {
+    "name": "double-free/complementary-guards",
+    "source": "cases/double_free/complementary_guards.c",
+    "plugin_args": {
+      "smt": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "double-free/mutable-memory-conditions",
+    "source": "cases/double_free/mutable_memory_conditions.c",
+    "plugin_args": {
+      "smt": 1
+    },
+    "expect_inconclusive": {
+      "SA001": 1,
+      "SA002": 1
+    },
+    "expect_inconclusive_reasons": {
+      "unsupported-path-condition": 2
+    },
+    "expect": {}
+  },
+  {
+    "name": "double-free/free-in-loop",
+    "source": "cases/double_free/free_in_loop.c",
+    "expect_inconclusive": {
+      "SA002": 1
+    },
+    "expect_inconclusive_reasons": {
+      "unsupported-path-condition": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "double-free/allocate-each-iteration",
+    "source": "cases/double_free/allocate_each_iteration.c",
+    "expect": {}
+  },
+  {
+    "name": "use-after-free/direct",
+    "source": "cases/use_after_free/direct.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "use-after-free/different-object",
+    "source": "cases/use_after_free/different_object.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "use-after-free/distinct-allocations-never-equal",
+    "source": "cases/use_after_free/distinct_allocations_never_equal.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_inconclusive": {
+      "SA001": 1,
+      "SA002": 1,
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "unsupported-path-condition": 3
+    },
+    "expect": {}
+  },
+  {
+    "name": "use-after-free/derived-pointer",
+    "source": "cases/use_after_free/derived_pointer.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "use-after-free/unrelated-memory-operand",
+    "source": "cases/use_after_free/unrelated_memory_operand.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "use-after-free/returned-dangling-pointer",
+    "source": "cases/use_after_free/returned_dangling_pointer.c",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "doublefreecheck": 0,
+      "useafterfree": 1,
+      "threadmod": 0,
+      "smt": 1
+    },
+    "compile_args": [
+      "-fno-inline"
+    ],
+    "expect_trace_roles": {
+      "SA003": [
+        "dangling pointer returned"
+      ]
+    },
+    "expect_primary_lines": {
+      "SA003": [
+        9,
+        18
+      ]
+    },
+    "expect_trace_role_lines": {
+      "SA003": {
+        "dangling pointer returned": [
+          9,
+          18
+        ]
+      }
+    },
+    "expect": {
+      "SA003": 2
+    }
+  },
+  {
+    "name": "use-after-free/phi-disjoint-release",
+    "source": "cases/use_after_free/phi_disjoint_release.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "use-after-free/phi-correlated-release",
+    "source": "cases/use_after_free/phi_correlated_release.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "use-after-free/phi-guard-correlation-safe",
+    "source": "cases/use_after_free/phi_guard_correlation_safe.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "use-after-free/phi-guard-correlation-uaf",
+    "source": "cases/use_after_free/phi_guard_correlation_uaf.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "memory-ssa/load-then-double-free",
+    "source": "cases/memory_ssa/load_then_double_free.c",
+    "expect": {
+      "SA002": 1
+    }
+  },
+  {
+    "name": "memory-ssa/load-then-use-after-free",
+    "source": "cases/memory_ssa/load_then_use_after_free.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "memory-ssa/overwritten-store",
+    "source": "cases/memory_ssa/overwritten_store.c",
+    "expect": {}
+  },
+  {
+    "name": "memory-ssa/ambiguous-branch-store",
+    "source": "cases/memory_ssa/ambiguous_branch_store.c",
+    "expect": {}
+  },
+  {
+    "name": "thread/joinable-not-joined",
+    "source": "cases/thread/joinable_not_joined.c",
+    "expect_inconclusive": {
+      "SA004": 1
+    },
+    "expect_inconclusive_reasons": {
+      "thread-create-success-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "thread/joined",
+    "source": "cases/thread/joined.c",
+    "expect": {}
+  },
+  {
+    "name": "thread/detached",
+    "source": "cases/thread/detached.c",
+    "expect": {}
+  },
+  {
+    "name": "thread/conditional-join",
+    "source": "cases/thread/conditional_join.c",
+    "expect_inconclusive": {
+      "SA004": 1
+    },
+    "expect_inconclusive_reasons": {
+      "thread-create-success-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "thread/two-handles",
+    "source": "cases/thread/two_handles.c",
+    "expect_inconclusive": {
+      "SA004": 1
+    },
+    "expect_inconclusive_reasons": {
+      "thread-create-success-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "path-scaling/thirty-diamonds",
+    "source": "cases/path_scaling/thirty_diamonds.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "path-scaling/thirty-diamonds-feasible",
+    "source": "cases/path_scaling/thirty_diamonds_feasible.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "path-scaling/finite-counted-loop-uaf",
+    "source": "cases/path_scaling/finite_counted_loop_uaf.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "path-scaling/finite-counted-loop-leak",
+    "source": "cases/path_scaling/finite_counted_loop_leak.c",
+    "plugin_args": {
+      "smt": 1
+    },
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "path-scaling/exact-one-trip-eventful-uaf",
+    "source": "cases/path_scaling/exact_one_trip_eventful_uaf.c",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "doublefreecheck": 0,
+      "threadmod": 0,
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {
+      "SA003": 2
+    }
+  },
+  {
+    "name": "path-scaling/exact-one-trip-rejections",
+    "source": "cases/path_scaling/exact_one_trip_rejections.c",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "doublefreecheck": 0,
+      "threadmod": 0,
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 4
+    },
+    "expect_inconclusive_reasons": {
+      "path-feasibility-budget": 4
+    },
+    "expect": {}
+  },
+  {
+    "name": "path-scaling/runtime-bound-loop-remains-inconclusive",
+    "source": "cases/path_scaling/runtime_bound_loop_uaf.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "path-feasibility-budget": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "path-scaling/runtime-unsigned-lt-loop",
+    "source": "cases/path_scaling/runtime_unsigned_lt_loop_uaf.c",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "doublefreecheck": 0,
+      "useafterfree": 1,
+      "threadmod": 0,
+      "smt": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 4
+    },
+    "expect_inconclusive_reasons": {
+      "path-feasibility-budget": 4
+    },
+    "expect": {
+      "SA003": 4
+    }
+  },
+  {
+    "name": "path-scaling/static-constant-guarded-loop",
+    "source": "cases/path_scaling/static_constant_guarded_loop.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "path-scaling/direct-constant-return-summary",
+    "source": "cases/path_scaling/direct_constant_return_summary.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "compile_args": [
+      "-fno-inline",
+      "-fno-ipa-cp",
+      "-fno-ipa-pure-const",
+      "-fno-ipa-reference"
+    ],
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "path-scaling/direct-constant-return-rejections",
+    "source": "cases/path_scaling/direct_constant_return_rejections.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "compile_args": [
+      "-fno-inline",
+      "-fno-ipa-cp",
+      "-fno-ipa-pure-const",
+      "-fno-ipa-reference"
+    ],
+    "expect_inconclusive": {
+      "SA003": 6
+    },
+    "expect_inconclusive_reasons": {
+      "path-feasibility-budget": 1,
+      "unsupported-path-condition": 5
+    },
+    "expect": {}
+  },
+  {
+    "name": "path-scaling/direct-constant-return-totality",
+    "source": "cases/path_scaling/direct_constant_return_totality.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "compile_args": [
+      "-fno-inline",
+      "-fno-ipa-cp",
+      "-fno-ipa-pure-const",
+      "-fno-ipa-reference"
+    ],
+    "expect_inconclusive": {
+      "SA003": 4
+    },
+    "expect_inconclusive_reasons": {
+      "unsupported-path-condition": 4
+    },
+    "expect": {}
+  },
+  {
+    "name": "path-scaling/direct-constant-return-eh-totality",
+    "source": "cases/path_scaling/direct_constant_return_totality.cpp",
+    "language": "c++",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "compile_args": [
+      "-fno-inline",
+      "-fno-ipa-cp",
+      "-fno-ipa-pure-const",
+      "-fno-ipa-reference"
+    ],
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "unsupported-path-condition": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "path-scaling/branch-local-loop-cap",
+    "source": "cases/path_scaling/branch_local_loop_cap.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "path-scaling/opaque-call-loop-remains-inconclusive",
+    "source": "cases/path_scaling/opaque_call_counted_loop.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "smt": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "path-feasibility-budget": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "stack-allocation/alloca-is-not-heap",
+    "source": "cases/stack_allocation/alloca_is_not_heap.c",
+    "expect": {}
+  },
+  {
+    "name": "report/suppressed-warning-not-recorded",
+    "source": "cases/report/suppressed_warning_not_reported.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "inline-asm-ownership-unknown": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "reallocation/guarded-cleanup",
+    "source": "cases/reallocation/guarded_cleanup.c",
+    "expect": {}
+  },
+  {
+    "name": "reallocation/result-leak",
+    "source": "cases/reallocation/result_leak.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "reallocation/copied-status-cleanup",
+    "source": "cases/reallocation/copied_status_cleanup.c",
+    "expect_inconclusive": {
+      "SA001": 4,
+      "SA002": 1
+    },
+    "expect_inconclusive_reasons": {
+      "reallocation-status-unproven": 3,
+      "possible-release-alias-unproven": 2
+    },
+    "expect": {}
+  },
+  {
+    "name": "reallocation/failure-preserves-old",
+    "source": "cases/reallocation/failure_preserves_old.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "reallocation/old-use-on-success",
+    "source": "cases/reallocation/old_use_on_success.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "reallocation/merged-old-or-result-released",
+    "source": "cases/reallocation/merged_old_or_result_released.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "reallocation/merged-result-loses-old",
+    "source": "cases/reallocation/merged_result_loses_old.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_inconclusive": {
+      "SA001": 3,
+      "SA003": 2
+    },
+    "expect_inconclusive_reasons": {
+      "reallocation-status-unproven": 4,
+      "possible-release-alias-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "value-provenance/phi-same-allocation",
+    "source": "cases/value_provenance/phi_same_allocation.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "value-provenance/conditional-allocation-released",
+    "source": "cases/value_provenance/conditional_allocation_released.c",
+    "expect": {}
+  },
+  {
+    "name": "value-provenance/allocation-then-maybe-null-leaks",
+    "source": "cases/value_provenance/allocation_then_maybe_null_leaks.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "unsupported-path-condition": 1
+    },
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "value-provenance/loop-previous-epoch-leaks",
+    "source": "cases/value_provenance/loop_previous_epoch_leaks.c",
+    "expect_inconclusive": {
+      "SA001": 2
+    },
+    "expect_inconclusive_reasons": {
+      "possible-release-alias-unproven": 1,
+      "unsupported-path-condition": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "value-provenance/conditional-return-vs-leak",
+    "source": "cases/value_provenance/conditional_return_vs_leak.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "unsupported-path-condition": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/fresh-return-chain-leak",
+    "source": "cases/ownership_summary/fresh_return_chain_leak.c",
+    "expect_trace_roles": {
+      "SA001": [
+        "callee allocation origin"
+      ]
+    },
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "ownership-summary/fresh-return-chain-released",
+    "source": "cases/ownership_summary/fresh_return_chain_released.c",
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/returned-parameter-escape",
+    "source": "cases/ownership_summary/returned_parameter_escape.c",
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/fresh-or-borrowed",
+    "source": "cases/ownership_summary/fresh_or_borrowed.c",
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/definite-deallocator",
+    "source": "cases/ownership_summary/definite_deallocator.c",
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/conditional-deallocator",
+    "source": "cases/ownership_summary/conditional_deallocator.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "ownership-summary/constant-conditional-deallocator",
+    "source": "cases/ownership_summary/constant_conditional_deallocator.c",
+    "expect_inconclusive": {},
+    "expect_inconclusive_reasons": {},
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/conditional-fresh-return",
+    "source": "cases/ownership_summary/conditional_fresh_return.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "conditional-summary-allocation": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/interprocedural-double-free",
+    "source": "cases/ownership_summary/interprocedural_double_free.c",
+    "expect": {
+      "SA002": 1
+    }
+  },
+  {
+    "name": "ownership-summary/free-or-escape",
+    "source": "cases/ownership_summary/free_or_escape.c",
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/escape-then-free",
+    "source": "cases/ownership_summary/escape_then_free.c",
+    "expect": {
+      "SA002": 1
+    }
+  },
+  {
+    "name": "ownership-summary/noop-dangling-sink",
+    "source": "cases/ownership_summary/noop_dangling_sink.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/conditional-dereference",
+    "source": "cases/ownership_summary/conditional_dereference.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "callee-dereference-not-proven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/long-deallocator-chain",
+    "source": "cases/ownership_summary/long_deallocator_chain.c",
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/recursive-summary-unknown",
+    "source": "cases/ownership_summary/recursive_summary_unknown.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/weak-deallocator-unknown",
+    "source": "cases/ownership_summary/weak_deallocator_unknown.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/opaque-aggregate-transfer",
+    "source": "cases/ownership_summary/opaque_aggregate_transfer.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/xname-is-not-contract",
+    "source": "cases/ownership_summary/xname_is_not_contract.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "allocator-release-contract-unproven": 1
+    },
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "cxx-lifetime/scalar-leak",
+    "source": "cases/cxx_lifetime/scalar_leak.cpp",
+    "language": "c++",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "cxx-lifetime/scalar-released",
+    "source": "cases/cxx_lifetime/scalar_released.cpp",
+    "language": "c++",
+    "expect": {}
+  },
+  {
+    "name": "cxx-lifetime/double-delete",
+    "source": "cases/cxx_lifetime/double_delete.cpp",
+    "language": "c++",
+    "expect": {
+      "SA002": 1
+    }
+  },
+  {
+    "name": "cxx-lifetime/use-after-delete",
+    "source": "cases/cxx_lifetime/use_after_delete.cpp",
+    "language": "c++",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "cxx-lifetime/array-and-destructor",
+    "source": "cases/cxx_lifetime/array_and_destructor.cpp",
+    "language": "c++",
+    "expect": {}
+  },
+  {
+    "name": "cxx-lifetime/placement-new",
+    "source": "cases/cxx_lifetime/placement_new.cpp",
+    "language": "c++",
+    "expect": {}
+  },
+  {
+    "name": "cxx-lifetime/custom-operator",
+    "source": "cases/cxx_lifetime/custom_operator.cpp",
+    "language": "c++",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "cxx-lifetime/direct-class-operator-new",
+    "source": "cases/cxx_lifetime/direct_class_operator_new.cpp",
+    "language": "c++",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "allocator-release-contract-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "cxx-lifetime/narrow-integer-round-trip",
+    "source": "cases/cxx_lifetime/narrow_integer_round_trip.cpp",
+    "language": "c++",
+    "expect": {}
+  },
+  {
+    "name": "cxx-lifetime/pointer-cast-use-after-delete",
+    "source": "cases/cxx_lifetime/pointer_cast_use_after_delete.cpp",
+    "language": "c++",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "cxx-lifetime/returned-dangling",
+    "source": "cases/cxx_lifetime/returned_dangling.cpp",
+    "language": "c++",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "doublefreecheck": 0,
+      "useafterfree": 1,
+      "threadmod": 0,
+      "smt": 1
+    },
+    "compile_args": [
+      "-fno-inline"
+    ],
+    "expect_trace_roles": {
+      "SA003": [
+        "dangling pointer returned"
+      ]
+    },
+    "expect_primary_lines": {
+      "SA003": [
+        7,
+        15
+      ]
+    },
+    "expect_trace_role_lines": {
+      "SA003": {
+        "dangling pointer returned": [
+          7,
+          15
+        ]
+      }
+    },
+    "expect": {
+      "SA003": 2
+    }
+  },
+  {
+    "name": "soundness/derived-and-local-transfer",
+    "source": "cases/soundness/derived_and_local_transfer.c",
+    "expect_inconclusive": {
+      "SA001": 3
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 3
+    },
+    "expect": {}
+  },
+  {
+    "name": "soundness/mixed-store-transfer",
+    "source": "cases/soundness/mixed_store_transfer.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "soundness/aggregate-summary-unknown",
+    "source": "cases/soundness/aggregate_summary_unknown.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "soundness/derived-callee-may-dereference",
+    "source": "cases/soundness/derived_callee_may_dereference.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "callee-dereference-not-proven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "soundness/immediate-use-fanout",
+    "source": "cases/soundness/immediate_use_fanout.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "value-flow-truncated": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "report/json-only",
+    "source": "cases/memory_leak/direct_leak.c",
+    "plugin_args": {
+      "reporthtml": 0
+    },
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "report/report-only-preserves-leak-under-werror",
+    "source": "cases/memory_leak/direct_leak.c",
+    "compile_args": ["-Werror"],
+    "plugin_args": {"reportonly": 1},
+    "expect": {"SA001": 1}
+  },
+  {
+    "name": "report/report-only-safe-under-werror",
+    "source": "cases/memory_leak/freed_copy.c",
+    "compile_args": ["-Werror"],
+    "plugin_args": {"reportonly": 1},
+    "expect": {}
+  },
+  {
+    "name": "memory-leak/user-named-free-contract",
+    "source": "cases/memory_leak/user_named_free_contract.c",
+    "compile_args": [
+      "-fno-builtin-free"
+    ],
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "allocator-release-contract-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "double-free/disabled",
+    "source": "cases/double_free/direct.c",
+    "plugin_args": {
+      "doublefreecheck": 0
+    },
+    "expect": {}
+  },
+  {
+    "name": "engine/all-modern-rules-disabled",
+    "source": "cases/memory_leak/direct_leak.c",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "doublefreecheck": 0,
+      "useafterfree": 0,
+      "threadmod": 0,
+      "legacyengine": 0
+    },
+    "expect": {}
+  },
+  {
+    "name": "engine/thread-only-skips-memory-summaries",
+    "source": "cases/thread/joinable_not_joined.c",
+    "plugin_args": {
+      "memoryleakcheck": 0,
+      "doublefreecheck": 0,
+      "useafterfree": 0,
+      "threadmod": 1,
+      "legacyengine": 0
+    },
+    "expect_inconclusive": {
+      "SA004": 1
+    },
+    "expect_inconclusive_reasons": {
+      "thread-create-success-unproven": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "trusted-contract/borrow-preserves-leak",
+    "source": "cases/trusted_contract/borrow_preserves_leak.c",
+    "expect_trace_roles": {
+      "SA001": [
+        "ownership preserved by user-contract"
+      ]
+    },
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "trusted-contract/borrow-then-free",
+    "source": "cases/trusted_contract/borrow_then_free.c",
+    "expect": {}
+  },
+  {
+    "name": "trusted-contract/must-access-after-free",
+    "source": "cases/trusted_contract/must_access_after_free.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_trace_roles": {
+      "SA003": [
+        "callee access guaranteed by user-contract"
+      ]
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "trusted-contract/access-if-nonnull-after-free",
+    "source": "cases/trusted_contract/access_if_nonnull_after_free.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_trace_roles": {
+      "SA003": [
+        "callee access guaranteed by user-contract"
+      ]
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "trusted-contract/access-if-nonnull-null-path",
+    "source": "cases/trusted_contract/access_if_nonnull_null_path.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "trusted-contract/unannotated-opaque-call",
+    "source": "cases/trusted_contract/unannotated_opaque_call.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-call-dereference": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "trusted-contract/access-does-not-imply-borrow",
+    "source": "cases/trusted_contract/access_does_not_imply_borrow.c",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "trusted-contract/multi-pointer-argument-identity",
+    "source": "cases/trusted_contract/multi_pointer_argument_identity.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "trusted-contract/return-alias-safety",
+    "source": "cases/trusted_contract/return_alias_safety.c",
+    "expect_inconclusive": {
+      "SA001": 6
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 6
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/returned-argument-lifetime",
+    "source": "cases/ownership_summary/returned_argument_lifetime.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA002": 1,
+      "SA003": 1
+    }
+  },
+  {
+    "name": "trusted-contract/member-explicit-argument",
+    "source": "cases/trusted_contract/member_explicit_argument.cc",
+    "language": "c++",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "trusted-contract/member-borrow-explicit-argument",
+    "source": "cases/trusted_contract/member_borrow_explicit_argument.cc",
+    "language": "c++",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "trusted-contract/member-contract-not-this",
+    "source": "cases/trusted_contract/member_contract_not_this.cc",
+    "language": "c++",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-call-dereference": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "trusted-contract/member-contract-not-other-argument",
+    "source": "cases/trusted_contract/member_contract_not_other_argument.cc",
+    "language": "c++",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-call-dereference": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/stdio-live-preconditions",
+    "source": "cases/ownership_summary/stdio_live_preconditions.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 5
+    },
+    "expect_inconclusive": {
+      "SA003": 1
+    },
+    "expect_inconclusive_reasons": {
+      "callee-dereference-not-proven": 1
+    }
+  },
+  {
+    "name": "ownership-summary/stdio-callback-ownership",
+    "source": "cases/ownership_summary/stdio_callback_ownership.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {},
+    "expect_inconclusive": {
+      "SA001": 2
+    },
+    "expect_inconclusive_reasons": {
+      "allocator-release-contract-unproven": 1,
+      "opaque-ownership-transfer": 1
+    }
+  },
+  {
+    "name": "ownership-summary/body-bound-thunk",
+    "source": "cases/ownership_summary/body_bound_thunk.cpp",
+    "language": "c++",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {},
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "possible-release-alias-unproven": 1
+    }
+  },
+  {
+    "name": "ownership-summary/body-access-no-memory",
+    "source": "cases/ownership_summary/body_access_no_memory.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/body-access-guarantees",
+    "source": "cases/ownership_summary/body_access_guarantees.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 6
+    },
+    "expect_inconclusive": {
+      "SA003": 5
+    },
+    "expect_inconclusive_reasons": {
+      "callee-dereference-not-proven": 4,
+      "opaque-call-dereference": 1
+    }
+  },
+  {
+    "name": "value-provenance/phi-return-ownership",
+    "source": "cases/value_provenance/phi_return_ownership.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "ownership-summary/branch-local-ambiguous-ownership",
+    "source": "cases/ownership_summary/branch_local_ambiguous_ownership.c",
+    "expect": {
+      "SA001": 4
+    }
+  },
+  {
+    "name": "path-scaling/finite-zero-leak-constraints",
+    "source": "cases/path_scaling/finite_zero_leak_constraints.c",
+    "compile_args": [
+      "-fno-tree-ccp",
+      "-fno-tree-dominator-opts",
+      "-fno-tree-vrp",
+      "-fno-tree-forwprop"
+    ],
+    "expect": {
+      "SA001": 2
+    }
+  },
+  {
+    "source": "cases/ownership_summary/callee_assumption.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {},
+    "name": "ownership-summary/callee-assumption-unknown",
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect_callee_review": [
+      "uncertain_release"
+    ]
+  },
+  {
+    "source": "cases/ownership_summary/callee_assumption.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "calleemodel": "borrow",
+      "calleesymbol": "uncertain_release",
+      "calleearg": 0
+    },
+    "expect": {
+      "SA001": 1
+    },
+    "name": "ownership-summary/callee-assumption-borrow"
+  },
+  {
+    "source": "cases/ownership_summary/callee_assumption.c",
+    "plugin_args": {
+      "useafterfree": 1,
+      "calleemodel": "release",
+      "calleesymbol": "uncertain_release",
+      "calleearg": 0
+    },
+    "expect": {
+      "SA002": 2,
+      "SA003": 1
+    },
+    "name": "ownership-summary/callee-assumption-release"
+  },
+  {
+    "name": "ownership-summary/callee-assumption-keeps-source-facts",
+    "source": "cases/ownership_summary/branch_local_ambiguous_ownership.c",
+    "expect": {
+      "SA001": 4
+    },
+    "plugin_args": {
+      "calleemodel": "release",
+      "calleesymbol": "maybe_release",
+      "calleearg": 0
+    }
+  },
+  {
+    "name": "ownership-summary/stdio-ownership-model",
+    "source": "cases/ownership_summary/stdio_ownership_model.c",
+    "expect": {
+      "SA001": 3
+    },
+    "expect_standard_stdio_model": true
+  },
+  {
+    "name": "ownership-summary/stdio-model-stdout-mutation",
+    "source": "cases/ownership_summary/stdio_model_stdout_mutation.c",
+    "expect": {},
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect_standard_stdio_model": false
+  },
+  {
+    "name": "ownership-summary/stdio-model-custom-formatter",
+    "source": "cases/ownership_summary/stdio_model_custom_formatter.c",
+    "expect": {},
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect_standard_stdio_model": false
+  },
+  {
+    "name": "ownership-summary/wide-library-model",
+    "source": "cases/ownership_summary/wide_library_model.c",
+    "expect": {
+      "SA001": 2,
+      "SA002": 1
+    },
+    "expect_standard_stdio_model": true
+  },
+  {
+    "name": "ownership-summary/wide-library-body-override",
+    "source": "cases/ownership_summary/wide_library_body_override.c",
+    "expect": {
+      "SA002": 1
+    }
+  },
+  {
+    "name": "ownership-summary/wide-library-wrong-prototype",
+    "source": "cases/ownership_summary/wide_library_wrong_prototype.c",
+    "expect": {},
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    }
+  },
+  {
+    "name": "ownership-summary/wide-library-custom-output",
+    "source": "cases/ownership_summary/wide_library_custom_output.c",
+    "expect": {},
+    "expect_inconclusive": {
+      "SA001": 1
+    },
+    "expect_inconclusive_reasons": {
+      "opaque-ownership-transfer": 1
+    },
+    "expect_standard_stdio_model": false
+  },
+  {
+    "name": "ownership-summary/library-local-confinement",
+    "source": "cases/ownership_summary/library_local_confinement.c",
+    "expect": {
+      "SA001": 2
+    }
+  },
+  {
+    "name": "ownership-summary/wide-output-access",
+    "source": "cases/ownership_summary/wide_output_access.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 2
+    },
+    "expect_inconclusive": {
+      "SA003": 2
+    },
+    "expect_inconclusive_reasons": {
+      "callee-dereference-not-proven": 2
+    }
+  },
+  {
+    "name": "ownership-summary/fresh-return-library-continuation",
+    "source": "cases/ownership_summary/fresh_return_library_continuation.c",
+    "expect": {
+      "SA001": 2
+    }
+  },
+  {
+    "name": "ownership-summary/null-realloc-return",
+    "source": "cases/ownership_summary/null_realloc_return.c",
+    "expect": {
+      "SA001": 1
+    }
+  },
+  {
+    "name": "ownership-summary/wide-library-alias-override",
+    "source": "cases/ownership_summary/wide_library_alias_override.c",
+    "expect": {
+      "SA002": 1
+    }
+  },
+  {
+    "name": "ownership-summary/contained-pointer-access",
+    "source": "cases/ownership_summary/contained_pointer_access.c",
+    "plugin_args": {
+      "useafterfree": 1
+    },
+    "expect": {
+      "SA003": 1
+    }
+  },
+  {
+    "name": "library-resource/output-slots-and-safe-controls",
+    "source": "cases/ownership_summary/library_resource_slots.c",
+    "plugin_args": {"librarymodel": "ffmpeg"},
+    "expect_finding_status": "MODEL_REVIEW",
+    "expect": {"SA001": 2}
+  },
+  {
+    "name": "library-resource/default-profile-disabled",
+    "source": "cases/ownership_summary/library_resource_slots.c",
+    "expect": {}
+  },
+  {
+    "name": "library-resource/registered-field-leak",
+    "source": "cases/ownership_summary/library_filter_lifecycle.c",
+    "plugin_args": {"librarymodel": "ffmpeg"},
+    "expect_finding_status": "MODEL_REVIEW",
+    "expect": {"SA001": 1}
+  },
+  {
+    "name": "library-resource/registered-field-repaired",
+    "source": "cases/ownership_summary/library_filter_lifecycle.c",
+    "compile_args": ["-DREPAIR_RETAINED=1"],
+    "plugin_args": {"librarymodel": "ffmpeg"},
+    "expect": {}
+  },
+  {
+    "name": "library-resource/opaque-context-cleanup",
+    "source": "cases/ownership_summary/library_filter_lifecycle.c",
+    "compile_args": ["-DOPAQUE_CLEANUP=1"],
+    "plugin_args": {"librarymodel": "ffmpeg"},
+    "expect": {}
+  },
+  {
+    "name": "library-resource/body-and-prototype-override",
+    "source": "cases/ownership_summary/library_model_body_override.c",
+    "plugin_args": {"librarymodel": "ffmpeg"},
+    "expect": {}
+  },
+  {
+    "name": "ownership-summary/conditional-borrow-guards",
+    "source": "cases/ownership_summary/conditional_borrow_guards.c",
+    "expect": {
+      "SA001": 3
+    },
+    "expect_inconclusive": {
+      "SA001": 4
+    },
+    "expect_inconclusive_reasons": {
+      "ambiguous-callee-ownership": 4
+    }
+  }
+]

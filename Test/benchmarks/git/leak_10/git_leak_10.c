@@ -181,7 +181,7 @@ static void extended_entry_extract(struct tree_desc_x *t,
 }
 int traverse_trees(int n, struct tree_desc *t, struct traverse_info *info)
 {
-	int i, n;
+	int i;
 	struct tree_desc_x *tx = xcalloc(n, sizeof(*tx));
 	struct name_entry *entry = xmalloc(n*sizeof(*entry));
 	struct name_entry *e = NULL;

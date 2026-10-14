@@ -69,6 +69,8 @@ struct sessions dead_sessions;
 struct windows windows;
 
 #define SIZE_MAX (1 << 30)
+int window_index(struct window *, u_int *);
+
 void *
 xrealloc(void *oldptr, size_t nmemb, size_t size)
 {
@@ -514,7 +516,6 @@ int main(int argc, char **argv)
 
 	server_clean_dead();
 }
-
 
 
 

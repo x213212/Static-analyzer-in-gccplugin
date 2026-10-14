@@ -30,3 +30,44 @@
 *.exe
 *.out
 *.app
+
+# Analyzer-generated test and GCC dump artifacts
+Test/check.log
+Test/graph.dot
+Test/graph.log
+Test/graph.svg
+*.static_analyzer
+*.static_analyzer.*
+
+# Refactored build output
+/build/
+/artifacts/
+__pycache__/
+*.py[cod]
+
+# Machine-specific editor/configuration caches and loose analysis logs
+/.vscode/*.log
+/CMakeCache.txt
+/CMakeFiles/
+/artifacts-*.log
+
+# Local credentials and environment files; keep empty public templates usable
+.env
+.env.*
+!.env.example
+!.env.sample
+!.env.template
+*.pem
+*.key
+*.p12
+*.pfx
+*.keystore
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+credentials.json
+*service-account*.json
+/.aws/
+/.ssh/
+/.codex/

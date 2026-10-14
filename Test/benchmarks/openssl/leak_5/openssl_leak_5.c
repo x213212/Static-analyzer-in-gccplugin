@@ -9,6 +9,34 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+void X509_VERIFY_PARAM_free(X509_VERIFY_PARAM *);
+void X509_policy_tree_free(void *);
+void sk_X509_pop_free();
+void test_fail_message();
+EVP_PKEY *X509_get0_pubkey(const X509 *);
+int EVP_PKEY_security_bits(const EVP_PKEY *);
+void *sk_X509_new_null(void);
+int sk_X509_push();
+int X509_up_ref(X509 *);
+int verify_cb_cert();
+int DANETLS_ENABLED(const SSL_DANE *);
+int dane_verify(X509_STORE_CTX *);
+int verify_chain(X509_STORE_CTX *);
+X509_STORE_CTX *X509_STORE_CTX_new(void);
+X509_STORE *X509_STORE_new(void);
+X509_VERIFY_PARAM *X509_VERIFY_PARAM_new(void);
+int TEST_true(int);
+int X509_STORE_CTX_init();
+void X509_STORE_CTX_set0_trusted_stack();
+void X509_STORE_CTX_set0_crls();
+int test_long_eq();
+void ERR_clear_error(void);
+int X509_STORE_CTX_get_error(const X509_STORE_CTX *);
+void X509_STORE_free(X509_STORE *);
+int TEST_int_eq(int, int);
+
+#define STACK_OF(type) struct benchmark_stack_st_##type
+
 #define PARAM_TIME 1474934400 /* Sep 27th, 2016 */
 
 # define         X509_V_OK                                       0
@@ -384,5 +412,3 @@ int main(void)
     X509_free(test_root);
     X509_free(test_leaf);
 }
-
-

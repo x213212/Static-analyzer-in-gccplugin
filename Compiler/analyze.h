@@ -1,3 +1,13 @@
+bool has_executable_free_pair(const vector<free_type> &free_array)
+{
+	for (size_t first = 0; first < free_array.size(); ++first)
+		for (size_t second = first + 1; second < free_array.size(); ++second)
+			if (static_analyzer::statements_may_execute_in_sequence(
+					free_array[first].stmt, free_array[second].stmt))
+				return true;
+	return false;
+}
+
 void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_tmp, tree checkTree, int calleetype)
 {
 
@@ -835,7 +845,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 									{
 										// fprintf2(stderr, "\n ================== free stmt ================== \n");
 										// debug_gimple_stmt2((callerRetTypearray)[k].stmt);
-										if (ptr_derefs_may_alias_p((callerRetTypearray)[k].free_tree, table_temp->target))
+										if (static_analyzer::alias::proven_same_object((callerRetTypearray)[k].free_tree, table_temp->target))
 										{
 
 											if (is_gimple_call((callerRetTypearray)[k].stmt))
@@ -1062,12 +1072,18 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 													if (gimple_call_fndecl(free_array.at(i).stmt) == gimple_call_fndecl(u_stmt))
 														if (callarg == user_tmp->target)
 															continue;
-												if (gimple_code(u_stmt) == GIMPLE_PHI)
-													if (gimple_phi_result(u_stmt) == callarg)
-														continue;
-											}
-											if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
-											{
+											if (gimple_code(u_stmt) == GIMPLE_PHI)
+												if (gimple_phi_result(u_stmt) == callarg)
+													continue;
+										}
+										if (!static_analyzer::alias::proven_same_object(
+												free_array.at(i).free_tree, user_tmp->target))
+											continue;
+										if (Location_b2(free_array.at(i).stmt, u_stmt, function_tree))
+										{
+											static_analyzer::report::emit(
+												static_analyzer::report::FindingKind::use_after_free,
+												gimple_location_safe(u_stmt));
 
 												fprintf2(stderr, "\n============================================================\n");
 												if (free_array.at(i).Looserulesfree)
@@ -1114,6 +1130,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						if (find_pthread_join == 0)
 						{
+							gimple *thread_stmt = table_temp->swap_stmt != NULL
+								? table_temp->swap_stmt : table_temp->last_stmt;
+							static_analyzer::report::emit(
+								static_analyzer::report::FindingKind::joinable_thread_leak,
+								gimple_location_safe(thread_stmt));
 							fprintf2(stderr, "\n======================================================================\n");
 							// fprintf2(stderr, "	no free stmt possible memory leak\n");
 							fprintf2(stderr, "\033[40;31m    pthread is JOINABLE but no pthread_join stmt \033[0m\n");
@@ -1139,6 +1160,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 				}
 				if (ptable_type == IS_MALLOC_FUCNTION && find_mallocstmt == IS_OTHRER_FUCNTION)
 					find_mallocstmt = IS_MALLOC_FUCNTION;
+				bool confirmed_double_free = has_executable_free_pair(free_array);
 				if (Looserulesfree)
 				{
 					fprintf2(stderr, "\n======================================================================\n");
@@ -1150,7 +1172,7 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 					{
 						fprintf2(stderr, "\033[40;31m  	possible double free [Looserules]:%d \033[0m\n", find_Looserulesfreestmt);
 					}
-					if (find_freestmt >= 2)
+					if (find_freestmt >= 2 && confirmed_double_free)
 					{
 						fprintf2(stderr, "\033[40;31m  	possible double free [rigorous]:%d \033[0m\n", find_freestmt);
 					}
@@ -1170,6 +1192,9 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 
 					if (find_freestmt == 0)
 					{
+						static_analyzer::report::emit(
+							static_analyzer::report::FindingKind::memory_leak,
+							gimple_location_safe(table_temp->last_stmt));
 
 						fprintf2(stderr, "\n======================================================================\n");
 						// fprintf2(stderr, "	no free stmt possible memory leak\n");
@@ -1188,8 +1213,11 @@ void checkPointerConstraint(tree function_tree, ptb *ptable, gimple_array *user_
 						// 	fprintf2(stderr, "\033[40;32m    NO memory leak \033[0m\n");
 						fprintf2(stderr, "\n======================================================================\n\n");
 					}
-					else if (find_freestmt >= 2)
+					else if (find_freestmt >= 2 && confirmed_double_free)
 					{
+						static_analyzer::report::emit(
+							static_analyzer::report::FindingKind::double_free,
+							gimple_location_safe(free_array.back().stmt));
 						fprintf2(stderr, "\n======================================================================\n");
 						// fprintf2(stderr, "	possible double free\n");
 

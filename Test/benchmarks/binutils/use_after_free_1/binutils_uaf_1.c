@@ -127,7 +127,7 @@ riscv_set_arch (const char *s)
     }
 }
 
-int getopt(char *optargv)
+static int benchmark_getopt(char *optargv)
 {
         if(*optargv == '0')
                 return 0;
@@ -143,5 +143,4 @@ int main(int argc, char **argv)
 		riscv_set_arch(string);
 	}
 }
-
 

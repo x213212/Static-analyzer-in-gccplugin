@@ -8,6 +8,16 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+int SSL_SESSION_up_ref(SSL_SESSION *);
+int EVP_MD_size(const EVP_MD *);
+const EVP_MD *EVP_sha256(void);
+const EVP_MD *EVP_sha384(void);
+const SSL_CIPHER *SSL_CIPHER_find(SSL *, const unsigned char *);
+int SSL_SESSION_set1_master_key(SSL_SESSION *, const unsigned char *, size_t);
+int SSL_SESSION_set_cipher(SSL_SESSION *, const SSL_CIPHER *);
+const SSL_CIPHER *SSL_SESSION_get0_cipher(const SSL_SESSION *);
+const EVP_MD *SSL_CIPHER_get_handshake_digest(const SSL_CIPHER *);
+
 void SSL_SESSION_free(SSL_SESSION *ss)
 {
 	OPENSSL_free(ss);
@@ -26,7 +36,7 @@ struct ssl_session_st {
 };
 static SSL_SESSION *psksess = NULL;
 static char *psk_identity = "Client_identity";
-static int psk_key;
+static char *psk_key;
 const unsigned char tls13_aes128gcmsha256_id[] = { 0x13, 0x01 };
 const unsigned char tls13_aes256gcmsha384_id[] = { 0x13, 0x02 };
 

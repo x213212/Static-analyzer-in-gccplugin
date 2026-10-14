@@ -83,6 +83,8 @@ static const char *format_lower[] = {
 	NULL		/* z */
 };
 
+int vasprintf(char **, const char *, char *);
+
 int
 xvasprintf(char **ret, const char *fmt, char *ap)
 {
@@ -238,7 +240,6 @@ int main()
 	return 0;
 
 }
-
 
 
 

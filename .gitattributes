@@ -1,2 +1,6 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# This reviewed oracle is byte-hashed by the benchmark reports.  Preserve its
+# measured trailing blank line while still enforcing whitespace elsewhere.
+tests/extracted_oracle.json whitespace=-blank-at-eof

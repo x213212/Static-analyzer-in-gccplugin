@@ -24,6 +24,8 @@
 /* Skip past a string */
 #define sshbuf_skip_string(buf) sshbuf_get_string_direct(buf, NULL, NULL)
 
+int sshbuf_peek_string_direct(const struct sshbuf *, const u_char **, size_t *);
+
 /* Return the cert-less equivalent to a certified key type */
 int
 sshkey_type_plain(int type)
@@ -204,5 +206,4 @@ int main (int argc, char **argv) {
 	ssh_ed25519_verify(&key, sign, siglen, data, datalen); 
 	return 0;
 }
-
 

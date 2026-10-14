@@ -74,6 +74,9 @@ typedef struct cgen_cpu_desc
   CGEN_INSN_LIST **dis_hash_table;
 
 } CGEN_CPU_TABLE;
+
+bfd_vma bfd_get_bits(const void *buffer, int bits, bool big_p);
+void build_dis_hash_table(CGEN_CPU_DESC cd);
 //CGEN_INSN_LIST *
 //cgen_dis_lookup_insn (CGEN_CPU_DESC cd, const char * buf, CGEN_INSN_INT value)__attribute__((noinline));
 void
@@ -214,5 +217,4 @@ int main()
 	free(cd);
 	return 0;
 }
-
 

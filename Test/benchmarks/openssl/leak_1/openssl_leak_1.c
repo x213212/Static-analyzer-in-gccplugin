@@ -9,14 +9,46 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
-struct tm {
-	unsigned int tm_sec;
-	unsigned int tm_min;
-	unsigned int tm_hour;
-	unsigned int tm_mday;
-	unsigned int tm_mon;
-	unsigned int tm_year;
-};
+typedef struct ocsp_cert_id_st OCSP_CERTID;
+typedef struct ocsp_single_response_st OCSP_SINGLERESP;
+typedef struct ocsp_basic_response_st OCSP_BASICRESP;
+
+void *OPENSSL_realloc(void *, size_t);
+int asn1_put_uint64(unsigned char *, uint64_t);
+ASN1_STRING *ASN1_STRING_new(void);
+void ASN1_STRING_free(ASN1_STRING *);
+int BIO_snprintf(char *, size_t, const char *, ...);
+struct tm *OPENSSL_gmtime(const time_t *, struct tm *);
+int OPENSSL_gmtime_adj(struct tm *, int, long);
+X509_NAME_ENTRY *X509_NAME_ENTRY_create_by_NID();
+int X509_NAME_add_entry();
+void X509_NAME_ENTRY_free(X509_NAME_ENTRY *);
+void *sk_OCSP_SINGLERESP_new_null(void);
+OCSP_CERTID *OCSP_CERTID_dup(const OCSP_CERTID *);
+int sk_OCSP_SINGLERESP_push();
+void OCSP_SINGLERESP_free(OCSP_SINGLERESP *);
+OCSP_BASICRESP *OCSP_BASICRESP_new(void);
+X509_NAME *X509_NAME_new(void);
+ASN1_BIT_STRING *ASN1_BIT_STRING_new(void);
+ASN1_INTEGER *ASN1_INTEGER_new(void);
+const EVP_MD *EVP_sha1(void);
+const EVP_MD *EVP_sha256(void);
+OCSP_CERTID *OCSP_cert_id_new();
+void ASN1_TIME_free(ASN1_TIME *);
+void X509_NAME_free(X509_NAME *);
+void ASN1_BIT_STRING_free(ASN1_BIT_STRING *);
+void ASN1_INTEGER_free(ASN1_INTEGER *);
+void OCSP_CERTID_free(OCSP_CERTID *);
+void OCSP_BASICRESP_free(OCSP_BASICRESP *);
+int OCSP_basic_sign();
+int OCSP_resp_get0_signer();
+void EVP_PKEY_free(EVP_PKEY *);
+void X509_free(X509 *);
+int X509_cmp(const X509 *, const X509 *);
+int get_cert_and_key();
+int is_utc();
+int TEST_int_eq();
+void test_fail_message();
 
 #  define OCSP_REVOKED_STATUS_NOSTATUS               -1
 #  define OCSP_REVOKED_STATUS_UNSPECIFIED             0
@@ -348,7 +380,5 @@ int main(void)
     EVP_PKEY_free(key);
     return 1;
 }
-
-
 
 

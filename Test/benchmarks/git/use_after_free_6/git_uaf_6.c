@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 #include "../stdio.h"
 #include "../git.h"
@@ -109,4 +110,3 @@ int main(int argc, const char **argv)
 
 	return 0;
 }
-

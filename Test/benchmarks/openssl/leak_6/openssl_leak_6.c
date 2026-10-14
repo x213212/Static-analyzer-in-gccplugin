@@ -8,6 +8,14 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+BIGNUM *BN_dup(const BIGNUM *);
+void BN_free(BIGNUM *);
+BN_ULONG BN_get_word(const BIGNUM *);
+int BN_is_zero(const BIGNUM *);
+void BN_zero(BIGNUM *);
+void bn_check_top(const BIGNUM *);
+BIGNUM *bn_wexpand(BIGNUM *, int);
+
 extern const BIGNUM _bignum_ffdhe2048_p;
 extern const BIGNUM _bignum_ffdhe3072_p;
 extern const BIGNUM _bignum_ffdhe4096_p;

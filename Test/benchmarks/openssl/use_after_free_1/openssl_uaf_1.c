@@ -11,7 +11,7 @@
 
 # define LHASH_OF(type) struct lhash_st_##type
 # define DEFINE_LHASH_OF(type) \
-    LHASH_OF(type) { union lh_##type##_dummy { void* d1; unsigned long d2; int d3; } dummy; }; \
+	    LHASH_OF(type) { OPENSSL_LHASH table; };
 
 typedef struct lhash_node_st OPENSSL_LH_NODE;
 typedef int (*OPENSSL_LH_COMPFUNC) (const void *, const void *);
@@ -53,21 +53,26 @@ struct lhash_st {
 };
 
 
-struct conf_st {
-    void *meth_data;
-    LHASH_OF(CONF_VALUE) *data;
-};
-
 typedef struct {
     char *section;
     char *name;
     char *value;
 } CONF_VALUE;
 
+DEFINE_LHASH_OF(CONF_VALUE)
+
+struct conf_st {
+    void *meth_data;
+    LHASH_OF(CONF_VALUE) *data;
+};
+
 
 static const char *save_rand_file;
 
-int CRYPTO_atomic_add(int *val, int amount, int *ret)
+int RAND_write_file(const char *);
+
+int CRYPTO_atomic_add_ulong(unsigned long *val, unsigned long amount,
+                            unsigned long *ret)
 {
     *val += amount;
     *ret  = *val;
@@ -81,10 +86,10 @@ static OPENSSL_LH_NODE **getrn(OPENSSL_LHASH *lh,
     OPENSSL_LH_NODE **ret, *n1;
     unsigned long hash, nn;
     OPENSSL_LH_COMPFUNC cf;
-    int scratch;
+    unsigned long scratch;
 
     hash = (*(lh->hash)) (data);
-    CRYPTO_atomic_add(&lh->num_hash_calls, 1, &scratch);
+    CRYPTO_atomic_add_ulong(&lh->num_hash_calls, 1, &scratch);
     *rhash = hash;
 
     nn = hash % lh->pmax;
@@ -94,12 +99,12 @@ static OPENSSL_LH_NODE **getrn(OPENSSL_LHASH *lh,
     cf = lh->comp;
     ret = &(lh->b[(int)nn]);
     for (n1 = *ret; n1 != NULL; n1 = n1->next) {
-        CRYPTO_atomic_add(&lh->num_hash_comps, 1, &scratch);
+        CRYPTO_atomic_add_ulong(&lh->num_hash_comps, 1, &scratch);
         if (n1->hash != hash) {
             ret = &(n1->next);
             continue;
         }
-        CRYPTO_atomic_add(&lh->num_comp_calls, 1, &scratch);
+        CRYPTO_atomic_add_ulong(&lh->num_comp_calls, 1, &scratch);
         if (cf(n1->data, data) == 0)
             break;
         ret = &(n1->next);
@@ -108,13 +113,16 @@ static OPENSSL_LH_NODE **getrn(OPENSSL_LHASH *lh,
 }
 
 
-void lh_CONF_VALUE_free(OPENSSL_LHASH *lh)
+void lh_CONF_VALUE_free(LHASH_OF(CONF_VALUE) *typed_lh)
 {
+    OPENSSL_LHASH *lh;
     unsigned int i;
     OPENSSL_LH_NODE *n, *nn;
 
-    if (lh == NULL)
+    if (typed_lh == NULL)
         return;
+
+    lh = &typed_lh->table;
 
     for (i = 0; i < lh->num_nodes; i++) {
         n = lh->b[i];
@@ -125,41 +133,45 @@ void lh_CONF_VALUE_free(OPENSSL_LHASH *lh)
         }
     }
     OPENSSL_free(lh->b);
-    OPENSSL_free(lh);
+    OPENSSL_free(typed_lh);
 }
 
-CONF_VALUE *lh_CONF_VALUE_new()
+LHASH_OF(CONF_VALUE) *lh_CONF_VALUE_new(void)
 {
-    OPENSSL_LHASH *ret;
+    LHASH_OF(CONF_VALUE) *ret;
+    OPENSSL_LHASH *lh;
 
     if ((ret = OPENSSL_zalloc(sizeof(*ret))) == NULL)
         return NULL;
-    if ((ret->b = OPENSSL_zalloc(sizeof(*ret->b) * 1)) == NULL)
+    lh = &ret->table;
+    if ((lh->b = OPENSSL_zalloc(sizeof(*lh->b) * 1)) == NULL)
         goto err;
-    return (ret);
+    return ret;
 
 err:
-    OPENSSL_free(ret->b);
+    OPENSSL_free(lh->b);
     OPENSSL_free(ret);
     return NULL;
 }
 
-void *lh_CONF_VALUE_retrieve(OPENSSL_LHASH *lh, const void *data)
+void *lh_CONF_VALUE_retrieve(LHASH_OF(CONF_VALUE) *typed_lh,
+                             const void *data)
 {
+    OPENSSL_LHASH *lh = &typed_lh->table;
     unsigned long hash;
     OPENSSL_LH_NODE **rn;
     void *ret;
-    int scratch;
+    unsigned long scratch;
 
     lh->error = 0;
     rn = getrn(lh, data, &hash);
 
     if (*rn == NULL) {
-        CRYPTO_atomic_add(&lh->num_retrieve_miss, 1, &scratch);
+        CRYPTO_atomic_add_ulong(&lh->num_retrieve_miss, 1, &scratch);
         return NULL;
     } else {
         ret = (*rn)->data;
-        CRYPTO_atomic_add(&lh->num_retrieve, 1, &scratch);
+        CRYPTO_atomic_add_ulong(&lh->num_retrieve, 1, &scratch);
     }
     return ret;
 }
@@ -276,5 +288,3 @@ int main()
 	app_RAND_write(); // use-after-free
     return 0;
 }
-
-

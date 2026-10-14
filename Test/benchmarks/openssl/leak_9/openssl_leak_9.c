@@ -9,6 +9,8 @@
 #include "../stdio.h"
 #include "../openssl.h"
 
+void OSSL_STOREerr(int, int);
+
 #define va_list char
 
 /*
@@ -154,7 +156,6 @@ int main()
 	OPENSSL_free(new);
 	return 0;
 }
-
 
 
 
