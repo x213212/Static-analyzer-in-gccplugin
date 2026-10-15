@@ -55,6 +55,7 @@ def analysis_evidence(document: dict) -> dict:
     return {
         "findings": [{"rule": item["rule_id"], "message": item.get("message", ""),
                       "status": item.get("status", "UNSPECIFIED"),
+                      "confidence": item.get("confidence", "unknown"),
                       "remediation": item.get("remediation", {}),
                       "location": location(item.get("location", {})),
                       "trace": [{"role": p.get("role", ""), **location(p)} for p in item.get("trace", [])[:8]],
@@ -239,8 +240,21 @@ def presentation_data(report: dict, output: Path, speed: dict | None = None,
 
 
 def render_html(report: dict, output: Path, speed: dict | None = None,
-                expand_problems: bool = False, graphs: dict | None = None) -> str:
+                expand_problems: bool = False, graphs: dict | None = None,
+                detection_only: bool = False) -> str:
     data = presentation_data(report, output, speed, expand_problems, graphs)
+    data["detection_only"] = detection_only
+    if detection_only:
+        data["detection_summary"] = {
+            "total": len(data["groups"]),
+            "detected": sum(g["bad"]["plugin"] == "TP" for g in data["groups"]),
+            "missed": sum(g["bad"]["plugin"] == "FN" for g in data["groups"]),
+            "findings": sum(
+                g["variants"]["bad"].get("project_modes", {}).get("plugin", {})
+                 .get("plugin_report", {}).get("summary", {}).get("total", 0)
+                for g in report["groups"]
+            ),
+        }
     # Escaping '<' also prevents a source-controlled '</script>' from ending
     # the inert data block. Browser code renders evidence using textContent.
     payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))

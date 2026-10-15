@@ -873,15 +873,15 @@ def render_html(document: Mapping[str, Any]) -> str:
 <style>
 :root{{--bg:#f5f7fa;--card:#fff;--line:#dce2ea;--ink:#172033;--muted:#65718a;--warn:#a51d2d;--inc:#875c00}}
 *{{box-sizing:border-box}}body{{font:15px system-ui,sans-serif;margin:0;background:var(--bg);color:var(--ink)}}
-main{{max-width:1280px;margin:36px auto;padding:0 22px}}h1{{margin-bottom:6px}}h2{{margin-top:34px}}code{{overflow-wrap:anywhere}}
-.source,.muted,.note{{color:var(--muted)}}.cards{{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:12px;margin:26px 0}}
+main{{width:100%;max-width:960px;margin:32px auto;padding:0 20px;overflow-wrap:anywhere}}h1{{margin-bottom:6px}}h2{{margin-top:34px}}code{{white-space:normal;overflow-wrap:anywhere}}
+.source,.muted,.note{{color:var(--muted)}}.cards{{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin:26px 0}}
 .card,table{{background:var(--card);border:1px solid var(--line);border-radius:10px;box-shadow:0 2px 8px #18243a0d}}
 .card{{padding:16px}}.count{{font-size:27px;font-weight:700}}.label{{color:var(--muted)}}
 .banner{{padding:13px 16px;background:#fff4d8;border:1px solid #e7bd59;border-radius:8px;margin:18px 0}}
-.table-wrap{{overflow:auto}}table{{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden}}th,td{{padding:12px;text-align:left;border-bottom:1px solid #e7ebf0;vertical-align:top}}
+.table-wrap{{width:100%}}table{{width:100%;table-layout:fixed;border-collapse:separate;border-spacing:0;overflow:hidden}}th,td{{padding:12px;text-align:left;border-bottom:1px solid #e7ebf0;vertical-align:top;overflow-wrap:anywhere}}
 th{{background:#eef2f7}}.rule{{font-weight:700;color:var(--warn)}}.inconclusive{{color:var(--inc)}}.ok{{padding:26px;color:#177245;font-weight:650}}
 .trace,.provenance{{margin:8px 0 0;padding-left:20px;font-size:13px}}.detail{{margin-top:6px}}.finding-state{{margin-top:6px;color:#177245;font-size:13px}}.remediation{{margin-top:8px;padding:8px 10px;background:#f6f8fb;border-radius:6px}}footer{{margin:24px 0;color:#778196;font-size:13px}}
-@media(max-width:780px){{.cards{{grid-template-columns:repeat(2,1fr)}}table{{font-size:13px}}}}
+@media(max-width:640px){{main{{margin:20px auto;padding:0 12px}}.cards{{grid-template-columns:repeat(2,minmax(0,1fr))}}table{{font-size:13px}}thead{{display:none}}tbody,tr,td{{display:block;width:100%}}td{{padding:10px 12px}}tr+tr{{border-top:2px solid var(--line)}}}}
 </style></head><body><main>
 <h1>Static Analyzer Project Report</h1><div class="source">Input: {_escape(input_info.get('root', ''))}</div>
 {truncated_note}<div class="cards">

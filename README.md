@@ -37,6 +37,53 @@ whole-run result. Automatic source repair is not implemented.
 [Detailed English comparison](docs/comparison-2026-10-15.en.md) ·
 [Aggregate measurements and fingerprints](docs/measurements/2026-10-15-summary.json)
 
+## 檢測報告 / Detection reports
+
+單檔 `analysis.html` 的 **Total findings** 只代表該檔案的告警數。
+整批檢測報告會列出全部案例，以下是 2026-10-15 的 Juliet C LTO 紀錄：
+
+| 項目 / Meaning | 數量 / Count |
+| --- | ---: |
+| 測試案例組數 / Testcase groups | 1,234 |
+| 命中預期缺陷的案例 / Groups with the expected defect detected | 1,122 |
+| 未命中預期缺陷的案例 / Groups with the expected defect missed | 112 |
+| 有問題變體的全部規則告警 / All rule finding records in bad variants | 1,134 |
+| 精確對上基準位置的案例 / Exact oracle-site detections | 292 |
+
+同一案例可能有多筆告警，所以「案例數」與「告警筆數」分開顯示。
+這是測試集結果，不代表某個真實專案有一千多個漏洞；未檢出也不代表安全。
+完整測量與限制見上方比較表及其連結文件。
+
+The single-file finding count and the batch testcase count have different
+scopes. One case may produce multiple findings. Case-level detection also
+differs from exact oracle-site matching; these benchmark counts do not describe
+the number of defects in one real project.
+
+使用已產生的 LTO 紀錄建立整批檢測頁，不會重新執行分析：
+
+```sh
+python3 tools/render_project_report.py \
+  --report artifacts/phase21-main-publish/full-c/comparison.json \
+  --detections-only
+```
+
+輸出位於輸入檔旁的 `detection.html`，可離線開啟。介面支援繁體中文／英文、
+搜尋、缺陷類型與檢出狀態篩選，每頁 25 組；展開後可看問題行號、追蹤證據、
+通過來源雜湊比對的程式碼與人工修補建議。完整頁面寬度上限為 960px，長路徑
+自動換行。只呈現已記錄的呼叫關係；未確認候選與已證明告警分開，自動改檔與
+重編譯尚未實作。插件直接輸出的單檔報告目前仍是英文。
+
+The offline batch page opens on the case list and supports Chinese/English,
+search, filters, 25 cases per page, and inline evidence/code inspection. It
+wraps long paths within a 960px page. Inconclusive candidates remain separate
+from findings, and repair guidance does not automatically modify sources.
+
+此指令需要既有的 LTO `comparison.json`；`artifacts/` 是本機產物，不隨 Git
+提交。一般專案的報告產生與彙整方式見 [Project builds](#analyze-a-normal-project-build)。
+The command requires an existing LTO recording; local `artifacts/` are not
+committed. For ordinary projects, use the build launcher and `make project-report`
+described below.
+
 | Rule | Meaning |
 | --- | --- |
 | `SA001` | a heap allocation can reach function exit without release or escape |

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Re-render recorded accuracy/speed evidence as one offline bilingual HTML."""
+"""Render recorded project detections or comparisons as offline bilingual HTML."""
 from __future__ import annotations
 
 import argparse
@@ -16,6 +16,8 @@ def main() -> int:
     parser.add_argument("--speed-report", type=Path)
     parser.add_argument("--graph-report", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--detections-only", action="store_true",
+                        help="show the whole-batch detection list without analyzer comparison tabs")
     parser.add_argument("--expand-problems", action="store_true",
                         help="open the cases tab and expand the current page's problem cards")
     args = parser.parse_args()
@@ -28,8 +30,11 @@ def main() -> int:
             raise ValueError('call graph evidence does not match this recorded comparison')
         if report.get("benchmark_mode", {}).get("kind") != "lto-project-oracle":
             raise ValueError("requires a recorded LTO project comparison")
-        output = (args.output or args.report.with_suffix(".html")).resolve()
-        rendered = presentation.render_html(report, output.parent, speed, args.expand_problems, graphs)
+        default_output = (args.report.with_name("detection.html") if args.detections_only
+                          else args.report.with_suffix(".html"))
+        output = (args.output or default_output).resolve()
+        rendered = presentation.render_html(report, output.parent, speed, args.expand_problems, graphs,
+                                           detection_only=args.detections_only)
         output.parent.mkdir(parents=True, exist_ok=True)
         temporary = output.with_name(output.name + ".tmp")
         temporary.write_text(rendered, encoding="utf-8")
@@ -42,6 +47,7 @@ def main() -> int:
             inputs.append(args.graph_report)
         metadata = {"kind": "presentation-only", "analysis_rerun": False,
                     "expand_problems": args.expand_problems,
+                    "detections_only": args.detections_only,
                     "input_hashes": {str(p.resolve()): hashlib.sha256(p.read_bytes()).hexdigest() for p in inputs}}
         output.with_suffix(".presentation.json").write_text(json.dumps(metadata, indent=2) + "\n")
     except (OSError, ValueError, KeyError, TypeError) as error:
