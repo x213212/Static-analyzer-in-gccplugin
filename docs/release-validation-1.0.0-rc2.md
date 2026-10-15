@@ -17,13 +17,21 @@ on three upstream-confirmed affected-file pairs; complete path verdicts
 remain `unknown`. All three fixed files have zero alerts. Automatic repair
 is not implemented. See [real-project validation](realworld-validation-2026-10-15.md).
 
-Latest complete project measurement: frozen Phase-17 (2026-10-15), TP1123 /
+Latest Phase-21 full C replay uses the current DSO: TP1122 / target FP0 /
+FN112, with all 1,234 groups complete. Native cached accuracy remains TP974 /
+FP48. One UAF case hits the unchanged 100 ms function CPU limit; diagnostic
+isolated reruns are not substituted into the whole-run headline. The current
+20-round serial probe and three paired FFmpeg clean builds pass the sample
+speed checks; median FFmpeg paired wall/CPU overhead is 7.53% against a 10%
+gate. See the [bilingual comparison](comparison-2026-10-15.md) and its
+[aggregate data](measurements/2026-10-15-summary.json).
+
+Historical complete project measurement: frozen Phase-17 (2026-10-15), TP1123 /
 target FP0 against native TP974 / FP48 on the same 1,234 C LTO groups, using
 GCC16 DSO SHA-256:
 `ecc415031c4e968654e4418314831f99b5bf226c0ab06287323253ba436a2739`.
-That frozen snapshot differs from the current binary; the current optional
-profile has not repeated the full-corpus replay. Do not attribute that score
-to the Phase-20 DSO.
+That frozen snapshot differs from the current binary. Keep its historical
+TP1123 score separate from the latest current-binary TP1122 result.
 Full report: `artifacts/phase17-conditioned-borrow/final-full-c/comparison.html`.
 See [current progress](current-progress-2026-10-15.md) for the current
 remaining-class partition, library model assumptions, independent validation,

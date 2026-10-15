@@ -5,6 +5,14 @@ and low false-positive burden while retaining detection of confirmed leaks.
 No precision score is inferred from zero warnings or from a project's name.
 This is a development checkpoint, not a completed release.
 
+The latest [comparison tables](comparison-2026-10-15.md) and
+[English version](comparison-2026-10-15.en.md) include a current-binary full C
+replay plus repeated serial measurements. Three copied/configured FFmpeg
+core clean-build pairs (one worker, one warmup pair excluded) have median
+paired wall/CPU overhead 7.53%, passing the 10% sample gate. Every run compiles
+175 C units. The original single-build Phase-19/20 observations below remain
+historical evidence and are not substituted for the repeated measurements.
+
 ## Latest: optional FFmpeg resource profile (Phase 20)
 
 Final GCC16 plugin SHA-256:

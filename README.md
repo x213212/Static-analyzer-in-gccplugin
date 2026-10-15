@@ -10,6 +10,33 @@ ownership, event ordering, and path constraints are all proved.
 Current measurements, remaining cases, and model limits are recorded in
 [current progress](docs/current-progress-2026-10-15.md).
 
+## Latest verified comparison — 2026-10-15
+
+The current binary completed a fresh 1,234-group C LTO replay. Native accuracy
+uses validated cached results; speed is measured separately in fresh serial
+runs. The four optional FFmpeg SDK reviews remain conditional and receive no
+credit in the proven-detection score.
+
+| Measurement and scope | Current plugin | Reference |
+| --- | ---: | ---: |
+| Target-rule detections / 1,234 C groups | 1,122 (90.92%) | GCC16: 974 (78.93%) |
+| Target-rule alerts on 1,234 good variants | 0 | GCC16: 48 |
+| Exact oracle-site detections | 292 | GCC16: 398 |
+| Good variants with any lifetime alert, not all adjudicated false positives | 123 | GCC16: 182 |
+| Serial compile median, one 201-line fixture / 20 rounds | 54.93 ms | GCC16 `-fanalyzer`: 60.02 ms |
+| FFmpeg core clean-build median, 175 C units / 3 pairs / 1 worker | 41.265 s | Plain build: 39.735 s |
+
+FFmpeg's median paired wall/CPU increase is 7.53%, passing the 10% sample gate;
+individual wall increases range from 3.85% to 15.34%. These are compiler costs,
+not isolated analysis time or a general speed guarantee. One C testcase hit
+the unchanged 100 ms function CPU cap, leaving TP1122/FN112 rather than the
+frozen Phase-17 TP1123/FN111. Isolated diagnostic reruns do not replace that
+whole-run result. Automatic source repair is not implemented.
+
+[繁體中文比較表](docs/comparison-2026-10-15.md) ·
+[Detailed English comparison](docs/comparison-2026-10-15.en.md) ·
+[Aggregate measurements and fingerprints](docs/measurements/2026-10-15-summary.json)
+
 | Rule | Meaning |
 | --- | --- |
 | `SA001` | a heap allocation can reach function exit without release or escape |

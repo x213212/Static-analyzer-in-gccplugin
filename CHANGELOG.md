@@ -54,7 +54,15 @@ Exact-site detection remains 293 versus native 398; 55 groups are still
 detected only by GCC. Detailed evidence and model limits are recorded in
 `docs/current-progress-2026-10-15.md`. No complete-coverage or universal
 zero-false-positive claim is made. The current optional-profile binary has
-not repeated that full-corpus replay.
+now been replayed in Phase-21 validation: TP1122 / target FP0 / FN112 on all
+1,234 C groups, versus validated cached native TP974 / FP48. The one lost
+detection hit the unchanged 100 ms function CPU cap; isolated diagnostic
+replays with both current and frozen plugins detect it, without replacing
+the whole-run result. Current serial timing uses 20 shuffled rounds. Three
+single-worker FFmpeg clean-build pairs have median paired wall/CPU overhead
+of 7.53%, passing a 10% sample gate; the observed wall range is 3.85--15.34%.
+Traditional Chinese/English tables and aggregate fingerprints are published
+in `docs/comparison-2026-10-15.md` and its English companion.
 
 ## 1.0.0-rc2 - 2026-09-05
 

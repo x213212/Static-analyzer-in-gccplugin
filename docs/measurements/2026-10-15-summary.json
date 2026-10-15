@@ -1,0 +1,406 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "plugin_sha256": "0ecf61d94c623c3e3e1876cea88bd3e46a11dbf39b2061d8d4206379589669cd",
+  "compiler_sha256": "929f1fdb459e7b17915f6d2c7362187c9d1d6f54dc4d9a20ac2368b891baf9ac",
+  "compiler": "16.2.0",
+  "accuracy": {
+    "scope": "1234 C LTO groups / 2468 bad-good variants; current plugin replay; validated cached GCC reference, no runner-injected contracts",
+    "native_reference_reused": true,
+    "metrics": {
+      "plugin": {
+        "case_detection": {
+          "TP": 1122,
+          "FP": 0,
+          "TN": 1234,
+          "FN": 112
+        },
+        "case_recall": 0.909238,
+        "exact_site_detections": 292,
+        "good_variants_with_any_lifetime_alert": 123,
+        "completed_variants": 2468
+      },
+      "gcc16_fanalyzer": {
+        "case_detection": {
+          "TP": 974,
+          "FP": 48,
+          "TN": 1186,
+          "FN": 260
+        },
+        "case_recall": 0.789303,
+        "exact_site_detections": 398,
+        "good_variants_with_any_lifetime_alert": 182,
+        "completed_variants": 2468
+      }
+    },
+    "by_cwe": {
+      "401": {
+        "plugin": {
+          "case_detection": {
+            "TP": 788,
+            "FP": 0,
+            "TN": 868,
+            "FN": 80
+          },
+          "groups": 868
+        },
+        "gcc16_fanalyzer": {
+          "case_detection": {
+            "TP": 666,
+            "FP": 48,
+            "TN": 820,
+            "FN": 202
+          },
+          "groups": 868
+        }
+      },
+      "415": {
+        "plugin": {
+          "case_detection": {
+            "TP": 216,
+            "FP": 0,
+            "TN": 228,
+            "FN": 12
+          },
+          "groups": 228
+        },
+        "gcc16_fanalyzer": {
+          "case_detection": {
+            "TP": 228,
+            "FP": 0,
+            "TN": 228,
+            "FN": 0
+          },
+          "groups": 228
+        }
+      },
+      "416": {
+        "plugin": {
+          "case_detection": {
+            "TP": 118,
+            "FP": 0,
+            "TN": 138,
+            "FN": 20
+          },
+          "groups": 138
+        },
+        "gcc16_fanalyzer": {
+          "case_detection": {
+            "TP": 80,
+            "FP": 0,
+            "TN": 138,
+            "FN": 58
+          },
+          "groups": 138
+        }
+      }
+    },
+    "plugin_run_wall_ms": 201681.345,
+    "workers": 8,
+    "native_speed_remeasured": false,
+    "comparison_to_frozen_phase17": {
+      "previous_TP": 1123,
+      "previous_FN": 111,
+      "current_TP": 1122,
+      "current_FN": 112,
+      "affected_group": "416:CWE416_Use_After_Free__malloc_free_int64_t_10",
+      "whole_run_abstention_reason": "analysis-budget-function-cpu-time",
+      "function_cpu_limit_ms": 100,
+      "separate_isolated_diagnostic": {
+        "current_SA003": 1,
+        "frozen_phase17_SA003": 1,
+        "substituted_into_headline": false
+      }
+    }
+  },
+  "serial_compiler_cost": {
+    "scope": "One retained 201-line generated C source, SA001+JSON for plugins; native normal rule bundle. Compiler/process costs, not isolated analyzer time.",
+    "fixture": "tests/fixtures/ownership_speed_probe.c",
+    "fixture_sha256": "fbceec82d99f2177f310c1057b59db1e6494c6ebddaeee002ad78caafdd0df70",
+    "rounds": 20,
+    "warmups": 2,
+    "summary": {
+      "plain": {
+        "median_cpu_ms": 47.37699999999978,
+        "median_wall_ms": 51.462500000000006,
+        "cpu_ms": [
+          56.25599999999994,
+          56.03599999999997,
+          40.29300000000002,
+          43.85199999999995,
+          55.867,
+          49.83599999999999,
+          54.09299999999995,
+          40.6740000000001,
+          39.53199999999968,
+          46.15199999999986,
+          52.56600000000044,
+          41.873000000000275,
+          45.74599999999973,
+          38.463000000000356,
+          43.66800000000015,
+          49.02499999999988,
+          46.921999999999684,
+          55.027000000000385,
+          47.83199999999987,
+          50.73600000000034
+        ]
+      },
+      "baseline": {
+        "median_cpu_ms": 53.602999999999966,
+        "median_wall_ms": 57.363,
+        "cpu_ms": [
+          53.85899999999996,
+          62.40300000000004,
+          51.20499999999989,
+          53.34699999999998,
+          56.39800000000017,
+          55.367999999999974,
+          52.26100000000011,
+          46.109999999999765,
+          46.99299999999995,
+          59.926000000000144,
+          54.40799999999979,
+          50.25799999999991,
+          45.83100000000007,
+          48.02300000000015,
+          43.25299999999987,
+          62.95000000000017,
+          47.45099999999969,
+          70.55000000000011,
+          59.219000000000136,
+          55.5509999999999
+        ]
+      },
+      "candidate": {
+        "median_cpu_ms": 50.08450000000015,
+        "median_wall_ms": 54.926,
+        "cpu_ms": [
+          58.67000000000003,
+          47.878000000000114,
+          43.77700000000012,
+          52.88499999999996,
+          47.09700000000006,
+          59.49099999999996,
+          49.11100000000002,
+          41.604000000000084,
+          43.05500000000018,
+          50.292000000000115,
+          48.565999999999775,
+          52.72399999999988,
+          55.524000000000015,
+          45.4119999999999,
+          45.21099999999989,
+          57.702999999999946,
+          49.87700000000017,
+          50.383999999999986,
+          55.918000000000355,
+          58.14399999999975
+        ]
+      },
+      "native": {
+        "median_cpu_ms": 55.33550000000021,
+        "median_wall_ms": 60.022,
+        "cpu_ms": [
+          56.09300000000003,
+          46.522999999999925,
+          59.59900000000001,
+          63.452999999999925,
+          51.277000000000015,
+          52.551000000000016,
+          52.37999999999998,
+          64.77900000000002,
+          47.37699999999978,
+          49.15100000000028,
+          51.44500000000007,
+          41.997999999999976,
+          55.96199999999985,
+          43.34499999999974,
+          59.45100000000003,
+          70.36399999999954,
+          54.92800000000009,
+          65.56600000000023,
+          88.73700000000007,
+          55.74300000000032
+        ]
+      }
+    },
+    "paired": {
+      "baseline": {
+        "median_candidate_cpu_ratio": 0.9419916815591758,
+        "ratios": [
+          1.0893258322657322,
+          0.7672387545470584,
+          0.854936041402211,
+          0.9913397191969554,
+          0.8350828043547629,
+          1.0744653951741074,
+          0.9397256080059684,
+          0.9022771633051463,
+          0.9162002851488567,
+          0.8392350565697693,
+          0.8926260843993524,
+          1.0490668152333953,
+          1.2114944033514419,
+          0.945630218853461,
+          1.0452685362865008,
+          0.9166481334392341,
+          1.0511264251543804,
+          0.714160170092132,
+          0.9442577551123833,
+          1.0466778275818591
+        ]
+      },
+      "native": {
+        "median_candidate_cpu_ratio": 0.9280363269705327,
+        "ratios": [
+          1.0459415613356389,
+          1.0291253788448764,
+          0.7345257470762951,
+          0.8334515310544817,
+          0.9184819704740925,
+          1.1320621872086152,
+          0.9375906834669728,
+          0.6422451720464976,
+          0.908774299765717,
+          1.0232141767207144,
+          0.9440373214112102,
+          1.2553931139578054,
+          0.9921732604267212,
+          1.0476871611489253,
+          0.7604750130359433,
+          0.8200642373941266,
+          0.9080432566268587,
+          0.7684470609767229,
+          0.6301542761193224,
+          1.0430726728019557
+        ]
+      }
+    }
+  },
+  "ffmpeg_core": {
+    "scope": "175-TU core-only FFmpeg 9.0, configured directories copied, no configure/clean time, no codecs/programs/network/assembly/avfilter; unrelated to the three historical affected files",
+    "rounds": 3,
+    "warmups": 1,
+    "jobs": 1,
+    "profile": "ffmpeg",
+    "report_only": true,
+    "source_sha256": "32e1798f3ae15888f5579824cb74374c93b0e7289de08abd542cf3e7c8080a7a",
+    "summary": {
+      "baseline": {
+        "median_wall_ms": 39734.575,
+        "median_cpu_ms": 38884.08000000003,
+        "units_per_run": 175,
+        "findings_per_run": [
+          0,
+          0,
+          0
+        ]
+      },
+      "plugin": {
+        "median_wall_ms": 41264.609,
+        "median_cpu_ms": 40535.530000000006,
+        "units_per_run": 175,
+        "findings_per_run": [
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "paired": {
+      "wall": {
+        "ratios": [
+          1.1533874556948722,
+          1.0752583841069419,
+          1.0385063637902254
+        ],
+        "median_plugin_to_baseline_ratio": 1.0752583841069419
+      },
+      "cpu": {
+        "ratios": [
+          1.1615631117195941,
+          1.075328204852795,
+          1.0424711089988492
+        ],
+        "median_plugin_to_baseline_ratio": 1.075328204852795
+      }
+    },
+    "per_round": [
+      {
+        "round": 1,
+        "baseline_wall_ms": 34185.377,
+        "plugin_wall_ms": 39428.985,
+        "baseline_cpu_ms": 33309.788,
+        "plugin_cpu_ms": 38691.421,
+        "wall_ratio": 1.1533874556948722,
+        "cpu_ratio": 1.1615631117195941
+      },
+      {
+        "round": 2,
+        "baseline_wall_ms": 39831.881,
+        "plugin_wall_ms": 42829.564,
+        "baseline_cpu_ms": 39028.064,
+        "plugin_cpu_ms": 41967.978,
+        "wall_ratio": 1.0752583841069419,
+        "cpu_ratio": 1.075328204852795
+      },
+      {
+        "round": 3,
+        "baseline_wall_ms": 39734.575,
+        "plugin_wall_ms": 41264.609,
+        "baseline_cpu_ms": 38884.08,
+        "plugin_cpu_ms": 40535.53,
+        "wall_ratio": 1.0385063637902254,
+        "cpu_ratio": 1.0424711089988492
+      }
+    ]
+  },
+  "historical_ffmpeg": [
+    {
+      "id": "ffmpeg-rtsp",
+      "model_review_count": 1,
+      "proven_count": 0,
+      "fixed_alerts": 0,
+      "path_verdict": "unknown",
+      "reference": "https://github.com/FFmpeg/FFmpeg/commit/14f9e47314ab70a2c786cb040ca0ca2fc1a0e163"
+    },
+    {
+      "id": "ffmpeg-hls",
+      "model_review_count": 1,
+      "proven_count": 0,
+      "fixed_alerts": 0,
+      "path_verdict": "unknown",
+      "reference": "https://github.com/FFmpeg/FFmpeg/commit/9481b7d932e895b903c260c54c7b26adfe402e1f"
+    },
+    {
+      "id": "ffmpeg-colorcorrect",
+      "model_review_count": 2,
+      "proven_count": 0,
+      "fixed_alerts": 0,
+      "path_verdict": "unknown",
+      "reference": "https://github.com/FFmpeg/FFmpeg/commit/5f87a68cf70dafeab2fb89b42e41a4c29053b89b"
+    }
+  ],
+  "regressions": {
+    "gcc10": "150/150",
+    "gcc16": "150/150",
+    "python": "138/138"
+  },
+  "publication_gate": {
+    "passed": true,
+    "maximum_median_overhead": 0.1,
+    "checks": [
+      "synthetic paired CPU vs previous frozen plugin <= 1.10",
+      "FFmpeg paired wall and CPU vs plain baseline <= 1.10",
+      "1234 C groups complete, target FP0",
+      "SDK model reviews not credited as proven findings"
+    ]
+  },
+  "evidence_sha256": {
+    "full_c_comparison": "41fb51ea7ec26200c9cc72c6ddf1a5bd4944ea95a5d7ee4bd1325849de2de485",
+    "serial_speed": "6f95e5e67bc94d7e673109d8820c802445c1bfd93b71cae4334dd884c8c2c617",
+    "ffmpeg_core_speed": "6fbca992a19839ea89b1b9161499a634848b45b94665df755dfa25367da2d648",
+    "historical_pairs": "7c8985a8bfd5e7be548a05dd098fce94259a950dbdbd05f6625d05525d541df3"
+  }
+}

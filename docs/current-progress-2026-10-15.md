@@ -2,13 +2,21 @@
 
 Development branch: `optimize/recall-phase1`. This is a development checkpoint,
 with the model-review and automatic-repair limits described below.
-The complete Juliet measurement below uses the frozen Phase-17 snapshot:
+The latest Phase-21 full C replay uses the current Phase-20 binary and records
+TP1122 / target FP0 / FN112, versus validated cached GCC16 TP974 / FP48. All
+1,234 groups / 2,468 variants complete. One UAF group hits the unchanged
+100 ms function CPU cap; its separate isolated replay detects the UAF and is
+not substituted into the complete run. See the latest
+[Traditional Chinese](comparison-2026-10-15.md) / [English](comparison-2026-10-15.en.md)
+tables and [aggregate evidence](measurements/2026-10-15-summary.json).
+
+The historical table below retains the frozen Phase-17 snapshot:
 `ecc415031c4e968654e4418314831f99b5bf226c0ab06287323253ba436a2739`.
 The working GCC16 plugin now includes optional report-only diagnostics,
 structural call-graph export, and an opt-in FFmpeg resource profile. Its
 Phase-20 fingerprint is
 `0ecf61d94c623c3e3e1876cea88bd3e46a11dbf39b2061d8d4206379589669cd`.
-Do not attribute the frozen full-corpus measurement to this newer binary.
+Keep the historical and latest whole-run measurements separate.
 The GCC10 build is separate; it never replaces the GCC16 artifact.
 
 The latest work targets build integration and upstream-confirmed leaks;
@@ -28,7 +36,7 @@ the experiment. New SDK classification, output-resource checks, and registered
 callback checks are separate source modules within one `.so`; see the
 [module boundaries](architecture.md#optional-library-resource-protocols).
 
-## Complete C project measurement
+## Historical Phase-17 complete C project measurement
 
 All 1,234 C groups / 2,468 bad-good project variants completed. Both tools
 receive the real testcase sources plus `testcasesupport/io.c` under LTO.
@@ -108,7 +116,18 @@ success does not imply complete C/C++ coverage or real-world precision.
 
 ## Speed and bounded search
 
-The complete eight-worker plugin replay took 172.5 seconds. Only plugin
+Latest timing: 20 shuffled serial rounds give median compiler wall/CPU times
+of 54.93/50.08 ms for the current plugin and 60.02/55.34 ms for GCC16 on the
+same 201-line source. The median paired current/previous plugin CPU ratio is
+0.942. Three single-worker FFmpeg core clean-build pairs have wall medians
+39.735 s plain / 41.265 s plugin and median paired wall/CPU increases of
+7.53%, passing the 10% sample gate. Individual wall increases span
+3.85--15.34%; these narrow measurements are not general speed guarantees.
+The current complete eight-worker plugin replay takes 201.7 s, with native
+results reused only for accuracy. Artifacts are under
+`artifacts/phase21-main-publish/` (`full-c/`, `serial-speed/`, `core-speed/`).
+
+The historical Phase-17 eight-worker plugin replay took 172.5 seconds. Only plugin
 compilation/linking was timed; cached native results cannot support a speed
 ranking. On one retained synthetic source, ten shuffled serial rounds give
 median wall/CPU times of 48.49 / 46.15 ms for the candidate and
