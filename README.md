@@ -8,16 +8,35 @@ default `proof-only` policy emits a finding only when the modeled alias,
 ownership, event ordering, and path constraints are all proved.
 
 Current measurements, remaining cases, and model limits are recorded in
-[current progress](docs/current-progress-2026-10-15.md).
+[current progress](docs/current-progress-2026-10-17.md).
 
-## Latest verified comparison — 2026-10-15
+## Latest core validation — 2026-10-17
 
-The current binary completed a fresh 1,234-group C LTO replay. Native accuracy
+`main` builds only the current engine, version **1.0.0-rc3**. GCC10 and GCC16
+both pass 150/150 compiler regression cases; 139 Python tests pass. A fresh
+1,234-group C LTO replay records **1,123 detected / 111 missed** expected defects,
+with 293 exact oracle-site detections. Target-rule alerts on good variants are
+zero for this cohort, while 123 good variants have another lifetime alert;
+that does not establish a general zero false-positive rate.
+
+The one additional detection versus 2026-10-15 is the case that previously hit
+the unchanged function CPU cap. This is budget-sensitive run variation, not a
+new detection algorithm. Native results still use a validated cache; this
+parallel replay is not a controlled speed comparison.
+
+[Current validation](docs/current-progress-2026-10-17.md) ·
+[Core and Makefile structure](docs/core-only-refactor-2026-10-17.md) ·
+[Recorded summary and fingerprints](docs/measurements/2026-10-17-summary.json)
+
+<details>
+<summary>Recorded comparison — 2026-10-15 (historical snapshot)</summary>
+
+The 2026-10-15 snapshot completed a 1,234-group C LTO replay. Native accuracy
 uses validated cached results; speed is measured separately in fresh serial
 runs. The four optional FFmpeg SDK reviews remain conditional and receive no
 credit in the proven-detection score.
 
-| Measurement and scope | Current plugin | Reference |
+| Measurement and scope | 2026-10-15 plugin | Reference |
 | --- | ---: | ---: |
 | Target-rule detections / 1,234 C groups | 1,122 (90.92%) | GCC16: 974 (78.93%) |
 | Target-rule alerts on 1,234 good variants | 0 | GCC16: 48 |
@@ -37,18 +56,20 @@ whole-run result. Automatic source repair is not implemented.
 [Detailed English comparison](docs/comparison-2026-10-15.en.md) ·
 [Aggregate measurements and fingerprints](docs/measurements/2026-10-15-summary.json)
 
+</details>
+
 ## 檢測報告 / Detection reports
 
 單檔 `analysis.html` 的 **Total findings** 只代表該檔案的告警數。
-整批檢測報告會列出全部案例，以下是 2026-10-15 的 Juliet C LTO 紀錄：
+整批檢測報告會列出全部案例，以下是 2026-10-17 的 Juliet C LTO 紀錄：
 
 | 項目 / Meaning | 數量 / Count |
 | --- | ---: |
 | 測試案例組數 / Testcase groups | 1,234 |
-| 命中預期缺陷的案例 / Groups with the expected defect detected | 1,122 |
-| 未命中預期缺陷的案例 / Groups with the expected defect missed | 112 |
-| 有問題變體的全部規則告警 / All rule finding records in bad variants | 1,134 |
-| 精確對上基準位置的案例 / Exact oracle-site detections | 292 |
+| 命中預期缺陷的案例 / Groups with the expected defect detected | 1,123 |
+| 未命中預期缺陷的案例 / Groups with the expected defect missed | 111 |
+| 有問題變體的全部規則告警 / All rule finding records in bad variants | 1,135 |
+| 精確對上基準位置的案例 / Exact oracle-site detections | 293 |
 
 同一案例可能有多筆告警，所以「案例數」與「告警筆數」分開顯示。
 這是測試集結果，不代表某個真實專案有一千多個漏洞；未檢出也不代表安全。
@@ -63,7 +84,7 @@ the number of defects in one real project.
 
 ```sh
 python3 tools/render_project_report.py \
-  --report artifacts/phase21-main-publish/full-c/comparison.json \
+  --report artifacts/core-only-20261017/full-c/comparison.json \
   --detections-only
 ```
 
@@ -96,8 +117,15 @@ SA004 candidates as `INCONCLUSIVE` because `pthread_create` success/failure is
 not yet correlated with the returned status. Exploratory mode can emit it;
 lock-order/deadlock analysis is not implemented.
 
-The refactored engine is the default. The historical detector remains behind
-`legacyengine=1` for compatibility, but it is not used for test assertions.
+`main` contains only the current modular engine (1.0.0-rc3). The historical
+implementation headers and adapter have been removed. Obsolete engine/debug
+options now fail with an unknown-argument error; they are not silently ignored.
+See [the module and build migration](docs/core-only-refactor-2026-10-17.md).
+
+`make` builds the plugin. `make test` explicitly runs the regression suites;
+`make help` lists the common tasks. Build, report, test, smoke, and benchmark
+rules are separated under `mk/`, with shared flags in `mk/config.mk`.
+`make clean` removes compiler build outputs and preserves recorded reports.
 
 ## Quick start
 
@@ -443,8 +471,8 @@ content-addressed plugin snapshot. It distinguishes source `BUILD_FAIL` from
 means build/plugin robustness, not diagnostic precision or recall. See
 [benchmark-tests.md](docs/benchmark-tests.md).
 
-The original hand-written benchmark Makefile is retained as
-`Test/Makefile.legacy`; `make legacy-test` is a compatibility target only.
+The old hand-written benchmark Makefile and its build target have been removed.
+Benchmark sources remain test data for the isolated runners above.
 
 ## Compare with native GCC 16.2 `-fanalyzer`
 
@@ -538,11 +566,6 @@ Boolean values are `0` or `1`:
 | `reporthtml` | `1` | also render the per-TU HTML report |
 | `reportonly` | `0` | retain findings in JSON/HTML without compiler warnings; useful with `-Werror`; keep `report=1` |
 | `librarymodel` | `none` | `none` or `ffmpeg`; optional SDK contracts produce separate conditional `MODEL_REVIEW` findings |
-| `legacyengine` | `0` | also execute the historical detector |
-| `debugmod` | `0` | legacy debug compatibility |
-| `debugoutput` | `0` | legacy debug-output compatibility |
-| `traceallfucntion` | `0` | legacy traversal compatibility |
-| `contextsentive` | `1` | legacy context option compatibility |
 
 `analysispolicy=proof-only` is the default. It requires a complete feasible
 witness and keeps unknown results out of compiler diagnostics.

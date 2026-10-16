@@ -122,16 +122,12 @@ COMMON_FLAGS = (
     "-pthread",
 )
 PLUGIN_OPTIONS = (
-    "contextsentive=1",
-    "debugoutput=0",
-    "legacyengine=0",
     "memoryleakcheck=1",
     "doublefreecheck=1",
     "report=1",
     "reporthtml=0",
     "smt=1",
     "threadmod=0",
-    "traceallfucntion=1",
     "useafterfree=1",
 )
 GCC_ANALYZER_FLAGS = (

@@ -25,8 +25,6 @@ from typing import Sequence
 HASH_HEX_LENGTH = 20
 REQUIRED_PLUGIN_OPTIONS: tuple[tuple[str, str], ...] = (
     ("analysispolicy", "proof-only"),
-    ("debugoutput", "0"),
-    ("legacyengine", "0"),
     ("memoryleakcheck", "1"),
     ("doublefreecheck", "1"),
     ("useafterfree", "1"),

@@ -127,23 +127,7 @@ bool parse_plugin_options(const plugin_name_args &plugin,
       continue;
     }
 
-    if (std::strcmp(argument.key, "relatemod") == 0)
-      destination = &options->relate;
-    else if (std::strcmp(argument.key, "retnotheapobjskipcheck") == 0)
-      destination = &options->skip_non_heap_returns;
-    else if (std::strcmp(argument.key, "traceallfucntion") == 0)
-      destination = &options->trace_all_functions;
-    else if (std::strcmp(argument.key, "prebranchexit") == 0)
-      destination = &options->stop_at_branch_exit;
-    else if (std::strcmp(argument.key, "debugoutput") == 0)
-      destination = &options->debug_output;
-    else if (std::strcmp(argument.key, "debugmod") == 0)
-      destination = &options->debug;
-    else if (std::strcmp(argument.key, "vscode_extensionmod") == 0)
-      destination = &options->vscode_extension;
-    else if (std::strcmp(argument.key, "contextsentive") == 0)
-      destination = &options->context_sensitive;
-    else if (std::strcmp(argument.key, "memoryleakcheck") == 0)
+    if (std::strcmp(argument.key, "memoryleakcheck") == 0)
       destination = &options->memory_leak;
     else if (std::strcmp(argument.key, "doublefreecheck") == 0)
       destination = &options->double_free;
@@ -153,8 +137,6 @@ bool parse_plugin_options(const plugin_name_args &plugin,
       destination = &options->thread;
     else if (std::strcmp(argument.key, "smt") == 0)
       destination = &options->smt;
-    else if (std::strcmp(argument.key, "legacyengine") == 0)
-      destination = &options->legacy_engine;
     else if (std::strcmp(argument.key, "report") == 0)
       destination = &options->report;
     else if (std::strcmp(argument.key, "reporthtml") == 0)

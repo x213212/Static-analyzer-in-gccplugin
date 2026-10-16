@@ -24,26 +24,12 @@ enum class ExhaustionReason {
   function_cpu_time,
   tu_work,
   function_work,
-  summary_node_limit,
-
-  // Source compatibility for out-of-tree users of the initial API.  These
-  // aliases now denote process CPU time; reason_name() deliberately returns
-  // the honest *-cpu-time spelling.
-  tu_wall_time = tu_cpu_time,
-  function_wall_time = function_cpu_time
+  summary_node_limit
 };
 
 struct Limits {
-  union {
-    unsigned int tu_cpu_ms = 2000;
-    // Legacy source alias; interpreted as process CPU milliseconds.
-    unsigned int tu_wall_ms;
-  };
-  union {
-    unsigned int function_cpu_ms = 100;
-    // Legacy source alias; interpreted as process CPU milliseconds.
-    unsigned int function_wall_ms;
-  };
+  unsigned int tu_cpu_ms = 2000;
+  unsigned int function_cpu_ms = 100;
   unsigned long tu_work = 2000000;
   unsigned long function_work = 250000;
   unsigned int summary_nodes = 4096;

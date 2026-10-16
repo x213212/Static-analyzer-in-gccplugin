@@ -121,8 +121,6 @@ class StaticAnalyzerCompilerLauncherTest(unittest.TestCase):
         self.assertIn(f"-fplugin={self.plugin.resolve()}", call)
         for option in (
             "analysispolicy=proof-only",
-            "debugoutput=0",
-            "legacyengine=0",
             "memoryleakcheck=1",
             "doublefreecheck=1",
             "useafterfree=1",
@@ -193,7 +191,7 @@ class StaticAnalyzerCompilerLauncherTest(unittest.TestCase):
         self.assertEqual(
             self.invoke(
                 ["-c", str(source), "-o", str(self.root / "one.o")],
-                plugin_options=["contextsentive=0"],
+                plugin_options=["reportcallgraph=1"],
             ),
             0,
         )

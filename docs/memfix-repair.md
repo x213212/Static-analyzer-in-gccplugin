@@ -291,8 +291,9 @@ fix this?" while the general plugin default stays fast. Until Stage 2 exists,
 `patch` must be rejected as unsupported rather than silently behaving like
 `suggest`.
 
-`patch` is incompatible with exploratory policy, disabled/missing Z3, and the
-legacy engine. Invalid combinations should fail option parsing.
+`patch` is incompatible with exploratory policy and disabled/missing Z3.
+Invalid combinations should fail option parsing. The historical engine is
+removed and cannot be selected.
 
 Source application belongs to a separate command, for example:
 

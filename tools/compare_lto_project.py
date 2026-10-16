@@ -112,8 +112,7 @@ def validate_extra_args(arguments: Sequence[str], phase: str) -> list[str]:
 
 def plugin_arguments(plugin: Path, report_stem: Path) -> list[str]:
     options = (
-        "analysispolicy=proof-only", "debugoutput=0", "legacyengine=0",
-        "contextsentive=1", "traceallfucntion=1", "memoryleakcheck=1",
+        "analysispolicy=proof-only", "memoryleakcheck=1",
         "doublefreecheck=1", "useafterfree=1", "threadmod=0", "smt=1",
         "report=1", "reporthtml=1", f"reportpath={report_stem}",
     )

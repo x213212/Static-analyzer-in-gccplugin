@@ -76,11 +76,8 @@ void finish_unit(void *, void *) {
 const plugin_info analyzer_plugin_info = {
     STATIC_ANALYZER_VERSION,
     "GCC points-to based memory lifetime analyzer\n"
-    "Arguments are boolean values (0 or 1): debugmod, debugoutput, "
-    "vscode_extensionmod, contextsentive, relatemod, "
-    "retnotheapobjskipcheck, traceallfucntion, prebranchexit, "
-    "memoryleakcheck, doublefreecheck, useafterfree, threadmod, smt, "
-    "legacyengine, report, reporthtml, reportonly, reportcallgraph.\n"
+    "Arguments are boolean values (0 or 1): memoryleakcheck, doublefreecheck, "
+    "useafterfree, threadmod, smt, report, reporthtml, reportonly, reportcallgraph.\n"
     "analysispolicy accepts proof-only (default) or exploratory.\n"
     "calleemodel=borrow|release with calleesymbol and calleearg (zero-based) "
     "runs a labelled external-call assumption experiment.\n"

@@ -1067,8 +1067,7 @@
       "memoryleakcheck": 0,
       "doublefreecheck": 0,
       "useafterfree": 0,
-      "threadmod": 0,
-      "legacyengine": 0
+      "threadmod": 0
     },
     "expect": {}
   },
@@ -1079,8 +1078,7 @@
       "memoryleakcheck": 0,
       "doublefreecheck": 0,
       "useafterfree": 0,
-      "threadmod": 1,
-      "legacyengine": 0
+      "threadmod": 1
     },
     "expect_inconclusive": {
       "SA004": 1

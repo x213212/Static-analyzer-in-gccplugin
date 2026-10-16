@@ -4,6 +4,10 @@ The default engine is a bounded, read-only consumer of GCC's GIMPLE, scalar
 SSA, virtual SSA, CFG, points-to, alias, and dump infrastructure. It does not
 build a second compiler or copy GCC's private analyzer exploded graph.
 
+The current source tree has one analysis engine. The historical implementation
+headers and adapter were removed on 2026-10-17; there is no fallback detector.
+Old engine/debug arguments are rejected during plugin initialization.
+
 ## Module boundary
 
 ```text
@@ -26,8 +30,7 @@ Compiler/src/resource_protocol.cc bounded local output-resource obligations
 Compiler/src/framework_lifecycle.cc registered initializer/cleanup obligations
 Compiler/src/report.cc          GCC diagnostics and HTML/JSON reports
 Compiler/src/analyzer.cc        modern phase orchestration
-Compiler/src/legacy_adapter.cc  opt-in boundary to the historical detector
-Compiler/*.h                    legacy detector implementation (migration area)
+mk/*.mk                        separate build/report/test/benchmark tasks
 tools/static_analyzer_cc.py     collision-safe project compiler launcher
 tools/merge_static_analyzer_reports.py deterministic project report merger
 ```

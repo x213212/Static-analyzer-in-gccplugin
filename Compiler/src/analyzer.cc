@@ -4,7 +4,6 @@
 #include "static_analyzer/analysis_budget.h"
 #include "static_analyzer/analyzer.h"
 #include "static_analyzer/feasibility.h"
-#include "static_analyzer/legacy_adapter.h"
 #include "static_analyzer/lifetime_engine.h"
 #include "static_analyzer/local_confinement.h"
 #include "static_analyzer/ownership_call.h"
@@ -47,11 +46,6 @@ unsigned int run(const PluginOptions &options) {
     run_lifetime_engine(options);
   if (options.memory_leak && options.ffmpeg_library_model)
     resource_protocol::analyze_registered_lifecycles();
-  // The legacy recursive walker has no deterministic work accounting.  Keep
-  // it behind its explicit compatibility option, but do not enter it after
-  // the modern analyzer has already exhausted a TU/function deadline.
-  if (options.legacy_engine && analysis_budget::available())
-    legacy_adapter::run(options);
   // Report-only bounded structural graph. It does not change the lifetime
   // engine, its solver constraints, budgets, or any finding classification.
   if (options.report && options.report_call_graph)

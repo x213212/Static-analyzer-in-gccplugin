@@ -100,8 +100,7 @@ def main() -> int:
     for mode in ("unknown", "borrow", "release"):
         directory = args.output / mode
         directory.mkdir()
-        options = {"analysispolicy": "proof-only", "debugoutput": "0", "legacyengine": "0",
-                   "memoryleakcheck": "1", "doublefreecheck": "1", "useafterfree": "1", "threadmod": "0",
+        options = {"analysispolicy": "proof-only", "memoryleakcheck": "1", "doublefreecheck": "1", "useafterfree": "1", "threadmod": "0",
                    "smt": "1", "report": "1", "reporthtml": "1", "reportpath": str(directory / "analysis"),
                    "calleemodel": mode, "calleesymbol": args.symbol, "calleearg": str(args.argument)}
         command = [cc, "-O1", "-fipa-pta", "-fno-inline", "-fno-tree-dce", "-fdiagnostics-color=never", *flags,

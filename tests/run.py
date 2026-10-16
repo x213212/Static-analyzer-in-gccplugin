@@ -142,8 +142,6 @@ def run_case(args: argparse.Namespace, tests_root: Path,
     command = [
         compiler,
         f"-fplugin={args.plugin.resolve()}",
-        "-fplugin-arg-newplugin-debugoutput=0",
-        "-fplugin-arg-newplugin-traceallfucntion=1",
         f"-fplugin-arg-newplugin-reportpath={report_stem}",
         "-fdiagnostics-color=never",
         "-O1",

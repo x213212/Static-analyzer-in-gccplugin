@@ -41,8 +41,7 @@ def collect(group, plugin, output):
     stem = folder / 'analysis'
     command += [f'-fplugin={plugin}', *[
         '-fplugin-arg-newplugin-' + value for value in (
-            'analysispolicy=proof-only', 'legacyengine=0', 'debugoutput=0',
-            'memoryleakcheck=0', 'doublefreecheck=0', 'useafterfree=0', 'threadmod=0',
+            'analysispolicy=proof-only', 'memoryleakcheck=0', 'doublefreecheck=0', 'useafterfree=0', 'threadmod=0',
             'report=1', 'reporthtml=0', 'reportcallgraph=1', f'reportpath={stem}')],
         '-o', str(folder / 'linked-output')]
     process = subprocess.run(command, capture_output=True, timeout=30, check=False)

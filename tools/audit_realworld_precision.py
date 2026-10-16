@@ -27,8 +27,7 @@ FLAGS = ["-O1", "-fipa-pta", "-fno-inline", "-fno-tree-dce",
 
 def plugin_flags(plugin: Path, stem: Path, report_only: bool = False,
                  library_model: str = "none") -> list[str]:
-    options = ["analysispolicy=proof-only", "legacyengine=0", "debugoutput=0",
-               "traceallfucntion=1", "memoryleakcheck=1", "doublefreecheck=1",
+    options = ["analysispolicy=proof-only", "memoryleakcheck=1", "doublefreecheck=1",
                "useafterfree=1", "threadmod=0", "smt=1", "report=1",
                "reporthtml=0", f"reportpath={stem}"]
     if report_only:

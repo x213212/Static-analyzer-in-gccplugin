@@ -65,9 +65,9 @@ GCC 16 plugin headers and pass `--cc gcc-16 --cxx g++-16` for that run.
 
 ## Why the historical Makefiles fail
 
-`Test/Makefile.legacy` hand-lists every extracted source, links each case even
-though compile-only analysis is sufficient, prefixes benchmark recipes with
-`-` (so GNU Make hides failures), and mixes all diagnostics into `check.log`.
+The removed hand-written benchmark Makefile hand-listed extracted sources,
+linked each case unnecessarily, hid recipe failures, and mixed diagnostics
+into one log. The maintained isolated runners replace that build path.
 
 The bundled Juliet Makefiles hard-code `gcc-11.1`/`g++-11.1`, comment out the
 C++ compile rule, filter out platform cases, and use aggregate targets that can

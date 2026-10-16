@@ -13,7 +13,7 @@ enum class AnalysisPolicy {
   // separately as report-only inconclusive records.
   proof_only,
 
-  // Compatibility/research mode: retain candidates whose feasibility is
+  // Research mode: retain candidates whose feasibility is
   // unknown.  This is intentionally opt-in because it trades precision for
   // recall.
   exploratory
@@ -22,20 +22,11 @@ enum class AnalysisPolicy {
 enum class CalleeModel { unknown, borrow, release };
 
 struct PluginOptions {
-  bool relate = false;
-  bool skip_non_heap_returns = true;
-  bool trace_all_functions = false;
-  bool stop_at_branch_exit = false;
-  bool debug_output = false;
-  bool debug = false;
-  bool vscode_extension = false;
-  bool context_sensitive = true;
   bool memory_leak = true;
   bool double_free = true;
   bool use_after_free = false;
   bool thread = true;
   bool smt = true;
-  bool legacy_engine = false;
   bool report = true;
   bool report_html = true;
   bool report_only = false;

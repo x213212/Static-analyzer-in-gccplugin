@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-17",
+  "version": "1.0.0-rc3",
+  "scope": "Juliet C, bad/good variants, current plugin LTO compile/link; native diagnostics from validated cache",
+  "status": "OK",
+  "selected_groups": 1234,
+  "plugin_sha256": "1d68e3f563b6b4ba20748e788765ffcd33c6705e6266750569babc8b2f04a886",
+  "full_record_sha256": "7efdf7e54cbdb44a14507637509d6491b31f6b953d8ad716a50910a85617b960",
+  "plugin": {
+    "case_detection": {
+      "TP": 1123,
+      "FP": 0,
+      "TN": 1234,
+      "FN": 111
+    },
+    "exact_site": {
+      "TP": 293,
+      "FP": 0,
+      "TN": 1234,
+      "FN": 941
+    },
+    "good_variants_with_any_lifetime_alert": 123,
+    "bad_variant_finding_records": 1135
+  },
+  "native_gcc16_cached": {
+    "case_detection": {
+      "TP": 974,
+      "FP": 48,
+      "TN": 1186,
+      "FN": 260
+    },
+    "exact_site": {
+      "TP": 398,
+      "FP": 48,
+      "TN": 1186,
+      "FN": 836
+    }
+  },
+  "validation": {
+    "python_tests_passed": 139,
+    "gcc10_regression_cases_passed": 150,
+    "gcc16_regression_cases_passed": 150,
+    "gcc16_regression_semantic_reports_unchanged": 150,
+    "obsolete_option_value_pairs_rejected_per_compiler": 18,
+    "original_issue20_repro_compilations_passed": 10
+  },
+  "compiler_cost": {
+    "parallel_compile_link_wall_ms": 79849.697,
+    "workers": 8,
+    "speed_ranking_available": false
+  },
+  "binary_bytes": {
+    "before": 16640200,
+    "after": 14001064
+  },
+  "limits": "The only case-detection difference from 2026-10-15 is malloc_free_int64_t_10, previously inconclusive at the unchanged function CPU cap. This is budget-sensitive run variation, not a newly added detection algorithm. Target-rule FP=0 is limited to this cohort; cross-rule alerts on good variants are retained separately."
+}

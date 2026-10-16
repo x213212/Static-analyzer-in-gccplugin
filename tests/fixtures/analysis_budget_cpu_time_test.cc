@@ -10,10 +10,6 @@ namespace budget = static_analyzer::analysis_budget;
 
 int main() {
   budget::Limits limits;
-  limits.tu_wall_ms = 1000;
-  limits.function_wall_ms = 50;
-  if (limits.tu_cpu_ms != 1000 || limits.function_cpu_ms != 50)
-    return 6;
   limits.tu_cpu_ms = 1000;
   limits.function_cpu_ms = 50;
   limits.tu_work = 100000000;
@@ -37,7 +33,7 @@ int main() {
   if (budget::reason() != budget::ExhaustionReason::function_cpu_time)
     return 3;
   if (std::strcmp(
-          budget::reason_name(budget::ExhaustionReason::function_wall_time),
+          budget::reason_name(budget::ExhaustionReason::function_cpu_time),
           "function-cpu-time") != 0)
     return 4;
   budget::end_function();

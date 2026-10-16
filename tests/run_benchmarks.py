@@ -67,9 +67,7 @@ COMMON_FLAGS = (
 )
 
 DEFAULT_PLUGIN_ARGS = (
-    "debugoutput=0",
     "report=0",
-    "traceallfucntion=1",
     "memoryleakcheck=1",
     "useafterfree=1",
     "threadmod=1",

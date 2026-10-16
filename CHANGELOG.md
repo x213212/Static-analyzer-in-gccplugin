@@ -3,7 +3,19 @@
 All notable changes to the modern GCC GIMPLE static analyzer are documented in
 this file.
 
-## Unreleased - 2026-10-15
+## Unreleased - 2026-10-17
+
+Remove the historical header implementation, adapter, old-only plugin options,
+and hand-written benchmark Makefile. The bounded modular engine is the only
+engine. Existing obsolete arguments fail initialization rather than acting as
+no-ops. Internal wall-time aliases are removed; CPU/work limits are unchanged.
+
+Split the root Makefile into shared configuration and build, report, test,
+smoke and benchmark rule files. The default target builds the plugin; tests
+are explicit, shell recipe failures stop immediately, and clean preserves
+measurement artifacts. Maintained launchers use only supported options.
+
+## 2026-10-15 checkpoint
 
 Restore GCC 10/16 compilation of the pending PHI/nonnull contract change.
 Mixed body ownership effects now block the paths that execute their calls;

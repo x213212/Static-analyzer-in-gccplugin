@@ -98,12 +98,10 @@ EXTRACTED_TARGET_WARNING = {
 }
 
 PLUGIN_OPTIONS = (
-    "debugoutput=0",
     "doublefreecheck=1",
     "memoryleakcheck=1",
     "reporthtml=0",
     "threadmod=0",
-    "traceallfucntion=1",
     "useafterfree=1",
 )
 COMMON_FLAGS = (
